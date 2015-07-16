@@ -227,8 +227,7 @@
 										</xs:element>
 										<xs:element name="AuditDate" type="xs:date" minOccurs="0">
 											<xs:annotation>
-												<xs:documentation>Date audit was conducted. (CCYY-MM-DD)
-</xs:documentation>
+												<xs:documentation>Date audit was conducted. (CCYY-MM-DD)</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="ASHRAEAuditLevel" minOccurs="0">
@@ -368,8 +367,7 @@
 													</xs:element>
 													<xs:element name="CertificationExpirationDate" type="xs:date" minOccurs="0">
 														<xs:annotation>
-															<xs:documentation>Date that the auditor qualification expires. (CCYY-MM-DD)
-</xs:documentation>
+															<xs:documentation>Date that the auditor qualification expires. (CCYY-MM-DD)</xs:documentation>
 														</xs:annotation>
 													</xs:element>
 													<xs:element name="CertifiedAuditTeamMemberContactID" minOccurs="0">
@@ -472,8 +470,7 @@
 			<xs:element ref="auc:Address" minOccurs="0"/>
 			<xs:element name="ClimateZoneType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>The climate zone type, based on the organization defining it. Many different organizations have implemented different climate zone definitions based on their needs. The list below represents the current list. This list can be added to over time based on the collaborative BEDES development process.
-</xs:documentation>
+					<xs:documentation>The climate zone type, based on the organization defining it. Many different organizations have implemented different climate zone definitions based on their needs. The list below represents the current list. This list can be added to over time based on the collaborative BEDES development process.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
@@ -482,7 +479,7 @@
 								<xs:sequence>
 									<xs:element name="ClimateZone" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation. </xs:documentation>
+											<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -533,7 +530,7 @@
 								<xs:sequence>
 									<xs:element name="ClimateZone" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation. </xs:documentation>
+											<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -564,7 +561,7 @@
 								<xs:sequence>
 									<xs:element name="ClimateZone" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation. </xs:documentation>
+											<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -588,7 +585,7 @@
 								<xs:sequence>
 									<xs:element name="ClimateZone" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation. </xs:documentation>
+											<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -611,7 +608,7 @@
 								<xs:sequence>
 									<xs:element name="ClimateZone" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation. </xs:documentation>
+											<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -631,7 +628,7 @@
 								<xs:sequence>
 									<xs:element name="ClimateZone" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation. </xs:documentation>
+											<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -654,7 +651,7 @@
 								<xs:sequence>
 									<xs:element name="ClimateZone" type="xs:string" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation. </xs:documentation>
+											<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -665,7 +662,7 @@
 			</xs:element>
 			<xs:element name="eGRIDRegionCode" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The eGRID (Emissions and Generation Resource Database) region code associated with the data being described. </xs:documentation>
+					<xs:documentation>The eGRID (Emissions and Generation Resource Database) region code associated with the data being described.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -718,7 +715,7 @@
 			</xs:element>
 			<xs:element name="WeatherStationCategory" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Describes the type of weather station used to specify the site's weather. </xs:documentation>
+					<xs:documentation>Describes the type of weather station used to specify the site's weather.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -870,7 +867,7 @@
 									</xs:element>
 									<xs:element name="FederalSustainabilityChecklistCompletionPercentage" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Percentage of the Federal High Performance Sustainability Checklist that has been completed for federal building in Portfolio Manager.  (0-1)</xs:documentation>
+											<xs:documentation>Percentage of the Federal High Performance Sustainability Checklist that has been completed for federal building in Portfolio Manager. (0-1)</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:simpleContent>
@@ -956,7 +953,7 @@
 			</xs:element>
 			<xs:element name="HorizontalAbutments" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Structures adjacent to the facility on either side. </xs:documentation>
+					<xs:documentation>Structures adjacent to the facility on either side.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -1035,26 +1032,22 @@
 			</xs:element>
 			<xs:element name="RetrocommissioningDate" type="xs:date" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Date retro-commissioning or recommissioning was last conducted.
-(CCYY-MM-DD)
-</xs:documentation>
+					<xs:documentation>Date retro-commissioning or recommissioning was last conducted. (CCYY-MM-DD)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="YearOfLatestRetrofit" type="xs:gYear" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Year an energy retrofit of the facility or block was last completed. (CCYY)
-</xs:documentation>
+					<xs:documentation>Year an energy retrofit of the facility or block was last completed. (CCYY)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="YearOfLastMajorRemodel" type="xs:gYear" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Year of the most recent major remodel. For a remodel to be considered major, the work undertaken must have required a permit from the building department, or an inspection by a governing authority.
-(CCYY)</xs:documentation>
+					<xs:documentation>Year of the most recent major remodel. For a remodel to be considered major, the work undertaken must have required a permit from the building department, or an inspection by a governing authority. (CCYY)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="NumberOfUnits" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Number of individual units inherent to the premises. This can be number of parking spaces for parking; apartment units in a multi-family facility, retail shops in a mall; guest rooms in a hotel; stations in the work floor, etc. </xs:documentation>
+					<xs:documentation>Number of individual units inherent to the premises. This can be number of parking spaces for parking; apartment units in a multi-family facility, retail shops in a mall; guest rooms in a hotel; stations in the work floor, etc.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -1120,7 +1113,7 @@
 								<xs:sequence>
 									<xs:element name="Block" type="auc:BlockType" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Physical subsection of building for which geometric features are defined. May be one or many. </xs:documentation>
+											<xs:documentation>Physical subsection of building for which geometric features are defined. May be one or many.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="Zone" type="auc:ZoneType" minOccurs="0">
@@ -1130,7 +1123,7 @@
 									</xs:element>
 									<xs:element name="Space" type="auc:SpaceType" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Areas of a building that share systems characteristics sucha as occupancy, plug loads, or lighting.</xs:documentation>
+											<xs:documentation>Areas of a building that share systems characteristics such as occupancy, plug loads, or lighting.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -1403,7 +1396,7 @@
 								<xs:sequence>
 									<xs:element name="PercentSkylightArea" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>The percent of the skylight area relative to the roof area.  (0-1) (%)</xs:documentation>
+											<xs:documentation>The percent of the skylight area relative to the roof area. (0-1) (%)</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:simpleContent>
@@ -1702,7 +1695,7 @@
 			</xs:element>
 			<xs:element name="OccupantsActivityLevel" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The activity level that drives the amount of internal gains due to occupants. "Low" corresponds to typical office/retail work (Sensible load 250 Btu/hr, Latent load 200 Btu/hr), "High" correspondes to heavier factory work or gymnasiums (Sensible load 580 Btu/hr, Latent load 870 Btu/hr)</xs:documentation>
+					<xs:documentation>The activity level that drives the amount of internal gains due to occupants. "Low" corresponds to typical office/retail work (Sensible load 250 Btu/hr, Latent load 200 Btu/hr), "High" corresponds to heavier factory work or gymnasiums (Sensible load 580 Btu/hr, Latent load 870 Btu/hr)</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -1823,7 +1816,7 @@
 						</xs:element>
 						<xs:element name="PartialOperationPercentage" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Percent of category that is in operation. If Schedule Category is Occupancy, then the percent of occupants from typical max. If Schedule Category is an equipment, then power as a percent of installed capacity. This field is not used for termperature or relative humidity settings. (0-1)</xs:documentation>
+								<xs:documentation>Percent of category that is in operation. If Schedule Category is Occupancy, then the percent of occupants from typical max. If Schedule Category is an equipment, then power as a percent of installed capacity. This field is not used for temperature or relative humidity settings. (0-1)</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:simpleContent>
@@ -1934,7 +1927,7 @@
 		<xs:sequence>
 			<xs:element name="ScenarioName" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Name of the scenario for which energy use data is included.  This may include benchmarks, baselines, and improved cases. For retrofits, each package represents a different scenario.</xs:documentation>
+					<xs:documentation>Name of the scenario for which energy use data is included. This may include benchmarks, baselines, and improved cases. For retrofits, each package represents a different scenario.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="auc:Qualifier" minOccurs="0" maxOccurs="unbounded"/>
@@ -2667,7 +2660,7 @@
 			</xs:element>
 			<xs:element name="AnnualHeatingDegreeDays" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Heating degree days are calculated as the sum of the differences between daily average temperatures and the base temperature, calculated at the ASHRAE base temperature of 50F, unless otherwise specified. Use the Inteval Frequency term to characterize whether the HDD calculation is for annual or monthly intervals. (°F-days)</xs:documentation>
+					<xs:documentation>Heating degree days are calculated as the sum of the differences between daily average temperatures and the base temperature, calculated at the ASHRAE base temperature of 50F, unless otherwise specified. Use the Interval Frequency term to characterize whether the HDD calculation is for annual or monthly intervals. (°F-days)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -2679,7 +2672,7 @@
 			</xs:element>
 			<xs:element name="AnnualCoolingDegreeDays" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Cooling degree days are calculated as the sum of the differences between daily average temperatures and the base temperature, calculated at the ASHRAE base temperature of 65F, unless otherwise specified. Use the Inteval Frequency term to characterize whether the HDD calculation is for annual or monthly intervals. (°F-days)</xs:documentation>
+					<xs:documentation>Cooling degree days are calculated as the sum of the differences between daily average temperatures and the base temperature, calculated at the ASHRAE base temperature of 65F, unless otherwise specified. Use the Interval Frequency term to characterize whether the HDD calculation is for annual or monthly intervals. (°F-days)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -2715,7 +2708,7 @@
 			</xs:element>
 			<xs:element ref="auc:LinkedPremises" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Establishes whether the system or scenario applies to one or more entrire buildings, blocks, spaces, or zones withing buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises. </xs:documentation>
+					<xs:documentation>Establishes whether the system or scenario applies to one or more entire buildings, blocks, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
@@ -2748,7 +2741,7 @@
 			</xs:element>
 			<xs:element name="EndUse" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>End use that the resource primarily applies to. </xs:documentation>
+					<xs:documentation>End use that the resource primarily applies to.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -3117,8 +3110,7 @@
 												</xs:element>
 												<xs:element name="TieredRate" minOccurs="0" maxOccurs="unbounded">
 													<xs:annotation>
-														<xs:documentation>Tiered rates increase the per-unit 
-price of a utility as usage increases</xs:documentation>
+														<xs:documentation>Tiered rates increase the per-unit price of a utility as usage increases</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:sequence>
@@ -3313,14 +3305,12 @@ price of a utility as usage increases</xs:documentation>
 									</xs:element>
 									<xs:element name="RateStructureEffectiveDate" type="xs:date" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>The first date the rate schedule becomes applicable. (CCYY-MM-DD)
-</xs:documentation>
+											<xs:documentation>The first date the rate schedule becomes applicable. (CCYY-MM-DD)</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="RateStructureEndDate" type="xs:date" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>The date at which the rate schedule is no longer applicable. (CCYY-MM-DD)
-</xs:documentation>
+											<xs:documentation>The date at which the rate schedule is no longer applicable. (CCYY-MM-DD)</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="ReactivePowerCharge" minOccurs="0">
@@ -3471,7 +3461,7 @@ price of a utility as usage increases</xs:documentation>
 						</xs:element>
 						<xs:element name="ElectricDistributionUtility" type="xs:string" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>The company responsible for maintaining the utility lines and the electric distribution to the property. Note that the EDU is not the just “the utility company.” In some states the energy markets are deregulated. This means that a property may contract with Company A to provide the power supply (energy from the power plant), while Company B will continue to provide the electric distribution (Company B is the EDU). </xs:documentation>
+								<xs:documentation>The company responsible for maintaining the utility lines and the electric distribution to the property. Note that the EDU is not the just “the utility company.” In some states the energy markets are deregulated. This means that a property may contract with Company A to provide the power supply (energy from the power plant), while Company B will continue to provide the electric distribution (Company B is the EDU).</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="SourceSiteRatio" minOccurs="0">
@@ -3521,7 +3511,7 @@ price of a utility as usage increases</xs:documentation>
 						</xs:element>
 						<xs:element name="EmissionsFactorSource" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Data source for emissions factors. </xs:documentation>
+								<xs:documentation>Data source for emissions factors.</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -3567,7 +3557,7 @@ price of a utility as usage increases</xs:documentation>
 		<xs:sequence>
 			<xs:element name="EndUse" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>End use for which data is included. </xs:documentation>
+					<xs:documentation>End use for which data is included.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -3717,8 +3707,7 @@ price of a utility as usage increases</xs:documentation>
 			</xs:element>
 			<xs:element name="WaterIntensity" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Water use from different sources divided by the premises gross floor area. This term can be associated with one or more Qualifiers in the constrained list.
-(kgal/ft2)</xs:documentation>
+					<xs:documentation>Water use from different sources divided by the premises gross floor area. This term can be associated with one or more Qualifiers in the constrained list. (kgal/ft2)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -3812,7 +3801,7 @@ price of a utility as usage increases</xs:documentation>
 			</xs:element>
 			<xs:element name="EndTimeStamp" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The timestamp that marks the end of the time series.  (CCYY-MM-DDThh:mm:ss.sss-hh:mm)</xs:documentation>
+					<xs:documentation>The timestamp that marks the end of the time series. (CCYY-MM-DDThh:mm:ss.sss-hh:mm)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="IntervalFrequency" minOccurs="0">
@@ -3849,7 +3838,7 @@ price of a utility as usage increases</xs:documentation>
 			</xs:element>
 			<xs:element name="Phase" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Phase information associated with electricity readings </xs:documentation>
+					<xs:documentation>Phase information associated with electricity readings</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -3888,7 +3877,7 @@ price of a utility as usage increases</xs:documentation>
 			</xs:element>
 			<xs:element name="HeatingDegreeDays" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Heating degree days are calculated as the sum of the differences between daily average temperatures and the base temperature, calculated at the ASHRAE base temperature of 50F, unless otherwise specified. Use the Inteval Frequency term to characterize whether the HDD calculation is for annual or monthly intervals. (°F-days)</xs:documentation>
+					<xs:documentation>Heating degree days are calculated as the sum of the differences between daily average temperatures and the base temperature, calculated at the ASHRAE base temperature of 50F, unless otherwise specified. Use the Interval Frequency term to characterize whether the HDD calculation is for annual or monthly intervals. (°F-days)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -3900,7 +3889,7 @@ price of a utility as usage increases</xs:documentation>
 			</xs:element>
 			<xs:element name="CoolingDegreeDays" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Cooling degree days are calculated as the sum of the differences between daily average temperatures and the base temperature, calculated at the ASHRAE base temperature of 65F, unless otherwise specified. Use the Inteval Frequency term to characterize whether the HDD calculation is for annual or monthly intervals. (°F-days)</xs:documentation>
+					<xs:documentation>Cooling degree days are calculated as the sum of the differences between daily average temperatures and the base temperature, calculated at the ASHRAE base temperature of 65F, unless otherwise specified. Use the Interval Frequency term to characterize whether the HDD calculation is for annual or monthly intervals. (°F-days)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -4122,7 +4111,7 @@ price of a utility as usage increases</xs:documentation>
 						<xs:enumeration value="Plug Load"/>
 						<xs:enumeration value="Process Load"/>
 						<xs:enumeration value="Conveyance"/>
-						<xs:enumeration value="On-Site Storage, Transmission,  Generation"/>
+						<xs:enumeration value="On-Site Storage, Transmission, Generation"/>
 						<xs:enumeration value="Pool"/>
 						<xs:enumeration value="Water Use"/>
 						<xs:enumeration value="Other"/>
@@ -4690,8 +4679,7 @@ price of a utility as usage increases</xs:documentation>
 						</xs:element>
 						<xs:element name="Uncategorized" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Category heading for measures that don't fit into another category
-</xs:documentation>
+								<xs:documentation>Category heading for measures that don't fit into another category</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4750,13 +4738,13 @@ price of a utility as usage increases</xs:documentation>
 			</xs:element>
 			<xs:element name="MeasureSavingsAnalysis" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Energy and cost effectiveness data for an individual measure. In most cases, this data depends on the other measures included in the package, and should be entered at the package level under Scenarios. </xs:documentation>
+					<xs:documentation>Energy and cost effectiveness data for an individual measure. In most cases, this data depends on the other measures included in the package, and should be entered at the package level under Scenarios.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="MeasureRank" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Sequence in which the measure was analyzed relative to other measures. Ranking should be 1 if it is analyzed first, 2 if analyzed after Measure 1 is applied, etc. This accounts for interactive effects between measures. Rankiing may be 1 for all measures if they are not analyzed as a package</xs:documentation>
+								<xs:documentation>Sequence in which the measure was analyzed relative to other measures. Ranking should be 1 if it is analyzed first, 2 if analyzed after Measure 1 is applied, etc. This accounts for interactive effects between measures. Ranking may be 1 for all measures if they are not analyzed as a package</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:simpleContent>
@@ -5000,7 +4988,7 @@ price of a utility as usage increases</xs:documentation>
 			</xs:element>
 			<xs:element name="MVOption" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Recommended approach for verification of energy savings for this measure, based on IPMVP </xs:documentation>
+					<xs:documentation>Recommended approach for verification of energy savings for this measure, based on IPMVP</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -5068,12 +5056,12 @@ price of a utility as usage increases</xs:documentation>
 			</xs:element>
 			<xs:element name="StartDate" type="xs:date" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Start Date for implementation of a project or a measure.  (CCYY-MM-DD)</xs:documentation>
+					<xs:documentation>Start Date for implementation of a project or a measure. (CCYY-MM-DD)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EndDate" type="xs:date" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Date when majority of the project or measure was completed and implemented. (substantial completion).  (CCYY-MM-DD) </xs:documentation>
+					<xs:documentation>Date when majority of the project or measure was completed and implemented. (substantial completion). (CCYY-MM-DD)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ImplementationStatus" minOccurs="0">
@@ -5155,7 +5143,7 @@ price of a utility as usage increases</xs:documentation>
 												</xs:element>
 												<xs:element name="IgnitionType" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>Ignition mechanism in gas heating equipment.  Either pilot light or an intermittent ignition device (IID)</xs:documentation>
+														<xs:documentation>Ignition mechanism in gas heating equipment. Either pilot light or an intermittent ignition device (IID)</xs:documentation>
 													</xs:annotation>
 													<xs:simpleType>
 														<xs:restriction base="xs:string">
@@ -5277,7 +5265,7 @@ price of a utility as usage increases</xs:documentation>
 												</xs:element>
 												<xs:element name="AnnualHeatingEfficiencyUnit" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>The measure used to quantify efficiency </xs:documentation>
+														<xs:documentation>The measure used to quantify efficiency</xs:documentation>
 													</xs:annotation>
 													<xs:simpleType>
 														<xs:restriction base="xs:string">
@@ -5489,7 +5477,7 @@ price of a utility as usage increases</xs:documentation>
 												</xs:element>
 												<xs:element name="AnnualHeatingEfficiencyUnit" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>The measure used to quantify efficiency </xs:documentation>
+														<xs:documentation>The measure used to quantify efficiency</xs:documentation>
 													</xs:annotation>
 													<xs:simpleType>
 														<xs:restriction base="xs:string">
@@ -5582,7 +5570,7 @@ price of a utility as usage increases</xs:documentation>
 												</xs:element>
 												<xs:element name="AnnualHeatingEfficiencyUnit" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>The measure used to quantify efficiency </xs:documentation>
+														<xs:documentation>The measure used to quantify efficiency</xs:documentation>
 													</xs:annotation>
 													<xs:simpleType>
 														<xs:restriction base="xs:string">
@@ -5685,7 +5673,7 @@ price of a utility as usage increases</xs:documentation>
 															</xs:element>
 															<xs:element name="IgnitionType" minOccurs="0">
 																<xs:annotation>
-																	<xs:documentation>Ignition mechanism in gas heating equipment.  Either pilot light or an intermittent ignition device (IID)</xs:documentation>
+																	<xs:documentation>Ignition mechanism in gas heating equipment. Either pilot light or an intermittent ignition device (IID)</xs:documentation>
 																</xs:annotation>
 																<xs:simpleType>
 																	<xs:restriction base="xs:string">
@@ -5793,7 +5781,7 @@ price of a utility as usage increases</xs:documentation>
 															</xs:element>
 															<xs:element name="AnnualHeatingEfficiencyUnit" minOccurs="0">
 																<xs:annotation>
-																	<xs:documentation>The measure used to quantify efficiency </xs:documentation>
+																	<xs:documentation>The measure used to quantify efficiency</xs:documentation>
 																</xs:annotation>
 																<xs:simpleType>
 																	<xs:restriction base="xs:string">
@@ -5928,7 +5916,7 @@ price of a utility as usage increases</xs:documentation>
 															</xs:element>
 															<xs:element name="AnnualHeatingEfficiencyUnit" minOccurs="0">
 																<xs:annotation>
-																	<xs:documentation>The measure used to quantify efficiency </xs:documentation>
+																	<xs:documentation>The measure used to quantify efficiency</xs:documentation>
 																</xs:annotation>
 																<xs:simpleType>
 																	<xs:restriction base="xs:string">
@@ -6035,7 +6023,7 @@ price of a utility as usage increases</xs:documentation>
 									</xs:element>
 									<xs:element ref="auc:PrimaryFuel" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Main fuel used by the system. </xs:documentation>
+											<xs:documentation>Main fuel used by the system.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element ref="auc:ControlTechnology" minOccurs="0"/>
@@ -6045,7 +6033,7 @@ price of a utility as usage increases</xs:documentation>
 									<xs:element ref="auc:ModelNumber" minOccurs="0"/>
 									<xs:element name="HeatingDeliveryID" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>ID number of delivery system associated with this heating or cooling source. </xs:documentation>
+											<xs:documentation>ID number of delivery system associated with this heating or cooling source.</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -6067,7 +6055,7 @@ price of a utility as usage increases</xs:documentation>
 											<xs:choice>
 												<xs:element name="CoolingPlantID" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>ID number of cooling plant serving as the source for this zonal system. </xs:documentation>
+														<xs:documentation>ID number of cooling plant serving as the source for this zonal system.</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -6295,7 +6283,7 @@ price of a utility as usage increases</xs:documentation>
 															<xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
 															<xs:element name="EvaporativeCoolingType" minOccurs="0">
 																<xs:annotation>
-																	<xs:documentation>Defines the type of evaporative cooler operation </xs:documentation>
+																	<xs:documentation>Defines the type of evaporative cooler operation</xs:documentation>
 																</xs:annotation>
 																<xs:simpleType>
 																	<xs:restriction base="xs:string">
@@ -6356,7 +6344,7 @@ price of a utility as usage increases</xs:documentation>
 									</xs:element>
 									<xs:element ref="auc:PrimaryFuel" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Main fuel used by the system. </xs:documentation>
+											<xs:documentation>Main fuel used by the system.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element ref="auc:ControlTechnology" minOccurs="0"/>
@@ -6366,7 +6354,7 @@ price of a utility as usage increases</xs:documentation>
 									<xs:element ref="auc:ModelNumber" minOccurs="0"/>
 									<xs:element name="CoolingDeliveryID" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>ID number of delivery system associated with this heating or cooling source. </xs:documentation>
+											<xs:documentation>ID number of delivery system associated with this heating or cooling source.</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -6385,7 +6373,7 @@ price of a utility as usage increases</xs:documentation>
 											<xs:sequence>
 												<xs:element name="AirDeliveryType" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>Method for delivering air for heating and cooling to the zone. </xs:documentation>
+														<xs:documentation>Method for delivering air for heating and cooling to the zone.</xs:documentation>
 													</xs:annotation>
 													<xs:simpleType>
 														<xs:restriction base="xs:string">
@@ -7055,8 +7043,7 @@ price of a utility as usage increases</xs:documentation>
 			</xs:element>
 			<xs:element name="DuctInsulationRValue" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>R-value of duct insulation.
-(ft2-F-hr/Btu)</xs:documentation>
+					<xs:documentation>R-value of duct insulation. (ft2-F-hr/Btu)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -7277,7 +7264,7 @@ price of a utility as usage increases</xs:documentation>
 			</xs:element>
 			<xs:element ref="auc:Quantity" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The number of systems meeting these specifications on the premises. A system can be a single unit, or the whole collection of units. The boundary of system is defined by the reported characteristics. For example, you can report the capacity per unit for 4 units, in which case the capacity is 1/4 of the total installed capacity and the quantity is 4; or you can report the total installed capacity of the combined 4 units, in which case, the capacity is the total installed capacity and the quanitity is 1.</xs:documentation>
+					<xs:documentation>The number of systems meeting these specifications on the premises. A system can be a single unit, or the whole collection of units. The boundary of system is defined by the reported characteristics. For example, you can report the capacity per unit for 4 units, in which case the capacity is 1/4 of the total installed capacity and the quantity is 4; or you can report the total installed capacity of the combined 4 units, in which case, the capacity is the total installed capacity and the quantity is 1.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="auc:Location" minOccurs="0">
@@ -7288,7 +7275,7 @@ price of a utility as usage increases</xs:documentation>
 			<xs:element ref="auc:ControlTechnology" minOccurs="0"/>
 			<xs:element ref="auc:PrimaryFuel" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Resource or fuel which drives the energy production. </xs:documentation>
+					<xs:documentation>Resource or fuel which drives the energy production.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="auc:YearInstalled" minOccurs="0">
@@ -7747,7 +7734,7 @@ price of a utility as usage increases</xs:documentation>
 						</xs:element>
 						<xs:element name="WaterSideEconomizer" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>True if the cooling system has a water-side economizer to provide free cooling. </xs:documentation>
+								<xs:documentation>True if the cooling system has a water-side economizer to provide free cooling.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:choice>
@@ -7852,7 +7839,7 @@ price of a utility as usage increases</xs:documentation>
 		<xs:sequence>
 			<xs:element name="OtherHVACType" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Type of  space conditioning equipment that is not classified as heating, cooling, or air-distribution. This category includes ventilation, dehumidification, humidification, and air cleaning systems.</xs:documentation>
+					<xs:documentation>Type of space conditioning equipment that is not classified as heating, cooling, or air-distribution. This category includes ventilation, dehumidification, humidification, and air cleaning systems.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:choice>
@@ -7889,7 +7876,7 @@ price of a utility as usage increases</xs:documentation>
 									<xs:element ref="auc:DutyCycle" minOccurs="0"/>
 									<xs:element ref="auc:SystemPerformanceRatio" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Ratio of annual system load to the annual system energy consumption (similar to a whole system COP). A higher value indicates less heating and/or cooling energy use to meet the loads, and therefore represents a more efficient HVAC system. SPR can be used to describe the heating, cooling, and overall HVAC systems. </xs:documentation>
+											<xs:documentation>Ratio of annual system load to the annual system energy consumption (similar to a whole system COP). A higher value indicates less heating and/or cooling energy use to meet the loads, and therefore represents a more efficient HVAC system. SPR can be used to describe the heating, cooling, and overall HVAC systems.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
@@ -8546,7 +8533,7 @@ price of a utility as usage increases</xs:documentation>
 								<xs:sequence>
 									<xs:element name="MinimumDimmingLightFraction" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Minimum light output of controlled lighting when fully dimmed. Minimum light fraction = (Minimum light output) / (Rated light output). (0-1) </xs:documentation>
+											<xs:documentation>Minimum light output of controlled lighting when fully dimmed. Minimum light fraction = (Minimum light output) / (Rated light output). (0-1)</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:simpleContent>
@@ -8558,7 +8545,7 @@ price of a utility as usage increases</xs:documentation>
 									</xs:element>
 									<xs:element name="MinimumDimmingPowerFraction" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>The minimum power fraction when controlled lighting is fully dimmed. Minimum power fraction = (Minimum power) / (Full rated power). (0-1) </xs:documentation>
+											<xs:documentation>The minimum power fraction when controlled lighting is fully dimmed. Minimum power fraction = (Minimum power) / (Full rated power). (0-1)</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:simpleContent>
@@ -8692,7 +8679,7 @@ price of a utility as usage increases</xs:documentation>
 			</xs:element>
 			<xs:element name="WorkPlaneHeight" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Distance from the finished floor to the work plane.  Used to calculate vertical distance from the work plane to the centerline of the lighting fixture (ft)</xs:documentation>
+					<xs:documentation>Distance from the finished floor to the work plane. Used to calculate vertical distance from the work plane to the centerline of the lighting fixture (ft)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -8748,7 +8735,7 @@ price of a utility as usage increases</xs:documentation>
 			<xs:element ref="auc:Location" minOccurs="0"/>
 			<xs:element ref="auc:LinkedPremises" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Establishes whether the system applies to one or more entrire buildings, blocks, spaces, or zones withing buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises. </xs:documentation>
+					<xs:documentation>Establishes whether the system applies to one or more entire buildings, blocks, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
@@ -8968,7 +8955,7 @@ price of a utility as usage increases</xs:documentation>
 																				<xs:sequence>
 																					<xs:element name="HeatingPlantID" minOccurs="0">
 																						<xs:annotation>
-																							<xs:documentation>ID number of heating plant serving as the source for this hot water system. </xs:documentation>
+																							<xs:documentation>ID number of heating plant serving as the source for this hot water system.</xs:documentation>
 																						</xs:annotation>
 																						<xs:complexType>
 																							<xs:attribute name="IDref" type="xs:IDREF"/>
@@ -9287,7 +9274,7 @@ price of a utility as usage increases</xs:documentation>
 			<xs:element ref="auc:Location" minOccurs="0"/>
 			<xs:element ref="auc:LinkedPremises" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Establishes whether the system applies to one or more entrire buildings, blocks, spaces, or zones withing buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises. </xs:documentation>
+					<xs:documentation>Establishes whether the system applies to one or more entire buildings, blocks, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
@@ -9366,7 +9353,7 @@ price of a utility as usage increases</xs:documentation>
 			<xs:element ref="auc:Location" minOccurs="0"/>
 			<xs:element ref="auc:LinkedPremises" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Establishes whether the system applies to one or more entrire buildings, blocks, spaces, or zones withing buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises. </xs:documentation>
+					<xs:documentation>Establishes whether the system applies to one or more entire buildings, blocks, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
@@ -9436,7 +9423,7 @@ price of a utility as usage increases</xs:documentation>
 									</xs:element>
 									<xs:element name="EvaporatorPressureRegulators" type="xs:boolean" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>True if mechanical or electronic regulators are used to maintain the suction temperature in the individual cases. </xs:documentation>
+											<xs:documentation>True if mechanical or electronic regulators are used to maintain the suction temperature in the individual cases.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="RefrigerantSubcooler" type="xs:boolean" minOccurs="0">
@@ -9476,7 +9463,7 @@ price of a utility as usage increases</xs:documentation>
 												</xs:element>
 												<xs:element name="CompressorUnloader" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>True if a device is used for controlling compressor capaci­ty by rendering one or more cylinders ineffective.</xs:documentation>
+														<xs:documentation>True if a device is used for controlling compressor capacity by rendering one or more cylinders ineffective.</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:choice>
@@ -9538,7 +9525,7 @@ price of a utility as usage increases</xs:documentation>
 												</xs:element>
 												<xs:element name="DesignAmbientTemperature" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>The ambient air termperature under design conditions. (°F)</xs:documentation>
+														<xs:documentation>The ambient air temperature under design conditions. (°F)</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:simpleContent>
@@ -9550,7 +9537,7 @@ price of a utility as usage increases</xs:documentation>
 												</xs:element>
 												<xs:element name="DesignTemperatureDifference" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>The difference between the condensing temperature of the refrigerant in the condenser and the design ambient termperature. (°F)</xs:documentation>
+														<xs:documentation>The difference between the condensing temperature of the refrigerant in the condenser and the design ambient temperature. (°F)</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
 														<xs:simpleContent>
@@ -10536,7 +10523,7 @@ price of a utility as usage increases</xs:documentation>
 			</xs:element>
 			<xs:element name="MotorPoleCount" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The number of pole electromagnetic windings in the motor's stator and used to assign Motor Efficiency.  Pole count is always a multiple of 2.</xs:documentation>
+					<xs:documentation>The number of pole electromagnetic windings in the motor's stator and used to assign Motor Efficiency. Pole count is always a multiple of 2.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -10875,10 +10862,12 @@ price of a utility as usage increases</xs:documentation>
 			</xs:element>
 			<xs:element name="WallFramingSpacing" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Dimension of the distance between two components.
-Examples include:
-Framing spacing: the dimension from centerline to centerline of a surface framing material
-Window spacing: the dimension between windows in a discrete window layout. (in.)</xs:documentation>
+					<xs:documentation>
+						Dimension of the distance between two components.
+						Examples include:
+						Framing spacing: the dimension from centerline to centerline of a surface framing material
+						Window spacing: the dimension between windows in a discrete window layout. (in.)
+					</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -10914,10 +10903,12 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 			</xs:element>
 			<xs:element name="CMUFill" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The fill condition of hollow unit masonary walls. The definitions correspond to the following conditions:
-Solid: Where every cell is grouted
-Empty: Where the cells are partially grouted and the remaining cells are left empty
-Insulated: Where the cells are partially grouted and the remaining cells are filled with insulating material.</xs:documentation>
+					<xs:documentation>
+						The fill condition of hollow unit masonry walls. The definitions correspond to the following conditions:
+						Solid: Where every cell is grouted
+						Empty: Where the cells are partially grouted and the remaining cells are left empty
+						Insulated: Where the cells are partially grouted and the remaining cells are filled with insulating material.
+					</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -10967,7 +10958,7 @@ Insulated: Where the cells are partially grouted and the remaining cells are fil
 			</xs:element>
 			<xs:element name="ExteriorRoughness" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>A description of the roughness of the exposed surface of a material. This property is used to approximate the effect of the surface condition on the convection of air across the surface. In energy simulation models, it is used to help determine the convection coefficients for a surface. </xs:documentation>
+					<xs:documentation>A description of the roughness of the exposed surface of a material. This property is used to approximate the effect of the surface condition on the convection of air across the surface. In energy simulation models, it is used to help determine the convection coefficients for a surface.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -11284,10 +11275,12 @@ Insulated: Where the cells are partially grouted and the remaining cells are fil
 			</xs:element>
 			<xs:element name="RoofFramingSpacing" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Dimension of the distance between two components.
-Examples include:
-Framing spacing: the dimension from centerline to centerline of a surface framing material
-Window spacing: the dimension between windows in a discrete window layout. (in.)</xs:documentation>
+					<xs:documentation>
+						Dimension of the distance between two components.
+						Examples include:
+						Framing spacing: the dimension from centerline to centerline of a surface framing material
+						Window spacing: the dimension between windows in a discrete window layout. (in.)
+					</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -11397,7 +11390,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 								<xs:sequence>
 									<xs:element name="WindowLayout" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>The pattern of distribution of the fenestration system on the wall. </xs:documentation>
+											<xs:documentation>The pattern of distribution of the fenestration system on the wall.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -11410,7 +11403,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 									</xs:element>
 									<xs:element name="WindowOrientation" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Orientation of a surface or premises in terms of the attributes of North, South, East and West. Can be applied to the orientation of the front of the building, of a specific surface (wall, roof), window or skylight, or on-site generation technology, such as photovoltaic panels. </xs:documentation>
+											<xs:documentation>Orientation of a surface or premises in terms of the attributes of North, South, East and West. Can be applied to the orientation of the front of the building, of a specific surface (wall, roof), window or skylight, or on-site generation technology, such as photovoltaic panels.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -11787,7 +11780,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 			</xs:element>
 			<xs:element name="FenestrationGasFill" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>For a sealed glazing system (commonly called an Insulated Glass Unit (IGU), the gas that is found between the panes of glass. </xs:documentation>
+					<xs:documentation>For a sealed glazing system (commonly called an Insulated Glass Unit (IGU), the gas that is found between the panes of glass.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -12053,10 +12046,12 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 															</xs:element>
 															<xs:element name="FloorFramingSpacing" minOccurs="0">
 																<xs:annotation>
-																	<xs:documentation>Dimension of the distance between two components.
-Examples include:
-Framing spacing: the dimension from centerline to centerline of a surface framing material
-Window spacing: the dimension between windows in a discrete window layout. (in.)</xs:documentation>
+																	<xs:documentation>
+																		Dimension of the distance between two components.
+																		Examples include:
+																		Framing spacing: the dimension from centerline to centerline of a surface framing material
+																		Window spacing: the dimension between windows in a discrete window layout. (in.)
+																	</xs:documentation>
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:simpleContent>
@@ -12853,7 +12848,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 															</xs:element>
 															<xs:element name="PhotovoltaicSystemRackingSystemTiltAngleMin" minOccurs="0">
 																<xs:annotation>
-																	<xs:documentation>Minimum PV mounting angle relative to horizontal.  Minimum and maximum tilt angles are the same for fixed systems. (degrees)</xs:documentation>
+																	<xs:documentation>Minimum PV mounting angle relative to horizontal. Minimum and maximum tilt angles are the same for fixed systems. (degrees)</xs:documentation>
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:simpleContent>
@@ -12865,7 +12860,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 															</xs:element>
 															<xs:element name="PhotovoltaicSystemRackingSystemTiltAngleMax" minOccurs="0">
 																<xs:annotation>
-																	<xs:documentation>Maximum PV mounting angle relative to horizontal.  Minimum and maximum tilt angles are the same for fixed systems. (degrees)</xs:documentation>
+																	<xs:documentation>Maximum PV mounting angle relative to horizontal. Minimum and maximum tilt angles are the same for fixed systems. (degrees)</xs:documentation>
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:simpleContent>
@@ -13362,7 +13357,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 	<xs:element name="ControlledByEMCS" type="xs:boolean"/>
 	<xs:element name="PrimaryFuel" type="auc:FuelTypes">
 		<xs:annotation>
-			<xs:documentation>Main fuel used by the system. </xs:documentation>
+			<xs:documentation>Main fuel used by the system.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="YearInstalled" type="xs:gYear">
@@ -13399,7 +13394,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 	</xs:element>
 	<xs:element name="CapacityUnits">
 		<xs:annotation>
-			<xs:documentation>Units used to measure capacity. </xs:documentation>
+			<xs:documentation>Units used to measure capacity.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleType>
 			<xs:restriction base="xs:string">
@@ -13486,7 +13481,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 	</xs:element>
 	<xs:element name="LinkedPremises">
 		<xs:annotation>
-			<xs:documentation>Establishes whether the system applies to one or more entrire buildings, blocks, spaces, or zones withing buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises. </xs:documentation>
+			<xs:documentation>Establishes whether the system applies to one or more entire buildings, blocks, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
@@ -13632,7 +13627,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 									<xs:sequence>
 										<xs:element name="StreetAddress" type="xs:string" minOccurs="0">
 											<xs:annotation>
-												<xs:documentation>Street Address. This address can be defined multiple times for situations where that is needed for one premises, such as a complex of buildings. This address represents a complete street address, including street number, street name, prefixes, suffixes, modifiers, and unit number. It is assumed that a street address is either represented in this way, as a complete address, or is broken up into it's various components, using the terms"Street Number", "Street Number Numeric", "Street Dir Prefix", "Street Name", "Street Additonal Info", "Street Suffix", "Street Suffix Modifier", "Street Dir Suffix", and "Unit Number". </xs:documentation>
+												<xs:documentation>Street Address. This address can be defined multiple times for situations where that is needed for one premises, such as a complex of buildings. This address represents a complete street address, including street number, street name, prefixes, suffixes, modifiers, and unit number. It is assumed that a street address is either represented in this way, as a complete address, or is broken up into it's various components, using the terms"Street Number", "Street Number Numeric", "Street Dir Prefix", "Street Name", "Street Additional Info", "Street Suffix", "Street Suffix Modifier", "Street Dir Suffix", and "Unit Number".</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="StreetAdditionalInfo" type="xs:string" minOccurs="0">
@@ -13695,7 +13690,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 										</xs:element>
 										<xs:element name="UnitNumber" type="xs:string" minOccurs="0">
 											<xs:annotation>
-												<xs:documentation>Text field containing the number or portion of a larger premises. Unit Number should appear following the street suffix or, if it exists, the street suffix direction, in the street address. Examples are: "APT G", "55", etc. </xs:documentation>
+												<xs:documentation>Text field containing the number or portion of a larger premises. Unit Number should appear following the street suffix or, if it exists, the street suffix direction, in the street address. Examples are: "APT G", "55", etc.</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 									</xs:sequence>
@@ -13711,13 +13706,12 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 				</xs:element>
 				<xs:element name="State" type="auc:State" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>The state for the address type, following the ISO 3166-2 Region code for US states. </xs:documentation>
+						<xs:documentation>The state for the address type, following the ISO 3166-2 Region code for US states.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="PostalCode" type="xs:string" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>The 5 digit postal code for the Address Type. 
-NNNNN</xs:documentation>
+						<xs:documentation>The 5 digit postal code for the Address Type. NNNNN</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 				<xs:element name="PostalCodePlus4" type="xs:string" minOccurs="0">
@@ -13938,7 +13932,7 @@ NNNNN</xs:documentation>
 	</xs:element>
 	<xs:element name="IdentifierValue" type="xs:string">
 		<xs:annotation>
-			<xs:documentation>The identifying value associated with the Identifier Type. There can be many Identifer Types and Values associated with an individual premises.</xs:documentation>
+			<xs:documentation>The identifying value associated with the Identifier Type. There can be many Identifier Types and Values associated with an individual premises.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="PremisesIdentifiers">
@@ -13955,7 +13949,7 @@ NNNNN</xs:documentation>
 				<xs:element ref="auc:IdentifierCustomName" minOccurs="0"/>
 				<xs:element ref="auc:IdentifierValue" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>The identifying value associated with the Identifier Label. There can be many Identifer Labels and Values associated with an individual premises.</xs:documentation>
+						<xs:documentation>The identifying value associated with the Identifier Label. There can be many Identifier Labels and Values associated with an individual premises.</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:sequence>
@@ -13963,8 +13957,7 @@ NNNNN</xs:documentation>
 	</xs:element>
 	<xs:element name="OccupancyClassification">
 		<xs:annotation>
-			<xs:documentation>Classification of the space (complex, whole building, or subsection) tasks by building occupants.
-</xs:documentation>
+			<xs:documentation>Classification of the space (complex, whole building, or subsection) tasks by building occupants.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleType>
 			<xs:restriction base="xs:string">
@@ -14166,7 +14159,7 @@ NNNNN</xs:documentation>
 						<xs:sequence>
 							<xs:element name="FloorAreaType" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>Floor area can be defined and described in many different ways for different purposes. This type field allows multiple types of floor area definitions to exist in the same dataset. </xs:documentation>
+									<xs:documentation>Floor area can be defined and described in many different ways for different purposes. This type field allows multiple types of floor area definitions to exist in the same dataset.</xs:documentation>
 								</xs:annotation>
 								<xs:simpleType>
 									<xs:restriction base="xs:string">
@@ -14214,7 +14207,7 @@ NNNNN</xs:documentation>
 							</xs:element>
 							<xs:element name="FloorAreaSource" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>The source of the premises floor area measurements.  </xs:documentation>
+									<xs:documentation>The source of the premises floor area measurements.</xs:documentation>
 								</xs:annotation>
 								<xs:simpleType>
 									<xs:restriction base="xs:string">
@@ -14239,7 +14232,7 @@ NNNNN</xs:documentation>
 						<xs:sequence>
 							<xs:element name="OccupantType" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>Type of occupants who are permanently resident in a premises. </xs:documentation>
+									<xs:documentation>Type of occupants who are permanently resident in a premises.</xs:documentation>
 								</xs:annotation>
 								<xs:simpleType>
 									<xs:restriction base="xs:string">
@@ -14293,7 +14286,7 @@ NNNNN</xs:documentation>
 							</xs:element>
 							<xs:element name="OccupantQuantity" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>The value associated with the Occupant Quantity Type term. </xs:documentation>
+									<xs:documentation>The value associated with the Occupant Quantity Type term.</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
 									<xs:simpleContent>
@@ -14394,7 +14387,7 @@ NNNNN</xs:documentation>
 	</xs:element>
 	<xs:element name="SystemPerformanceRatio">
 		<xs:annotation>
-			<xs:documentation>Ratio of annual system load to the annual system energy consumption (similar to a whole system COP). A higher value indicates less heating and/or cooling energy use to meet the loads, and therefore represents a more efficient HVAC system. SPR can be used to describe the heating, cooling, and overall HVAC systems. </xs:documentation>
+			<xs:documentation>Ratio of annual system load to the annual system energy consumption (similar to a whole system COP). A higher value indicates less heating and/or cooling energy use to meet the loads, and therefore represents a more efficient HVAC system. SPR can be used to describe the heating, cooling, and overall HVAC systems.</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:simpleContent>
