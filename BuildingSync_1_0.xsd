@@ -2739,34 +2739,10 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="EndUse" minOccurs="0">
+			<xs:element name="EndUse" type="auc:EndUse" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>End use that the resource primarily applies to.</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Whole building"/>
-						<xs:enumeration value="Total lighting"/>
-						<xs:enumeration value="Interior lighting"/>
-						<xs:enumeration value="Exterior lighting"/>
-						<xs:enumeration value="Heating"/>
-						<xs:enumeration value="Cooling"/>
-						<xs:enumeration value="Ventilation"/>
-						<xs:enumeration value="Pump"/>
-						<xs:enumeration value="IT"/>
-						<xs:enumeration value="Plug-in electric vehicle"/>
-						<xs:enumeration value="Plug load"/>
-						<xs:enumeration value="Process load"/>
-						<xs:enumeration value="Conveyance"/>
-						<xs:enumeration value="Domestic hot water"/>
-						<xs:enumeration value="Refrigeration"/>
-						<xs:enumeration value="Cooking"/>
-						<xs:enumeration value="Dishwasher"/>
-						<xs:enumeration value="Laundry"/>
-						<xs:enumeration value="Pool heating"/>
-						<xs:enumeration value="On-site generation"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="CompleteEndUse" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
@@ -3555,34 +3531,10 @@
 	</xs:complexType>
 	<xs:complexType name="AllResourceTotalType">
 		<xs:sequence>
-			<xs:element name="EndUse" minOccurs="0">
+			<xs:element name="EndUse" type="auc:EndUse" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>End use for which data is included.</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Whole building"/>
-						<xs:enumeration value="Total lighting"/>
-						<xs:enumeration value="Interior lighting"/>
-						<xs:enumeration value="Exterior lighting"/>
-						<xs:enumeration value="Heating"/>
-						<xs:enumeration value="Cooling"/>
-						<xs:enumeration value="Ventilation"/>
-						<xs:enumeration value="Pump"/>
-						<xs:enumeration value="IT"/>
-						<xs:enumeration value="Plug-in electric vehicle"/>
-						<xs:enumeration value="Plug load"/>
-						<xs:enumeration value="Process load"/>
-						<xs:enumeration value="Conveyance"/>
-						<xs:enumeration value="Domestic hot water"/>
-						<xs:enumeration value="Refrigeration"/>
-						<xs:enumeration value="Cooking"/>
-						<xs:enumeration value="Dishwasher"/>
-						<xs:enumeration value="Laundry"/>
-						<xs:enumeration value="Pool heating"/>
-						<xs:enumeration value="On-site generation"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element ref="auc:Qualifier" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="SiteEnergyUse" minOccurs="0">
@@ -5940,49 +5892,10 @@
 																	</xs:simpleContent>
 																</xs:complexType>
 															</xs:element>
-															<xs:element name="HeatPumpBackupSystemFuel" minOccurs="0">
+															<xs:element name="HeatPumpBackupSystemFuel" type="auc:FuelTypes" minOccurs="0">
 																<xs:annotation>
 																	<xs:documentation>Backup fuel used by the heat pump</xs:documentation>
 																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Electricity"/>
-																		<xs:enumeration value="Natural gas"/>
-																		<xs:enumeration value="Fuel oil"/>
-																		<xs:enumeration value="Fuel oil No-1"/>
-																		<xs:enumeration value="Fuel oil No-2"/>
-																		<xs:enumeration value="Fuel oil No-4"/>
-																		<xs:enumeration value="Fuel oil No-5 and No-6"/>
-																		<xs:enumeration value="District steam"/>
-																		<xs:enumeration value="District hot water"/>
-																		<xs:enumeration value="District chilled water"/>
-																		<xs:enumeration value="Propane"/>
-																		<xs:enumeration value="Liquid propane"/>
-																		<xs:enumeration value="Kerosene"/>
-																		<xs:enumeration value="Diesel"/>
-																		<xs:enumeration value="Coal"/>
-																		<xs:enumeration value="Coal (anthracite)"/>
-																		<xs:enumeration value="Coal (bituminous)"/>
-																		<xs:enumeration value="Coke"/>
-																		<xs:enumeration value="Wood"/>
-																		<xs:enumeration value="Wood pellets"/>
-																		<xs:enumeration value="Hydropower"/>
-																		<xs:enumeration value="Biofuel"/>
-																		<xs:enumeration value="Wind"/>
-																		<xs:enumeration value="Geothermal"/>
-																		<xs:enumeration value="Solar"/>
-																		<xs:enumeration value="Biomass"/>
-																		<xs:enumeration value="Hydrothermal"/>
-																		<xs:enumeration value="Dry steam"/>
-																		<xs:enumeration value="Flash steam"/>
-																		<xs:enumeration value="Ethanol"/>
-																		<xs:enumeration value="Biodiesel"/>
-																		<xs:enumeration value="Waste heat"/>
-																		<xs:enumeration value="Combination"/>
-																		<xs:enumeration value="Other"/>
-																		<xs:enumeration value="Unknown"/>
-																	</xs:restriction>
-																</xs:simpleType>
 															</xs:element>
 															<xs:element name="HeatPumpBackupAFUE" minOccurs="0">
 																<xs:annotation>
@@ -12947,49 +12860,10 @@
 																	</xs:restriction>
 																</xs:simpleType>
 															</xs:element>
-															<xs:element name="OutputResourceType" minOccurs="0">
+															<xs:element name="OutputResourceType" type="auc:FuelTypes" minOccurs="0">
 																<xs:annotation>
 																	<xs:documentation>Resource or fuel produced by the generation system and used as energy on the premises.</xs:documentation>
 																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Electricity"/>
-																		<xs:enumeration value="Natural gas"/>
-																		<xs:enumeration value="Fuel oil"/>
-																		<xs:enumeration value="Fuel oil No-1"/>
-																		<xs:enumeration value="Fuel oil No-2"/>
-																		<xs:enumeration value="Fuel oil No-4"/>
-																		<xs:enumeration value="Fuel oil No-5 and No-6"/>
-																		<xs:enumeration value="District steam"/>
-																		<xs:enumeration value="District hot water"/>
-																		<xs:enumeration value="District chilled water"/>
-																		<xs:enumeration value="Propane"/>
-																		<xs:enumeration value="Liquid propane"/>
-																		<xs:enumeration value="Kerosene"/>
-																		<xs:enumeration value="Diesel"/>
-																		<xs:enumeration value="Coal"/>
-																		<xs:enumeration value="Coal (anthracite)"/>
-																		<xs:enumeration value="Coal (bituminous)"/>
-																		<xs:enumeration value="Coke"/>
-																		<xs:enumeration value="Wood"/>
-																		<xs:enumeration value="Wood pellets"/>
-																		<xs:enumeration value="Hydropower"/>
-																		<xs:enumeration value="Biofuel"/>
-																		<xs:enumeration value="Wind"/>
-																		<xs:enumeration value="Geothermal"/>
-																		<xs:enumeration value="Solar"/>
-																		<xs:enumeration value="Biomass"/>
-																		<xs:enumeration value="Hydrothermal"/>
-																		<xs:enumeration value="Dry steam"/>
-																		<xs:enumeration value="Flash steam"/>
-																		<xs:enumeration value="Ethanol"/>
-																		<xs:enumeration value="Biodiesel"/>
-																		<xs:enumeration value="Waste heat"/>
-																		<xs:enumeration value="Combination"/>
-																		<xs:enumeration value="Other"/>
-																		<xs:enumeration value="Unknown"/>
-																	</xs:restriction>
-																</xs:simpleType>
 															</xs:element>
 														</xs:sequence>
 													</xs:complexType>
@@ -13905,6 +13779,30 @@
 			<xs:enumeration value="Unknown"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="EndUse">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Whole building"/>
+			<xs:enumeration value="Total lighting"/>
+			<xs:enumeration value="Interior lighting"/>
+			<xs:enumeration value="Exterior lighting"/>
+			<xs:enumeration value="Heating"/>
+			<xs:enumeration value="Cooling"/>
+			<xs:enumeration value="Ventilation"/>
+			<xs:enumeration value="Pump"/>
+			<xs:enumeration value="IT"/>
+			<xs:enumeration value="Plug-in electric vehicle"/>
+			<xs:enumeration value="Plug load"/>
+			<xs:enumeration value="Process load"/>
+			<xs:enumeration value="Conveyance"/>
+			<xs:enumeration value="Domestic hot water"/>
+			<xs:enumeration value="Refrigeration"/>
+			<xs:enumeration value="Cooking"/>
+			<xs:enumeration value="Dishwasher"/>
+			<xs:enumeration value="Laundry"/>
+			<xs:enumeration value="Pool heating"/>
+			<xs:enumeration value="On-site generation"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:element name="IdentifierLabel">
 		<xs:annotation>
 			<xs:documentation>Identifier used in a specific program or dataset. There can be multiple instances of Identifier Types within a dataset, such as a Listing ID, a Tax Map Number ID, and a Custom ID.</xs:documentation>
@@ -14397,16 +14295,180 @@
 			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="AssetScore">
+	<xs:element name="EnergyUseByFuelType">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="auc:PrimaryFuel">
+					<xs:annotation>
+						<xs:documentation>Specific fuel type.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="EnergyUse">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:decimal">
+								<xs:attribute ref="auc:Source"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AssetScoreData">
 		<xs:annotation>
-			<xs:documentation>A facility's Commercial Building Energy Asset Score.</xs:documentation>
+			<xs:documentation>A facility's Commercial Building Energy Asset Score, and optional Site/Source energy use by fuel type.</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
-			<xs:simpleContent>
-				<xs:extension base="xs:decimal">
-					<xs:attribute ref="auc:Source"/>
-				</xs:extension>
-			</xs:simpleContent>
+			<xs:sequence>
+				<xs:element name="Score">
+					<xs:annotation>
+						<xs:documentation>An individual use type's Asset Score within a commercial building.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:decimal">
+								<xs:attribute ref="auc:Source"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SiteEnergyUse" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="auc:EnergyUseByFuelType" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SourceEnergyUse" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="auc:EnergyUseByFuelType" maxOccurs="unbounded"/>
+							<xs:element name="SourceEnergyUseIntensity" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>The Source Energy Use divided by the premises gross floor area. (kBtu/ft2)</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:decimal">
+											<xs:attribute ref="auc:Source"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AssetScore">
+		<xs:annotation>
+			<xs:documentation>A facility's Commercial Building Energy Asset Score Data.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="WholeBuilding" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="auc:AssetScoreData"/>
+							<xs:element name="EnergyUseByEndUse" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="EnergyUse">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:decimal">
+														<xs:attribute ref="auc:Source"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="EndUse" type="auc:EndUse">
+											<xs:annotation>
+												<xs:documentation>End use for which data is included.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Rankings" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Ranking" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Type">
+														<xs:complexType>
+															<xs:choice>
+																<xs:element name="SystemsType">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:enumeration value="Cooling"/>
+																			<xs:enumeration value="Heating"/>
+																			<xs:enumeration value="Hot Water"/>
+																			<xs:enumeration value="Interior Lighting"/>
+																			<xs:enumeration value="Overall HVAC Systems"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element name="EnvelopeType">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:enumeration value="Floor U-Value, Mass"/>
+																			<xs:enumeration value="Roof U-Value, Non-Attic"/>
+																			<xs:enumeration value="Walls U-Value, Framed"/>
+																			<xs:enumeration value="Walls + Windows U-Value"/>
+																			<xs:enumeration value="Window Solar Heat Gain Coefficient"/>
+																			<xs:enumeration value="Windows U-Value"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+															</xs:choice>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Rank" type="auc:RankType"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="UseType" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="auc:AssetScoreData"/>
+							<xs:element name="AssetScoreUseType">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="Assisted Living Facility"/>
+										<xs:enumeration value="City Hall"/>
+										<xs:enumeration value="Community Center"/>
+										<xs:enumeration value="Courthouse"/>
+										<xs:enumeration value="Education"/>
+										<xs:enumeration value="Library"/>
+										<xs:enumeration value="Lodging"/>
+										<xs:enumeration value="Medical Office"/>
+										<xs:enumeration value="Multi-family (4 floors or greater)"/>
+										<xs:enumeration value="Multi-family (fewer than 4 floors)"/>
+										<xs:enumeration value="Office"/>
+										<xs:enumeration value="Parking Garage (Ventilation Only)"/>
+										<xs:enumeration value="Police Station"/>
+										<xs:enumeration value="Post Office"/>
+										<xs:enumeration value="Religious Building"/>
+										<xs:enumeration value="Retail"/>
+										<xs:enumeration value="Senior Center"/>
+										<xs:enumeration value="Warehouse non-refrigerated"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="ENERGYSTARScore">
@@ -14460,4 +14522,23 @@
 			</xs:restriction>
 		</xs:simpleType>
 	</xs:element>
+	<xs:simpleType name="RankType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Fair">
+				<xs:annotation>
+					<xs:documentation>Less efficient than ASHRAE 90.1-2004</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Good">
+				<xs:annotation>
+					<xs:documentation>At least as efficient as ASHRAE 90.1-2004, but not more efficient than ASHRAE 90.1-2004 (Systems) or ASHRAE 90.1-2013 (Envelope)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Superior">
+				<xs:annotation>
+					<xs:documentation>More efficient than ASHRAE 90.1-2010 (Systems) or ASHRAE 90.1-2013 (Envelope)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
