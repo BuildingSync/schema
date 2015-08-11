@@ -330,7 +330,7 @@
 																<xs:enumeration value="Certified Energy Manager (CEM)"/>
 																<xs:enumeration value="Building Operator Certification (BOC)"/>
 																<xs:enumeration value="Building Performance Institute (BPI) Certification"/>
-																<xs:enumeration value="Building Performance Insitute: Building Analyst (BA)"/>
+																<xs:enumeration value="Building Performance Institute: Building Analyst (BA)"/>
 																<xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional (HEP)"/>
 																<xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional - Energy Auditor (HEP-EA)"/>
 																<xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional - Quality Control Inspector (HEP-QCI)"/>
@@ -387,7 +387,7 @@
 																<xs:enumeration value="Certified Energy Manager (CEM)"/>
 																<xs:enumeration value="Building Operator Certification (BOC)"/>
 																<xs:enumeration value="Building Performance Institute (BPI) Certification"/>
-																<xs:enumeration value="Building Performance Insitute: Building Analyst (BA)"/>
+																<xs:enumeration value="Building Performance Institute: Building Analyst (BA)"/>
 																<xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional (HEP)"/>
 																<xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional - Energy Auditor (HEP-EA)"/>
 																<xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional - Quality Control Inspector (HEP-QCI)"/>
@@ -3448,7 +3448,7 @@
 						</xs:element>
 						<xs:element name="ElectricDistributionUtility" type="xs:string" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>The company responsible for maintaining the utility lines and the electric distribution to the property. Note that the EDU is not the just “the utility company.” In some states the energy markets are deregulated. This means that a property may contract with Company A to provide the power supply (energy from the power plant), while Company B will continue to provide the electric distribution (Company B is the EDU).</xs:documentation>
+								<xs:documentation>The company responsible for maintaining the utility lines and the electric distribution to the property. Note that the EDU is not the just "the utility company." In some states the energy markets are deregulated. This means that a property may contract with Company A to provide the power supply (energy from the power plant), while Company B will continue to provide the electric distribution (Company B is the EDU).</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="SourceSiteRatio" minOccurs="0">
@@ -5138,7 +5138,7 @@
 												</xs:element>
 												<xs:element name="HeatingStaging" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>The method of heating staging used by the unit. Select “Single Stage” for units with single stage (on/off) control. Select “Multiple, Discrete Stages” for units with multiple discrete stages (low-fire / high-fire). Select “Modulating” for units which contain modulating burners.</xs:documentation>
+														<xs:documentation>The method of heating staging used by the unit. Select "Single Stage" for units with single stage (on/off) control. Select "Multiple, Discrete Stages" for units with multiple discrete stages (low-fire / high-fire). Select "Modulating" for units which contain modulating burners.</xs:documentation>
 													</xs:annotation>
 													<xs:simpleType>
 														<xs:restriction base="xs:string">
@@ -5839,7 +5839,7 @@
 									<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
 									<xs:element name="HeatingStaging" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>The method of heating staging used by the unit. Select “Single Stage” for units with single stage (on/off) control. Select “Multiple, Discrete Stages” for units with multiple discrete stages (low-fire / high-fire). Select “Modulating” for units which contain modulating burners.</xs:documentation>
+											<xs:documentation>The method of heating staging used by the unit. Select "Single Stage" for units with single stage (on/off) control. Select "Multiple, Discrete Stages" for units with multiple discrete stages (low-fire / high-fire). Select "Modulating" for units which contain modulating burners.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -7318,7 +7318,7 @@
 						</xs:element>
 						<xs:element name="CondenserFanSpeedOperation" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>The condenser fan control option used by the unit. If the unit has several constant-speed condenser fans that stage on in conjunction with multiple compressors, this should be set to “Stepped Speed.”</xs:documentation>
+								<xs:documentation>The condenser fan control option used by the unit. If the unit has several constant-speed condenser fans that stage on in conjunction with multiple compressors, this should be set to "Stepped Speed."</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -10370,7 +10370,7 @@
 			</xs:element>
 			<xs:element name="WallUFactor" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above).  (Btu/hr·ft2·°F)</xs:documentation>
+					<xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above). (Btu/hr·ft2·°F)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -10795,7 +10795,7 @@
 			</xs:element>
 			<xs:element name="RoofUFactor" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above).  (Btu/hr·ft2·°F)</xs:documentation>
+					<xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above). (Btu/hr·ft2·°F)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -11370,7 +11370,7 @@
 			</xs:element>
 			<xs:element name="FenestrationUFactor" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above).  (Btu/hr·ft2·°F)</xs:documentation>
+					<xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above). (Btu/hr·ft2·°F)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -11607,7 +11607,7 @@
 															</xs:element>
 															<xs:element name="FloorUFactor" minOccurs="0">
 																<xs:annotation>
-																	<xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above).  (Btu/hr·ft2·°F)</xs:documentation>
+																	<xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above). (Btu/hr·ft2·°F)</xs:documentation>
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:simpleContent>
@@ -12459,7 +12459,7 @@
 															</xs:element>
 															<xs:element name="PhotovoltaicModuleRatedPower" minOccurs="0">
 																<xs:annotation>
-																	<xs:documentation>The module’s rated, maximum-power-point power at standard testing conditions (STC) (SAM Help, 2013). Where STC is defined as light spectrum AM 1.5, cell temperature of 25 degrees Celsius, and irradiance of 1000 W/m2 (IEC 61853-1 Standard 7.2-2010). (W)</xs:documentation>
+																	<xs:documentation>The module's rated, maximum-power-point power at standard testing conditions (STC) (SAM Help, 2013). Where STC is defined as light spectrum AM 1.5, cell temperature of 25 degrees Celsius, and irradiance of 1000 W/m2 (IEC 61853-1 Standard 7.2-2010). (W)</xs:documentation>
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:simpleContent>
@@ -14133,7 +14133,7 @@
 	</xs:element>
 	<xs:element name="ENERGYSTARScore">
 		<xs:annotation>
-			<xs:documentation>The ENERGY STAR Score is a measure of how well the property is performing relative to similar properties. The ENERGY STAR scores are based on data from national building energy consumption surveys, and allows Portfolio Manager to control for key variables affecting a building’s energy performance, including climate, hours of operation, and building size. This term can be associated with one or more Qualifiers in the constrained list. For example Site Energy Use Intensity can qualified with Baseline, post, weather normalized..</xs:documentation>
+			<xs:documentation>The ENERGY STAR Score is a measure of how well the property is performing relative to similar properties. The ENERGY STAR scores are based on data from national building energy consumption surveys, and allows Portfolio Manager to control for key variables affecting a building's energy performance, including climate, hours of operation, and building size. This term can be associated with one or more Qualifiers in the constrained list. For example Site Energy Use Intensity can qualified with Baseline, post, weather normalized..</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:simpleContent>
