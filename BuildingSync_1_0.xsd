@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2014 rel. 2 sp1 (http://www.altova.com) by National Renewable Energy Lab (National Renewable Energy Lab) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://nrel.gov/schemas/bedes-auc/2014" targetNamespace="http://nrel.gov/schemas/bedes-auc/2014" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:element name="Audits">
 		<xs:annotation>
@@ -1704,6 +1703,18 @@
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DaylightingIlluminanceSetPoint" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Lighting level used for controlling electric lights when daylighting is available. (lux)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
 			</xs:element>
 			<xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
 			<xs:element ref="auc:FloorAreas" minOccurs="0"/>
@@ -5550,6 +5561,11 @@
 								<xs:documentation>Type of cooling plant. Zonal cooling is recorded in a separate data field. Use of fans or blowers by themselves without chilled air or water is not included in this definition of cooling. Stand-alone dehumidifiers are also not included.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
+						<xs:element name="CondenserPlant" type="auc:CondenserPlantType" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Type of condenser used for refrigerant-based systems.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -5577,6 +5593,14 @@
 										</xs:annotation>
 										<xs:complexType>
 											<xs:choice>
+												<xs:element name="HeatingPlantID" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>ID number of heating plant serving as the source for this zonal system.</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+													</xs:complexType>
+												</xs:element>
 												<xs:element name="Furnace" minOccurs="0">
 													<xs:complexType>
 														<xs:sequence>
@@ -5655,96 +5679,6 @@
 																	<xs:documentation>True if the boiler or furnace is capable of condensing the water vapor in the exhaust flue gas to obtain a higher efficiency.</xs:documentation>
 																</xs:annotation>
 															</xs:element>
-															<xs:element name="HeatingStaging" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The method of heating staging used by the unit. Select “Single Stage” for units with single stage (on/off) control. Select “Multiple, Discrete Stages” for units with multiple discrete stages (low-fire / high-fire). Select “Modulating” for units which contain modulating burners.</xs:documentation>
-																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Single-Stage"/>
-																		<xs:enumeration value="Multiple, Discrete-Stages"/>
-																		<xs:enumeration value="Variable"/>
-																		<xs:enumeration value="Modulating"/>
-																		<xs:enumeration value="Other"/>
-																		<xs:enumeration value="Unknown"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
-															<xs:element name="InputCapacity" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The rate of energy consumption of the heating equipment at full load.</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="OutputCapacity" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Output capacity of equipment.</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
-															<xs:element name="NumberOfHeatingStages" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The number of heating stages, excluding "off."</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:integer">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="HeatingStageCapacityFraction" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Average capacity of each heating stage, at ARI rated conditions, expressed as a fraction of total capacity (0-1) (%)</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="AnnualHeatingEfficiencyValue" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Overall annual efficiency of a heating system</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="AnnualHeatingEfficiencyUnit" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The measure used to quantify efficiency</xs:documentation>
-																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="COP"/>
-																		<xs:enumeration value="AFUE"/>
-																		<xs:enumeration value="HSPF"/>
-																		<xs:enumeration value="Other"/>
-																		<xs:enumeration value="Unknown"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
 															<xs:element name="CombustionEfficiency" minOccurs="0">
 																<xs:annotation>
 																	<xs:documentation>The measure of how much energy is extracted from the fuel and is the ratio of heat transferred to the combustion air divided by the heat input of the fuel. (0-1) (%)</xs:documentation>
@@ -5790,96 +5724,6 @@
 																	</xs:restriction>
 																</xs:simpleType>
 															</xs:element>
-															<xs:element name="HeatingStaging" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The method of heating staging used by the unit. Select “Single Stage” for units with single stage (on/off) control. Select “Multiple, Discrete Stages” for units with multiple discrete stages (low-fire / high-fire). Select “Modulating” for units which contain modulating burners.</xs:documentation>
-																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Single-Stage"/>
-																		<xs:enumeration value="Multiple, Discrete-Stages"/>
-																		<xs:enumeration value="Variable"/>
-																		<xs:enumeration value="Modulating"/>
-																		<xs:enumeration value="Other"/>
-																		<xs:enumeration value="Unknown"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
-															<xs:element name="NumberOfHeatingStages" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The number of heating stages, excluding "off."</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:integer">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="HeatingStageCapacityFraction" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Average capacity of each heating stage, at ARI rated conditions, expressed as a fraction of total capacity (0-1) (%)</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="InputCapacity" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The rate of energy consumption of the heating equipment at full load.</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="OutputCapacity" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Output capacity of equipment.</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
-															<xs:element name="AnnualHeatingEfficiencyValue" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Overall annual efficiency of a heating system</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="AnnualHeatingEfficiencyUnit" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The measure used to quantify efficiency</xs:documentation>
-																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="COP"/>
-																		<xs:enumeration value="AFUE"/>
-																		<xs:enumeration value="HSPF"/>
-																		<xs:enumeration value="Other"/>
-																		<xs:enumeration value="Unknown"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
 															<xs:element name="HeatPumpBackupHeatingSwitchoverTemperature" minOccurs="0">
 																<xs:annotation>
 																	<xs:documentation>Minimum outside temperature at which the heat pump can operate. (°F)</xs:documentation>
@@ -5910,6 +5754,14 @@
 																</xs:complexType>
 															</xs:element>
 															<xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
+															<xs:element name="CoolingSourceID" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>ID number of the cooling system with the cooling mode performance characteristics of this heat pump.</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+																</xs:complexType>
+															</xs:element>
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
@@ -5934,6 +5786,96 @@
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
+									<xs:element name="AnnualHeatingEfficiencyValue" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Overall annual efficiency of a heating system</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="AnnualHeatingEfficiencyUnit" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The measure used to quantify efficiency</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="COP"/>
+												<xs:enumeration value="AFUE"/>
+												<xs:enumeration value="HSPF"/>
+												<xs:enumeration value="Other"/>
+												<xs:enumeration value="Unknown"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="InputCapacity" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The rate of energy consumption of the heating equipment at full load.</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="OutputCapacity" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Output capacity of equipment.</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
+									<xs:element name="HeatingStaging" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The method of heating staging used by the unit. Select “Single Stage” for units with single stage (on/off) control. Select “Multiple, Discrete Stages” for units with multiple discrete stages (low-fire / high-fire). Select “Modulating” for units which contain modulating burners.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Single-Stage"/>
+												<xs:enumeration value="Multiple, Discrete-Stages"/>
+												<xs:enumeration value="Variable"/>
+												<xs:enumeration value="Modulating"/>
+												<xs:enumeration value="Other"/>
+												<xs:enumeration value="Unknown"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="NumberOfHeatingStages" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The number of heating stages, excluding "off."</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:integer">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="HeatingStageCapacityFraction" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Average capacity of each heating stage, at ARI rated conditions, expressed as a fraction of total capacity (0-1) (%)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
 									<xs:element ref="auc:PrimaryFuel" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Main fuel used by the system.</xs:documentation>
@@ -5944,14 +5886,6 @@
 									<xs:element ref="auc:YearofManufacture" minOccurs="0"/>
 									<xs:element ref="auc:Manufacturer" minOccurs="0"/>
 									<xs:element ref="auc:ModelNumber" minOccurs="0"/>
-									<xs:element name="HeatingDeliveryID" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>ID number of delivery system associated with this heating or cooling source.</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-										</xs:complexType>
-									</xs:element>
 								</xs:sequence>
 								<xs:attribute name="ID" type="xs:ID"/>
 								<xs:attribute ref="auc:Status"/>
@@ -6011,34 +5945,13 @@
 																	</xs:restriction>
 																</xs:simpleType>
 															</xs:element>
-															<xs:element name="NumberOfDiscreteCoolingStages" minOccurs="0">
+															<xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded">
 																<xs:annotation>
-																	<xs:documentation>The number of discrete operating stages, excluding "off."</xs:documentation>
+																	<xs:documentation>ID numbers of the central condenser plants serving as the source for this cooling system.</xs:documentation>
 																</xs:annotation>
 																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:integer">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
+																	<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
 																</xs:complexType>
-															</xs:element>
-															<xs:element name="CoolingStageCapacity" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Average capacity of each cooling stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) %</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="CondenserType" type="auc:CondenserTypeType" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Type of condenser used for DX cooling plant.</xs:documentation>
-																</xs:annotation>
 															</xs:element>
 															<xs:element ref="auc:Refrigerant" minOccurs="0"/>
 															<xs:element name="RefrigerantChargeFactor" minOccurs="0">
@@ -6053,59 +5966,6 @@
 																	</xs:simpleContent>
 																</xs:complexType>
 															</xs:element>
-															<xs:element name="AnnualCoolingEfficiencyValue" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Overall annual efficiency of a cooling system.</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="AnnualCoolingEfficiencyUnits" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The measure used to quantify efficiency</xs:documentation>
-																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="COP"/>
-																		<xs:enumeration value="EER"/>
-																		<xs:enumeration value="SEER"/>
-																		<xs:enumeration value="kW/ton"/>
-																		<xs:enumeration value="Other"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
-															<xs:element ref="auc:Capacity" minOccurs="0"/>
-															<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
-															<xs:element name="MinimumPartLoadRatio" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The minimum part load ratio at which the system is able to operate. (0-1)</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1)</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
 															<xs:element name="ActiveDehumidification" type="xs:boolean" minOccurs="0">
 																<xs:annotation>
 																	<xs:documentation>True if an active dehumidification system is available (in addition to the dehumidification that takes place during normal DX cooling operation).</xs:documentation>
@@ -6117,83 +5977,6 @@
 												<xs:element name="EvaporativeCooler" minOccurs="0">
 													<xs:complexType>
 														<xs:sequence>
-															<xs:element name="NumberOfDiscreteCoolingStages" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The number of discrete operating stages, excluding "off."</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:integer">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="CoolingStageCapacity" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Average capacity of each cooling stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) %</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="AnnualCoolingEfficiencyValue" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Overall annual efficiency of a cooling system.</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="AnnualCoolingEfficiencyUnits" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The measure used to quantify efficiency</xs:documentation>
-																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="COP"/>
-																		<xs:enumeration value="EER"/>
-																		<xs:enumeration value="SEER"/>
-																		<xs:enumeration value="kW/ton"/>
-																		<xs:enumeration value="Other"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
-															<xs:element ref="auc:Capacity" minOccurs="0"/>
-															<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
-															<xs:element name="MinimumPartLoadRatio" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The minimum part load ratio at which the system is able to operate. (0-1)</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1)</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
 															<xs:element name="EvaporativeCoolingType" minOccurs="0">
 																<xs:annotation>
 																	<xs:documentation>Defines the type of evaporative cooler operation</xs:documentation>
@@ -6255,6 +6038,83 @@
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
+									<xs:element name="AnnualCoolingEfficiencyValue" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Overall annual efficiency of a cooling system.</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="AnnualCoolingEfficiencyUnits" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The measure used to quantify efficiency</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="COP"/>
+												<xs:enumeration value="EER"/>
+												<xs:enumeration value="SEER"/>
+												<xs:enumeration value="kW/ton"/>
+												<xs:enumeration value="Other"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element ref="auc:Capacity" minOccurs="0"/>
+									<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
+									<xs:element name="NumberOfDiscreteCoolingStages" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The number of discrete operating stages, excluding "off."</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:integer">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="CoolingStageCapacity" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Average capacity of each cooling stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) %</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="MinimumPartLoadRatio" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The minimum part load ratio at which the system is able to operate. (0-1)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
 									<xs:element ref="auc:PrimaryFuel" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Main fuel used by the system.</xs:documentation>
@@ -6265,14 +6125,6 @@
 									<xs:element ref="auc:YearofManufacture" minOccurs="0"/>
 									<xs:element ref="auc:Manufacturer" minOccurs="0"/>
 									<xs:element ref="auc:ModelNumber" minOccurs="0"/>
-									<xs:element name="CoolingDeliveryID" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>ID number of delivery system associated with this heating or cooling source.</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-										</xs:complexType>
-									</xs:element>
 								</xs:sequence>
 								<xs:attribute name="ID" type="xs:ID"/>
 								<xs:attribute ref="auc:Status"/>
@@ -6280,510 +6132,501 @@
 						</xs:element>
 						<xs:element name="Delivery" minOccurs="0" maxOccurs="unbounded">
 							<xs:complexType>
-								<xs:choice>
-									<xs:element name="AirDistribution" minOccurs="0">
+								<xs:sequence>
+									<xs:element name="DeliveryType" minOccurs="0">
 										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="AirDeliveryType" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Method for delivering air for heating and cooling to the zone.</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Central air handler"/>
-															<xs:enumeration value="Induction units"/>
-															<xs:enumeration value="CAV terminal box with reheat"/>
-															<xs:enumeration value="VAV terminal box fan powered no reheat"/>
-															<xs:enumeration value="VAV terminal box fan powered with reheat"/>
-															<xs:enumeration value="VAV terminal box not fan powered no reheat"/>
-															<xs:enumeration value="VAV terminal box not fan powered with reheat"/>
-															<xs:enumeration value="Low pressure under floor"/>
-															<xs:enumeration value="Local fan"/>
-															<xs:enumeration value="Other/combination"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element name="HeatingSupplyAirTemperature" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Temperature setting of supply air for heating or cooling. (°F)</xs:documentation>
-													</xs:annotation>
+											<xs:choice>
+												<xs:element name="FanBased" minOccurs="0">
 													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
+														<xs:sequence>
+															<xs:element name="FanBasedDistributionType" minOccurs="0">
+																<xs:complexType>
+																	<xs:choice>
+																		<xs:element name="CentralAirDistribution" minOccurs="0">
+																			<xs:complexType>
+																				<xs:sequence>
+																					<xs:element name="AirDeliveryType" minOccurs="0">
+																						<xs:annotation>
+																							<xs:documentation>Method for delivering air for heating and cooling to the zone.</xs:documentation>
+																						</xs:annotation>
+																						<xs:simpleType>
+																							<xs:restriction base="xs:string">
+																								<xs:enumeration value="Central air handler"/>
+																								<xs:enumeration value="Induction units"/>
+																								<xs:enumeration value="Low pressure under floor"/>
+																								<xs:enumeration value="Local fan"/>
+																								<xs:enumeration value="Other/combination"/>
+																								<xs:enumeration value="Unknown"/>
+																							</xs:restriction>
+																						</xs:simpleType>
+																					</xs:element>
+																					<xs:element name="TerminalUnit" minOccurs="0">
+																						<xs:annotation>
+																							<xs:documentation>Type of terminal unit serving each zone of a central air distribution system.</xs:documentation>
+																						</xs:annotation>
+																						<xs:simpleType>
+																							<xs:restriction base="xs:string">
+																								<xs:enumeration value="CAV terminal box with reheat"/>
+																								<xs:enumeration value="VAV terminal box fan powered no reheat"/>
+																								<xs:enumeration value="VAV terminal box fan powered with reheat"/>
+																								<xs:enumeration value="VAV terminal box not fan powered no reheat"/>
+																								<xs:enumeration value="VAV terminal box not fan powered with reheat"/>
+																								<xs:enumeration value="Other/combination"/>
+																								<xs:enumeration value="Unknown"/>
+																							</xs:restriction>
+																						</xs:simpleType>
+																					</xs:element>
+																					<xs:element name="ReheatSource" minOccurs="0">
+																						<xs:annotation>
+																							<xs:documentation>Energy source used to provide reheat energy at a terminal unit.</xs:documentation>
+																						</xs:annotation>
+																						<xs:simpleType>
+																							<xs:restriction base="xs:string">
+																								<xs:enumeration value="Heating plant"/>
+																								<xs:enumeration value="Local electric resistance"/>
+																								<xs:enumeration value="Local gas"/>
+																								<xs:enumeration value="Other"/>
+																								<xs:enumeration value="Unknown"/>
+																							</xs:restriction>
+																						</xs:simpleType>
+																					</xs:element>
+																					<xs:element name="ReheatControlMethod" minOccurs="0">
+																						<xs:annotation>
+																							<xs:documentation>The air/temperature control strategy for VAV systems with reheat boxes.</xs:documentation>
+																						</xs:annotation>
+																						<xs:simpleType>
+																							<xs:restriction base="xs:string">
+																								<xs:enumeration value="Dual Maximum"/>
+																								<xs:enumeration value="Single Maximum"/>
+																								<xs:enumeration value="Other"/>
+																								<xs:enumeration value="Unknown"/>
+																							</xs:restriction>
+																						</xs:simpleType>
+																					</xs:element>
+																				</xs:sequence>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="FanCoil" minOccurs="0">
+																			<xs:complexType>
+																				<xs:sequence>
+																					<xs:element name="FanCoilType" minOccurs="0">
+																						<xs:simpleType>
+																							<xs:restriction base="xs:string">
+																								<xs:enumeration value="Fan Coil-2 Pipe"/>
+																								<xs:enumeration value="Fan Coil-4 Pipe"/>
+																								<xs:enumeration value="Mini-Split"/>
+																								<xs:enumeration value="Multi-Split"/>
+																								<xs:enumeration value="VRF terminal units"/>
+																								<xs:enumeration value="Other/combination"/>
+																								<xs:enumeration value="Unknown"/>
+																							</xs:restriction>
+																						</xs:simpleType>
+																					</xs:element>
+																					<xs:element name="HVACPipeConfiguration" minOccurs="0">
+																						<xs:annotation>
+																							<xs:documentation>Number of pipes for distributing steam, refrigerant, or water to individual zones.</xs:documentation>
+																						</xs:annotation>
+																						<xs:simpleType>
+																							<xs:restriction base="xs:string">
+																								<xs:enumeration value="1 pipe"/>
+																								<xs:enumeration value="2 pipe"/>
+																								<xs:enumeration value="3 pipe"/>
+																								<xs:enumeration value="4 pipe"/>
+																								<xs:enumeration value="Other"/>
+																								<xs:enumeration value="Unknown"/>
+																							</xs:restriction>
+																						</xs:simpleType>
+																					</xs:element>
+																					<xs:element name="PipeInsulationThickness" minOccurs="0">
+																						<xs:annotation>
+																							<xs:documentation>Defines how thick insulation on pipes in a heating, cooling, water heating system is. (in.)</xs:documentation>
+																						</xs:annotation>
+																						<xs:complexType>
+																							<xs:simpleContent>
+																								<xs:extension base="xs:decimal">
+																									<xs:attribute ref="auc:Source"/>
+																								</xs:extension>
+																							</xs:simpleContent>
+																						</xs:complexType>
+																					</xs:element>
+																					<xs:element name="PipeLocation" minOccurs="0">
+																						<xs:annotation>
+																							<xs:documentation>% of pipe length in conditioned space (0-1)</xs:documentation>
+																						</xs:annotation>
+																						<xs:complexType>
+																							<xs:simpleContent>
+																								<xs:extension base="xs:decimal">
+																									<xs:attribute ref="auc:Source"/>
+																								</xs:extension>
+																							</xs:simpleContent>
+																						</xs:complexType>
+																					</xs:element>
+																				</xs:sequence>
+																			</xs:complexType>
+																		</xs:element>
+																	</xs:choice>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="AirSideEconomizer" minOccurs="0">
+																<xs:complexType>
+																	<xs:choice>
+																		<xs:element name="True" minOccurs="0">
+																			<xs:complexType>
+																				<xs:sequence>
+																					<xs:element name="AirSideEconomizerType" minOccurs="0">
+																						<xs:annotation>
+																							<xs:documentation>Type of air economizer system associated with a cooling system.</xs:documentation>
+																						</xs:annotation>
+																						<xs:simpleType>
+																							<xs:restriction base="xs:string">
+																								<xs:enumeration value="Dry bulb temperature"/>
+																								<xs:enumeration value="Enthalpy"/>
+																								<xs:enumeration value="Demand controlled ventilation"/>
+																								<xs:enumeration value="Nonintegrated"/>
+																								<xs:enumeration value="Other"/>
+																								<xs:enumeration value="Unknown"/>
+																							</xs:restriction>
+																						</xs:simpleType>
+																					</xs:element>
+																					<xs:element name="EconomizerControl" minOccurs="0">
+																						<xs:annotation>
+																							<xs:documentation>Logic used for economizer control.</xs:documentation>
+																						</xs:annotation>
+																						<xs:simpleType>
+																							<xs:restriction base="xs:string">
+																								<xs:enumeration value="Fixed"/>
+																								<xs:enumeration value="Differential"/>
+																								<xs:enumeration value="Other"/>
+																								<xs:enumeration value="Unknown"/>
+																							</xs:restriction>
+																						</xs:simpleType>
+																					</xs:element>
+																					<xs:element name="EconomizerDryBulbControlPoint" minOccurs="0">
+																						<xs:annotation>
+																							<xs:documentation>Dry bulb temperature setting for use of economizer for cooling (fixed or differential) (°F)</xs:documentation>
+																						</xs:annotation>
+																						<xs:complexType>
+																							<xs:simpleContent>
+																								<xs:extension base="xs:decimal">
+																									<xs:attribute ref="auc:Source"/>
+																								</xs:extension>
+																							</xs:simpleContent>
+																						</xs:complexType>
+																					</xs:element>
+																					<xs:element name="EconomizerEnthalpyControlPoint" minOccurs="0">
+																						<xs:annotation>
+																							<xs:documentation>Maximum enthalpy setting for use of economizer for cooling (fixed or differential) (Btu/lb)</xs:documentation>
+																						</xs:annotation>
+																						<xs:complexType>
+																							<xs:simpleContent>
+																								<xs:extension base="xs:decimal">
+																									<xs:attribute ref="auc:Source"/>
+																								</xs:extension>
+																							</xs:simpleContent>
+																						</xs:complexType>
+																					</xs:element>
+																					<xs:element name="EconomizerLowTemperatureLockout" minOccurs="0">
+																						<xs:annotation>
+																							<xs:documentation>The outside air temperature below which the economizer will return to the minimum position. (°F)</xs:documentation>
+																						</xs:annotation>
+																						<xs:complexType>
+																							<xs:simpleContent>
+																								<xs:extension base="xs:decimal">
+																									<xs:attribute ref="auc:Source"/>
+																								</xs:extension>
+																							</xs:simpleContent>
+																						</xs:complexType>
+																					</xs:element>
+																				</xs:sequence>
+																				<xs:attribute name="ID" type="xs:ID"/>
+																				<xs:attribute ref="auc:Status"/>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="False" minOccurs="0"/>
+																	</xs:choice>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="HeatingSupplyAirTemperatureControl" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Defines the control method for heating supply air temperature.</xs:documentation>
+																</xs:annotation>
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:enumeration value="Coldest Reset"/>
+																		<xs:enumeration value="Fixed"/>
+																		<xs:enumeration value="Outside Air Reset"/>
+																		<xs:enumeration value="Scheduled"/>
+																		<xs:enumeration value="Staged Setpoint"/>
+																		<xs:enumeration value="Other"/>
+																		<xs:enumeration value="Unknown"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
+															<xs:element name="CoolingSupplyAirTemperature" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Temperature setting of supply air for cooling under normal conditions. (°F)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="CoolingSupplyAirTemperatureControlType" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Defines the control method for controlling cooling supply air temperature.</xs:documentation>
+																</xs:annotation>
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:enumeration value="Fixed"/>
+																		<xs:enumeration value="Outside Air Reset"/>
+																		<xs:enumeration value="Scheduled"/>
+																		<xs:enumeration value="Warmest Reset"/>
+																		<xs:enumeration value="Other"/>
+																		<xs:enumeration value="Unknown"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
+															<xs:element name="OutsideAirResetMaximumHeatingSupplyTemperature" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Maximum temperature setting of supply air for heating during outside air reset. (°F)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="OutsideAirResetMinimumHeatingSupplyTemperature" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Minimum temperature setting of supply air for heating during outside air reset. (°F)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="OutsideAirTemperatureUpperLimitHeatingResetControl" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Maximum outside air temperature where supply air temperature is reset for heating. (°F)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="OutsideAirTemperatureLowerLimitHeatingResetControl" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Minimum outside air temperature where supply air temperature is reset for heating. (°F)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="OutsideAirResetMaximumCoolingSupplyTemperature" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Maximum temperature setting of supply air for cooling during outside air reset. (°F)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="OutsideAirResetMinimumCoolingSupplyTemperature" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Minimum temperature setting of supply air for cooling during outside air reset. (°F)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="OutsideAirTemperatureUpperLimitCoolingResetControl" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Maximum outside air temperature where supply air temperature is reset for cooling. (°F)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="OutsideAirTemperatureLowerLimitCoolingResetControl" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Minimum outside air temperature where supply air temperature is reset for cooling. (°F)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="HeatingSupplyAirTemperature" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Temperature setting of supply air for heating or cooling. (°F)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="StaticPressureResetControl" type="xs:boolean" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>True if duct static pressure can be reset to keep it only as high as is needed to satisfy the neediest zone, false otherwise.</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="SupplyAirTemperatureResetControl" type="xs:boolean" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>True the supply-air-temperature set point can be reset based on the temperature in a "critical" zone., false otherwise.</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="HeatingSupplyAirTemperatureControl" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Defines the control method for heating supply air temperature.</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Coldest Reset"/>
-															<xs:enumeration value="Fixed"/>
-															<xs:enumeration value="Outside Air Reset"/>
-															<xs:enumeration value="Scheduled"/>
-															<xs:enumeration value="Staged Setpoint"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element name="CoolingSupplyAirTemperature" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Temperature setting of supply air for cooling under normal conditions. (°F)</xs:documentation>
-													</xs:annotation>
+												<xs:element name="Convection" minOccurs="0">
 													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
+														<xs:sequence>
+															<xs:element name="ConvectionType" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Type of convection equipment used for heating and cooling at the zone.</xs:documentation>
+																</xs:annotation>
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:enumeration value="Perimeter baseboard"/>
+																		<xs:enumeration value="Chilled beam"/>
+																		<xs:enumeration value="Other/combination"/>
+																		<xs:enumeration value="Unknown"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
+															<xs:element name="PipeInsulationThickness" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Defines how thick insulation on pipes in a heating, cooling, water heating system is. (in.)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="PipeLocation" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>% of pipe length in conditioned space (0-1)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="CoolingSupplyAirTemperatureControlType" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Defines the control method for controlling cooling supply air temperature.</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Fixed"/>
-															<xs:enumeration value="Outside Air Reset"/>
-															<xs:enumeration value="Scheduled"/>
-															<xs:enumeration value="Warmest Reset"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element name="OutsideAirResetMaximumHeatingSupplyTemperature" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Maximum temperature setting of supply air for heating during outside air reset. (°F)</xs:documentation>
-													</xs:annotation>
+												<xs:element name="Radiant" minOccurs="0">
 													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
+														<xs:sequence>
+															<xs:element name="RadiantType" minOccurs="0">
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:enumeration value="Radiator"/>
+																		<xs:enumeration value="Radiant floor or ceiling"/>
+																		<xs:enumeration value="Other/combination"/>
+																		<xs:enumeration value="Unknown"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
+															<xs:element name="PipeInsulationThickness" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Defines how thick insulation on pipes in a heating, cooling, water heating system is. (in.)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="PipeLocation" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>% of pipe length in conditioned space (0-1)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="OutsideAirResetMinimumHeatingSupplyTemperature" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Minimum temperature setting of supply air for heating during outside air reset. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="OutsideAirTemperatureUpperLimitHeatingResetControl" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Maximum outside air temperature where supply air temperature is reset for heating. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="OutsideAirTemperatureLowerLimitHeatingResetControl" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Minimum outside air temperature where supply air temperature is reset for heating. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="OutsideAirResetMaximumCoolingSupplyTemperature" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Maximum temperature setting of supply air for cooling during outside air reset. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="OutsideAirResetMinimumCoolingSupplyTemperature" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Minimum temperature setting of supply air for cooling during outside air reset. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="OutsideAirTemperatureUpperLimitCoolingResetControl" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Maximum outside air temperature where supply air temperature is reset for cooling. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="OutsideAirTemperatureLowerLimitCoolingResetControl" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Minimum outside air temperature where supply air temperature is reset for cooling. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element ref="auc:ControlTechnology" minOccurs="0"/>
-												<xs:element name="ReheatSource" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Energy source used to provide reheat energy at a terminal unit.</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Heating plant"/>
-															<xs:enumeration value="Local electric resistance"/>
-															<xs:enumeration value="Local gas"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element name="ReheatControlMethod" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The air/temperature control strategy for VAV systems with reheat boxes.</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Dual Maximum"/>
-															<xs:enumeration value="Single Maximum"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-											</xs:sequence>
+												<xs:element name="Other" minOccurs="0"/>
+											</xs:choice>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="FanCoil" minOccurs="0">
+									<xs:element name="HeatingSourceID" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>ID number of heating system associated with this delivery mechanism.</xs:documentation>
+										</xs:annotation>
 										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="FanCoilType" minOccurs="0">
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Fan Coil-2 Pipe"/>
-															<xs:enumeration value="Fan Coil-4 Pipe"/>
-															<xs:enumeration value="Mini-Split"/>
-															<xs:enumeration value="Multi-Split"/>
-															<xs:enumeration value="Terminal Reheat"/>
-															<xs:enumeration value="VRF terminal units"/>
-															<xs:enumeration value="Other/combination"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element name="HeatingSupplyAirTemperature" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Temperature setting of supply air for heating or cooling. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="HeatingSupplyAirTemperatureControl" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Defines the control method for heating supply air temperature.</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Coldest Reset"/>
-															<xs:enumeration value="Fixed"/>
-															<xs:enumeration value="Outside Air Reset"/>
-															<xs:enumeration value="Scheduled"/>
-															<xs:enumeration value="Staged Setpoint"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element name="CoolingSupplyAirTemperature" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Temperature setting of supply air for cooling under normal conditions. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="CoolingSupplyAirTemperatureControlType" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Defines the control method for controlling cooling supply air temperature.</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Fixed"/>
-															<xs:enumeration value="Outside Air Reset"/>
-															<xs:enumeration value="Scheduled"/>
-															<xs:enumeration value="Warmest Reset"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element name="OutsideAirResetMaximumHeatingSupplyTemperature" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Maximum temperature setting of supply air for heating during outside air reset. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="OutsideAirResetMinimumHeatingSupplyTemperature" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Minimum temperature setting of supply air for heating during outside air reset. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="OutsideAirTemperatureUpperLimitHeatingResetControl" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Maximum outside air temperature where supply air temperature is reset for heating. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="OutsideAirTemperatureLowerLimitHeatingResetControl" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Minimum outside air temperature where supply air temperature is reset for heating. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="OutsideAirResetMaximumCoolingSupplyTemperature" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Maximum temperature setting of supply air for cooling during outside air reset. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="OutsideAirResetMinimumCoolingSupplyTemperature" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Minimum temperature setting of supply air for cooling during outside air reset. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="OutsideAirTemperatureUpperLimitCoolingResetControl" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Maximum outside air temperature where supply air temperature is reset for cooling. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="OutsideAirTemperatureLowerLimitCoolingResetControl" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Minimum outside air temperature where supply air temperature is reset for cooling. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element ref="auc:ControlTechnology" minOccurs="0"/>
-												<xs:element name="HVACPipeConfiguration" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Number of pipes for distributing steam, refrigerant, or water to individual zones.</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="1 pipe"/>
-															<xs:enumeration value="2 pipe"/>
-															<xs:enumeration value="3 pipe"/>
-															<xs:enumeration value="4 pipe"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element name="PipeInsulationThickness" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Defines how thick insulation on pipes in a heating, cooling, water heating system is. (in.)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="PipeLocation" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>% of pipe length in conditioned space (0-1)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-											</xs:sequence>
+											<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="Convection" minOccurs="0">
+									<xs:element name="CoolingSourceID" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>ID number of cooling system associated with this delivery mechanism.</xs:documentation>
+										</xs:annotation>
 										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="ConvectionType" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Type of convection equipment used for heating and cooling at the zone.</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Perimeter baseboard"/>
-															<xs:enumeration value="Chilled beam"/>
-															<xs:enumeration value="Other/combination"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element ref="auc:ControlTechnology" minOccurs="0"/>
-												<xs:element name="PipeInsulationThickness" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Defines how thick insulation on pipes in a heating, cooling, water heating system is. (in.)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="PipeLocation" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>% of pipe length in conditioned space (0-1)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-											</xs:sequence>
+											<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="Radiant" minOccurs="0">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="RadiantType" minOccurs="0">
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Radiator"/>
-															<xs:enumeration value="Radiant floor or ceiling"/>
-															<xs:enumeration value="Other/combination"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element ref="auc:ControlTechnology" minOccurs="0"/>
-												<xs:element name="PipeInsulationThickness" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Defines how thick insulation on pipes in a heating, cooling, water heating system is. (in.)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="PipeLocation" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>% of pipe length in conditioned space (0-1)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-											</xs:sequence>
-										</xs:complexType>
+									<xs:element ref="auc:Capacity" minOccurs="0"/>
+									<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
+									<xs:element ref="auc:PrimaryFuel" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Main fuel used by the system.</xs:documentation>
+										</xs:annotation>
 									</xs:element>
-									<xs:element name="Other" minOccurs="0"/>
-								</xs:choice>
+									<xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+									<xs:element ref="auc:YearInstalled" minOccurs="0"/>
+									<xs:element ref="auc:YearofManufacture" minOccurs="0"/>
+									<xs:element ref="auc:Manufacturer" minOccurs="0"/>
+									<xs:element ref="auc:ModelNumber" minOccurs="0"/>
+									<xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
+								</xs:sequence>
 								<xs:attribute name="ID" type="xs:ID"/>
 								<xs:attribute ref="auc:Status">
 									<xs:annotation>
@@ -6795,16 +6638,10 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="AirDistributionSystems" minOccurs="0">
+			<xs:element name="DuctSystems" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="AirDistributionSystem" maxOccurs="unbounded">
-							<xs:complexType>
-								<xs:complexContent>
-									<xs:extension base="auc:AirDistributionSystemType"/>
-								</xs:complexContent>
-							</xs:complexType>
-						</xs:element>
+						<xs:element name="DuctSystems" type="auc:DuctSystemType" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -6869,22 +6706,8 @@
 		<xs:attribute name="ID" type="xs:ID"/>
 		<xs:attribute ref="auc:Status"/>
 	</xs:complexType>
-	<xs:complexType name="AirDistributionSystemType">
+	<xs:complexType name="DuctSystemType">
 		<xs:sequence>
-			<xs:element name="AirDistributionType" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Basic configuration of air distribution equipment.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Unitary"/>
-						<xs:enumeration value="Built-up"/>
-						<xs:enumeration value="Split"/>
-						<xs:enumeration value="Other"/>
-						<xs:enumeration value="Unknown"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
 			<xs:element name="DuctConfiguration" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Configuration of ducts.</xs:documentation>
@@ -6900,19 +6723,21 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="StaticPressureResetControl" type="xs:boolean" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>True if duct static pressure can be reset to keep it only as high as is needed to satisfy the neediest zone, false otherwise.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="SupplyAirTemperatureResetControl" type="xs:boolean" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>True the supply-air-temperature set point can be reset based on the temperature in a "critical" zone., false otherwise.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="MinimumOutsideAirPercentage" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Minimum outside air percentage allowed.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MaximumOAFlowRate" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The maximum flow rate of outside air that the system is able to deliver. For systems with economizing or demand controlled ventilation capability, this is the outdoor air flow rate when the OA damper is fully open and the fan speed is at maximum. (cfm)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -7084,97 +6909,6 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="MaximumOAFlowRate" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The maximum flow rate of outside air that the system is able to deliver. For systems with economizing or demand controlled ventilation capability, this is the outdoor air flow rate when the OA damper is fully open and the fan speed is at maximum. (cfm)</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:simpleContent>
-						<xs:extension base="xs:decimal">
-							<xs:attribute ref="auc:Source"/>
-						</xs:extension>
-					</xs:simpleContent>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="AirSideEconomizer" minOccurs="0">
-				<xs:complexType>
-					<xs:choice>
-						<xs:element name="True" minOccurs="0">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="AirSideEconomizerType" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Type of air economizer system associated with a cooling system.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Dry bulb temperature"/>
-												<xs:enumeration value="Enthalpy"/>
-												<xs:enumeration value="Demand controlled ventilation"/>
-												<xs:enumeration value="Nonintegrated"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="EconomizerControl" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Logic used for economizer control.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Fixed"/>
-												<xs:enumeration value="Differential"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="EconomizerDryBulbControlPoint" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Dry bulb temperature setting for use of economizer for cooling (fixed or differential) (°F)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="EconomizerEnthalpyControlPoint" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Maximum enthalpy setting for use of economizer for cooling (fixed or differential) (Btu/lb)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="EconomizerLowTemperatureLockout" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The outside air temperature below which the economizer will return to the minimum position. (°F)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
-								<xs:attribute name="ID" type="xs:ID"/>
-								<xs:attribute ref="auc:Status"/>
-							</xs:complexType>
-						</xs:element>
-						<xs:element name="False" minOccurs="0"/>
-					</xs:choice>
-				</xs:complexType>
-			</xs:element>
 			<xs:element ref="auc:Quantity" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The number of systems meeting these specifications on the premises. A system can be a single unit, or the whole collection of units. The boundary of system is defined by the reported characteristics. For example, you can report the capacity per unit for 4 units, in which case the capacity is 1/4 of the total installed capacity and the quantity is 4; or you can report the total installed capacity of the combined 4 units, in which case, the capacity is the total installed capacity and the quantity is 1.</xs:documentation>
@@ -7183,12 +6917,6 @@
 			<xs:element ref="auc:Location" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Physical location of system.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element ref="auc:ControlTechnology" minOccurs="0"/>
-			<xs:element ref="auc:PrimaryFuel" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Resource or fuel which drives the energy production.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="auc:YearInstalled" minOccurs="0">
@@ -7318,10 +7046,13 @@
 								</xs:simpleContent>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="CondenserType" type="auc:CondenserTypeType" minOccurs="0">
+						<xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>Type of condenser used for DX cooling plant.</xs:documentation>
+								<xs:documentation>ID numbers of the central condenser plants serving as the source for this cooling system.</xs:documentation>
 							</xs:annotation>
+							<xs:complexType>
+								<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+							</xs:complexType>
 						</xs:element>
 						<xs:element ref="auc:Refrigerant" minOccurs="0"/>
 						<xs:element name="RefrigerantChargeFactor" minOccurs="0">
@@ -7539,7 +7270,7 @@
 		<xs:attribute name="ID" type="xs:ID"/>
 		<xs:attribute ref="auc:Status"/>
 	</xs:complexType>
-	<xs:complexType name="CondenserTypeType">
+	<xs:complexType name="CondenserPlantType">
 		<xs:choice>
 			<xs:element name="AirCooled" minOccurs="0">
 				<xs:complexType>
@@ -7599,6 +7330,47 @@
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
+						<xs:element name="CondensingTemperature" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The saturation temperature, in degrees, corresponding to the measured refrigerant pressure at the condenser inlet. (°F)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="SplitCondenser" type="xs:boolean" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>True if a valve is used to split the condenser loop to better control head pressure.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DesignAmbientTemperature" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The ambient air temperature under design conditions. (°F)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="DesignTemperatureDifference" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The difference between the condensing temperature of the refrigerant in the condenser and the design ambient temperature. (°F)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -7622,6 +7394,18 @@
 						<xs:element name="CondenserWaterTemperature" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>The temperature of water supplied to a water-cooled condenser under normal operating conditions. (°F)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CondensingTemperature" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The saturation temperature, in degrees, corresponding to the measured refrigerant pressure at the condenser inlet. (°F)</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:simpleContent>
@@ -7742,7 +7526,24 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="GlycolCooledDryCooler" minOccurs="0"/>
+			<xs:element name="GlycolCooledDryCooler" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CondensingTemperature" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The saturation temperature, in degrees, corresponding to the measured refrigerant pressure at the condenser inlet. (°F)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="Other" minOccurs="0"/>
 			<xs:element name="Unknown" minOccurs="0"/>
 		</xs:choice>
@@ -8473,18 +8274,6 @@
 						</xs:element>
 						<xs:element name="False" minOccurs="0"/>
 					</xs:choice>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="DaylightingIlluminanceSetPoint" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Lighting level used for controlling electric lights when daylighting is available. (lux)</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:simpleContent>
-						<xs:extension base="xs:decimal">
-							<xs:attribute ref="auc:Source"/>
-						</xs:extension>
-					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="DaylightingControlSteps" minOccurs="0">
@@ -9416,189 +9205,12 @@
 											<xs:attribute name="ID" type="xs:ID"/>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="RefrigerationCondenser" minOccurs="0">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="CondensingTemperature" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The saturation temperature, in degrees, corresponding to the measured refrigerant pressure at the condenser inlet. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="SplitCondenser" type="xs:boolean" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>True if a valve is used to split the condenser loop to better control head pressure.</xs:documentation>
-													</xs:annotation>
-												</xs:element>
-												<xs:element name="DesignAmbientTemperature" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The ambient air temperature under design conditions. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="DesignTemperatureDifference" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The difference between the condensing temperature of the refrigerant in the condenser and the design ambient temperature. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-											</xs:sequence>
-											<xs:attribute name="ID" type="xs:ID"/>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-						<xs:element name="RefrigerationUnit" minOccurs="0">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="RefrigerationUnitType" minOccurs="0">
+									<xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded">
 										<xs:annotation>
-											<xs:documentation>Refrigeration equipment includes a refrigerator or freezer used for storing food products at specified temperatures, with the condensing unit and compressor built into the cabinet, and designed for use by commercial or institutional premises, other than laboratory settings. These units may be vertical or chest configurations and may contain a worktop surface.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Refrigerator"/>
-												<xs:enumeration value="Freezer"/>
-												<xs:enumeration value="Combination"/>
-												<xs:enumeration value="Other/combination"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="DoorConfiguration" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Door configuration of the refrigerator/freezer unit.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Side-by-side"/>
-												<xs:enumeration value="Top and bottom"/>
-												<xs:enumeration value="Other/combination"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="RefrigeratedCaseDoors" type="xs:boolean" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>True if refrigerated equipment has doors, false if not.</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="CaseDoorOrientation" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Orientation of refrigerated case doors used for display cases at stores, food-service establishments.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Horizontal"/>
-												<xs:enumeration value="Vertical"/>
-												<xs:enumeration value="Combination"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="DefrostType" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Type of defrost strategy used for refrigerated cases.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Electric"/>
-												<xs:enumeration value="Hot Gas"/>
-												<xs:enumeration value="Cool Gas"/>
-												<xs:enumeration value="None"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="LampPower" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Average power used by lamps in refrigerated cases. (W)</xs:documentation>
+											<xs:documentation>ID numbers of the condenser plants serving as the source for this cooling system.</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="Size" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Size of refrigeration equipment. (ft3)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="AntiSweatHeaters" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>True if refrigerated cases include anti-sweat heaters</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:choice>
-												<xs:element name="True" minOccurs="0">
-													<xs:complexType>
-														<xs:sequence>
-															<xs:element name="AntiSweatHeaterPower" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The total power associated with anti-sweat heaters for glass display doors for a refrigerated cases of this type. (W)</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="AntiSweatHeaterControls" type="xs:boolean" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>True if anti-sweat heaters are controlled to minimize energy use</xs:documentation>
-																</xs:annotation>
-															</xs:element>
-															<xs:element ref="auc:Manufacturer" minOccurs="0"/>
-															<xs:element ref="auc:ModelNumber" minOccurs="0"/>
-														</xs:sequence>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="False" minOccurs="0"/>
-											</xs:choice>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="RefrigerationEnergy" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Power for refrigeration equipment. (W)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
+											<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
 										</xs:complexType>
 									</xs:element>
 								</xs:sequence>
@@ -10756,6 +10368,18 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="WallUFactor" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above).  (Btu/hr·ft2·°F)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="WallFramingMaterial" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The material used to create the structural integrity in an opaque surface. In many cases the framing material is not continuous across the construction.</xs:documentation>
@@ -11160,6 +10784,18 @@
 			<xs:element name="RoofRValue" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>(Also known as thermal resistance), quantity determined by the temperature difference, at steady state, between two defined surfaces of a material or construction that induces a unit heat flow rate through unit area (R = ΔT/q). R-value is the reciprocal of thermal conductance. A unit of thermal resistance used for comparing insulating values of different materials, for the specific thickness of the material. The higher the R-value number, a material, the greater its insulating properties and the slower the heat flow through it. This R-value does not include the interior and exterior air film coefficients. (hr-ft2-F/Btu)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RoofUFactor" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above).  (Btu/hr·ft2·°F)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -11732,6 +11368,18 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="FenestrationUFactor" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above).  (Btu/hr·ft2·°F)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="SolarHeatGainCoefficient" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The ratio of the solar heat gain entering the space through the fenestration product to the incident solar radiation. Solar heat gain includes directly transmitted solar heat and that portion of the absorbed solar radiation which is then reradiated, conducted, or convected into the space. (0-1)</xs:documentation>
@@ -11948,6 +11596,18 @@
 															<xs:element name="FloorRValue" minOccurs="0">
 																<xs:annotation>
 																	<xs:documentation>(Also known as thermal resistance), quantity determined by the temperature difference, at steady state, between two defined surfaces of a material or construction that induces a unit heat flow rate through unit area (R = ΔT/q). R-value is the reciprocal of thermal conductance. A unit of thermal resistance used for comparing insulating values of different materials, for the specific thickness of the material. The higher the R-value number, a material, the greater its insulating properties and the slower the heat flow through it. This R-value does not include the interior and exterior air film coefficients. (hr-ft2-F/Btu)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="FloorUFactor" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above).  (Btu/hr·ft2·°F)</xs:documentation>
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:simpleContent>
