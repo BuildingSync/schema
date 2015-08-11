@@ -4109,13 +4109,13 @@
 											<xs:restriction base="xs:string">
 												<xs:enumeration value="Replace boiler"/>
 												<xs:enumeration value="Replace burner"/>
-												<xs:enumeration value="Boiler decentralization"/>
-												<xs:enumeration value="Boiler room Insulation"/>
+												<xs:enumeration value="Decentralize boiler"/>
+												<xs:enumeration value="Insulate boiler room"/>
 												<xs:enumeration value="Convert gas-fired unit to boiler loop"/>
 												<xs:enumeration value="Convert system from steam to hot water"/>
-												<xs:enumeration value="Cleaning and repair"/>
-												<xs:enumeration value="Training and/or documentation"/>
-												<xs:enumeration value="Operating protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Clean and/or repair"/>
+												<xs:enumeration value="Implement training and/or documentation"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4135,15 +4135,15 @@
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:enumeration value="Add heat recovery"/>
+												<xs:enumeration value="Add energy recovery"/>
 												<xs:enumeration value="Install VSD on electric centrifugal chillers"/>
 												<xs:enumeration value="Replace chiller"/>
-												<xs:enumeration value="Gas cooling"/>
-												<xs:enumeration value="Economizer cycle"/>
+												<xs:enumeration value="Install gas cooling"/>
+												<xs:enumeration value="Add or repair economizer cycle"/>
 												<xs:enumeration value="Add or replace cooling tower"/>
-												<xs:enumeration value="Cleaning and/or repair"/>
-												<xs:enumeration value="Training and/or documentation"/>
-												<xs:enumeration value="Operating protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Clean and/or repair"/>
+												<xs:enumeration value="Implement training and/or documentation"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4166,8 +4166,8 @@
 												<xs:enumeration value="Add heat recovery"/>
 												<xs:enumeration value="Add or upgrade BAS/EMS/EMCS"/>
 												<xs:enumeration value="Add or upgrade controls"/>
-												<xs:enumeration value="Pneumatic to DDC convert"/>
-												<xs:enumeration value="Operating protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Convert pneumatic controls to DDC"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4187,28 +4187,27 @@
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:enumeration value="Replace/modify AHU"/>
+												<xs:enumeration value="Replace or modify AHU"/>
 												<xs:enumeration value="Improve fans"/>
 												<xs:enumeration value="Convert CV system to VAV system"/>
-												<xs:enumeration value="Operating protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Repair leaks / seal ducts"/>
 												<xs:enumeration value="Add duct insulation"/>
-												<xs:enumeration value="Balancing"/>
-												<xs:enumeration value="HVAC damper and controller repair or replacement"/>
+												<xs:enumeration value="Balance ventilation/distribution system"/>
+												<xs:enumeration value="Repair or replace HVAC damper and controller"/>
 												<xs:enumeration value="Replace burner"/>
 												<xs:enumeration value="Replace package units"/>
 												<xs:enumeration value="Replace packaged terminal units"/>
-												<xs:enumeration value="Passive solar heating installation"/>
-												<xs:enumeration value="Replacement of AC and heating units with ground coupled heat pump systems"/>
-												<xs:enumeration value="Add heat recovery"/>
+												<xs:enumeration value="Install passive solar heating"/>
+												<xs:enumeration value="Replace AC and heating units with ground coupled heat pump systems"/>
+												<xs:enumeration value="Add energy recovery"/>
 												<xs:enumeration value="Add or replace cooling tower"/>
-												<xs:enumeration value="Gas cooling"/>
-												<xs:enumeration value="Economizer cycle"/>
-												<xs:enumeration value="Enhanced dehumidification"/>
-												<xs:enumeration value="Solar ventilation preheating system installation"/>
-												<xs:enumeration value="Cleaning and repair"/>
-												<xs:enumeration value="Training and/or documentation"/>
-												<xs:enumeration value="Operating protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Install gas cooling"/>
+												<xs:enumeration value="Add or repair economizer"/>
+												<xs:enumeration value="Add enhanced dehumidification"/>
+												<xs:enumeration value="Install solar ventilation preheating system"/>
+												<xs:enumeration value="Clean and/or repair"/>
+												<xs:enumeration value="Implement training and/or documentation"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4231,14 +4230,14 @@
 												<xs:enumeration value="Retrofit with CFLs"/>
 												<xs:enumeration value="Retrofit with T-5"/>
 												<xs:enumeration value="Retrofit with T-8"/>
-												<xs:enumeration value="Spectrally enhanced lighting"/>
-												<xs:enumeration value="Fiber optic lighting technologies"/>
-												<xs:enumeration value="Light emitting diode technologies"/>
-												<xs:enumeration value="Add daylight dimming"/>
+												<xs:enumeration value="Install spectrally enhanced lighting"/>
+												<xs:enumeration value="Retrofit with fiber optic lighting technologies"/>
+												<xs:enumeration value="Retrofit with light emitting diode technologies"/>
+												<xs:enumeration value="Add daylight controls"/>
 												<xs:enumeration value="Add occupancy sensors"/>
-												<xs:enumeration value="Cleaning and/or repair"/>
-												<xs:enumeration value="Training and/or documentation"/>
-												<xs:enumeration value="Operation protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Clean and/or repair"/>
+												<xs:enumeration value="Implement training and/or documentation"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4258,22 +4257,22 @@
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:enumeration value="Air sealing"/>
+												<xs:enumeration value="Air seal envelope"/>
 												<xs:enumeration value="Increase wall insulation"/>
-												<xs:enumeration value="Insulate thermal bypass"/>
+												<xs:enumeration value="Insulate thermal bypasses"/>
 												<xs:enumeration value="Increase ceiling insulation"/>
 												<xs:enumeration value="Increase roof insulation"/>
 												<xs:enumeration value="Insulate attic hatch / stair box"/>
 												<xs:enumeration value="Add attic/knee wall insulation"/>
-												<xs:enumeration value="Cool/green roof installed"/>
+												<xs:enumeration value="Install cool/green roof"/>
 												<xs:enumeration value="Add shading devices"/>
 												<xs:enumeration value="Add window films"/>
-												<xs:enumeration value="Insulation or replacement of solar screens"/>
+												<xs:enumeration value="Install or replace solar screens"/>
 												<xs:enumeration value="Replace glazing"/>
-												<xs:enumeration value="Window replacement"/>
+												<xs:enumeration value="Replace windows"/>
 												<xs:enumeration value="Increase floor insulation"/>
 												<xs:enumeration value="Insulate foundation"/>
-												<xs:enumeration value="Cleaning and/or repair"/>
+												<xs:enumeration value="Clean and/or repair"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4294,19 +4293,19 @@
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
 												<xs:enumeration value="Add pipe insulation"/>
-												<xs:enumeration value="Steam trap repair and replacement"/>
-												<xs:enumeration value="Chiller plant pumping, piping, and controls retrofits and replacements"/>
-												<xs:enumeration value="Repair or replacement of existing condensate return systems and installation of new condensate return systems"/>
+												<xs:enumeration value="Repair and/or replace steam traps"/>
+												<xs:enumeration value="Retrofit and replace chiller plant pumping, piping, and controls"/>
+												<xs:enumeration value="Repair or replace existing condensate return systems or install new condensate return systems"/>
 												<xs:enumeration value="Add recirculating pumps"/>
-												<xs:enumeration value="Replace or upgrade heater"/>
-												<xs:enumeration value="Add Heat Recovery"/>
-												<xs:enumeration value="Solar hot water system installation"/>
+												<xs:enumeration value="Replace or upgrade water heater"/>
+												<xs:enumeration value="Add energy recovery"/>
+												<xs:enumeration value="Install solar hot water system"/>
 												<xs:enumeration value="Separate DHW from heating"/>
 												<xs:enumeration value="Replace with higher efficiency pump"/>
 												<xs:enumeration value="Replace with variable speed pump"/>
-												<xs:enumeration value="Cleaning and/or repair"/>
-												<xs:enumeration value="Training and/or documentation"/>
-												<xs:enumeration value="Operation protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Clean and/or repair"/>
+												<xs:enumeration value="Implement training and/or documentation"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4328,10 +4327,10 @@
 											<xs:restriction base="xs:string">
 												<xs:enumeration value="Add drive controls"/>
 												<xs:enumeration value="Replace with higher efficiency"/>
-												<xs:enumeration value="Replace with VSD"/>
-												<xs:enumeration value="Cleaning and/or repair"/>
-												<xs:enumeration value="Training and/or documentation"/>
-												<xs:enumeration value="Operation protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Add VSD motor controller"/>
+												<xs:enumeration value="Clean and/or repair"/>
+												<xs:enumeration value="Implement training and/or documentation"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4351,12 +4350,12 @@
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:enumeration value="Replacement of ice/refrigeration equipment with high efficiency units"/>
+												<xs:enumeration value="Replace ice/refrigeration equipment with high efficiency units"/>
 												<xs:enumeration value="Replace air-cooled ice/refrigeration equipment"/>
 												<xs:enumeration value="Replace refrigerators"/>
-												<xs:enumeration value="Cleaning and/or repair"/>
-												<xs:enumeration value="Training and/or documentation"/>
-												<xs:enumeration value="Operation protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Clean and/or repair"/>
+												<xs:enumeration value="Implement training and/or documentation"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4376,13 +4375,13 @@
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:enumeration value="CHP/cogeneration systems installation"/>
-												<xs:enumeration value="Fuel cells installation"/>
-												<xs:enumeration value="Microturbines installation"/>
-												<xs:enumeration value="Fuel conversion"/>
-												<xs:enumeration value="Cleaning and/or repair"/>
-												<xs:enumeration value="Training and/or documentation"/>
-												<xs:enumeration value="Operation protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Install CHP/cogeneration systems"/>
+												<xs:enumeration value="Install fuel cells"/>
+												<xs:enumeration value="Install microturbines"/>
+												<xs:enumeration value="Convert fuels"/>
+												<xs:enumeration value="Clean and/or repair"/>
+												<xs:enumeration value="Implement training and/or documentation"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4402,13 +4401,13 @@
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:enumeration value="Landfill gas, wastewater treatment plant digester gas, and coal bed methane power plant installation"/>
-												<xs:enumeration value="Photovoltaic system installation"/>
-												<xs:enumeration value="Wind energy system installation"/>
-												<xs:enumeration value="Wood waste, other organic waste stream heating or power plant installation"/>
-												<xs:enumeration value="Cleaning and/or repair"/>
-												<xs:enumeration value="Training and/or documentation"/>
-												<xs:enumeration value="Operation protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Install landfill gas, wastewater treatment plant digester gas, or coal bed methane power plant"/>
+												<xs:enumeration value="Install photovoltaic system"/>
+												<xs:enumeration value="Install wind energy system"/>
+												<xs:enumeration value="Install wood waste or other organic waste stream heating or power plant"/>
+												<xs:enumeration value="Clean and/or repair"/>
+												<xs:enumeration value="Implement training and/or documentation"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4428,13 +4427,13 @@
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:enumeration value="Power factor correction"/>
-												<xs:enumeration value="Power quality upgrades"/>
-												<xs:enumeration value="Transformers installation"/>
-												<xs:enumeration value="Gas distribution systems installation"/>
-												<xs:enumeration value="Cleaning and/or repair"/>
-												<xs:enumeration value="Training and/or documentation"/>
-												<xs:enumeration value="Operation protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Implement power factor corrections"/>
+												<xs:enumeration value="Implement power quality upgrades"/>
+												<xs:enumeration value="Upgrade transformers"/>
+												<xs:enumeration value="Install gas distribution systems"/>
+												<xs:enumeration value="Clean and/or repair"/>
+												<xs:enumeration value="Implement training and/or documentation"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4454,13 +4453,13 @@
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:enumeration value="Low-flow faucets and showerheads"/>
-												<xs:enumeration value="Low-flow plumbing equipment"/>
-												<xs:enumeration value="On-site sewer treatment systems"/>
-												<xs:enumeration value="Water efficient irrigation"/>
-												<xs:enumeration value="Cleaning and/or repair"/>
-												<xs:enumeration value="Training and/or documentation"/>
-												<xs:enumeration value="Operation protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Install low-flow faucets and showerheads"/>
+												<xs:enumeration value="Install low-flow plumbing equipment"/>
+												<xs:enumeration value="Install on-site sewer treatment systems"/>
+												<xs:enumeration value="Implement water efficient irrigation"/>
+												<xs:enumeration value="Clean and/or repair"/>
+												<xs:enumeration value="Implement training and/or documentation"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4480,9 +4479,9 @@
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:enumeration value="Thermal energy storage"/>
-												<xs:enumeration value="Training and/or documentation"/>
-												<xs:enumeration value="Operation protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Install thermal energy storage"/>
+												<xs:enumeration value="Implement training and/or documentation"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4505,7 +4504,7 @@
 												<xs:enumeration value="Change to more favorable rate schedule"/>
 												<xs:enumeration value="Energy cost reduction through rate adjustments - uncategorized"/>
 												<xs:enumeration value="Energy service billing and meter auditing recommendations"/>
-												<xs:enumeration value="Lower energy cost supplier(s) (where applicable)"/>
+												<xs:enumeration value="Change to lower energy cost supplier(s)"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4525,11 +4524,11 @@
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:enumeration value="Industrial process improvement"/>
-												<xs:enumeration value="Production and/or manufacturing improvements"/>
-												<xs:enumeration value="Cleaning and/or repair"/>
-												<xs:enumeration value="Training and/or documentation"/>
-												<xs:enumeration value="Operation protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Implement industrial process improvements"/>
+												<xs:enumeration value="Implement production and/or manufacturing improvements"/>
+												<xs:enumeration value="Clean and/or repair"/>
+												<xs:enumeration value="Implement training and/or documentation"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4549,9 +4548,10 @@
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:enumeration value="Cleaning and/or repair"/>
-												<xs:enumeration value="Training and/or documentation"/>
-												<xs:enumeration value="Operation protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Commission or retrocommission"/>
+												<xs:enumeration value="Clean and/or repair"/>
+												<xs:enumeration value="Implement training and/or documentation"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4572,9 +4572,9 @@
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
 												<xs:enumeration value="Install advanced metering systems"/>
-												<xs:enumeration value="Cleaning and/or repair"/>
-												<xs:enumeration value="Training and/or documentation"/>
-												<xs:enumeration value="Operation protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Clean and/or repair"/>
+												<xs:enumeration value="Implement training and/or documentation"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4594,12 +4594,12 @@
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:enumeration value="Replace with Energy Star rated"/>
-												<xs:enumeration value="Plug timers"/>
+												<xs:enumeration value="Replace with ENERGY STAR rated"/>
+												<xs:enumeration value="Install plug load controls"/>
 												<xs:enumeration value="De-lamp vending machines"/>
-												<xs:enumeration value="Cleaning and/or repair"/>
-												<xs:enumeration value="Training and/or documentation"/>
-												<xs:enumeration value="Operation protocols, calibration, and/or sequencing"/>
+												<xs:enumeration value="Clean and/or repair"/>
+												<xs:enumeration value="Implement training and/or documentation"/>
+												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>

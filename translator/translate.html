@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BuildingSync XML <-> JSON Translator</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/agate.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/highlight.pack.js"></script>
+  <script src="js/vkbeautify.min.js"></script>
+  <script src="js/jsonix-min.js"></script>
+  <script src="js/FileSaver.min.js"></script>
+  <style>
+    @-webkit-keyframes pulse {
+      0% { background: #fff; }
+      100% { background: #6af; }
+    }
+    .active-drop-target {
+      -webkit-animation-name: pulse;
+      -webkit-animation-duration: 0.7s;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-direction: alternate;
+      -webkit-animation-timing-function: in-and-out;
+      background: #6af;
+    }
+    #output {
+      display: none;
+    }
+    pre {
+      border-radius: 0;
+      padding: 0;
+    }
+    code {
+      max-height: 50em;
+      overflow-y: scroll;
+    }
+    textarea {
+      font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body class="container-fluid">
+  <h1>
+    <a href="http://www.nrel.gov/buildings/buildingsync.html">BuildingSync</a> XML <span class="glyphicon glyphicon-resize-horizontal" aria-hidden="true"></span> JSON Translator
+    <span style="font-size: 40%; color: #888">schema 1.0</span>
+  </h1>
+  <div id="alerts"></div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3>BuildingSync Input File:</h3>
+      <textarea style="height:650px; width:100%;" id="code" name="js_code" spellcheck="false" readonly>        Drag and drop a BuildingSync XML or JSON file here.</textarea>
+    </div>
+    <div class="col-md-6">
+      <div id="output" style="width:100%;">
+        <div class="btn-group pull-right">
+          <button type="button" id="download" class="btn btn-primary btn-sm">Download</button>
+          <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" id="download-compressed">Compress</a></li>
+          </ul>
+        </div>
+        <h3 id="output-format"></h3>
+        <pre><code style="height:650em;"></code></pre>
+      </div>
+    </div>
+  </div>
+  <script src="mappings/1.0.js"></script>
+  <script>
+    $(function () {
+      var type = null,
+        name = null;
+      if (window.File && window.FileReader && window.FileList) {
+        (function () { // local scope
+          var stopEvent = function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+          };
+
+          var read = function (file) {
+            name = file.name;
+            if (name.match(/\.xml$/)) {
+              type = 'xml';
+            } else if (name.match(/\.json$/)) {
+              type = 'json';
+            } else {
+              logWarning('Invalid file type');
+              return;
+            }
+            var fr = new FileReader();
+            fr.onload = function (e) {
+              $('#code').text(fr.result);
+              $('#output').show();
+              var context = new Jsonix.Context([BuildingSync]);
+              $('#output code').removeClass();
+              if (type == 'xml') {
+                $('#output-format').text('JSON:');
+                var unmarshaller = context.createUnmarshaller();
+                var unmarshalledJson = unmarshaller.unmarshalString(fr.result);
+                $('#output code').text(JSON.stringify(unmarshalledJson, null, 2)).addClass('json');
+              } else if (type == 'json') {
+                $('#output-format').text('XML:');
+                var marshaller = context.createMarshaller();
+                var marshalledXML = marshaller.marshalString(JSON.parse(fr.result));
+                $('#output code').text(vkbeautify.xml(marshalledXML, 2)).addClass('xml');
+              }
+              hljs.highlightBlock($('#output code')[0]);
+            };
+            fr.onabort = function (e) {
+              logError('The file read was aborted...', e, '[' + e.getMessage() + ']');
+            };
+            fr.onerror = function (e) {
+              logError('There was an error reading the file...', e, '[' + e.getMessage() + ']');
+            };
+            fr.readAsText(file);
+          };
+
+          // when you drag.
+          e = $('#code');
+
+          // dragging onto textarea
+          e.on('dragenter', function () {
+            $(this).addClass('drag-over');
+          });
+          e.on('dragenter', function (evt) {
+            stopEvent(evt);
+            $(this).removeClass().addClass('active-drop-target');
+          });
+          // drag-moving over the textarea
+          e.on('dragover', function (evt) {
+            stopEvent(evt);
+          });
+          // no-longer dragging over the textarea
+          e.on('dragleave', function (evt) {
+            stopEvent(evt);
+            $(this).removeClass();
+          });
+          // dropped on the textarea
+          e.on('drop', function (evt) {
+            stopEvent(evt);
+            $('#alerts').empty();
+            $(this).removeClass();
+            var files = evt.originalEvent.dataTransfer.files;
+            if (files.length == 1) {
+              read(files[0]);
+            } else if (files.length === 0) {
+              logError('Please drop a BuildingSync .xml or .json file onto the drop area.');
+            } else {
+              logError('Only 1 file can be dropped at a time');
+            }
+          });
+        })();
+      }
+
+      function logWarning(message) {
+        $('#alerts').append('<div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Warning:</strong> ' + message + '</div>');
+      }
+
+      function logError(message) {
+        $('#alerts').append('<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Error:</strong> ' + message + '</div>');
+      }
+
+      function save(compressed) {
+        var blob = null,
+            data = $('#output code').text();
+        if (type == 'xml') {
+          if (compressed) data = vkbeautify.jsonmin(data);
+          blob = new Blob([data], {
+            type: "application/json;charset=utf-8"
+          });
+          saveAs(blob, name.replace(/\.[^/.]+$/, '.json'));
+        } else if (type == 'json') {
+          if (compressed) data = vkbeautify.xmlmin(data);
+          blob = new Blob([data], {
+            type: "text/xml;charset=utf-8"
+          });
+          saveAs(blob, name.replace(/\.[^/.]+$/, '.xml'));
+        }
+      }
+      $('#download').click(function () {
+        save();
+      });
+      $('#download-compressed').click(function () {
+        save(true);
+      });
+    });
+  </script>
+</body>
+</html>
