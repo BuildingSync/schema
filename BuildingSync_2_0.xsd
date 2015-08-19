@@ -9216,6 +9216,143 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
+						<xs:element name="RefrigerationUnit" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="RefrigerationUnitType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Refrigeration equipment includes a refrigerator or freezer used for storing food products at specified temperatures, with the condensing unit and compressor built into the cabinet, and designed for use by commercial or institutional premises, other than laboratory settings. These units may be vertical or chest configurations and may contain a worktop surface.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Refrigerator"/>
+												<xs:enumeration value="Freezer"/>
+												<xs:enumeration value="Combination"/>
+												<xs:enumeration value="Other/combination"/>
+												<xs:enumeration value="Unknown"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="DoorConfiguration" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Door configuration of the refrigerator/freezer unit.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Side-by-side"/>
+												<xs:enumeration value="Top and bottom"/>
+												<xs:enumeration value="Other/combination"/>
+												<xs:enumeration value="Unknown"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="RefrigeratedCaseDoors" type="xs:boolean" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>True if refrigerated equipment has doors, false if not.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CaseDoorOrientation" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Orientation of refrigerated case doors used for display cases at stores, food-service establishments.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Horizontal"/>
+												<xs:enumeration value="Vertical"/>
+												<xs:enumeration value="Combination"/>
+												<xs:enumeration value="Unknown"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="DefrostType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Type of defrost strategy used for refrigerated cases.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Electric"/>
+												<xs:enumeration value="Hot Gas"/>
+												<xs:enumeration value="Cool Gas"/>
+												<xs:enumeration value="None"/>
+												<xs:enumeration value="Other"/>
+												<xs:enumeration value="Unknown"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="LampPower" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Average power used by lamps in refrigerated cases. (W)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Size" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Size of refrigeration equipment. (ft3)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="AntiSweatHeaters" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>True if refrigerated cases include anti-sweat heaters</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:choice>
+												<xs:element name="True" minOccurs="0">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="AntiSweatHeaterPower" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The total power associated with anti-sweat heaters for glass display doors for a refrigerated cases of this type. (W)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="AntiSweatHeaterControls" type="xs:boolean" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>True if anti-sweat heaters are controlled to minimize energy use</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element ref="auc:Manufacturer" minOccurs="0"/>
+															<xs:element ref="auc:ModelNumber" minOccurs="0"/>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="False" minOccurs="0"/>
+											</xs:choice>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="RefrigerationEnergy" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Power for refrigeration equipment. (W)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
