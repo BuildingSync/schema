@@ -5393,6 +5393,7 @@
 														</xs:simpleContent>
 													</xs:complexType>
 												</xs:element>
+												<xs:element ref="auc:Quantity" minOccurs="0"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
@@ -5500,6 +5501,7 @@
 														</xs:simpleContent>
 													</xs:complexType>
 												</xs:element>
+												<xs:element ref="auc:Quantity" minOccurs="0"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
@@ -5545,6 +5547,7 @@
 														</xs:restriction>
 													</xs:simpleType>
 												</xs:element>
+												<xs:element ref="auc:Quantity" minOccurs="0"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
@@ -5593,7 +5596,7 @@
 										</xs:annotation>
 										<xs:complexType>
 											<xs:choice>
-												<xs:element name="HeatingPlantID" minOccurs="0">
+												<xs:element name="SourceHeatingPlantID" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>ID number of heating plant serving as the source for this zonal system.</xs:documentation>
 													</xs:annotation>
@@ -5762,10 +5765,19 @@
 																	<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
 																</xs:complexType>
 															</xs:element>
+															<xs:element name="LinkedHeatingPlantID" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>ID number of heating plant serving as the source for this heat pump.</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+																</xs:complexType>
+															</xs:element>
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
 												<xs:element name="OtherCombination" minOccurs="0"/>
+												<xs:element name="NoHeating" minOccurs="0"/>
 												<xs:element name="Unknown" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
@@ -5886,6 +5898,7 @@
 									<xs:element ref="auc:YearofManufacture" minOccurs="0"/>
 									<xs:element ref="auc:Manufacturer" minOccurs="0"/>
 									<xs:element ref="auc:ModelNumber" minOccurs="0"/>
+									<xs:element ref="auc:Quantity" minOccurs="0"/>
 								</xs:sequence>
 								<xs:attribute name="ID" type="xs:ID"/>
 								<xs:attribute ref="auc:Status"/>
@@ -6125,6 +6138,7 @@
 									<xs:element ref="auc:YearofManufacture" minOccurs="0"/>
 									<xs:element ref="auc:Manufacturer" minOccurs="0"/>
 									<xs:element ref="auc:ModelNumber" minOccurs="0"/>
+									<xs:element ref="auc:Quantity" minOccurs="0"/>
 								</xs:sequence>
 								<xs:attribute name="ID" type="xs:ID"/>
 								<xs:attribute ref="auc:Status"/>
@@ -6151,7 +6165,7 @@
 																						</xs:annotation>
 																						<xs:simpleType>
 																							<xs:restriction base="xs:string">
-																								<xs:enumeration value="Central air handler"/>
+																								<xs:enumeration value="Central fan"/>
 																								<xs:enumeration value="Induction units"/>
 																								<xs:enumeration value="Low pressure under floor"/>
 																								<xs:enumeration value="Local fan"/>
@@ -6171,6 +6185,9 @@
 																								<xs:enumeration value="VAV terminal box fan powered with reheat"/>
 																								<xs:enumeration value="VAV terminal box not fan powered no reheat"/>
 																								<xs:enumeration value="VAV terminal box not fan powered with reheat"/>
+																								<xs:enumeration value="Automatically controlled register"/>
+																								<xs:enumeration value="Manually controlled register"/>
+																								<xs:enumeration value="Uncontrolled register"/>
 																								<xs:enumeration value="Other/combination"/>
 																								<xs:enumeration value="Unknown"/>
 																							</xs:restriction>
@@ -6203,6 +6220,7 @@
 																							</xs:restriction>
 																						</xs:simpleType>
 																					</xs:element>
+																					<xs:element name="ReheatPlantID" type="xs:IDREF" minOccurs="0"/>
 																				</xs:sequence>
 																			</xs:complexType>
 																		</xs:element>
@@ -6504,7 +6522,7 @@
 															</xs:element>
 															<xs:element name="SupplyAirTemperatureResetControl" type="xs:boolean" minOccurs="0">
 																<xs:annotation>
-																	<xs:documentation>True the supply-air-temperature set point can be reset based on the temperature in a "critical" zone., false otherwise.</xs:documentation>
+																	<xs:documentation>True if the supply-air-temperature set point can be reset based on the outside air temperature, false otherwise.</xs:documentation>
 																</xs:annotation>
 															</xs:element>
 														</xs:sequence>
@@ -7197,6 +7215,7 @@
 								<xs:documentation>True if an active dehumidification system is available (in addition to the dehumidification that takes place during normal DX cooling operation).</xs:documentation>
 							</xs:annotation>
 						</xs:element>
+						<xs:element ref="auc:Quantity" minOccurs="0"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -7384,8 +7403,6 @@
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="Cooling tower"/>
-									<xs:enumeration value="Open loop ground water"/>
-									<xs:enumeration value="Closed loop ground source"/>
 									<xs:enumeration value="Other"/>
 									<xs:enumeration value="Unknown"/>
 								</xs:restriction>
@@ -7515,6 +7532,137 @@
 							<xs:annotation>
 								<xs:documentation>The number of cells in the cooling tower. Each cell has its own fan, water flow allowing for responding to lower load conditions.</xs:documentation>
 							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:integer">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GroundSource" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="GroundSourceType" minOccurs="0">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Open loop ground water"/>
+									<xs:enumeration value="Closed loop ground source"/>
+									<xs:enumeration value="Other"/>
+									<xs:enumeration value="Unknown"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="CondenserWaterTemperature" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The temperature of water supplied to a water-cooled condenser under normal operating conditions. (°F)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CondensingTemperature" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The saturation temperature, in degrees, corresponding to the measured refrigerant pressure at the condenser inlet. (°F)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="WaterCooledCondenserFlowControl" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Describes water flow control for a water-cooled condenser.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Fixed Flow"/>
+									<xs:enumeration value="Two Position Flow"/>
+									<xs:enumeration value="Variable Flow"/>
+									<xs:enumeration value="Other"/>
+									<xs:enumeration value="Unknown"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="WaterSideEconomizer" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>True if the cooling system has a water-side economizer to provide free cooling.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:choice>
+									<xs:element name="True" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="WaterSideEconomizerType" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Describes water flow control for a water-cooled condenser.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Parallel Plate and Frame Heat Exchanger"/>
+															<xs:enumeration value="Series Plate and Frame Heat Exchanger"/>
+															<xs:enumeration value="Strainer Cycle"/>
+															<xs:enumeration value="Thermo Cycle"/>
+															<xs:enumeration value="Other"/>
+															<xs:enumeration value="Unknown"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="WaterSideEconomizerTemperatureSetpoint" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>The water temperature that the equipment supplies, such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. (°F)</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:simpleContent>
+															<xs:extension base="xs:decimal">
+																<xs:attribute ref="auc:Source"/>
+															</xs:extension>
+														</xs:simpleContent>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="WaterSideEconomizerTemperatureMaximum" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>The control temperature of the condenser water supply temperature above which the water-side economizer is disabled. (°F)</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:simpleContent>
+															<xs:extension base="xs:decimal">
+																<xs:attribute ref="auc:Source"/>
+															</xs:extension>
+														</xs:simpleContent>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="WaterSideEconomizerDBTemperatureMaximum" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>The control temperature (outside air dry-bulb temperature) above which the water-side economizer is disabled. (°F)</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:simpleContent>
+															<xs:extension base="xs:decimal">
+																<xs:attribute ref="auc:Source"/>
+															</xs:extension>
+														</xs:simpleContent>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="ID" type="xs:ID"/>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="False" minOccurs="0"/>
+								</xs:choice>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="WellCount" minOccurs="0">
 							<xs:complexType>
 								<xs:simpleContent>
 									<xs:extension base="xs:integer">
@@ -7684,6 +7832,11 @@
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
+									<xs:element name="DemandControlVentilation" type="xs:boolean" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>True if ventilation system is controlled based on level of occupancy or pollutants, false otherwise</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element name="VentilationControlMethod" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>The method used to control the rate of outside air ventilation.</xs:documentation>
@@ -7693,6 +7846,7 @@
 												<xs:enumeration value="CO2 Sensors"/>
 												<xs:enumeration value="Fixed"/>
 												<xs:enumeration value="Occupancy Sensors"/>
+												<xs:enumeration value="Scheduled"/>
 												<xs:enumeration value="Other"/>
 												<xs:enumeration value="Unknown"/>
 											</xs:restriction>
@@ -7871,6 +8025,11 @@
 			<xs:element ref="auc:YearofManufacture" minOccurs="0"/>
 			<xs:element ref="auc:YearInstalled" minOccurs="0"/>
 			<xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+			<xs:element name="LinkedDeliveryID" type="xs:IDREF" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Connect to an air distribution system</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
 		</xs:sequence>
 		<xs:attribute name="ID" type="xs:ID"/>
@@ -10321,36 +10480,10 @@
 	</xs:complexType>
 	<xs:complexType name="WallSystemType">
 		<xs:sequence>
-			<xs:element name="ExteriorWallConstruction" minOccurs="0">
+			<xs:element name="ExteriorWallConstruction" type="auc:EnvelopeConstructionType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The general description of the main structural construction method used for an opaque surface.</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Masonry"/>
-						<xs:enumeration value="Structural brick"/>
-						<xs:enumeration value="Stone"/>
-						<xs:enumeration value="Concrete Masonry Unit"/>
-						<xs:enumeration value="Concrete-solid"/>
-						<xs:enumeration value="Concrete-lightweight"/>
-						<xs:enumeration value="Concrete-panels"/>
-						<xs:enumeration value="Concrete-poured"/>
-						<xs:enumeration value="Concrete-load bearing"/>
-						<xs:enumeration value="Concrete-insulated forms"/>
-						<xs:enumeration value="Concrete -- aerated"/>
-						<xs:enumeration value="Steel frame"/>
-						<xs:enumeration value="Wood frame"/>
-						<xs:enumeration value="Double wood frame"/>
-						<xs:enumeration value="Structurally insulated panel"/>
-						<xs:enumeration value="Log-solid wood"/>
-						<xs:enumeration value="Straw bale"/>
-						<xs:enumeration value="Built-up"/>
-						<xs:enumeration value="Cool roof"/>
-						<xs:enumeration value="Green roof"/>
-						<xs:enumeration value="Other/combination"/>
-						<xs:enumeration value="Unknown"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="ExteriorWallFinish" minOccurs="0">
 				<xs:annotation>
@@ -10743,37 +10876,23 @@
 	</xs:complexType>
 	<xs:complexType name="RoofCeilingSystemType">
 		<xs:sequence>
-			<xs:element name="RoofConstruction" minOccurs="0">
+			<xs:element name="RoofConstruction" type="auc:EnvelopeConstructionType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The general description of the main structural construction method used for an opaque surface.</xs:documentation>
 				</xs:annotation>
+			</xs:element>
+      <xs:element name="SpecialRoofClassification" minOccurs="0">
+        <xs:annotation>
+					<xs:documentation>Additional classifications for the roof construction.</xs:documentation>
+				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
-						<xs:enumeration value="Masonry"/>
-						<xs:enumeration value="Structural brick"/>
-						<xs:enumeration value="Stone"/>
-						<xs:enumeration value="Concrete Masonry Unit"/>
-						<xs:enumeration value="Concrete-solid"/>
-						<xs:enumeration value="Concrete-lightweight"/>
-						<xs:enumeration value="Concrete-panels"/>
-						<xs:enumeration value="Concrete-poured"/>
-						<xs:enumeration value="Concrete-load bearing"/>
-						<xs:enumeration value="Concrete-insulated forms"/>
-						<xs:enumeration value="Concrete -- aerated"/>
-						<xs:enumeration value="Steel frame"/>
-						<xs:enumeration value="Wood frame"/>
-						<xs:enumeration value="Double wood frame"/>
-						<xs:enumeration value="Structurally insulated panel"/>
-						<xs:enumeration value="Log-solid wood"/>
-						<xs:enumeration value="Straw bale"/>
-						<xs:enumeration value="Built-up"/>
 						<xs:enumeration value="Cool roof"/>
 						<xs:enumeration value="Green roof"/>
-						<xs:enumeration value="Other/combination"/>
-						<xs:enumeration value="Unknown"/>
+						<xs:enumeration value="Other"/>
 					</xs:restriction>
 				</xs:simpleType>
-			</xs:element>
+      </xs:element>
 			<xs:element name="RoofFinish" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The final material applied to a surface, either interior or exterior. Some structural components don't have an exterior finish, such as unfinished poured concrete.</xs:documentation>
@@ -11671,36 +11790,10 @@
 												<xs:element name="Vented" minOccurs="0">
 													<xs:complexType>
 														<xs:sequence>
-															<xs:element name="FloorConstructionType" minOccurs="0">
+															<xs:element name="FloorConstructionType" type="auc:EnvelopeConstructionType" minOccurs="0">
 																<xs:annotation>
 																	<xs:documentation>Construction type for floors over unconditioned space.</xs:documentation>
 																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Masonry"/>
-																		<xs:enumeration value="Structural brick"/>
-																		<xs:enumeration value="Stone"/>
-																		<xs:enumeration value="Concrete Masonry Unit"/>
-																		<xs:enumeration value="Concrete-solid"/>
-																		<xs:enumeration value="Concrete-lightweight"/>
-																		<xs:enumeration value="Concrete-panels"/>
-																		<xs:enumeration value="Concrete-poured"/>
-																		<xs:enumeration value="Concrete-load bearing"/>
-																		<xs:enumeration value="Concrete-insulated forms"/>
-																		<xs:enumeration value="Concrete -- aerated"/>
-																		<xs:enumeration value="Steel frame"/>
-																		<xs:enumeration value="Wood frame"/>
-																		<xs:enumeration value="Double wood frame"/>
-																		<xs:enumeration value="Structurally insulated panel"/>
-																		<xs:enumeration value="Log-solid wood"/>
-																		<xs:enumeration value="Straw bale"/>
-																		<xs:enumeration value="Built-up"/>
-																		<xs:enumeration value="Cool roof"/>
-																		<xs:enumeration value="Green roof"/>
-																		<xs:enumeration value="Other/combination"/>
-																		<xs:enumeration value="Unknown"/>
-																	</xs:restriction>
-																</xs:simpleType>
 															</xs:element>
 															<xs:element name="FloorInsulationThickness" minOccurs="0">
 																<xs:annotation>
@@ -11801,36 +11894,10 @@
 												<xs:element name="Unvented" minOccurs="0">
 													<xs:complexType>
 														<xs:sequence>
-															<xs:element name="FoundationWallConstruction" minOccurs="0">
+															<xs:element name="FoundationWallConstruction" type="auc:EnvelopeConstructionType" minOccurs="0">
 																<xs:annotation>
 																	<xs:documentation>Basement or crawlspace wall construction.</xs:documentation>
 																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Masonry"/>
-																		<xs:enumeration value="Structural brick"/>
-																		<xs:enumeration value="Stone"/>
-																		<xs:enumeration value="Concrete Masonry Unit"/>
-																		<xs:enumeration value="Concrete-solid"/>
-																		<xs:enumeration value="Concrete-lightweight"/>
-																		<xs:enumeration value="Concrete-panels"/>
-																		<xs:enumeration value="Concrete-poured"/>
-																		<xs:enumeration value="Concrete-load bearing"/>
-																		<xs:enumeration value="Concrete-insulated forms"/>
-																		<xs:enumeration value="Concrete -- aerated"/>
-																		<xs:enumeration value="Steel frame"/>
-																		<xs:enumeration value="Wood frame"/>
-																		<xs:enumeration value="Double wood frame"/>
-																		<xs:enumeration value="Structurally insulated panel"/>
-																		<xs:enumeration value="Log-solid wood"/>
-																		<xs:enumeration value="Straw bale"/>
-																		<xs:enumeration value="Built-up"/>
-																		<xs:enumeration value="Cool roof"/>
-																		<xs:enumeration value="Green roof"/>
-																		<xs:enumeration value="Other/combination"/>
-																		<xs:enumeration value="Unknown"/>
-																	</xs:restriction>
-																</xs:simpleType>
 															</xs:element>
 															<xs:element name="FoundationHeightAboveGrade" minOccurs="0">
 																<xs:annotation>
@@ -11914,36 +11981,10 @@
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
-									<xs:element name="FoundationWallConstruction" minOccurs="0">
+									<xs:element name="FoundationWallConstruction" type="auc:EnvelopeConstructionType" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Basement or crawlspace wall construction.</xs:documentation>
 										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Masonry"/>
-												<xs:enumeration value="Structural brick"/>
-												<xs:enumeration value="Stone"/>
-												<xs:enumeration value="Concrete Masonry Unit"/>
-												<xs:enumeration value="Concrete-solid"/>
-												<xs:enumeration value="Concrete-lightweight"/>
-												<xs:enumeration value="Concrete-panels"/>
-												<xs:enumeration value="Concrete-poured"/>
-												<xs:enumeration value="Concrete-load bearing"/>
-												<xs:enumeration value="Concrete-insulated forms"/>
-												<xs:enumeration value="Concrete -- aerated"/>
-												<xs:enumeration value="Steel frame"/>
-												<xs:enumeration value="Wood frame"/>
-												<xs:enumeration value="Double wood frame"/>
-												<xs:enumeration value="Structurally insulated panel"/>
-												<xs:enumeration value="Log-solid wood"/>
-												<xs:enumeration value="Straw bale"/>
-												<xs:enumeration value="Built-up"/>
-												<xs:enumeration value="Cool roof"/>
-												<xs:enumeration value="Green roof"/>
-												<xs:enumeration value="Other/combination"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
 									</xs:element>
 									<xs:element name="FoundationHeightAboveGrade" minOccurs="0">
 										<xs:annotation>
@@ -14336,6 +14377,30 @@
 					<xs:documentation>More efficient than ASHRAE 90.1-2010 (Systems) or ASHRAE 90.1-2013 (Envelope)</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EnvelopeConstructionType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Masonry"/>
+			<xs:enumeration value="Structural brick"/>
+			<xs:enumeration value="Stone"/>
+			<xs:enumeration value="Concrete Masonry Unit"/>
+			<xs:enumeration value="Concrete-solid"/>
+			<xs:enumeration value="Concrete-lightweight"/>
+			<xs:enumeration value="Concrete-panels"/>
+			<xs:enumeration value="Concrete-poured"/>
+			<xs:enumeration value="Concrete-load bearing"/>
+			<xs:enumeration value="Concrete-insulated forms"/>
+			<xs:enumeration value="Concrete -- aerated"/>
+			<xs:enumeration value="Steel frame"/>
+			<xs:enumeration value="Wood frame"/>
+			<xs:enumeration value="Double wood frame"/>
+			<xs:enumeration value="Structurally insulated panel"/>
+			<xs:enumeration value="Log-solid wood"/>
+			<xs:enumeration value="Straw bale"/>
+			<xs:enumeration value="Built-up"/>
+			<xs:enumeration value="Other/combination"/>
+			<xs:enumeration value="Unknown"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
