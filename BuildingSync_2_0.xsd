@@ -1932,7 +1932,7 @@
 			</xs:element>
 			<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
 		</xs:sequence>
-		<xs:attribute name="ID"/>
+		<xs:attribute name="ID" type="xs:ID"/>
 	</xs:complexType>
 	<xs:complexType name="ScenarioType">
 		<xs:sequence>
@@ -2796,7 +2796,7 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Utility" minOccurs="0">
+			<xs:element name="Utility" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="RateSchedule" minOccurs="0" maxOccurs="unbounded">
@@ -3431,7 +3431,7 @@
 								<xs:documentation>Name of an individual power plant to which the property is directly connected</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="UtilityMeterNumber" type="xs:string" minOccurs="0">
+						<xs:element name="UtilityMeterNumber" type="xs:string" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Unique identification number for the meter</xs:documentation>
 							</xs:annotation>
@@ -5944,6 +5944,21 @@
 																	</xs:restriction>
 																</xs:simpleType>
 															</xs:element>
+															<xs:element name="CompressorType" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Type of compressor in the chiller.</xs:documentation>
+																</xs:annotation>
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:enumeration value="Reciprocating"/>
+																		<xs:enumeration value="Screw"/>
+																		<xs:enumeration value="Scroll"/>
+																		<xs:enumeration value="Centrifugal"/>
+																		<xs:enumeration value="Other"/>
+																		<xs:enumeration value="Unknown"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
 															<xs:element name="CompressorStaging" minOccurs="0">
 																<xs:annotation>
 																	<xs:documentation>The compressor staging for the unit. Select "Single Stage" for units with single stage (on/off) control. Select "Multiple, Discrete Stages" for units with multiple compressors, discrete unloading stages, or compressors with stepped speed motors that are controlled to operate at discrete stages. Select "Variable" for compressors that operate at variable speeds or with modulating unloading.</xs:documentation>
@@ -8447,6 +8462,18 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="PercentAreaServed" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Installed power for this system. (kW)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="InstalledPower" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Installed power for this system. (kW)</xs:documentation>
@@ -8586,6 +8613,7 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
+			<xs:element ref="auc:ControlTechnology" minOccurs="0"/>
 			<xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
 			<xs:element ref="auc:Quantity" minOccurs="0"/>
 			<xs:element ref="auc:PrimaryFuel" minOccurs="0"/>
@@ -10272,7 +10300,7 @@
 		<xs:sequence>
 			<xs:element name="MotorRPM" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The number of full revolutions in a unit of time and is used to assign MotorEfficiency.  2008 NR ACM table N2-20 has four speeds: 3600 rpm, 1800 rpm, 1200 rpm, 900 rpm.</xs:documentation>
+					<xs:documentation>The number of full revolutions in a unit of time and is used to assign MotorEfficiency. 2008 NR ACM table N2-20 has four speeds: 3600 rpm, 1800 rpm, 1200 rpm, 900 rpm.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -10881,8 +10909,8 @@
 					<xs:documentation>The general description of the main structural construction method used for an opaque surface.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="SpecialRoofClassification" minOccurs="0">
-        <xs:annotation>
+			<xs:element name="SpecialRoofClassification" minOccurs="0">
+				<xs:annotation>
 					<xs:documentation>Additional classifications for the roof construction.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
@@ -10892,7 +10920,7 @@
 						<xs:enumeration value="Other"/>
 					</xs:restriction>
 				</xs:simpleType>
-      </xs:element>
+			</xs:element>
 			<xs:element name="RoofFinish" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The final material applied to a surface, either interior or exterior. Some structural components don't have an exterior finish, such as unfinished poured concrete.</xs:documentation>
@@ -11989,6 +12017,18 @@
 									<xs:element name="FoundationHeightAboveGrade" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Height of the building foundation that is above the ground. (ft)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="FoundationWallRValue" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>(Also known as thermal resistance), quantity determined by the temperature difference, at steady state, between two defined surfaces of a material or construction that induces a unit heat flow rate through unit area (R = ΔT/q). R-value is the reciprocal of thermal conductance. A unit of thermal resistance used for comparing insulating values of different materials, for the specific thickness of the material. The higher the R-value number, a material, the greater its insulating properties and the slower the heat flow through it. This R-value does not include the interior and exterior air film coefficients. (hr-ft2-F/Btu)</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:simpleContent>
