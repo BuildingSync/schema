@@ -8464,7 +8464,19 @@
 			</xs:element>
 			<xs:element name="PercentAreaServed" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Installed power for this system. (kW)</xs:documentation>
+					<xs:documentation>The percentage of area served by the lighting system.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PercentPremisesServed" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The percentage of the premises that the lighting system applies to. This may be for the whole building or an individual space, depending on the LinkedPremises field.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -8477,6 +8489,18 @@
 			<xs:element name="InstalledPower" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Installed power for this system. (kW)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LampPower" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The number of watts per lamp. (W)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
