@@ -320,39 +320,10 @@
 											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="AuditorQualification" minOccurs="0">
+													<xs:element name="AuditorQualification" type="auc:AuditorQualificationType" minOccurs="0">
 														<xs:annotation>
 															<xs:documentation>Qualification of auditor responsible for the audit report.</xs:documentation>
 														</xs:annotation>
-														<xs:simpleType>
-															<xs:restriction base="xs:string">
-																<xs:enumeration value="Professional Engineer (PE)"/>
-																<xs:enumeration value="Certified Energy Manager (CEM)"/>
-																<xs:enumeration value="Building Operator Certification (BOC)"/>
-																<xs:enumeration value="Building Performance Institute (BPI) Certification"/>
-																<xs:enumeration value="Building Performance Institute: Building Analyst (BA)"/>
-																<xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional (HEP)"/>
-																<xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional - Energy Auditor (HEP-EA)"/>
-																<xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional - Quality Control Inspector (HEP-QCI)"/>
-																<xs:enumeration value="Building Performance Institute: Multifamily Building Analyst"/>
-																<xs:enumeration value="Residential Energy Services Network (RESNET) Certification"/>
-																<xs:enumeration value="Residential Energy Services Network (RESNET) - Home Partner"/>
-																<xs:enumeration value="Registered Architect (RA)"/>
-																<xs:enumeration value="Refrigerating System Operating Engineer"/>
-																<xs:enumeration value="High Pressure Boiler Operating Engineer"/>
-																<xs:enumeration value="Certified Commissioning Professional (CCP)"/>
-																<xs:enumeration value="Associate Commissioning Professional (ACP)"/>
-																<xs:enumeration value="Existing Building Commissioning Professional (EBCP)"/>
-																<xs:enumeration value="Commissioning Process Management Professional (CPMP)"/>
-																<xs:enumeration value="Accredited Commissioning Process Authority Professional (CxAP)"/>
-																<xs:enumeration value="NYSERDA FlexTech Consultant"/>
-																<xs:enumeration value="Certified Energy Manager (CEM)"/>
-																<xs:enumeration value="Certified Energy Auditor (CEA)"/>
-																<xs:enumeration value="High-Performance Building Design Professional (HBDP)"/>
-																<xs:enumeration value="Other"/>
-																<xs:enumeration value="None"/>
-															</xs:restriction>
-														</xs:simpleType>
 													</xs:element>
 													<xs:element name="AuditorQualificationNumber" type="xs:string" minOccurs="0">
 														<xs:annotation>
@@ -377,39 +348,10 @@
 															<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
 														</xs:complexType>
 													</xs:element>
-													<xs:element name="AuditTeamMemberCertificationType" minOccurs="0">
+													<xs:element name="AuditTeamMemberCertificationType" type="auc:AuditorQualificationType" minOccurs="0">
 														<xs:annotation>
 															<xs:documentation>Type of certification held by an auditor team member.</xs:documentation>
 														</xs:annotation>
-														<xs:simpleType>
-															<xs:restriction base="xs:string">
-																<xs:enumeration value="Professional Engineer (PE)"/>
-																<xs:enumeration value="Certified Energy Manager (CEM)"/>
-																<xs:enumeration value="Building Operator Certification (BOC)"/>
-																<xs:enumeration value="Building Performance Institute (BPI) Certification"/>
-																<xs:enumeration value="Building Performance Institute: Building Analyst (BA)"/>
-																<xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional (HEP)"/>
-																<xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional - Energy Auditor (HEP-EA)"/>
-																<xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional - Quality Control Inspector (HEP-QCI)"/>
-																<xs:enumeration value="Building Performance Institute: Multifamily Building Analyst"/>
-																<xs:enumeration value="Residential Energy Services Network (RESNET) Certification"/>
-																<xs:enumeration value="Residential Energy Services Network (RESNET) - Home Partner"/>
-																<xs:enumeration value="Registered Architect (RA)"/>
-																<xs:enumeration value="Refrigerating System Operating Engineer"/>
-																<xs:enumeration value="High Pressure Boiler Operating Engineer"/>
-																<xs:enumeration value="Certified Commissioning Professional (CCP)"/>
-																<xs:enumeration value="Associate Commissioning Professional (ACP)"/>
-																<xs:enumeration value="Existing Building Commissioning Professional (EBCP)"/>
-																<xs:enumeration value="Commissioning Process Management Professional (CPMP)"/>
-																<xs:enumeration value="Accredited Commissioning Process Authority Professional (CxAP)"/>
-																<xs:enumeration value="NYSERDA FlexTech Consultant"/>
-																<xs:enumeration value="Certified Energy Manager (CEM)"/>
-																<xs:enumeration value="Certified Energy Auditor (CEA)"/>
-																<xs:enumeration value="High-Performance Building Design Professional (HBDP)"/>
-																<xs:enumeration value="Other"/>
-																<xs:enumeration value="None"/>
-															</xs:restriction>
-														</xs:simpleType>
 													</xs:element>
 												</xs:sequence>
 											</xs:complexType>
@@ -2372,21 +2314,7 @@
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="CostEffectivenessScreeningMethod" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Method for calculating cost-effectiveness for measures or project.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Simple payback"/>
-												<xs:enumeration value="Return on investment"/>
-												<xs:enumeration value="Lifecycle Cost (LCC)"/>
-												<xs:enumeration value="Net Present Value"/>
-												<xs:enumeration value="Internal Rate of Return"/>
-												<xs:enumeration value="Other"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:CostEffectivenessScreeningMethod" minOccurs="0"/>
 									<xs:element name="SimplePayback" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>The length of time required for the investment to pay for itself. (yrs)</xs:documentation>
@@ -2586,25 +2514,7 @@
 											<xs:documentation>First year included in normalized weather data.</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="WeatherDataSource" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Method for determining weather data associated with the time series</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="On-Site Measurement"/>
-												<xs:enumeration value="Weather Station"/>
-												<xs:enumeration value="TMY3"/>
-												<xs:enumeration value="TMY"/>
-												<xs:enumeration value="TMY2"/>
-												<xs:enumeration value="TMY3"/>
-												<xs:enumeration value="IWEC"/>
-												<xs:enumeration value="CWEC"/>
-												<xs:enumeration value="CZRV2"/>
-												<xs:enumeration value="Other"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:WeatherDataSource" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -2622,25 +2532,7 @@
 						<xs:element name="Actual" minOccurs="0">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="WeatherDataSource" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Method for determining weather data associated with the time series</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="On-Site Measurement"/>
-												<xs:enumeration value="Weather Station"/>
-												<xs:enumeration value="TMY3"/>
-												<xs:enumeration value="TMY"/>
-												<xs:enumeration value="TMY2"/>
-												<xs:enumeration value="TMY3"/>
-												<xs:enumeration value="IWEC"/>
-												<xs:enumeration value="CWEC"/>
-												<xs:enumeration value="CZRV2"/>
-												<xs:enumeration value="Other"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:WeatherDataSource" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -4883,21 +4775,7 @@
 								</xs:simpleContent>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="CostEffectivenessScreeningMethod" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Method for calculating cost-effectiveness for measures or project.</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Simple payback"/>
-									<xs:enumeration value="Return on investment"/>
-									<xs:enumeration value="Lifecycle Cost (LCC)"/>
-									<xs:enumeration value="Net Present Value"/>
-									<xs:enumeration value="Internal Rate of Return"/>
-									<xs:enumeration value="Other"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
+						<xs:element ref="auc:CostEffectivenessScreeningMethod" minOccurs="0"/>
 						<xs:element name="SimplePayback" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>The length of time required for the investment to pay for itself. (yrs)</xs:documentation>
@@ -5077,21 +4955,7 @@
 														</xs:restriction>
 													</xs:simpleType>
 												</xs:element>
-												<xs:element name="BurnerType" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Type of burner on boiler or furnace, if applicable.</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Atmospheric"/>
-															<xs:enumeration value="Power"/>
-															<xs:enumeration value="Sealed Combustion"/>
-															<xs:enumeration value="Rotary Cup"/>
-															<xs:enumeration value="Other/combination"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
+												<xs:element ref="auc:BurnerType" minOccurs="0"/>
 												<xs:element name="BurnerTurndownRatio" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>If applicable, the turndown ratio for the burner (full input/minimum input).</xs:documentation>
@@ -5104,53 +4968,14 @@
 														</xs:simpleContent>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="IgnitionType" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Ignition mechanism in gas heating equipment. Either pilot light or an intermittent ignition device (IID)</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Intermittent ignition device"/>
-															<xs:enumeration value="Pilot light"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element name="DraftType" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Draft mechanism used for drawing air through the boiler or furnace.</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Natural"/>
-															<xs:enumeration value="Mechanical forced"/>
-															<xs:enumeration value="Mechanical induced"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
+												<xs:element ref="auc:IgnitionType" minOccurs="0"/>
+												<xs:element ref="auc:DraftType" minOccurs="0"/>
 												<xs:element name="CondensingOperation" type="xs:boolean" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>True if the boiler or furnace is capable of condensing the water vapor in the exhaust flue gas to obtain a higher efficiency.</xs:documentation>
 													</xs:annotation>
 												</xs:element>
-												<xs:element name="HeatingStaging" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The method of heating staging used by the unit. Select "Single Stage" for units with single stage (on/off) control. Select "Multiple, Discrete Stages" for units with multiple discrete stages (low-fire / high-fire). Select "Modulating" for units which contain modulating burners.</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Single-Stage"/>
-															<xs:enumeration value="Multiple, Discrete-Stages"/>
-															<xs:enumeration value="Variable"/>
-															<xs:enumeration value="Modulating"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
+												<xs:element ref="auc:HeatingStaging" minOccurs="0"/>
 												<xs:element name="InputCapacity" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>The rate of energy consumption of the heating equipment at full load.</xs:documentation>
@@ -5200,20 +5025,7 @@
 														</xs:simpleContent>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="Priority" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Order of precedence relative to other applicable systems. Enter 1 if this is the only system.</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:integer">
-															<xs:enumeration value="1"/>
-															<xs:enumeration value="2"/>
-															<xs:enumeration value="3"/>
-															<xs:enumeration value="4"/>
-															<xs:enumeration value="5"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
+												<xs:element ref="auc:Priority" minOccurs="0"/>
 												<xs:element name="AnnualHeatingEfficiencyValue" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>Overall annual efficiency of a heating system</xs:documentation>
@@ -5226,20 +5038,7 @@
 														</xs:simpleContent>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="AnnualHeatingEfficiencyUnit" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The measure used to quantify efficiency</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="COP"/>
-															<xs:enumeration value="AFUE"/>
-															<xs:enumeration value="HSPF"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
+												<xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
 												<xs:element name="CombustionEfficiency" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>The measure of how much energy is extracted from the fuel and is the ratio of heat transferred to the combustion air divided by the heat input of the fuel. (0-1) (%)</xs:documentation>
@@ -5439,20 +5238,7 @@
 														</xs:simpleContent>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="AnnualHeatingEfficiencyUnit" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The measure used to quantify efficiency</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="COP"/>
-															<xs:enumeration value="AFUE"/>
-															<xs:enumeration value="HSPF"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
+												<xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
 												<xs:element name="HotWaterBoilerMaximumFlowRate" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>The maximum flow rate of water that the boiler is designed to accept. [gpm]</xs:documentation>
@@ -5533,20 +5319,7 @@
 														</xs:simpleContent>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="AnnualHeatingEfficiencyUnit" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The measure used to quantify efficiency</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="COP"/>
-															<xs:enumeration value="AFUE"/>
-															<xs:enumeration value="HSPF"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
+												<xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
 												<xs:element ref="auc:Quantity" minOccurs="0"/>
 											</xs:sequence>
 										</xs:complexType>
@@ -5623,21 +5396,7 @@
 																	</xs:restriction>
 																</xs:simpleType>
 															</xs:element>
-															<xs:element name="BurnerType" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Type of burner on boiler or furnace, if applicable.</xs:documentation>
-																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Atmospheric"/>
-																		<xs:enumeration value="Power"/>
-																		<xs:enumeration value="Sealed Combustion"/>
-																		<xs:enumeration value="Rotary Cup"/>
-																		<xs:enumeration value="Other/combination"/>
-																		<xs:enumeration value="Unknown"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
+															<xs:element ref="auc:BurnerType" minOccurs="0"/>
 															<xs:element name="BurnerTurndownRatio" minOccurs="0">
 																<xs:annotation>
 																	<xs:documentation>If applicable, the turndown ratio for the burner (full input/minimum input).</xs:documentation>
@@ -5650,33 +5409,8 @@
 																	</xs:simpleContent>
 																</xs:complexType>
 															</xs:element>
-															<xs:element name="IgnitionType" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Ignition mechanism in gas heating equipment. Either pilot light or an intermittent ignition device (IID)</xs:documentation>
-																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Intermittent ignition device"/>
-																		<xs:enumeration value="Pilot light"/>
-																		<xs:enumeration value="Other"/>
-																		<xs:enumeration value="Unknown"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
-															<xs:element name="DraftType" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Draft mechanism used for drawing air through the boiler or furnace.</xs:documentation>
-																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Natural"/>
-																		<xs:enumeration value="Mechanical forced"/>
-																		<xs:enumeration value="Mechanical induced"/>
-																		<xs:enumeration value="Other"/>
-																		<xs:enumeration value="Unknown"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
+															<xs:element ref="auc:IgnitionType" minOccurs="0"/>
+															<xs:element ref="auc:DraftType" minOccurs="0"/>
 															<xs:element name="CondensingOperation" type="xs:boolean" minOccurs="0">
 																<xs:annotation>
 																	<xs:documentation>True if the boiler or furnace is capable of condensing the water vapor in the exhaust flue gas to obtain a higher efficiency.</xs:documentation>
@@ -5810,20 +5544,7 @@
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="AnnualHeatingEfficiencyUnit" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The measure used to quantify efficiency</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="COP"/>
-												<xs:enumeration value="AFUE"/>
-												<xs:enumeration value="HSPF"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
 									<xs:element name="InputCapacity" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>The rate of energy consumption of the heating equipment at full load.</xs:documentation>
@@ -5849,21 +5570,7 @@
 										</xs:complexType>
 									</xs:element>
 									<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
-									<xs:element name="HeatingStaging" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The method of heating staging used by the unit. Select "Single Stage" for units with single stage (on/off) control. Select "Multiple, Discrete Stages" for units with multiple discrete stages (low-fire / high-fire). Select "Modulating" for units which contain modulating burners.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Single-Stage"/>
-												<xs:enumeration value="Multiple, Discrete-Stages"/>
-												<xs:enumeration value="Variable"/>
-												<xs:enumeration value="Modulating"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:HeatingStaging" minOccurs="0"/>
 									<xs:element name="NumberOfHeatingStages" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>The number of heating stages, excluding "off."</xs:documentation>
@@ -5959,20 +5666,7 @@
 																	</xs:restriction>
 																</xs:simpleType>
 															</xs:element>
-															<xs:element name="CompressorStaging" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The compressor staging for the unit. Select "Single Stage" for units with single stage (on/off) control. Select "Multiple, Discrete Stages" for units with multiple compressors, discrete unloading stages, or compressors with stepped speed motors that are controlled to operate at discrete stages. Select "Variable" for compressors that operate at variable speeds or with modulating unloading.</xs:documentation>
-																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Single-Stage"/>
-																		<xs:enumeration value="Multiple, Discrete-Stages"/>
-																		<xs:enumeration value="Variable"/>
-																		<xs:enumeration value="Other"/>
-																		<xs:enumeration value="Unknown"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
+															<xs:element ref="auc:CompressorStaging" minOccurs="0"/>
 															<xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded">
 																<xs:annotation>
 																	<xs:documentation>ID numbers of the central condenser plants serving as the source for this cooling system.</xs:documentation>
@@ -6078,20 +5772,7 @@
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="AnnualCoolingEfficiencyUnits" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The measure used to quantify efficiency</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="COP"/>
-												<xs:enumeration value="EER"/>
-												<xs:enumeration value="SEER"/>
-												<xs:enumeration value="kW/ton"/>
-												<xs:enumeration value="Other"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:AnnualCoolingEfficiencyUnits" minOccurs="0"/>
 									<xs:element ref="auc:Capacity" minOccurs="0"/>
 									<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
 									<xs:element name="NumberOfDiscreteCoolingStages" minOccurs="0">
@@ -6687,20 +6368,7 @@
 			</xs:element>
 			<xs:element ref="auc:Quantity" minOccurs="0"/>
 			<xs:element ref="auc:Location" minOccurs="0"/>
-			<xs:element name="Priority" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Order of precedence relative to other applicable systems. Select 1 if this is the only system.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:integer">
-						<xs:enumeration value="1"/>
-						<xs:enumeration value="2"/>
-						<xs:enumeration value="3"/>
-						<xs:enumeration value="4"/>
-						<xs:enumeration value="5"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
+			<xs:element ref="auc:Priority" minOccurs="0"/>
 			<xs:element name="FrequencyOfMaintenance" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Frequency of maintenance on the premises or equipment.</xs:documentation>
@@ -7041,20 +6709,7 @@
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-						<xs:element name="CompressorStaging" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>The compressor staging for the unit. Select "Single Stage" for units with single stage (on/off) control. Select "Multiple, Discrete Stages" for units with multiple compressors, discrete unloading stages, or compressors with stepped speed motors that are controlled to operate at discrete stages. Select "Variable" for compressors that operate at variable speeds or with modulating unloading.</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Single-Stage"/>
-									<xs:enumeration value="Multiple, Discrete-Stages"/>
-									<xs:enumeration value="Variable"/>
-									<xs:enumeration value="Other"/>
-									<xs:enumeration value="Unknown"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
+						<xs:element ref="auc:CompressorStaging" minOccurs="0"/>
 						<xs:element name="NumberOfDiscreteCoolingStages" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>The number of discrete operating stages, excluding "off."</xs:documentation>
@@ -7140,20 +6795,7 @@
 								</xs:simpleContent>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="AnnualCoolingEfficiencyUnits" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>The measure used to quantify efficiency</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="COP"/>
-									<xs:enumeration value="EER"/>
-									<xs:enumeration value="SEER"/>
-									<xs:enumeration value="kW/ton"/>
-									<xs:enumeration value="Other"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
+						<xs:element ref="auc:AnnualCoolingEfficiencyUnits" minOccurs="0"/>
 						<xs:element ref="auc:Capacity" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Capacity of the system.</xs:documentation>
@@ -7249,20 +6891,7 @@
 								</xs:simpleContent>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="AnnualCoolingEfficiencyUnits" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>The measure used to quantify efficiency</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="COP"/>
-									<xs:enumeration value="EER"/>
-									<xs:enumeration value="SEER"/>
-									<xs:enumeration value="kW/ton"/>
-									<xs:enumeration value="Other"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
+						<xs:element ref="auc:AnnualCoolingEfficiencyUnits" minOccurs="0"/>
 						<xs:element ref="auc:Capacity" minOccurs="0"/>
 						<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
 						<xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0">
@@ -7447,20 +7076,7 @@
 								</xs:simpleContent>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="WaterCooledCondenserFlowControl" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Describes water flow control for a water-cooled condenser.</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Fixed Flow"/>
-									<xs:enumeration value="Two Position Flow"/>
-									<xs:enumeration value="Variable Flow"/>
-									<xs:enumeration value="Other"/>
-									<xs:enumeration value="Unknown"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
+						<xs:element ref="auc:WaterCooledCondenserFlowControl" minOccurs="0"/>
 						<xs:element name="WaterSideEconomizer" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>True if the cooling system has a water-side economizer to provide free cooling.</xs:documentation>
@@ -7470,21 +7086,7 @@
 									<xs:element name="True" minOccurs="0">
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="WaterSideEconomizerType" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Describes water flow control for a water-cooled condenser.</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Parallel Plate and Frame Heat Exchanger"/>
-															<xs:enumeration value="Series Plate and Frame Heat Exchanger"/>
-															<xs:enumeration value="Strainer Cycle"/>
-															<xs:enumeration value="Thermo Cycle"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
+												<xs:element ref="auc:WaterSideEconomizerType" minOccurs="0"/>
 												<xs:element name="WaterSideEconomizerTemperatureSetpoint" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>The water temperature that the equipment supplies, such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. (°F)</xs:documentation>
@@ -7595,20 +7197,7 @@
 								</xs:simpleContent>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="WaterCooledCondenserFlowControl" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Describes water flow control for a water-cooled condenser.</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Fixed Flow"/>
-									<xs:enumeration value="Two Position Flow"/>
-									<xs:enumeration value="Variable Flow"/>
-									<xs:enumeration value="Other"/>
-									<xs:enumeration value="Unknown"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
+						<xs:element ref="auc:WaterCooledCondenserFlowControl" minOccurs="0"/>
 						<xs:element name="WaterSideEconomizer" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>True if the cooling system has a water-side economizer to provide free cooling.</xs:documentation>
@@ -7618,21 +7207,7 @@
 									<xs:element name="True" minOccurs="0">
 										<xs:complexType>
 											<xs:sequence>
-												<xs:element name="WaterSideEconomizerType" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Describes water flow control for a water-cooled condenser.</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Parallel Plate and Frame Heat Exchanger"/>
-															<xs:enumeration value="Series Plate and Frame Heat Exchanger"/>
-															<xs:enumeration value="Strainer Cycle"/>
-															<xs:enumeration value="Thermo Cycle"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
+												<xs:element ref="auc:WaterSideEconomizerType" minOccurs="0"/>
 												<xs:element name="WaterSideEconomizerTemperatureSetpoint" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>The water temperature that the equipment supplies, such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. (°F)</xs:documentation>
@@ -7852,21 +7427,7 @@
 											<xs:documentation>True if ventilation system is controlled based on level of occupancy or pollutants, false otherwise</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="VentilationControlMethod" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The method used to control the rate of outside air ventilation.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="CO2 Sensors"/>
-												<xs:enumeration value="Fixed"/>
-												<xs:enumeration value="Occupancy Sensors"/>
-												<xs:enumeration value="Scheduled"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:VentilationControlMethod" minOccurs="0"/>
 									<xs:element name="VentilationZoneControl" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Method used to determine overall ventilation rate for multiple zones.</xs:documentation>
@@ -7941,20 +7502,7 @@
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="VentilationControlMethod" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The method used to control the rate of outside air ventilation.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="CO2 Sensors"/>
-												<xs:enumeration value="Fixed"/>
-												<xs:enumeration value="Occupancy Sensors"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:VentilationControlMethod" minOccurs="0"/>
 									<xs:element name="MakeupAirSourceID" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>ID number of the Space that provides makeup air for exhaust ventilation.</xs:documentation>
@@ -8006,20 +7554,7 @@
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
-									<xs:element name="VentilationControlMethod" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The method used to control the rate of outside air ventilation.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="CO2 Sensors"/>
-												<xs:enumeration value="Fixed"/>
-												<xs:enumeration value="Occupancy Sensors"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:VentilationControlMethod" minOccurs="0"/>
 									<xs:element ref="auc:Capacity" minOccurs="0"/>
 									<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
 									<xs:element ref="auc:DutyCycle" minOccurs="0"/>
@@ -8146,20 +7681,7 @@
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
-									<xs:element name="FluorescentStartType" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Start technology used with fluorescent ballasts</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Instant start"/>
-												<xs:enumeration value="Rapid start"/>
-												<xs:enumeration value="Programmed start"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:FluorescentStartType" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -8255,20 +7777,7 @@
 						<xs:element name="Induction" minOccurs="0">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="FluorescentStartType" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Start technology used with fluorescent ballasts</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Instant start"/>
-												<xs:enumeration value="Rapid start"/>
-												<xs:enumeration value="Programmed start"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:FluorescentStartType" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -8689,20 +8198,7 @@
 																		<xs:element name="Combustion" minOccurs="0">
 																			<xs:complexType>
 																				<xs:sequence>
-																					<xs:element name="DraftType" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>Draft mechanism used for drawing air through the boiler or furnace.</xs:documentation>
-																						</xs:annotation>
-																						<xs:simpleType>
-																							<xs:restriction base="xs:string">
-																								<xs:enumeration value="Natural"/>
-																								<xs:enumeration value="Mechanical forced"/>
-																								<xs:enumeration value="Mechanical induced"/>
-																								<xs:enumeration value="Other"/>
-																								<xs:enumeration value="Unknown"/>
-																							</xs:restriction>
-																						</xs:simpleType>
-																					</xs:element>
+																					<xs:element ref="auc:DraftType" minOccurs="0"/>
 																				</xs:sequence>
 																			</xs:complexType>
 																		</xs:element>
@@ -8990,20 +8486,7 @@
 												<xs:element name="Combustion" minOccurs="0">
 													<xs:complexType>
 														<xs:sequence>
-															<xs:element name="DraftType" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Draft mechanism used for drawing air through the boiler or furnace.</xs:documentation>
-																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Natural"/>
-																		<xs:enumeration value="Mechanical forced"/>
-																		<xs:enumeration value="Mechanical induced"/>
-																		<xs:enumeration value="Other"/>
-																		<xs:enumeration value="Unknown"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
+															<xs:element ref="auc:DraftType" minOccurs="0"/>
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
@@ -9692,33 +9175,8 @@
 						<xs:element name="Washer" minOccurs="0">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="ClothesWasherClassification" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The sector where clothes washer is commonly used.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Residential"/>
-												<xs:enumeration value="Commercial"/>
-												<xs:enumeration value="Industrial"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="ClothesWasherLoaderType" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The type of configuration of a laundry appliance. Such as front and top loading clothes washers.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Front"/>
-												<xs:enumeration value="Top"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:ClothesWasherClassification" minOccurs="0"/>
+									<xs:element ref="auc:ClothesWasherLoaderType" minOccurs="0"/>
 									<xs:element name="ClothesWasherModifiedEnergyFactor" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Modified Energy Factor, MEF, is the energy performance metric for ENERGY STAR qualified clothes washers and all clothes washers as of February 1, 2013. MEF is the quotient of the capacity of the clothes container, C, divided by the total clothes washer energy consumption per cycle, with such energy consumption expressed as the sum of the machine electrical energy consumption, M, the hot water energy consumption, E, and the energy required for removal of the remaining moisture in the wash load, D. The higher MEF, the more efficient the clothes washer. The equation is: MEF = C/(M + E + D).</xs:documentation>
@@ -9761,17 +9219,7 @@
 						<xs:element name="Dryer" minOccurs="0">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="DryerType" minOccurs="0">
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Residential"/>
-												<xs:enumeration value="Commercial"/>
-												<xs:enumeration value="Industrial"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:DryerType" minOccurs="0"/>
 									<xs:element name="DryerElectricEnergyUsePerLoad" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Measure of dryer efficiency based on electricity. (kWh/load)</xs:documentation>
@@ -9815,33 +9263,8 @@
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
-									<xs:element name="ClothesWasherClassification" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The sector where clothes washer is commonly used.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Residential"/>
-												<xs:enumeration value="Commercial"/>
-												<xs:enumeration value="Industrial"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="ClothesWasherLoaderType" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The type of configuration of a laundry appliance. Such as front and top loading clothes washers.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Front"/>
-												<xs:enumeration value="Top"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:ClothesWasherClassification" minOccurs="0"/>
+									<xs:element ref="auc:ClothesWasherLoaderType" minOccurs="0"/>
 									<xs:element name="ClothesWasherModifiedEnergyFactor" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Modified Energy Factor, MEF, is the energy performance metric for ENERGY STAR qualified clothes washers and all clothes washers as of February 1, 2013. MEF is the quotient of the capacity of the clothes container, C, divided by the total clothes washer energy consumption per cycle, with such energy consumption expressed as the sum of the machine electrical energy consumption, M, the hot water energy consumption, E, and the energy required for removal of the remaining moisture in the wash load, D. The higher MEF, the more efficient the clothes washer. The equation is: MEF = C/(M + E + D).</xs:documentation>
@@ -9878,17 +9301,7 @@
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="DryerType" minOccurs="0">
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Residential"/>
-												<xs:enumeration value="Commercial"/>
-												<xs:enumeration value="Industrial"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:DryerType" minOccurs="0"/>
 									<xs:element name="DryerElectricEnergyUsePerLoad" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Measure of dryer efficiency based on electricity. (kWh/load)</xs:documentation>
@@ -11733,26 +11146,7 @@
 						<xs:element name="SlabOnGrade" minOccurs="0">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="SlabInsulationOrientation" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The location and extent of slab-on-grade floor insulation</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="12 in Horizontal"/>
-												<xs:enumeration value="12 in Vertical"/>
-												<xs:enumeration value="24 in Horizontal"/>
-												<xs:enumeration value="24 in Vertical"/>
-												<xs:enumeration value="36 in Horizontal"/>
-												<xs:enumeration value="36 in Vertical"/>
-												<xs:enumeration value="48 in Horizontal"/>
-												<xs:enumeration value="48 in Vertical"/>
-												<xs:enumeration value="Fully Insulated Slab"/>
-												<xs:enumeration value="None"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:SlabInsulationOrientation" minOccurs="0"/>
 									<xs:element name="SlabArea" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Area of slab-on-grade, basement slab, or other floor over unconditioned space. (ft2)</xs:documentation>
@@ -11801,35 +11195,8 @@
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="SlabInsulationCondition" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Assessed condition of installed insulation.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Excellent"/>
-												<xs:enumeration value="Good"/>
-												<xs:enumeration value="Average"/>
-												<xs:enumeration value="Poor"/>
-												<xs:enumeration value="Other/combination"/>
-												<xs:enumeration value="Unknown"/>
-												<xs:enumeration value="None"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="SlabHeating" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The classifications for floors in contact with the ground.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Heated"/>
-												<xs:enumeration value="Unheated"/>
-												<xs:enumeration value="Other/combination"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:SlabInsulationCondition" minOccurs="0"/>
+									<xs:element ref="auc:SlabHeating" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -11975,36 +11342,8 @@
 																	</xs:simpleContent>
 																</xs:complexType>
 															</xs:element>
-															<xs:element name="FoundationWallInsulationContinuity" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Insulation installation type.</xs:documentation>
-																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Cavity"/>
-																		<xs:enumeration value="Continuous"/>
-																		<xs:enumeration value="Other/combination"/>
-																		<xs:enumeration value="Unknown"/>
-																		<xs:enumeration value="None"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
-															<xs:element name="FoundationWallInsulationCondition" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Assessed condition of installed insulation.</xs:documentation>
-																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Excellent"/>
-																		<xs:enumeration value="Good"/>
-																		<xs:enumeration value="Average"/>
-																		<xs:enumeration value="Poor"/>
-																		<xs:enumeration value="Other/combination"/>
-																		<xs:enumeration value="Unknown"/>
-																		<xs:enumeration value="None"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
+															<xs:element ref="auc:FoundationWallInsulationContinuity" minOccurs="0"/>
+															<xs:element ref="auc:FoundationWallInsulationCondition" minOccurs="0"/>
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
@@ -12074,56 +11413,9 @@
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="FoundationWallInsulationContinuity" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Insulation installation type.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Cavity"/>
-												<xs:enumeration value="Continuous"/>
-												<xs:enumeration value="Other/combination"/>
-												<xs:enumeration value="Unknown"/>
-												<xs:enumeration value="None"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="FoundationWallInsulationCondition" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Assessed condition of installed insulation.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Excellent"/>
-												<xs:enumeration value="Good"/>
-												<xs:enumeration value="Average"/>
-												<xs:enumeration value="Poor"/>
-												<xs:enumeration value="Other/combination"/>
-												<xs:enumeration value="Unknown"/>
-												<xs:enumeration value="None"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="SlabInsulationOrientation" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The location and extent of slab-on-grade floor insulation</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="12 in Horizontal"/>
-												<xs:enumeration value="12 in Vertical"/>
-												<xs:enumeration value="24 in Horizontal"/>
-												<xs:enumeration value="24 in Vertical"/>
-												<xs:enumeration value="36 in Horizontal"/>
-												<xs:enumeration value="36 in Vertical"/>
-												<xs:enumeration value="48 in Horizontal"/>
-												<xs:enumeration value="48 in Vertical"/>
-												<xs:enumeration value="Fully Insulated Slab"/>
-												<xs:enumeration value="None"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:FoundationWallInsulationContinuity" minOccurs="0"/>
+									<xs:element ref="auc:FoundationWallInsulationCondition" minOccurs="0"/>
+									<xs:element ref="auc:SlabInsulationOrientation" minOccurs="0"/>
 									<xs:element name="SlabArea" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Area of slab-on-grade, basement slab, or other floor over unconditioned space. (ft2)</xs:documentation>
@@ -12172,35 +11464,8 @@
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="SlabInsulationCondition" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Assessed condition of installed insulation.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Excellent"/>
-												<xs:enumeration value="Good"/>
-												<xs:enumeration value="Average"/>
-												<xs:enumeration value="Poor"/>
-												<xs:enumeration value="Other/combination"/>
-												<xs:enumeration value="Unknown"/>
-												<xs:enumeration value="None"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="SlabHeating" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The classifications for floors in contact with the ground.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Heated"/>
-												<xs:enumeration value="Unheated"/>
-												<xs:enumeration value="Other/combination"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element ref="auc:SlabInsulationCondition" minOccurs="0"/>
+									<xs:element ref="auc:SlabHeating" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
@@ -13503,24 +12768,6 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="SideNumber">
-		<xs:simpleType>
-			<xs:restriction base="xs:string">
-				<xs:enumeration value="Side A1"/>
-				<xs:enumeration value="Side A2"/>
-				<xs:enumeration value="Side A3"/>
-				<xs:enumeration value="Side A4"/>
-				<xs:enumeration value="Side B1"/>
-				<xs:enumeration value="Side B2"/>
-				<xs:enumeration value="Side B3"/>
-				<xs:enumeration value="Side B4"/>
-				<xs:enumeration value="Side C1"/>
-				<xs:enumeration value="Side C2"/>
-				<xs:enumeration value="Side C3"/>
-				<xs:enumeration value="Side C4"/>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
 	<xs:element name="ContactEmailAddress" type="xs:string">
 		<xs:annotation>
 			<xs:documentation>Email address may be specified for customer, contractors, and other contacts or businesses.</xs:documentation>
@@ -14465,6 +13712,355 @@
 			<xs:enumeration value="Built-up"/>
 			<xs:enumeration value="Other/combination"/>
 			<xs:enumeration value="Unknown"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="WeatherDataSource">
+		<xs:annotation>
+			<xs:documentation>Method for determining weather data associated with the time series</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="On-Site Measurement"/>
+				<xs:enumeration value="Weather Station"/>
+				<xs:enumeration value="TMY"/>
+				<xs:enumeration value="TMY2"/>
+				<xs:enumeration value="TMY3"/>
+				<xs:enumeration value="IWEC"/>
+				<xs:enumeration value="CWEC"/>
+				<xs:enumeration value="CZRV2"/>
+				<xs:enumeration value="Other"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CostEffectivenessScreeningMethod">
+		<xs:annotation>
+			<xs:documentation>Method for calculating cost-effectiveness for measures or project.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Simple payback"/>
+				<xs:enumeration value="Return on investment"/>
+				<xs:enumeration value="Lifecycle Cost (LCC)"/>
+				<xs:enumeration value="Net Present Value"/>
+				<xs:enumeration value="Internal Rate of Return"/>
+				<xs:enumeration value="Other"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AnnualHeatingEfficiencyUnit">
+		<xs:annotation>
+			<xs:documentation>The measure used to quantify efficiency</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="COP"/>
+				<xs:enumeration value="AFUE"/>
+				<xs:enumeration value="HSPF"/>
+				<xs:enumeration value="Other"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BurnerType">
+		<xs:annotation>
+			<xs:documentation>Type of burner on boiler or furnace, if applicable.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Atmospheric"/>
+				<xs:enumeration value="Power"/>
+				<xs:enumeration value="Sealed Combustion"/>
+				<xs:enumeration value="Rotary Cup"/>
+				<xs:enumeration value="Other/combination"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="IgnitionType">
+		<xs:annotation>
+			<xs:documentation>Ignition mechanism in gas heating equipment. Either pilot light or an intermittent ignition device (IID)</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Intermittent ignition device"/>
+				<xs:enumeration value="Pilot light"/>
+				<xs:enumeration value="Other"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="DraftType">
+		<xs:annotation>
+			<xs:documentation>Draft mechanism used for drawing air through the boiler or furnace.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Natural"/>
+				<xs:enumeration value="Mechanical forced"/>
+				<xs:enumeration value="Mechanical induced"/>
+				<xs:enumeration value="Other"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="HeatingStaging">
+		<xs:annotation>
+			<xs:documentation>The method of heating staging used by the unit. Select "Single Stage" for units with single stage (on/off) control. Select "Multiple, Discrete Stages" for units with multiple discrete stages (low-fire / high-fire). Select "Modulating" for units which contain modulating burners.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Single-Stage"/>
+				<xs:enumeration value="Multiple, Discrete-Stages"/>
+				<xs:enumeration value="Variable"/>
+				<xs:enumeration value="Modulating"/>
+				<xs:enumeration value="Other"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Priority">
+		<xs:annotation>
+			<xs:documentation>Order of precedence relative to other applicable systems. Enter 1 if this is the only system.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:enumeration value="1"/>
+				<xs:enumeration value="2"/>
+				<xs:enumeration value="3"/>
+				<xs:enumeration value="4"/>
+				<xs:enumeration value="5"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CompressorStaging">
+		<xs:annotation>
+			<xs:documentation>The compressor staging for the unit. Select "Single Stage" for units with single stage (on/off) control. Select "Multiple, Discrete Stages" for units with multiple compressors, discrete unloading stages, or compressors with stepped speed motors that are controlled to operate at discrete stages. Select "Variable" for compressors that operate at variable speeds or with modulating unloading.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Single-Stage"/>
+				<xs:enumeration value="Multiple, Discrete-Stages"/>
+				<xs:enumeration value="Variable"/>
+				<xs:enumeration value="Other"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="AnnualCoolingEfficiencyUnits">
+		<xs:annotation>
+			<xs:documentation>The measure used to quantify efficiency</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="COP"/>
+				<xs:enumeration value="EER"/>
+				<xs:enumeration value="SEER"/>
+				<xs:enumeration value="kW/ton"/>
+				<xs:enumeration value="Other"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="WaterCooledCondenserFlowControl">
+		<xs:annotation>
+			<xs:documentation>Describes water flow control for a water-cooled condenser.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Fixed Flow"/>
+				<xs:enumeration value="Two Position Flow"/>
+				<xs:enumeration value="Variable Flow"/>
+				<xs:enumeration value="Other"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="WaterSideEconomizerType">
+		<xs:annotation>
+			<xs:documentation>Describes water flow control for a water-cooled condenser.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Parallel Plate and Frame Heat Exchanger"/>
+				<xs:enumeration value="Series Plate and Frame Heat Exchanger"/>
+				<xs:enumeration value="Strainer Cycle"/>
+				<xs:enumeration value="Thermo Cycle"/>
+				<xs:enumeration value="Other"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="VentilationControlMethod">
+		<xs:annotation>
+			<xs:documentation>The method used to control the rate of outside air ventilation.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="CO2 Sensors"/>
+				<xs:enumeration value="Fixed"/>
+				<xs:enumeration value="Occupancy Sensors"/>
+				<xs:enumeration value="Scheduled"/>
+				<xs:enumeration value="Other"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="FluorescentStartType">
+		<xs:annotation>
+			<xs:documentation>Start technology used with fluorescent ballasts</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Instant start"/>
+				<xs:enumeration value="Rapid start"/>
+				<xs:enumeration value="Programmed start"/>
+				<xs:enumeration value="Other"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ClothesWasherClassification">
+		<xs:annotation>
+			<xs:documentation>The sector where clothes washer is commonly used.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Residential"/>
+				<xs:enumeration value="Commercial"/>
+				<xs:enumeration value="Industrial"/>
+				<xs:enumeration value="Other"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ClothesWasherLoaderType">
+		<xs:annotation>
+			<xs:documentation>The type of configuration of a laundry appliance. Such as front and top loading clothes washers.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Front"/>
+				<xs:enumeration value="Top"/>
+				<xs:enumeration value="Other"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="DryerType">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Residential"/>
+				<xs:enumeration value="Commercial"/>
+				<xs:enumeration value="Industrial"/>
+				<xs:enumeration value="Other"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="FoundationWallInsulationContinuity">
+		<xs:annotation>
+			<xs:documentation>Insulation installation type.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Cavity"/>
+				<xs:enumeration value="Continuous"/>
+				<xs:enumeration value="Other/combination"/>
+				<xs:enumeration value="Unknown"/>
+				<xs:enumeration value="None"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="FoundationWallInsulationCondition">
+		<xs:annotation>
+			<xs:documentation>Assessed condition of installed insulation.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Excellent"/>
+				<xs:enumeration value="Good"/>
+				<xs:enumeration value="Average"/>
+				<xs:enumeration value="Poor"/>
+				<xs:enumeration value="Other/combination"/>
+				<xs:enumeration value="Unknown"/>
+				<xs:enumeration value="None"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="SlabInsulationOrientation">
+		<xs:annotation>
+			<xs:documentation>The location and extent of slab-on-grade floor insulation</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="12 in Horizontal"/>
+				<xs:enumeration value="12 in Vertical"/>
+				<xs:enumeration value="24 in Horizontal"/>
+				<xs:enumeration value="24 in Vertical"/>
+				<xs:enumeration value="36 in Horizontal"/>
+				<xs:enumeration value="36 in Vertical"/>
+				<xs:enumeration value="48 in Horizontal"/>
+				<xs:enumeration value="48 in Vertical"/>
+				<xs:enumeration value="Fully Insulated Slab"/>
+				<xs:enumeration value="None"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="SlabInsulationCondition">
+		<xs:annotation>
+			<xs:documentation>Assessed condition of installed insulation.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Excellent"/>
+				<xs:enumeration value="Good"/>
+				<xs:enumeration value="Average"/>
+				<xs:enumeration value="Poor"/>
+				<xs:enumeration value="Other/combination"/>
+				<xs:enumeration value="Unknown"/>
+				<xs:enumeration value="None"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="SlabHeating">
+		<xs:annotation>
+			<xs:documentation>The classifications for floors in contact with the ground.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Heated"/>
+				<xs:enumeration value="Unheated"/>
+				<xs:enumeration value="Other/combination"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:simpleType name="AuditorQualificationType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Professional Engineer (PE)"/>
+			<xs:enumeration value="Certified Energy Manager (CEM)"/>
+			<xs:enumeration value="Building Operator Certification (BOC)"/>
+			<xs:enumeration value="Building Performance Institute (BPI) Certification"/>
+			<xs:enumeration value="Building Performance Institute: Building Analyst (BA)"/>
+			<xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional (HEP)"/>
+			<xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional - Energy Auditor (HEP-EA)"/>
+			<xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional - Quality Control Inspector (HEP-QCI)"/>
+			<xs:enumeration value="Building Performance Institute: Multifamily Building Analyst"/>
+			<xs:enumeration value="Residential Energy Services Network (RESNET) Certification"/>
+			<xs:enumeration value="Residential Energy Services Network (RESNET) - Home Partner"/>
+			<xs:enumeration value="Registered Architect (RA)"/>
+			<xs:enumeration value="Refrigerating System Operating Engineer"/>
+			<xs:enumeration value="High Pressure Boiler Operating Engineer"/>
+			<xs:enumeration value="Certified Commissioning Professional (CCP)"/>
+			<xs:enumeration value="Associate Commissioning Professional (ACP)"/>
+			<xs:enumeration value="Existing Building Commissioning Professional (EBCP)"/>
+			<xs:enumeration value="Commissioning Process Management Professional (CPMP)"/>
+			<xs:enumeration value="Accredited Commissioning Process Authority Professional (CxAP)"/>
+			<xs:enumeration value="NYSERDA FlexTech Consultant"/>
+			<xs:enumeration value="Certified Energy Auditor (CEA)"/>
+			<xs:enumeration value="High-Performance Building Design Professional (HBDP)"/>
+			<xs:enumeration value="Other"/>
+			<xs:enumeration value="None"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
