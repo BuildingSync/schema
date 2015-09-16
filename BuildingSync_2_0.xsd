@@ -197,6 +197,101 @@
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
+										<xs:element name="InfiltrationIntrusion" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Tightness" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
+														</xs:annotation>
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:enumeration value="Very Tight"/>
+																<xs:enumeration value="Tight"/>
+																<xs:enumeration value="Average"/>
+																<xs:enumeration value="Leaky"/>
+																<xs:enumeration value="Very Leaky"/>
+																<xs:enumeration value="Unknown"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="AirInfiltrationValue" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>The measured value from the Air Infiltration test.</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:decimal">
+																	<xs:attribute ref="auc:Source"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="AirInfiltrationValueUnits" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Units associated with Air Infiltration Value</xs:documentation>
+														</xs:annotation>
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:enumeration value="CFM25"/>
+																<xs:enumeration value="CFM50"/>
+																<xs:enumeration value="CFM75"/>
+																<xs:enumeration value="CFMnatural"/>
+																<xs:enumeration value="ACH50"/>
+																<xs:enumeration value="ACHnatural"/>
+																<xs:enumeration value="Effective Leakage Area (in2)"/>
+																<xs:enumeration value="Other"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="AirInfiltrationTest" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Type of air infiltration test performed on the building</xs:documentation>
+														</xs:annotation>
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:enumeration value="Blower door"/>
+																<xs:enumeration value="Tracer gas"/>
+																<xs:enumeration value="Checklist"/>
+																<xs:enumeration value="Other"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="LocationsOfExteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>Location of observed moisture problems on the outside of the building</xs:documentation>
+														</xs:annotation>
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:enumeration value="Roof"/>
+																<xs:enumeration value="Interior ceiling"/>
+																<xs:enumeration value="Foundation"/>
+																<xs:enumeration value="Basement"/>
+																<xs:enumeration value="Crawlspace"/>
+																<xs:enumeration value="Walls"/>
+																<xs:enumeration value="Around windows"/>
+																<xs:enumeration value="Other"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="LocationsOfInteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>Location of observed moisture problems on the inside of the building</xs:documentation>
+														</xs:annotation>
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:enumeration value="Kitchen"/>
+																<xs:enumeration value="Bathroom"/>
+																<xs:enumeration value="Basement"/>
+																<xs:enumeration value="Other"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+													<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
@@ -241,6 +336,11 @@
 													<xs:enumeration value="Level 3: Detailed Survey and Analysis"/>
 												</xs:restriction>
 											</xs:simpleType>
+										</xs:element>
+										<xs:element minOccurs="0" name="RetrocommissioningAudit" type="xs:boolean">
+											<xs:annotation>
+												<xs:documentation>True if an assessment of retro- or re-commissioning measures was completed as part of the audit.</xs:documentation>
+											</xs:annotation>
 										</xs:element>
 										<xs:element name="AuditCost" minOccurs="0">
 											<xs:annotation>
@@ -505,7 +605,7 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="EnergyStart" minOccurs="0">
+						<xs:element name="EnergyStar" minOccurs="0">
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element name="ClimateZone" minOccurs="0">
@@ -701,9 +801,7 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
-						<xs:extension base="xs:integer">
-							<xs:attribute ref="auc:Source"/>
-						</xs:extension>
+						<xs:extension base="xs:string"> </xs:extension>
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
@@ -829,24 +927,9 @@
 						<xs:element name="True" minOccurs="0">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Administrator" type="xs:boolean" minOccurs="0">
+									<xs:element name="PMBenchmarkDate" type="xs:date" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Designates this Portfolio Manager account as administrator over other customer accounts.</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="SharedBy" type="xs:string" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Designates the original Portfolio Manager account who has shared this facility data.</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="YearPMBenchmarked" type="xs:gYear" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Full year prior to Audit that the building was benchmarked in Portfolio Manager. (CCYY)</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="PMLastModifiedDate" type="xs:date" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Last date of Portfolio Manager data entry. (CCYY-MM-DD)</xs:documentation>
+											<xs:documentation>Date that the building was benchmarked in Portfolio Manager. (CCYY-MM-DD)</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="BuildingProfileStatus" minOccurs="0">
@@ -875,11 +958,6 @@
 												</xs:extension>
 											</xs:simpleContent>
 										</xs:complexType>
-									</xs:element>
-									<xs:element name="ServiceAndProductProvider" type="xs:string" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The ABS Service and Product Provider associated with this Portfolio Manager Facility.</xs:documentation>
-										</xs:annotation>
 									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
@@ -936,9 +1014,9 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="VerticalAbutments" minOccurs="0">
+			<xs:element name="HorizontalSurroundings" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Structures vertically adjacent to the facility.</xs:documentation>
+					<xs:documentation>Attachments to the outermost horizontal surfaces of the premises.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -950,9 +1028,9 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="HorizontalAbutments" minOccurs="0">
+			<xs:element name="VerticalSurroundings" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Structures adjacent to the facility on either side.</xs:documentation>
+					<xs:documentation>Attachments to the outermost vertical surfaces of the premises. This can be used if the more detailed input for Surface Exposure is not known. Illustrations for the constrained list choices will be provided when the web site is developed.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -965,50 +1043,73 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="Certification" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Assessment" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="CertificationProgram" minOccurs="0">
+						<xs:element name="AssessmentProgram" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Program which issues energy labels, ratings, or sustainability certifications.</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
+									<xs:enumeration value="ENERGY STAR"/>
 									<xs:enumeration value="ENERGY STAR Certified Homes"/>
-									<xs:enumeration value="LEED"/>
+									<xs:enumeration value="LEED "/>
 									<xs:enumeration value="Home Energy Upgrade Certificate of Energy Efficiency Performance"/>
 									<xs:enumeration value="Home Energy Upgrade Certificate of Energy Efficiency Improvements"/>
 									<xs:enumeration value="Passive House"/>
 									<xs:enumeration value="Living Building Challenge"/>
-									<xs:enumeration value="Green Globes Rating"/>
-									<xs:enumeration value="DOE Challenge Home"/>
+									<xs:enumeration value="Green Globes"/>
+									<xs:enumeration value="Challenge Home"/>
 									<xs:enumeration value="WaterSense"/>
 									<xs:enumeration value="Indoor airPLUS"/>
 									<xs:enumeration value="NGBS ICC 700"/>
-									<xs:enumeration value="ENERGY STAR profile published in Registry of Certified Buildings"/>
 									<xs:enumeration value="CMP Green Value Score"/>
 									<xs:enumeration value="RESNET HERS"/>
-									<xs:enumeration value="US DOE Home Energy Score (HES)"/>
+									<xs:enumeration value="Home Energy Score"/>
 									<xs:enumeration value="ASHRAE Building EQ"/>
 									<xs:enumeration value="Commercial Building Energy Asset Score"/>
-									<xs:enumeration value="Other Certification"/>
+									<xs:enumeration value="Other"/>
 									<xs:enumeration value="Unknown"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-						<xs:element name="CertificationValue" type="xs:string" minOccurs="0">
+						<xs:element name="AssessmentLevel" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Value from certification program, such as the Energy Star score or LEED "Platinum"</xs:documentation>
+								<xs:documentation>Value from assessment program, such as the Energy Star score or LEED "Platinum"</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Bronze"/>
+									<xs:enumeration value="Silver"/>
+									<xs:enumeration value="Gold"/>
+									<xs:enumeration value="Emerald"/>
+									<xs:enumeration value="Certified"/>
+									<xs:enumeration value="Bronze"/>
+									<xs:enumeration value="Silver"/>
+									<xs:enumeration value="Gold"/>
+									<xs:enumeration value="Platinum"/>
+									<xs:enumeration value="One Star"/>
+									<xs:enumeration value="Two Star"/>
+									<xs:enumeration value="Three Star"/>
+									<xs:enumeration value="Four Star"/>
+									<xs:enumeration value="Other"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element minOccurs="0" name="AssessmentValue" type="xs:decimal">
+							<xs:annotation>
+								<xs:documentation>Value from certifications that produce a numeric metric, such as Energy Star Score, Home Energy Rating System (HERS) Index Score, Home Energy Score</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="CertificationYear" type="xs:gYear" minOccurs="0">
+						<xs:element name="AssessmentYear" type="xs:gYear" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Year the facility / building earned certification. (CCYY)</xs:documentation>
+								<xs:documentation>Year the assessment qualifications for recognition were documented. (CCYY)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="CertificationVersion" type="xs:string" minOccurs="0">
+						<xs:element name="AssessmentVersion" type="xs:string" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Version of the certification type, such as "2.0"</xs:documentation>
+								<xs:documentation>Version of the assessment documentation, such as "2.0"</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
@@ -1044,30 +1145,6 @@
 					<xs:documentation>Year of the most recent major remodel. For a remodel to be considered major, the work undertaken must have required a permit from the building department, or an inspection by a governing authority. (CCYY)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="NumberOfUnits" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Number of individual units inherent to the premises. This can be number of parking spaces for parking; apartment units in a multi-family facility, retail shops in a mall; guest rooms in a hotel; stations in the work floor, etc.</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:simpleContent>
-						<xs:extension base="xs:integer">
-							<xs:attribute ref="auc:Source"/>
-						</xs:extension>
-					</xs:simpleContent>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="UnitDensity" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Number of units per 1,000 square feet.</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:simpleContent>
-						<xs:extension base="xs:decimal">
-							<xs:attribute ref="auc:Source"/>
-						</xs:extension>
-					</xs:simpleContent>
-				</xs:complexType>
-			</xs:element>
 			<xs:element name="PercentOccupiedByOwner" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The percentage of gross floor area that is occupied by the owner of the premises and affiliates. (0-1)</xs:documentation>
@@ -1099,7 +1176,7 @@
 						<xs:enumeration value="Federal government"/>
 						<xs:enumeration value="State government"/>
 						<xs:enumeration value="Local government"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
@@ -1132,6 +1209,59 @@
 				</xs:complexType>
 			</xs:element>
 			<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="SpatialUnits">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SpatialUnitType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Unit type within the premises.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Lots"/>
+									<xs:enumeration value="Parking spaces"/>
+									<xs:enumeration value="Apartment units"/>
+									<xs:enumeration value="Businesses"/>
+									<xs:enumeration value="Guest rooms"/>
+									<xs:enumeration value="Stations"/>
+									<xs:enumeration value="Buildings"/>
+									<xs:enumeration value="Areas"/>
+									<xs:enumeration value="Thermal Zones"/>
+									<xs:enumeration value="Floors"/>
+									<xs:enumeration value="Rooms"/>
+									<xs:enumeration value="Bedrooms"/>
+									<xs:enumeration value="Other"/>
+									<xs:enumeration value="Unknown"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="NumberOfUnits" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Number of individual units inherent to the premises. </xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:integer">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="UnitDensity" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Number of units per 1,000 square feet.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="ID" type="xs:ID"/>
 	</xs:complexType>
@@ -1233,9 +1363,9 @@
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
-									<xs:element name="Length" minOccurs="0">
+									<xs:element name="SideLength" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Length of a particular side of a block as defined in the BuildingSync Geometry Reference Sheet.</xs:documentation>
+											<xs:documentation>Length of a particular side of a block as defined in the BuildingSync Geometry Reference Sheet. (ft)</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:simpleContent>
@@ -1778,7 +1908,7 @@
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
-									<xs:enumeration value="All days"/>
+									<xs:enumeration value="All week"/>
 									<xs:enumeration value="Weekday"/>
 									<xs:enumeration value="Weekend"/>
 									<xs:enumeration value="Saturday"/>
@@ -1811,6 +1941,9 @@
 									<xs:enumeration value="Lighting"/>
 									<xs:enumeration value="Cooking equipment"/>
 									<xs:enumeration value="Miscellaneous equipment"/>
+									<xs:enumeration value="On-peak"/>
+									<xs:enumeration value="Off-peak"/>
+									<xs:enumeration value="Super off-peak"/>
 									<xs:enumeration value="Other"/>
 								</xs:restriction>
 							</xs:simpleType>
@@ -1853,9 +1986,15 @@
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
+						<xs:enumeration value="Premises"/>
 						<xs:enumeration value="Occupant"/>
+						<xs:enumeration value="Agency"/>
 						<xs:enumeration value="Owner"/>
 						<xs:enumeration value="Customer"/>
+						<xs:enumeration value="Customer agreement"/>
+						<xs:enumeration value="Administrator"/>
+						<xs:enumeration value="Qualified Assessor"/>
+						<xs:enumeration value="Contributor"/>
 						<xs:enumeration value="Property Management Company"/>
 						<xs:enumeration value="Operator"/>
 						<xs:enumeration value="Energy Auditor"/>
@@ -1872,6 +2011,11 @@
 						<xs:enumeration value="Architect"/>
 						<xs:enumeration value="Mechanical Engineer"/>
 						<xs:enumeration value="Energy Consultant"/>
+						<xs:enumeration value="Service and Product Provider"/>
+						<xs:enumeration value="Authority Having Jurisdiction"/>
+						<xs:enumeration value="Utility"/>
+						<xs:enumeration value="Power plant"/>
+						<xs:enumeration value="Electric Distribution Utility (EDU)"/>
 						<xs:enumeration value="Other"/>
 					</xs:restriction>
 				</xs:simpleType>
@@ -1941,7 +2085,38 @@
 					<xs:documentation>Name of the scenario for which energy use data is included. This may include benchmarks, baselines, and improved cases. For retrofits, each package represents a different scenario.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="auc:Qualifier" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element minOccurs="0" name="TemporalStatus">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Pre retrofit"/>
+						<xs:enumeration value="Post retrofit"/>
+						<xs:enumeration value="Baseline"/>
+						<xs:enumeration value="Current"/>
+						<xs:enumeration value="Target"/>
+						<xs:enumeration value="Design Target"/>
+						<xs:enumeration value="Last billing period"/>
+						<xs:enumeration value="Additional to last billing period"/>
+						<xs:enumeration value="Current billing period"/>
+						<xs:enumeration value="Billed to date"/>
+						<xs:enumeration value="Current day"/>
+						<xs:enumeration value="Current day last year"/>
+						<xs:enumeration value="Previous day"/>
+						<xs:enumeration value="Previous day last year"/>
+						<xs:enumeration value="Other"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="Normalization">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="National Median"/>
+						<xs:enumeration value="Regional Median"/>
+						<xs:enumeration value="Adjusted to specific year"/>
+						<xs:enumeration value="Weather normalized"/>
+						<xs:enumeration value="Other"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="ScenarioType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Type of scenario for which energy use is presented.</xs:documentation>
@@ -2276,7 +2451,7 @@
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="FirstCost" minOccurs="0">
+									<xs:element name="PackageFirstCost" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>The sum of the initial expenditures to implement the package of measures; includes items such as equipment, transportation, installation, preparation for service, as well as other related costs for planning, designing, training, and managing the project during the first year. ($)</xs:documentation>
 										</xs:annotation>
@@ -2594,7 +2769,6 @@
 											<xs:restriction base="xs:string">
 												<xs:enumeration value="On-Site Measurement"/>
 												<xs:enumeration value="Weather Station"/>
-												<xs:enumeration value="TMY3"/>
 												<xs:enumeration value="TMY"/>
 												<xs:enumeration value="TMY2"/>
 												<xs:enumeration value="TMY3"/>
@@ -2630,7 +2804,6 @@
 											<xs:restriction base="xs:string">
 												<xs:enumeration value="On-Site Measurement"/>
 												<xs:enumeration value="Weather Station"/>
-												<xs:enumeration value="TMY3"/>
 												<xs:enumeration value="TMY"/>
 												<xs:enumeration value="TMY2"/>
 												<xs:enumeration value="TMY3"/>
@@ -2728,12 +2901,37 @@
 	</xs:complexType>
 	<xs:complexType name="ResourceUseType">
 		<xs:sequence>
-			<xs:element ref="auc:Qualifier" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="auc:Resource" minOccurs="0"/>
+			<xs:element minOccurs="0" name="ResourceBoundary">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Site"/>
+						<xs:enumeration value="Source"/>
+						<xs:enumeration value="Onsite"/>
+						<xs:enumeration value="Offsite"/>
+						<xs:enumeration value="Net"/>
+						<xs:enumeration value="Gross"/>
+						<xs:enumeration value="Other"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="WaterResource">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Potable water"/>
+						<xs:enumeration value="Wastewater"/>
+						<xs:enumeration value="Greywater"/>
+						<xs:enumeration value="Reclaimed water"/>
+						<xs:enumeration value="Captured rainwater"/>
+						<xs:enumeration value="Alternative water"/>
+						<xs:enumeration value="Other"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element ref="auc:ResourceUnits" minOccurs="0"/>
-			<xs:element name="CompleteResource" type="xs:boolean" minOccurs="0">
+			<xs:element name="PercentResource" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>True if this Energy Use record covers total consumption of this fuel type in this facility; false otherwise.</xs:documentation>
+					<xs:documentation>Percentage of total consumption of this fuel type represented by this Energy Use record. (%)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="SharedResourceSystem" minOccurs="0">
@@ -2745,7 +2943,7 @@
 						<xs:enumeration value="Shared energy systems or meters for multiple building on a single lot"/>
 						<xs:enumeration value="Shared energy systems or meter for multiple buildings on multiple lots"/>
 						<xs:enumeration value="Energy system or meter not shared"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
@@ -2755,9 +2953,9 @@
 					<xs:documentation>End use that the resource primarily applies to.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="CompleteEndUse" type="xs:boolean" minOccurs="0">
+			<xs:element name="PercentEndUse" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>True if this Energy Use covers total consumption of this end use; false otherwise.</xs:documentation>
+					<xs:documentation>Percentage of total consumption of this fuel type for the specified end use represented by this Energy Use record. (%)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="AnnualFuelUseNativeUnits" minOccurs="0">
@@ -3281,7 +3479,7 @@
 												<xs:enumeration value="Residential"/>
 												<xs:enumeration value="Commercial"/>
 												<xs:enumeration value="Industrial"/>
-												<xs:enumeration value="Other/combination"/>
+												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
@@ -3402,7 +3600,14 @@
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="Revenue grade meter"/>
 									<xs:enumeration value="Advanced resource meter"/>
-									<xs:enumeration value="Sub-meter"/>
+									<xs:enumeration value="Analog"/>
+									<xs:enumeration value="Interval"/>
+									<xs:enumeration value="Net"/>
+									<xs:enumeration value="Smart meter"/>
+									<xs:enumeration value="PDU input meter"/>
+									<xs:enumeration value="IT equipment input meter"/>
+									<xs:enumeration value="Supply UPS output meter"/>
+									<xs:enumeration value="PDU output meter"/>
 									<xs:enumeration value="Other"/>
 									<xs:enumeration value="Unknown"/>
 								</xs:restriction>
@@ -3469,7 +3674,16 @@
 			<xs:element name="Emissions" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element ref="auc:Qualifier" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element minOccurs="0" name="EmissionBoundary">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Direct"/>
+									<xs:enumeration value="Indirect"/>
+									<xs:enumeration value="Net"/>
+									<xs:enumeration value="Other"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
 						<xs:element name="EmissionsType" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Category of greenhouse gas or other emission.</xs:documentation>
@@ -3511,7 +3725,7 @@
 						</xs:element>
 						<xs:element name="GHGEmissions" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Emissions that result in gases that trap heat in the atmosphere. This term can be associated with one or more Qualifiers in the constrained list. (MtCO2e)</xs:documentation>
+								<xs:documentation>Emissions that result in gases that trap heat in the atmosphere. (kgCO2e)</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:simpleContent>
@@ -3523,7 +3737,7 @@
 						</xs:element>
 						<xs:element name="AvoidedEmissions" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>The avoided Greenhouse gas (GHG) emissions resulting from a renewable energy source or a system. This term can be associated with one or more Qualifiers in the constrained list. (MtCO2e)</xs:documentation>
+								<xs:documentation>The avoided Greenhouse gas (GHG) emissions resulting from a renewable energy source or a system. (kgCO2e)</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:simpleContent>
@@ -3547,10 +3761,43 @@
 					<xs:documentation>End use for which data is included.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element ref="auc:Qualifier" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element minOccurs="0" name="TemporalStatus">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Pre retrofit"/>
+						<xs:enumeration value="Post retrofit"/>
+						<xs:enumeration value="Baseline"/>
+						<xs:enumeration value="Current"/>
+						<xs:enumeration value="Target"/>
+						<xs:enumeration value="Design Target"/>
+						<xs:enumeration value="Last billing period"/>
+						<xs:enumeration value="Additional to last billing period"/>
+						<xs:enumeration value="Current billing period"/>
+						<xs:enumeration value="Billed to date"/>
+						<xs:enumeration value="Current day"/>
+						<xs:enumeration value="Current day last year"/>
+						<xs:enumeration value="Previous day"/>
+						<xs:enumeration value="Previous day last year"/>
+						<xs:enumeration value="Other"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="ResourceBoundary">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Site"/>
+						<xs:enumeration value="Source"/>
+						<xs:enumeration value="Onsite"/>
+						<xs:enumeration value="Offsite"/>
+						<xs:enumeration value="Net"/>
+						<xs:enumeration value="Gross"/>
+						<xs:enumeration value="Other"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="SiteEnergyUse" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The annual amount of all the energy the premises consumes on-site, as reported on the utility bills. This term can be associated with one or more Qualifiers in the constrained list. (kBtu)</xs:documentation>
+					<xs:documentation>The annual amount of all the energy the premises consumes on-site, as reported on the utility bills. (kBtu)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -3562,7 +3809,7 @@
 			</xs:element>
 			<xs:element name="SiteEnergyUseIntensity" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Site Energy Use divided by the premises gross floor area.This term can be associated with one or more Qualifiers in the constrained list. (kBtu/ft2)</xs:documentation>
+					<xs:documentation>The Site Energy Use divided by the premises gross floor area. (kBtu/ft2)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -3574,7 +3821,7 @@
 			</xs:element>
 			<xs:element name="SourceEnergyUse" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The total annual amount of all the raw resource required to operate the premises, including losses that take place during generation, transmission, and distribution of the energy. This term can be associated with one or more Qualifiers in the constrained list. (kBtu)</xs:documentation>
+					<xs:documentation>The total annual amount of all the raw resource required to operate the premises, including losses that take place during generation, transmission, and distribution of the energy. (kBtu)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -3586,7 +3833,7 @@
 			</xs:element>
 			<xs:element name="SourceEnergyUseIntensity" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The Source Energy Use divided by the premises gross floor area. This term can be associated with one or more Qualifiers in the constrained list. (kBtu/ft2)</xs:documentation>
+					<xs:documentation>The Source Energy Use divided by the premises gross floor area. (kBtu/ft2)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -3598,7 +3845,7 @@
 			</xs:element>
 			<xs:element name="EnergyCost" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The annual cost associated with a selected 12 month time period for a premises. It can be an individual value for different energy types, and can also be an aggregated value across all energy types. This term can be associated with one or more Qualifiers in the constrained list. ($)</xs:documentation>
+					<xs:documentation>The annual cost associated with a selected 12 month time period for a premises. It can be an individual value for different energy types, and can also be an aggregated value across all energy types. ($)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -3656,9 +3903,22 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
+			<xs:element minOccurs="0" name="WaterResource">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Potable water"/>
+						<xs:enumeration value="Wastewater"/>
+						<xs:enumeration value="Greywater"/>
+						<xs:enumeration value="Reclaimed water"/>
+						<xs:enumeration value="Captured rainwater"/>
+						<xs:enumeration value="Alternative water"/>
+						<xs:enumeration value="Other"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="WaterUse" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Annual water use from different sources. This term can be associated with one or more Qualifiers in the constrained list. (kgal)</xs:documentation>
+					<xs:documentation>Annual water use from different sources. (kgal)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -3670,7 +3930,7 @@
 			</xs:element>
 			<xs:element name="WaterIntensity" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Water use from different sources divided by the premises gross floor area. This term can be associated with one or more Qualifiers in the constrained list. (kgal/ft2)</xs:documentation>
+					<xs:documentation>Water use from different sources divided by the premises gross floor area. (kgal/ft2)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -3682,7 +3942,7 @@
 			</xs:element>
 			<xs:element name="WaterCost" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Annual cost of water. This term can be associated with one or more Qualifiers in the constrained list. ($)</xs:documentation>
+					<xs:documentation>Annual cost of water. ($)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -3739,14 +3999,13 @@
 						<xs:enumeration value="Frequency"/>
 						<xs:enumeration value="Power"/>
 						<xs:enumeration value="Power Factor"/>
-						<xs:enumeration value="QuantityPower"/>
+						<xs:enumeration value="Energy"/>
 						<xs:enumeration value="Voltage"/>
 						<xs:enumeration value="Voltage Angle"/>
 						<xs:enumeration value="Distortion Power Factor"/>
 						<xs:enumeration value="Volumetric Flow"/>
 						<xs:enumeration value="Humidity ratio"/>
 						<xs:enumeration value="Relative humidity"/>
-						<xs:enumeration value="Water"/>
 						<xs:enumeration value="Diffuse Horizontal Radiation"/>
 						<xs:enumeration value="Direct Normal Radiation"/>
 						<xs:enumeration value="Global Horizontal Radiation"/>
@@ -3759,12 +4018,12 @@
 			</xs:element>
 			<xs:element name="StartTimeStamp" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The timestamp that marks the beginning of the time series. (CCYY-MM-DDThh:mm:ss.sss-hh:mm)</xs:documentation>
+					<xs:documentation>The timestamp that marks the beginning of the time series. (CCYY-MM-DDThh:mm:ss.sss)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EndTimeStamp" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The timestamp that marks the end of the time series. (CCYY-MM-DDThh:mm:ss.sss-hh:mm)</xs:documentation>
+					<xs:documentation>The timestamp that marks the end of the time series. (CCYY-MM-DDThh:mm:ss.sss)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="IntervalFrequency" minOccurs="0">
@@ -4086,6 +4345,20 @@
 					<xs:documentation>ID numbers of premises (site, facility, space, zone, or block) for measures that apply broadly to an entire building, or modify the properties of a building.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MeasureCoverage" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Percentage of the premises affected by the measure that's either proposed, implemented or evaluated. [%]</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
 					<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
 				</xs:complexType>
 			</xs:element>
@@ -4097,7 +4370,7 @@
 					<xs:choice>
 						<xs:element name="BoilerPlantImprovements" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>1-Boiler Plant Improvements</xs:documentation>
+								<xs:documentation>Boiler Plant Improvements</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4111,6 +4384,7 @@
 												<xs:enumeration value="Replace burner"/>
 												<xs:enumeration value="Decentralize boiler"/>
 												<xs:enumeration value="Insulate boiler room"/>
+												<xs:enumeration value="Add energy recovery"/>
 												<xs:enumeration value="Convert gas-fired unit to boiler loop"/>
 												<xs:enumeration value="Convert system from steam to hot water"/>
 												<xs:enumeration value="Clean and/or repair"/>
@@ -4125,7 +4399,7 @@
 						</xs:element>
 						<xs:element name="ChillerPlantImprovements" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>2-Chiller Plant Improvements</xs:documentation>
+								<xs:documentation>Chiller Plant Improvements</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4151,9 +4425,9 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="EnergyManagementControlSystems" minOccurs="0">
+						<xs:element name="BuildingAutomationWystems" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>3-Building Automation Systems/Energy Management Control Systems (EMCS)</xs:documentation>
+								<xs:documentation>Building Automation Systems/Energy Management Control Systems (EMCS)</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4177,7 +4451,7 @@
 						</xs:element>
 						<xs:element name="OtherHVAC" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>4-Heating, Ventilating, and Air Conditioning</xs:documentation>
+								<xs:documentation>Heating, Ventilating, and Air Conditioning</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4188,7 +4462,8 @@
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
 												<xs:enumeration value="Replace or modify AHU"/>
-												<xs:enumeration value="Improve fans"/>
+												<xs:enumeration value="Improve distribution fans"/>
+												<xs:enumeration value="Improve ventilation fans"/>
 												<xs:enumeration value="Convert CV system to VAV system"/>
 												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 												<xs:enumeration value="Repair leaks / seal ducts"/>
@@ -4208,6 +4483,10 @@
 												<xs:enumeration value="Install solar ventilation preheating system"/>
 												<xs:enumeration value="Clean and/or repair"/>
 												<xs:enumeration value="Implement training and/or documentation"/>
+												<xs:enumeration value="Other heating"/>
+												<xs:enumeration value="Other cooling"/>
+												<xs:enumeration value="Other ventilation"/>
+												<xs:enumeration value="Other distribution"/>
 												<xs:enumeration value="Other"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -4217,7 +4496,7 @@
 						</xs:element>
 						<xs:element name="LightingImprovements" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>5-Lighting Improvements</xs:documentation>
+								<xs:documentation>Lighting Improvements</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4247,7 +4526,7 @@
 						</xs:element>
 						<xs:element name="BuildingEnvelopeModifications" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>6-Building Envelope Modifications</xs:documentation>
+								<xs:documentation>Building Envelope Modifications</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4282,7 +4561,7 @@
 						</xs:element>
 						<xs:element name="ChilledWaterHotWaterAndSteamDistributionSystems" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>7-Chilled Water, Hot Water, and Steam Distribution Systems</xs:documentation>
+								<xs:documentation>Chilled Water, Hot Water, and Steam Distribution Systems</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4315,7 +4594,7 @@
 						</xs:element>
 						<xs:element name="ElectricMotorsAndDrives" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>8-Electric Motors and Drives</xs:documentation>
+								<xs:documentation>Electric Motors and Drives</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4340,7 +4619,7 @@
 						</xs:element>
 						<xs:element name="Refrigeration" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>9-Refrigeration</xs:documentation>
+								<xs:documentation>Refrigeration</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4365,7 +4644,7 @@
 						</xs:element>
 						<xs:element name="DistributedGeneration" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>10-Distributed Generation</xs:documentation>
+								<xs:documentation>Distributed Generation</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4391,7 +4670,7 @@
 						</xs:element>
 						<xs:element name="RenewableEnergySystems" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>11-Renewable Energy Systems</xs:documentation>
+								<xs:documentation>Renewable Energy Systems</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4415,9 +4694,9 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="EnergyUtilityDistributionSystems" minOccurs="0">
+						<xs:element name="EnergyDistributionSystems" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>12-Energy/Utility Distribution Systems</xs:documentation>
+								<xs:documentation>Energy/Utility Distribution Systems</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4443,7 +4722,7 @@
 						</xs:element>
 						<xs:element name="WaterAndSewerConservationSystems" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>13-Water and Sewer Conservation Systems</xs:documentation>
+								<xs:documentation>Water and Sewer Conservation Systems</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4469,7 +4748,7 @@
 						</xs:element>
 						<xs:element name="ElectricalPeakShavingLoadShifting" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>14-Electrical Peak Shaving/Load Shifting</xs:documentation>
+								<xs:documentation>Electrical Peak Shaving/Load Shifting</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4491,7 +4770,7 @@
 						</xs:element>
 						<xs:element name="EnergyCostReductionThroughRateAdjustments" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>15-Energy Cost Reduction Through Rate Adjustments</xs:documentation>
+								<xs:documentation>Energy Cost Reduction Through Rate Adjustments</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4514,7 +4793,7 @@
 						</xs:element>
 						<xs:element name="EnergyRelatedProcessImprovements" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>16-Energy Related Process Improvements</xs:documentation>
+								<xs:documentation>Energy Related Process Improvements</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4536,32 +4815,9 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Commissioning" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>17-Commissioning/Retro Commissioning</xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-										<xs:annotation>
-											<xs:documentation>Short description of measure</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Commission or retrocommission"/>
-												<xs:enumeration value="Clean and/or repair"/>
-												<xs:enumeration value="Implement training and/or documentation"/>
-												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-												<xs:enumeration value="Other"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
 						<xs:element name="AdvancedMeteringSystems" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>18-Advanced Metering Systems</xs:documentation>
+								<xs:documentation>Advanced Metering Systems</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4582,9 +4838,9 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="AppliancePlugLoadReductions" minOccurs="0">
+						<xs:element name="PlugLoadReductions" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>19-Appliance/Plug-load reductions</xs:documentation>
+								<xs:documentation>Appliance and plug-load reductions</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4597,6 +4853,7 @@
 												<xs:enumeration value="Replace with ENERGY STAR rated"/>
 												<xs:enumeration value="Install plug load controls"/>
 												<xs:enumeration value="De-lamp vending machines"/>
+												<xs:enumeration value="Improve data center efficiency"/>
 												<xs:enumeration value="Clean and/or repair"/>
 												<xs:enumeration value="Implement training and/or documentation"/>
 												<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
@@ -4609,7 +4866,7 @@
 						</xs:element>
 						<xs:element name="FutureOtherECMs" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>20-Future/Other ECMs</xs:documentation>
+								<xs:documentation>Future/Other ECMs</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4677,26 +4934,9 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="MeasureCoverage" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Percentage of the building floor space affected by the measure that's either proposed, implemented or evaluated [%]</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:simpleContent>
-						<xs:extension base="xs:decimal">
-							<xs:attribute ref="auc:Source"/>
-						</xs:extension>
-					</xs:simpleContent>
-				</xs:complexType>
-			</xs:element>
 			<xs:element name="LongDescription" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Long description of measure.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="MeasureNotes" type="xs:string" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Additional relevant information regarding the measure.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="MeasureSavingsAnalysis" minOccurs="0">
@@ -5033,14 +5273,31 @@
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
-						<xs:enumeration value="Completed"/>
+						<xs:enumeration value="Proposed"/>
+						<xs:enumeration value="Evaluated"/>
 						<xs:enumeration value="Selected"/>
-						<xs:enumeration value="Discarded"/>
-						<xs:enumeration value="Discarded - 5-Year Payback"/>
-						<xs:enumeration value="Discarded - Requires Permit"/>
 						<xs:enumeration value="Recommended"/>
+						<xs:enumeration value="Initiated"/>
+						<xs:enumeration value="Discarded"/>
 						<xs:enumeration value="In Progress"/>
-						<xs:enumeration value="Satisfactory Repair Not Achieved"/>
+						<xs:enumeration value="Completed"/>
+						<xs:enumeration value="MV"/>
+						<xs:enumeration value="Verified"/>
+						<xs:enumeration value="Unsatisfactory"/>
+						<xs:enumeration value="Other"/>
+						<xs:enumeration value="Unknown"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element minOccurs="0" name="DiscardReason">
+				<xs:annotation>
+					<xs:documentation>Reason why the proposed mesure was discarded, if appropriate.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Not discarded"/>
+						<xs:enumeration value="Long payback"/>
+						<xs:enumeration value="Requires permit"/>
 						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
@@ -5072,7 +5329,7 @@
 														<xs:restriction base="xs:string">
 															<xs:enumeration value="Steam"/>
 															<xs:enumeration value="Hot water"/>
-															<xs:enumeration value="Other/combination"/>
+															<xs:enumeration value="Other"/>
 															<xs:enumeration value="Unknown"/>
 														</xs:restriction>
 													</xs:simpleType>
@@ -5087,7 +5344,7 @@
 															<xs:enumeration value="Power"/>
 															<xs:enumeration value="Sealed Combustion"/>
 															<xs:enumeration value="Rotary Cup"/>
-															<xs:enumeration value="Other/combination"/>
+															<xs:enumeration value="Other"/>
 															<xs:enumeration value="Unknown"/>
 														</xs:restriction>
 													</xs:simpleType>
@@ -5142,8 +5399,8 @@
 													</xs:annotation>
 													<xs:simpleType>
 														<xs:restriction base="xs:string">
-															<xs:enumeration value="Single-Stage"/>
-															<xs:enumeration value="Multiple, Discrete-Stages"/>
+															<xs:enumeration value="Single stage"/>
+															<xs:enumeration value="Multiple discrete stages"/>
 															<xs:enumeration value="Variable"/>
 															<xs:enumeration value="Modulating"/>
 															<xs:enumeration value="Other"/>
@@ -5205,12 +5462,12 @@
 														<xs:documentation>Order of precedence relative to other applicable systems. Enter 1 if this is the only system.</xs:documentation>
 													</xs:annotation>
 													<xs:simpleType>
-														<xs:restriction base="xs:integer">
-															<xs:enumeration value="1"/>
-															<xs:enumeration value="2"/>
-															<xs:enumeration value="3"/>
-															<xs:enumeration value="4"/>
-															<xs:enumeration value="5"/>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Primary"/>
+															<xs:enumeration value="Secondary"/>
+															<xs:enumeration value="Tertiary"/>
+															<xs:enumeration value="Back-up"/>
+															<xs:enumeration value="Other"/>
 														</xs:restriction>
 													</xs:simpleType>
 												</xs:element>
@@ -5409,7 +5666,7 @@
 															<xs:enumeration value="Hot water"/>
 															<xs:enumeration value="Direct steam"/>
 															<xs:enumeration value="Steam to hot water heat exchanger"/>
-															<xs:enumeration value="Other/combination"/>
+															<xs:enumeration value="Other"/>
 															<xs:enumeration value="Unknown"/>
 														</xs:restriction>
 													</xs:simpleType>
@@ -5618,7 +5875,7 @@
 																		<xs:enumeration value="Heating stove"/>
 																		<xs:enumeration value="Built-in heater"/>
 																		<xs:enumeration value="Individual space heater"/>
-																		<xs:enumeration value="Other/combination"/>
+																		<xs:enumeration value="Other"/>
 																		<xs:enumeration value="Unknown"/>
 																	</xs:restriction>
 																</xs:simpleType>
@@ -5633,7 +5890,7 @@
 																		<xs:enumeration value="Power"/>
 																		<xs:enumeration value="Sealed Combustion"/>
 																		<xs:enumeration value="Rotary Cup"/>
-																		<xs:enumeration value="Other/combination"/>
+																		<xs:enumeration value="Other"/>
 																		<xs:enumeration value="Unknown"/>
 																	</xs:restriction>
 																</xs:simpleType>
@@ -5722,7 +5979,7 @@
 																		<xs:enumeration value="Split"/>
 																		<xs:enumeration value="Packaged Terminal"/>
 																		<xs:enumeration value="Packaged Unitary"/>
-																		<xs:enumeration value="Other/combination"/>
+																		<xs:enumeration value="Other"/>
 																		<xs:enumeration value="Unknown"/>
 																	</xs:restriction>
 																</xs:simpleType>
@@ -5855,8 +6112,8 @@
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
-												<xs:enumeration value="Single-Stage"/>
-												<xs:enumeration value="Multiple, Discrete-Stages"/>
+												<xs:enumeration value="Single stage"/>
+												<xs:enumeration value="Multiple discrete stages"/>
 												<xs:enumeration value="Variable"/>
 												<xs:enumeration value="Modulating"/>
 												<xs:enumeration value="Other"/>
@@ -5939,7 +6196,7 @@
 																		<xs:enumeration value="Packaged/unitary heat pump"/>
 																		<xs:enumeration value="Single package vertical air conditioner"/>
 																		<xs:enumeration value="Single package vertical heat pump"/>
-																		<xs:enumeration value="Other/combination"/>
+																		<xs:enumeration value="Other"/>
 																		<xs:enumeration value="Unknown"/>
 																	</xs:restriction>
 																</xs:simpleType>
@@ -5965,9 +6222,10 @@
 																</xs:annotation>
 																<xs:simpleType>
 																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Single-Stage"/>
-																		<xs:enumeration value="Multiple, Discrete-Stages"/>
+																		<xs:enumeration value="Single stage"/>
+																		<xs:enumeration value="Multiple discrete stages"/>
 																		<xs:enumeration value="Variable"/>
+																		<xs:enumeration value="Modulating"/>
 																		<xs:enumeration value="Other"/>
 																		<xs:enumeration value="Unknown"/>
 																	</xs:restriction>
@@ -6017,30 +6275,6 @@
 																		<xs:enumeration value="Other"/>
 																	</xs:restriction>
 																</xs:simpleType>
-															</xs:element>
-															<xs:element name="EvaporativeCoolingEnteringSupplyAirDBTemperature" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The dry bulb temperature of the supply air as it enters the evaporative cooler. (°F)</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="EvaporativeCoolingEnteringSupplyAirWBTemperature" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The wet bulb temperature of the supply air as it enters the evaporative cooler. (°F)</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
 															</xs:element>
 														</xs:sequence>
 													</xs:complexType>
@@ -6184,7 +6418,7 @@
 																								<xs:enumeration value="Induction units"/>
 																								<xs:enumeration value="Low pressure under floor"/>
 																								<xs:enumeration value="Local fan"/>
-																								<xs:enumeration value="Other/combination"/>
+																								<xs:enumeration value="Other"/>
 																								<xs:enumeration value="Unknown"/>
 																							</xs:restriction>
 																						</xs:simpleType>
@@ -6203,7 +6437,7 @@
 																								<xs:enumeration value="Automatically controlled register"/>
 																								<xs:enumeration value="Manually controlled register"/>
 																								<xs:enumeration value="Uncontrolled register"/>
-																								<xs:enumeration value="Other/combination"/>
+																								<xs:enumeration value="Other"/>
 																								<xs:enumeration value="Unknown"/>
 																							</xs:restriction>
 																						</xs:simpleType>
@@ -6245,12 +6479,13 @@
 																					<xs:element name="FanCoilType" minOccurs="0">
 																						<xs:simpleType>
 																							<xs:restriction base="xs:string">
-																								<xs:enumeration value="Fan Coil-2 Pipe"/>
-																								<xs:enumeration value="Fan Coil-4 Pipe"/>
-																								<xs:enumeration value="Mini-Split"/>
-																								<xs:enumeration value="Multi-Split"/>
+																								<xs:enumeration value="Mini-split"/>
+																								<xs:enumeration value="Multi-split"/>
+																								<xs:enumeration value="Terminal reheat"/>
+																								<xs:enumeration value="Fan coil 2 pipe"/>
+																								<xs:enumeration value="Fan coil 4 pipe"/>
 																								<xs:enumeration value="VRF terminal units"/>
-																								<xs:enumeration value="Other/combination"/>
+																								<xs:enumeration value="Other"/>
 																								<xs:enumeration value="Unknown"/>
 																							</xs:restriction>
 																						</xs:simpleType>
@@ -6554,7 +6789,7 @@
 																	<xs:restriction base="xs:string">
 																		<xs:enumeration value="Perimeter baseboard"/>
 																		<xs:enumeration value="Chilled beam"/>
-																		<xs:enumeration value="Other/combination"/>
+																		<xs:enumeration value="Other"/>
 																		<xs:enumeration value="Unknown"/>
 																	</xs:restriction>
 																</xs:simpleType>
@@ -6594,7 +6829,7 @@
 																	<xs:restriction base="xs:string">
 																		<xs:enumeration value="Radiator"/>
 																		<xs:enumeration value="Radiant floor or ceiling"/>
-																		<xs:enumeration value="Other/combination"/>
+																		<xs:enumeration value="Other"/>
 																		<xs:enumeration value="Unknown"/>
 																	</xs:restriction>
 																</xs:simpleType>
@@ -6630,7 +6865,7 @@
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="HeatingSourceID" minOccurs="0" maxOccurs="unbounded">
+									<xs:element name="HeatingSourceID" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>ID number of heating system associated with this delivery mechanism.</xs:documentation>
 										</xs:annotation>
@@ -6638,7 +6873,7 @@
 											<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="CoolingSourceID" minOccurs="0" maxOccurs="unbounded">
+									<xs:element name="CoolingSourceID" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>ID number of cooling system associated with this delivery mechanism.</xs:documentation>
 										</xs:annotation>
@@ -6692,12 +6927,12 @@
 					<xs:documentation>Order of precedence relative to other applicable systems. Select 1 if this is the only system.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
-					<xs:restriction base="xs:integer">
-						<xs:enumeration value="1"/>
-						<xs:enumeration value="2"/>
-						<xs:enumeration value="3"/>
-						<xs:enumeration value="4"/>
-						<xs:enumeration value="5"/>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Primary"/>
+						<xs:enumeration value="Secondary"/>
+						<xs:enumeration value="Tertiary"/>
+						<xs:enumeration value="Back-up"/>
+						<xs:enumeration value="Other"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -6728,7 +6963,7 @@
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="Pneumatic"/>
 						<xs:enumeration value="Electric"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
@@ -6887,7 +7122,7 @@
 						<xs:enumeration value="Flexible"/>
 						<xs:enumeration value="Fiberboard"/>
 						<xs:enumeration value="No ducting"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
@@ -7007,7 +7242,7 @@
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="Vapor compression"/>
 									<xs:enumeration value="Absorption"/>
-									<xs:enumeration value="Other/combination"/>
+									<xs:enumeration value="Other"/>
 									<xs:enumeration value="Unknown"/>
 								</xs:restriction>
 							</xs:simpleType>
@@ -7047,9 +7282,10 @@
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
-									<xs:enumeration value="Single-Stage"/>
-									<xs:enumeration value="Multiple, Discrete-Stages"/>
+									<xs:enumeration value="Single stage"/>
+									<xs:enumeration value="Multiple discrete stages"/>
 									<xs:enumeration value="Variable"/>
+									<xs:enumeration value="Modulating"/>
 									<xs:enumeration value="Other"/>
 									<xs:enumeration value="Unknown"/>
 								</xs:restriction>
@@ -7485,18 +7721,6 @@
 														</xs:restriction>
 													</xs:simpleType>
 												</xs:element>
-												<xs:element name="WaterSideEconomizerTemperatureSetpoint" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The water temperature that the equipment supplies, such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
 												<xs:element name="WaterSideEconomizerTemperatureMaximum" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>The control temperature of the condenser water supply temperature above which the water-side economizer is disabled. (°F)</xs:documentation>
@@ -7840,6 +8064,7 @@
 											<xs:restriction base="xs:string">
 												<xs:enumeration value="Exhaust only"/>
 												<xs:enumeration value="Supply only"/>
+												<xs:enumeration value="Dedicated outdoor air system"/>
 												<xs:enumeration value="Heat recovery ventilator"/>
 												<xs:enumeration value="Energy recovery ventilator"/>
 												<xs:enumeration value="Other"/>
@@ -8040,6 +8265,20 @@
 			<xs:element ref="auc:YearofManufacture" minOccurs="0"/>
 			<xs:element ref="auc:YearInstalled" minOccurs="0"/>
 			<xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+			<xs:element name="Integration" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>True if ventilation system is controlled based on level of occupancy or pollutants, false otherwise</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Integrated with central air distribution"/>
+						<xs:enumeration value="Integrated with local air distribution"/>
+						<xs:enumeration value="Stand-alone"/>
+						<xs:enumeration value="Other"/>
+						<xs:enumeration value="Unknown"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="LinkedDeliveryID" type="xs:IDREF" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Connect to an air distribution system</xs:documentation>
@@ -8343,7 +8582,6 @@
 						<xs:enumeration value="Direct-Indirect"/>
 						<xs:enumeration value="Spotlight"/>
 						<xs:enumeration value="Floodlighting"/>
-						<xs:enumeration value="Recessed"/>
 						<xs:enumeration value="Omnidirectional"/>
 						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
@@ -9126,6 +9364,14 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
+			<xs:element name="WaterHeaterEfficiencyType">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Energy Factor"/>
+						<xs:enumeration value="Thermal Effiiciency"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="WaterHeaterEfficiency" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>A factor is used to compare the relative efficiency of water heaters, dishwashers, clothes washers, and clothes dryers.</xs:documentation>
@@ -9150,7 +9396,7 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="SetpointTemperature" minOccurs="0">
+			<xs:element name="HotWaterSetpointTemperature" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The water temperature that the equipment supplies, such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. (°F)</xs:documentation>
 				</xs:annotation>
@@ -9203,16 +9449,46 @@
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
+						<xs:enumeration value="Hot top range"/>
+						<xs:enumeration value="Open burner range"/>
+						<xs:enumeration value="Wok range"/>
 						<xs:enumeration value="Braising pan"/>
+						<xs:enumeration value="Underfired broiler"/>
+						<xs:enumeration value="Overfired broiler"/>
+						<xs:enumeration value="Conveyor broiler"/>
+						<xs:enumeration value="Salamander broiler"/>
 						<xs:enumeration value="Broiler"/>
-						<xs:enumeration value="Fryer"/>
-						<xs:enumeration value="Griddle"/>
-						<xs:enumeration value="Holding cabinet"/>
-						<xs:enumeration value="Oven"/>
-						<xs:enumeration value="Pasta cooker"/>
-						<xs:enumeration value="Rangetop"/>
+						<xs:enumeration value="Microwave oven"/>
+						<xs:enumeration value="Toaster"/>
+						<xs:enumeration value="Standard fryer"/>
+						<xs:enumeration value="Large vat fryer"/>
+						<xs:enumeration value="Split vat fryer"/>
+						<xs:enumeration value="Convection oven"/>
+						<xs:enumeration value="Combination oven"/>
+						<xs:enumeration value="Standard oven"/>
+						<xs:enumeration value="Conveyor oven"/>
+						<xs:enumeration value="Slow cook-and-hold oven"/>
+						<xs:enumeration value="Deck oven"/>
+						<xs:enumeration value="Mini-Rack oven"/>
+						<xs:enumeration value="Rack (Roll-In) oven"/>
+						<xs:enumeration value="Range oven"/>
+						<xs:enumeration value="Rapid cook oven"/>
+						<xs:enumeration value="Rotisserie oven"/>
+						<xs:enumeration value="Retherm oven"/>
+						<xs:enumeration value="Convection toaster oven"/>
+						<xs:enumeration value="Steam cooker"/>
 						<xs:enumeration value="Steam kettle"/>
-						<xs:enumeration value="Steamer"/>
+						<xs:enumeration value="Drawer warmer"/>
+						<xs:enumeration value="Heated transparent merchandising cabinets"/>
+						<xs:enumeration value="Cook-and-hold appliance"/>
+						<xs:enumeration value="Proofing cabinet"/>
+						<xs:enumeration value="Single-sided griddle"/>
+						<xs:enumeration value="Double-sided griddle"/>
+						<xs:enumeration value="Griddle"/>
+						<xs:enumeration value="Fry-top griddle"/>
+						<xs:enumeration value="Automatic drip filter coffee maker"/>
+						<xs:enumeration value="Single-serve coffee maker"/>
+						<xs:enumeration value="Espresso machine"/>
 						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
@@ -9439,7 +9715,7 @@
 												<xs:enumeration value="Refrigerator"/>
 												<xs:enumeration value="Freezer"/>
 												<xs:enumeration value="Combination"/>
-												<xs:enumeration value="Other/combination"/>
+												<xs:enumeration value="Other"/>
 												<xs:enumeration value="Unknown"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -9452,7 +9728,7 @@
 											<xs:restriction base="xs:string">
 												<xs:enumeration value="Side-by-side"/>
 												<xs:enumeration value="Top and bottom"/>
-												<xs:enumeration value="Other/combination"/>
+												<xs:enumeration value="Other"/>
 												<xs:enumeration value="Unknown"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -9475,15 +9751,18 @@
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
-									<xs:element name="DefrostType" minOccurs="0">
+									<xs:element name="DefrostingType" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Type of defrost strategy used for refrigerated cases.</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
 												<xs:enumeration value="Electric"/>
-												<xs:enumeration value="Hot Gas"/>
-												<xs:enumeration value="Cool Gas"/>
+												<xs:enumeration value="Off-cycle"/>
+												<xs:enumeration value="Hot-gas"/>
+												<xs:enumeration value="Reverse cycle"/>
+												<xs:enumeration value="Water"/>
+												<xs:enumeration value="Cool gas"/>
 												<xs:enumeration value="None"/>
 												<xs:enumeration value="Other"/>
 												<xs:enumeration value="Unknown"/>
@@ -9502,7 +9781,7 @@
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="Size" minOccurs="0">
+									<xs:element name="RefrigerationUnitSize" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Size of refrigeration equipment. (ft3)</xs:documentation>
 										</xs:annotation>
@@ -10126,7 +10405,7 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Size" minOccurs="0">
+			<xs:element name="FanSize" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Maximum air flow produced by the fan. (cfm)</xs:documentation>
 				</xs:annotation>
@@ -10564,7 +10843,7 @@
 						<xs:enumeration value="Linoleum"/>
 						<xs:enumeration value="Asphalt or fiberglass"/>
 						<xs:enumeration value="Plastic-rubber-synthetic sheeting"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
@@ -10580,103 +10859,108 @@
 						<xs:enumeration value="Medium"/>
 						<xs:enumeration value="Med-dark"/>
 						<xs:enumeration value="Dark"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="WallInsulationApplication" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>A description of the type of insulation and how it is applied.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Loose-fill"/>
-						<xs:enumeration value="Batt"/>
-						<xs:enumeration value="Spray-on"/>
-						<xs:enumeration value="Rigid"/>
-						<xs:enumeration value="Other/combination"/>
-						<xs:enumeration value="Unknown"/>
-						<xs:enumeration value="None"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="WallInsulationMaterial" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Material used for the structural component of the surface.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Fiberglass"/>
-						<xs:enumeration value="Cellulose"/>
-						<xs:enumeration value="EPS"/>
-						<xs:enumeration value="XPS"/>
-						<xs:enumeration value="Rock wool"/>
-						<xs:enumeration value="Insulsafe"/>
-						<xs:enumeration value="Recycled cotton"/>
-						<xs:enumeration value="ISOCY"/>
-						<xs:enumeration value="Icynene"/>
-						<xs:enumeration value="Other/combination"/>
-						<xs:enumeration value="Unknown"/>
-						<xs:enumeration value="None"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="WallInsulationThickness" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Thickness of wall insulation. (in.)</xs:documentation>
-				</xs:annotation>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="WallInsulation">
 				<xs:complexType>
-					<xs:simpleContent>
-						<xs:extension base="xs:decimal">
-							<xs:attribute ref="auc:Source"/>
-						</xs:extension>
-					</xs:simpleContent>
+					<xs:sequence>
+						<xs:element name="WallInsulationApplication" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A description of the type of insulation and how it is applied.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Loose-fill"/>
+									<xs:enumeration value="Batt"/>
+									<xs:enumeration value="Spray-on"/>
+									<xs:enumeration value="Rigid"/>
+									<xs:enumeration value="Other"/>
+									<xs:enumeration value="Unknown"/>
+									<xs:enumeration value="None"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="WallInsulationMaterial" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Material used for the structural component of the surface.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Fiberglass"/>
+									<xs:enumeration value="Cellulose"/>
+									<xs:enumeration value="EPS"/>
+									<xs:enumeration value="XPS"/>
+									<xs:enumeration value="Rock wool"/>
+									<xs:enumeration value="Insulsafe"/>
+									<xs:enumeration value="Recycled cotton"/>
+									<xs:enumeration value="ISOCY"/>
+									<xs:enumeration value="Icynene"/>
+									<xs:enumeration value="Other"/>
+									<xs:enumeration value="Unknown"/>
+									<xs:enumeration value="None"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="WallInsulationThickness" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Thickness of wall insulation. (in.)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="WallInsulationContinuity" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Insulation installation type.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Cavity"/>
+									<xs:enumeration value="Continuous"/>
+									<xs:enumeration value="Other"/>
+									<xs:enumeration value="Unknown"/>
+									<xs:enumeration value="None"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="WallInsulationCondition" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Assessed condition of installed insulation.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Excellent"/>
+									<xs:enumeration value="Good"/>
+									<xs:enumeration value="Average"/>
+									<xs:enumeration value="Poor"/>
+									<xs:enumeration value="Other"/>
+									<xs:enumeration value="Unknown"/>
+									<xs:enumeration value="None"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="WallInsulationLocation" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Whether wall insulation is on the inside or outside of the wall.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Interior"/>
+									<xs:enumeration value="Exterior"/>
+									<xs:enumeration value="Unknown"/>
+									<xs:enumeration value="None"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
 				</xs:complexType>
-			</xs:element>
-			<xs:element name="WallInsulationContinuity" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Insulation installation type.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Cavity"/>
-						<xs:enumeration value="Continuous"/>
-						<xs:enumeration value="Other/combination"/>
-						<xs:enumeration value="Unknown"/>
-						<xs:enumeration value="None"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="WallInsulationCondition" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Assessed condition of installed insulation.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Excellent"/>
-						<xs:enumeration value="Good"/>
-						<xs:enumeration value="Average"/>
-						<xs:enumeration value="Poor"/>
-						<xs:enumeration value="Other/combination"/>
-						<xs:enumeration value="Unknown"/>
-						<xs:enumeration value="None"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="WallInsulationLocation" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Whether wall insulation is on the inside or outside of the wall.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Interior"/>
-						<xs:enumeration value="Exterior"/>
-						<xs:enumeration value="Both"/>
-						<xs:enumeration value="Unknown"/>
-						<xs:enumeration value="None"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="WallRValue" minOccurs="0">
 				<xs:annotation>
@@ -10713,7 +10997,7 @@
 						<xs:enumeration value="Concrete"/>
 						<xs:enumeration value="Brick"/>
 						<xs:enumeration value="Masonry"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 						<xs:enumeration value="None"/>
 					</xs:restriction>
@@ -10831,94 +11115,6 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="Tightness" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Very Tight"/>
-						<xs:enumeration value="Tight"/>
-						<xs:enumeration value="Average"/>
-						<xs:enumeration value="Leaky"/>
-						<xs:enumeration value="Very Leaky"/>
-						<xs:enumeration value="Unknown"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="AirInfiltrationValue" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>The measured value from the Air Infiltration test.</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:simpleContent>
-						<xs:extension base="xs:decimal">
-							<xs:attribute ref="auc:Source"/>
-						</xs:extension>
-					</xs:simpleContent>
-				</xs:complexType>
-			</xs:element>
-			<xs:element name="AirInfiltrationValueUnits" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Units associated with Air Infiltration Value</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="CFM25"/>
-						<xs:enumeration value="CFM50"/>
-						<xs:enumeration value="CFM75"/>
-						<xs:enumeration value="CFMnatural"/>
-						<xs:enumeration value="ACH50"/>
-						<xs:enumeration value="ACHnatural"/>
-						<xs:enumeration value="Effective Leakage Area (in2)"/>
-						<xs:enumeration value="Other"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="AirInfiltrationTest" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Type of air infiltration test performed on the building</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Blower door"/>
-						<xs:enumeration value="Tracer gas"/>
-						<xs:enumeration value="Estimate"/>
-						<xs:enumeration value="Checklist"/>
-						<xs:enumeration value="Other"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="LocationsOfExteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Location of observed moisture problems on the outside of the building</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Roof"/>
-						<xs:enumeration value="Interior ceiling"/>
-						<xs:enumeration value="Foundation"/>
-						<xs:enumeration value="Basement"/>
-						<xs:enumeration value="Crawlspace"/>
-						<xs:enumeration value="Walls"/>
-						<xs:enumeration value="Around windows"/>
-						<xs:enumeration value="Other"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="LocationsOfInteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Location of observed moisture problems on the inside of the building</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Kitchen"/>
-						<xs:enumeration value="Bathroom"/>
-						<xs:enumeration value="Basement"/>
-						<xs:enumeration value="Other"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
 			<xs:element ref="auc:Quantity" minOccurs="0"/>
 			<xs:element ref="auc:YearInstalled" minOccurs="0"/>
 			<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
@@ -10972,7 +11168,7 @@
 						<xs:enumeration value="Linoleum"/>
 						<xs:enumeration value="Asphalt or fiberglass"/>
 						<xs:enumeration value="Plastic-rubber-synthetic sheeting"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
@@ -10988,7 +11184,7 @@
 						<xs:enumeration value="Medium"/>
 						<xs:enumeration value="Med-dark"/>
 						<xs:enumeration value="Dark"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
@@ -11003,7 +11199,7 @@
 						<xs:enumeration value="Batt"/>
 						<xs:enumeration value="Spray-on"/>
 						<xs:enumeration value="Rigid"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 						<xs:enumeration value="None"/>
 					</xs:restriction>
@@ -11020,7 +11216,7 @@
 						<xs:enumeration value="Concrete"/>
 						<xs:enumeration value="Brick"/>
 						<xs:enumeration value="Masonry"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 						<xs:enumeration value="None"/>
 					</xs:restriction>
@@ -11041,7 +11237,7 @@
 						<xs:enumeration value="Recycled cotton"/>
 						<xs:enumeration value="ISOCY"/>
 						<xs:enumeration value="Icynene"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 						<xs:enumeration value="None"/>
 					</xs:restriction>
@@ -11067,7 +11263,7 @@
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="Cavity"/>
 						<xs:enumeration value="Continuous"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 						<xs:enumeration value="None"/>
 					</xs:restriction>
@@ -11083,7 +11279,7 @@
 						<xs:enumeration value="Good"/>
 						<xs:enumeration value="Average"/>
 						<xs:enumeration value="Poor"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 						<xs:enumeration value="None"/>
 					</xs:restriction>
@@ -11124,7 +11320,7 @@
 						<xs:enumeration value="Concrete"/>
 						<xs:enumeration value="Brick"/>
 						<xs:enumeration value="Masonry"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 						<xs:enumeration value="None"/>
 					</xs:restriction>
@@ -11179,9 +11375,9 @@
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="Flat"/>
 						<xs:enumeration value="Sloped"/>
-						<xs:enumeration value="Greater than 2:12"/>
-						<xs:enumeration value="Less than 2:12"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="> 2:12"/>
+						<xs:enumeration value="&lt; 2:12"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
@@ -11253,7 +11449,6 @@
 											<xs:restriction base="xs:string">
 												<xs:enumeration value="Continuous"/>
 												<xs:enumeration value="Discrete"/>
-												<xs:enumeration value="Various"/>
 												<xs:enumeration value="Unknown"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -11338,7 +11533,7 @@
 												<xs:enumeration value="Louver"/>
 												<xs:enumeration value="Screen"/>
 												<xs:enumeration value="None"/>
-												<xs:enumeration value="Other/combination"/>
+												<xs:enumeration value="Other"/>
 												<xs:enumeration value="Unknown"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -11458,7 +11653,7 @@
 												<xs:enumeration value="Curtain"/>
 												<xs:enumeration value="Shade"/>
 												<xs:enumeration value="None"/>
-												<xs:enumeration value="Other/combination"/>
+												<xs:enumeration value="Other"/>
 												<xs:enumeration value="Unknown"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -11530,7 +11725,7 @@
 												<xs:enumeration value="Uninsulated metal"/>
 												<xs:enumeration value="Insulated metal"/>
 												<xs:enumeration value="Glass"/>
-												<xs:enumeration value="Other/combination"/>
+												<xs:enumeration value="Other"/>
 												<xs:enumeration value="Unknown"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -11811,7 +12006,7 @@
 												<xs:enumeration value="Good"/>
 												<xs:enumeration value="Average"/>
 												<xs:enumeration value="Poor"/>
-												<xs:enumeration value="Other/combination"/>
+												<xs:enumeration value="Other"/>
 												<xs:enumeration value="Unknown"/>
 												<xs:enumeration value="None"/>
 											</xs:restriction>
@@ -11825,7 +12020,7 @@
 											<xs:restriction base="xs:string">
 												<xs:enumeration value="Heated"/>
 												<xs:enumeration value="Unheated"/>
-												<xs:enumeration value="Other/combination"/>
+												<xs:enumeration value="Other"/>
 												<xs:enumeration value="Unknown"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -11869,7 +12064,7 @@
 																		<xs:enumeration value="Good"/>
 																		<xs:enumeration value="Average"/>
 																		<xs:enumeration value="Poor"/>
-																		<xs:enumeration value="Other/combination"/>
+																		<xs:enumeration value="Other"/>
 																		<xs:enumeration value="Unknown"/>
 																		<xs:enumeration value="None"/>
 																	</xs:restriction>
@@ -11983,7 +12178,7 @@
 																	<xs:restriction base="xs:string">
 																		<xs:enumeration value="Cavity"/>
 																		<xs:enumeration value="Continuous"/>
-																		<xs:enumeration value="Other/combination"/>
+																		<xs:enumeration value="Other"/>
 																		<xs:enumeration value="Unknown"/>
 																		<xs:enumeration value="None"/>
 																	</xs:restriction>
@@ -11999,7 +12194,7 @@
 																		<xs:enumeration value="Good"/>
 																		<xs:enumeration value="Average"/>
 																		<xs:enumeration value="Poor"/>
-																		<xs:enumeration value="Other/combination"/>
+																		<xs:enumeration value="Other"/>
 																		<xs:enumeration value="Unknown"/>
 																		<xs:enumeration value="None"/>
 																	</xs:restriction>
@@ -12028,7 +12223,7 @@
 												<xs:enumeration value="Conditioned Basement"/>
 												<xs:enumeration value="Unconditioned Basement"/>
 												<xs:enumeration value="Half Conditioned Basement"/>
-												<xs:enumeration value="Other/combination"/>
+												<xs:enumeration value="Other"/>
 												<xs:enumeration value="Unknown"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -12082,7 +12277,7 @@
 											<xs:restriction base="xs:string">
 												<xs:enumeration value="Cavity"/>
 												<xs:enumeration value="Continuous"/>
-												<xs:enumeration value="Other/combination"/>
+												<xs:enumeration value="Other"/>
 												<xs:enumeration value="Unknown"/>
 												<xs:enumeration value="None"/>
 											</xs:restriction>
@@ -12098,7 +12293,7 @@
 												<xs:enumeration value="Good"/>
 												<xs:enumeration value="Average"/>
 												<xs:enumeration value="Poor"/>
-												<xs:enumeration value="Other/combination"/>
+												<xs:enumeration value="Other"/>
 												<xs:enumeration value="Unknown"/>
 												<xs:enumeration value="None"/>
 											</xs:restriction>
@@ -12182,7 +12377,7 @@
 												<xs:enumeration value="Good"/>
 												<xs:enumeration value="Average"/>
 												<xs:enumeration value="Poor"/>
-												<xs:enumeration value="Other/combination"/>
+												<xs:enumeration value="Other"/>
 												<xs:enumeration value="Unknown"/>
 												<xs:enumeration value="None"/>
 											</xs:restriction>
@@ -12196,7 +12391,7 @@
 											<xs:restriction base="xs:string">
 												<xs:enumeration value="Heated"/>
 												<xs:enumeration value="Unheated"/>
-												<xs:enumeration value="Other/combination"/>
+												<xs:enumeration value="Other"/>
 												<xs:enumeration value="Unknown"/>
 											</xs:restriction>
 										</xs:simpleType>
@@ -12219,7 +12414,7 @@
 						<xs:enumeration value="Tile"/>
 						<xs:enumeration value="Hardwood"/>
 						<xs:enumeration value="Vinyl"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
@@ -12257,12 +12452,12 @@
 						<xs:enumeration value="Security"/>
 						<xs:enumeration value="Telephoning"/>
 						<xs:enumeration value="UPS"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="PeakPower" minOccurs="0">
+			<xs:element name="ITPeakPower" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The equipment's rated, maximum-power-point power at standard testing conditions (STC). (W)</xs:documentation>
 				</xs:annotation>
@@ -12274,7 +12469,7 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="StandbyPower" minOccurs="0">
+			<xs:element name="ITStandbyPower" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Electric power consumed by while the equipment is switched off or in a standby mode. (W)</xs:documentation>
 				</xs:annotation>
@@ -12286,9 +12481,9 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="EnergyIntensity" minOccurs="0">
+			<xs:element name="ITNominalPower" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Average electrical load per square foot for critical IT system category. (W/ft2)</xs:documentation>
+					<xs:documentation>Average electrical load for critical IT system category. (W)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -12329,12 +12524,12 @@
 						<xs:enumeration value="Display"/>
 						<xs:enumeration value="Set Top"/>
 						<xs:enumeration value="Business Equipment"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="PeakPower" minOccurs="0">
+			<xs:element name="PlugLoadPeakPower" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The equipment's rated, maximum-power-point power at standard testing conditions (STC). (W)</xs:documentation>
 				</xs:annotation>
@@ -12346,7 +12541,7 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="StandbyPower" minOccurs="0">
+			<xs:element name="PlugLoadStandbyPower" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Electric power consumed by while the equipment is switched off or in a standby mode. (W)</xs:documentation>
 				</xs:annotation>
@@ -12358,9 +12553,9 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="ElectricalPlugLoadIntensity" minOccurs="0">
+			<xs:element name="PlugLoadNominalPower" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Electrical load per square foot for plug load category. (W/ft2)</xs:documentation>
+					<xs:documentation>Nominal electrical load for plug load category. (W)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -12403,12 +12598,12 @@
 						<xs:enumeration value="Gaming/Hobby/Leisure"/>
 						<xs:enumeration value="Infrastructure"/>
 						<xs:enumeration value="Electric Vehicle Charging"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="PeakPower" minOccurs="0">
+			<xs:element name="ProcessLoadPeakPower" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The equipment's rated, maximum-power-point power at standard testing conditions (STC). (W)</xs:documentation>
 				</xs:annotation>
@@ -12420,7 +12615,7 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="StandbyPower" minOccurs="0">
+			<xs:element name="ProcessLoadStandbyPower" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Electric power consumed by while the equipment is switched off or in a standby mode. (W)</xs:documentation>
 				</xs:annotation>
@@ -12483,7 +12678,7 @@
 						<xs:enumeration value="Elevator"/>
 						<xs:enumeration value="Conveyor Belt"/>
 						<xs:enumeration value="Overhead Conveyor"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
@@ -12497,12 +12692,12 @@
 						<xs:enumeration value="People"/>
 						<xs:enumeration value="Freight"/>
 						<xs:enumeration value="Goods"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="PeakPower" minOccurs="0">
+			<xs:element name="ConveyancePeakPower" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The equipment's rated, maximum-power-point power at standard testing conditions (STC). (W)</xs:documentation>
 				</xs:annotation>
@@ -12514,7 +12709,7 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="StandbyPower" minOccurs="0">
+			<xs:element name="ConveyanceStandbyPower" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Electric power consumed by while the equipment is switched off or in a standby mode. (W)</xs:documentation>
 				</xs:annotation>
@@ -12757,7 +12952,7 @@
 																		<xs:enumeration value="Hydrokinetic"/>
 																		<xs:enumeration value="Solar parabolic trough"/>
 																		<xs:enumeration value="Solar power tower"/>
-																		<xs:enumeration value="Other/combination"/>
+																		<xs:enumeration value="Other"/>
 																		<xs:enumeration value="Unknown"/>
 																	</xs:restriction>
 																</xs:simpleType>
@@ -12782,7 +12977,6 @@
 												<xs:enumeration value="AC-to-AC"/>
 												<xs:enumeration value="AC-to-DC"/>
 												<xs:enumeration value="Low Voltage"/>
-												<xs:enumeration value="Active Mode"/>
 												<xs:enumeration value="No-Load Mode"/>
 												<xs:enumeration value="Other"/>
 												<xs:enumeration value="Unknown"/>
@@ -12831,7 +13025,10 @@
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="Hot Tub"/>
 						<xs:enumeration value="Pool"/>
-						<xs:enumeration value="Other/combination"/>
+						<xs:enumeration value="Fountain"/>
+						<xs:enumeration value="Water Fall"/>
+						<xs:enumeration value="Stream"/>
+						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
 				</xs:simpleType>
@@ -12973,10 +13170,22 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="Potable" type="xs:boolean" minOccurs="0">
+			<xs:element name="WaterResource" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>True if water from this fixture is suitable for drinking, otherwise false.</xs:documentation>
 				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Potable water"/>
+						<xs:enumeration value="Wastewater"/>
+						<xs:enumeration value="Greywater"/>
+						<xs:enumeration value="Reclaimed water"/>
+						<xs:enumeration value="Captured rainwater"/>
+						<xs:enumeration value="Alternative water"/>
+						<xs:enumeration value="Other"/>
+						<xs:enumeration value="Unknown"/>
+					</xs:restriction>
+				</xs:simpleType>
 			</xs:element>
 			<xs:element name="LowFlowFixtures" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
@@ -13212,7 +13421,7 @@
 				<xs:enumeration value="EMCS"/>
 				<xs:enumeration value="Always On"/>
 				<xs:enumeration value="Timer"/>
-				<xs:enumeration value="Other/combination"/>
+				<xs:enumeration value="Other"/>
 				<xs:enumeration value="Unknown"/>
 			</xs:restriction>
 		</xs:simpleType>
@@ -13417,14 +13626,14 @@
 							<xs:element name="Complex" minOccurs="0">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="StreetNumber" type="xs:string" minOccurs="0">
+										<xs:element name="StreetNumberPrefix" type="xs:string" minOccurs="0">
 											<xs:annotation>
-												<xs:documentation>The street number portion for the street address. In some areas the street number may contain non-numeric characters. This field can also contain extensions and modifiers to the street number, such as "1/2" or "-B". This street number field should not include Prefixes, Direction or Suffixes.</xs:documentation>
+												<xs:documentation>The portion of the complete address number which precedes the Address Number itself.</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 										<xs:element name="StreetNumberNumeric" minOccurs="0">
 											<xs:annotation>
-												<xs:documentation>The integer portion of the street number.</xs:documentation>
+												<xs:documentation>The numeric identifier for a land parcel, house, building, or other location along a thoroughfare or within a community.</xs:documentation>
 											</xs:annotation>
 											<xs:complexType>
 												<xs:simpleContent>
@@ -13434,10 +13643,27 @@
 												</xs:simpleContent>
 											</xs:complexType>
 										</xs:element>
-										<xs:element name="StreetDirPrefix" type="xs:string" minOccurs="0">
+										<xs:element name="StreetNumberSuffix" type="xs:string" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>The portion of the complete address number which follows the Address Number itself.  In some areas the street number may contain non-numeric characters.  This field can also contain extensions and modifiers to the street number, such as "1/2" or "-B".  This street number field should not include Prefixes, Direction or Suffixes.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="StreetDirPrefix" minOccurs="0">
 											<xs:annotation>
 												<xs:documentation>The direction indicator that precedes the street name.</xs:documentation>
 											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="North"/>
+													<xs:enumeration value="Northeast"/>
+													<xs:enumeration value="East"/>
+													<xs:enumeration value="Southeast"/>
+													<xs:enumeration value="South"/>
+													<xs:enumeration value="Southwest"/>
+													<xs:enumeration value="West"/>
+													<xs:enumeration value="Northwest"/>
+												</xs:restriction>
+											</xs:simpleType>
 										</xs:element>
 										<xs:element name="StreetName" type="xs:string" minOccurs="0">
 											<xs:annotation>
@@ -13449,24 +13675,287 @@
 												<xs:documentation>Information other than a prefix or suffix for the street portion of a postal address.</xs:documentation>
 											</xs:annotation>
 										</xs:element>
-										<xs:element name="StreetSuffix" type="xs:string" minOccurs="0">
+										<xs:element name="StreetSuffix" minOccurs="0" form="qualified">
 											<xs:annotation>
 												<xs:documentation>The suffix portion of a street address.</xs:documentation>
 											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="Alley"/>
+													<xs:enumeration value="Annex"/>
+													<xs:enumeration value="Arcade"/>
+													<xs:enumeration value="Avenue"/>
+													<xs:enumeration value="Bayou"/>
+													<xs:enumeration value="Beach"/>
+													<xs:enumeration value="Bend"/>
+													<xs:enumeration value="Bluff"/>
+													<xs:enumeration value="Bluffs"/>
+													<xs:enumeration value="Bottom"/>
+													<xs:enumeration value="Boulevard"/>
+													<xs:enumeration value="Branch"/>
+													<xs:enumeration value="Bridge"/>
+													<xs:enumeration value="Brook"/>
+													<xs:enumeration value="Brooks"/>
+													<xs:enumeration value="Burg"/>
+													<xs:enumeration value="Burgs"/>
+													<xs:enumeration value="Bypass"/>
+													<xs:enumeration value="Camp"/>
+													<xs:enumeration value="Canyon"/>
+													<xs:enumeration value="Cape"/>
+													<xs:enumeration value="Causeway"/>
+													<xs:enumeration value="Center"/>
+													<xs:enumeration value="Centers"/>
+													<xs:enumeration value="Circle"/>
+													<xs:enumeration value="Circles"/>
+													<xs:enumeration value="Cliff"/>
+													<xs:enumeration value="Club"/>
+													<xs:enumeration value="Common"/>
+													<xs:enumeration value="Commons"/>
+													<xs:enumeration value="Corner"/>
+													<xs:enumeration value="Corners"/>
+													<xs:enumeration value="Course"/>
+													<xs:enumeration value="Court"/>
+													<xs:enumeration value="Courts"/>
+													<xs:enumeration value="Cove"/>
+													<xs:enumeration value="Coves"/>
+													<xs:enumeration value="Creek"/>
+													<xs:enumeration value="Crescent"/>
+													<xs:enumeration value="Crest"/>
+													<xs:enumeration value="Crossing"/>
+													<xs:enumeration value="Crossroad"/>
+													<xs:enumeration value="Crossroads"/>
+													<xs:enumeration value="Curve"/>
+													<xs:enumeration value="Dale"/>
+													<xs:enumeration value="Dam"/>
+													<xs:enumeration value="Divide"/>
+													<xs:enumeration value="Drive"/>
+													<xs:enumeration value="Drives"/>
+													<xs:enumeration value="Estate"/>
+													<xs:enumeration value="Estates"/>
+													<xs:enumeration value="Expressway"/>
+													<xs:enumeration value="Extension"/>
+													<xs:enumeration value="Extensions"/>
+													<xs:enumeration value="Fall"/>
+													<xs:enumeration value="Falls"/>
+													<xs:enumeration value="Ferry"/>
+													<xs:enumeration value="Field"/>
+													<xs:enumeration value="Fields"/>
+													<xs:enumeration value="Flat"/>
+													<xs:enumeration value="Flats"/>
+													<xs:enumeration value="Ford"/>
+													<xs:enumeration value="Fords"/>
+													<xs:enumeration value="Forest"/>
+													<xs:enumeration value="Forge"/>
+													<xs:enumeration value="Forges"/>
+													<xs:enumeration value="Fork"/>
+													<xs:enumeration value="Forks"/>
+													<xs:enumeration value="Fort"/>
+													<xs:enumeration value="Freeway"/>
+													<xs:enumeration value="Garden"/>
+													<xs:enumeration value="Gardens"/>
+													<xs:enumeration value="Gateway"/>
+													<xs:enumeration value="Glen"/>
+													<xs:enumeration value="Glens"/>
+													<xs:enumeration value="Green"/>
+													<xs:enumeration value="Greens"/>
+													<xs:enumeration value="Grove"/>
+													<xs:enumeration value="Groves"/>
+													<xs:enumeration value="Harbor"/>
+													<xs:enumeration value="Harbors"/>
+													<xs:enumeration value="Haven"/>
+													<xs:enumeration value="Heights"/>
+													<xs:enumeration value="Highway"/>
+													<xs:enumeration value="Hill"/>
+													<xs:enumeration value="Hills"/>
+													<xs:enumeration value="Hollow"/>
+													<xs:enumeration value="Inlet"/>
+													<xs:enumeration value="Island"/>
+													<xs:enumeration value="Islands"/>
+													<xs:enumeration value="Isle"/>
+													<xs:enumeration value="Junction"/>
+													<xs:enumeration value="Junctions"/>
+													<xs:enumeration value="Key"/>
+													<xs:enumeration value="Keys"/>
+													<xs:enumeration value="Knoll"/>
+													<xs:enumeration value="Knolls"/>
+													<xs:enumeration value="Lake"/>
+													<xs:enumeration value="Lakes"/>
+													<xs:enumeration value="Land"/>
+													<xs:enumeration value="Landing"/>
+													<xs:enumeration value="Lane"/>
+													<xs:enumeration value="Light"/>
+													<xs:enumeration value="Lights"/>
+													<xs:enumeration value="Loaf"/>
+													<xs:enumeration value="Lock"/>
+													<xs:enumeration value="Locks"/>
+													<xs:enumeration value="Lodge"/>
+													<xs:enumeration value="Loop"/>
+													<xs:enumeration value="Mall"/>
+													<xs:enumeration value="Manor"/>
+													<xs:enumeration value="Manors"/>
+													<xs:enumeration value="Meadow"/>
+													<xs:enumeration value="Meadows"/>
+													<xs:enumeration value="Mews"/>
+													<xs:enumeration value="Mill"/>
+													<xs:enumeration value="Mills"/>
+													<xs:enumeration value="Mission"/>
+													<xs:enumeration value="Motorway"/>
+													<xs:enumeration value="Mount"/>
+													<xs:enumeration value="Mountain"/>
+													<xs:enumeration value="Mountains"/>
+													<xs:enumeration value="Neck"/>
+													<xs:enumeration value="Orchard"/>
+													<xs:enumeration value="Oval"/>
+													<xs:enumeration value="Overpass"/>
+													<xs:enumeration value="Park"/>
+													<xs:enumeration value="Parks"/>
+													<xs:enumeration value="Parkway"/>
+													<xs:enumeration value="Parkways"/>
+													<xs:enumeration value="Pass"/>
+													<xs:enumeration value="Passage"/>
+													<xs:enumeration value="Path"/>
+													<xs:enumeration value="Pike"/>
+													<xs:enumeration value="Pine"/>
+													<xs:enumeration value="Pines"/>
+													<xs:enumeration value="Place"/>
+													<xs:enumeration value="Plain"/>
+													<xs:enumeration value="Plains"/>
+													<xs:enumeration value="Plaza"/>
+													<xs:enumeration value="Point"/>
+													<xs:enumeration value="Points"/>
+													<xs:enumeration value="Port"/>
+													<xs:enumeration value="Ports"/>
+													<xs:enumeration value="Prairie"/>
+													<xs:enumeration value="Radial"/>
+													<xs:enumeration value="Ramp"/>
+													<xs:enumeration value="Ranch"/>
+													<xs:enumeration value="Rapid"/>
+													<xs:enumeration value="Rapids"/>
+													<xs:enumeration value="Rest"/>
+													<xs:enumeration value="Ridge"/>
+													<xs:enumeration value="Ridges"/>
+													<xs:enumeration value="River"/>
+													<xs:enumeration value="Road"/>
+													<xs:enumeration value="Roads"/>
+													<xs:enumeration value="Route"/>
+													<xs:enumeration value="Row"/>
+													<xs:enumeration value="Rue"/>
+													<xs:enumeration value="Run"/>
+													<xs:enumeration value="Shoal"/>
+													<xs:enumeration value="Shoals"/>
+													<xs:enumeration value="Shore"/>
+													<xs:enumeration value="Shores"/>
+													<xs:enumeration value="Skyway"/>
+													<xs:enumeration value="Spring"/>
+													<xs:enumeration value="Springs"/>
+													<xs:enumeration value="Spur"/>
+													<xs:enumeration value="Spurs"/>
+													<xs:enumeration value="Square"/>
+													<xs:enumeration value="Squares"/>
+													<xs:enumeration value="Station"/>
+													<xs:enumeration value="Stravenue"/>
+													<xs:enumeration value="Stream"/>
+													<xs:enumeration value="Street"/>
+													<xs:enumeration value="Streets"/>
+													<xs:enumeration value="Summit"/>
+													<xs:enumeration value="Terrace"/>
+													<xs:enumeration value="Throughway"/>
+													<xs:enumeration value="Trace"/>
+													<xs:enumeration value="Track"/>
+													<xs:enumeration value="Trafficway"/>
+													<xs:enumeration value="Trail"/>
+													<xs:enumeration value="Trailer"/>
+													<xs:enumeration value="Tunnel"/>
+													<xs:enumeration value="Turnpike"/>
+													<xs:enumeration value="Underpass"/>
+													<xs:enumeration value="Union"/>
+													<xs:enumeration value="Unions"/>
+													<xs:enumeration value="Valley"/>
+													<xs:enumeration value="Valleys"/>
+													<xs:enumeration value="Viaduct"/>
+													<xs:enumeration value="View"/>
+													<xs:enumeration value="Views"/>
+													<xs:enumeration value="Village"/>
+													<xs:enumeration value="Villages"/>
+													<xs:enumeration value="Ville"/>
+													<xs:enumeration value="Vista"/>
+													<xs:enumeration value="Walk"/>
+													<xs:enumeration value="Walks"/>
+													<xs:enumeration value="Wall"/>
+													<xs:enumeration value="Way"/>
+													<xs:enumeration value="Ways"/>
+													<xs:enumeration value="Well"/>
+													<xs:enumeration value="Wells"/>
+												</xs:restriction>
+											</xs:simpleType>
 										</xs:element>
 										<xs:element name="StreetSuffixModifier" type="xs:string" minOccurs="0">
 											<xs:annotation>
 												<xs:documentation>An extension or prefix for the street suffix.</xs:documentation>
 											</xs:annotation>
 										</xs:element>
-										<xs:element name="StreetDirSuffix" type="xs:string" minOccurs="0">
+										<xs:element name="StreetDirSuffix" minOccurs="0">
 											<xs:annotation>
 												<xs:documentation>The direction indicator that follows a street address.</xs:documentation>
 											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="North"/>
+													<xs:enumeration value="Northeast"/>
+													<xs:enumeration value="East"/>
+													<xs:enumeration value="Southeast"/>
+													<xs:enumeration value="South"/>
+													<xs:enumeration value="Southwest"/>
+													<xs:enumeration value="West"/>
+													<xs:enumeration value="Northwest"/>
+												</xs:restriction>
+											</xs:simpleType>
 										</xs:element>
-										<xs:element name="UnitNumber" type="xs:string" minOccurs="0">
+										<xs:element name="SubaddressType" minOccurs="0">
 											<xs:annotation>
-												<xs:documentation>Text field containing the number or portion of a larger premises. Unit Number should appear following the street suffix or, if it exists, the street suffix direction, in the street address. Examples are: "APT G", "55", etc.</xs:documentation>
+												<xs:documentation>The type of subaddress to which the associated Subaddress Identifier applies.</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="Apartment"/>
+													<xs:enumeration value="Basement"/>
+													<xs:enumeration value="Berth"/>
+													<xs:enumeration value="Block"/>
+													<xs:enumeration value="Building"/>
+													<xs:enumeration value="Corridor"/>
+													<xs:enumeration value="Cubicle"/>
+													<xs:enumeration value="Department"/>
+													<xs:enumeration value="Floor"/>
+													<xs:enumeration value="Front"/>
+													<xs:enumeration value="Hanger"/>
+													<xs:enumeration value="Key"/>
+													<xs:enumeration value="Lobby"/>
+													<xs:enumeration value="Lot"/>
+													<xs:enumeration value="Lower"/>
+													<xs:enumeration value="Office"/>
+													<xs:enumeration value="Penthouse"/>
+													<xs:enumeration value="Pier"/>
+													<xs:enumeration value="PO Box"/>
+													<xs:enumeration value="Rear"/>
+													<xs:enumeration value="Room"/>
+													<xs:enumeration value="Seat"/>
+													<xs:enumeration value="Side"/>
+													<xs:enumeration value="Slip"/>
+													<xs:enumeration value="Space"/>
+													<xs:enumeration value="Stop"/>
+													<xs:enumeration value="Suite"/>
+													<xs:enumeration value="Terminal"/>
+													<xs:enumeration value="Tower"/>
+													<xs:enumeration value="Trailer"/>
+													<xs:enumeration value="Unit"/>
+													<xs:enumeration value="Upper"/>
+													<xs:enumeration value="Wing"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="SubaddressIdentifier" type="xs:string" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>The letters, numbers, words, or combination thereof used to distinguish different subaddresses of the same type when several occur within the same feature. For example, in subaddress "Building 4", the Subaddress Identifier = "4". Subaddress Identifier can also be parts of a building, for example "Penthouse" or "Mezzanine".</xs:documentation>
 											</xs:annotation>
 										</xs:element>
 									</xs:sequence>
@@ -13589,56 +14078,67 @@
 	</xs:simpleType>
 	<xs:simpleType name="State">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="AK"/>
+			<xs:enumeration value="AA"/>
+			<xs:enumeration value="AE"/>
 			<xs:enumeration value="AL"/>
-			<xs:enumeration value="AR"/>
+			<xs:enumeration value="AK"/>
+			<xs:enumeration value="AP"/>
+			<xs:enumeration value="AS"/>
 			<xs:enumeration value="AZ"/>
+			<xs:enumeration value="AR"/>
 			<xs:enumeration value="CA"/>
 			<xs:enumeration value="CO"/>
 			<xs:enumeration value="CT"/>
-			<xs:enumeration value="DC"/>
 			<xs:enumeration value="DE"/>
+			<xs:enumeration value="DC"/>
+			<xs:enumeration value="FM"/>
 			<xs:enumeration value="FL"/>
 			<xs:enumeration value="GA"/>
+			<xs:enumeration value="GU"/>
 			<xs:enumeration value="HI"/>
-			<xs:enumeration value="IA"/>
 			<xs:enumeration value="ID"/>
 			<xs:enumeration value="IL"/>
 			<xs:enumeration value="IN"/>
+			<xs:enumeration value="IA"/>
 			<xs:enumeration value="KS"/>
 			<xs:enumeration value="KY"/>
 			<xs:enumeration value="LA"/>
-			<xs:enumeration value="MA"/>
-			<xs:enumeration value="MD"/>
 			<xs:enumeration value="ME"/>
+			<xs:enumeration value="MH"/>
+			<xs:enumeration value="MD"/>
+			<xs:enumeration value="MA"/>
 			<xs:enumeration value="MI"/>
 			<xs:enumeration value="MN"/>
-			<xs:enumeration value="MO"/>
 			<xs:enumeration value="MS"/>
+			<xs:enumeration value="MO"/>
 			<xs:enumeration value="MT"/>
-			<xs:enumeration value="NC"/>
-			<xs:enumeration value="ND"/>
 			<xs:enumeration value="NE"/>
+			<xs:enumeration value="NV"/>
 			<xs:enumeration value="NH"/>
 			<xs:enumeration value="NJ"/>
 			<xs:enumeration value="NM"/>
-			<xs:enumeration value="NV"/>
 			<xs:enumeration value="NY"/>
+			<xs:enumeration value="NC"/>
+			<xs:enumeration value="ND"/>
+			<xs:enumeration value="MP"/>
 			<xs:enumeration value="OH"/>
 			<xs:enumeration value="OK"/>
 			<xs:enumeration value="OR"/>
+			<xs:enumeration value="PW"/>
 			<xs:enumeration value="PA"/>
+			<xs:enumeration value="PR"/>
 			<xs:enumeration value="RI"/>
 			<xs:enumeration value="SC"/>
 			<xs:enumeration value="SD"/>
 			<xs:enumeration value="TN"/>
 			<xs:enumeration value="TX"/>
 			<xs:enumeration value="UT"/>
-			<xs:enumeration value="VA"/>
 			<xs:enumeration value="VT"/>
+			<xs:enumeration value="VI"/>
+			<xs:enumeration value="VA"/>
 			<xs:enumeration value="WA"/>
-			<xs:enumeration value="WI"/>
 			<xs:enumeration value="WV"/>
+			<xs:enumeration value="WI"/>
 			<xs:enumeration value="WY"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -13721,6 +14221,7 @@
 				<xs:enumeration value="Tax map number"/>
 				<xs:enumeration value="Assessor parcel number"/>
 				<xs:enumeration value="Tax parcel letter"/>
+				<xs:enumeration value="Custom"/>
 				<xs:enumeration value="Other"/>
 			</xs:restriction>
 		</xs:simpleType>
@@ -13761,88 +14262,86 @@
 		</xs:annotation>
 		<xs:simpleType>
 			<xs:restriction base="xs:string">
-				<xs:enumeration value="Single family, attached"/>
-				<xs:enumeration value="Single family, detached"/>
 				<xs:enumeration value="Manufactured home"/>
 				<xs:enumeration value="Single family"/>
-				<xs:enumeration value="Multifamily, 2-4 unit building"/>
-				<xs:enumeration value="Multifamily, 5+ units"/>
 				<xs:enumeration value="Multifamily"/>
 				<xs:enumeration value="Multifamily with commercial"/>
-				<xs:enumeration value="Individual multifamily unit"/>
+				<xs:enumeration value="Multifamily individual unit"/>
 				<xs:enumeration value="Residential"/>
-				<xs:enumeration value="Pharmacy"/>
-				<xs:enumeration value="Skilled nursing facility"/>
-				<xs:enumeration value="Residential treatment center"/>
-				<xs:enumeration value="Inpatient hospital"/>
-				<xs:enumeration value="Outpatient rehabilitation"/>
-				<xs:enumeration value="Diagnostic center"/>
-				<xs:enumeration value="Outpatient non-diagnostic"/>
-				<xs:enumeration value="Outpatient surgical"/>
-				<xs:enumeration value="Veterinary"/>
-				<xs:enumeration value="Morgue or mortuary"/>
+				<xs:enumeration value="Health care-Pharmacy"/>
+				<xs:enumeration value="Health care-Skilled nursing facility"/>
+				<xs:enumeration value="Health care-Residential treatment center"/>
+				<xs:enumeration value="Health care-Inpatient hospital"/>
+				<xs:enumeration value="Health care-Outpatient rehabilitation"/>
+				<xs:enumeration value="Health care-Diagnostic center"/>
+				<xs:enumeration value="Health care-Outpatient non-diagnostic"/>
+				<xs:enumeration value="Health care-Outpatient surgical"/>
+				<xs:enumeration value="Health care-Veterinary"/>
+				<xs:enumeration value="Health care-Morgue or mortuary"/>
 				<xs:enumeration value="Health care"/>
 				<xs:enumeration value="Gas station"/>
 				<xs:enumeration value="Convenience store"/>
-				<xs:enumeration value="Grocery store"/>
+				<xs:enumeration value="Food sales-Grocery store"/>
 				<xs:enumeration value="Food sales"/>
-				<xs:enumeration value="Testing laboratory"/>
-				<xs:enumeration value="Medical laboratory"/>
-				<xs:enumeration value="Laboratory"/>
+				<xs:enumeration value="Laboratory-Testing"/>
+				<xs:enumeration value="Laboratory-Medical"/>
+				<xs:enumeration value="Laboratory "/>
 				<xs:enumeration value="Vivarium"/>
 				<xs:enumeration value="Office"/>
 				<xs:enumeration value="Bank"/>
 				<xs:enumeration value="Courthouse"/>
 				<xs:enumeration value="Public safety station"/>
-				<xs:enumeration value="Detention center"/>
-				<xs:enumeration value="Correctional facility"/>
+				<xs:enumeration value="Public safety-Detention center"/>
+				<xs:enumeration value="Public safety-Correctional facility"/>
 				<xs:enumeration value="Public safety"/>
-				<xs:enumeration value="Refrigerated warehouse"/>
-				<xs:enumeration value="Non-refrigerated warehouse"/>
-				<xs:enumeration value="Self-storage"/>
+				<xs:enumeration value="Warehouse-Refrigerated"/>
+				<xs:enumeration value="Warehouse-Unrefrigerated"/>
+				<xs:enumeration value="Warehouse-Self-storage"/>
 				<xs:enumeration value="Warehouse"/>
-				<xs:enumeration value="Religious congregation"/>
-				<xs:enumeration value="Cultural entertainment"/>
-				<xs:enumeration value="Social entertainment"/>
-				<xs:enumeration value="Arcade or casino without lodging"/>
-				<xs:enumeration value="Convention center"/>
-				<xs:enumeration value="Stadium"/>
-				<xs:enumeration value="Public assembly"/>
-				<xs:enumeration value="Pool"/>
-				<xs:enumeration value="Fitness center"/>
-				<xs:enumeration value="Ice rink"/>
-				<xs:enumeration value="Indoor sport"/>
+				<xs:enumeration value="Assembly-Religious"/>
+				<xs:enumeration value="Assembly-Cultural entertainment"/>
+				<xs:enumeration value="Assembly-Social entertainment"/>
+				<xs:enumeration value="Assembly-Arcade or casino without lodging"/>
+				<xs:enumeration value="Assembly-Convention center"/>
+				<xs:enumeration value="Assembly-Stadium"/>
+				<xs:enumeration value="Assembly-Public"/>
+				<xs:enumeration value="Recreation-Pool"/>
+				<xs:enumeration value="Recreation-Fitness center"/>
+				<xs:enumeration value="Recreation-Ice rink"/>
+				<xs:enumeration value="Recreation-Indoor sport"/>
 				<xs:enumeration value="Recreation"/>
-				<xs:enumeration value="Higher education"/>
-				<xs:enumeration value="Secondary education"/>
-				<xs:enumeration value="Primary education"/>
-				<xs:enumeration value="Preschool or day care"/>
+				<xs:enumeration value="Education-Higher"/>
+				<xs:enumeration value="Education-Secondary"/>
+				<xs:enumeration value="Education-Primary"/>
+				<xs:enumeration value="Education-Preschool or daycare"/>
 				<xs:enumeration value="Education"/>
-				<xs:enumeration value="Fast food service"/>
-				<xs:enumeration value="Food service full service"/>
-				<xs:enumeration value="Food service limited service"/>
-				<xs:enumeration value="Institutional food service"/>
+				<xs:enumeration value="Food service-Fast"/>
+				<xs:enumeration value="Food service-Full"/>
+				<xs:enumeration value="Food service-Limited"/>
+				<xs:enumeration value="Food service-Institutional"/>
 				<xs:enumeration value="Food service"/>
-				<xs:enumeration value="Institutional lodging"/>
+				<xs:enumeration value="Lodging-Institutional"/>
 				<xs:enumeration value="Lodging with extended amenities"/>
 				<xs:enumeration value="Lodging with limited amenities"/>
 				<xs:enumeration value="Lodging"/>
-				<xs:enumeration value="Mall"/>
-				<xs:enumeration value="Strip mall"/>
-				<xs:enumeration value="Enclosed mall"/>
-				<xs:enumeration value="Dry goods retail"/>
-				<xs:enumeration value="Hypermarket"/>
+				<xs:enumeration value="Retail-Mall"/>
+				<xs:enumeration value="Retail-Strip mall"/>
+				<xs:enumeration value="Retail-Enclosed mall"/>
+				<xs:enumeration value="Retail-Dry goods retail"/>
+				<xs:enumeration value="Retail-Hypermarket"/>
 				<xs:enumeration value="Retail"/>
-				<xs:enumeration value="Postal service"/>
-				<xs:enumeration value="Mechanical repair shop"/>
-				<xs:enumeration value="Laundry or dry-cleaning"/>
-				<xs:enumeration value="Studio"/>
-				<xs:enumeration value="Beauty and health services"/>
-				<xs:enumeration value="Production and assembly services"/>
+				<xs:enumeration value="Service-Postal"/>
+				<xs:enumeration value="Service-Repair"/>
+				<xs:enumeration value="Service-Laundry or dry cleaning"/>
+				<xs:enumeration value="Service-Studio"/>
+				<xs:enumeration value="Service-Beauty and health"/>
+				<xs:enumeration value="Service-Production and assembly"/>
 				<xs:enumeration value="Service"/>
 				<xs:enumeration value="Transportation terminal"/>
 				<xs:enumeration value="Central Plant"/>
-				<xs:enumeration value="Water treatment plant"/>
+				<xs:enumeration value="Water treatment-Wastewater"/>
+				<xs:enumeration value="Water treatment-Drinking water and distribution"/>
+				<xs:enumeration value="Water treatment"/>
 				<xs:enumeration value="Energy generation plant"/>
 				<xs:enumeration value="Industrial manufacturing plant"/>
 				<xs:enumeration value="Utility"/>
@@ -13856,6 +14355,7 @@
 				<xs:enumeration value="Living area"/>
 				<xs:enumeration value="Sleeping area"/>
 				<xs:enumeration value="Laundry area"/>
+				<xs:enumeration value="Lodging area"/>
 				<xs:enumeration value="Dressing area"/>
 				<xs:enumeration value="Restroom"/>
 				<xs:enumeration value="Auditorium"/>
@@ -13917,14 +14417,24 @@
 	<xs:attribute name="Source">
 		<xs:simpleType>
 			<xs:restriction base="xs:string">
-				<xs:enumeration value="Measured"/>
-				<xs:enumeration value="Calculated"/>
 				<xs:enumeration value="Default"/>
+				<xs:enumeration value="Estimate"/>
+				<xs:enumeration value="Agent"/>
+				<xs:enumeration value="Assessor"/>
+				<xs:enumeration value="Auditor"/>
 				<xs:enumeration value="Product specification"/>
-				<xs:enumeration value="Drawing"/>
-				<xs:enumeration value="Building component library"/>
-				<xs:enumeration value="Utility bills"/>
+				<xs:enumeration value="Building Component Library"/>
+				<xs:enumeration value="Utility transfer"/>
+				<xs:enumeration value="Energy Management System"/>
+				<xs:enumeration value="Direct measurement"/>
+				<xs:enumeration value="Design files"/>
 				<xs:enumeration value="Simulation"/>
+				<xs:enumeration value="ENERGY STAR Portfolio Manager"/>
+				<xs:enumeration value="US EPA"/>
+				<xs:enumeration value="US EIA"/>
+				<xs:enumeration value="Target Finder"/>
+				<xs:enumeration value="Arch2030"/>
+				<xs:enumeration value="ASHRAE"/>
 				<xs:enumeration value="Other"/>
 			</xs:restriction>
 		</xs:simpleType>
@@ -14005,19 +14515,6 @@
 									</xs:simpleContent>
 								</xs:complexType>
 							</xs:element>
-							<xs:element name="FloorAreaSource" minOccurs="0">
-								<xs:annotation>
-									<xs:documentation>The source of the premises floor area measurements.</xs:documentation>
-								</xs:annotation>
-								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:enumeration value="Agent"/>
-										<xs:enumeration value="Assessor"/>
-										<xs:enumeration value="Estimate"/>
-										<xs:enumeration value="Other"/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -14075,9 +14572,12 @@
 										<xs:enumeration value="Peak total occupants"/>
 										<xs:enumeration value="Adults"/>
 										<xs:enumeration value="Children"/>
+										<xs:enumeration value="Average residents"/>
 										<xs:enumeration value="Workers on main shift"/>
-										<xs:enumeration value="Full Time Equivalent (FTE) workers"/>
+										<xs:enumeration value="Full-time equivalent workers"/>
+										<xs:enumeration value="Average daily salaried labor hours"/>
 										<xs:enumeration value="Registered students"/>
+										<xs:enumeration value="Staffed beds"/>
 										<xs:enumeration value="Licensed beds"/>
 										<xs:enumeration value="Capacity"/>
 										<xs:enumeration value="Capacity percentage"/>
@@ -14375,7 +14875,7 @@
 	</xs:element>
 	<xs:element name="ENERGYSTARScore">
 		<xs:annotation>
-			<xs:documentation>The ENERGY STAR Score is a measure of how well the property is performing relative to similar properties. The ENERGY STAR scores are based on data from national building energy consumption surveys, and allows Portfolio Manager to control for key variables affecting a building's energy performance, including climate, hours of operation, and building size. This term can be associated with one or more Qualifiers in the constrained list. For example Site Energy Use Intensity can qualified with Baseline, post, weather normalized..</xs:documentation>
+			<xs:documentation>The ENERGY STAR Score is a measure of how well the property is performing relative to similar properties. The ENERGY STAR scores are based on data from national building energy consumption surveys, and allows Portfolio Manager to control for key variables affecting a building's energy performance, including climate, hours of operation, and building size. </xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:simpleContent>
@@ -14392,37 +14892,6 @@
 		<xs:complexType>
 			<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
 		</xs:complexType>
-	</xs:element>
-	<xs:element name="Qualifier">
-		<xs:annotation>
-			<xs:documentation>Qualifier are intended to be used in conjunction with any of the terms to provide more specific details</xs:documentation>
-		</xs:annotation>
-		<xs:simpleType>
-			<xs:restriction base="xs:string">
-				<xs:enumeration value="Pre retrofit"/>
-				<xs:enumeration value="Post retrofit"/>
-				<xs:enumeration value="National Median"/>
-				<xs:enumeration value="Regional Median"/>
-				<xs:enumeration value="Target"/>
-				<xs:enumeration value="Design Target"/>
-				<xs:enumeration value="Other"/>
-				<xs:enumeration value="Adjusted to specific year"/>
-				<xs:enumeration value="Weather Normalized"/>
-				<xs:enumeration value="Onsite"/>
-				<xs:enumeration value="Offsite"/>
-				<xs:enumeration value="Onsite and Offsite"/>
-				<xs:enumeration value="Direct"/>
-				<xs:enumeration value="Indirect"/>
-				<xs:enumeration value="Biomass"/>
-				<xs:enumeration value="Net"/>
-				<xs:enumeration value="Municipally Supplied Potable Water"/>
-				<xs:enumeration value="Municipally Supplied Reclaimed Water"/>
-				<xs:enumeration value="Alternative Water Generated On-Site"/>
-				<xs:enumeration value="Indoor"/>
-				<xs:enumeration value="Outdoor"/>
-				<xs:enumeration value="Total"/>
-			</xs:restriction>
-		</xs:simpleType>
 	</xs:element>
 	<xs:simpleType name="RankType">
 		<xs:restriction base="xs:string">
@@ -14448,22 +14917,22 @@
 			<xs:enumeration value="Masonry"/>
 			<xs:enumeration value="Structural brick"/>
 			<xs:enumeration value="Stone"/>
-			<xs:enumeration value="Concrete Masonry Unit"/>
+			<xs:enumeration value="Concrete masonry unit"/>
 			<xs:enumeration value="Concrete-solid"/>
 			<xs:enumeration value="Concrete-lightweight"/>
 			<xs:enumeration value="Concrete-panels"/>
 			<xs:enumeration value="Concrete-poured"/>
 			<xs:enumeration value="Concrete-load bearing"/>
 			<xs:enumeration value="Concrete-insulated forms"/>
-			<xs:enumeration value="Concrete -- aerated"/>
+			<xs:enumeration value="Concrete-aerated"/>
 			<xs:enumeration value="Steel frame"/>
 			<xs:enumeration value="Wood frame"/>
 			<xs:enumeration value="Double wood frame"/>
-			<xs:enumeration value="Structurally insulated panel"/>
+			<xs:enumeration value="Structural insulated panel"/>
 			<xs:enumeration value="Log-solid wood"/>
 			<xs:enumeration value="Straw bale"/>
 			<xs:enumeration value="Built-up"/>
-			<xs:enumeration value="Other/combination"/>
+			<xs:enumeration value="Other"/>
 			<xs:enumeration value="Unknown"/>
 		</xs:restriction>
 	</xs:simpleType>
