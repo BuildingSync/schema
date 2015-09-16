@@ -4228,7 +4228,7 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="BuildingAutomationWystems" minOccurs="0">
+						<xs:element name="BuildingAutomationSystems" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Building Automation Systems/Energy Management Control Systems (EMCS)</xs:documentation>
 							</xs:annotation>
@@ -8760,7 +8760,7 @@
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="Energy Factor"/>
-						<xs:enumeration value="Thermal Effiiciency"/>
+						<xs:enumeration value="Thermal Efficiency"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -10205,26 +10205,10 @@
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-						<xs:element name="WallInsulationMaterial" minOccurs="0">
+						<xs:element name="WallInsulationMaterial" type="auc:InsulationMaterialType" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Material used for the structural component of the surface.</xs:documentation>
 							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Fiberglass"/>
-									<xs:enumeration value="Cellulose"/>
-									<xs:enumeration value="EPS"/>
-									<xs:enumeration value="XPS"/>
-									<xs:enumeration value="Rock wool"/>
-									<xs:enumeration value="Insulsafe"/>
-									<xs:enumeration value="Recycled cotton"/>
-									<xs:enumeration value="ISOCY"/>
-									<xs:enumeration value="Icynene"/>
-									<xs:enumeration value="Other"/>
-									<xs:enumeration value="Unknown"/>
-									<xs:enumeration value="None"/>
-								</xs:restriction>
-							</xs:simpleType>
 						</xs:element>
 						<xs:element name="WallInsulationThickness" minOccurs="0">
 							<xs:annotation>
@@ -10544,26 +10528,10 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="RoofInsulationMaterial" minOccurs="0">
+			<xs:element name="RoofInsulationMaterial" type="auc:InsulationMaterialType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Material used for the structural component of the surface.</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Fiberglass"/>
-						<xs:enumeration value="Cellulose"/>
-						<xs:enumeration value="EPS"/>
-						<xs:enumeration value="XPS"/>
-						<xs:enumeration value="Rock wool"/>
-						<xs:enumeration value="Insulsafe"/>
-						<xs:enumeration value="Recycled cotton"/>
-						<xs:enumeration value="ISOCY"/>
-						<xs:enumeration value="Icynene"/>
-						<xs:enumeration value="Other"/>
-						<xs:enumeration value="Unknown"/>
-						<xs:enumeration value="None"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="RoofInsulationThickness" minOccurs="0">
 				<xs:annotation>
@@ -13204,7 +13172,7 @@
 				<xs:enumeration value="Mortgaged"/>
 				<xs:enumeration value="Leased"/>
 				<xs:enumeration value="Rented"/>
-				<xs:enumeration value="Occuped without payment of rent"/>
+				<xs:enumeration value="Occupied without payment of rent"/>
 				<xs:enumeration value="Other"/>
 				<xs:enumeration value="Unknown"/>
 			</xs:restriction>
@@ -14473,4 +14441,20 @@
 			</xs:restriction>
 		</xs:simpleType>
 	</xs:element>
+	<xs:simpleType name="InsulationMaterialType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Fiberglass"/>
+			<xs:enumeration value="Cellulose"/>
+			<xs:enumeration value="EPS"/>
+			<xs:enumeration value="XPS"/>
+			<xs:enumeration value="Rock wool"/>
+			<xs:enumeration value="Insulsafe"/>
+			<xs:enumeration value="Recycled cotton"/>
+			<xs:enumeration value="ISOCY"/>
+			<xs:enumeration value="Icynene"/>
+			<xs:enumeration value="Other"/>
+			<xs:enumeration value="Unknown"/>
+			<xs:enumeration value="None"/>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
