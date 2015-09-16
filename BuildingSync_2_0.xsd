@@ -2024,27 +2024,7 @@
 					<xs:documentation>Name of the scenario for which energy use data is included. This may include benchmarks, baselines, and improved cases. For retrofits, each package represents a different scenario.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TemporalStatus" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Pre retrofit"/>
-						<xs:enumeration value="Post retrofit"/>
-						<xs:enumeration value="Baseline"/>
-						<xs:enumeration value="Current"/>
-						<xs:enumeration value="Target"/>
-						<xs:enumeration value="Design Target"/>
-						<xs:enumeration value="Last billing period"/>
-						<xs:enumeration value="Additional to last billing period"/>
-						<xs:enumeration value="Current billing period"/>
-						<xs:enumeration value="Billed to date"/>
-						<xs:enumeration value="Current day"/>
-						<xs:enumeration value="Current day last year"/>
-						<xs:enumeration value="Previous day"/>
-						<xs:enumeration value="Previous day last year"/>
-						<xs:enumeration value="Other"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
+			<xs:element ref="auc:TemporalStatus" minOccurs="0"/>
 			<xs:element name="Normalization" minOccurs="0">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -3628,27 +3608,7 @@
 					<xs:documentation>End use for which data is included.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TemporalStatus" minOccurs="0">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Pre retrofit"/>
-						<xs:enumeration value="Post retrofit"/>
-						<xs:enumeration value="Baseline"/>
-						<xs:enumeration value="Current"/>
-						<xs:enumeration value="Target"/>
-						<xs:enumeration value="Design Target"/>
-						<xs:enumeration value="Last billing period"/>
-						<xs:enumeration value="Additional to last billing period"/>
-						<xs:enumeration value="Current billing period"/>
-						<xs:enumeration value="Billed to date"/>
-						<xs:enumeration value="Current day"/>
-						<xs:enumeration value="Current day last year"/>
-						<xs:enumeration value="Previous day"/>
-						<xs:enumeration value="Previous day last year"/>
-						<xs:enumeration value="Other"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
+			<xs:element ref="auc:TemporalStatus" minOccurs="0"/>
 			<xs:element ref="auc:ResourceBoundary" minOccurs="0"/>
 			<xs:element name="SiteEnergyUse" minOccurs="0">
 				<xs:annotation>
@@ -12384,23 +12344,7 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="WaterResource" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>True if water from this fixture is suitable for drinking, otherwise false.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Potable water"/>
-						<xs:enumeration value="Wastewater"/>
-						<xs:enumeration value="Greywater"/>
-						<xs:enumeration value="Reclaimed water"/>
-						<xs:enumeration value="Captured rainwater"/>
-						<xs:enumeration value="Alternative water"/>
-						<xs:enumeration value="Other"/>
-						<xs:enumeration value="Unknown"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
+			<xs:element ref="auc:WaterResource" minOccurs="0"/>
 			<xs:element name="LowFlowFixtures" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>True if the fixtures used for this application include aerators, low flow toilets, or showerheads with flow restrictors</xs:documentation>
@@ -14504,6 +14448,27 @@
 				<xs:enumeration value="Reclaimed water"/>
 				<xs:enumeration value="Captured rainwater"/>
 				<xs:enumeration value="Alternative water"/>
+				<xs:enumeration value="Other"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="TemporalStatus">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Pre retrofit"/>
+				<xs:enumeration value="Post retrofit"/>
+				<xs:enumeration value="Baseline"/>
+				<xs:enumeration value="Current"/>
+				<xs:enumeration value="Target"/>
+				<xs:enumeration value="Design Target"/>
+				<xs:enumeration value="Last billing period"/>
+				<xs:enumeration value="Additional to last billing period"/>
+				<xs:enumeration value="Current billing period"/>
+				<xs:enumeration value="Billed to date"/>
+				<xs:enumeration value="Current day"/>
+				<xs:enumeration value="Current day last year"/>
+				<xs:enumeration value="Previous day"/>
+				<xs:enumeration value="Previous day last year"/>
 				<xs:enumeration value="Other"/>
 			</xs:restriction>
 		</xs:simpleType>
