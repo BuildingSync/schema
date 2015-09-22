@@ -1,6 +1,172 @@
 ## BuildingSync v2.0
 ###### 2015
 
+9/14/2015 - Hendron
+
+BEDES 1.1 related updates
+
+- Enumeration for OccupancyClassification was updated
+
+- Custom was added to the IdentifierLabel enumeration.
+
+- For detailed address types, the StreetNumber element was split into Prefix, Numeric, and Suffix.
+
+- Enumerations were added for StreetDirSuffix, StreetSuffix, and StreetDirPrefix.
+
+- UnitNumber was split into an enumerated SubaddressType and a free text SubaddressIdentifier.
+
+- List of state abbreviations was updated to include U.S. territories and military sites.
+
+- Typo corrected, replacing EnergyStart with EnergyStar under ClimateZoneType.
+
+- WeatherDataStationID changed from integer to string.
+
+- Enumeration for ContactRole was updated to match BEDES.
+
+- Administrator, PMLastModifiedDate, ServiceAndProductProvider, and SharedBy were deleted as elements under PortfolioManager.
+
+- YearPMBenchmarked was replaced with PMBenchmarkDate, referring to the date that the building was benchmarked
+
+- The enumeration for OccupantQuantityType was updated.
+
+- Certification elements were converted to Assessment, and enumerations were updated to match BEDES. AssessmentValue was added as a new element.
+
+- Vertical and Horizontal Abutments were replaced with Horizontal and Vertical Surroundings, respectively.
+
+- Length was changed to SideLength for greater clarity, and the units (ft) were added to the definition.
+
+- FloorAreaSource was dropped because it is covered by metadata (Source attribute)
+
+- Enumeration for ScheduleCategory was updated.
+
+- "All days" was changed to "All week" in the DayType enumeration.
+
+- An unbound SpatialUnits parent element was added, and SpatialUnitType was added as a child element, grouped with Number of Units and Unit Density. This will allow multiple ways to count units for a premise.
+
+- Heating and compressor staging enumerations were updated.
+
+- Priority for HVAC systems was changed from integer to a constrained list (primary, secondary, etc.)
+
+- Evaporative Cooling Entering Supply Air DB Temperature, and Evaporative Cooling Entering Supply Air WB Temperature were dropped because they aren't directly controlled.
+
+- Water-Side Economizer Temperature Setpoint was dropped because it isn't directly controlled.
+
+- Fan Coil Type enumeration was updated.
+
+- Recessed was dropped in the Lighting Direction enumeration.
+
+- A new element for Water Heater Efficiency Type, with options for Energy Factor and Thermal Efficiency, was added.
+
+- SetpointTemperature was renamed HotWaterSetpointTemperature for clarity.
+
+- Type of Cooking Equipment enumeration was updated.
+
+- All occurrences of Other/combination were changed to Other.
+
+- Size was changed to RefrigerationUnitSize for clarity.
+
+- Defrost Type enumeration and name were modified to match BEDES.
+
+- Size was changed to FanSize for clarity.
+
+- EnvelopeConstructionType enumeration was updated.
+
+- WallInsulation was added as an unbounded parent element for the insulation details, allowing multiple insulation types to be included for a single wall type.
+
+- InfiltrationIntrusion was added as a new system category to capture infiltration and water intrustion data at any level. A LinkedPremisesId was included.
+
+- Estimated was dropped from the enumeration for Air Infiltration Test.
+
+- Roof Slope enumeration was updated.
+
+- Window Layout enumeration was updated.
+
+- PeakPower and StandbyPower were renamed to be more specific to the end use type (e.g. ITPeakPower).
+
+- NominalPower was added for several system categories to replace EnergyIntensity.
+
+- Active Mode was dropped from the enumeration for External Power Supply.
+
+- The enumeration for PoolType was updated to include addition water features.
+
+- A WaterResource element was added to provide more options than Potable, which was deleted.
+
+- The numbering system was dropped from the measure Technology Categories.
+
+- TechnologyCategory names were updated.
+
+- Commissioning/Retro Commissioning was dropped as a TechnologyCategory, as it was in BEDES and CTS.
+
+- MeasureCoverage was moved under PremisesAffected, and redefined to refer to the premises instead of the whole building.
+
+- The Measure Notes element was dropped, because there is already a LongDescription element that serves the purpose.
+
+- A new DiscardReason element was added, and the ImplementationStatus enumeration was streamlined.
+
+- "Satisfactory Repair Not Achieved" was changed to "Unsatisfactory" in the ImplementationStatus enumeration.
+
+- The Qualifier global element was split into Temporal Status, Normalization, Resource Boundary, Emission Boundary, and Water Resource. The new elements were moved to the relevant locations in the schema.
+
+- Measured Energy Source element was dropped because it is covered by the metadata.
+
+- The duplicate occurrence of TMY3 was deleted from the Weather Data Source enumeration.
+
+- Units for emissions were changed from MtCO2e to kgCO2e.
+
+- FirstCost was renamed PackageFirstCost for clarity.
+
+- CompleteResource and CompleteEndUse boolean elements were replaced with PercentResource and PercentEndUse decimal elements.
+
+- Type of Resource Meter enumeration was updated.
+
+- The final -hh:mm was deleted from the StartTimeStamp and EndTimeStamp data format.
+
+- Quantity Power was replaced with Energy in the TimeSeriesReadingQuantity enumeration, to make it more logical for natural gas and kWh data.
+
+- Water was dropped from the TimeSeriesReadingQuantity enumeration, because it is covered by Volumetric Flow.
+
+CTS updates
+
+- RetrocommissioningAudit element added under Report to align with CTS
+
+- Deleted "Add heat recovery" measure from the EnergyManagementControlSystems category.
+
+- Added "Add energy recovery" measure under BoilerPlantImprovements
+
+- Added "Other heating", "Other cooling", "Other ventilation", and "Other distribution" to the enumeration for OtherHVAC, to better align with CTS.
+
+- Split "Improve fans" into "Improve distribution fans" and "Improve ventilation fans" to better align with CTS.
+
+- Added "Improve data center efficiency" under the AppliancePlugLoadReductions category.
+
+
+9/11/2015 - Swindler/Hendron
+
+Asset Score updates
+
+- Added PercentPremisesServed and LampPower to LightingType to allow mapping to and from Asset Score.
+
+- No Heating option added for HeatingSource.
+
+- CondenserPlant type was modified to separate GroundSource from WaterCooled. This better matches the Sink/Source type used in Asset Score.
+
+- SupplyAirTemperatureResetControl definition was corrected to refer to outside air temperature instead of critical zone.
+
+- SourceHeatingPlantID was corrected. Originally referred to cooling plant.
+
+- Integration and LinkedDeliveryID elements were added for ventilation systems, dehumidifiers, etc, connected to a local or central air distribution system versus stand-alone.
+
+- "Dedicated outdoor air system" was added as a VentilationType.
+
+- "Automatically controlled register" and "Manually controlled register" were added as options under TerminalUnit.
+
+- LinkedHeatingPlantID was added under HeatingSourceType/HeatPump
+
+- SpecialRoofClassification was added for green roofs and cool roofs, and they were removed from the enumeration for RoofConstruction
+
+
+Pre 9/11/2015
+
 - Enum value in `MeasureType:SystemCategoryAffected` renamed
 
         Old: "On-Site Storage, Transmission,  Generation"
