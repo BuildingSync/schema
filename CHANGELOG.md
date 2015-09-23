@@ -1,6 +1,26 @@
 ## BuildingSync v2.0
 ###### 2015
 
+9/23/2015 - Hendron
+
+eProjectBuilder updates
+
+- Facilitator, Finance Specialist, and ESCO were added to the enumeration for ContactRole.
+
+- ImplementationPeriod was added under PackageOfMeasures scenario type.
+
+- WaterPriceEscalationRate and OtherEscalationRates were added under Report.
+
+- InflationRate was added under Report.
+
+- RecurringIncentives added under PackageOfMeasures scenario type.
+
+- PercentGuaranteedSavings, ImplementationPeriodCostSavings, and ProjectMarkup added under PackageOfMeasures scenario type.
+
+- AnnualDemandSavingsCost and OtherCostAnnualSavings were added under MeasureSavingsAnalysis.
+
+- 
+
 9/14/2015 - Hendron
 
 BEDES 1.1 related updates
