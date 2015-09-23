@@ -402,9 +402,37 @@
 												</xs:simpleContent>
 											</xs:complexType>
 										</xs:element>
-										<xs:element name="FuelOilPriceEscalationRate" minOccurs="0">
+										<xs:element name="WaterPriceEscalationRate" minOccurs="0">
 											<xs:annotation>
-												<xs:documentation>Assumed annual increase in fuel oil price (%)</xs:documentation>
+												<xs:documentation>Assumed annual increase in water price (%)</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:decimal">
+														<xs:attribute ref="auc:Source"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="OtherEscalationRates" minOccurs="0" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation/>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element ref="auc:Resource" minOccurs="0"/>
+													<xs:element name="EscalationRate" type="xs:decimal" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Assumed annual increase in price for the specified resource (%)</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute ref="auc:Source"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="InflationRate" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Assumed annual inflation rate for nonenergy costs (%)</xs:documentation>
 											</xs:annotation>
 											<xs:complexType>
 												<xs:simpleContent>
@@ -1955,6 +1983,9 @@
 						<xs:enumeration value="Utility"/>
 						<xs:enumeration value="Power plant"/>
 						<xs:enumeration value="Electric Distribution Utility (EDU)"/>
+						<xs:enumeration value="ESCO"/>
+						<xs:enumeration value="Facilitator"/>
+						<xs:enumeration value="Finance Specialist"/>
 						<xs:enumeration value="Other"/>
 					</xs:restriction>
 				</xs:simpleType>
@@ -2370,6 +2401,11 @@
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
+									<xs:element name="ImplementationPeriod" type="xs:integer" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Total period of time necessary to implement all measures in the package. (months)</xs:documentation>
+										</xs:annotation>
+									</xs:element>
 									<xs:element name="PackageFirstCost" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>The sum of the initial expenditures to implement the package of measures; includes items such as equipment, transportation, installation, preparation for service, as well as other related costs for planning, designing, training, and managing the project during the first year. ($)</xs:documentation>
@@ -2418,6 +2454,42 @@
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
+									<xs:element name="ImplementationPeriodCostSavings" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Total cost savings during the project implementation period. ($)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="PercentGuaranteedSavings" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Percentage of cost savings guaranteed by the contractor. (%)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="ProjectMarkup" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Percent markup applied to implementation costs, if any. (%)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
 									<xs:element name="FundingFromIncentives" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Funding obtained through incentives to implement the measure or project ($)</xs:documentation>
@@ -2445,6 +2517,18 @@
 									<xs:element name="OtherFinancialIncentives" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Present value of funding gained from other financial incentives over the life of the project. ($)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:integer">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="RecurringIncentives" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Funding gained from recurring financial incentives. ($/year)</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:simpleContent>
@@ -4842,6 +4926,18 @@
 								</xs:simpleContent>
 							</xs:complexType>
 						</xs:element>
+						<xs:element name="AnnualDemandSavingsCost" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Cost savings per year due to reduction in peak electricity demand. ($/year)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:integer">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
 						<xs:element name="AnnualWaterSavings" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Total annual water savings (hot and cold). (gal/year)</xs:documentation>
@@ -4869,6 +4965,18 @@
 						<xs:element name="OMCostAnnualSavings" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Annual cost savings for operation, maintenance, and repair. ($)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="OtherCostAnnualSavings" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Annual savings for other non-energy costs, or increased revenue caused by measure implementation. ($)</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:simpleContent>
