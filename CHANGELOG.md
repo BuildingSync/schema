@@ -8,7 +8,7 @@
 * DaylightingIlluminanceSetPoint is now DaylightingIlluminanceSetpoint
 * Added another level to Measure/PremisesAffected to follow the plural pattern
 * Remove recommended enum from ImplementationStatus as the recommended element covers this
-* Rename InfiltrationIntrustion to InfiltrationSystem and add layer for plural pattern
+* Rename InfiltrationIntrustion to AirInfiltrationSystem and WaterInfiltrationSystem. Add layer for plural pattern
 * Added another level to AnnualSavingsFyFuel to follow the plural pattern
 
 

@@ -198,10 +198,10 @@
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
-										<xs:element name="InfiltrationSystems" minOccurs="0">
+										<xs:element name="AirInfiltrationSystems" minOccurs="0">
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="InfiltrationSystem" maxOccurs="unbounded">
+													<xs:element name="AirInfiltrationSystem" maxOccurs="unbounded">
 														<xs:annotation>
 															<xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
 														</xs:annotation>
@@ -264,6 +264,23 @@
 																		</xs:restriction>
 																	</xs:simpleType>
 																</xs:element>
+																<xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+																<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="WaterInfiltrationSystems" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="WaterInfiltrationSystem" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
 																<xs:element name="LocationsOfExteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
 																	<xs:annotation>
 																		<xs:documentation>Location of observed moisture problems on the outside of the building</xs:documentation>
