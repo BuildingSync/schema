@@ -552,7 +552,7 @@
 	</xs:element>
 	<xs:complexType name="SiteType">
 		<xs:sequence>
-			<xs:element ref="auc:PremisesIdentifiers" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="auc:PremisesIdentifiers" minOccurs="0"/>
 			<xs:element ref="auc:PremisesName" minOccurs="0"/>
 			<xs:element ref="auc:PremisesNotes" minOccurs="0"/>
 			<xs:element ref="auc:OccupancyClassification" minOccurs="0">
@@ -13412,16 +13412,22 @@
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="auc:IdentifierLabel" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Identifier used in a specific program or dataset. There can be multiple instances of Identifier Types within a dataset, such as a Listing ID, a Tax Map Number ID, and a Custom ID.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element ref="auc:IdentifierCustomName" minOccurs="0"/>
-				<xs:element ref="auc:IdentifierValue" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>The identifying value associated with the Identifier Label. There can be many Identifier Labels and Values associated with an individual premises.</xs:documentation>
-					</xs:annotation>
+				<xs:element name="PremisesIdentifier" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="auc:IdentifierLabel" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Identifier used in a specific program or dataset. There can be multiple instances of Identifier Types within a dataset, such as a Listing ID, a Tax Map Number ID, and a Custom ID.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element ref="auc:IdentifierCustomName" minOccurs="0"/>
+							<xs:element ref="auc:IdentifierValue" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>The identifying value associated with the Identifier Label. There can be many Identifier Labels and Values associated with an individual premises.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
 		</xs:complexType>

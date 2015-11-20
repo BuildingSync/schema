@@ -10,6 +10,7 @@
 * Remove recommended enum from ImplementationStatus as the recommended element covers this
 * Rename InfiltrationIntrustion to AirInfiltrationSystem and WaterInfiltrationSystem. Add layer for plural pattern
 * Added another level to AnnualSavingsFyFuel to follow the plural pattern
+* Add level to Site/PremisesIndentifies
 
 
 ## Version 2.0
