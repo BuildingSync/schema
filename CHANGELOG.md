@@ -4,6 +4,7 @@
 
 * Remove <true> elements
 * Spelling fixes
+* Fixed NoCooling spelling for CoolingPlantType
 
 ## Version 2.0
 
