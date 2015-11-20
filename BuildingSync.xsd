@@ -198,98 +198,107 @@
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
-										<xs:element name="InfiltrationIntrusion" minOccurs="0" maxOccurs="unbounded">
+										<xs:element name="InfiltrationSystems" minOccurs="0">
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="Tightness" minOccurs="0">
+													<xs:element name="InfiltrationSystem" maxOccurs="unbounded">
 														<xs:annotation>
 															<xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
 														</xs:annotation>
-														<xs:simpleType>
-															<xs:restriction base="xs:string">
-																<xs:enumeration value="Very Tight"/>
-																<xs:enumeration value="Tight"/>
-																<xs:enumeration value="Average"/>
-																<xs:enumeration value="Leaky"/>
-																<xs:enumeration value="Very Leaky"/>
-																<xs:enumeration value="Unknown"/>
-															</xs:restriction>
-														</xs:simpleType>
-													</xs:element>
-													<xs:element name="AirInfiltrationValue" minOccurs="0">
-														<xs:annotation>
-															<xs:documentation>The measured value from the Air Infiltration test.</xs:documentation>
-														</xs:annotation>
 														<xs:complexType>
-															<xs:simpleContent>
-																<xs:extension base="xs:decimal">
-																	<xs:attribute ref="auc:Source"/>
-																</xs:extension>
-															</xs:simpleContent>
+															<xs:sequence>
+																<xs:element name="Tightness" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
+																	</xs:annotation>
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:enumeration value="Very Tight"/>
+																			<xs:enumeration value="Tight"/>
+																			<xs:enumeration value="Average"/>
+																			<xs:enumeration value="Leaky"/>
+																			<xs:enumeration value="Very Leaky"/>
+																			<xs:enumeration value="Unknown"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element name="AirInfiltrationValue" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>The measured value from the Air Infiltration test.</xs:documentation>
+																	</xs:annotation>
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:decimal">
+																				<xs:attribute ref="auc:Source"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="AirInfiltrationValueUnits" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>Units associated with Air Infiltration Value</xs:documentation>
+																	</xs:annotation>
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:enumeration value="CFM25"/>
+																			<xs:enumeration value="CFM50"/>
+																			<xs:enumeration value="CFM75"/>
+																			<xs:enumeration value="CFMnatural"/>
+																			<xs:enumeration value="ACH50"/>
+																			<xs:enumeration value="ACHnatural"/>
+																			<xs:enumeration value="Effective Leakage Area (in2)"/>
+																			<xs:enumeration value="Other"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element name="AirInfiltrationTest" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>Type of air infiltration test performed on the building</xs:documentation>
+																	</xs:annotation>
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:enumeration value="Blower door"/>
+																			<xs:enumeration value="Tracer gas"/>
+																			<xs:enumeration value="Checklist"/>
+																			<xs:enumeration value="Other"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element name="LocationsOfExteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
+																	<xs:annotation>
+																		<xs:documentation>Location of observed moisture problems on the outside of the building</xs:documentation>
+																	</xs:annotation>
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:enumeration value="Roof"/>
+																			<xs:enumeration value="Interior ceiling"/>
+																			<xs:enumeration value="Foundation"/>
+																			<xs:enumeration value="Basement"/>
+																			<xs:enumeration value="Crawlspace"/>
+																			<xs:enumeration value="Walls"/>
+																			<xs:enumeration value="Around windows"/>
+																			<xs:enumeration value="Other"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element name="LocationsOfInteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
+																	<xs:annotation>
+																		<xs:documentation>Location of observed moisture problems on the inside of the building</xs:documentation>
+																	</xs:annotation>
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:enumeration value="Kitchen"/>
+																			<xs:enumeration value="Bathroom"/>
+																			<xs:enumeration value="Basement"/>
+																			<xs:enumeration value="Other"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+																<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+															</xs:sequence>
 														</xs:complexType>
 													</xs:element>
-													<xs:element name="AirInfiltrationValueUnits" minOccurs="0">
-														<xs:annotation>
-															<xs:documentation>Units associated with Air Infiltration Value</xs:documentation>
-														</xs:annotation>
-														<xs:simpleType>
-															<xs:restriction base="xs:string">
-																<xs:enumeration value="CFM25"/>
-																<xs:enumeration value="CFM50"/>
-																<xs:enumeration value="CFM75"/>
-																<xs:enumeration value="CFMnatural"/>
-																<xs:enumeration value="ACH50"/>
-																<xs:enumeration value="ACHnatural"/>
-																<xs:enumeration value="Effective Leakage Area (in2)"/>
-																<xs:enumeration value="Other"/>
-															</xs:restriction>
-														</xs:simpleType>
-													</xs:element>
-													<xs:element name="AirInfiltrationTest" minOccurs="0">
-														<xs:annotation>
-															<xs:documentation>Type of air infiltration test performed on the building</xs:documentation>
-														</xs:annotation>
-														<xs:simpleType>
-															<xs:restriction base="xs:string">
-																<xs:enumeration value="Blower door"/>
-																<xs:enumeration value="Tracer gas"/>
-																<xs:enumeration value="Checklist"/>
-																<xs:enumeration value="Other"/>
-															</xs:restriction>
-														</xs:simpleType>
-													</xs:element>
-													<xs:element name="LocationsOfExteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
-														<xs:annotation>
-															<xs:documentation>Location of observed moisture problems on the outside of the building</xs:documentation>
-														</xs:annotation>
-														<xs:simpleType>
-															<xs:restriction base="xs:string">
-																<xs:enumeration value="Roof"/>
-																<xs:enumeration value="Interior ceiling"/>
-																<xs:enumeration value="Foundation"/>
-																<xs:enumeration value="Basement"/>
-																<xs:enumeration value="Crawlspace"/>
-																<xs:enumeration value="Walls"/>
-																<xs:enumeration value="Around windows"/>
-																<xs:enumeration value="Other"/>
-															</xs:restriction>
-														</xs:simpleType>
-													</xs:element>
-													<xs:element name="LocationsOfInteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
-														<xs:annotation>
-															<xs:documentation>Location of observed moisture problems on the inside of the building</xs:documentation>
-														</xs:annotation>
-														<xs:simpleType>
-															<xs:restriction base="xs:string">
-																<xs:enumeration value="Kitchen"/>
-																<xs:enumeration value="Bathroom"/>
-																<xs:enumeration value="Basement"/>
-																<xs:enumeration value="Other"/>
-															</xs:restriction>
-														</xs:simpleType>
-													</xs:element>
-													<xs:element ref="auc:LinkedPremises" minOccurs="0"/>
-													<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
