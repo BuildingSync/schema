@@ -7,6 +7,8 @@
 * Fixed NoCooling spelling for CoolingPlantType
 * DaylightingIlluminanceSetPoint is now DaylightingIlluminanceSetpoint
 * Added another level to Measure/PremisesAffected to follow the plural pattern
+* Remove recommended enum from ImplementationStatus as the recommended element covers this
+
 
 ## Version 2.0
 
