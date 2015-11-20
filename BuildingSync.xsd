@@ -4218,31 +4218,40 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="PremisesAffected" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="PremisesAffected" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>ID numbers of premises (site, facility, space, zone, or block) for measures that apply broadly to an entire building, or modify the properties of a building.</xs:documentation>
+					<xs:documentation>List of Premises Affected.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="MeasureCoverage" minOccurs="0">
+						<xs:element name="PremiseAffected" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>Percentage of the premises affected by the measure that's either proposed, implemented or evaluated. [%]</xs:documentation>
+								<xs:documentation>ID numbers of premises (site, facility, space, zone, or block) for measures that apply broadly to an entire building, or modify the properties of a building.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
-								<xs:simpleContent>
-									<xs:extension base="xs:decimal">
-										<xs:attribute ref="auc:Source"/>
-									</xs:extension>
-								</xs:simpleContent>
+								<xs:sequence>
+									<xs:element name="MeasureCoverage" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Percentage of the premises affected by the measure that's either proposed, implemented or evaluated. [%]</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+								<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
 							</xs:complexType>
 						</xs:element>
 					</xs:sequence>
-					<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="TechnologyCategory" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Authorized technology category as defined by the Federal Energy Management Program. In some cases a single measure may include multiple components affecting multiple categories</xs:documentation>
+					<xs:documentation>Authorized technology category as defined by the Federal Energy Management Program. In some cases a single measure may include multiple components affecting multiple categories.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:choice>

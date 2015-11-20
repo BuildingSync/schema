@@ -6,6 +6,7 @@
 * Spelling fixes
 * Fixed NoCooling spelling for CoolingPlantType
 * DaylightingIlluminanceSetPoint is now DaylightingIlluminanceSetpoint
+* Added another level to Measure/PremisesAffected to follow the plural pattern
 
 ## Version 2.0
 
