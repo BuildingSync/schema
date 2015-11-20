@@ -2,7 +2,7 @@
 
 ## Unreleased Version
 
-### 11/20/2015
+##### 11/20/2015
 
 * Remove <true> elements
 * Spelling fixes
@@ -16,7 +16,7 @@
 
 ## Version 2.0
 
-### 9/23/2015 - Hendron
+##### 9/23/2015 - Hendron
 
 * eProjectBuilder updates
     * Facilitator, Finance Specialist, and ESCO were added to the enumeration for ContactRole.
@@ -100,7 +100,7 @@
     * Added "Improve data center efficiency" under the AppliancePlugLoadReductions category.
 
 
-### 9/11/2015 - Swindler/Hendron
+##### 9/11/2015 - Swindler/Hendron
 
 * Asset Score updates
     * Added PercentPremisesServed and LampPower to LightingType to allow mapping to and from Asset Score.
@@ -114,7 +114,7 @@
     * LinkedHeatingPlantID was added under HeatingSourceType/HeatPump
     * SpecialRoofClassification was added for green roofs and cool roofs, and they were removed from the enumeration for RoofConstruction
 
-### Pre 9/11/2015
+##### Pre 9/11/2015
 
 * Enum value in `MeasureType:SystemCategoryAffected` renamed
 
@@ -476,6 +476,6 @@
 
 ## BuildingSync v1.0
 
-### 2014-10-13
+##### 2014-10-13
 
 * First release
