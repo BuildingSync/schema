@@ -4891,21 +4891,27 @@
 								</xs:simpleContent>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="AnnualSavingsByFuel" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="AnnualSavingsByFuels" minOccurs="0">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element ref="auc:EnergyResource" minOccurs="0"/>
-									<xs:element ref="auc:ResourceUnits" minOccurs="0"/>
-									<xs:element name="AnnualSavingsNativeUnits" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Site energy savings per year for this resource type, in the original units. (units/yr)</xs:documentation>
-										</xs:annotation>
+									<xs:element name="AnnualSavingsByFuel" maxOccurs="unbounded">
 										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
+											<xs:sequence>
+												<xs:element ref="auc:EnergyResource" minOccurs="0"/>
+												<xs:element ref="auc:ResourceUnits" minOccurs="0"/>
+												<xs:element name="AnnualSavingsNativeUnits" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Site energy savings per year for this resource type, in the original units. (units/yr)</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:simpleContent>
+															<xs:extension base="xs:decimal">
+																<xs:attribute ref="auc:Source"/>
+															</xs:extension>
+														</xs:simpleContent>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
 								</xs:sequence>
