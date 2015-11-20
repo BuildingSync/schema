@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by ﻿Nicholas Long (NREL) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://nrel.gov/schemas/bedes-auc/2014" targetNamespace="http://nrel.gov/schemas/bedes-auc/2014" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation>BuildingSync Schema - Version 3.0</xs:documentation>
+	</xs:annotation>
 	<xs:element name="Audits">
-		<xs:annotation>
-			<xs:documentation>BuildingSync Schema Version 2.0 (September 25, 2015)</xs:documentation>
-		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="Audit" maxOccurs="unbounded">
@@ -429,7 +430,7 @@
 										</xs:element>
 										<xs:element name="InflationRate" minOccurs="0">
 											<xs:annotation>
-												<xs:documentation>Assumed annual inflation rate for nonenergy costs (%)</xs:documentation>
+												<xs:documentation>Assumed annual inflation rate for non-energy costs (%)</xs:documentation>
 											</xs:annotation>
 											<xs:complexType>
 												<xs:simpleContent>
@@ -914,76 +915,62 @@
 			</xs:element>
 			<xs:element name="FederalBuilding" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>True if the building is owned by the federal government, otherwise false</xs:documentation>
+					<xs:documentation>If exists then the building is owned by the federal government.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
-					<xs:choice>
-						<xs:element name="True" minOccurs="0">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="Agency" type="xs:string" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Federal agency, required to designate a facility as a federal property in Portfolio Manager.</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="DepartmentRegion" type="xs:string" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Federal department/region, required to designate a facility as a federal property in Portfolio Manager.</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
+					<xs:sequence>
+						<xs:element name="Agency" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Federal agency, required to designate a facility as a federal property in Portfolio Manager.</xs:documentation>
+							</xs:annotation>
 						</xs:element>
-						<xs:element name="False" minOccurs="0"/>
-					</xs:choice>
+						<xs:element name="DepartmentRegion" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Federal department/region, required to designate a facility as a federal property in Portfolio Manager.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="PortfolioManager" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>True if data for this facility is included in Portfolio Manager, otherwise false</xs:documentation>
+					<xs:documentation>If exists then the data for this facility is included in Portfolio Manager.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
-					<xs:choice>
-						<xs:element name="True" minOccurs="0">
+					<xs:sequence>
+						<xs:element name="PMBenchmarkDate" type="xs:date" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Date that the building was benchmarked in Portfolio Manager. (CCYY-MM-DD)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="BuildingProfileStatus" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The status of the building profile submission process for Portfolio Manager.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Draft"/>
+									<xs:enumeration value="Received"/>
+									<xs:enumeration value="Under Review"/>
+									<xs:enumeration value="On Hold"/>
+									<xs:enumeration value="Reviewed and Approved"/>
+									<xs:enumeration value="Reviewed and Not Approved"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="FederalSustainabilityChecklistCompletionPercentage" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Percentage of the Federal High Performance Sustainability Checklist that has been completed for federal building in Portfolio Manager. (0-1)</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="PMBenchmarkDate" type="xs:date" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Date that the building was benchmarked in Portfolio Manager. (CCYY-MM-DD)</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="BuildingProfileStatus" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The status of the building profile submission process for Portfolio Manager.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Draft"/>
-												<xs:enumeration value="Received"/>
-												<xs:enumeration value="Under Review"/>
-												<xs:enumeration value="On Hold"/>
-												<xs:enumeration value="Reviewed and Approved"/>
-												<xs:enumeration value="Reviewed and Not Approved"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="FederalSustainabilityChecklistCompletionPercentage" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Percentage of the Federal High Performance Sustainability Checklist that has been completed for federal building in Portfolio Manager. (0-1)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="False" minOccurs="0"/>
-					</xs:choice>
+					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="NumberOfBusinesses" minOccurs="0">
@@ -1188,7 +1175,7 @@
 						<xs:enumeration value="Other non-profit organization"/>
 						<xs:enumeration value="Privately-owned school"/>
 						<xs:enumeration value="Individual owner"/>
-						<xs:enumeration value="Other nongovernment owner"/>
+						<xs:enumeration value="Other non-government owner"/>
 						<xs:enumeration value="Government"/>
 						<xs:enumeration value="Federal government"/>
 						<xs:enumeration value="State government"/>
@@ -1914,12 +1901,12 @@
 						</xs:element>
 						<xs:element name="DayStartTime" type="xs:time" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>In military time (00 start of day). If the night before the schedule runs into this day, then start time is 00, while yesterday's end time is 24. For example, a night club may be open from 8PM Friday to 2AM Saturday, then on Friday: Start Hour is 20 and End Hour is 24, and on Saturday: Start hour is 00 and End Hour is 02. (hh:mm:ss.sss)</xs:documentation>
+								<xs:documentation>In military time (00 start of day). If the night before the schedule runs into this day, then start time is 00, while yesterday's end time is 24. For example, a night club may be open from 8PM Friday to 2AM Saturday, then on Friday: Start Hour is 20 and End Hour is 24, and on Saturday: Start hour is 00 and End Hour is 02. (hh:mm:ss.zzz)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="DayEndTime" type="xs:time" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>In military time (00 start of day). If the end hour is the next day, then this day ends at 24 and the next starts at 00 and ends at closing time. For example, a night club may be open from 8PM Friday to 2AM Saturday, then on Friday: Start Hour is 20 and End Hour is 24, and on Saturday: Start hour is 00 and End Hour is 02. (hh:mm:ss.sss)</xs:documentation>
+								<xs:documentation>In military time (00 start of day). If the end hour is the next day, then this day ends at 24 and the next starts at 00 and ends at closing time. For example, a night club may be open from 8PM Friday to 2AM Saturday, then on Friday: Start Hour is 20 and End Hour is 24, and on Saturday: Start hour is 00 and End Hour is 02. (hh:mm:ss.zzz)</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 						<xs:element name="PartialOperationPercentage" minOccurs="0">
@@ -2859,7 +2846,7 @@
 			<xs:element ref="auc:EnergyResource" minOccurs="0"/>
 			<xs:element ref="auc:ResourceBoundary" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The boundary that encompases the measured resource.</xs:documentation>
+					<xs:documentation>The boundary that encompasses the measured resource.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="auc:WaterResource" minOccurs="0">
@@ -3424,7 +3411,7 @@
 									</xs:element>
 									<xs:element name="ReferenceForRateStructure" type="xs:string" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Reference or hyperlink for the rate schedule, tariff book</xs:documentation>
+											<xs:documentation>Reference or hyper link for the rate schedule, tariff book</xs:documentation>
 										</xs:annotation>
 									</xs:element>
 									<xs:element name="RateStructureEffectiveDate" type="xs:date" minOccurs="0">
@@ -3475,30 +3462,23 @@
 									</xs:element>
 									<xs:element name="NetMetering" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>True if a billing mechanism is employed by utilities to credit onsite energy generation for this rate structure, false otherwise.</xs:documentation>
+											<xs:documentation>True if a billing mechanism is employed by utilities to credit onsite energy generation for this rate structure.</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
-											<xs:choice>
-												<xs:element name="True" minOccurs="0">
+											<xs:sequence>
+												<xs:element name="AverageMarginalSellRate" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Annual average rate to sell a unit of electricity back to the utility from customer site electricity generation through PV, wind etc. ($/kWh)</xs:documentation>
+													</xs:annotation>
 													<xs:complexType>
-														<xs:sequence>
-															<xs:element name="AverageMarginalSellRate" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Annual average rate to sell a unit of electricity back to the utility from customer site electricity generation through PV, wind etc. ($/kWh)</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-														</xs:sequence>
+														<xs:simpleContent>
+															<xs:extension base="xs:decimal">
+																<xs:attribute ref="auc:Source"/>
+															</xs:extension>
+														</xs:simpleContent>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="False" minOccurs="0"/>
-											</xs:choice>
+											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
 									<xs:element name="AverageMarginalCostRate" minOccurs="0">
@@ -3615,7 +3595,7 @@
 					<xs:sequence>
 						<xs:element name="EmissionBoundary" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>The boundary that encompases the measured emissions.</xs:documentation>
+								<xs:documentation>The boundary that encompasses the measured emissions.</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -3642,7 +3622,7 @@
 						</xs:element>
 						<xs:element name="EmissionsFactor" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Emissions factor associated with a Resource. (kg/MMbtu)</xs:documentation>
+								<xs:documentation>Emissions factor associated with a Resource. (kg/MMBtu)</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:simpleContent>
@@ -3916,12 +3896,12 @@
 			</xs:element>
 			<xs:element name="StartTimeStamp" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The timestamp that marks the beginning of the time series. (CCYY-MM-DDThh:mm:ss.sss)</xs:documentation>
+					<xs:documentation>The timestamp that marks the beginning of the time series. (CCYY-MM-DDThh:mm:ss.zzz)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="EndTimeStamp" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>The timestamp that marks the end of the time series. (CCYY-MM-DDThh:mm:ss.sss)</xs:documentation>
+					<xs:documentation>The timestamp that marks the end of the time series. (CCYY-MM-DDThh:mm:ss.zzz)</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="IntervalFrequency" minOccurs="0">
@@ -5199,7 +5179,7 @@
 			</xs:element>
 			<xs:element name="DiscardReason" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Reason why the proposed mesure was discarded, if appropriate.</xs:documentation>
+					<xs:documentation>Reason why the proposed measure was discarded, if appropriate.</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -6247,81 +6227,74 @@
 															</xs:element>
 															<xs:element name="AirSideEconomizer" minOccurs="0">
 																<xs:complexType>
-																	<xs:choice>
-																		<xs:element name="True" minOccurs="0">
+																	<xs:sequence>
+																		<xs:element name="AirSideEconomizerType" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>Type of air economizer system associated with a cooling system.</xs:documentation>
+																			</xs:annotation>
+																			<xs:simpleType>
+																				<xs:restriction base="xs:string">
+																					<xs:enumeration value="Dry bulb temperature"/>
+																					<xs:enumeration value="Enthalpy"/>
+																					<xs:enumeration value="Demand controlled ventilation"/>
+																					<xs:enumeration value="Nonintegrated"/>
+																					<xs:enumeration value="Other"/>
+																					<xs:enumeration value="Unknown"/>
+																				</xs:restriction>
+																			</xs:simpleType>
+																		</xs:element>
+																		<xs:element name="EconomizerControl" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>Logic used for economizer control.</xs:documentation>
+																			</xs:annotation>
+																			<xs:simpleType>
+																				<xs:restriction base="xs:string">
+																					<xs:enumeration value="Fixed"/>
+																					<xs:enumeration value="Differential"/>
+																					<xs:enumeration value="Other"/>
+																					<xs:enumeration value="Unknown"/>
+																				</xs:restriction>
+																			</xs:simpleType>
+																		</xs:element>
+																		<xs:element name="EconomizerDryBulbControlPoint" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>Dry bulb temperature setting for use of economizer for cooling (fixed or differential) (°F)</xs:documentation>
+																			</xs:annotation>
 																			<xs:complexType>
-																				<xs:sequence>
-																					<xs:element name="AirSideEconomizerType" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>Type of air economizer system associated with a cooling system.</xs:documentation>
-																						</xs:annotation>
-																						<xs:simpleType>
-																							<xs:restriction base="xs:string">
-																								<xs:enumeration value="Dry bulb temperature"/>
-																								<xs:enumeration value="Enthalpy"/>
-																								<xs:enumeration value="Demand controlled ventilation"/>
-																								<xs:enumeration value="Nonintegrated"/>
-																								<xs:enumeration value="Other"/>
-																								<xs:enumeration value="Unknown"/>
-																							</xs:restriction>
-																						</xs:simpleType>
-																					</xs:element>
-																					<xs:element name="EconomizerControl" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>Logic used for economizer control.</xs:documentation>
-																						</xs:annotation>
-																						<xs:simpleType>
-																							<xs:restriction base="xs:string">
-																								<xs:enumeration value="Fixed"/>
-																								<xs:enumeration value="Differential"/>
-																								<xs:enumeration value="Other"/>
-																								<xs:enumeration value="Unknown"/>
-																							</xs:restriction>
-																						</xs:simpleType>
-																					</xs:element>
-																					<xs:element name="EconomizerDryBulbControlPoint" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>Dry bulb temperature setting for use of economizer for cooling (fixed or differential) (°F)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:decimal">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																					<xs:element name="EconomizerEnthalpyControlPoint" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>Maximum enthalpy setting for use of economizer for cooling (fixed or differential) (Btu/lb)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:decimal">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																					<xs:element name="EconomizerLowTemperatureLockout" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>The outside air temperature below which the economizer will return to the minimum position. (°F)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:decimal">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																				</xs:sequence>
-																				<xs:attribute name="ID" type="xs:ID"/>
-																				<xs:attribute ref="auc:Status"/>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:decimal">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
 																			</xs:complexType>
 																		</xs:element>
-																		<xs:element name="False" minOccurs="0"/>
-																	</xs:choice>
+																		<xs:element name="EconomizerEnthalpyControlPoint" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>Maximum enthalpy setting for use of economizer for cooling (fixed or differential) (Btu/lb)</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:decimal">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="EconomizerLowTemperatureLockout" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>The outside air temperature below which the economizer will return to the minimum position. (°F)</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:decimal">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																	</xs:sequence>
+																	<xs:attribute name="ID" type="xs:ID"/>
+																	<xs:attribute ref="auc:Status"/>
 																</xs:complexType>
 															</xs:element>
 															<xs:element name="HeatingSupplyAirTemperatureControl" minOccurs="0">
@@ -6902,7 +6875,7 @@
 			</xs:element>
 			<xs:element ref="auc:ModelNumber" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Model or catalogue number that can be used to identify more detailed component or asset characteristics.</xs:documentation>
+					<xs:documentation>Model or catalog number that can be used to identify more detailed component or asset characteristics.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="HeatingDeliveryID" minOccurs="0">
@@ -7205,43 +7178,36 @@
 					<xs:sequence>
 						<xs:element name="EvaporativelyCooledCondenser" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>True if the unit uses evaporative cooling to enhance heat rejection from the condenser coils.</xs:documentation>
+								<xs:documentation>If exists then the unit uses evaporative cooling to enhance heat rejection from the condenser coils.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
-								<xs:choice>
-									<xs:element name="True" minOccurs="0">
+								<xs:sequence>
+									<xs:element name="EvaporativelyCooledCondenserMinimumTemperature" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The threshold outside air dry-bulb temperature above which evaporative condenser operates. (°F)</xs:documentation>
+										</xs:annotation>
 										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="EvaporativelyCooledCondenserMaximumTemperature" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The threshold outside air dry-bulb temperature below which evaporative condenser operates. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="EvaporativelyCooledCondenserMinimumTemperature" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The threshold outside air dry-bulb temperature above which evaporative condenser operates. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-											</xs:sequence>
-											<xs:attribute name="ID" type="xs:ID"/>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="False" minOccurs="0"/>
-								</xs:choice>
+									<xs:element name="EvaporativelyCooledCondenserMaximumTemperature" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The threshold outside air dry-bulb temperature below which evaporative condenser operates. (°F)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+								<xs:attribute name="ID" type="xs:ID"/>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="CondenserFanSpeedOperation" minOccurs="0">
@@ -7344,44 +7310,37 @@
 						<xs:element ref="auc:WaterCooledCondenserFlowControl" minOccurs="0"/>
 						<xs:element name="WaterSideEconomizer" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>True if the cooling system has a water-side economizer to provide free cooling.</xs:documentation>
+								<xs:documentation>If exists then the cooling system has a water-side economizer to provide free cooling.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
-								<xs:choice>
-									<xs:element name="True" minOccurs="0">
+								<xs:sequence>
+									<xs:element ref="auc:WaterSideEconomizerType" minOccurs="0"/>
+									<xs:element name="WaterSideEconomizerTemperatureMaximum" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The control temperature of the condenser water supply temperature above which the water-side economizer is disabled. (°F)</xs:documentation>
+										</xs:annotation>
 										<xs:complexType>
-											<xs:sequence>
-												<xs:element ref="auc:WaterSideEconomizerType" minOccurs="0"/>
-												<xs:element name="WaterSideEconomizerTemperatureMaximum" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The control temperature of the condenser water supply temperature above which the water-side economizer is disabled. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="WaterSideEconomizerDBTemperatureMaximum" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The control temperature (outside air dry-bulb temperature) above which the water-side economizer is disabled. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-											</xs:sequence>
-											<xs:attribute name="ID" type="xs:ID"/>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="False" minOccurs="0"/>
-								</xs:choice>
+									<xs:element name="WaterSideEconomizerDBTemperatureMaximum" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The control temperature (outside air dry-bulb temperature) above which the water-side economizer is disabled. (°F)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+								<xs:attribute name="ID" type="xs:ID"/>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="CoolingTowerControlType" minOccurs="0">
@@ -7453,56 +7412,49 @@
 						<xs:element ref="auc:WaterCooledCondenserFlowControl" minOccurs="0"/>
 						<xs:element name="WaterSideEconomizer" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>True if the cooling system has a water-side economizer to provide free cooling.</xs:documentation>
+								<xs:documentation>If exists then the cooling system has a water-side economizer to provide free cooling.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
-								<xs:choice>
-									<xs:element name="True" minOccurs="0">
+								<xs:sequence>
+									<xs:element ref="auc:WaterSideEconomizerType" minOccurs="0"/>
+									<xs:element name="WaterSideEconomizerTemperatureSetpoint" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The water temperature that the equipment supplies, such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. (°F)</xs:documentation>
+										</xs:annotation>
 										<xs:complexType>
-											<xs:sequence>
-												<xs:element ref="auc:WaterSideEconomizerType" minOccurs="0"/>
-												<xs:element name="WaterSideEconomizerTemperatureSetpoint" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The water temperature that the equipment supplies, such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="WaterSideEconomizerTemperatureMaximum" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The control temperature of the condenser water supply temperature above which the water-side economizer is disabled. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="WaterSideEconomizerDBTemperatureMaximum" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The control temperature (outside air dry-bulb temperature) above which the water-side economizer is disabled. (°F)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-											</xs:sequence>
-											<xs:attribute name="ID" type="xs:ID"/>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="False" minOccurs="0"/>
-								</xs:choice>
+									<xs:element name="WaterSideEconomizerTemperatureMaximum" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The control temperature of the condenser water supply temperature above which the water-side economizer is disabled. (°F)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="WaterSideEconomizerDBTemperatureMaximum" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The control temperature (outside air dry-bulb temperature) above which the water-side economizer is disabled. (°F)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+								<xs:attribute name="ID" type="xs:ID"/>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="WellCount" minOccurs="0">
@@ -8188,42 +8140,35 @@
 			</xs:element>
 			<xs:element name="DimmingCapability" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>True if the lighting system can be dimmed across a range of outputs.</xs:documentation>
+					<xs:documentation>If exists then the lighting system can be dimmed across a range of outputs.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
-					<xs:choice>
-						<xs:element name="True" minOccurs="0">
+					<xs:sequence>
+						<xs:element name="MinimumDimmingLightFraction" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Minimum light output of controlled lighting when fully dimmed. Minimum light fraction = (Minimum light output) / (Rated light output). (0-1)</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="MinimumDimmingLightFraction" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Minimum light output of controlled lighting when fully dimmed. Minimum light fraction = (Minimum light output) / (Rated light output). (0-1)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="MinimumDimmingPowerFraction" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The minimum power fraction when controlled lighting is fully dimmed. Minimum power fraction = (Minimum power) / (Full rated power). (0-1)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="False" minOccurs="0"/>
-					</xs:choice>
+						<xs:element name="MinimumDimmingPowerFraction" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The minimum power fraction when controlled lighting is fully dimmed. Minimum power fraction = (Minimum power) / (Full rated power). (0-1)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="DaylightingControlSteps" minOccurs="0">
@@ -8758,92 +8703,85 @@
 			</xs:element>
 			<xs:element name="Recirculation" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>True if recirculation loops are used to minimize wait times for hot water.</xs:documentation>
+					<xs:documentation>If exists then recirculation loops are used to minimize wait times for hot water.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:choice>
-						<xs:element name="True" minOccurs="0">
+						<xs:element name="RecirculationLoopCount" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The total number of hot water recirculation loops coming from and returning to a specific water heater.</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="RecirculationLoopCount" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The total number of hot water recirculation loops coming from and returning to a specific water heater.</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:integer">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="RecirculationFlowRate" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Flow rate in primary hot water recirculation loop. Zero or blank if there is no recirculation loop. (gal/hr)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="RecirculationControlType" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Type of control for recirculation loop</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Continuous"/>
-												<xs:enumeration value="Temperature"/>
-												<xs:enumeration value="Timer"/>
-												<xs:enumeration value="Demand"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="PipeInsulationThickness" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Defines how thick insulation on pipes in a heating, cooling, water heating system is. (in.)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="PipeLocation" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>% of pipe length in conditioned space (0-1)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="RecirculationEnergyLossRate" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Rate of heat loss from the recirculation loop when operating. (MMBtu/hr)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
+								<xs:simpleContent>
+									<xs:extension base="xs:integer">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="False" minOccurs="0"/>
+						<xs:element name="RecirculationFlowRate" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Flow rate in primary hot water recirculation loop. Zero or blank if there is no recirculation loop. (gal/hr)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="RecirculationControlType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Type of control for recirculation loop</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Continuous"/>
+									<xs:enumeration value="Temperature"/>
+									<xs:enumeration value="Timer"/>
+									<xs:enumeration value="Demand"/>
+									<xs:enumeration value="Other"/>
+									<xs:enumeration value="Unknown"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="PipeInsulationThickness" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Defines how thick insulation on pipes in a heating, cooling, water heating system is. (in.)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="PipeLocation" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>% of pipe length in conditioned space (0-1)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="RecirculationEnergyLossRate" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Rate of heat loss from the recirculation loop when operating. (MMBtu/hr)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -9149,30 +9087,23 @@
 												</xs:element>
 												<xs:element name="CompressorUnloader" minOccurs="0">
 													<xs:annotation>
-														<xs:documentation>True if a device is used for controlling compressor capacity by rendering one or more cylinders ineffective.</xs:documentation>
+														<xs:documentation>If exists then a device is used for controlling compressor capacity by rendering one or more cylinders ineffective.</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
-														<xs:choice>
-															<xs:element name="True" minOccurs="0">
+														<xs:sequence>
+															<xs:element name="CompressorUnloaderStages" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Number of stages available for unloading the compressor.</xs:documentation>
+																</xs:annotation>
 																<xs:complexType>
-																	<xs:sequence>
-																		<xs:element name="CompressorUnloaderStages" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>Number of stages available for unloading the compressor.</xs:documentation>
-																			</xs:annotation>
-																			<xs:complexType>
-																				<xs:simpleContent>
-																					<xs:extension base="xs:integer">
-																						<xs:attribute ref="auc:Source"/>
-																					</xs:extension>
-																				</xs:simpleContent>
-																			</xs:complexType>
-																		</xs:element>
-																	</xs:sequence>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:integer">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
 																</xs:complexType>
 															</xs:element>
-															<xs:element name="False" minOccurs="0"/>
-														</xs:choice>
+														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
 												<xs:element name="DesuperheatValve" type="xs:boolean" minOccurs="0">
@@ -9293,37 +9224,30 @@
 									</xs:element>
 									<xs:element name="AntiSweatHeaters" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>True if refrigerated cases include anti-sweat heaters</xs:documentation>
+											<xs:documentation>If exists then refrigerated cases include anti-sweat heaters</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
-											<xs:choice>
-												<xs:element name="True" minOccurs="0">
+											<xs:sequence>
+												<xs:element name="AntiSweatHeaterPower" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>The total power associated with anti-sweat heaters for glass display doors for a refrigerated cases of this type. (W)</xs:documentation>
+													</xs:annotation>
 													<xs:complexType>
-														<xs:sequence>
-															<xs:element name="AntiSweatHeaterPower" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>The total power associated with anti-sweat heaters for glass display doors for a refrigerated cases of this type. (W)</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="AntiSweatHeaterControls" type="xs:boolean" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>True if anti-sweat heaters are controlled to minimize energy use</xs:documentation>
-																</xs:annotation>
-															</xs:element>
-															<xs:element ref="auc:Manufacturer" minOccurs="0"/>
-															<xs:element ref="auc:ModelNumber" minOccurs="0"/>
-														</xs:sequence>
+														<xs:simpleContent>
+															<xs:extension base="xs:decimal">
+																<xs:attribute ref="auc:Source"/>
+															</xs:extension>
+														</xs:simpleContent>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="False" minOccurs="0"/>
-											</xs:choice>
+												<xs:element name="AntiSweatHeaterControls" type="xs:boolean" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>True if anti-sweat heaters are controlled to minimize energy use</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element ref="auc:Manufacturer" minOccurs="0"/>
+												<xs:element ref="auc:ModelNumber" minOccurs="0"/>
+											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
 									<xs:element name="RefrigerationEnergy" minOccurs="0">
@@ -10995,54 +10919,47 @@
 									</xs:element>
 									<xs:element name="LightShelves" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>True if light shelves are used with this window group, otherwise false.</xs:documentation>
+											<xs:documentation>If exists then light shelves are used with this window group, otherwise false.</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
-											<xs:choice>
-												<xs:element name="True" minOccurs="0">
+											<xs:sequence>
+												<xs:element name="LightShelfDistanceFromTop" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Vertical distance from top of window to the light shelf. (ft)</xs:documentation>
+													</xs:annotation>
 													<xs:complexType>
-														<xs:sequence>
-															<xs:element name="LightShelfDistanceFromTop" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Vertical distance from top of window to the light shelf. (ft)</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="LightShelfExteriorProtrusion" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Horizontal distance that the light shelf extends exterior to the window. (ft)</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="LightShelfInteriorProtrusion" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Horizontal distance that the light shelf extends interior to the window. (ft)</xs:documentation>
-																</xs:annotation>
-																<xs:complexType>
-																	<xs:simpleContent>
-																		<xs:extension base="xs:decimal">
-																			<xs:attribute ref="auc:Source"/>
-																		</xs:extension>
-																	</xs:simpleContent>
-																</xs:complexType>
-															</xs:element>
-														</xs:sequence>
+														<xs:simpleContent>
+															<xs:extension base="xs:decimal">
+																<xs:attribute ref="auc:Source"/>
+															</xs:extension>
+														</xs:simpleContent>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="False" minOccurs="0"/>
-											</xs:choice>
+												<xs:element name="LightShelfExteriorProtrusion" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Horizontal distance that the light shelf extends exterior to the window. (ft)</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:simpleContent>
+															<xs:extension base="xs:decimal">
+																<xs:attribute ref="auc:Source"/>
+															</xs:extension>
+														</xs:simpleContent>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="LightShelfInteriorProtrusion" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Horizontal distance that the light shelf extends interior to the window. (ft)</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:simpleContent>
+															<xs:extension base="xs:decimal">
+																<xs:attribute ref="auc:Source"/>
+															</xs:extension>
+														</xs:simpleContent>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
 									<xs:element name="InteriorShadingType" minOccurs="0">
@@ -12339,44 +12256,37 @@
 			</xs:element>
 			<xs:element name="Heated" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>True if the pool is heated. False otherwise</xs:documentation>
+					<xs:documentation>If exists then the pool is heated.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
-					<xs:choice>
-						<xs:element name="True" minOccurs="0">
+					<xs:sequence>
+						<xs:element ref="auc:PrimaryFuel" minOccurs="0"/>
+						<xs:element name="WaterTemperature" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Set point for pool heating. (°F)</xs:documentation>
+							</xs:annotation>
 							<xs:complexType>
-								<xs:sequence>
-									<xs:element ref="auc:PrimaryFuel" minOccurs="0"/>
-									<xs:element name="WaterTemperature" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Set point for pool heating. (°F)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="HoursUncovered" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Average hours per day the pool is uncovered. (hrs/day)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-									<xs:element ref="auc:ControlTechnology" minOccurs="0"/>
-								</xs:sequence>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="False" minOccurs="0"/>
-					</xs:choice>
+						<xs:element name="HoursUncovered" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Average hours per day the pool is uncovered. (hrs/day)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
@@ -12600,7 +12510,7 @@
 	</xs:element>
 	<xs:element name="ModelNumber" type="xs:string">
 		<xs:annotation>
-			<xs:documentation>Model or catalogue number that can be used to identify more detailed system characteristics.</xs:documentation>
+			<xs:documentation>Model or catalog number that can be used to identify more detailed system characteristics.</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="Capacity">
@@ -14508,7 +14418,7 @@
 	</xs:simpleType>
 	<xs:element name="ResourceBoundary">
 		<xs:annotation>
-			<xs:documentation>The boundary that encompases the measured resource.</xs:documentation>
+			<xs:documentation>The boundary that encompasses the measured resource.</xs:documentation>
 		</xs:annotation>
 		<xs:simpleType>
 			<xs:restriction base="xs:string">

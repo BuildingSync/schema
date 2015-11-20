@@ -1,5 +1,11 @@
-## BuildingSync v2.0
-###### 2015-09-25
+# BuildingSync
+
+## Unreleased Version
+
+* Remove <true> elements
+* Spelling fixes
+
+## Version 2.0
 
 9/23/2015 - Hendron
 
