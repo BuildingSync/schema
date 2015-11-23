@@ -4,7 +4,7 @@
 
 ##### 11/20/2015
 
-* Remove <true> elements
+* Remove `<true>` elements
 * Spelling fixes
 * Fixed NoCooling spelling for CoolingPlantType
 * DaylightingIlluminanceSetPoint is now DaylightingIlluminanceSetpoint
