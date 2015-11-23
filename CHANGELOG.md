@@ -13,6 +13,7 @@
 * Rename InfiltrationIntrustion to AirInfiltrationSystem and WaterInfiltrationSystem. Add layer for plural pattern
 * Added another level to AnnualSavingsFyFuel to follow the plural pattern
 * Add level to Site/PremisesIndentifies
+* Rename Zone to ThermalZone to conform to BEDES
 
 ## Version 2.0
 
