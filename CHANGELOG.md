@@ -14,6 +14,7 @@
 * Added another level to AnnualSavingsFyFuel to follow the plural pattern
 * Add level to Site/PremisesIndentifies
 * Rename Zone to ThermalZone to conform to BEDES
+* Remove Blocks. Make subsections contain multiple ThermalZones and each ThermalZone can have multiple Spaces.
 
 ## Version 2.0
 
