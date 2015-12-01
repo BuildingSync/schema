@@ -1272,6 +1272,11 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element name="Story" type="xs:int" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>The story of the given floor area type.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
                   <xs:element ref="auc:FloorAreas" minOccurs="0"/>
                   <xs:element name="ThermalZoneLayout" minOccurs="0">
                     <xs:annotation>
@@ -10273,84 +10278,105 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="WallInsulation" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="WallInsulations" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>A description of the type of insulation and how it is applied.</xs:documentation>
+        </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="WallInsulationApplication" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>A description of the type of insulation and how it is applied.</xs:documentation>
-              </xs:annotation>
-              <xs:simpleType>
-                <xs:restriction base="xs:string">
-                  <xs:enumeration value="Loose-fill"/>
-                  <xs:enumeration value="Batt"/>
-                  <xs:enumeration value="Spray-on"/>
-                  <xs:enumeration value="Rigid"/>
-                  <xs:enumeration value="Other"/>
-                  <xs:enumeration value="Unknown"/>
-                  <xs:enumeration value="None"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-            <xs:element name="WallInsulationMaterial" type="auc:InsulationMaterialType" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Material used for the structural component of the surface.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="WallInsulationThickness" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Thickness of wall insulation. (in.)</xs:documentation>
-              </xs:annotation>
+            <xs:element name="WallInsulation" minOccurs="0" maxOccurs="unbounded">
               <xs:complexType>
-                <xs:simpleContent>
-                  <xs:extension base="xs:decimal">
-                    <xs:attribute ref="auc:Source"/>
-                  </xs:extension>
-                </xs:simpleContent>
+                <xs:sequence>
+                  <xs:element name="WallInsulationApplication" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>A description of the type of insulation and how it is applied.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Loose-fill"/>
+                        <xs:enumeration value="Batt"/>
+                        <xs:enumeration value="Spray-on"/>
+                        <xs:enumeration value="Rigid"/>
+                        <xs:enumeration value="Other"/>
+                        <xs:enumeration value="Unknown"/>
+                        <xs:enumeration value="None"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="WallInsulationMaterial" type="auc:InsulationMaterialType" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Material used for the structural component of the surface.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="WallInsulationThickness" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Thickness of wall insulation. (in.)</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:decimal">
+                          <xs:attribute ref="auc:Source"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="WallInsulationContinuity" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Insulation installation type.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Cavity"/>
+                        <xs:enumeration value="Continuous"/>
+                        <xs:enumeration value="Other"/>
+                        <xs:enumeration value="Unknown"/>
+                        <xs:enumeration value="None"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="WallInsulationCondition" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Assessed condition of installed insulation.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Excellent"/>
+                        <xs:enumeration value="Good"/>
+                        <xs:enumeration value="Average"/>
+                        <xs:enumeration value="Poor"/>
+                        <xs:enumeration value="Other"/>
+                        <xs:enumeration value="Unknown"/>
+                        <xs:enumeration value="None"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="WallInsulationLocation" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Whether wall insulation is on the inside or outside of the wall.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Interior"/>
+                        <xs:enumeration value="Exterior"/>
+                        <xs:enumeration value="Unknown"/>
+                        <xs:enumeration value="None"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="WallInsulationRValue" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Insulation R Value of the layer (hr-ft2-F/Btu)</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:decimal">
+                          <xs:attribute ref="auc:Source"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
               </xs:complexType>
-            </xs:element>
-            <xs:element name="WallInsulationContinuity" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Insulation installation type.</xs:documentation>
-              </xs:annotation>
-              <xs:simpleType>
-                <xs:restriction base="xs:string">
-                  <xs:enumeration value="Cavity"/>
-                  <xs:enumeration value="Continuous"/>
-                  <xs:enumeration value="Other"/>
-                  <xs:enumeration value="Unknown"/>
-                  <xs:enumeration value="None"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-            <xs:element name="WallInsulationCondition" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Assessed condition of installed insulation.</xs:documentation>
-              </xs:annotation>
-              <xs:simpleType>
-                <xs:restriction base="xs:string">
-                  <xs:enumeration value="Excellent"/>
-                  <xs:enumeration value="Good"/>
-                  <xs:enumeration value="Average"/>
-                  <xs:enumeration value="Poor"/>
-                  <xs:enumeration value="Other"/>
-                  <xs:enumeration value="Unknown"/>
-                  <xs:enumeration value="None"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-            <xs:element name="WallInsulationLocation" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Whether wall insulation is on the inside or outside of the wall.</xs:documentation>
-              </xs:annotation>
-              <xs:simpleType>
-                <xs:restriction base="xs:string">
-                  <xs:enumeration value="Interior"/>
-                  <xs:enumeration value="Exterior"/>
-                  <xs:enumeration value="Unknown"/>
-                  <xs:enumeration value="None"/>
-                </xs:restriction>
-              </xs:simpleType>
             </xs:element>
           </xs:sequence>
         </xs:complexType>
@@ -10398,12 +10424,12 @@
       </xs:element>
       <xs:element name="WallFramingSpacing" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>
-						Dimension of the distance between two components.
-						Examples include:
-						Framing spacing: the dimension from centerline to centerline of a surface framing material
-						Window spacing: the dimension between windows in a discrete window layout. (in.)
-					</xs:documentation>
+          <xs:documentation>Dimension of the distance between two components.	
+
+Examples include: 
+Framing spacing: the dimension from centerline to centerline of a surface framing material
+
+Window spacing: the dimension between windows in a discrete window layout. (in.)		</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -10439,12 +10465,13 @@
       </xs:element>
       <xs:element name="CMUFill" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>
-						The fill condition of hollow unit masonry walls. The definitions correspond to the following conditions:
-						Solid: Where every cell is grouted
-						Empty: Where the cells are partially grouted and the remaining cells are left empty
-						Insulated: Where the cells are partially grouted and the remaining cells are filled with insulating material.
-					</xs:documentation>
+          <xs:documentation>The fill condition of hollow unit masonry walls. The definitions correspond to the following conditions:
+
+Solid: Where every cell is grouted
+
+Empty: Where the cells are partially grouted and the remaining cells are left empty
+
+Insulated: Where the cells are partially grouted and the remaining cells are filled with insulating material.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">

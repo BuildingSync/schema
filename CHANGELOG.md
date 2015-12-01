@@ -20,6 +20,9 @@
 * Add Story to FloorArea Type
 * Add AssemblyType to Windows and Skylights (double hung, curb mounted, etc)
 * Add Space->Daylit Area
+* Add Story to subsection
+* Add WallInsulationRValue to WallInsulation
+* Add another level for WallInsulations in WallSystems
 
 
 ## Version 2.0
