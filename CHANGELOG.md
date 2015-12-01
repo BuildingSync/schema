@@ -15,6 +15,12 @@
 * Add level to Site/PremisesIndentifies
 * Rename Zone to ThermalZone to conform to BEDES
 * Remove Blocks. Make subsections contain multiple ThermalZones and each ThermalZone can have multiple Spaces.
+* Add Country to Address
+* Add FloorsAboveGrade and FloorsBelowGrade to the Facility 
+* Add Story to FloorArea Type
+* Add AssemblyType to Windows and Skylights (double hung, curb mounted, etc)
+* Add Space->Daylit Area
+
 
 ## Version 2.0
 

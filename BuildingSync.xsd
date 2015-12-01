@@ -1011,6 +1011,30 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
+      <xs:element name="FloorsAboveGrade" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Nominal number of floors which are fully above ground.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:integer">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FloorsBelowGrade" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Nominal number of floors which are fully underground.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:integer">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:FloorAreas" minOccurs="0"/>
       <xs:element name="AspectRatio" minOccurs="0">
         <xs:annotation>
@@ -1806,6 +1830,11 @@
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
         </xs:simpleType>
+      </xs:element>
+      <xs:element name="DaylitFloorArea" type="xs:decimal" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Area (ft^2) that the space is daylit. (ft^2)</xs:documentation>
+        </xs:annotation>
       </xs:element>
       <xs:element name="DaylightingIlluminanceSetpoint" minOccurs="0">
         <xs:annotation>
@@ -10837,6 +10866,16 @@
                       </xs:simpleContent>
                     </xs:complexType>
                   </xs:element>
+                  <xs:element name="AssemblyType" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Window assembly type.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Double Hung"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                   <xs:element name="WindowHeight" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>Vertical height of each window. (ft)</xs:documentation>
@@ -11021,6 +11060,16 @@
                         <xs:enumeration value="Core Only"/>
                         <xs:enumeration value="Other"/>
                         <xs:enumeration value="Unknown"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="AssemblyType" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Skylight assembly type.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Curbed Mounted"/>
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
@@ -13165,6 +13214,11 @@
             <xs:documentation>The county for the Address Type.</xs:documentation>
           </xs:annotation>
         </xs:element>
+        <xs:element name="Country" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Country of the Address.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -13678,6 +13732,11 @@
                     </xs:extension>
                   </xs:simpleContent>
                 </xs:complexType>
+              </xs:element>
+              <xs:element name="Story" type="xs:int" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>The story of the given floor area type.</xs:documentation>
+                </xs:annotation>
               </xs:element>
             </xs:sequence>
           </xs:complexType>
