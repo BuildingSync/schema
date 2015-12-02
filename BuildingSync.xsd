@@ -986,7 +986,7 @@
             </xs:element>
             <xs:element name="FederalSustainabilityChecklistCompletionPercentage" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>Percentage of the Federal High Performance Sustainability Checklist that has been completed for federal building in Portfolio Manager. (0-1)</xs:documentation>
+                <xs:documentation>Percentage of the Federal High Performance Sustainability Checklist that has been completed for federal building in Portfolio Manager. (0-100)</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:simpleContent>
@@ -1201,7 +1201,7 @@
       </xs:element>
       <xs:element name="PercentOccupiedByOwner" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The percentage of gross floor area that is occupied by the owner of the premises and affiliates. (0-1)</xs:documentation>
+          <xs:documentation>The percentage of gross floor area that is occupied by the owner of the premises and affiliates. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -1411,7 +1411,7 @@
                                     </xs:element>
                                     <xs:element name="PercentOfWindowAreaShaded" minOccurs="0">
                                       <xs:annotation>
-                                        <xs:documentation>The percent of the fenestration area that is shaded by exterior objects such as trees or other buildings. (0-1) (%)</xs:documentation>
+                                        <xs:documentation>The percentage of the fenestration area that is shaded by exterior objects such as trees or other buildings. (0-1) (%)</xs:documentation>
                                       </xs:annotation>
                                       <xs:complexType>
                                         <xs:simpleContent>
@@ -1507,7 +1507,7 @@
                             <xs:sequence>
                               <xs:element name="PercentSkylightArea" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>The percent of the skylight area relative to the roof area. (0-1) (%)</xs:documentation>
+                                  <xs:documentation>The percentage of the skylight area relative to the roof area. (0-1) (%)</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:simpleContent>
@@ -1857,7 +1857,7 @@
       <xs:element ref="auc:FloorAreas" minOccurs="0"/>
       <xs:element name="PercentageOfCommonSpace" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Percent of gross floor area that is common space only (0-1)</xs:documentation>
+          <xs:documentation>Percentage of gross floor area that is common space only. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -1959,7 +1959,7 @@
             </xs:element>
             <xs:element name="PartialOperationPercentage" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>Percent of category that is in operation. If Schedule Category is Occupancy, then the percent of occupants from typical max. If Schedule Category is equipment, then power as a percent of installed capacity. This field is not used for temperature or relative humidity settings. (0-1)</xs:documentation>
+                <xs:documentation>Percent of category that is in operation. If Schedule Category is Occupancy, then the percent of occupants from typical max. If Schedule Category is equipment, then power as a percent of installed capacity. This field is not used for temperature or relative humidity settings. (0-1) (%)</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:simpleContent>
@@ -3486,7 +3486,7 @@
                   </xs:element>
                   <xs:element name="MinimumPowerFactorWithoutPenalty" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Minimum power factor that needs to maintained without any penalties (0-1) (%)</xs:documentation>
+                      <xs:documentation>Minimum power factor that needs to maintained without any penalties. (0-1) (%)</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:simpleContent>
@@ -5344,7 +5344,7 @@
                         </xs:element>
                         <xs:element name="HeatingStageCapacityFraction" minOccurs="0">
                           <xs:annotation>
-                            <xs:documentation>Average capacity of each heating stage, at ARI rated conditions, expressed as a fraction of total capacity (0-1) (%)</xs:documentation>
+                            <xs:documentation>Average capacity of each heating stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) (%)</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:simpleContent>
@@ -5914,7 +5914,7 @@
                   </xs:element>
                   <xs:element name="HeatingStageCapacityFraction" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Average capacity of each heating stage, at ARI rated conditions, expressed as a fraction of total capacity (0-1) (%)</xs:documentation>
+                      <xs:documentation>Average capacity of each heating stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) (%)</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:simpleContent>
@@ -6094,7 +6094,7 @@
                   </xs:element>
                   <xs:element name="CoolingStageCapacity" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Average capacity of each cooling stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) %</xs:documentation>
+                      <xs:documentation>Average capacity of each cooling stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) (%)</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:simpleContent>
@@ -6106,7 +6106,7 @@
                   </xs:element>
                   <xs:element name="MinimumPartLoadRatio" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>The minimum part load ratio at which the system is able to operate. (0-1)</xs:documentation>
+                      <xs:documentation>The minimum part load ratio at which the system is able to operate. (0-1) (%)</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:simpleContent>
@@ -6118,7 +6118,7 @@
                   </xs:element>
                   <xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1)</xs:documentation>
+                      <xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1) (%)</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:simpleContent>
@@ -6271,7 +6271,7 @@
                                           </xs:element>
                                           <xs:element name="PipeLocation" minOccurs="0">
                                             <xs:annotation>
-                                              <xs:documentation>% of pipe length in conditioned space (0-1)</xs:documentation>
+                                              <xs:documentation>Percent of pipe length in conditioned space. (0-1) (%)</xs:documentation>
                                             </xs:annotation>
                                             <xs:complexType>
                                               <xs:simpleContent>
@@ -6553,7 +6553,7 @@
                               </xs:element>
                               <xs:element name="PipeLocation" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>% of pipe length in conditioned space (0-1)</xs:documentation>
+                                  <xs:documentation>Percent of pipe length in conditioned space. (0-1) (%)</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:simpleContent>
@@ -6593,7 +6593,7 @@
                               </xs:element>
                               <xs:element name="PipeLocation" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>% of pipe length in conditioned space (0-1)</xs:documentation>
+                                  <xs:documentation>Percent of pipe length in conditioned space. (0-1) (%)</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:simpleContent>
@@ -6806,7 +6806,7 @@
       </xs:element>
       <xs:element name="SupplyDuctPercentConditionedSpace" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Percentage of supply duct surface area that is located within conditioned space (%) (0-1).</xs:documentation>
+          <xs:documentation>Percentage of supply duct surface area that is located within conditioned space. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -6818,7 +6818,7 @@
       </xs:element>
       <xs:element name="ReturnDuctPercentConditionedSpace" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Percentage of return duct surface area, including the air handler, that is located within conditioned space (%) (0-1).</xs:documentation>
+          <xs:documentation>Percentage of return duct surface area, including the air handler, that is located within conditioned space. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -6888,7 +6888,7 @@
       </xs:element>
       <xs:element name="SupplyFractionOfDuctLeakage" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Fraction of total duct leakage that is on the supply side. Remainder is assumed to be on the return side. (0-1).</xs:documentation>
+          <xs:documentation>Fraction of total duct leakage that is on the supply side. Remainder is assumed to be on the return side. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -6900,7 +6900,7 @@
       </xs:element>
       <xs:element name="DuctPressureTestLeakagePercentage" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Duct leakage found from pressure test. Reported as a percentage. [%] (0-1)</xs:documentation>
+          <xs:documentation>Duct leakage found from pressure test. Reported as a percentage. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -7024,7 +7024,7 @@
             </xs:element>
             <xs:element name="CoolingStageCapacity" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>Average capacity of each cooling stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) %</xs:documentation>
+                <xs:documentation>Average capacity of each cooling stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) (%)</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:simpleContent>
@@ -7104,7 +7104,7 @@
             <xs:element ref="auc:CapacityUnits" minOccurs="0"/>
             <xs:element name="MinimumPartLoadRatio" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>The minimum part load ratio at which the system is able to operate. (0-1)</xs:documentation>
+                <xs:documentation>The minimum part load ratio at which the system is able to operate. (0-1) (%)</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:simpleContent>
@@ -7116,7 +7116,7 @@
             </xs:element>
             <xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1)</xs:documentation>
+                <xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1) (%)</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:simpleContent>
@@ -7128,7 +7128,7 @@
             </xs:element>
             <xs:element name="PartLoadRatioBelowWhichHotGasBypassOperates" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>The part load ratio of the chiller below which hot gas bypass (HGBP) operates. (0-1)</xs:documentation>
+                <xs:documentation>The part load ratio of the chiller below which hot gas bypass (HGBP) operates. (0-1) (%)</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:simpleContent>
@@ -7196,7 +7196,7 @@
             <xs:element ref="auc:CapacityUnits" minOccurs="0"/>
             <xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1)</xs:documentation>
+                <xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1) (%)</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:simpleContent>
@@ -8208,7 +8208,7 @@
           <xs:sequence>
             <xs:element name="MinimumDimmingLightFraction" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>Minimum light output of controlled lighting when fully dimmed. Minimum light fraction = (Minimum light output) / (Rated light output). (0-1)</xs:documentation>
+                <xs:documentation>Minimum light output of controlled lighting when fully dimmed. Minimum light fraction = (Minimum light output) / (Rated light output). (0-1) (%)</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:simpleContent>
@@ -8220,7 +8220,7 @@
             </xs:element>
             <xs:element name="MinimumDimmingPowerFraction" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>The minimum power fraction when controlled lighting is fully dimmed. Minimum power fraction = (Minimum power) / (Full rated power). (0-1)</xs:documentation>
+                <xs:documentation>The minimum power fraction when controlled lighting is fully dimmed. Minimum power fraction = (Minimum power) / (Full rated power). (0-1) (%)</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:simpleContent>
@@ -8822,7 +8822,7 @@
             </xs:element>
             <xs:element name="PipeLocation" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>% of pipe length in conditioned space (0-1)</xs:documentation>
+                <xs:documentation>Percentage of pipe length in conditioned space. (0-1) (%)</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:simpleContent>
@@ -9809,7 +9809,7 @@
     <xs:sequence>
       <xs:element name="FanEfficiency" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Efficiency of the fan, excluding motor and drive. (0-1)</xs:documentation>
+          <xs:documentation>Efficiency of the fan, excluding motor and drive. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -10053,7 +10053,7 @@
       </xs:element>
       <xs:element name="MotorEfficiency" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Indicates how well the motor converts electrical power into mechanical power and is defined as output power divided by input power expressed as a percentage (0-1). (%)</xs:documentation>
+          <xs:documentation>Indicates how well the motor converts electrical power into mechanical power and is defined as output power divided by input power expressed as a percentage. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -10065,7 +10065,7 @@
       </xs:element>
       <xs:element name="DriveEfficiency" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>A measure of how much power transferred through the drive is lost as heat, expressed as a percentage (0-1) (%)</xs:documentation>
+          <xs:documentation>A measure of how much power transferred through the drive is lost as heat, expressed as a percentage. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -10485,7 +10485,7 @@ Insulated: Where the cells are partially grouted and the remaining cells are fil
       </xs:element>
       <xs:element name="WallExteriorSolarAbsorptance" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The fraction of incident radiation in the solar spectrum that is absorbed by the material or surface. Value range: 0-1. (%)</xs:documentation>
+          <xs:documentation>The fraction of incident radiation in the solar spectrum that is absorbed by the material or surface. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -10497,7 +10497,7 @@ Insulated: Where the cells are partially grouted and the remaining cells are fil
       </xs:element>
       <xs:element name="WallExteriorThermalAbsorptance" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The fraction of incident long wavelength infrared radiation that is absorbed by the material or surface. Value range: 0-1. (%)</xs:documentation>
+          <xs:documentation>The fraction of incident long wavelength infrared radiation that is absorbed by the material or surface. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -10509,7 +10509,7 @@ Insulated: Where the cells are partially grouted and the remaining cells are fil
       </xs:element>
       <xs:element name="InteriorVisibleAbsorptance" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The fraction of incident visible wavelength radiation that is absorbed by the material or surface. Value range: 0-1. (%)</xs:documentation>
+          <xs:documentation>The fraction of incident visible wavelength radiation that is absorbed by the material or surface. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -10798,7 +10798,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       </xs:element>
       <xs:element name="RoofExteriorSolarAbsorptance" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The fraction of incident radiation in the solar spectrum that is absorbed by the material or surface. Value range: 0-1. (%)</xs:documentation>
+          <xs:documentation>The fraction of incident radiation in the solar spectrum that is absorbed by the material or surface. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -10810,7 +10810,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       </xs:element>
       <xs:element name="RoofExteriorThermalAbsorptance" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The fraction of incident long wavelength infrared radiation that is absorbed by the material or surface. Value range: 0-1. (%)</xs:documentation>
+          <xs:documentation>The fraction of incident long wavelength infrared radiation that is absorbed by the material or surface. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -10822,7 +10822,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       </xs:element>
       <xs:element name="CeilingVisibleAbsorptance" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The fraction of incident visible wavelength radiation that is absorbed by the material or surface. Value range: 0-1. (%)</xs:documentation>
+          <xs:documentation>The fraction of incident visible wavelength radiation that is absorbed by the material or surface. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -11307,7 +11307,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       </xs:element>
       <xs:element name="SolarHeatGainCoefficient" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The ratio of the solar heat gain entering the space through the fenestration product to the incident solar radiation. Solar heat gain includes directly transmitted solar heat and that portion of the absorbed solar radiation which is then reradiated, conducted, or convected into the space. (0-1)</xs:documentation>
+          <xs:documentation>The ratio of the solar heat gain entering the space through the fenestration product to the incident solar radiation. Solar heat gain includes directly transmitted solar heat and that portion of the absorbed solar radiation which is then reradiated, conducted, or convected into the space. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -11915,7 +11915,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       </xs:element>
       <xs:element name="DutyCycle" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Average % of installed power over the course of a day. (0-1) (%)</xs:documentation>
+          <xs:documentation>Average percentage of installed power over the course of a day. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -13924,7 +13924,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
   </xs:element>
   <xs:element name="DutyCycle">
     <xs:annotation>
-      <xs:documentation>Percent of time the system operates (0-1) (%)</xs:documentation>
+      <xs:documentation>Percent of time the system operates. (0-1) (%)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
