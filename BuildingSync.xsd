@@ -104,10 +104,17 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    <xs:element name="RoofCeilingSystems" minOccurs="0">
+                    <xs:element name="RoofSystems" minOccurs="0">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="RoofCeilingSystem" type="auc:RoofCeilingSystemType" maxOccurs="unbounded"/>
+                          <xs:element name="RoofSystem" type="auc:RoofSystemType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="CeilingSystems" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="CeilingSystem" type="auc:CeilingSystemType" maxOccurs="unbounded"/>
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
@@ -851,10 +858,10 @@
         </xs:annotation>
       </xs:element>
       <xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
-      <xs:element name="CommercialFacilities" minOccurs="0">
+      <xs:element name="Facilities" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="CommercialFacility" type="auc:CommercialFacilityType" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="facility" type="auc:CommercialFacilityType" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -867,6 +874,17 @@
       <xs:element ref="auc:PremisesName" minOccurs="0"/>
       <xs:element ref="auc:PremisesNotes" minOccurs="0"/>
       <xs:element ref="auc:PremisesIdentifiers" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="FacilityClassification">
+        <xs:annotation>
+          <xs:documentation>Specify the type of facility.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Commercial"/>
+            <xs:enumeration value="Residential"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element ref="auc:OccupancyClassification" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Classification main utilization of the premises by building occupants.</xs:documentation>
@@ -10542,7 +10560,304 @@ Insulated: Where the cells are partially grouted and the remaining cells are fil
     <xs:attribute name="ID" type="xs:ID"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
-  <xs:complexType name="RoofCeilingSystemType">
+  <xs:complexType name="CeilingSystemType">
+    <xs:sequence>
+      <xs:element name="CeilingConstruction" type="auc:EnvelopeConstructionType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The general description of the main structural construction method used for an opaque surface.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SpecialCeilingClassification" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Additional classifications for the roof construction.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Cool roof"/>
+            <xs:enumeration value="Green roof"/>
+            <xs:enumeration value="Other"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CeilingFinish" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The final material applied to a surface, either interior or exterior. Some structural components don't have an exterior finish, such as unfinished poured concrete.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Wood"/>
+            <xs:enumeration value="Stone"/>
+            <xs:enumeration value="Tile"/>
+            <xs:enumeration value="Brick"/>
+            <xs:enumeration value="Masonry"/>
+            <xs:enumeration value="Concrete"/>
+            <xs:enumeration value="Metal"/>
+            <xs:enumeration value="Metal panel"/>
+            <xs:enumeration value="Metal panel-standing seam"/>
+            <xs:enumeration value="Sheet metal"/>
+            <xs:enumeration value="EIFS"/>
+            <xs:enumeration value="Shingles-asphalt"/>
+            <xs:enumeration value="Shingles-composition"/>
+            <xs:enumeration value="Shingles-wood"/>
+            <xs:enumeration value="Shingles-asbestos"/>
+            <xs:enumeration value="Shingles-slate or tile"/>
+            <xs:enumeration value="Shakes-wood"/>
+            <xs:enumeration value="Carpet"/>
+            <xs:enumeration value="Linoleum"/>
+            <xs:enumeration value="Asphalt or fiberglass"/>
+            <xs:enumeration value="Plastic-rubber-synthetic sheeting"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Unknown"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CeilingColor" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Color of a material or component. Can be applied to opaque surfaces, materials, and so forth.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="White"/>
+            <xs:enumeration value="Light"/>
+            <xs:enumeration value="Medium"/>
+            <xs:enumeration value="Med-dark"/>
+            <xs:enumeration value="Dark"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Unknown"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CeilingInsulation" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="RoofInsulationApplication" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>A description of the type of insulation and how it is applied.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Loose-fill"/>
+                  <xs:enumeration value="Batt"/>
+                  <xs:enumeration value="Spray-on"/>
+                  <xs:enumeration value="Rigid"/>
+                  <xs:enumeration value="Other"/>
+                  <xs:enumeration value="Unknown"/>
+                  <xs:enumeration value="None"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="RoofInsulationMaterial" type="auc:InsulationMaterialType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Material used for the structural component of the surface.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="RoofInsulationThickness" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Thickness of roof insulation. (in.)</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:decimal">
+                    <xs:attribute ref="auc:Source"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="RoofInsulationContinuity" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Insulation installation type.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Cavity"/>
+                  <xs:enumeration value="Continuous"/>
+                  <xs:enumeration value="Other"/>
+                  <xs:enumeration value="Unknown"/>
+                  <xs:enumeration value="None"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="RoofInsulationCondition" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Assessed condition of installed insulation.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Excellent"/>
+                  <xs:enumeration value="Good"/>
+                  <xs:enumeration value="Average"/>
+                  <xs:enumeration value="Poor"/>
+                  <xs:enumeration value="Other"/>
+                  <xs:enumeration value="Unknown"/>
+                  <xs:enumeration value="None"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeckType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The material used to create the structural integrity in an opaque surface. In many cases the framing material is not continuous across the construction.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Wood"/>
+            <xs:enumeration value="Steel"/>
+            <xs:enumeration value="Concrete"/>
+            <xs:enumeration value="Brick"/>
+            <xs:enumeration value="Masonry"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Unknown"/>
+            <xs:enumeration value="None"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CeilingRValue" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>(Also known as thermal resistance), quantity determined by the temperature difference, at steady state, between two defined surfaces of a material or construction that induces a unit heat flow rate through unit area (R = ΔT/q). R-value is the reciprocal of thermal conductance. A unit of thermal resistance used for comparing insulating values of different materials, for the specific thickness of the material. The higher the R-value number, a material, the greater its insulating properties and the slower the heat flow through it. This R-value does not include the interior and exterior air film coefficients. (hr-ft2-F/Btu)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CeilingUFactor" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above). (Btu/hr·ft2·°F)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CeilingFramingMaterial" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The material used to create the structural integrity in an opaque surface. In many cases the framing material is not continuous across the construction.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Wood"/>
+            <xs:enumeration value="Steel"/>
+            <xs:enumeration value="Concrete"/>
+            <xs:enumeration value="Brick"/>
+            <xs:enumeration value="Masonry"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Unknown"/>
+            <xs:enumeration value="None"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CeilingFramingSpacing" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Dimension of the distance between two components.
+
+Examples include: Framing spacing: the dimension from centerline to centerline of a surface framing material.
+
+Window spacing: the dimension between windows in a discrete window layout. (in.)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CeilingFramingDepth" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Dimension of the distance from the front to the back, such as the depth of structural framing in a wall or floor. It can also be the distance from the top to the bottom, such as the depth of a tank or pool of a component or material, such as the depth of the structural framing. (in.)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CeilingFramingFactor" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Fraction of the surface that is composed of structural framing material. (0-1) (%)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CeilingSlope" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>A descriptive value for tilt, when an exact numeric angle is not known.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Flat"/>
+            <xs:enumeration value="Sloped"/>
+            <xs:enumeration value="> 2:12"/>
+            <xs:enumeration value="&lt; 2:12"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Unknown"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="RadiantBarrier" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>True if a radiant barrier is installed, false otherwise.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="CeilingExteriorSolarAbsorptance" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The fraction of incident radiation in the solar spectrum that is absorbed by the material or surface. (0-1) (%)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CeilingExteriorThermalAbsorptance" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The fraction of incident long wavelength infrared radiation that is absorbed by the material or surface. (0-1) (%)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CeilingVisibleAbsorptance" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The fraction of incident visible wavelength radiation that is absorbed by the material or surface. (0-1) (%)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element ref="auc:Quantity" minOccurs="0"/>
+      <xs:element ref="auc:YearInstalled" minOccurs="0"/>
+      <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute ref="auc:Status"/>
+  </xs:complexType>
+  <xs:complexType name="RoofSystemType">
     <xs:sequence>
       <xs:element name="RoofConstruction" type="auc:EnvelopeConstructionType" minOccurs="0">
         <xs:annotation>
@@ -10820,7 +11135,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="CeilingVisibleAbsorptance" minOccurs="0">
+      <xs:element name="RoofVisibleAbsorptance" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The fraction of incident visible wavelength radiation that is absorbed by the material or surface. (0-1) (%)</xs:documentation>
         </xs:annotation>

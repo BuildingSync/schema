@@ -2,7 +2,7 @@
 
 ## Unreleased Version
 
-##### 11/20/2015
+##### 11/20/2015 - 12/10/2015
 
 * Remove `<true>` elements
 * Spelling fixes
@@ -23,6 +23,8 @@
 * Add Story to subsection
 * Add WallInsulationRValue to WallInsulation
 * Add another level for WallInsulations in WallSystems
+* Rename CommercialFacility to Facility and add enum to specify the facility type
+* Break out ceiling system from RoofCeilingSystem
 
 
 ## Version 2.0
