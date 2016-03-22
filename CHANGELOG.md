@@ -2,6 +2,81 @@
 
 ## Unreleased Version
 
+#### 3/22/2016 Hendron changed Space element to unconstrained.
+
+#### 2/24/2016-3/2/2016 Hendron - BEDES V1.2 updates
+* DefrostType renamed to DefrostingType and enumeration was updated
+* Updated enumerations slightly for DishwasherMachineType and DishwasherConfiguration to match BEDES
+* Updated enumeration slightly for WasherDryerType to match BEDES
+* Added "Backup" to PumpingConfiguration
+* Added "Water to air heat exchanger" and "Water to water heat exchanger" to HeatRecoveryType
+* Updated enumeration for EnvelopeConstructionType to remove hyphens
+* Updated enumeration for ExteriorWallFinish, RoofFinish, CeilingFinish
+* Added "Reflective" to enumeration for ExteriorWallColor, RoofColor
+* Removed hyphens from enumeration for WallInsulationApplication, RoofInsulationApplication, CeilingInsulationApplication
+* Updated enumeration for InsulationMaterialType
+* Shortened definition of WallFramingSpacing, RoofFramingSpacing
+* Updated enumeration for AirInfiltrationValueUnits
+* Updated enumeration for RoofSlope
+* Updated punctuation in enumeration for GlassType, FenestrationGlassLayers, FenestrationFrameMaterial
+* Updated enumeration for ExteriorShadingType to include trees and buildings
+* Updated enumeration for SkylightWindowTreatments to match BEDES Shading System options
+* Renamed CrawlspaceVenting options to match BEDES terminology (ventilated vs vented)
+* Updated BasementConditioning options
+* Added Linoleum to FloorCovering enumeration
+* Moved FloorConstructionType to the main FoundationType level from the vented crawlspace
+* Removed Combination from enumeration for FoundationWallInsulationCondition
+* Added FoundationWallUFactor element for basements and unvented crawlspaces
+* Renamed Set Top Box under PlugLoadType to match BEDES
+* Deleted Motor from ProcessLoadType enumeration because there is a separate category for motor data
+* Replaced stand-alone DutyCycle element with the global element DutyCycle under ProcessLoadType
+* Updated enumeration for PhotovoltaicSystemLocation, changing Ground to On Grade and deleting hyphen
+* Updated punctuation for ExternalPowerSupply
+* Deleted acronyms and updated punctuation in enumeration for EnergyStorageTechnology
+* Deleted fountains, etc., from PoolType because there is a separate category for water used in landscaping features
+* Changed Indoors and Outdoors to Interior and Exterior in enumeration for Location to match BEDES
+* Updated punctuation in enumeration for FuelTypes and deleted Combination
+* Updated enumeration for CapacityUnits
+* Added values to enumeration for Source
+* Renamed ModificationRetrocommissioning to Modification to allow clean mapping to BEDES
+* Deleted hyphens in enumeration for WeatherDataSource
+* Changed name of Simulated element to Modeled to match BEDES terminology.
+* Added enumeration to CodeName matching BEDES, except 189.1 because ASHRAE was already in the list. Previously it was free text. A new element CodeVersion was added as free text to allow more specific definition of the relevant code or standard.
+* Removed hyphens from EndUse enumeration and aligned several options with BEDES. The "Whole building" option in BuildingSync was changed to "All end uses", because the associated premises are defined in a separate element, and it may be less than the whole building.
+* Changed EnergyResource enumeration to global type FuelType 
+* Deleted acronyms and updated punctuation in enumeration for CostEffectivenessScreeningMethod
+* Corrected definition of PercentResource
+* Updated enumeration for ResourceUnits
+* Updated definition of FixedMonthlyCharge
+* Updated enumeration for MeteringConfiguration
+* Updated enumeration for SharedResourceSystem but corrected a typo in BEDES ("buildings" vs "building")
+* Updated enumeration for EmissionsFactorSource
+* Hyphens removed from TimeSeriesReadingQuantity
+* Updated enumeration for IntervalFrequency
+* Updated enumeration for AuditorQualificationType
+* Deleted AuditTeamMemberCertificationType because it's fairly redundant.
+
+
+#### 2/23/2016-3/2/2016 Hendron - Minor cleanup
+* Changed definition of Story element under Subsection to "The story of the given subsection." 
+* Made FacilityClassification optional
+* Capitalized "facility"
+* Deleted SpecialCeilingClassification (other cleanup of ceiling/roof split is needed to remove redundancies)
+* Deleted RoofVisibleAbsorptance, because this is only important as a ceiling property
+* Deleted DeckType, CeilingSlope, RadiantBarrier, CeilingExteriorSolarAbsorptance, CeilingExteriorThermalAbsorptance from CeilingSystemType because they are more appropriate as roof attributes
+* Renamed all CeilingInsulation elements to have "Ceiling" modifier instead of "Roof"
+* Added references to CeilingID, CeilingArea, and CeilingInsulatedArea under Subsection, and redistributed relevant elements from under RoofID
+* Split Ceiling and Roof under SystemCategoryAffected
+* Dropped Not Discarded from enumeration for DiscardReason. The existence of the element implies that the measure was discarded.
+* Added WeatherDataSource element under AdjustedToYear. Appears to have been an oversight.
+* Copied AnnualDemandSavingsCost from MeasureType to PackageOfMeasures for consistency
+* Updated definition of NetMetering because it is no longer a boolean.
+* Fixed error in datatype for ApplicableStartTimeForEnergyRate, ApplicableEndTimeForEnergyRate, ApplicableStartTimeForDemandRate, and ApplicableEndTimeForDemandRate (from date to time)
+* DaylitFloorArea (added recently by NREL) was deleted as a separate element. "Daylit" was already an option for FloorAreaType, so it was redundant.
+* Added "Mixed use commercial" and "Other" to enumeration for FacilityClassification
+* Renamed CommercialFacility global type to Facility for consistency.
+
+
 ##### 11/20/2015 - 12/10/2015
 
 * Remove `<true>` elements
