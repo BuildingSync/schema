@@ -5,13 +5,9 @@ require 'pp'
 def add_spaces(str)
   retval = str.dup
   regex = /(.*?[^ (])([A-Z][a-z])(.*?)/
-  while retval.match(regex)
-    retval.gsub!(regex, '\1 \2\3')
-  end
+  retval.gsub!(regex, '\1 \2\3') while retval.match(regex)
   regex = /(.*?)([a-z])([A-Z])(.*?)/
-  while retval.match(regex)
-    retval.gsub!(regex, '\1\2 \3\4')
-  end
+  retval.gsub!(regex, '\1\2 \3\4') while retval.match(regex)
   # Custom fixes
   retval.gsub!('e GRID', 'eGRID')
   retval.gsub!('EC Ms', 'ECMs')
@@ -19,16 +15,16 @@ def add_spaces(str)
 end
 
 xsd = File.expand_path("#{File.dirname(__FILE__)}/../BuildingSync_2_0.xsd")
-@schema = Nokogiri::XML(IO.read(xsd)) { |doc| doc.noblanks }
-#@schema.remove_namespaces!
+@schema = Nokogiri::XML(IO.read(xsd), &:noblanks)
+# @schema.remove_namespaces!
 # puts @schema.css('element')
 # puts @schema.xpath('//')
 
-#elems = @schema.search 'element[name="Audits"]'
-#puts elems.length
-#elems.each_with_index { |elem, index|
+# elems = @schema.search 'element[name="Audits"]'
+# puts elems.length
+# elems.each_with_index { |elem, index|
 #  puts elem if index == 0
-#}
+# }
 
 workbook = RubyXL::Workbook.new # Create workbook
 
@@ -64,7 +60,6 @@ project.change_row_font_name(row, 'Calibri')
 project.change_row_font_size(row, 14)
 
 categories = ['Site', 'Customer', 'Commercial Facilities', 'Block']
-
 
 #######################
 # Systems Data Fields #
@@ -137,32 +132,27 @@ enumerations = workbook.add_worksheet('Final Enumerations') # Sheet 5
 
 enums = {}
 names = []
-@schema.xpath('//xs:simpleType/xs:restriction').map { |node|
+@schema.xpath('//xs:simpleType/xs:restriction').map do |node|
   name = node.parent.attribute('name')
-  if name.nil?
-    name = (name || node.parent.parent.attribute('name'))
-  end
+  name = (name || node.parent.parent.attribute('name')) if name.nil?
   name = name.value
   if name == 'ClimateZone' || name == 'LampLabel' || name == 'MeasureName' # Handle duplicate enum names
     sub_name = node.parent.parent.parent.parent.parent.attribute('name').value
     name += " (#{sub_name})"
   end
-  if node.children.length
-    names.push(name)
-    dupes = names.detect{ |e| names.count(e) > 1 }
-    raise 'Error: duplicate enum detected: ' + name if !dupes.nil?
-    arr = []
-    node.children.map { |child|
-      value = child.attribute('value').value
-      arr.push(value)
-      dupes = arr.detect{ |e| arr.count(e) > 1 }
-      raise "Error: duplicate enum value detected: '#{value}' in '#{name}'" if !dupes.nil?
-    }
-    enums[add_spaces(name)] = arr
-  else
-    # Empty enums
+  next unless node.children.length
+  names.push(name)
+  dupes = names.detect { |e| names.count(e) > 1 }
+  raise 'Error: duplicate enum detected: ' + name unless dupes.nil?
+  arr = []
+  node.children.map do |child|
+    value = child.attribute('value').value
+    arr.push(value)
+    dupes = arr.detect { |e| arr.count(e) > 1 }
+    raise "Error: duplicate enum value detected: '#{value}' in '#{name}'" unless dupes.nil?
   end
-}
+  enums[add_spaces(name)] = arr
+end
 col = 0
 enums = enums.sort { |a, b| a[0].downcase <=> b[0].downcase }
 enumerations.change_row_fill(0, '4f81bd')
@@ -177,22 +167,18 @@ enums.map do |enum, values|
   values.each do |value|
     row += 1
     enumerations.add_cell(row, col, value)
-    if max_row < row
-      enumerations.change_row_fill(row, 'dce6f1')
-      enumerations.change_row_font_name(row, 'Calibri')
-      enumerations.change_row_font_size(row, 11)
-      max_row = row
-    end
+    next unless max_row < row
+    enumerations.change_row_fill(row, 'dce6f1')
+    enumerations.change_row_font_name(row, 'Calibri')
+    enumerations.change_row_font_size(row, 11)
+    max_row = row
   end
   col += 1
 end
 
-
 # puts @schema.xpath('/xs:schema').children.length
-
 
 font = RubyXL::Font.new
 font.set_name('Calibri')
 font.set_size(11)
 workbook.save('BuildingSync Data Dictionary 2.0.xlsx') # Save
-
