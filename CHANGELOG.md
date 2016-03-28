@@ -2,7 +2,11 @@
 
 ## Unreleased Version
 
-#### 3/22/2016 Hendron changed Space element to unconstrained.
+##### 03/28/2016
+* Pluralize TechnologyCategory to TechnologyCategories
+
+#### 3/22/2016 
+* Hendron changed Space element to unconstrained.
 
 #### 2/24/2016-3/2/2016 Hendron - BEDES V1.2 updates
 * DefrostType renamed to DefrostingType and enumeration was updated
@@ -75,7 +79,6 @@
 * DaylitFloorArea (added recently by NREL) was deleted as a separate element. "Daylit" was already an option for FloorAreaType, so it was redundant.
 * Added "Mixed use commercial" and "Other" to enumeration for FacilityClassification
 * Renamed CommercialFacility global type to Facility for consistency.
-
 
 ##### 11/20/2015 - 12/10/2015
 

@@ -4380,561 +4380,567 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="TechnologyCategory" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>Authorized technology category as defined by the Federal Energy Management Program. In some cases a single measure may include multiple components affecting multiple categories.</xs:documentation>
-        </xs:annotation>
+      <xs:element name="TechnologyCategories" minOccurs="0">
         <xs:complexType>
-          <xs:choice>
-            <xs:element name="BoilerPlantImprovements" minOccurs="0">
+          <xs:sequence>
+            <xs:element name="TechnologyCategory" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation>Boiler Plant Improvements</xs:documentation>
+                <xs:documentation>Authorized technology category as defined by the Federal Energy Management Program. In some cases a single measure may include multiple components affecting multiple categories.</xs:documentation>
               </xs:annotation>
               <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
+                <xs:choice>
+                  <xs:element name="BoilerPlantImprovements" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
+                      <xs:documentation>Boiler Plant Improvements</xs:documentation>
                     </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Replace boiler"/>
-                        <xs:enumeration value="Replace burner"/>
-                        <xs:enumeration value="Decentralize boiler"/>
-                        <xs:enumeration value="Insulate boiler room"/>
-                        <xs:enumeration value="Add energy recovery"/>
-                        <xs:enumeration value="Convert gas-fired unit to boiler loop"/>
-                        <xs:enumeration value="Convert system from steam to hot water"/>
-                        <xs:enumeration value="Clean and/or repair"/>
-                        <xs:enumeration value="Implement training and/or documentation"/>
-                        <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Replace boiler"/>
+                              <xs:enumeration value="Replace burner"/>
+                              <xs:enumeration value="Decentralize boiler"/>
+                              <xs:enumeration value="Insulate boiler room"/>
+                              <xs:enumeration value="Add energy recovery"/>
+                              <xs:enumeration value="Convert gas-fired unit to boiler loop"/>
+                              <xs:enumeration value="Convert system from steam to hot water"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
                   </xs:element>
-                </xs:sequence>
+                  <xs:element name="ChillerPlantImprovements" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Chiller Plant Improvements</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Add energy recovery"/>
+                              <xs:enumeration value="Install VSD on electric centrifugal chillers"/>
+                              <xs:enumeration value="Replace chiller"/>
+                              <xs:enumeration value="Install gas cooling"/>
+                              <xs:enumeration value="Add or repair economizer cycle"/>
+                              <xs:enumeration value="Add or replace cooling tower"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="BuildingAutomationSystems" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Building Automation Systems/Energy Management Control Systems (EMCS)</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Add heat recovery"/>
+                              <xs:enumeration value="Add or upgrade BAS/EMS/EMCS"/>
+                              <xs:enumeration value="Add or upgrade controls"/>
+                              <xs:enumeration value="Convert pneumatic controls to DDC"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="OtherHVAC" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Heating, Ventilating, and Air Conditioning</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Replace or modify AHU"/>
+                              <xs:enumeration value="Improve distribution fans"/>
+                              <xs:enumeration value="Improve ventilation fans"/>
+                              <xs:enumeration value="Convert CV system to VAV system"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Repair leaks / seal ducts"/>
+                              <xs:enumeration value="Add duct insulation"/>
+                              <xs:enumeration value="Balance ventilation/distribution system"/>
+                              <xs:enumeration value="Repair or replace HVAC damper and controller"/>
+                              <xs:enumeration value="Replace burner"/>
+                              <xs:enumeration value="Replace package units"/>
+                              <xs:enumeration value="Replace packaged terminal units"/>
+                              <xs:enumeration value="Install passive solar heating"/>
+                              <xs:enumeration value="Replace AC and heating units with ground coupled heat pump systems"/>
+                              <xs:enumeration value="Add energy recovery"/>
+                              <xs:enumeration value="Add or replace cooling tower"/>
+                              <xs:enumeration value="Install gas cooling"/>
+                              <xs:enumeration value="Add or repair economizer"/>
+                              <xs:enumeration value="Add enhanced dehumidification"/>
+                              <xs:enumeration value="Install solar ventilation preheating system"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Other heating"/>
+                              <xs:enumeration value="Other cooling"/>
+                              <xs:enumeration value="Other ventilation"/>
+                              <xs:enumeration value="Other distribution"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="LightingImprovements" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Lighting Improvements</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Retrofit with CFLs"/>
+                              <xs:enumeration value="Retrofit with T-5"/>
+                              <xs:enumeration value="Retrofit with T-8"/>
+                              <xs:enumeration value="Install spectrally enhanced lighting"/>
+                              <xs:enumeration value="Retrofit with fiber optic lighting technologies"/>
+                              <xs:enumeration value="Retrofit with light emitting diode technologies"/>
+                              <xs:enumeration value="Add daylight controls"/>
+                              <xs:enumeration value="Add occupancy sensors"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="BuildingEnvelopeModifications" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Building Envelope Modifications</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Air seal envelope"/>
+                              <xs:enumeration value="Increase wall insulation"/>
+                              <xs:enumeration value="Insulate thermal bypasses"/>
+                              <xs:enumeration value="Increase ceiling insulation"/>
+                              <xs:enumeration value="Increase roof insulation"/>
+                              <xs:enumeration value="Insulate attic hatch / stair box"/>
+                              <xs:enumeration value="Add attic/knee wall insulation"/>
+                              <xs:enumeration value="Install cool/green roof"/>
+                              <xs:enumeration value="Add shading devices"/>
+                              <xs:enumeration value="Add window films"/>
+                              <xs:enumeration value="Install or replace solar screens"/>
+                              <xs:enumeration value="Replace glazing"/>
+                              <xs:enumeration value="Replace windows"/>
+                              <xs:enumeration value="Increase floor insulation"/>
+                              <xs:enumeration value="Insulate foundation"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="ChilledWaterHotWaterAndSteamDistributionSystems" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Chilled Water, Hot Water, and Steam Distribution Systems</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Add pipe insulation"/>
+                              <xs:enumeration value="Repair and/or replace steam traps"/>
+                              <xs:enumeration value="Retrofit and replace chiller plant pumping, piping, and controls"/>
+                              <xs:enumeration value="Repair or replace existing condensate return systems or install new condensate return systems"/>
+                              <xs:enumeration value="Add recirculating pumps"/>
+                              <xs:enumeration value="Replace or upgrade water heater"/>
+                              <xs:enumeration value="Add energy recovery"/>
+                              <xs:enumeration value="Install solar hot water system"/>
+                              <xs:enumeration value="Separate DHW from heating"/>
+                              <xs:enumeration value="Replace with higher efficiency pump"/>
+                              <xs:enumeration value="Replace with variable speed pump"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="ElectricMotorsAndDrives" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Electric Motors and Drives</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Add drive controls"/>
+                              <xs:enumeration value="Replace with higher efficiency"/>
+                              <xs:enumeration value="Add VSD motor controller"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Refrigeration" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Refrigeration</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Replace ice/refrigeration equipment with high efficiency units"/>
+                              <xs:enumeration value="Replace air-cooled ice/refrigeration equipment"/>
+                              <xs:enumeration value="Replace refrigerators"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="DistributedGeneration" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Distributed Generation</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Install CHP/cogeneration systems"/>
+                              <xs:enumeration value="Install fuel cells"/>
+                              <xs:enumeration value="Install microturbines"/>
+                              <xs:enumeration value="Convert fuels"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="RenewableEnergySystems" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Renewable Energy Systems</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Install landfill gas, wastewater treatment plant digester gas, or coal bed methane power plant"/>
+                              <xs:enumeration value="Install photovoltaic system"/>
+                              <xs:enumeration value="Install wind energy system"/>
+                              <xs:enumeration value="Install wood waste or other organic waste stream heating or power plant"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="EnergyDistributionSystems" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Energy/Utility Distribution Systems</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Implement power factor corrections"/>
+                              <xs:enumeration value="Implement power quality upgrades"/>
+                              <xs:enumeration value="Upgrade transformers"/>
+                              <xs:enumeration value="Install gas distribution systems"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="WaterAndSewerConservationSystems" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Water and Sewer Conservation Systems</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Install low-flow faucets and showerheads"/>
+                              <xs:enumeration value="Install low-flow plumbing equipment"/>
+                              <xs:enumeration value="Install on-site sewer treatment systems"/>
+                              <xs:enumeration value="Implement water efficient irrigation"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="ElectricalPeakShavingLoadShifting" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Electrical Peak Shaving/Load Shifting</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Install thermal energy storage"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="EnergyCostReductionThroughRateAdjustments" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Energy Cost Reduction Through Rate Adjustments</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Change to more favorable rate schedule"/>
+                              <xs:enumeration value="Energy cost reduction through rate adjustments - uncategorized"/>
+                              <xs:enumeration value="Energy service billing and meter auditing recommendations"/>
+                              <xs:enumeration value="Change to lower energy cost supplier(s)"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="EnergyRelatedProcessImprovements" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Energy Related Process Improvements</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Implement industrial process improvements"/>
+                              <xs:enumeration value="Implement production and/or manufacturing improvements"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="AdvancedMeteringSystems" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Advanced Metering Systems</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Install advanced metering systems"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="PlugLoadReductions" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Appliance and plug-load reductions</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Replace with ENERGY STAR rated"/>
+                              <xs:enumeration value="Install plug load controls"/>
+                              <xs:enumeration value="De-lamp vending machines"/>
+                              <xs:enumeration value="Improve data center efficiency"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="FutureOtherECMs" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Future/Other ECMs</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="HealthAndSafety" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Category heading for measures that are necessary for health, comfort, or safety reasons, not for energy efficiency reasons.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" type="xs:string" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Uncategorized" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Category heading for measures that don't fit into another category</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:choice>
               </xs:complexType>
             </xs:element>
-            <xs:element name="ChillerPlantImprovements" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Chiller Plant Improvements</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Add energy recovery"/>
-                        <xs:enumeration value="Install VSD on electric centrifugal chillers"/>
-                        <xs:enumeration value="Replace chiller"/>
-                        <xs:enumeration value="Install gas cooling"/>
-                        <xs:enumeration value="Add or repair economizer cycle"/>
-                        <xs:enumeration value="Add or replace cooling tower"/>
-                        <xs:enumeration value="Clean and/or repair"/>
-                        <xs:enumeration value="Implement training and/or documentation"/>
-                        <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="BuildingAutomationSystems" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Building Automation Systems/Energy Management Control Systems (EMCS)</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Add heat recovery"/>
-                        <xs:enumeration value="Add or upgrade BAS/EMS/EMCS"/>
-                        <xs:enumeration value="Add or upgrade controls"/>
-                        <xs:enumeration value="Convert pneumatic controls to DDC"/>
-                        <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="OtherHVAC" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Heating, Ventilating, and Air Conditioning</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Replace or modify AHU"/>
-                        <xs:enumeration value="Improve distribution fans"/>
-                        <xs:enumeration value="Improve ventilation fans"/>
-                        <xs:enumeration value="Convert CV system to VAV system"/>
-                        <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                        <xs:enumeration value="Repair leaks / seal ducts"/>
-                        <xs:enumeration value="Add duct insulation"/>
-                        <xs:enumeration value="Balance ventilation/distribution system"/>
-                        <xs:enumeration value="Repair or replace HVAC damper and controller"/>
-                        <xs:enumeration value="Replace burner"/>
-                        <xs:enumeration value="Replace package units"/>
-                        <xs:enumeration value="Replace packaged terminal units"/>
-                        <xs:enumeration value="Install passive solar heating"/>
-                        <xs:enumeration value="Replace AC and heating units with ground coupled heat pump systems"/>
-                        <xs:enumeration value="Add energy recovery"/>
-                        <xs:enumeration value="Add or replace cooling tower"/>
-                        <xs:enumeration value="Install gas cooling"/>
-                        <xs:enumeration value="Add or repair economizer"/>
-                        <xs:enumeration value="Add enhanced dehumidification"/>
-                        <xs:enumeration value="Install solar ventilation preheating system"/>
-                        <xs:enumeration value="Clean and/or repair"/>
-                        <xs:enumeration value="Implement training and/or documentation"/>
-                        <xs:enumeration value="Other heating"/>
-                        <xs:enumeration value="Other cooling"/>
-                        <xs:enumeration value="Other ventilation"/>
-                        <xs:enumeration value="Other distribution"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="LightingImprovements" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Lighting Improvements</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Retrofit with CFLs"/>
-                        <xs:enumeration value="Retrofit with T-5"/>
-                        <xs:enumeration value="Retrofit with T-8"/>
-                        <xs:enumeration value="Install spectrally enhanced lighting"/>
-                        <xs:enumeration value="Retrofit with fiber optic lighting technologies"/>
-                        <xs:enumeration value="Retrofit with light emitting diode technologies"/>
-                        <xs:enumeration value="Add daylight controls"/>
-                        <xs:enumeration value="Add occupancy sensors"/>
-                        <xs:enumeration value="Clean and/or repair"/>
-                        <xs:enumeration value="Implement training and/or documentation"/>
-                        <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="BuildingEnvelopeModifications" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Building Envelope Modifications</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Air seal envelope"/>
-                        <xs:enumeration value="Increase wall insulation"/>
-                        <xs:enumeration value="Insulate thermal bypasses"/>
-                        <xs:enumeration value="Increase ceiling insulation"/>
-                        <xs:enumeration value="Increase roof insulation"/>
-                        <xs:enumeration value="Insulate attic hatch / stair box"/>
-                        <xs:enumeration value="Add attic/knee wall insulation"/>
-                        <xs:enumeration value="Install cool/green roof"/>
-                        <xs:enumeration value="Add shading devices"/>
-                        <xs:enumeration value="Add window films"/>
-                        <xs:enumeration value="Install or replace solar screens"/>
-                        <xs:enumeration value="Replace glazing"/>
-                        <xs:enumeration value="Replace windows"/>
-                        <xs:enumeration value="Increase floor insulation"/>
-                        <xs:enumeration value="Insulate foundation"/>
-                        <xs:enumeration value="Clean and/or repair"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="ChilledWaterHotWaterAndSteamDistributionSystems" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Chilled Water, Hot Water, and Steam Distribution Systems</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Add pipe insulation"/>
-                        <xs:enumeration value="Repair and/or replace steam traps"/>
-                        <xs:enumeration value="Retrofit and replace chiller plant pumping, piping, and controls"/>
-                        <xs:enumeration value="Repair or replace existing condensate return systems or install new condensate return systems"/>
-                        <xs:enumeration value="Add recirculating pumps"/>
-                        <xs:enumeration value="Replace or upgrade water heater"/>
-                        <xs:enumeration value="Add energy recovery"/>
-                        <xs:enumeration value="Install solar hot water system"/>
-                        <xs:enumeration value="Separate DHW from heating"/>
-                        <xs:enumeration value="Replace with higher efficiency pump"/>
-                        <xs:enumeration value="Replace with variable speed pump"/>
-                        <xs:enumeration value="Clean and/or repair"/>
-                        <xs:enumeration value="Implement training and/or documentation"/>
-                        <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="ElectricMotorsAndDrives" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Electric Motors and Drives</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Add drive controls"/>
-                        <xs:enumeration value="Replace with higher efficiency"/>
-                        <xs:enumeration value="Add VSD motor controller"/>
-                        <xs:enumeration value="Clean and/or repair"/>
-                        <xs:enumeration value="Implement training and/or documentation"/>
-                        <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="Refrigeration" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Refrigeration</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Replace ice/refrigeration equipment with high efficiency units"/>
-                        <xs:enumeration value="Replace air-cooled ice/refrigeration equipment"/>
-                        <xs:enumeration value="Replace refrigerators"/>
-                        <xs:enumeration value="Clean and/or repair"/>
-                        <xs:enumeration value="Implement training and/or documentation"/>
-                        <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="DistributedGeneration" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Distributed Generation</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Install CHP/cogeneration systems"/>
-                        <xs:enumeration value="Install fuel cells"/>
-                        <xs:enumeration value="Install microturbines"/>
-                        <xs:enumeration value="Convert fuels"/>
-                        <xs:enumeration value="Clean and/or repair"/>
-                        <xs:enumeration value="Implement training and/or documentation"/>
-                        <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="RenewableEnergySystems" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Renewable Energy Systems</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Install landfill gas, wastewater treatment plant digester gas, or coal bed methane power plant"/>
-                        <xs:enumeration value="Install photovoltaic system"/>
-                        <xs:enumeration value="Install wind energy system"/>
-                        <xs:enumeration value="Install wood waste or other organic waste stream heating or power plant"/>
-                        <xs:enumeration value="Clean and/or repair"/>
-                        <xs:enumeration value="Implement training and/or documentation"/>
-                        <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="EnergyDistributionSystems" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Energy/Utility Distribution Systems</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Implement power factor corrections"/>
-                        <xs:enumeration value="Implement power quality upgrades"/>
-                        <xs:enumeration value="Upgrade transformers"/>
-                        <xs:enumeration value="Install gas distribution systems"/>
-                        <xs:enumeration value="Clean and/or repair"/>
-                        <xs:enumeration value="Implement training and/or documentation"/>
-                        <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="WaterAndSewerConservationSystems" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Water and Sewer Conservation Systems</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Install low-flow faucets and showerheads"/>
-                        <xs:enumeration value="Install low-flow plumbing equipment"/>
-                        <xs:enumeration value="Install on-site sewer treatment systems"/>
-                        <xs:enumeration value="Implement water efficient irrigation"/>
-                        <xs:enumeration value="Clean and/or repair"/>
-                        <xs:enumeration value="Implement training and/or documentation"/>
-                        <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="ElectricalPeakShavingLoadShifting" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Electrical Peak Shaving/Load Shifting</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Install thermal energy storage"/>
-                        <xs:enumeration value="Implement training and/or documentation"/>
-                        <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="EnergyCostReductionThroughRateAdjustments" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Energy Cost Reduction Through Rate Adjustments</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Change to more favorable rate schedule"/>
-                        <xs:enumeration value="Energy cost reduction through rate adjustments - uncategorized"/>
-                        <xs:enumeration value="Energy service billing and meter auditing recommendations"/>
-                        <xs:enumeration value="Change to lower energy cost supplier(s)"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="EnergyRelatedProcessImprovements" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Energy Related Process Improvements</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Implement industrial process improvements"/>
-                        <xs:enumeration value="Implement production and/or manufacturing improvements"/>
-                        <xs:enumeration value="Clean and/or repair"/>
-                        <xs:enumeration value="Implement training and/or documentation"/>
-                        <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="AdvancedMeteringSystems" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Advanced Metering Systems</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Install advanced metering systems"/>
-                        <xs:enumeration value="Clean and/or repair"/>
-                        <xs:enumeration value="Implement training and/or documentation"/>
-                        <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="PlugLoadReductions" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Appliance and plug-load reductions</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Replace with ENERGY STAR rated"/>
-                        <xs:enumeration value="Install plug load controls"/>
-                        <xs:enumeration value="De-lamp vending machines"/>
-                        <xs:enumeration value="Improve data center efficiency"/>
-                        <xs:enumeration value="Clean and/or repair"/>
-                        <xs:enumeration value="Implement training and/or documentation"/>
-                        <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="FutureOtherECMs" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Future/Other ECMs</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" minOccurs="1" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="HealthAndSafety" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Category heading for measures that are necessary for health, comfort, or safety reasons, not for energy efficiency reasons.</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" type="xs:string" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="Uncategorized" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Category heading for measures that don't fit into another category</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="MeasureName" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Short description of measure</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Other"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-          </xs:choice>
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="MeasureScaleOfApplication" minOccurs="0">
