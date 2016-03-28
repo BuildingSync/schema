@@ -2,6 +2,10 @@
 
 ## Unreleased Version
 
+##### 03/28/2016
+
+* Pluralize TechnologyCategory to TechnologyCategories
+
 ##### 11/20/2015 - 12/10/2015
 
 * Remove `<true>` elements
