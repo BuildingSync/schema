@@ -8786,7 +8786,7 @@
           <xs:documentation>If exists then recirculation loops are used to minimize wait times for hot water.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
-          <xs:choice>
+          <xs:sequence>
             <xs:element name="RecirculationLoopCount" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>The total number of hot water recirculation loops coming from and returning to a specific water heater.</xs:documentation>
@@ -8862,7 +8862,7 @@
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-          </xs:choice>
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="HotWaterDistributionType" minOccurs="0">
