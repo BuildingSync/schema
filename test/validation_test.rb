@@ -20,7 +20,7 @@ class ValidateExampleFiles < Minitest::Test
       pp errors
       puts "There were #{errors.size} errors"
 
-      assert 'Example XML files are not valid' if errors.size > 0
+      assert errors.size == 0
     end
   end
 end
