@@ -491,7 +491,7 @@
         New: "Upgrade operating protocols, calibration, and/or sequencing"
 
 
-## BuildingSync v1.0
+## BuildingSync v1.0 - Legacy
 
 ##### 2014-10-13
 
