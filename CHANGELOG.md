@@ -31,7 +31,7 @@
 * Break out ceiling system from RoofCeilingSystem
 
 
-## Version 2.0
+## Version 2.0 - Legacy
 
 ##### 9/23/2015 - Hendron
 
