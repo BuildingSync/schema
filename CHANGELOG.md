@@ -1,6 +1,6 @@
 # BuildingSync
 
-## Unreleased Version
+## Unreleased Version (Likely to be Version 0.2)
 
 ##### 03/28/2016
 
