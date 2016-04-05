@@ -1,6 +1,6 @@
 # BuildingSync
 
-## Unreleased Version
+## Unreleased Version (Likely to be Version 0.2)
 
 ##### 03/28/2016
 * Pluralize TechnologyCategory to TechnologyCategories
@@ -105,7 +105,7 @@
 * Break out ceiling system from RoofCeilingSystem
 
 
-## Version 2.0
+## Version 2.0 - Legacy
 
 ##### 9/23/2015 - Hendron
 
@@ -565,7 +565,7 @@
         New: "Upgrade operating protocols, calibration, and/or sequencing"
 
 
-## BuildingSync v1.0
+## BuildingSync v1.0 - Legacy
 
 ##### 2014-10-13
 
