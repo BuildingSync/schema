@@ -253,7 +253,7 @@
                                       <xs:enumeration value="CFMnatural"/>
                                       <xs:enumeration value="ACH50"/>
                                       <xs:enumeration value="ACHnatural"/>
-                                      <xs:enumeration value="Effective Leakage Area (in2)"/>
+                                      <xs:enumeration value="Effective Leakage Area"/>
                                       <xs:enumeration value="Other"/>
                                     </xs:restriction>
                                   </xs:simpleType>
@@ -861,7 +861,7 @@
       <xs:element name="Facilities" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="Facility" type="auc:CommercialFacilityType" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="Facility" type="auc:FacilityType" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -869,12 +869,12 @@
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
   </xs:complexType>
-  <xs:complexType name="CommercialFacilityType">
+  <xs:complexType name="FacilityType">
     <xs:sequence>
       <xs:element ref="auc:PremisesName" minOccurs="0"/>
       <xs:element ref="auc:PremisesNotes" minOccurs="0"/>
       <xs:element ref="auc:PremisesIdentifiers" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="FacilityClassification">
+      <xs:element name="FacilityClassification" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Specify the type of facility.</xs:documentation>
         </xs:annotation>
@@ -882,6 +882,8 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="Commercial"/>
             <xs:enumeration value="Residential"/>
+            <xs:enumeration value="Mixed use commercial"/>
+            <xs:enumeration value="Other"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1292,7 +1294,7 @@
                   </xs:element>
                   <xs:element name="Story" type="xs:int" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>The story of the given floor area type.</xs:documentation>
+                      <xs:documentation>The story of the given subsection.</xs:documentation>
                     </xs:annotation>
                   </xs:element>
                   <xs:element ref="auc:FloorAreas" minOccurs="0"/>
@@ -1537,6 +1539,40 @@
                               </xs:element>
                             </xs:sequence>
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="CeilingID" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>ID number of the roof/ceiling type associated with this subsection</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="CeilingArea" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>Surface area of roof. (ft2)</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:simpleContent>
+                              <xs:extension base="xs:decimal">
+                                <xs:attribute ref="auc:Source"/>
+                              </xs:extension>
+                            </xs:simpleContent>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="CeilingInsulatedArea" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>Insulated area of roof or ceiling. (ft2)</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:simpleContent>
+                              <xs:extension base="xs:decimal">
+                                <xs:attribute ref="auc:Source"/>
+                              </xs:extension>
+                            </xs:simpleContent>
                           </xs:complexType>
                         </xs:element>
                         <xs:element name="ThermalZoneID" minOccurs="0" maxOccurs="unbounded">
@@ -1819,7 +1855,7 @@
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="Space" type="auc:SpaceType" minOccurs="0"/>
+            <xs:element name="Space" type="auc:SpaceType" minOccurs="0" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -1856,7 +1892,7 @@
       </xs:element>
       <xs:element name="DaylitFloorArea" type="xs:decimal" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Area (ft^2) that the space is daylit. (ft^2)</xs:documentation>
+          <xs:documentation>Area of the space that is daylit. (ft2)</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="DaylightingIlluminanceSetpoint" minOccurs="0">
@@ -2149,9 +2185,23 @@
                         <xs:element name="CodeMinimum" minOccurs="0">
                           <xs:complexType>
                             <xs:sequence>
-                              <xs:element name="CodeName" type="xs:string" minOccurs="0">
+                              <xs:element name="CodeName" minOccurs="0">
                                 <xs:annotation>
                                   <xs:documentation>The name of an energy efficiency code or standard that is applied to building construction requirements.</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="ASHRAE"/>
+                                    <xs:enumeration value="IECC"/>
+                                    <xs:enumeration value="California Title 24"/>
+                                    <xs:enumeration value="IgCC"/>
+                                    <xs:enumeration value="Other"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="CodeVersion" type="xs:string" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>The version number, such as "90.1" for ASHRAE Standard.</xs:documentation>
                                 </xs:annotation>
                               </xs:element>
                               <xs:element name="CodeYear" type="xs:gYear" minOccurs="0">
@@ -2425,6 +2475,18 @@
                     <xs:complexType>
                       <xs:simpleContent>
                         <xs:extension base="xs:decimal">
+                          <xs:attribute ref="auc:Source"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="AnnualDemandSavingsCost" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Cost savings per year due to reduction in peak electricity demand. ($/year)</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:integer">
                           <xs:attribute ref="auc:Source"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2815,6 +2877,7 @@
                       <xs:documentation>Year to which the weather conditions are adjusted. (CCYY)</xs:documentation>
                     </xs:annotation>
                   </xs:element>
+                  <xs:element ref="auc:WeatherDataSource" minOccurs="0"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -2923,7 +2986,7 @@
       <xs:element ref="auc:ResourceUnits" minOccurs="0"/>
       <xs:element name="PercentResource" type="xs:decimal" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Percentage of total consumption of this fuel type represented by this Energy Use record. (%)</xs:documentation>
+          <xs:documentation>Percentage of total consumption of this fuel type represented by this Resource Use record. (%)</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="SharedResourceSystem" minOccurs="0">
@@ -2932,9 +2995,9 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Shared energy systems or meters for multiple building on a single lot"/>
-            <xs:enumeration value="Shared energy systems or meter for multiple buildings on multiple lots"/>
-            <xs:enumeration value="Energy system or meter not shared"/>
+            <xs:enumeration value="Multiple buildings on a single lot"/>
+            <xs:enumeration value="Multiple buildings on multiple lots"/>
+            <xs:enumeration value="Not shared"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
@@ -3172,22 +3235,22 @@
                                               <xs:documentation>The number associated with the TOU period.</xs:documentation>
                                             </xs:annotation>
                                           </xs:element>
-                                          <xs:element name="ApplicableStartTimeForEnergyRate" type="xs:gMonthDay" minOccurs="0">
+                                          <xs:element name="ApplicableStartTimeForEnergyRate" type="xs:time" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The time of day from which the rate is applicable. (hh:mm:ss)</xs:documentation>
                                             </xs:annotation>
                                           </xs:element>
-                                          <xs:element name="ApplicableEndTimeForEnergyRate" type="xs:gMonthDay" minOccurs="0">
+                                          <xs:element name="ApplicableEndTimeForEnergyRate" type="xs:time" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The time of day after which the rate is not applicable. (hh:mm:ss)</xs:documentation>
                                             </xs:annotation>
                                           </xs:element>
-                                          <xs:element name="ApplicableStartTimeForDemandRate" type="xs:gMonthDay" minOccurs="0">
+                                          <xs:element name="ApplicableStartTimeForDemandRate" type="xs:time" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The time of day from which the rate is applicable. (hh:mm:ss)</xs:documentation>
                                             </xs:annotation>
                                           </xs:element>
-                                          <xs:element name="ApplicableEndTimeForDemandRate" type="xs:gMonthDay" minOccurs="0">
+                                          <xs:element name="ApplicableEndTimeForDemandRate" type="xs:time" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The time of day after which the rate is not applicable. (hh:mm:ss)</xs:documentation>
                                             </xs:annotation>
@@ -3516,7 +3579,7 @@
                   </xs:element>
                   <xs:element name="FixedMonthlyCharge" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Fixed Monthly Charge is the Meter Charge Rate per meter per day averaged out for a month. ($/month)</xs:documentation>
+                      <xs:documentation>The fixed charge or fee billed monthly regardless of consumption. ($/month)</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:simpleContent>
@@ -3528,7 +3591,7 @@
                   </xs:element>
                   <xs:element name="NetMetering" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>True if a billing mechanism is employed by utilities to credit onsite energy generation for this rate structure.</xs:documentation>
+                      <xs:documentation>Present if a billing mechanism is employed by utilities to credit onsite energy generation for this rate structure.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -3569,10 +3632,10 @@
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:enumeration value="Direct metering (tenants directly metered)"/>
-                  <xs:enumeration value="Master meter without sub-metering (Tenants not directly metered or sub-metered)"/>
-                  <xs:enumeration value="Master meter with sub-metering (Tenants sub-metered by building owner)"/>
-                  <xs:enumeration value="Combination"/>
+                  <xs:enumeration value="Direct metering"/>
+                  <xs:enumeration value="Master meter without sub metering"/>
+                  <xs:enumeration value="Master meter with sub metering"/>
+                  <xs:enumeration value="Other"/>
                   <xs:enumeration value="Unknown"/>
                 </xs:restriction>
               </xs:simpleType>
@@ -3704,8 +3767,8 @@
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:enumeration value="EIA (US Energy Information Administration)"/>
-                  <xs:enumeration value="EPA (US Environmental Protection Agency)"/>
+                  <xs:enumeration value="US EIA"/>
+                  <xs:enumeration value="US EPA"/>
                   <xs:enumeration value="Utility"/>
                   <xs:enumeration value="Other"/>
                 </xs:restriction>
@@ -3953,8 +4016,8 @@
             <xs:enumeration value="Diffuse Horizontal Radiation"/>
             <xs:enumeration value="Direct Normal Radiation"/>
             <xs:enumeration value="Global Horizontal Radiation"/>
-            <xs:enumeration value="Dry-Bulb Temperature"/>
-            <xs:enumeration value="Wet-Bulb Temperature"/>
+            <xs:enumeration value="Dry Bulb Temperature"/>
+            <xs:enumeration value="Wet Bulb Temperature"/>
             <xs:enumeration value="Wind Speed"/>
             <xs:enumeration value="Other"/>
           </xs:restriction>
@@ -3976,15 +4039,16 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="10-minute"/>
-            <xs:enumeration value="15-minute"/>
-            <xs:enumeration value="30-minute"/>
-            <xs:enumeration value="Hourly"/>
-            <xs:enumeration value="Daily"/>
-            <xs:enumeration value="Weekly"/>
-            <xs:enumeration value="Monthly"/>
-            <xs:enumeration value="Annually"/>
-            <xs:enumeration value="Quarterly"/>
+            <xs:enumeration value="1 minute"/>
+            <xs:enumeration value="10 minute"/>
+            <xs:enumeration value="15 minute"/>
+            <xs:enumeration value="30 minute"/>
+            <xs:enumeration value="Hour"/>
+            <xs:enumeration value="Day"/>
+            <xs:enumeration value="Week"/>
+            <xs:enumeration value="Month"/>
+            <xs:enumeration value="Annual"/>
+            <xs:enumeration value="Quarter"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
@@ -4269,7 +4333,8 @@
             <xs:enumeration value="Motor"/>
             <xs:enumeration value="Heat Recovery"/>
             <xs:enumeration value="Wall"/>
-            <xs:enumeration value="Roof / Ceiling"/>
+            <xs:enumeration value="Roof"/>
+            <xs:enumeration value="Ceiling"/>
             <xs:enumeration value="Fenestration"/>
             <xs:enumeration value="Foundation"/>
             <xs:enumeration value="General Controls and Operations"/>
@@ -5269,7 +5334,6 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Not discarded"/>
             <xs:enumeration value="Long payback"/>
             <xs:enumeration value="Requires permit"/>
             <xs:enumeration value="Other"/>
@@ -9273,8 +9337,8 @@
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:enumeration value="Electric"/>
-                        <xs:enumeration value="Off-cycle"/>
-                        <xs:enumeration value="Hot-gas"/>
+                        <xs:enumeration value="Off cycle"/>
+                        <xs:enumeration value="Hot gas"/>
                         <xs:enumeration value="Reverse cycle"/>
                         <xs:enumeration value="Water"/>
                         <xs:enumeration value="Cool gas"/>
@@ -9376,8 +9440,8 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Stationary Rack Machine"/>
-            <xs:enumeration value="Conveyor Machine"/>
+            <xs:enumeration value="Stationary Rack"/>
+            <xs:enumeration value="Conveyor"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
@@ -9389,10 +9453,10 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Counter-top"/>
+            <xs:enumeration value="Counter top"/>
             <xs:enumeration value="Stationary Under Counter"/>
             <xs:enumeration value="Stationary Single Tank Door Type"/>
-            <xs:enumeration value="Stationary Pot-pan-utensil"/>
+            <xs:enumeration value="Stationary Pot Pan Utensil"/>
             <xs:enumeration value="Stationary glasswashing"/>
             <xs:enumeration value="Single Tank Conveyor"/>
             <xs:enumeration value="Multiple Tank Conveyor"/>
@@ -9560,8 +9624,8 @@
                     </xs:annotation>
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
-                        <xs:enumeration value="Combination All-In One Clothes Washer-Dryer"/>
-                        <xs:enumeration value="Unitized/Stacked Washer Dryer Pair"/>
+                        <xs:enumeration value="Combination All In One Clothes Washer Dryer"/>
+                        <xs:enumeration value="Unitized Stacked Washer Dryer Pair"/>
                         <xs:enumeration value="Other"/>
                         <xs:enumeration value="Unknown"/>
                       </xs:restriction>
@@ -9777,6 +9841,7 @@
             <xs:enumeration value="Primary"/>
             <xs:enumeration value="Secondary"/>
             <xs:enumeration value="Tertiary"/>
+            <xs:enumeration value="Backup"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
@@ -10207,9 +10272,11 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Run-around coil"/>
+            <xs:enumeration value="Run around coil"/>
             <xs:enumeration value="Thermal wheel"/>
             <xs:enumeration value="Heat pipe"/>
+            <xs:enumeration value="Water to air heat exchanger"/>
+            <xs:enumeration value="Water to water heat exchanger"/>
             <xs:enumeration value="Air to air heat exchanger"/>
             <xs:enumeration value="Earth to air heat exchanger"/>
             <xs:enumeration value="Earth to water heat exchanger"/>
@@ -10261,26 +10328,28 @@
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:enumeration value="Wood"/>
+            <xs:enumeration value="Masonite"/>
             <xs:enumeration value="Stone"/>
             <xs:enumeration value="Tile"/>
             <xs:enumeration value="Brick"/>
             <xs:enumeration value="Masonry"/>
             <xs:enumeration value="Concrete"/>
+            <xs:enumeration value="Fiber cement"/>
             <xs:enumeration value="Metal"/>
             <xs:enumeration value="Metal panel"/>
-            <xs:enumeration value="Metal panel-standing seam"/>
+            <xs:enumeration value="Metal panel standing seam"/>
             <xs:enumeration value="Sheet metal"/>
             <xs:enumeration value="EIFS"/>
-            <xs:enumeration value="Shingles-asphalt"/>
-            <xs:enumeration value="Shingles-composition"/>
-            <xs:enumeration value="Shingles-wood"/>
-            <xs:enumeration value="Shingles-asbestos"/>
-            <xs:enumeration value="Shingles-slate or tile"/>
-            <xs:enumeration value="Shakes-wood"/>
+            <xs:enumeration value="Shingles asphalt"/>
+            <xs:enumeration value="Shingles composition"/>
+            <xs:enumeration value="Shingles wood"/>
+            <xs:enumeration value="Shingles asbestos"/>
+            <xs:enumeration value="Shingles slate or tile"/>
+            <xs:enumeration value="Shakes wood"/>
             <xs:enumeration value="Carpet"/>
             <xs:enumeration value="Linoleum"/>
             <xs:enumeration value="Asphalt or fiberglass"/>
-            <xs:enumeration value="Plastic-rubber-synthetic sheeting"/>
+            <xs:enumeration value="Plastic rubber synthetic sheeting"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
@@ -10295,8 +10364,9 @@
             <xs:enumeration value="White"/>
             <xs:enumeration value="Light"/>
             <xs:enumeration value="Medium"/>
-            <xs:enumeration value="Med-dark"/>
+            <xs:enumeration value="Medium dark"/>
             <xs:enumeration value="Dark"/>
+            <xs:enumeration value="Reflective"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
@@ -10317,9 +10387,9 @@
                     </xs:annotation>
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
-                        <xs:enumeration value="Loose-fill"/>
+                        <xs:enumeration value="Loose fill"/>
                         <xs:enumeration value="Batt"/>
-                        <xs:enumeration value="Spray-on"/>
+                        <xs:enumeration value="Spray on"/>
                         <xs:enumeration value="Rigid"/>
                         <xs:enumeration value="Other"/>
                         <xs:enumeration value="Unknown"/>
@@ -10448,12 +10518,8 @@
       </xs:element>
       <xs:element name="WallFramingSpacing" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Dimension of the distance between two components.	
-
-Examples include: 
-Framing spacing: the dimension from centerline to centerline of a surface framing material
-
-Window spacing: the dimension between windows in a discrete window layout. (in.)		</xs:documentation>
+          <xs:documentation>Dimension of the distance between two components. Framing spacing: the dimension from centerline to centerline of a surface framing material. (in.)
+</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -10573,18 +10639,6 @@ Insulated: Where the cells are partially grouted and the remaining cells are fil
           <xs:documentation>The general description of the main structural construction method used for an opaque surface.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="SpecialCeilingClassification" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Additional classifications for the roof construction.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Cool roof"/>
-            <xs:enumeration value="Green roof"/>
-            <xs:enumeration value="Other"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
       <xs:element name="CeilingFinish" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The final material applied to a surface, either interior or exterior. Some structural components don't have an exterior finish, such as unfinished poured concrete.</xs:documentation>
@@ -10592,26 +10646,28 @@ Insulated: Where the cells are partially grouted and the remaining cells are fil
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:enumeration value="Wood"/>
+            <xs:enumeration value="Masonite"/>
             <xs:enumeration value="Stone"/>
             <xs:enumeration value="Tile"/>
             <xs:enumeration value="Brick"/>
             <xs:enumeration value="Masonry"/>
             <xs:enumeration value="Concrete"/>
+            <xs:enumeration value="Fiber cement"/>
             <xs:enumeration value="Metal"/>
             <xs:enumeration value="Metal panel"/>
-            <xs:enumeration value="Metal panel-standing seam"/>
+            <xs:enumeration value="Metal panel standing seam"/>
             <xs:enumeration value="Sheet metal"/>
             <xs:enumeration value="EIFS"/>
-            <xs:enumeration value="Shingles-asphalt"/>
-            <xs:enumeration value="Shingles-composition"/>
-            <xs:enumeration value="Shingles-wood"/>
-            <xs:enumeration value="Shingles-asbestos"/>
-            <xs:enumeration value="Shingles-slate or tile"/>
-            <xs:enumeration value="Shakes-wood"/>
+            <xs:enumeration value="Shingles asphalt"/>
+            <xs:enumeration value="Shingles composition"/>
+            <xs:enumeration value="Shingles wood"/>
+            <xs:enumeration value="Shingles asbestos"/>
+            <xs:enumeration value="Shingles slate or tile"/>
+            <xs:enumeration value="Shakes wood"/>
             <xs:enumeration value="Carpet"/>
             <xs:enumeration value="Linoleum"/>
             <xs:enumeration value="Asphalt or fiberglass"/>
-            <xs:enumeration value="Plastic-rubber-synthetic sheeting"/>
+            <xs:enumeration value="Plastic rubber synthetic sheeting"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
@@ -10626,7 +10682,7 @@ Insulated: Where the cells are partially grouted and the remaining cells are fil
             <xs:enumeration value="White"/>
             <xs:enumeration value="Light"/>
             <xs:enumeration value="Medium"/>
-            <xs:enumeration value="Med-dark"/>
+            <xs:enumeration value="Medium dark"/>
             <xs:enumeration value="Dark"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
@@ -10636,15 +10692,15 @@ Insulated: Where the cells are partially grouted and the remaining cells are fil
       <xs:element name="CeilingInsulation" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="RoofInsulationApplication" minOccurs="0">
+            <xs:element name="CeilingInsulationApplication" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>A description of the type of insulation and how it is applied.</xs:documentation>
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:enumeration value="Loose-fill"/>
+                  <xs:enumeration value="Loose fill"/>
                   <xs:enumeration value="Batt"/>
-                  <xs:enumeration value="Spray-on"/>
+                  <xs:enumeration value="Spray on"/>
                   <xs:enumeration value="Rigid"/>
                   <xs:enumeration value="Other"/>
                   <xs:enumeration value="Unknown"/>
@@ -10652,12 +10708,12 @@ Insulated: Where the cells are partially grouted and the remaining cells are fil
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element name="RoofInsulationMaterial" type="auc:InsulationMaterialType" minOccurs="0">
+            <xs:element name="CeilingInsulationMaterial" type="auc:InsulationMaterialType" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Material used for the structural component of the surface.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="RoofInsulationThickness" minOccurs="0">
+            <xs:element name="CeilingInsulationThickness" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Thickness of roof insulation. (in.)</xs:documentation>
               </xs:annotation>
@@ -10669,7 +10725,7 @@ Insulated: Where the cells are partially grouted and the remaining cells are fil
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-            <xs:element name="RoofInsulationContinuity" minOccurs="0">
+            <xs:element name="CeilingInsulationContinuity" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Insulation installation type.</xs:documentation>
               </xs:annotation>
@@ -10683,7 +10739,7 @@ Insulated: Where the cells are partially grouted and the remaining cells are fil
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element name="RoofInsulationCondition" minOccurs="0">
+            <xs:element name="CeilingInsulationCondition" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Assessed condition of installed insulation.</xs:documentation>
               </xs:annotation>
@@ -10701,23 +10757,6 @@ Insulated: Where the cells are partially grouted and the remaining cells are fil
             </xs:element>
           </xs:sequence>
         </xs:complexType>
-      </xs:element>
-      <xs:element name="DeckType" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The material used to create the structural integrity in an opaque surface. In many cases the framing material is not continuous across the construction.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Wood"/>
-            <xs:enumeration value="Steel"/>
-            <xs:enumeration value="Concrete"/>
-            <xs:enumeration value="Brick"/>
-            <xs:enumeration value="Masonry"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="Unknown"/>
-            <xs:enumeration value="None"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
       <xs:element name="CeilingRValue" minOccurs="0">
         <xs:annotation>
@@ -10800,50 +10839,6 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="CeilingSlope" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>A descriptive value for tilt, when an exact numeric angle is not known.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Flat"/>
-            <xs:enumeration value="Sloped"/>
-            <xs:enumeration value="> 2:12"/>
-            <xs:enumeration value="&lt; 2:12"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="Unknown"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="RadiantBarrier" type="xs:boolean" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>True if a radiant barrier is installed, false otherwise.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="CeilingExteriorSolarAbsorptance" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The fraction of incident radiation in the solar spectrum that is absorbed by the material or surface. (0-1) (%)</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:decimal">
-              <xs:attribute ref="auc:Source"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="CeilingExteriorThermalAbsorptance" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The fraction of incident long wavelength infrared radiation that is absorbed by the material or surface. (0-1) (%)</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:decimal">
-              <xs:attribute ref="auc:Source"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
       <xs:element name="CeilingVisibleAbsorptance" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The fraction of incident visible wavelength radiation that is absorbed by the material or surface. (0-1) (%)</xs:documentation>
@@ -10889,26 +10884,28 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:enumeration value="Wood"/>
+            <xs:enumeration value="Masonite"/>
             <xs:enumeration value="Stone"/>
             <xs:enumeration value="Tile"/>
             <xs:enumeration value="Brick"/>
             <xs:enumeration value="Masonry"/>
             <xs:enumeration value="Concrete"/>
+            <xs:enumeration value="Fiber cement"/>
             <xs:enumeration value="Metal"/>
             <xs:enumeration value="Metal panel"/>
-            <xs:enumeration value="Metal panel-standing seam"/>
+            <xs:enumeration value="Metal panel standing seam"/>
             <xs:enumeration value="Sheet metal"/>
             <xs:enumeration value="EIFS"/>
-            <xs:enumeration value="Shingles-asphalt"/>
-            <xs:enumeration value="Shingles-composition"/>
-            <xs:enumeration value="Shingles-wood"/>
-            <xs:enumeration value="Shingles-asbestos"/>
-            <xs:enumeration value="Shingles-slate or tile"/>
-            <xs:enumeration value="Shakes-wood"/>
+            <xs:enumeration value="Shingles asphalt"/>
+            <xs:enumeration value="Shingles composition"/>
+            <xs:enumeration value="Shingles wood"/>
+            <xs:enumeration value="Shingles asbestos"/>
+            <xs:enumeration value="Shingles slate or tile"/>
+            <xs:enumeration value="Shakes wood"/>
             <xs:enumeration value="Carpet"/>
             <xs:enumeration value="Linoleum"/>
             <xs:enumeration value="Asphalt or fiberglass"/>
-            <xs:enumeration value="Plastic-rubber-synthetic sheeting"/>
+            <xs:enumeration value="Plastic rubber synthetic sheeting"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
@@ -10923,8 +10920,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
             <xs:enumeration value="White"/>
             <xs:enumeration value="Light"/>
             <xs:enumeration value="Medium"/>
-            <xs:enumeration value="Med-dark"/>
+            <xs:enumeration value="Medium dark"/>
             <xs:enumeration value="Dark"/>
+            <xs:enumeration value="Reflective"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
@@ -10939,9 +10937,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:string">
-                  <xs:enumeration value="Loose-fill"/>
+                  <xs:enumeration value="Loose fill"/>
                   <xs:enumeration value="Batt"/>
-                  <xs:enumeration value="Spray-on"/>
+                  <xs:enumeration value="Spray on"/>
                   <xs:enumeration value="Rigid"/>
                   <xs:enumeration value="Other"/>
                   <xs:enumeration value="Unknown"/>
@@ -10995,6 +10993,18 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                   <xs:enumeration value="None"/>
                 </xs:restriction>
               </xs:simpleType>
+            </xs:element>
+            <xs:element name="RoofInsulationRValue" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Insulation R Value of the layer (hr-ft2-F/Btu)</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:decimal">
+                    <xs:attribute ref="auc:Source"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
             </xs:element>
           </xs:sequence>
         </xs:complexType>
@@ -11059,11 +11069,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       </xs:element>
       <xs:element name="RoofFramingSpacing" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Dimension of the distance between two components.
-
-Examples include: Framing spacing: the dimension from centerline to centerline of a surface framing material.
-
-Window spacing: the dimension between windows in a discrete window layout. (in.)</xs:documentation>
+          <xs:documentation>Dimension of the distance between two components. Examples include: Framing spacing: the dimension from centerline to centerline of a surface framing material. (in.)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -11105,8 +11111,8 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
           <xs:restriction base="xs:string">
             <xs:enumeration value="Flat"/>
             <xs:enumeration value="Sloped"/>
-            <xs:enumeration value="> 2:12"/>
-            <xs:enumeration value="&lt; 2:12"/>
+            <xs:enumeration value="Greater than 2 to 12"/>
+            <xs:enumeration value="Less than 2 to 12"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
@@ -11132,18 +11138,6 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:element name="RoofExteriorThermalAbsorptance" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The fraction of incident long wavelength infrared radiation that is absorbed by the material or surface. (0-1) (%)</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:decimal">
-              <xs:attribute ref="auc:Source"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="RoofVisibleAbsorptance" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The fraction of incident visible wavelength radiation that is absorbed by the material or surface. (0-1) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -11220,6 +11214,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:enumeration value="Double Hung"/>
+                        <xs:enumeration value=""/>
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
@@ -11272,6 +11267,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                         <xs:enumeration value="Solar film"/>
                         <xs:enumeration value="Louver"/>
                         <xs:enumeration value="Screen"/>
+                        <xs:enumeration value="Deciduous foliage"/>
+                        <xs:enumeration value="Evergreen foliage"/>
+                        <xs:enumeration value="Neighboring building"/>
                         <xs:enumeration value="None"/>
                         <xs:enumeration value="Other"/>
                         <xs:enumeration value="Unknown"/>
@@ -11438,9 +11436,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                     </xs:annotation>
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
-                        <xs:enumeration value="Window film"/>
+                        <xs:enumeration value="Solar film"/>
                         <xs:enumeration value="Solar screen"/>
-                        <xs:enumeration value="Shading"/>
+                        <xs:enumeration value="Shade"/>
                         <xs:enumeration value="None"/>
                         <xs:enumeration value="Unknown"/>
                       </xs:restriction>
@@ -11515,9 +11513,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Aluminum-uncategorized"/>
-            <xs:enumeration value="Aluminum-no thermal break"/>
-            <xs:enumeration value="Aluminum-thermal break"/>
+            <xs:enumeration value="Aluminum uncategorized"/>
+            <xs:enumeration value="Aluminum no thermal break"/>
+            <xs:enumeration value="Aluminum thermal break"/>
             <xs:enumeration value="Clad"/>
             <xs:enumeration value="Composite"/>
             <xs:enumeration value="Fiberglass"/>
@@ -11559,13 +11557,13 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:enumeration value="Clear uncoated"/>
-            <xs:enumeration value="Low-e"/>
+            <xs:enumeration value="Low e"/>
             <xs:enumeration value="Tinted"/>
-            <xs:enumeration value="Tinted + low-e"/>
+            <xs:enumeration value="Tinted plus low e"/>
             <xs:enumeration value="Reflective"/>
             <xs:enumeration value="Reflective on tint"/>
             <xs:enumeration value="High performance tint"/>
-            <xs:enumeration value="Sunbelt low-E (low SHGC)"/>
+            <xs:enumeration value="Sunbelt low E low SHGC"/>
             <xs:enumeration value="Suspended film"/>
             <xs:enumeration value="Plastic"/>
             <xs:enumeration value="Other"/>
@@ -11594,10 +11592,10 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Single-pane"/>
-            <xs:enumeration value="Double-pane"/>
-            <xs:enumeration value="Triple-pane"/>
-            <xs:enumeration value="Single-paned with storm panel"/>
+            <xs:enumeration value="Single pane"/>
+            <xs:enumeration value="Double pane"/>
+            <xs:enumeration value="Triple pane"/>
+            <xs:enumeration value="Single paned with storm panel"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
         </xs:simpleType>
@@ -11731,14 +11729,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                   <xs:element name="CrawlspaceVenting" minOccurs="0">
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="Vented" minOccurs="0">
+                        <xs:element name="Ventilated" minOccurs="0">
                           <xs:complexType>
                             <xs:sequence>
-                              <xs:element name="FloorConstructionType" type="auc:EnvelopeConstructionType" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Construction type for floors over unconditioned space.</xs:documentation>
-                                </xs:annotation>
-                              </xs:element>
                               <xs:element name="FloorInsulationThickness" minOccurs="0">
                                 <xs:annotation>
                                   <xs:documentation>Thickness of insulation under floor over unconditioned space. (in.)</xs:documentation>
@@ -11835,7 +11828,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                             </xs:sequence>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="Unvented" minOccurs="0">
+                        <xs:element name="Unventilated" minOccurs="0">
                           <xs:complexType>
                             <xs:sequence>
                               <xs:element name="FoundationWallConstruction" type="auc:EnvelopeConstructionType" minOccurs="0">
@@ -11867,12 +11860,36 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                                   </xs:simpleContent>
                                 </xs:complexType>
                               </xs:element>
+                              <xs:element name="FoundationWallRValue" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>(Also known as thermal resistance), quantity determined by the temperature difference, at steady state, between two defined surfaces of a material or construction that induces a unit heat flow rate through unit area (R = ΔT/q). R-value is the reciprocal of thermal conductance. A unit of thermal resistance used for comparing insulating values of different materials, for the specific thickness of the material. The higher the R-value number, a material, the greater its insulating properties and the slower the heat flow through it. This R-value does not include the interior and exterior air film coefficients. (hr-ft2-F/Btu)</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:simpleContent>
+                                    <xs:extension base="xs:decimal">
+                                      <xs:attribute ref="auc:Source"/>
+                                    </xs:extension>
+                                  </xs:simpleContent>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="FoundationWallUFactor" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above). (Btu/hr·ft2·°F)</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:simpleContent>
+                                    <xs:extension base="xs:decimal">
+                                      <xs:attribute ref="auc:Source"/>
+                                    </xs:extension>
+                                  </xs:simpleContent>
+                                </xs:complexType>
+                              </xs:element>
                               <xs:element ref="auc:FoundationWallInsulationContinuity" minOccurs="0"/>
                               <xs:element ref="auc:FoundationWallInsulationCondition" minOccurs="0"/>
                             </xs:sequence>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="OtherCombination" minOccurs="0"/>
+                        <xs:element name="Other" minOccurs="0"/>
                         <xs:element name="Unknown" minOccurs="0"/>
                       </xs:sequence>
                     </xs:complexType>
@@ -11889,9 +11906,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                     </xs:annotation>
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
-                        <xs:enumeration value="Conditioned Basement"/>
-                        <xs:enumeration value="Unconditioned Basement"/>
-                        <xs:enumeration value="Half Conditioned Basement"/>
+                        <xs:enumeration value="Conditioned"/>
+                        <xs:enumeration value="Unconditioned"/>
+                        <xs:enumeration value="Semi conditioned"/>
                         <xs:enumeration value="Other"/>
                         <xs:enumeration value="Unknown"/>
                       </xs:restriction>
@@ -11914,6 +11931,18 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                       </xs:simpleContent>
                     </xs:complexType>
                   </xs:element>
+                  <xs:element name="FoundationWallInsulationThickness" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Thickness of insulation at basement or crawlspace wall. (in.)</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:decimal">
+                          <xs:attribute ref="auc:Source"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element name="FoundationWallRValue" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>(Also known as thermal resistance), quantity determined by the temperature difference, at steady state, between two defined surfaces of a material or construction that induces a unit heat flow rate through unit area (R = ΔT/q). R-value is the reciprocal of thermal conductance. A unit of thermal resistance used for comparing insulating values of different materials, for the specific thickness of the material. The higher the R-value number, a material, the greater its insulating properties and the slower the heat flow through it. This R-value does not include the interior and exterior air film coefficients. (hr-ft2-F/Btu)</xs:documentation>
@@ -11926,9 +11955,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                       </xs:simpleContent>
                     </xs:complexType>
                   </xs:element>
-                  <xs:element name="FoundationWallInsulationThickness" minOccurs="0">
+                  <xs:element name="FoundationWallUFactor" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Thickness of insulation at basement or crawlspace wall. (in.)</xs:documentation>
+                      <xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above). (Btu/hr·ft2·°F)</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:simpleContent>
@@ -12009,10 +12038,16 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
             <xs:enumeration value="Tile"/>
             <xs:enumeration value="Hardwood"/>
             <xs:enumeration value="Vinyl"/>
+            <xs:enumeration value="Linoleum"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
         </xs:simpleType>
+      </xs:element>
+      <xs:element name="FloorConstructionType" type="auc:EnvelopeConstructionType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Construction type for floors over unconditioned space.</xs:documentation>
+        </xs:annotation>
       </xs:element>
       <xs:element name="PlumbingPenetrationSealing" minOccurs="0">
         <xs:annotation>
@@ -12042,6 +12077,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
+            <xs:enumeration value="Building Automation System"/>
             <xs:enumeration value="Server"/>
             <xs:enumeration value="Networking"/>
             <xs:enumeration value="Security"/>
@@ -12117,7 +12153,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
             <xs:enumeration value="Cash Register"/>
             <xs:enumeration value="Audio"/>
             <xs:enumeration value="Display"/>
-            <xs:enumeration value="Set Top"/>
+            <xs:enumeration value="Set Top Box"/>
             <xs:enumeration value="Business Equipment"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
@@ -12186,7 +12222,6 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
             <xs:enumeration value="Medical Equipment"/>
             <xs:enumeration value="Laboratory Equipment"/>
             <xs:enumeration value="Machinery"/>
-            <xs:enumeration value="Motor"/>
             <xs:enumeration value="Air Compressor"/>
             <xs:enumeration value="Fume Hood"/>
             <xs:enumeration value="Appliance"/>
@@ -12234,18 +12269,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="DutyCycle" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Average percentage of installed power over the course of a day. (0-1) (%)</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:decimal">
-              <xs:attribute ref="auc:Source"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element ref="auc:DutyCycle" minOccurs="0"/>
       <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
@@ -12349,9 +12373,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:enumeration value="Battery"/>
-                        <xs:enumeration value="Thermal Energy Storage (TES)"/>
-                        <xs:enumeration value="Pumped-Storage Hydroelectricity (PSH)"/>
-                        <xs:enumeration value="Fly wheel"/>
+                        <xs:enumeration value="Thermal Energy Storage"/>
+                        <xs:enumeration value="Pumped-Storage Hydroelectricity"/>
+                        <xs:enumeration value="Flywheel"/>
                         <xs:enumeration value="Other"/>
                         <xs:enumeration value="Unknown"/>
                       </xs:restriction>
@@ -12482,8 +12506,8 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                                 <xs:simpleType>
                                   <xs:restriction base="xs:string">
                                     <xs:enumeration value="Roof"/>
-                                    <xs:enumeration value="Ground"/>
-                                    <xs:enumeration value="Building-integrated"/>
+                                    <xs:enumeration value="On grade"/>
+                                    <xs:enumeration value="Building integrated"/>
                                     <xs:enumeration value="Other"/>
                                     <xs:enumeration value="Unknown"/>
                                   </xs:restriction>
@@ -12569,10 +12593,10 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                     </xs:annotation>
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
-                        <xs:enumeration value="AC-to-AC"/>
-                        <xs:enumeration value="AC-to-DC"/>
+                        <xs:enumeration value="AC to AC"/>
+                        <xs:enumeration value="AC to DC"/>
                         <xs:enumeration value="Low Voltage"/>
-                        <xs:enumeration value="No-Load Mode"/>
+                        <xs:enumeration value="No Load"/>
                         <xs:enumeration value="Other"/>
                         <xs:enumeration value="Unknown"/>
                       </xs:restriction>
@@ -12620,9 +12644,6 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
           <xs:restriction base="xs:string">
             <xs:enumeration value="Hot Tub"/>
             <xs:enumeration value="Pool"/>
-            <xs:enumeration value="Fountain"/>
-            <xs:enumeration value="Water Fall"/>
-            <xs:enumeration value="Stream"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
@@ -12828,7 +12849,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
   </xs:complexType>
   <xs:complexType name="CalculationMethodType">
     <xs:choice>
-      <xs:element name="Simulated" minOccurs="0">
+      <xs:element name="Modeled" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="SoftwareProgramUsed" type="xs:string" minOccurs="0">
@@ -12901,8 +12922,8 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
     </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">
-        <xs:enumeration value="Indoors"/>
-        <xs:enumeration value="Outdoors"/>
+        <xs:enumeration value="Interior"/>
+        <xs:enumeration value="Exterior"/>
         <xs:enumeration value="Closet"/>
         <xs:enumeration value="Garage"/>
         <xs:enumeration value="Attic"/>
@@ -12956,7 +12977,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
     <xs:simpleType>
       <xs:restriction base="xs:string">
         <xs:enumeration value="cfh"/>
-        <xs:enumeration value="cfm"/>
+        <xs:enumeration value="ft3/min"/>
         <xs:enumeration value="kcf/h"/>
         <xs:enumeration value="MCF/day"/>
         <xs:enumeration value="gpm"/>
@@ -12964,18 +12985,18 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
         <xs:enumeration value="kW"/>
         <xs:enumeration value="hp"/>
         <xs:enumeration value="MW"/>
-        <xs:enumeration value="Btu/h"/>
+        <xs:enumeration value="Btu/hr"/>
         <xs:enumeration value="cal/h"/>
         <xs:enumeration value="ft-lbf/h"/>
         <xs:enumeration value="ft-lbf/min"/>
         <xs:enumeration value="Btu/s"/>
-        <xs:enumeration value="kBtu/h"/>
-        <xs:enumeration value="MMBtu/h"/>
+        <xs:enumeration value="kBtu/hr"/>
+        <xs:enumeration value="MMBtu/hr"/>
         <xs:enumeration value="therms/h"/>
         <xs:enumeration value="lbs/h"/>
         <xs:enumeration value="Klbs/h"/>
         <xs:enumeration value="Mlbs/h"/>
-        <xs:enumeration value="Tons"/>
+        <xs:enumeration value="Cooling ton"/>
         <xs:enumeration value="Other"/>
       </xs:restriction>
     </xs:simpleType>
@@ -13706,10 +13727,10 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:enumeration value="Electricity"/>
       <xs:enumeration value="Natural gas"/>
       <xs:enumeration value="Fuel oil"/>
-      <xs:enumeration value="Fuel oil No-1"/>
-      <xs:enumeration value="Fuel oil No-2"/>
-      <xs:enumeration value="Fuel oil No-4"/>
-      <xs:enumeration value="Fuel oil No-5 and No-6"/>
+      <xs:enumeration value="Fuel oil no 1"/>
+      <xs:enumeration value="Fuel oil no 2"/>
+      <xs:enumeration value="Fuel oil no 4"/>
+      <xs:enumeration value="Fuel oil no 5 and no 6"/>
       <xs:enumeration value="District steam"/>
       <xs:enumeration value="District hot water"/>
       <xs:enumeration value="District chilled water"/>
@@ -13718,8 +13739,8 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:enumeration value="Kerosene"/>
       <xs:enumeration value="Diesel"/>
       <xs:enumeration value="Coal"/>
-      <xs:enumeration value="Coal (anthracite)"/>
-      <xs:enumeration value="Coal (bituminous)"/>
+      <xs:enumeration value="Coal anthracite"/>
+      <xs:enumeration value="Coal bituminous"/>
       <xs:enumeration value="Coke"/>
       <xs:enumeration value="Wood"/>
       <xs:enumeration value="Wood pellets"/>
@@ -13735,14 +13756,13 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:enumeration value="Ethanol"/>
       <xs:enumeration value="Biodiesel"/>
       <xs:enumeration value="Waste heat"/>
-      <xs:enumeration value="Combination"/>
       <xs:enumeration value="Other"/>
       <xs:enumeration value="Unknown"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="EndUse">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Whole building"/>
+      <xs:enumeration value="All end uses"/>
       <xs:enumeration value="Total lighting"/>
       <xs:enumeration value="Interior lighting"/>
       <xs:enumeration value="Exterior lighting"/>
@@ -13750,8 +13770,8 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:enumeration value="Cooling"/>
       <xs:enumeration value="Ventilation"/>
       <xs:enumeration value="Pump"/>
-      <xs:enumeration value="IT"/>
-      <xs:enumeration value="Plug-in electric vehicle"/>
+      <xs:enumeration value="IT equipment"/>
+      <xs:enumeration value="Plug in electric vehicle"/>
       <xs:enumeration value="Plug load"/>
       <xs:enumeration value="Process load"/>
       <xs:enumeration value="Conveyance"/>
@@ -13761,7 +13781,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:enumeration value="Dishwasher"/>
       <xs:enumeration value="Laundry"/>
       <xs:enumeration value="Pool heating"/>
-      <xs:enumeration value="On-site generation"/>
+      <xs:enumeration value="On site generation"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="IdentifierLabel">
@@ -13984,6 +14004,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:restriction base="xs:string">
         <xs:enumeration value="Default"/>
         <xs:enumeration value="Estimate"/>
+        <xs:enumeration value="Government record"/>
         <xs:enumeration value="Agent"/>
         <xs:enumeration value="Assessor"/>
         <xs:enumeration value="Auditor"/>
@@ -13991,6 +14012,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
         <xs:enumeration value="Building Component Library"/>
         <xs:enumeration value="Utility transfer"/>
         <xs:enumeration value="Energy Management System"/>
+        <xs:enumeration value="Drawings"/>
         <xs:enumeration value="Direct measurement"/>
         <xs:enumeration value="Design files"/>
         <xs:enumeration value="Simulation"/>
@@ -14000,6 +14022,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
         <xs:enumeration value="Target Finder"/>
         <xs:enumeration value="Arch2030"/>
         <xs:enumeration value="ASHRAE"/>
+        <xs:enumeration value="Utility"/>
         <xs:enumeration value="Other"/>
       </xs:restriction>
     </xs:simpleType>
@@ -14172,49 +14195,10 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="EnergyResource">
+  <xs:element name="EnergyResource" type="auc:FuelTypes">
     <xs:annotation>
       <xs:documentation>Type of energy resource fuel. This can be applied at the premises or individual system or equipment level.</xs:documentation>
     </xs:annotation>
-    <xs:simpleType>
-      <xs:restriction base="xs:string">
-        <xs:enumeration value="Electricity"/>
-        <xs:enumeration value="Natural gas"/>
-        <xs:enumeration value="Fuel oil"/>
-        <xs:enumeration value="Fuel oil No-1"/>
-        <xs:enumeration value="Fuel oil No-2"/>
-        <xs:enumeration value="Fuel oil No-4"/>
-        <xs:enumeration value="Fuel oil No-5 and No-6"/>
-        <xs:enumeration value="District steam"/>
-        <xs:enumeration value="District hot water"/>
-        <xs:enumeration value="District chilled water"/>
-        <xs:enumeration value="Propane"/>
-        <xs:enumeration value="Liquid propane"/>
-        <xs:enumeration value="Kerosene"/>
-        <xs:enumeration value="Diesel"/>
-        <xs:enumeration value="Coal"/>
-        <xs:enumeration value="Coal (anthracite)"/>
-        <xs:enumeration value="Coal (bituminous)"/>
-        <xs:enumeration value="Coke"/>
-        <xs:enumeration value="Wood"/>
-        <xs:enumeration value="Wood pellets"/>
-        <xs:enumeration value="Hydropower"/>
-        <xs:enumeration value="Biofuel"/>
-        <xs:enumeration value="Wind"/>
-        <xs:enumeration value="Geothermal"/>
-        <xs:enumeration value="Solar"/>
-        <xs:enumeration value="Biomass"/>
-        <xs:enumeration value="Hydrothermal"/>
-        <xs:enumeration value="Dry steam"/>
-        <xs:enumeration value="Flash steam"/>
-        <xs:enumeration value="Ethanol"/>
-        <xs:enumeration value="Biodiesel"/>
-        <xs:enumeration value="Waste heat"/>
-        <xs:enumeration value="Combination"/>
-        <xs:enumeration value="Other"/>
-        <xs:enumeration value="Unknown"/>
-      </xs:restriction>
-    </xs:simpleType>
   </xs:element>
   <xs:element name="ResourceUnits">
     <xs:annotation>
@@ -14233,13 +14217,14 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
         <xs:enumeration value="kBtu"/>
         <xs:enumeration value="MMBtu"/>
         <xs:enumeration value="therms"/>
-        <xs:enumeration value="lbs."/>
+        <xs:enumeration value="lbs"/>
         <xs:enumeration value="Klbs"/>
         <xs:enumeration value="Mlbs"/>
-        <xs:enumeration value="Tons"/>
-        <xs:enumeration value="Ton Hours"/>
-        <xs:enumeration value="Other / No Units"/>
+        <xs:enumeration value="Mass ton"/>
+        <xs:enumeration value="Ton-hour"/>
+        <xs:enumeration value="Other"/>
         <xs:enumeration value="Unknown"/>
+        <xs:enumeration value="None"/>
       </xs:restriction>
     </xs:simpleType>
   </xs:element>
@@ -14488,20 +14473,20 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:enumeration value="Structural brick"/>
       <xs:enumeration value="Stone"/>
       <xs:enumeration value="Concrete masonry unit"/>
-      <xs:enumeration value="Concrete-solid"/>
-      <xs:enumeration value="Concrete-lightweight"/>
-      <xs:enumeration value="Concrete-panels"/>
-      <xs:enumeration value="Concrete-poured"/>
-      <xs:enumeration value="Concrete-load bearing"/>
-      <xs:enumeration value="Concrete-insulated forms"/>
-      <xs:enumeration value="Concrete-aerated"/>
+      <xs:enumeration value="Concrete solid"/>
+      <xs:enumeration value="Concrete lightweight"/>
+      <xs:enumeration value="Concrete panels"/>
+      <xs:enumeration value="Concrete poured"/>
+      <xs:enumeration value="Concrete load bearing"/>
+      <xs:enumeration value="Concrete insulated forms"/>
+      <xs:enumeration value="Concrete aerated"/>
       <xs:enumeration value="Steel frame"/>
       <xs:enumeration value="Wood frame"/>
       <xs:enumeration value="Double wood frame"/>
       <xs:enumeration value="Structural insulated panel"/>
-      <xs:enumeration value="Log-solid wood"/>
+      <xs:enumeration value="Log solid wood"/>
       <xs:enumeration value="Straw bale"/>
-      <xs:enumeration value="Built-up"/>
+      <xs:enumeration value="Built up"/>
       <xs:enumeration value="Other"/>
       <xs:enumeration value="Unknown"/>
     </xs:restriction>
@@ -14512,7 +14497,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
     </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">
-        <xs:enumeration value="On-Site Measurement"/>
+        <xs:enumeration value="On Site Measurement"/>
         <xs:enumeration value="Weather Station"/>
         <xs:enumeration value="TMY"/>
         <xs:enumeration value="TMY2"/>
@@ -14532,9 +14517,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:restriction base="xs:string">
         <xs:enumeration value="Simple payback"/>
         <xs:enumeration value="Return on investment"/>
-        <xs:enumeration value="Lifecycle Cost (LCC)"/>
-        <xs:enumeration value="Net Present Value"/>
-        <xs:enumeration value="Internal Rate of Return"/>
+        <xs:enumeration value="Lifecycle cost"/>
+        <xs:enumeration value="Net present value"/>
+        <xs:enumeration value="Internal rate of return"/>
         <xs:enumeration value="Other"/>
       </xs:restriction>
     </xs:simpleType>
@@ -14773,7 +14758,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
         <xs:enumeration value="Good"/>
         <xs:enumeration value="Average"/>
         <xs:enumeration value="Poor"/>
-        <xs:enumeration value="Other/combination"/>
+        <xs:enumeration value="Other"/>
         <xs:enumeration value="Unknown"/>
         <xs:enumeration value="None"/>
       </xs:restriction>
@@ -14838,6 +14823,8 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional (HEP)"/>
       <xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional - Energy Auditor (HEP-EA)"/>
       <xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional - Quality Control Inspector (HEP-QCI)"/>
+      <xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional - Retrofit Installer (HEP-RI)"/>
+      <xs:enumeration value="Building Performance Institute: Advanced Home Energy Professional - Crew Leader (HEP-CL)"/>
       <xs:enumeration value="Building Performance Institute: Multifamily Building Analyst"/>
       <xs:enumeration value="Residential Energy Services Network (RESNET) Certification"/>
       <xs:enumeration value="Residential Energy Services Network (RESNET) - Home Partner"/>
@@ -14923,6 +14910,8 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:enumeration value="Recycled cotton"/>
       <xs:enumeration value="ISOCY"/>
       <xs:enumeration value="Icynene"/>
+      <xs:enumeration value="Closed cell"/>
+      <xs:enumeration value="Vermiculite"/>
       <xs:enumeration value="Other"/>
       <xs:enumeration value="Unknown"/>
       <xs:enumeration value="None"/>
