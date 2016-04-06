@@ -2,6 +2,7 @@
   {
     "name": "ACAdjusted",
     "sub_name": null,
+    "documentation": "Times when the HVAC equipment is setback. For example, when the heat is lowered during the heating season, or the cooling setpoint increased during the cooling season.",
     "enumerations": [
       "During the day",
       "At night",
@@ -15,6 +16,7 @@
   {
     "name": "ASHRAEAuditLevel",
     "sub_name": null,
+    "documentation": "Energy audit level as defined in ASHRAE Procedures for Commercial Building Energy Audits.",
     "enumerations": [
       "Preliminary Energy-Use Analysis",
       "Level 1: Walk-through",
@@ -25,6 +27,7 @@
   {
     "name": "AbsorptionHeatSource",
     "sub_name": null,
+    "documentation": "Source of heating energy for regeneration",
     "enumerations": [
       "Steam",
       "Solar energy",
@@ -37,6 +40,7 @@
   {
     "name": "AbsorptionStages",
     "sub_name": null,
+    "documentation": "Number of stages in regeneration process",
     "enumerations": [
       "Single effect",
       "Double effect",
@@ -47,6 +51,7 @@
   {
     "name": "AirDeliveryType",
     "sub_name": null,
+    "documentation": "Method for delivering air for heating and cooling to the zone.",
     "enumerations": [
       "Central fan",
       "Induction units",
@@ -59,6 +64,7 @@
   {
     "name": "AirInfiltrationTest",
     "sub_name": null,
+    "documentation": "Type of air infiltration test performed on the building",
     "enumerations": [
       "Blower door",
       "Tracer gas",
@@ -69,6 +75,7 @@
   {
     "name": "AirInfiltrationValueUnits",
     "sub_name": null,
+    "documentation": "Units associated with Air Infiltration Value",
     "enumerations": [
       "CFM25",
       "CFM50",
@@ -83,6 +90,7 @@
   {
     "name": "AirSideEconomizerType",
     "sub_name": null,
+    "documentation": "Type of air economizer system associated with a cooling system.",
     "enumerations": [
       "Dry bulb temperature",
       "Enthalpy",
@@ -95,6 +103,7 @@
   {
     "name": "AnnualCoolingEfficiencyUnits",
     "sub_name": null,
+    "documentation": "The measure used to quantify efficiency",
     "enumerations": [
       "COP",
       "EER",
@@ -106,6 +115,7 @@
   {
     "name": "AnnualHeatingEfficiencyUnit",
     "sub_name": null,
+    "documentation": "The measure used to quantify efficiency",
     "enumerations": [
       "COP",
       "AFUE",
@@ -117,6 +127,7 @@
   {
     "name": "AssemblyType",
     "sub_name": "Skylight",
+    "documentation": "Skylight assembly type.",
     "enumerations": [
       "Curbed Mounted"
     ]
@@ -124,6 +135,7 @@
   {
     "name": "AssemblyType",
     "sub_name": "Window",
+    "documentation": "Window assembly type.",
     "enumerations": [
       "Double Hung",
       ""
@@ -132,6 +144,7 @@
   {
     "name": "AssessmentLevel",
     "sub_name": null,
+    "documentation": "Value from assessment program, such as LEED \"Platinum\"",
     "enumerations": [
       "Bronze",
       "Silver",
@@ -149,6 +162,7 @@
   {
     "name": "AssessmentProgram",
     "sub_name": null,
+    "documentation": "Program which issues energy labels, ratings, or sustainability certifications.",
     "enumerations": [
       "ENERGY STAR",
       "ENERGY STAR Certified Homes",
@@ -174,6 +188,7 @@
   {
     "name": "AssetScoreUseType",
     "sub_name": null,
+    "documentation": null,
     "enumerations": [
       "Assisted Living Facility",
       "City Hall",
@@ -198,6 +213,7 @@
   {
     "name": "AuditExemption",
     "sub_name": null,
+    "documentation": "Conditions under which the building is exempt from a mandated audit.",
     "enumerations": [
       "EPA ENERGY STAR certified",
       "LEED certified",
@@ -210,6 +226,7 @@
   {
     "name": "AuditorQualificationType",
     "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 0.2",
     "enumerations": [
       "Professional Engineer (PE)",
       "Certified Energy Manager (CEM)",
@@ -242,6 +259,7 @@
   {
     "name": "BallastType",
     "sub_name": null,
+    "documentation": "A ballast is a piece of equipment required to control the starting and operating voltages of electrical gas discharge lights.",
     "enumerations": [
       "Electromagnetic",
       "Electronic",
@@ -255,6 +273,7 @@
   {
     "name": "BasementConditioning",
     "sub_name": null,
+    "documentation": "Extent of space conditioning in basement.",
     "enumerations": [
       "Conditioned",
       "Unconditioned",
@@ -266,6 +285,7 @@
   {
     "name": "BeltType",
     "sub_name": null,
+    "documentation": "Type of belt drive in fan unit",
     "enumerations": [
       "Direct drive",
       "Standard belt",
@@ -278,6 +298,7 @@
   {
     "name": "BenchmarkTool",
     "sub_name": null,
+    "documentation": "Benchmarking tools provide a performance ranking based on a peer group of similar buildings.",
     "enumerations": [
       "Portfolio Manager",
       "Buildings Performance Database Tool",
@@ -290,6 +311,7 @@
   {
     "name": "BoilerType",
     "sub_name": null,
+    "documentation": "General type of boiler used for space or water heating",
     "enumerations": [
       "Steam",
       "Hot water",
@@ -300,6 +322,7 @@
   {
     "name": "BuildingProfileStatus",
     "sub_name": null,
+    "documentation": "The status of the building profile submission process for Portfolio Manager.",
     "enumerations": [
       "Draft",
       "Received",
@@ -312,6 +335,7 @@
   {
     "name": "BurnerType",
     "sub_name": null,
+    "documentation": "Type of burner on boiler or furnace, if applicable.",
     "enumerations": [
       "Atmospheric",
       "Power",
@@ -324,6 +348,7 @@
   {
     "name": "CMUFill",
     "sub_name": null,
+    "documentation": "The fill condition of hollow unit masonry walls. The definitions correspond to the following conditions:\n\nSolid: Where every cell is grouted\n\nEmpty: Where the cells are partially grouted and the remaining cells are left empty\n\nInsulated: Where the cells are partially grouted and the remaining cells are filled with insulating material.",
     "enumerations": [
       "Empty",
       "Insulated",
@@ -335,6 +360,7 @@
   {
     "name": "CapacityUnits",
     "sub_name": null,
+    "documentation": "Units used to measure capacity.",
     "enumerations": [
       "cfh",
       "ft3/min",
@@ -363,6 +389,7 @@
   {
     "name": "CaseDoorOrientation",
     "sub_name": null,
+    "documentation": "Orientation of refrigerated case doors used for display cases at stores, food-service establishments.",
     "enumerations": [
       "Horizontal",
       "Vertical",
@@ -373,6 +400,7 @@
   {
     "name": "CeilingColor",
     "sub_name": null,
+    "documentation": "Color of a material or component. Can be applied to opaque surfaces, materials, and so forth.",
     "enumerations": [
       "White",
       "Light",
@@ -386,6 +414,7 @@
   {
     "name": "CeilingFinish",
     "sub_name": null,
+    "documentation": "The final material applied to a surface, either interior or exterior. Some structural components don't have an exterior finish, such as unfinished poured concrete.",
     "enumerations": [
       "Wood",
       "Masonite",
@@ -417,6 +446,7 @@
   {
     "name": "CeilingFramingMaterial",
     "sub_name": null,
+    "documentation": "The material used to create the structural integrity in an opaque surface. In many cases the framing material is not continuous across the construction.",
     "enumerations": [
       "Wood",
       "Steel",
@@ -431,6 +461,7 @@
   {
     "name": "CeilingInsulationApplication",
     "sub_name": null,
+    "documentation": "A description of the type of insulation and how it is applied.",
     "enumerations": [
       "Loose fill",
       "Batt",
@@ -444,6 +475,7 @@
   {
     "name": "CeilingInsulationCondition",
     "sub_name": null,
+    "documentation": "Assessed condition of installed insulation.",
     "enumerations": [
       "Excellent",
       "Good",
@@ -457,6 +489,7 @@
   {
     "name": "CeilingInsulationContinuity",
     "sub_name": null,
+    "documentation": "Insulation installation type.",
     "enumerations": [
       "Cavity",
       "Continuous",
@@ -468,6 +501,7 @@
   {
     "name": "ChilledWaterResetControl",
     "sub_name": null,
+    "documentation": "Times when the HVAC equipment is setback. For example, when the heat is lowered during the heating season, or the cooling setpoint increased during the cooling season.",
     "enumerations": [
       "During the day",
       "At night",
@@ -481,6 +515,7 @@
   {
     "name": "ChillerCompressorDriver",
     "sub_name": null,
+    "documentation": "Vehicle for driving the compressor used in a chiller",
     "enumerations": [
       "Electric Motor",
       "Steam",
@@ -492,6 +527,7 @@
   {
     "name": "ChillerCompressorType",
     "sub_name": null,
+    "documentation": "Type of compressor in the chiller.",
     "enumerations": [
       "Reciprocating",
       "Screw",
@@ -504,6 +540,7 @@
   {
     "name": "ChillerType",
     "sub_name": null,
+    "documentation": "Vehicle for driving the compressor used in a chiller",
     "enumerations": [
       "Vapor compression",
       "Absorption",
@@ -514,6 +551,7 @@
   {
     "name": "ClimateZone",
     "sub_name": "ASHRAE",
+    "documentation": "Based on the Climate Zone Type term, this is the climate zone designation.",
     "enumerations": [
       "1A",
       "1B",
@@ -537,6 +575,7 @@
   {
     "name": "ClimateZone",
     "sub_name": "BuildingAmerica",
+    "documentation": "Based on the Climate Zone Type term, this is the climate zone designation.",
     "enumerations": [
       "Subarctic",
       "Marine",
@@ -551,6 +590,7 @@
   {
     "name": "ClimateZone",
     "sub_name": "CBECS",
+    "documentation": "Based on the Climate Zone Type term, this is the climate zone designation.",
     "enumerations": [
       "1",
       "2",
@@ -562,6 +602,7 @@
   {
     "name": "ClimateZone",
     "sub_name": "CaliforniaTitle24",
+    "documentation": "Based on the Climate Zone Type term, this is the climate zone designation.",
     "enumerations": [
       "Climate Zone 1",
       "Climate Zone 2",
@@ -584,6 +625,7 @@
   {
     "name": "ClimateZone",
     "sub_name": "DOE",
+    "documentation": "Based on the Climate Zone Type term, this is the climate zone designation.",
     "enumerations": [
       "Subarctic",
       "Marine",
@@ -598,6 +640,7 @@
   {
     "name": "ClimateZone",
     "sub_name": "EnergyStar",
+    "documentation": "Based on the Climate Zone Type term, this is the climate zone designation.",
     "enumerations": [
       "Northern",
       "North-Central",
@@ -608,6 +651,7 @@
   {
     "name": "ClimateZone",
     "sub_name": "IECC",
+    "documentation": "Based on the Climate Zone Type term, this is the climate zone designation.",
     "enumerations": [
       "1",
       "2",
@@ -623,6 +667,7 @@
   {
     "name": "ClothesWasherClassification",
     "sub_name": null,
+    "documentation": "The sector where clothes washer is commonly used.",
     "enumerations": [
       "Residential",
       "Commercial",
@@ -634,6 +679,7 @@
   {
     "name": "ClothesWasherLoaderType",
     "sub_name": null,
+    "documentation": "The type of configuration of a laundry appliance. Such as front and top loading clothes washers.",
     "enumerations": [
       "Front",
       "Top",
@@ -644,6 +690,7 @@
   {
     "name": "CodeName",
     "sub_name": null,
+    "documentation": "The name of an energy efficiency code or standard that is applied to building construction requirements.",
     "enumerations": [
       "ASHRAE",
       "IECC",
@@ -655,6 +702,7 @@
   {
     "name": "CompressorStaging",
     "sub_name": null,
+    "documentation": "The compressor staging for the unit. Select \"Single Stage\" for units with single stage (on/off) control. Select \"Multiple, Discrete Stages\" for units with multiple compressors, discrete unloading stages, or compressors with stepped speed motors that are controlled to operate at discrete stages. Select \"Variable\" for compressors that operate at variable speeds or with modulating unloading.",
     "enumerations": [
       "Single stage",
       "Multiple discrete stages",
@@ -667,6 +715,7 @@
   {
     "name": "CompressorType",
     "sub_name": null,
+    "documentation": "Type of compressor in the chiller.",
     "enumerations": [
       "Reciprocating",
       "Screw",
@@ -679,6 +728,7 @@
   {
     "name": "CondenserFanSpeedOperation",
     "sub_name": null,
+    "documentation": "The condenser fan control option used by the unit. If the unit has several constant-speed condenser fans that stage on in conjunction with multiple compressors, this should be set to \"Stepped Speed.\"",
     "enumerations": [
       "Variable Volume",
       "Stepped Speed",
@@ -690,6 +740,7 @@
   {
     "name": "ContactEmailAddressLabel",
     "sub_name": null,
+    "documentation": "The type of email address, to distinguish between multiple instances of Contact Email Address.",
     "enumerations": [
       "Personal",
       "Work",
@@ -699,6 +750,7 @@
   {
     "name": "ContactRole",
     "sub_name": null,
+    "documentation": "Characterization of the contact.",
     "enumerations": [
       "Premises",
       "Occupant",
@@ -739,6 +791,7 @@
   {
     "name": "ContactTelephoneNumberLabel",
     "sub_name": null,
+    "documentation": "The type of telephone number, to distinguish between multiple instances of Telephone Number.",
     "enumerations": [
       "Days",
       "Evenings",
@@ -749,6 +802,7 @@
   {
     "name": "ControlTechnology",
     "sub_name": null,
+    "documentation": "Type of system operation control.",
     "enumerations": [
       "Programmable Thermostat",
       "Manual Analog Thermostat",
@@ -764,6 +818,7 @@
   {
     "name": "ConvectionType",
     "sub_name": null,
+    "documentation": "Type of convection equipment used for heating and cooling at the zone.",
     "enumerations": [
       "Perimeter baseboard",
       "Chilled beam",
@@ -774,6 +829,7 @@
   {
     "name": "ConveyanceLoadType",
     "sub_name": null,
+    "documentation": "Type of load that the conveyance system usually transports.",
     "enumerations": [
       "People",
       "Freight",
@@ -785,6 +841,7 @@
   {
     "name": "ConveyanceSystemType",
     "sub_name": null,
+    "documentation": "Type of vertical or horizontal transportation equipment that moves people or goods between levels, floors, or sections.",
     "enumerations": [
       "Escalator",
       "Elevator",
@@ -797,6 +854,7 @@
   {
     "name": "CoolingMedium",
     "sub_name": null,
+    "documentation": "Medium used to transport cooling energy from a central cooling system to individual zones.",
     "enumerations": [
       "Chilled water",
       "Refrigerant",
@@ -809,6 +867,7 @@
   {
     "name": "CoolingSupplyAirTemperatureControlType",
     "sub_name": null,
+    "documentation": "Defines the control method for controlling cooling supply air temperature.",
     "enumerations": [
       "Fixed",
       "Outside Air Reset",
@@ -821,6 +880,7 @@
   {
     "name": "CoolingTowerControlType",
     "sub_name": null,
+    "documentation": "Type of system operation control.",
     "enumerations": [
       "Wet Bulb Reset",
       "Max Cells",
@@ -832,6 +892,7 @@
   {
     "name": "CostEffectivenessScreeningMethod",
     "sub_name": null,
+    "documentation": "Method for calculating cost-effectiveness for measures or project.",
     "enumerations": [
       "Simple payback",
       "Return on investment",
@@ -844,6 +905,7 @@
   {
     "name": "DXSystemType",
     "sub_name": null,
+    "documentation": "General type of heat pump used for space heating.",
     "enumerations": [
       "Split DX air conditioner",
       "Packaged terminal air conditioner (PTAC)",
@@ -861,6 +923,7 @@
   {
     "name": "DayType",
     "sub_name": null,
+    "documentation": "Type of day for which the schedule will be specified",
     "enumerations": [
       "All week",
       "Weekday",
@@ -878,6 +941,7 @@
   {
     "name": "DeckType",
     "sub_name": null,
+    "documentation": "The material used to create the structural integrity in an opaque surface. In many cases the framing material is not continuous across the construction.",
     "enumerations": [
       "Wood",
       "Steel",
@@ -892,6 +956,7 @@
   {
     "name": "DefrostingType",
     "sub_name": null,
+    "documentation": "Type of defrost strategy used for refrigerated cases.",
     "enumerations": [
       "Electric",
       "Off cycle",
@@ -907,6 +972,7 @@
   {
     "name": "DehumidificationType",
     "sub_name": null,
+    "documentation": "Dehumidification type in air-distribution system.",
     "enumerations": [
       "Desiccant wheel",
       "Liquid desiccant",
@@ -917,6 +983,7 @@
   {
     "name": "DiscardReason",
     "sub_name": null,
+    "documentation": "Reason why the proposed measure was discarded, if appropriate.",
     "enumerations": [
       "Long payback",
       "Requires permit",
@@ -927,6 +994,7 @@
   {
     "name": "DishwasherClassification",
     "sub_name": null,
+    "documentation": "The sector where dishwasher equipment is commonly used.",
     "enumerations": [
       "Industrial",
       "Commercial",
@@ -938,6 +1006,7 @@
   {
     "name": "DishwasherConfiguration",
     "sub_name": null,
+    "documentation": "A machine designed to clean and sanitize plates, pots, pans, glasses, cups, bowls, utensils, and trays by applying sprays of detergent solution (with or without blasting media granules) and a sanitizing rinse.",
     "enumerations": [
       "Counter top",
       "Stationary Under Counter",
@@ -955,6 +1024,7 @@
   {
     "name": "DishwasherMachineType",
     "sub_name": null,
+    "documentation": "They type of dishwasher machine such as being either stationary rack or conveyor.",
     "enumerations": [
       "Stationary Rack",
       "Conveyor",
@@ -965,6 +1035,7 @@
   {
     "name": "DistrictHeatingType",
     "sub_name": null,
+    "documentation": "General type of district heating used for space or water heating",
     "enumerations": [
       "Hot water",
       "Direct steam",
@@ -976,6 +1047,7 @@
   {
     "name": "DoorConfiguration",
     "sub_name": null,
+    "documentation": "Door configuration of the refrigerator/freezer unit.",
     "enumerations": [
       "Side-by-side",
       "Top and bottom",
@@ -987,6 +1059,7 @@
   {
     "name": "DoorOperation",
     "sub_name": null,
+    "documentation": "Non-swinging includes sliding doors and roll-up doors.",
     "enumerations": [
       "NonSwinging",
       "Swinging",
@@ -996,6 +1069,7 @@
   {
     "name": "DraftType",
     "sub_name": null,
+    "documentation": "Draft mechanism used for drawing air through the boiler or furnace.",
     "enumerations": [
       "Natural",
       "Mechanical forced",
@@ -1007,6 +1081,7 @@
   {
     "name": "DryerType",
     "sub_name": null,
+    "documentation": null,
     "enumerations": [
       "Residential",
       "Commercial",
@@ -1018,6 +1093,7 @@
   {
     "name": "DuctConfiguration",
     "sub_name": null,
+    "documentation": "Configuration of ducts.",
     "enumerations": [
       "Single",
       "Dual",
@@ -1030,6 +1106,7 @@
   {
     "name": "DuctInsulationCondition",
     "sub_name": null,
+    "documentation": "Condition of duct insulation.",
     "enumerations": [
       "Excellent",
       "Good",
@@ -1044,6 +1121,7 @@
   {
     "name": "DuctLeakageTestMethod",
     "sub_name": null,
+    "documentation": "Method used to estimate duct leakage",
     "enumerations": [
       "Duct leakage tester",
       "Blower door subtract",
@@ -1055,6 +1133,7 @@
   {
     "name": "DuctSealing",
     "sub_name": null,
+    "documentation": "Condition of duct sealing",
     "enumerations": [
       "Connections sealed with mastic",
       "No observable leaks",
@@ -1067,6 +1146,7 @@
   {
     "name": "DuctType",
     "sub_name": null,
+    "documentation": "Type of duct material.",
     "enumerations": [
       "Flex uncategorized",
       "Grey flex",
@@ -1084,6 +1164,7 @@
   {
     "name": "EconomizerControl",
     "sub_name": null,
+    "documentation": "Logic used for economizer control.",
     "enumerations": [
       "Fixed",
       "Differential",
@@ -1094,6 +1175,7 @@
   {
     "name": "EmissionBoundary",
     "sub_name": null,
+    "documentation": "The boundary that encompasses the measured emissions.",
     "enumerations": [
       "Direct",
       "Indirect",
@@ -1104,6 +1186,7 @@
   {
     "name": "EmissionsFactorSource",
     "sub_name": null,
+    "documentation": "Data source for emissions factors.",
     "enumerations": [
       "US EIA",
       "US EPA",
@@ -1114,6 +1197,7 @@
   {
     "name": "EmissionsType",
     "sub_name": null,
+    "documentation": "Category of greenhouse gas or other emission.",
     "enumerations": [
       "Co2e",
       "Co2",
@@ -1125,6 +1209,7 @@
   {
     "name": "EndUse",
     "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 0.2",
     "enumerations": [
       "All end uses",
       "Total lighting",
@@ -1151,6 +1236,7 @@
   {
     "name": "EnergyFlowDirection",
     "sub_name": null,
+    "documentation": "Direction associated with current related time series data.",
     "enumerations": [
       "Forward",
       "Reverse",
@@ -1160,6 +1246,7 @@
   {
     "name": "EnergyStorageTechnology",
     "sub_name": null,
+    "documentation": "A few different forms of energy storage systems exist including: potential, kinetic, chemical and thermal. The critical factors of any storage device are application (type and size), costs, cycle efficiency and longevity.",
     "enumerations": [
       "Battery",
       "Thermal Energy Storage",
@@ -1172,6 +1259,7 @@
   {
     "name": "EnvelopeConstructionType",
     "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 0.2",
     "enumerations": [
       "Masonry",
       "Structural brick",
@@ -1198,6 +1286,7 @@
   {
     "name": "EnvelopeType",
     "sub_name": null,
+    "documentation": null,
     "enumerations": [
       "Floor U-Value, Mass",
       "Roof U-Value, Non-Attic",
@@ -1210,6 +1299,7 @@
   {
     "name": "EvaporativeCoolingType",
     "sub_name": null,
+    "documentation": "Defines the type of evaporative cooler operation",
     "enumerations": [
       "Direct",
       "Direct indirect",
@@ -1220,6 +1310,7 @@
   {
     "name": "ExhaustLocation",
     "sub_name": null,
+    "documentation": "Location of spot exhaust ventilation system.",
     "enumerations": [
       "Bathroom",
       "Kitchen hood",
@@ -1231,6 +1322,7 @@
   {
     "name": "ExteriorDoorType",
     "sub_name": null,
+    "documentation": "Type of door construction.",
     "enumerations": [
       "Solid wood",
       "Hollow wood",
@@ -1244,6 +1336,7 @@
   {
     "name": "ExteriorRoughness",
     "sub_name": null,
+    "documentation": "A description of the roughness of the exposed surface of a material. This property is used to approximate the effect of the surface condition on the convection of air across the surface. In energy simulation models, it is used to help determine the convection coefficients for a surface.",
     "enumerations": [
       "Very rough",
       "Rough",
@@ -1257,6 +1350,7 @@
   {
     "name": "ExteriorShadingType",
     "sub_name": null,
+    "documentation": "Any type of overhang or awning on the outside of the building designed to limit solar penetration.",
     "enumerations": [
       "Overhang",
       "Fin",
@@ -1276,6 +1370,7 @@
   {
     "name": "ExteriorWallColor",
     "sub_name": null,
+    "documentation": "Color of a material or component. Can be applied to opaque surfaces, materials, and so forth.",
     "enumerations": [
       "White",
       "Light",
@@ -1290,6 +1385,7 @@
   {
     "name": "ExteriorWallFinish",
     "sub_name": null,
+    "documentation": "The final material applied to a surface, either interior or exterior. Some structural components don't have an exterior finish, such as unfinished poured concrete.",
     "enumerations": [
       "Wood",
       "Masonite",
@@ -1321,6 +1417,7 @@
   {
     "name": "ExternalPowerSupply",
     "sub_name": null,
+    "documentation": "Designed to convert line voltage ac input into lower voltage ac or dc output, convert to only one output voltage at a time, contained in a separate physical enclosure from the end-use product, and does not have batteries or battery packs that physically attach directly (including those that are removable) to the power supply unit.",
     "enumerations": [
       "AC to AC",
       "AC to DC",
@@ -1333,6 +1430,7 @@
   {
     "name": "FacilityClassification",
     "sub_name": null,
+    "documentation": "Specify the type of facility.",
     "enumerations": [
       "Commercial",
       "Residential",
@@ -1343,6 +1441,7 @@
   {
     "name": "FanApplication",
     "sub_name": null,
+    "documentation": "Application of fan (supply, return, or exhaust)",
     "enumerations": [
       "Supply",
       "Return",
@@ -1354,6 +1453,7 @@
   {
     "name": "FanCoilType",
     "sub_name": null,
+    "documentation": null,
     "enumerations": [
       "Mini-split",
       "Multi-split",
@@ -1368,6 +1468,7 @@
   {
     "name": "FanControlType",
     "sub_name": null,
+    "documentation": "Type of air flow control.",
     "enumerations": [
       "Variable Volume",
       "Stepped",
@@ -1379,6 +1480,7 @@
   {
     "name": "FanPlacement",
     "sub_name": null,
+    "documentation": "Placement of fan relative to the air stream.",
     "enumerations": [
       "Series",
       "Parallel",
@@ -1391,6 +1493,7 @@
   {
     "name": "FanType",
     "sub_name": null,
+    "documentation": "Method of generating air flow.",
     "enumerations": [
       "Axial",
       "Centrifugal",
@@ -1401,6 +1504,7 @@
   {
     "name": "FenestrationFrameMaterial",
     "sub_name": null,
+    "documentation": "The construction and material used in the frame of the fenestration product. Some frames are made of combinations of materials. This characterization also include whether an aluminum frame has a thermal break as part of the construction",
     "enumerations": [
       "Aluminum uncategorized",
       "Aluminum no thermal break",
@@ -1418,6 +1522,7 @@
   {
     "name": "FenestrationGasFill",
     "sub_name": null,
+    "documentation": "For a sealed glazing system (commonly called an Insulated Glass Unit (IGU), the gas that is found between the panes of glass.",
     "enumerations": [
       "Argon",
       "Krypton",
@@ -1430,6 +1535,7 @@
   {
     "name": "FenestrationGlassLayers",
     "sub_name": null,
+    "documentation": "A description of the number of layers of glass in a fenestration glazing system.",
     "enumerations": [
       "Single pane",
       "Double pane",
@@ -1441,6 +1547,7 @@
   {
     "name": "FloorAreaType",
     "sub_name": null,
+    "documentation": "Floor area can be defined and described in many different ways for different purposes. This type field allows multiple types of floor area definitions to exist in the same dataset.",
     "enumerations": [
       "Gross",
       "Net",
@@ -1469,6 +1576,7 @@
   {
     "name": "FloorCovering",
     "sub_name": null,
+    "documentation": "Material covering the slab or floor over unconditioned space.",
     "enumerations": [
       "Carpet",
       "Tile",
@@ -1482,6 +1590,7 @@
   {
     "name": "FloorInsulationCondition",
     "sub_name": null,
+    "documentation": "General physical condition of floor insulation.",
     "enumerations": [
       "Excellent",
       "Good",
@@ -1495,6 +1604,7 @@
   {
     "name": "FluorescentStartType",
     "sub_name": null,
+    "documentation": "Start technology used with fluorescent ballasts",
     "enumerations": [
       "Instant start",
       "Rapid start",
@@ -1506,6 +1616,7 @@
   {
     "name": "FootprintShape",
     "sub_name": null,
+    "documentation": "General shape of subsection or building footprint as defined in the BuildingSync Geometry Reference Sheet.",
     "enumerations": [
       "Rectangular",
       "L-Shape",
@@ -1520,6 +1631,7 @@
   {
     "name": "FoundationWallInsulationCondition",
     "sub_name": null,
+    "documentation": "Assessed condition of installed insulation.",
     "enumerations": [
       "Excellent",
       "Good",
@@ -1533,6 +1645,7 @@
   {
     "name": "FoundationWallInsulationContinuity",
     "sub_name": null,
+    "documentation": "Insulation installation type.",
     "enumerations": [
       "Cavity",
       "Continuous",
@@ -1544,6 +1657,7 @@
   {
     "name": "FrequencyOfMaintenance",
     "sub_name": null,
+    "documentation": "Frequency of maintenance on the premises or equipment.",
     "enumerations": [
       "As needed",
       "Daily",
@@ -1560,6 +1674,7 @@
   {
     "name": "FuelInterruptibility",
     "sub_name": null,
+    "documentation": "This refers to the practice of supplementing fuel (electricity, natural gas, fuel oil.) by other means when there are interruptions in supply from the utility.",
     "enumerations": [
       "Interruptible",
       "Firm",
@@ -1570,6 +1685,7 @@
   {
     "name": "FuelTypes",
     "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 0.2",
     "enumerations": [
       "Electricity",
       "Natural gas",
@@ -1610,6 +1726,7 @@
   {
     "name": "FurnaceType",
     "sub_name": null,
+    "documentation": "General type of furnace used for space heating.",
     "enumerations": [
       "Warm air",
       "Fireplace",
@@ -1623,6 +1740,7 @@
   {
     "name": "GlassType",
     "sub_name": null,
+    "documentation": "Type of glass used in this fenestration group.",
     "enumerations": [
       "Clear uncoated",
       "Low e",
@@ -1641,6 +1759,7 @@
   {
     "name": "GroundSourceType",
     "sub_name": null,
+    "documentation": null,
     "enumerations": [
       "Open loop ground water",
       "Closed loop ground source",
@@ -1651,6 +1770,7 @@
   {
     "name": "HVACPipeConfiguration",
     "sub_name": null,
+    "documentation": "Number of pipes for distributing steam, refrigerant, or water to individual zones.",
     "enumerations": [
       "1 pipe",
       "2 pipe",
@@ -1663,6 +1783,7 @@
   {
     "name": "HeatLowered",
     "sub_name": null,
+    "documentation": "Times when the HVAC equipment is setback. For example, when the heat is lowered during the heating season, or the cooling setpoint increased during the cooling season.",
     "enumerations": [
       "During the day",
       "At night",
@@ -1675,6 +1796,7 @@
   {
     "name": "HeatPumpType",
     "sub_name": null,
+    "documentation": "General type of heat pump used for space heating.",
     "enumerations": [
       "Split",
       "Packaged Terminal",
@@ -1686,6 +1808,7 @@
   {
     "name": "HeatRecoveryType",
     "sub_name": null,
+    "documentation": "Type of heat recovery between two systems.",
     "enumerations": [
       "Run around coil",
       "Thermal wheel",
@@ -1702,6 +1825,7 @@
   {
     "name": "HeatingMedium",
     "sub_name": null,
+    "documentation": "Medium used to transport heat from a central heating system to individual zones.",
     "enumerations": [
       "Hot water",
       "Steam",
@@ -1715,6 +1839,7 @@
   {
     "name": "HeatingStaging",
     "sub_name": null,
+    "documentation": "The method of heating staging used by the unit. Select \"Single Stage\" for units with single stage (on/off) control. Select \"Multiple, Discrete Stages\" for units with multiple discrete stages (low-fire / high-fire). Select \"Modulating\" for units which contain modulating burners.",
     "enumerations": [
       "Single stage",
       "Multiple discrete stages",
@@ -1727,6 +1852,7 @@
   {
     "name": "HeatingSupplyAirTemperatureControl",
     "sub_name": null,
+    "documentation": "Defines the control method for heating supply air temperature.",
     "enumerations": [
       "Coldest Reset",
       "Fixed",
@@ -1740,6 +1866,7 @@
   {
     "name": "HeightDistribution",
     "sub_name": null,
+    "documentation": "Uniformity of building height.",
     "enumerations": [
       "Multiple Heights",
       "Uniform Height"
@@ -1748,6 +1875,7 @@
   {
     "name": "HorizontalSurroundings",
     "sub_name": null,
+    "documentation": "Attachments to the outermost horizontal surfaces of the premises.",
     "enumerations": [
       "No abutments",
       "Attached from Above",
@@ -1759,6 +1887,7 @@
   {
     "name": "HotWaterDistributionType",
     "sub_name": null,
+    "documentation": "Manner in which hot water is distributed.",
     "enumerations": [
       "Looped",
       "Distributed",
@@ -1770,6 +1899,7 @@
   {
     "name": "HotWaterResetControl",
     "sub_name": null,
+    "documentation": "Times when the HVAC equipment is setback. For example, when the heat is lowered during the heating season, or the cooling setpoint increased during the cooling season.",
     "enumerations": [
       "During the day",
       "At night",
@@ -1783,6 +1913,7 @@
   {
     "name": "HumidificationType",
     "sub_name": null,
+    "documentation": "Humidification type in air-distribution system.",
     "enumerations": [
       "Steam",
       "Water Spray",
@@ -1793,6 +1924,7 @@
   {
     "name": "ITSystemType",
     "sub_name": null,
+    "documentation": "Type of critical information technology (IT) system, including data centers, network, and security systems.",
     "enumerations": [
       "Building Automation System",
       "Server",
@@ -1807,6 +1939,7 @@
   {
     "name": "IdentifierLabel",
     "sub_name": null,
+    "documentation": "Identifier used in a specific program or dataset. There can be multiple instances of Identifier Types within a dataset, such as a Listing ID, a Tax Map Number ID, and a Custom ID.",
     "enumerations": [
       "Premises",
       "Listing",
@@ -1825,6 +1958,7 @@
   {
     "name": "IgnitionType",
     "sub_name": null,
+    "documentation": "Ignition mechanism in gas heating equipment. Either pilot light or an intermittent ignition device (IID)",
     "enumerations": [
       "Intermittent ignition device",
       "Pilot light",
@@ -1835,6 +1969,7 @@
   {
     "name": "ImplementationStatus",
     "sub_name": null,
+    "documentation": "Implementation status of measure.",
     "enumerations": [
       "Proposed",
       "Evaluated",
@@ -1853,6 +1988,7 @@
   {
     "name": "InputVoltage",
     "sub_name": null,
+    "documentation": "Voltage rating for this lighting system.",
     "enumerations": [
       "120",
       "208",
@@ -1870,6 +2006,7 @@
   {
     "name": "InstallationType",
     "sub_name": null,
+    "documentation": "Installation of lamp relative to mounting surface",
     "enumerations": [
       "Plug-in",
       "Recessed",
@@ -1882,6 +2019,7 @@
   {
     "name": "InsulationMaterialType",
     "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 0.2",
     "enumerations": [
       "Fiberglass",
       "Cellulose",
@@ -1902,6 +2040,7 @@
   {
     "name": "Integration",
     "sub_name": null,
+    "documentation": "Level of integration with primary heating and cooling sources and delivery systems.",
     "enumerations": [
       "Integrated with central air distribution",
       "Integrated with local air distribution",
@@ -1913,6 +2052,7 @@
   {
     "name": "InteriorShadingType",
     "sub_name": null,
+    "documentation": "Type of interior shading.",
     "enumerations": [
       "Blind",
       "Curtain",
@@ -1925,6 +2065,7 @@
   {
     "name": "IntervalFrequency",
     "sub_name": null,
+    "documentation": "Indicates frequency of data that's available for a given variable. Data that's available can range from 10 minute interval to annual. This interval frequency can be applied to resource or other time series data like weather.",
     "enumerations": [
       "1 minute",
       "10 minute",
@@ -1943,6 +2084,7 @@
   {
     "name": "LampLabel",
     "sub_name": "CompactFluorescent",
+    "documentation": "Specific lamp subtype used in the luminaire",
     "enumerations": [
       "2D",
       "A-series",
@@ -1955,6 +2097,7 @@
   {
     "name": "LampLabel",
     "sub_name": "Halogen",
+    "documentation": "Specific lamp subtype used in the luminaire",
     "enumerations": [
       "A-shape",
       "BR30",
@@ -1974,6 +2117,7 @@
   {
     "name": "LampLabel",
     "sub_name": "HighIntensityDischarge",
+    "documentation": "Specific lamp subtype used in the luminaire",
     "enumerations": [
       "Sodium Vapor High Pressure",
       "Sodium Vapor Low Pressure",
@@ -1986,6 +2130,7 @@
   {
     "name": "LampLabel",
     "sub_name": "Incandescent",
+    "documentation": "Specific lamp subtype used in the luminaire",
     "enumerations": [
       "A19",
       "A21",
@@ -2010,6 +2155,7 @@
   {
     "name": "LampLabel",
     "sub_name": "LinearFluorescent",
+    "documentation": "Specific lamp subtype used in the luminaire",
     "enumerations": [
       "Super T8",
       "T12",
@@ -2025,6 +2171,7 @@
   {
     "name": "LampLabel",
     "sub_name": "SolidStateLighting",
+    "documentation": "Specific lamp subtype used in the luminaire",
     "enumerations": [
       "LED",
       "Other"
@@ -2033,6 +2180,7 @@
   {
     "name": "LampLength",
     "sub_name": null,
+    "documentation": "Length of fluorescent lamps.",
     "enumerations": [
       "2 ft",
       "4 ft",
@@ -2043,6 +2191,7 @@
   {
     "name": "LightingControlTypeDaylighting",
     "sub_name": null,
+    "documentation": "Type of daylighting controls used to manage lighting.",
     "enumerations": [
       "Continuous",
       "Continuous Plus Off",
@@ -2056,6 +2205,7 @@
   {
     "name": "LightingControlTypeManual",
     "sub_name": null,
+    "documentation": "Type of manual controls used to manage lighting.",
     "enumerations": [
       "Manual On/Off",
       "Manual Dimming",
@@ -2069,6 +2219,7 @@
   {
     "name": "LightingControlTypeOccupancy",
     "sub_name": null,
+    "documentation": "Type of occupancy controls used to manage lighting.",
     "enumerations": [
       "Occupancy Sensors",
       "Vacancy Sensors",
@@ -2080,6 +2231,7 @@
   {
     "name": "LightingControlTypeTimer",
     "sub_name": null,
+    "documentation": "Type of timer controls used to manage lighting.",
     "enumerations": [
       "Astronomical",
       "Chronological",
@@ -2091,6 +2243,7 @@
   {
     "name": "LightingDirection",
     "sub_name": null,
+    "documentation": "Directional characteristics of lighting fixtures.",
     "enumerations": [
       "Direct",
       "Indirect",
@@ -2105,6 +2258,7 @@
   {
     "name": "Location",
     "sub_name": null,
+    "documentation": "Location of system.",
     "enumerations": [
       "Interior",
       "Exterior",
@@ -2118,6 +2272,7 @@
   {
     "name": "LocationsOfExteriorWaterIntrusionDamage",
     "sub_name": null,
+    "documentation": "Location of observed moisture problems on the outside of the building",
     "enumerations": [
       "Roof",
       "Interior ceiling",
@@ -2132,6 +2287,7 @@
   {
     "name": "LocationsOfInteriorWaterIntrusionDamage",
     "sub_name": null,
+    "documentation": "Location of observed moisture problems on the inside of the building",
     "enumerations": [
       "Kitchen",
       "Bathroom",
@@ -2142,6 +2298,7 @@
   {
     "name": "MVOption",
     "sub_name": null,
+    "documentation": "Recommended approach for verification of energy savings for this measure, based on IPMVP",
     "enumerations": [
       "Option A: Retrofit Isolation With Partial Measurement",
       "Option B: Retrofit Isolation With Full Measurement",
@@ -2154,6 +2311,7 @@
   {
     "name": "MeasureName",
     "sub_name": "AdvancedMeteringSystems",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Install advanced metering systems",
       "Clean and/or repair",
@@ -2165,6 +2323,7 @@
   {
     "name": "MeasureName",
     "sub_name": "BoilerPlantImprovements",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Replace boiler",
       "Replace burner",
@@ -2182,6 +2341,7 @@
   {
     "name": "MeasureName",
     "sub_name": "BuildingAutomationSystems",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Add heat recovery",
       "Add or upgrade BAS/EMS/EMCS",
@@ -2194,6 +2354,7 @@
   {
     "name": "MeasureName",
     "sub_name": "BuildingEnvelopeModifications",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Air seal envelope",
       "Increase wall insulation",
@@ -2217,6 +2378,7 @@
   {
     "name": "MeasureName",
     "sub_name": "ChilledWaterHotWaterAndSteamDistributionSystems",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Add pipe insulation",
       "Repair and/or replace steam traps",
@@ -2238,6 +2400,7 @@
   {
     "name": "MeasureName",
     "sub_name": "ChillerPlantImprovements",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Add energy recovery",
       "Install VSD on electric centrifugal chillers",
@@ -2254,6 +2417,7 @@
   {
     "name": "MeasureName",
     "sub_name": "DistributedGeneration",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Install CHP/cogeneration systems",
       "Install fuel cells",
@@ -2268,6 +2432,7 @@
   {
     "name": "MeasureName",
     "sub_name": "ElectricMotorsAndDrives",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Add drive controls",
       "Replace with higher efficiency",
@@ -2281,6 +2446,7 @@
   {
     "name": "MeasureName",
     "sub_name": "ElectricalPeakShavingLoadShifting",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Install thermal energy storage",
       "Implement training and/or documentation",
@@ -2291,6 +2457,7 @@
   {
     "name": "MeasureName",
     "sub_name": "EnergyCostReductionThroughRateAdjustments",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Change to more favorable rate schedule",
       "Energy cost reduction through rate adjustments - uncategorized",
@@ -2302,6 +2469,7 @@
   {
     "name": "MeasureName",
     "sub_name": "EnergyDistributionSystems",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Implement power factor corrections",
       "Implement power quality upgrades",
@@ -2316,6 +2484,7 @@
   {
     "name": "MeasureName",
     "sub_name": "EnergyRelatedProcessImprovements",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Implement industrial process improvements",
       "Implement production and/or manufacturing improvements",
@@ -2328,6 +2497,7 @@
   {
     "name": "MeasureName",
     "sub_name": "FutureOtherECMs",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Other"
     ]
@@ -2335,6 +2505,7 @@
   {
     "name": "MeasureName",
     "sub_name": "LightingImprovements",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Retrofit with CFLs",
       "Retrofit with T-5",
@@ -2353,6 +2524,7 @@
   {
     "name": "MeasureName",
     "sub_name": "OtherHVAC",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Replace or modify AHU",
       "Improve distribution fans",
@@ -2386,6 +2558,7 @@
   {
     "name": "MeasureName",
     "sub_name": "PlugLoadReductions",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Replace with ENERGY STAR rated",
       "Install plug load controls",
@@ -2400,6 +2573,7 @@
   {
     "name": "MeasureName",
     "sub_name": "Refrigeration",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Replace ice/refrigeration equipment with high efficiency units",
       "Replace air-cooled ice/refrigeration equipment",
@@ -2413,6 +2587,7 @@
   {
     "name": "MeasureName",
     "sub_name": "RenewableEnergySystems",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Install landfill gas, wastewater treatment plant digester gas, or coal bed methane power plant",
       "Install photovoltaic system",
@@ -2427,6 +2602,7 @@
   {
     "name": "MeasureName",
     "sub_name": "Uncategorized",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Other"
     ]
@@ -2434,6 +2610,7 @@
   {
     "name": "MeasureName",
     "sub_name": "WaterAndSewerConservationSystems",
+    "documentation": "Short description of measure",
     "enumerations": [
       "Install low-flow faucets and showerheads",
       "Install low-flow plumbing equipment",
@@ -2448,6 +2625,7 @@
   {
     "name": "MeasureScaleOfApplication",
     "sub_name": null,
+    "documentation": "Scale at which the measure is applied, such as an individual system, multiple systems, or entire facility",
     "enumerations": [
       "Individual system",
       "Multiple systems",
@@ -2460,6 +2638,7 @@
   {
     "name": "MetalHalideStartType",
     "sub_name": null,
+    "documentation": "Start technology used with metal halide ballasts",
     "enumerations": [
       "Probe start",
       "Pulse start",
@@ -2470,6 +2649,7 @@
   {
     "name": "MeteringConfiguration",
     "sub_name": null,
+    "documentation": "The structure of how the various meters are arranged",
     "enumerations": [
       "Direct metering",
       "Master meter without sub metering",
@@ -2481,6 +2661,7 @@
   {
     "name": "MotorApplication",
     "sub_name": null,
+    "documentation": "Type of system served by the motor.",
     "enumerations": [
       "Fan",
       "Pump",
@@ -2495,6 +2676,7 @@
   {
     "name": "MotorEnclosureType",
     "sub_name": null,
+    "documentation": "Defines if the motor is open or enclosed",
     "enumerations": [
       "Open",
       "Enclosed",
@@ -2505,6 +2687,7 @@
   {
     "name": "NaturalVentilationMethod",
     "sub_name": null,
+    "documentation": "Strategy for introducing natural ventilation.",
     "enumerations": [
       "Air changes per hour",
       "Flow per area",
@@ -2518,6 +2701,7 @@
   {
     "name": "Normalization",
     "sub_name": null,
+    "documentation": "Normalization criteria to shift or scaled the measurement, where the intention is that these normalized values allow the comparison of corresponding normalized values for different datasets.",
     "enumerations": [
       "National Median",
       "Regional Median",
@@ -2529,6 +2713,7 @@
   {
     "name": "OccupancyClassification",
     "sub_name": null,
+    "documentation": "Classification of the space (complex, whole building, or subsection) tasks by building occupants.",
     "enumerations": [
       "Manufactured home",
       "Single family",
@@ -2670,6 +2855,7 @@
   {
     "name": "OccupantQuantityType",
     "sub_name": null,
+    "documentation": "Type of quantitative measure for capturing occupant information about the premises. The value is captured by the Occupant Quantity term.",
     "enumerations": [
       "Peak total occupants",
       "Adults",
@@ -2688,6 +2874,7 @@
   {
     "name": "OccupantType",
     "sub_name": null,
+    "documentation": "Type of occupants who are permanently resident in a premises.",
     "enumerations": [
       "Family household",
       "Married couple, no children",
@@ -2721,6 +2908,7 @@
   {
     "name": "OccupantsActivityLevel",
     "sub_name": null,
+    "documentation": "The activity level that drives the amount of internal gains due to occupants. \"Low\" corresponds to typical office/retail work (Sensible load 250 Btu/hr, Latent load 200 Btu/hr), \"High\" corresponds to heavier factory work or gymnasiums (Sensible load 580 Btu/hr, Latent load 870 Btu/hr)",
     "enumerations": [
       "Low",
       "High",
@@ -2730,6 +2918,7 @@
   {
     "name": "OperatorType",
     "sub_name": null,
+    "documentation": "Entity responsible for the operation of the facility.",
     "enumerations": [
       "Owner",
       "Occupant",
@@ -2751,6 +2940,7 @@
   {
     "name": "OtherEnergyGenerationTechnology",
     "sub_name": null,
+    "documentation": "Technology utilized on the premises to generate non-purchased energy, including renewable energy that is passively collected. This includes energy collected from the environment such as air, water, or ground-source heat pump systems. Technology equipment may exist as facade systems and roofing systems. Technology equipment may also exist on a premises off of a building envelope including on the ground, awnings, or carports as well as underground.",
     "enumerations": [
       "Standby generator",
       "Turbine",
@@ -2769,6 +2959,7 @@
   {
     "name": "Ownership",
     "sub_name": null,
+    "documentation": "The type of organization, association, business, etc. that owns the premises",
     "enumerations": [
       "Property management company",
       "Corporation/partnership/LLC",
@@ -2787,6 +2978,7 @@
   {
     "name": "OwnershipStatus",
     "sub_name": null,
+    "documentation": "Ownership status of the premises with respect to the occupant",
     "enumerations": [
       "Owned",
       "Mortgaged",
@@ -2800,6 +2992,7 @@
   {
     "name": "Phase",
     "sub_name": null,
+    "documentation": "Phase information associated with electricity readings",
     "enumerations": [
       "Phase AN",
       "Phase A",
@@ -2824,6 +3017,7 @@
   {
     "name": "PhotovoltaicSystemLocation",
     "sub_name": null,
+    "documentation": "Location where PV system is mounted.",
     "enumerations": [
       "Roof",
       "On grade",
@@ -2835,6 +3029,7 @@
   {
     "name": "PlugLoadType",
     "sub_name": null,
+    "documentation": "General category of plug load, including non-critical IT systems, task lighting, and other small electronic loads.",
     "enumerations": [
       "Personal Computer",
       "Task Lighting",
@@ -2851,6 +3046,7 @@
   {
     "name": "PlumbingPenetrationSealing",
     "sub_name": null,
+    "documentation": "Type of plumbing penetration sealing.",
     "enumerations": [
       "Flashing",
       "Fitting",
@@ -2861,6 +3057,7 @@
   {
     "name": "PoolSizeCategory",
     "sub_name": null,
+    "documentation": "Classification of the pool size.",
     "enumerations": [
       "Olympic",
       "Recreational",
@@ -2872,6 +3069,7 @@
   {
     "name": "PoolType",
     "sub_name": null,
+    "documentation": "General category of the pool.",
     "enumerations": [
       "Hot Tub",
       "Pool",
@@ -2882,6 +3080,7 @@
   {
     "name": "PrimaryHVACControlStrategy",
     "sub_name": null,
+    "documentation": "Primary HVAC equipment control strategy.",
     "enumerations": [
       "Pneumatic",
       "Electric",
@@ -2892,6 +3091,7 @@
   {
     "name": "Priority",
     "sub_name": null,
+    "documentation": "Order of precedence relative to other applicable systems. Enter Primary if this is the only system.",
     "enumerations": [
       "Primary",
       "Secondary",
@@ -2903,6 +3103,7 @@
   {
     "name": "ProcessLoadType",
     "sub_name": null,
+    "documentation": "Type of gas or electric equipment not categorized elsewhere.",
     "enumerations": [
       "Medical Equipment",
       "Laboratory Equipment",
@@ -2920,6 +3121,7 @@
   {
     "name": "PumpApplication",
     "sub_name": null,
+    "documentation": "Type of system served by the pump.",
     "enumerations": [
       "Boiler",
       "Chilled Water",
@@ -2942,6 +3144,7 @@
   {
     "name": "PumpControlType",
     "sub_name": null,
+    "documentation": "Type of pump speed control",
     "enumerations": [
       "Constant Volume",
       "Variable Volume",
@@ -2954,6 +3157,7 @@
   {
     "name": "PumpOperation",
     "sub_name": null,
+    "documentation": "Defines how pump operation is controlled.",
     "enumerations": [
       "On Demand",
       "Standby",
@@ -2965,6 +3169,7 @@
   {
     "name": "PumpingConfiguration",
     "sub_name": null,
+    "documentation": "Primary, secondary, or tertiary pump.",
     "enumerations": [
       "Primary",
       "Secondary",
@@ -2977,6 +3182,7 @@
   {
     "name": "RadiantType",
     "sub_name": null,
+    "documentation": null,
     "enumerations": [
       "Radiator",
       "Radiant floor or ceiling",
@@ -2987,6 +3193,7 @@
   {
     "name": "RankType",
     "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 0.2",
     "enumerations": [
       "Fair",
       "Good",
@@ -2996,6 +3203,7 @@
   {
     "name": "RateStructureSector",
     "sub_name": null,
+    "documentation": "Sector to which the rate structure is applicable.",
     "enumerations": [
       "Residential",
       "Commercial",
@@ -3006,6 +3214,7 @@
   {
     "name": "ReadingType",
     "sub_name": null,
+    "documentation": "Type of data recorded by the meter or other source.",
     "enumerations": [
       "Point",
       "Median",
@@ -3019,6 +3228,7 @@
   {
     "name": "RecirculationControlType",
     "sub_name": null,
+    "documentation": "Type of control for recirculation loop",
     "enumerations": [
       "Continuous",
       "Temperature",
@@ -3031,6 +3241,7 @@
   {
     "name": "ReflectorType",
     "sub_name": null,
+    "documentation": "Type of reflector used to distribute light to the space.",
     "enumerations": [
       "Specular Reflector",
       "Prismatic Reflector",
@@ -3042,6 +3253,7 @@
   {
     "name": "Refrigerant",
     "sub_name": null,
+    "documentation": "The type of refrigerant used in the system.",
     "enumerations": [
       "R134a",
       "R123",
@@ -3067,6 +3279,7 @@
   {
     "name": "RefrigerationCompressorType",
     "sub_name": null,
+    "documentation": "Type of compressor in the refrigeration system.",
     "enumerations": [
       "Reciprocating",
       "Screw",
@@ -3079,6 +3292,7 @@
   {
     "name": "RefrigerationUnitType",
     "sub_name": null,
+    "documentation": "Refrigeration equipment includes a refrigerator or freezer used for storing food products at specified temperatures, with the condensing unit and compressor built into the cabinet, and designed for use by commercial or institutional premises, other than laboratory settings. These units may be vertical or chest configurations and may contain a worktop surface.",
     "enumerations": [
       "Refrigerator",
       "Freezer",
@@ -3090,6 +3304,7 @@
   {
     "name": "ReheatControlMethod",
     "sub_name": null,
+    "documentation": "The air/temperature control strategy for VAV systems with reheat boxes.",
     "enumerations": [
       "Dual Maximum",
       "Single Maximum",
@@ -3100,6 +3315,7 @@
   {
     "name": "ReheatSource",
     "sub_name": null,
+    "documentation": "Energy source used to provide reheat energy at a terminal unit.",
     "enumerations": [
       "Heating plant",
       "Local electric resistance",
@@ -3111,6 +3327,7 @@
   {
     "name": "ResourceBoundary",
     "sub_name": null,
+    "documentation": "The boundary that encompasses the measured resource.",
     "enumerations": [
       "Site",
       "Source",
@@ -3124,6 +3341,7 @@
   {
     "name": "ResourceUnits",
     "sub_name": null,
+    "documentation": "Units for resource consumption or generation",
     "enumerations": [
       "Cubic Meters",
       "kcf",
@@ -3149,6 +3367,7 @@
   {
     "name": "RoofColor",
     "sub_name": null,
+    "documentation": "Color of a material or component. Can be applied to opaque surfaces, materials, and so forth.",
     "enumerations": [
       "White",
       "Light",
@@ -3163,6 +3382,7 @@
   {
     "name": "RoofFinish",
     "sub_name": null,
+    "documentation": "The final material applied to a surface, either interior or exterior. Some structural components don't have an exterior finish, such as unfinished poured concrete.",
     "enumerations": [
       "Wood",
       "Masonite",
@@ -3194,6 +3414,7 @@
   {
     "name": "RoofFramingMaterial",
     "sub_name": null,
+    "documentation": "The material used to create the structural integrity in an opaque surface. In many cases the framing material is not continuous across the construction.",
     "enumerations": [
       "Wood",
       "Steel",
@@ -3208,6 +3429,7 @@
   {
     "name": "RoofInsulationApplication",
     "sub_name": null,
+    "documentation": "A description of the type of insulation and how it is applied.",
     "enumerations": [
       "Loose fill",
       "Batt",
@@ -3221,6 +3443,7 @@
   {
     "name": "RoofInsulationCondition",
     "sub_name": null,
+    "documentation": "Assessed condition of installed insulation.",
     "enumerations": [
       "Excellent",
       "Good",
@@ -3234,6 +3457,7 @@
   {
     "name": "RoofInsulationContinuity",
     "sub_name": null,
+    "documentation": "Insulation installation type.",
     "enumerations": [
       "Cavity",
       "Continuous",
@@ -3245,6 +3469,7 @@
   {
     "name": "RoofSlope",
     "sub_name": null,
+    "documentation": "A descriptive value for tilt, when an exact numeric angle is not known.",
     "enumerations": [
       "Flat",
       "Sloped",
@@ -3257,6 +3482,7 @@
   {
     "name": "ScheduleCategory",
     "sub_name": null,
+    "documentation": "Type of schedule (such as occupancy, lighting, heating, etc.) that will be specified",
     "enumerations": [
       "Business",
       "Occupied",
@@ -3280,6 +3506,7 @@
   {
     "name": "SharedResourceSystem",
     "sub_name": null,
+    "documentation": "Situation that applies if a resource is shared with multiple premises, such as shared chilled water among buildings.",
     "enumerations": [
       "Multiple buildings on a single lot",
       "Multiple buildings on multiple lots",
@@ -3291,6 +3518,7 @@
   {
     "name": "SideNumber",
     "sub_name": null,
+    "documentation": "Alphanumeric designation of the side of a subsection as defined in the BuildingSync Geometry Reference Sheet.",
     "enumerations": [
       "A1",
       "A2",
@@ -3311,6 +3539,7 @@
   {
     "name": "SkylightLayout",
     "sub_name": null,
+    "documentation": "Zones daylit by skylights.",
     "enumerations": [
       "All Zones",
       "Core Only",
@@ -3321,6 +3550,7 @@
   {
     "name": "SkylightWindowTreatments",
     "sub_name": null,
+    "documentation": "Type of film or shading applied to skylight.",
     "enumerations": [
       "Solar film",
       "Solar screen",
@@ -3332,6 +3562,7 @@
   {
     "name": "SlabHeating",
     "sub_name": null,
+    "documentation": "The classifications for floors in contact with the ground.",
     "enumerations": [
       "Heated",
       "Unheated",
@@ -3342,6 +3573,7 @@
   {
     "name": "SlabInsulationCondition",
     "sub_name": null,
+    "documentation": "Assessed condition of installed insulation.",
     "enumerations": [
       "Excellent",
       "Good",
@@ -3355,6 +3587,7 @@
   {
     "name": "SlabInsulationOrientation",
     "sub_name": null,
+    "documentation": "The location and extent of slab-on-grade floor insulation",
     "enumerations": [
       "12 in Horizontal",
       "12 in Vertical",
@@ -3372,6 +3605,7 @@
   {
     "name": "SolarThermalSystemCollectorLoopType",
     "sub_name": null,
+    "documentation": "Heat transfer medium and controls used for the solar collector loop.",
     "enumerations": [
       "Air direct",
       "Air indirect",
@@ -3385,6 +3619,7 @@
   {
     "name": "SolarThermalSystemCollectorType",
     "sub_name": null,
+    "documentation": "Type of solar energy collector used in a solar hot water or space heating system.",
     "enumerations": [
       "Single glazing black",
       "Single glazing selective",
@@ -3399,6 +3634,7 @@
   {
     "name": "SolarThermalSystemType",
     "sub_name": null,
+    "documentation": "Basic function of solar thermal system",
     "enumerations": [
       "Hot water",
       "Hot water and space heating",
@@ -3411,6 +3647,7 @@
   {
     "name": "Source",
     "sub_name": null,
+    "documentation": null,
     "enumerations": [
       "Default",
       "Estimate",
@@ -3439,6 +3676,7 @@
   {
     "name": "SpatialUnitType",
     "sub_name": null,
+    "documentation": "Unit type within the premises.",
     "enumerations": [
       "Lots",
       "Parking spaces",
@@ -3459,6 +3697,7 @@
   {
     "name": "SpecialRoofClassification",
     "sub_name": null,
+    "documentation": "Additional classifications for the roof construction.",
     "enumerations": [
       "Cool roof",
       "Green roof",
@@ -3468,6 +3707,7 @@
   {
     "name": "State",
     "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 0.2",
     "enumerations": [
       "AA",
       "AE",
@@ -3536,6 +3776,7 @@
   {
     "name": "Status",
     "sub_name": null,
+    "documentation": "Defines whether a system is currently present in the building, or if it is a proposed alternative or past system.",
     "enumerations": [
       "Existing",
       "Proposed",
@@ -3547,6 +3788,7 @@
   {
     "name": "StreetDirPrefix",
     "sub_name": null,
+    "documentation": "The direction indicator that precedes the street name.",
     "enumerations": [
       "North",
       "Northeast",
@@ -3561,6 +3803,7 @@
   {
     "name": "StreetDirSuffix",
     "sub_name": null,
+    "documentation": "The direction indicator that follows a street address.",
     "enumerations": [
       "North",
       "Northeast",
@@ -3575,6 +3818,7 @@
   {
     "name": "StreetSuffix",
     "sub_name": null,
+    "documentation": "The suffix portion of a street address.",
     "enumerations": [
       "Alley",
       "Annex",
@@ -3786,6 +4030,7 @@
   {
     "name": "SubaddressType",
     "sub_name": null,
+    "documentation": "The type of subaddress to which the associated Subaddress Identifier applies.",
     "enumerations": [
       "Apartment",
       "Basement",
@@ -3825,6 +4070,7 @@
   {
     "name": "SystemCategoryAffected",
     "sub_name": null,
+    "documentation": "Category of building system(s) affected by the measure. In some cases a single measure may include multiple components affecting multiple systems.",
     "enumerations": [
       "Air Distribution",
       "Heating System",
@@ -3859,6 +4105,7 @@
   {
     "name": "SystemsType",
     "sub_name": null,
+    "documentation": null,
     "enumerations": [
       "Cooling",
       "Heating",
@@ -3870,6 +4117,7 @@
   {
     "name": "TelephoneNumber",
     "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 0.2",
     "enumerations": [
 
     ]
@@ -3877,6 +4125,7 @@
   {
     "name": "TemporalStatus",
     "sub_name": null,
+    "documentation": "Temporal characteristic of this measurement.",
     "enumerations": [
       "Pre retrofit",
       "Post retrofit",
@@ -3898,6 +4147,7 @@
   {
     "name": "TerminalUnit",
     "sub_name": null,
+    "documentation": "Type of terminal unit serving each zone of a central air distribution system.",
     "enumerations": [
       "CAV terminal box with reheat",
       "VAV terminal box fan powered no reheat",
@@ -3914,6 +4164,7 @@
   {
     "name": "ThermalMedium",
     "sub_name": null,
+    "documentation": "Type of material used in thermal energy storage technology.",
     "enumerations": [
       "Air",
       "Ice",
@@ -3930,6 +4181,7 @@
   {
     "name": "ThermalZoneLayout",
     "sub_name": null,
+    "documentation": "Type of zoning used for space conditioning",
     "enumerations": [
       "Perimeter",
       "Perimeter and core",
@@ -3941,6 +4193,7 @@
   {
     "name": "ThirdPartyCertification",
     "sub_name": null,
+    "documentation": "Independent organization has verified that product or appliance meets or exceeds the standard in question (ENERGY STAR, CEE, or other).",
     "enumerations": [
       "ENERGY STAR",
       "ENERGY STAR Most Efficient",
@@ -3956,6 +4209,7 @@
   {
     "name": "TierDirection",
     "sub_name": null,
+    "documentation": "Whether the rates increase or decrease as energy use increases.",
     "enumerations": [
       "Increasing",
       "Decreasing",
@@ -3965,6 +4219,7 @@
   {
     "name": "Tightness",
     "sub_name": null,
+    "documentation": "Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.",
     "enumerations": [
       "Very Tight",
       "Tight",
@@ -3977,6 +4232,7 @@
   {
     "name": "TightnessFitCondition",
     "sub_name": null,
+    "documentation": "Indicator of expected air leakage through fenestration",
     "enumerations": [
       "Tight",
       "Average",
@@ -3987,6 +4243,7 @@
   {
     "name": "TimeSeriesReadingQuantity",
     "sub_name": null,
+    "documentation": "Type of energy, water, power, weather metric included in the time series",
     "enumerations": [
       "Currency",
       "Current",
@@ -4014,6 +4271,7 @@
   {
     "name": "TypeOfCookingEquipment",
     "sub_name": null,
+    "documentation": "Short description of the type and purpose of cooking equipment",
     "enumerations": [
       "Hot top range",
       "Open burner range",
@@ -4062,6 +4320,7 @@
   {
     "name": "TypeOfResourceMeter",
     "sub_name": null,
+    "documentation": "Meters can be divided into several categories based on their capabilities",
     "enumerations": [
       "Revenue grade meter",
       "Advanced resource meter",
@@ -4080,6 +4339,7 @@
   {
     "name": "VentilationControlMethod",
     "sub_name": null,
+    "documentation": "The method used to control the rate of outside air ventilation.",
     "enumerations": [
       "CO2 Sensors",
       "Fixed",
@@ -4092,6 +4352,7 @@
   {
     "name": "VentilationType",
     "sub_name": null,
+    "documentation": "Type of ventilation, and use of heat recovery",
     "enumerations": [
       "Exhaust only",
       "Supply only",
@@ -4105,6 +4366,7 @@
   {
     "name": "VentilationZoneControl",
     "sub_name": null,
+    "documentation": "Method used to determine overall ventilation rate for multiple zones.",
     "enumerations": [
       "Average Flow",
       "Critical Zone",
@@ -4115,6 +4377,7 @@
   {
     "name": "VerticalSurroundings",
     "sub_name": null,
+    "documentation": "Attachments to the outermost vertical surfaces of the premises. This can be used if the more detailed input for Surface Exposure is not known. Illustrations for the constrained list choices will be provided when the web site is developed.",
     "enumerations": [
       "Stand-alone",
       "Attached on one side",
@@ -4127,6 +4390,7 @@
   {
     "name": "WallFramingMaterial",
     "sub_name": null,
+    "documentation": "The material used to create the structural integrity in an opaque surface. In many cases the framing material is not continuous across the construction.",
     "enumerations": [
       "Wood",
       "Steel",
@@ -4141,6 +4405,7 @@
   {
     "name": "WallInsulationApplication",
     "sub_name": null,
+    "documentation": "A description of the type of insulation and how it is applied.",
     "enumerations": [
       "Loose fill",
       "Batt",
@@ -4154,6 +4419,7 @@
   {
     "name": "WallInsulationCondition",
     "sub_name": null,
+    "documentation": "Assessed condition of installed insulation.",
     "enumerations": [
       "Excellent",
       "Good",
@@ -4167,6 +4433,7 @@
   {
     "name": "WallInsulationContinuity",
     "sub_name": null,
+    "documentation": "Insulation installation type.",
     "enumerations": [
       "Cavity",
       "Continuous",
@@ -4178,6 +4445,7 @@
   {
     "name": "WallInsulationLocation",
     "sub_name": null,
+    "documentation": "Whether wall insulation is on the inside or outside of the wall.",
     "enumerations": [
       "Interior",
       "Exterior",
@@ -4188,6 +4456,7 @@
   {
     "name": "WasherDryerType",
     "sub_name": null,
+    "documentation": "Type of washer/dryer combination unit.",
     "enumerations": [
       "Combination All In One Clothes Washer Dryer",
       "Unitized Stacked Washer Dryer Pair",
@@ -4198,6 +4467,7 @@
   {
     "name": "WaterCooledCondenserFlowControl",
     "sub_name": null,
+    "documentation": "Describes water flow control for a water-cooled condenser.",
     "enumerations": [
       "Fixed Flow",
       "Two Position Flow",
@@ -4209,6 +4479,7 @@
   {
     "name": "WaterCooledCondenserType",
     "sub_name": null,
+    "documentation": "Type of system operation control.",
     "enumerations": [
       "Cooling tower",
       "Other",
@@ -4218,6 +4489,7 @@
   {
     "name": "WaterHeaterEfficiencyType",
     "sub_name": null,
+    "documentation": null,
     "enumerations": [
       "Energy Factor",
       "Thermal Efficiency"
@@ -4226,6 +4498,7 @@
   {
     "name": "WaterResource",
     "sub_name": null,
+    "documentation": "Water type used as a resource on the premises.",
     "enumerations": [
       "Potable water",
       "Wastewater",
@@ -4239,6 +4512,7 @@
   {
     "name": "WaterSideEconomizerType",
     "sub_name": null,
+    "documentation": "Describes water flow control for a water-cooled condenser.",
     "enumerations": [
       "Parallel Plate and Frame Heat Exchanger",
       "Series Plate and Frame Heat Exchanger",
@@ -4251,6 +4525,7 @@
   {
     "name": "WaterUseType",
     "sub_name": null,
+    "documentation": "Short description of the water fixture or application.",
     "enumerations": [
       "Restroom Sink Use",
       "Restroom Toilet/Urinal Water Use",
@@ -4279,6 +4554,7 @@
   {
     "name": "WeatherDataSource",
     "sub_name": null,
+    "documentation": "Method for determining weather data associated with the time series",
     "enumerations": [
       "On Site Measurement",
       "Weather Station",
@@ -4294,6 +4570,7 @@
   {
     "name": "WeatherStationCategory",
     "sub_name": null,
+    "documentation": "Describes the type of weather station used to specify the site's weather.",
     "enumerations": [
       "FAA",
       "ICAO",
@@ -4306,6 +4583,7 @@
   {
     "name": "WindowLayout",
     "sub_name": null,
+    "documentation": "The pattern of distribution of the fenestration system on the wall.",
     "enumerations": [
       "Continuous",
       "Discrete",
@@ -4315,6 +4593,7 @@
   {
     "name": "WindowOrientation",
     "sub_name": null,
+    "documentation": "Orientation of a surface or premises in terms of the attributes of North, South, East and West. Can be applied to the orientation of the front of the building, of a specific surface (wall, roof), window or skylight, or on-site generation technology, such as photovoltaic panels.",
     "enumerations": [
       "North",
       "Northeast",
@@ -4330,6 +4609,7 @@
   {
     "name": "ZipCode",
     "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 0.2",
     "enumerations": [
 
     ]
@@ -4337,6 +4617,7 @@
   {
     "name": "ZoningSystemType",
     "sub_name": null,
+    "documentation": "Identifies whether a system is single or multi-zone.",
     "enumerations": [
       "Single zone",
       "Multi zone",
@@ -4346,6 +4627,7 @@
   {
     "name": "eGRIDRegionCode",
     "sub_name": null,
+    "documentation": "The eGRID (Emissions and Generation Resource Database) region code associated with the data being described.",
     "enumerations": [
       "AKGD",
       "AKMS",

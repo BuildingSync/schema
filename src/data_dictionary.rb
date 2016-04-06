@@ -136,12 +136,15 @@ class DataDictionary
     names = []
     @schema.xpath('//xs:simpleType/xs:restriction').map do |node|
       data = {}
+
       name = node.parent.attribute('name')
       name = (name || node.parent.parent.attribute('name')) if name.nil?
       name = name.value
 
       data[:name] = name
       data[:sub_name] = nil
+      doc_string = node.parent.parent.xpath('.//xs:annotation/xs:documentation').first
+      data[:documentation] = doc_string ? doc_string.content : nil
 
       if name == 'ClimateZone' ||
          name == 'LampLabel' ||
