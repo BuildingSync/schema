@@ -144,17 +144,29 @@ class DataDictionary
       data[:name] = name
       data[:sub_name] = nil
       doc_string = node.parent.parent.xpath('.//xs:annotation/xs:documentation').first
-      data[:documentation] = doc_string ? doc_string.content : nil
+
+      puts name
 
       if name == 'ClimateZone' ||
          name == 'LampLabel' ||
          name == 'MeasureName' ||
          name == 'AssemblyType' # Handle duplicate enum names
+
+        # If measure name, then grab the documentation from the parents
+        if name == 'MeasureName'
+          doc_string = node.parent.parent.parent.parent.parent.xpath('.//xs:annotation/xs:documentation').first
+        end
+
         sub_name = node.parent.parent.parent.parent.parent.attribute('name').value
         data[:sub_name] = sub_name
         name += " (#{sub_name})"
+
       end
+
+      data[:documentation] = doc_string ? doc_string.content : nil
+
       next unless node.children.length
+
       names.push(name)
       dupes = names.detect { |e| names.count(e) > 1 }
       raise 'Error: duplicate enum detected: ' + name unless dupes.nil?
@@ -208,5 +220,10 @@ class DataDictionary
     pp new_enums
 
     File.open('docs/enumerations.json', 'w') { |f| f << JSON.pretty_generate(new_enums) }
+
+    # Copy to website
+    if Dir.exist? '../website/_data'
+      File.open('../website/_data/enumerations.json', 'w') { |f| f << JSON.pretty_generate(new_enums) }
+    end
   end
 end
