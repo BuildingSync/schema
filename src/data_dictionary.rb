@@ -180,6 +180,7 @@ class DataDictionary
       enums[add_spaces(name)] = arr
 
       data[:enumerations] = arr
+      data[:enumerations_html] = "<ul><li>#{arr.join("</li><li>")}</li></ul>"
 
       new_enums << data
     end
