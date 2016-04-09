@@ -11214,7 +11214,6 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:enumeration value="Double Hung"/>
-                        <xs:enumeration value=""/>
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
@@ -13654,6 +13653,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
     <xs:restriction base="xs:string"/>
   </xs:simpleType>
   <xs:simpleType name="TelephoneNumber">
+    <xs:annotation>
+      <xs:documentation>Telephone Number</xs:documentation>
+    </xs:annotation>
     <xs:restriction base="xs:string"/>
   </xs:simpleType>
   <xs:simpleType name="State">
