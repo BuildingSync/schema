@@ -4,7 +4,6 @@ require 'pp'
 
 class ValidateExampleFiles < Minitest::Test
   def test_validate_all
-
     xsd = Nokogiri::XML::Schema(File.read('BuildingSync.xsd'))
 
     Dir['examples/*.xml'].each do |xml|
