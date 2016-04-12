@@ -68,7 +68,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				var2_box = new com.altova.functions.Core.SequenceCache(com.altova.functions.Core.box("Auditor1"));
 				var3_box = new com.altova.functions.Core.SequenceCache(com.altova.functions.Core.box("Window1"));
 				var4_Workbook = new com.altova.functions.Core.SequenceCache(com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Workbook", ""), closure.var1_ASHRAE_211_Form_Instance));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Audits", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq1_seq_(var2_box, var4_Workbook, var3_box)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Audits", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq1_seq_(var4_Workbook, var2_box, var3_box)));
 				pos++;
 				return true;
 			}
@@ -216,19 +216,19 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Sites", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Site", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq3_seq_(closure.var2_shared, closure.var3_shared)))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Sites", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Site", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq3_seq_(closure.var1_shared, closure.var3_shared)))));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Systems", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq180_join(closure.var2_shared, closure.var3_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Systems", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq180_join(closure.var1_shared, closure.var3_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_3() throws Exception {
 				state = 4;				
-				var4_shared = (closure.var2_shared).enumerator();
+				var4_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_4() throws Exception {
@@ -1749,7 +1749,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				var13_filter = new com.altova.functions.Core.SequenceCache((new seq26_filter(var6_Row)));
 				var14_filter = new com.altova.functions.Core.SequenceCache((new seq30_filter(var6_Row)));
 				var15_join = new com.altova.functions.Core.SequenceCache((new seq34_join(var6_Row)));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Facility", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq38_join(((com.altova.mapforce.IMFNode)(var8_filter.current())), var12_filter, var15_join, var6_Row, var9_box, var10_filter, var11_filter, var13_filter, var14_filter, closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Facility", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq38_join(((com.altova.mapforce.IMFNode)(var8_filter.current())), var9_box, var15_join, var12_filter, var13_filter, var11_filter, var6_Row, var14_filter, var10_filter, closure.var2_shared)));
 				pos++;
 				return true;
 			}
@@ -2045,7 +2045,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_Name.moveNext()) {state = 3; return false; }
-				current = com.altova.functions.Xlsx.equalignorecase(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var2_Name.current()))), "L0 - Space Functions");
+				current = com.altova.functions.Xlsx.equalignorecase(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var2_Name.current()))), "Instructions");
 				pos++;
 				return true;
 			}
@@ -2192,7 +2192,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_Name.moveNext()) {state = 3; return false; }
-				current = com.altova.functions.Xlsx.equalignorecase(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var2_Name.current()))), "Instructions");
+				current = com.altova.functions.Xlsx.equalignorecase(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var2_Name.current()))), "L2 - Envelope");
 				pos++;
 				return true;
 			}
@@ -2339,7 +2339,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_Name.moveNext()) {state = 3; return false; }
-				current = com.altova.functions.Xlsx.equalignorecase(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var2_Name.current()))), "L2 - Envelope");
+				current = com.altova.functions.Xlsx.equalignorecase(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var2_Name.current()))), "L0 - Space Functions");
 				pos++;
 				return true;
 			}
@@ -2560,7 +2560,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_r.moveNext()) {state = 3; return false; }
-				current = com.altova.functions.Core.equalOrGreater(com.altova.CoreTypes.integerToDecimal(com.altova.CoreTypes.longToInteger(com.altova.CoreTypes.integerToLong(com.altova.CoreTypes.decimalToInteger(com.altova.CoreTypes.parseDecimal(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var2_r.current())))))))), com.altova.CoreTypes.integerToDecimal(com.altova.CoreTypes.longToInteger(17L)));
+				current = com.altova.functions.Core.equalOrGreater(com.altova.CoreTypes.integerToDecimal(com.altova.CoreTypes.longToInteger(com.altova.CoreTypes.integerToLong(com.altova.CoreTypes.decimalToInteger(com.altova.CoreTypes.parseDecimal(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var2_r.current())))))))), com.altova.CoreTypes.integerToDecimal(com.altova.CoreTypes.longToInteger(19L)));
 				pos++;
 				return true;
 			}
@@ -2633,7 +2633,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_r.moveNext()) {state = 3; return false; }
-				current = com.altova.functions.Core.equalOrLess(com.altova.CoreTypes.integerToDecimal(com.altova.CoreTypes.longToInteger(com.altova.CoreTypes.integerToLong(com.altova.CoreTypes.decimalToInteger(com.altova.CoreTypes.parseDecimal(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var2_r.current())))))))), com.altova.CoreTypes.integerToDecimal(com.altova.CoreTypes.longToInteger(17L)));
+				current = com.altova.functions.Core.equalOrLess(com.altova.CoreTypes.integerToDecimal(com.altova.CoreTypes.longToInteger(com.altova.CoreTypes.integerToLong(com.altova.CoreTypes.decimalToInteger(com.altova.CoreTypes.parseDecimal(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var2_r.current())))))))), com.altova.CoreTypes.integerToDecimal(com.altova.CoreTypes.longToInteger(19L)));
 				pos++;
 				return true;
 			}
@@ -2854,7 +2854,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_r.moveNext()) {state = 3; return false; }
-				current = com.altova.functions.Core.equalOrGreater(com.altova.CoreTypes.integerToDecimal(com.altova.CoreTypes.longToInteger(com.altova.CoreTypes.integerToLong(com.altova.CoreTypes.decimalToInteger(com.altova.CoreTypes.parseDecimal(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var2_r.current())))))))), com.altova.CoreTypes.integerToDecimal(com.altova.CoreTypes.longToInteger(19L)));
+				current = com.altova.functions.Core.equalOrGreater(com.altova.CoreTypes.integerToDecimal(com.altova.CoreTypes.longToInteger(com.altova.CoreTypes.integerToLong(com.altova.CoreTypes.decimalToInteger(com.altova.CoreTypes.parseDecimal(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var2_r.current())))))))), com.altova.CoreTypes.integerToDecimal(com.altova.CoreTypes.longToInteger(17L)));
 				pos++;
 				return true;
 			}
@@ -2927,7 +2927,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_r.moveNext()) {state = 3; return false; }
-				current = com.altova.functions.Core.equalOrLess(com.altova.CoreTypes.integerToDecimal(com.altova.CoreTypes.longToInteger(com.altova.CoreTypes.integerToLong(com.altova.CoreTypes.decimalToInteger(com.altova.CoreTypes.parseDecimal(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var2_r.current())))))))), com.altova.CoreTypes.integerToDecimal(com.altova.CoreTypes.longToInteger(19L)));
+				current = com.altova.functions.Core.equalOrLess(com.altova.CoreTypes.integerToDecimal(com.altova.CoreTypes.longToInteger(com.altova.CoreTypes.integerToLong(com.altova.CoreTypes.decimalToInteger(com.altova.CoreTypes.parseDecimal(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var2_r.current())))))))), com.altova.CoreTypes.integerToDecimal(com.altova.CoreTypes.longToInteger(17L)));
 				pos++;
 				return true;
 			}
@@ -3400,14 +3400,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_5() throws Exception {
 				state = 13;				
 				if( var11_shared != null ) { var11_shared.close(); var11_shared = null; }
-				var15_filter = (closure.var4_shared).enumerator();
+				var15_filter = (closure.var7_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_6() throws Exception {
 				state = 8;				
 				if (!var12_filter.moveNext()) {state = 7; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq37_map(((com.altova.mapforce.IMFNode)(var12_filter.current()))))))))) {state = 6; return false; }
-				var13_filter = (closure.var4_shared).enumerator();
+				var13_filter = (closure.var7_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_7() throws Exception {
@@ -3452,7 +3452,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_14() throws Exception {
 				state = 18;				
 				if( var15_filter != null ) { var15_filter.close(); var15_filter = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("OccupancyLevels", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq43_join(closure.var4_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("OccupancyLevels", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq43_join(closure.var7_shared)));
 				pos++;
 				return true;
 			}
@@ -3471,7 +3471,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_18() throws Exception {
 				state = 19;				
-				var17_shared = (closure.var9_shared).enumerator();
+				var17_shared = (closure.var5_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_19() throws Exception {
@@ -3483,7 +3483,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_20() throws Exception {
 				state = 24;				
 				if( var17_shared != null ) { var17_shared.close(); var17_shared = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorAreas", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq47_join(closure.var4_shared, closure.var7_shared, closure.var8_shared, closure.var9_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorAreas", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq47_join(closure.var5_shared, closure.var7_shared, closure.var8_shared, closure.var9_shared)));
 				pos++;
 				return true;
 			}
@@ -3515,7 +3515,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_26() throws Exception {
 				state = 28;				
 				if( var19_shared != null ) { var19_shared.close(); var19_shared = null; }
-				var20_filter = (closure.var4_shared).enumerator();
+				var20_filter = (closure.var7_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_28() throws Exception {
@@ -3529,7 +3529,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_29() throws Exception {
 				state = 33;				
 				if( var20_filter != null ) { var20_filter.close(); var20_filter = null; }
-				var22_filter = (closure.var4_shared).enumerator();
+				var22_filter = (closure.var7_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_30() throws Exception {
@@ -3556,7 +3556,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_34() throws Exception {
 				state = 38;				
 				if( var22_filter != null ) { var22_filter.close(); var22_filter = null; }
-				var24_filter = (closure.var4_shared).enumerator();
+				var24_filter = (closure.var7_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_35() throws Exception {
@@ -3583,7 +3583,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_39() throws Exception {
 				state = 43;				
 				if( var24_filter != null ) { var24_filter.close(); var24_filter = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Subsections", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Subsection", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq72_join(closure.var2_shared, closure.var3_shared, closure.var4_shared, closure.var5_shared, closure.var6_shared, closure.var7_shared, closure.var10_shared)))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Subsections", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Subsection", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq72_join(closure.var2_shared, closure.var3_shared, closure.var4_shared, closure.var6_shared, closure.var7_shared, closure.var9_shared, closure.var10_shared)))));
 				pos++;
 				return true;
 			}
@@ -3602,7 +3602,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_43() throws Exception {
 				state = 44;				
-				var26_shared = (closure.var9_shared).enumerator();
+				var26_shared = (closure.var5_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_44() throws Exception {
@@ -3620,8 +3620,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 46;				
 				if (!var27_filter.moveNext()) {state = 47; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq37_map(((com.altova.mapforce.IMFNode)(var27_filter.current()))))))))) {state = 46; return false; }
-				var28_filter = new com.altova.functions.Core.SequenceCache((new seq54_filter(closure.var4_shared)));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedFields", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq168_join(((com.altova.mapforce.IMFNode)(var27_filter.current())), closure.var2_shared, closure.var4_shared, closure.var7_shared, closure.var9_shared, var28_filter)));
+				var28_filter = new com.altova.functions.Core.SequenceCache((new seq54_filter(closure.var7_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedFields", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq168_join(closure.var5_shared, closure.var6_shared, closure.var7_shared, closure.var9_shared, var28_filter, ((com.altova.mapforce.IMFNode)(var27_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -4343,7 +4343,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var5_shared = (closure.var2_shared).enumerator();
+				var5_shared = (closure.var4_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -4355,14 +4355,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 9;				
 				if( var5_shared != null ) { var5_shared.close(); var5_shared = null; }
-				var8_shared = (closure.var2_shared).enumerator();
+				var8_shared = (closure.var4_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 6;				
 				if (!var6_filter.moveNext()) {state = 5; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var6_filter.current()))))))))) {state = 4; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var6_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var6_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var6_filter.current()))))))))) {state = 4; return false; }
 				var7_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var6_filter.current())))).enumerator();
 				return false;
 			}
@@ -4394,14 +4394,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_10() throws Exception {
 				state = 16;				
 				if( var8_shared != null ) { var8_shared.close(); var8_shared = null; }
-				var11_shared = (closure.var2_shared).enumerator();
+				var11_shared = (closure.var4_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_11() throws Exception {
 				state = 13;				
 				if (!var9_filter.moveNext()) {state = 12; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
 				var10_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var9_filter.current())))).enumerator();
 				return false;
 			}
@@ -4414,8 +4414,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 13;				
 				if (!var10_filter.moveNext()) {state = 14; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var10_filter.current()))))))))) {state = 13; return false; }
-				if (!(com.altova.functions.Core.exists((new seq51_if_equal(((com.altova.mapforce.IMFNode)(var10_filter.current())), closure.var4_shared))))) {state = 13; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq52_join(((com.altova.mapforce.IMFNode)(var10_filter.current())), closure.var4_shared)));
+				if (!(com.altova.functions.Core.exists((new seq51_if_equal(((com.altova.mapforce.IMFNode)(var10_filter.current())), closure.var1_shared))))) {state = 13; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq52_join(((com.altova.mapforce.IMFNode)(var10_filter.current())), closure.var1_shared)));
 				pos++;
 				return true;
 			}
@@ -4433,14 +4433,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_17() throws Exception {
 				state = 23;				
 				if( var11_shared != null ) { var11_shared.close(); var11_shared = null; }
-				var16_shared = (closure.var2_shared).enumerator();
+				var16_shared = (closure.var4_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_18() throws Exception {
 				state = 20;				
 				if (!var12_filter.moveNext()) {state = 19; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var12_filter.current()))))))))) {state = 18; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var12_filter.current()))))))))) {state = 18; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var12_filter.current()))))))))) {state = 18; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var12_filter.current()))))))))) {state = 18; return false; }
 				var13_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var12_filter.current())))).enumerator();
 				return false;
 			}
@@ -4453,9 +4453,9 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 20;				
 				if (!var13_filter.moveNext()) {state = 21; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var13_filter.current()))))))))) {state = 20; return false; }
-				var14_filter = new com.altova.functions.Core.SequenceCache((new seq54_filter(closure.var1_shared)));
-				if (!(com.altova.functions.Core.exists((new seq58_if_equal(((com.altova.mapforce.IMFNode)(var13_filter.current())), var14_filter))))) {state = 20; return false; }
-				var15_filter = new com.altova.functions.Core.SequenceCache((new seq54_filter(closure.var1_shared)));
+				var14_filter = new com.altova.functions.Core.SequenceCache((new seq54_filter(closure.var2_shared)));
+				if (!(com.altova.functions.Core.exists((new seq58_if_equal(var14_filter, ((com.altova.mapforce.IMFNode)(var13_filter.current()))))))) {state = 20; return false; }
+				var15_filter = new com.altova.functions.Core.SequenceCache((new seq54_filter(closure.var2_shared)));
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq59_join(((com.altova.mapforce.IMFNode)(var13_filter.current())), var15_filter)));
 				pos++;
 				return true;
@@ -4479,8 +4479,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_25() throws Exception {
 				state = 27;				
 				if (!var17_filter.moveNext()) {state = 26; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var17_filter.current()))))))))) {state = 25; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var17_filter.current()))))))))) {state = 25; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var17_filter.current()))))))))) {state = 25; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var17_filter.current()))))))))) {state = 25; return false; }
 				var18_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var17_filter.current())))).enumerator();
 				return false;
 			}
@@ -4493,9 +4493,9 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 27;				
 				if (!var18_filter.moveNext()) {state = 28; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var18_filter.current()))))))))) {state = 27; return false; }
-				var19_filter = new com.altova.functions.Core.SequenceCache((new seq61_filter(closure.var1_shared)));
-				if (!(com.altova.functions.Core.exists((new seq58_if_equal(((com.altova.mapforce.IMFNode)(var18_filter.current())), var19_filter))))) {state = 27; return false; }
-				var20_filter = new com.altova.functions.Core.SequenceCache((new seq61_filter(closure.var1_shared)));
+				var19_filter = new com.altova.functions.Core.SequenceCache((new seq61_filter(closure.var2_shared)));
+				if (!(com.altova.functions.Core.exists((new seq58_if_equal(var19_filter, ((com.altova.mapforce.IMFNode)(var18_filter.current()))))))) {state = 27; return false; }
+				var20_filter = new com.altova.functions.Core.SequenceCache((new seq61_filter(closure.var2_shared)));
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq65_join(((com.altova.mapforce.IMFNode)(var18_filter.current())), var20_filter)));
 				pos++;
 				return true;
@@ -5533,13 +5533,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq58_if_equal implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq58_if_equal(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq58_if_equal(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -5586,13 +5586,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 3;				
-				if (!(com.altova.functions.Core.equal(com.altova.CoreTypes.nodeToString(closure.var1_current), "IP"))) {state = 2; return false; }
-				var3_shared = (closure.var2_shared).enumerator();
+				if (!(com.altova.functions.Core.equal(com.altova.CoreTypes.nodeToString(closure.var2_current), "IP"))) {state = 2; return false; }
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 9;				
-				var5_shared = (closure.var2_shared).enumerator();
+				var5_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_3() throws Exception {
@@ -6798,13 +6798,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.functions.Core.createAttribute(com.altova.functions.Core.createQName("ID", ""), closure.var4_shared);
+				current = com.altova.functions.Core.createAttribute(com.altova.functions.Core.createQName("ID", ""), closure.var1_shared);
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("PremisesName", "http://nrel.gov/schemas/bedes-auc/2014"), closure.var4_shared);
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("PremisesName", "http://nrel.gov/schemas/bedes-auc/2014"), closure.var1_shared);
 				pos++;
 				return true;
 			}
@@ -6823,7 +6823,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_5() throws Exception {
 				state = 7;				
 				if( var8_shared != null ) { var8_shared.close(); var8_shared = null; }
-				var9_shared = (closure.var1_shared).enumerator();
+				var9_shared = (closure.var4_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_7() throws Exception {
@@ -6873,15 +6873,15 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_15() throws Exception {
 				state = 21;				
 				if( var12_shared != null ) { var12_shared.close(); var12_shared = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("RoofID", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq81_join(closure.var1_shared, closure.var6_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("RoofID", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq81_join(closure.var4_shared, closure.var6_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_16() throws Exception {
 				state = 18;				
 				if (!var13_filter.moveNext()) {state = 17; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var13_filter.current()))))))))) {state = 16; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var13_filter.current()))))))))) {state = 16; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var13_filter.current()))))))))) {state = 16; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var13_filter.current()))))))))) {state = 16; return false; }
 				var14_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var13_filter.current())))).enumerator();
 				return false;
 			}
@@ -6894,8 +6894,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 18;				
 				if (!var14_filter.moveNext()) {state = 19; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var14_filter.current()))))))))) {state = 18; return false; }
-				if (!(com.altova.functions.Core.exists((new seq75_if_equal(((com.altova.mapforce.IMFNode)(var14_filter.current())), closure.var1_shared))))) {state = 18; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Sides", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Side", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq77_seq_(((com.altova.mapforce.IMFNode)(var14_filter.current())), closure.var1_shared, closure.var7_shared)))));
+				if (!(com.altova.functions.Core.exists((new seq75_if_equal(((com.altova.mapforce.IMFNode)(var14_filter.current())), closure.var4_shared))))) {state = 18; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Sides", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Side", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq77_seq_(closure.var4_shared, closure.var7_shared, ((com.altova.mapforce.IMFNode)(var14_filter.current())))))));
 				pos++;
 				return true;
 			}
@@ -6906,13 +6906,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_21() throws Exception {
 				state = 22;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FoundationID", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq84_join(closure.var1_shared, closure.var6_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FoundationID", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq84_join(closure.var4_shared, closure.var6_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_22() throws Exception {
 				state = 23;				
-				var15_filter = (closure.var3_shared).enumerator();
+				var15_filter = (closure.var5_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_23() throws Exception {
@@ -6926,7 +6926,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_24() throws Exception {
 				state = 28;				
 				if( var15_filter != null ) { var15_filter.close(); var15_filter = null; }
-				var17_filter = (closure.var3_shared).enumerator();
+				var17_filter = (closure.var5_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_25() throws Exception {
@@ -6953,7 +6953,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_29() throws Exception {
 				state = 0;				
 				if( var17_filter != null ) { var17_filter.close(); var17_filter = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ThermalZones", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ThermalZone", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Spaces", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq93_join(closure.var5_shared, closure.var6_shared)))))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ThermalZones", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ThermalZone", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Spaces", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq93_join(closure.var3_shared, closure.var6_shared)))))));
 				pos++;
 				return true;
 			}
@@ -7382,15 +7382,15 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq77_seq_ implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
+		com.altova.mapforce.IEnumerable var1_shared;
 		com.altova.mapforce.IEnumerable var2_shared;
-		com.altova.mapforce.IEnumerable var3_shared;
+		com.altova.mapforce.IMFNode var3_current;
 	
-		public seq77_seq_(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IEnumerable var3_shared)
+		public seq77_seq_(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IMFNode var3_current)
 		{
-			this.var1_current = var1_current;
+			this.var1_shared = var1_shared;
 			this.var2_shared = var2_shared;
-			this.var3_shared = var3_shared;
+			this.var3_current = var3_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -7425,13 +7425,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("WallID", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq78_seq_(closure.var1_current, closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("WallID", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq78_seq_(closure.var1_shared, closure.var3_current)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 0;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("WindowID", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq80_join(closure.var2_shared, closure.var3_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("WindowID", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq80_join(closure.var1_shared, closure.var2_shared)));
 				pos++;
 				return true;
 			}
@@ -7451,13 +7451,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq78_seq_ implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq78_seq_(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq78_seq_(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -7498,7 +7498,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 0;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("WallArea", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.CoreTypes.doubleToDecimal((Double)com.altova.functions.Core.last((new seq79_if_equal(closure.var1_current, closure.var2_shared)))))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("WallArea", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.CoreTypes.doubleToDecimal((Double)com.altova.functions.Core.last((new seq79_if_equal(closure.var1_shared, closure.var2_current)))))));
 				pos++;
 				return true;
 			}
@@ -7518,13 +7518,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq79_if_equal implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq79_if_equal(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq79_if_equal(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -7577,13 +7577,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 3;				
-				if (!(com.altova.functions.Core.equal(com.altova.CoreTypes.nodeToString(closure.var1_current), "IP"))) {state = 2; return false; }
-				var3_shared = (closure.var2_shared).enumerator();
+				if (!(com.altova.functions.Core.equal(com.altova.CoreTypes.nodeToString(closure.var2_current), "IP"))) {state = 2; return false; }
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 11;				
-				var6_shared = (closure.var2_shared).enumerator();
+				var6_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_3() throws Exception {
@@ -7872,8 +7872,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_5() throws Exception {
 				state = 7;				
 				if (!var4_filter.moveNext()) {state = 6; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 5; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 5; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 5; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 5; return false; }
 				var5_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var4_filter.current())))).enumerator();
 				return false;
 			}
@@ -8316,8 +8316,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_5() throws Exception {
 				state = 7;				
 				if (!var4_filter.moveNext()) {state = 6; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 5; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 5; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 5; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 5; return false; }
 				var5_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var4_filter.current())))).enumerator();
 				return false;
 			}
@@ -9617,7 +9617,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 12;				
 				if (!var7_filter.moveNext()) {state = 13; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var7_filter.current()))))))))) {state = 12; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedFields", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq105_join(((com.altova.mapforce.IMFNode)(var7_filter.current())), closure.var3_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedFields", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq105_join(closure.var3_shared, ((com.altova.mapforce.IMFNode)(var7_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -9891,8 +9891,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 6;				
 				if (!var4_filter.moveNext()) {state = 5; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
 				var5_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var4_filter.current())))).enumerator();
 				return false;
 			}
@@ -9906,7 +9906,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var5_filter.moveNext()) {state = 7; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var5_filter.current()))))))))) {state = 6; return false; }
 				var6_filter = new com.altova.functions.Core.SequenceCache((new seq98_filter(closure.var2_shared)));
-				if (!(com.altova.functions.Core.exists((new seq58_if_equal(((com.altova.mapforce.IMFNode)(var5_filter.current())), var6_filter))))) {state = 6; return false; }
+				if (!(com.altova.functions.Core.exists((new seq58_if_equal(var6_filter, ((com.altova.mapforce.IMFNode)(var5_filter.current()))))))) {state = 6; return false; }
 				var7_filter = new com.altova.functions.Core.SequenceCache((new seq98_filter(closure.var2_shared)));
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq100_join(((com.altova.mapforce.IMFNode)(var5_filter.current())), var7_filter)));
 				pos++;
@@ -9957,8 +9957,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_15() throws Exception {
 				state = 17;				
 				if (!var11_filter.moveNext()) {state = 16; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var11_filter.current()))))))))) {state = 15; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var11_filter.current()))))))))) {state = 15; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var11_filter.current()))))))))) {state = 15; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var11_filter.current()))))))))) {state = 15; return false; }
 				var12_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var11_filter.current())))).enumerator();
 				return false;
 			}
@@ -9972,7 +9972,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var12_filter.moveNext()) {state = 18; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var12_filter.current()))))))))) {state = 17; return false; }
 				var13_filter = new com.altova.functions.Core.SequenceCache((new seq98_filter(closure.var2_shared)));
-				if (!(com.altova.functions.Core.exists((new seq58_if_equal(((com.altova.mapforce.IMFNode)(var12_filter.current())), var13_filter))))) {state = 17; return false; }
+				if (!(com.altova.functions.Core.exists((new seq58_if_equal(var13_filter, ((com.altova.mapforce.IMFNode)(var12_filter.current()))))))) {state = 17; return false; }
 				var14_cast = com.altova.CoreTypes.parseDouble(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var9_filter.current()))));
 				var15_filter = new com.altova.functions.Core.SequenceCache((new seq98_filter(closure.var2_shared)));
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq103_seq_(((com.altova.mapforce.IMFNode)(var12_filter.current())), var14_cast, var15_filter)));
@@ -10594,13 +10594,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq105_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq105_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq105_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -10665,13 +10665,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq106_seq_(closure.var1_current)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq106_seq_(closure.var2_current)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				var3_filter = (closure.var2_shared).enumerator();
+				var3_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_3() throws Exception {
@@ -10685,7 +10685,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 8;				
 				if( var3_filter != null ) { var3_filter.close(); var3_filter = null; }
-				var5_filter = (closure.var2_shared).enumerator();
+				var5_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_5() throws Exception {
@@ -10712,7 +10712,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_9() throws Exception {
 				state = 13;				
 				if( var5_filter != null ) { var5_filter.close(); var5_filter = null; }
-				var7_filter = (closure.var2_shared).enumerator();
+				var7_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_10() throws Exception {
@@ -10739,7 +10739,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_14() throws Exception {
 				state = 18;				
 				if( var7_filter != null ) { var7_filter.close(); var7_filter = null; }
-				var9_filter = (closure.var2_shared).enumerator();
+				var9_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_15() throws Exception {
@@ -10766,7 +10766,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_19() throws Exception {
 				state = 23;				
 				if( var9_filter != null ) { var9_filter.close(); var9_filter = null; }
-				var11_filter = (closure.var2_shared).enumerator();
+				var11_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_20() throws Exception {
@@ -11419,7 +11419,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 12;				
 				if (!var7_filter.moveNext()) {state = 13; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var7_filter.current()))))))))) {state = 12; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedFields", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq124_join(((com.altova.mapforce.IMFNode)(var7_filter.current())), closure.var3_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedFields", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq124_join(closure.var3_shared, ((com.altova.mapforce.IMFNode)(var7_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -11711,8 +11711,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 6;				
 				if (!var4_filter.moveNext()) {state = 5; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
 				var5_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var4_filter.current())))).enumerator();
 				return false;
 			}
@@ -11726,7 +11726,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var5_filter.moveNext()) {state = 7; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var5_filter.current()))))))))) {state = 6; return false; }
 				var6_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
-				if (!(com.altova.functions.Core.exists((new seq119_if_equal(((com.altova.mapforce.IMFNode)(var5_filter.current())), var6_filter))))) {state = 6; return false; }
+				if (!(com.altova.functions.Core.exists((new seq119_if_equal(var6_filter, ((com.altova.mapforce.IMFNode)(var5_filter.current()))))))) {state = 6; return false; }
 				var7_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq120_join(((com.altova.mapforce.IMFNode)(var5_filter.current())), var7_filter)));
 				pos++;
@@ -11751,8 +11751,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_11() throws Exception {
 				state = 13;				
 				if (!var9_filter.moveNext()) {state = 12; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
 				var10_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var9_filter.current())))).enumerator();
 				return false;
 			}
@@ -11766,7 +11766,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var10_filter.moveNext()) {state = 14; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var10_filter.current()))))))))) {state = 13; return false; }
 				var11_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
-				if (!(com.altova.functions.Core.exists((new seq119_if_equal(((com.altova.mapforce.IMFNode)(var10_filter.current())), var11_filter))))) {state = 13; return false; }
+				if (!(com.altova.functions.Core.exists((new seq119_if_equal(var11_filter, ((com.altova.mapforce.IMFNode)(var10_filter.current()))))))) {state = 13; return false; }
 				var12_filter = (closure.var2_shared).enumerator();
 				return false;
 			}
@@ -11795,7 +11795,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var14_filter.current()))))))))) {state = 17; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq76_map(((com.altova.mapforce.IMFNode)(var14_filter.current()))))))))) {state = 17; return false; }
 				var15_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq122_join(((com.altova.mapforce.IMFNode)(var14_filter.current())), ((com.altova.mapforce.IMFNode)(var10_filter.current())), var13_Cell, var15_filter)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq122_join(((com.altova.mapforce.IMFNode)(var14_filter.current())), ((com.altova.mapforce.IMFNode)(var10_filter.current())), var15_filter, var13_Cell)));
 				pos++;
 				return true;
 			}
@@ -11976,13 +11976,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq119_if_equal implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq119_if_equal(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq119_if_equal(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -12029,13 +12029,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 3;				
-				if (!(com.altova.functions.Core.equal(com.altova.CoreTypes.nodeToString(closure.var1_current), "IP"))) {state = 2; return false; }
-				var3_shared = (closure.var2_shared).enumerator();
+				if (!(com.altova.functions.Core.equal(com.altova.CoreTypes.nodeToString(closure.var2_current), "IP"))) {state = 2; return false; }
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 9;				
-				var5_shared = (closure.var2_shared).enumerator();
+				var5_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_3() throws Exception {
@@ -12376,7 +12376,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var5_filter = (closure.var3_shared).enumerator();
+				var5_filter = (closure.var4_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -12391,7 +12391,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
 				if( var5_filter != null ) { var5_filter.close(); var5_filter = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorAreaValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.functions.Core.multiply(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq123_if_equal(closure.var2_current, closure.var4_shared)))), com.altova.CoreTypes.doubleToDecimal(com.altova.CoreTypes.parseDouble(com.altova.CoreTypes.nodeToString(closure.var1_current)))))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorAreaValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.functions.Core.multiply(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq123_if_equal(closure.var2_current, closure.var3_shared)))), com.altova.CoreTypes.doubleToDecimal(com.altova.CoreTypes.parseDouble(com.altova.CoreTypes.nodeToString(closure.var1_current)))))));
 				pos++;
 				return true;
 			}
@@ -12542,13 +12542,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq124_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq124_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq124_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -12613,13 +12613,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq106_seq_(closure.var1_current)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq106_seq_(closure.var2_current)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				var3_filter = (closure.var2_shared).enumerator();
+				var3_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_3() throws Exception {
@@ -12633,7 +12633,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 8;				
 				if( var3_filter != null ) { var3_filter.close(); var3_filter = null; }
-				var5_filter = (closure.var2_shared).enumerator();
+				var5_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_5() throws Exception {
@@ -12660,7 +12660,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_9() throws Exception {
 				state = 13;				
 				if( var5_filter != null ) { var5_filter.close(); var5_filter = null; }
-				var7_filter = (closure.var2_shared).enumerator();
+				var7_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_10() throws Exception {
@@ -12687,7 +12687,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_14() throws Exception {
 				state = 18;				
 				if( var7_filter != null ) { var7_filter.close(); var7_filter = null; }
-				var9_filter = (closure.var2_shared).enumerator();
+				var9_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_15() throws Exception {
@@ -12714,7 +12714,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_19() throws Exception {
 				state = 23;				
 				if( var9_filter != null ) { var9_filter.close(); var9_filter = null; }
-				var11_filter = (closure.var2_shared).enumerator();
+				var11_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_20() throws Exception {
@@ -12977,7 +12977,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 12;				
 				if (!var7_filter.moveNext()) {state = 13; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq125_map(((com.altova.mapforce.IMFNode)(var7_filter.current()))))))))) {state = 12; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedFields", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq135_join(((com.altova.mapforce.IMFNode)(var7_filter.current())), closure.var3_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedFields", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq135_join(closure.var3_shared, ((com.altova.mapforce.IMFNode)(var7_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -13269,8 +13269,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 6;				
 				if (!var4_filter.moveNext()) {state = 5; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
 				var5_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var4_filter.current())))).enumerator();
 				return false;
 			}
@@ -13284,7 +13284,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var5_filter.moveNext()) {state = 7; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var5_filter.current()))))))))) {state = 6; return false; }
 				var6_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
-				if (!(com.altova.functions.Core.exists((new seq130_if_equal(((com.altova.mapforce.IMFNode)(var5_filter.current())), var6_filter))))) {state = 6; return false; }
+				if (!(com.altova.functions.Core.exists((new seq130_if_equal(var6_filter, ((com.altova.mapforce.IMFNode)(var5_filter.current()))))))) {state = 6; return false; }
 				var7_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq131_join(((com.altova.mapforce.IMFNode)(var5_filter.current())), var7_filter)));
 				pos++;
@@ -13309,8 +13309,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_11() throws Exception {
 				state = 13;				
 				if (!var9_filter.moveNext()) {state = 12; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
 				var10_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var9_filter.current())))).enumerator();
 				return false;
 			}
@@ -13324,7 +13324,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var10_filter.moveNext()) {state = 14; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var10_filter.current()))))))))) {state = 13; return false; }
 				var11_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
-				if (!(com.altova.functions.Core.exists((new seq130_if_equal(((com.altova.mapforce.IMFNode)(var10_filter.current())), var11_filter))))) {state = 13; return false; }
+				if (!(com.altova.functions.Core.exists((new seq130_if_equal(var11_filter, ((com.altova.mapforce.IMFNode)(var10_filter.current()))))))) {state = 13; return false; }
 				var12_filter = (closure.var2_shared).enumerator();
 				return false;
 			}
@@ -13352,7 +13352,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var14_filter.moveNext()) {state = 18; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq125_map(((com.altova.mapforce.IMFNode)(var14_filter.current()))))))))) {state = 17; return false; }
 				var15_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq133_join(((com.altova.mapforce.IMFNode)(var14_filter.current())), ((com.altova.mapforce.IMFNode)(var10_filter.current())), var13_Cell, var15_filter)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq133_join(((com.altova.mapforce.IMFNode)(var14_filter.current())), ((com.altova.mapforce.IMFNode)(var10_filter.current())), var15_filter, var13_Cell)));
 				pos++;
 				return true;
 			}
@@ -13385,13 +13385,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq130_if_equal implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq130_if_equal(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq130_if_equal(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -13438,13 +13438,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 3;				
-				if (!(com.altova.functions.Core.equal(com.altova.CoreTypes.nodeToString(closure.var1_current), "IP"))) {state = 2; return false; }
-				var3_shared = (closure.var2_shared).enumerator();
+				if (!(com.altova.functions.Core.equal(com.altova.CoreTypes.nodeToString(closure.var2_current), "IP"))) {state = 2; return false; }
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 9;				
-				var5_shared = (closure.var2_shared).enumerator();
+				var5_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_3() throws Exception {
@@ -13785,7 +13785,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var5_filter = (closure.var3_shared).enumerator();
+				var5_filter = (closure.var4_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -13800,7 +13800,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
 				if( var5_filter != null ) { var5_filter.close(); var5_filter = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorAreaValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.functions.Core.multiply(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq134_if_equal(closure.var2_current, closure.var4_shared)))), com.altova.CoreTypes.parseDecimal(com.altova.CoreTypes.nodeToString(closure.var1_current))))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorAreaValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.functions.Core.multiply(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq134_if_equal(closure.var2_current, closure.var3_shared)))), com.altova.CoreTypes.parseDecimal(com.altova.CoreTypes.nodeToString(closure.var1_current))))));
 				pos++;
 				return true;
 			}
@@ -13951,13 +13951,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq135_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq135_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq135_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -14022,13 +14022,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq106_seq_(closure.var1_current)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq106_seq_(closure.var2_current)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				var3_filter = (closure.var2_shared).enumerator();
+				var3_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_3() throws Exception {
@@ -14042,7 +14042,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 8;				
 				if( var3_filter != null ) { var3_filter.close(); var3_filter = null; }
-				var5_filter = (closure.var2_shared).enumerator();
+				var5_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_5() throws Exception {
@@ -14069,7 +14069,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_9() throws Exception {
 				state = 13;				
 				if( var5_filter != null ) { var5_filter.close(); var5_filter = null; }
-				var7_filter = (closure.var2_shared).enumerator();
+				var7_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_10() throws Exception {
@@ -14096,7 +14096,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_14() throws Exception {
 				state = 18;				
 				if( var7_filter != null ) { var7_filter.close(); var7_filter = null; }
-				var9_filter = (closure.var2_shared).enumerator();
+				var9_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_15() throws Exception {
@@ -14123,7 +14123,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_19() throws Exception {
 				state = 23;				
 				if( var9_filter != null ) { var9_filter.close(); var9_filter = null; }
-				var11_filter = (closure.var2_shared).enumerator();
+				var11_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_20() throws Exception {
@@ -14386,7 +14386,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 12;				
 				if (!var7_filter.moveNext()) {state = 13; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq136_map(((com.altova.mapforce.IMFNode)(var7_filter.current()))))))))) {state = 12; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedFields", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq146_join(((com.altova.mapforce.IMFNode)(var7_filter.current())), closure.var3_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedFields", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq146_join(closure.var3_shared, ((com.altova.mapforce.IMFNode)(var7_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -14678,8 +14678,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 6;				
 				if (!var4_filter.moveNext()) {state = 5; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
 				var5_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var4_filter.current())))).enumerator();
 				return false;
 			}
@@ -14693,7 +14693,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var5_filter.moveNext()) {state = 7; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var5_filter.current()))))))))) {state = 6; return false; }
 				var6_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
-				if (!(com.altova.functions.Core.exists((new seq141_if_equal(((com.altova.mapforce.IMFNode)(var5_filter.current())), var6_filter))))) {state = 6; return false; }
+				if (!(com.altova.functions.Core.exists((new seq141_if_equal(var6_filter, ((com.altova.mapforce.IMFNode)(var5_filter.current()))))))) {state = 6; return false; }
 				var7_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq142_join(((com.altova.mapforce.IMFNode)(var5_filter.current())), var7_filter)));
 				pos++;
@@ -14718,8 +14718,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_11() throws Exception {
 				state = 13;				
 				if (!var9_filter.moveNext()) {state = 12; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
 				var10_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var9_filter.current())))).enumerator();
 				return false;
 			}
@@ -14733,7 +14733,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var10_filter.moveNext()) {state = 14; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var10_filter.current()))))))))) {state = 13; return false; }
 				var11_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
-				if (!(com.altova.functions.Core.exists((new seq141_if_equal(((com.altova.mapforce.IMFNode)(var10_filter.current())), var11_filter))))) {state = 13; return false; }
+				if (!(com.altova.functions.Core.exists((new seq141_if_equal(var11_filter, ((com.altova.mapforce.IMFNode)(var10_filter.current()))))))) {state = 13; return false; }
 				var12_filter = (closure.var2_shared).enumerator();
 				return false;
 			}
@@ -14761,7 +14761,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var14_filter.moveNext()) {state = 18; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq136_map(((com.altova.mapforce.IMFNode)(var14_filter.current()))))))))) {state = 17; return false; }
 				var15_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq144_join(((com.altova.mapforce.IMFNode)(var14_filter.current())), ((com.altova.mapforce.IMFNode)(var10_filter.current())), var13_Cell, var15_filter)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq144_join(((com.altova.mapforce.IMFNode)(var14_filter.current())), ((com.altova.mapforce.IMFNode)(var10_filter.current())), var15_filter, var13_Cell)));
 				pos++;
 				return true;
 			}
@@ -14794,13 +14794,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq141_if_equal implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq141_if_equal(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq141_if_equal(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -14847,13 +14847,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 3;				
-				if (!(com.altova.functions.Core.equal(com.altova.CoreTypes.nodeToString(closure.var1_current), "IP"))) {state = 2; return false; }
-				var3_shared = (closure.var2_shared).enumerator();
+				if (!(com.altova.functions.Core.equal(com.altova.CoreTypes.nodeToString(closure.var2_current), "IP"))) {state = 2; return false; }
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 9;				
-				var5_shared = (closure.var2_shared).enumerator();
+				var5_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_3() throws Exception {
@@ -15194,7 +15194,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var5_filter = (closure.var3_shared).enumerator();
+				var5_filter = (closure.var4_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -15209,7 +15209,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
 				if( var5_filter != null ) { var5_filter.close(); var5_filter = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorAreaValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.functions.Core.multiply(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq145_if_equal(closure.var2_current, closure.var4_shared)))), com.altova.CoreTypes.parseDecimal(com.altova.CoreTypes.nodeToString(closure.var1_current))))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorAreaValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.functions.Core.multiply(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq145_if_equal(closure.var2_current, closure.var3_shared)))), com.altova.CoreTypes.parseDecimal(com.altova.CoreTypes.nodeToString(closure.var1_current))))));
 				pos++;
 				return true;
 			}
@@ -15360,13 +15360,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq146_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq146_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq146_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -15431,13 +15431,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq106_seq_(closure.var1_current)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq106_seq_(closure.var2_current)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				var3_filter = (closure.var2_shared).enumerator();
+				var3_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_3() throws Exception {
@@ -15451,7 +15451,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 8;				
 				if( var3_filter != null ) { var3_filter.close(); var3_filter = null; }
-				var5_filter = (closure.var2_shared).enumerator();
+				var5_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_5() throws Exception {
@@ -15478,7 +15478,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_9() throws Exception {
 				state = 13;				
 				if( var5_filter != null ) { var5_filter.close(); var5_filter = null; }
-				var7_filter = (closure.var2_shared).enumerator();
+				var7_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_10() throws Exception {
@@ -15505,7 +15505,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_14() throws Exception {
 				state = 18;				
 				if( var7_filter != null ) { var7_filter.close(); var7_filter = null; }
-				var9_filter = (closure.var2_shared).enumerator();
+				var9_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_15() throws Exception {
@@ -15532,7 +15532,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_19() throws Exception {
 				state = 23;				
 				if( var9_filter != null ) { var9_filter.close(); var9_filter = null; }
-				var11_filter = (closure.var2_shared).enumerator();
+				var11_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_20() throws Exception {
@@ -15722,7 +15722,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 12;				
 				if (!var7_filter.moveNext()) {state = 13; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq37_map(((com.altova.mapforce.IMFNode)(var7_filter.current()))))))))) {state = 12; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedFields", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq156_join(((com.altova.mapforce.IMFNode)(var7_filter.current())), closure.var3_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedFields", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq156_join(closure.var3_shared, ((com.altova.mapforce.IMFNode)(var7_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -16014,8 +16014,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 6;				
 				if (!var4_filter.moveNext()) {state = 5; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
 				var5_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var4_filter.current())))).enumerator();
 				return false;
 			}
@@ -16029,7 +16029,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var5_filter.moveNext()) {state = 7; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var5_filter.current()))))))))) {state = 6; return false; }
 				var6_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
-				if (!(com.altova.functions.Core.exists((new seq151_if_equal(((com.altova.mapforce.IMFNode)(var5_filter.current())), var6_filter))))) {state = 6; return false; }
+				if (!(com.altova.functions.Core.exists((new seq151_if_equal(var6_filter, ((com.altova.mapforce.IMFNode)(var5_filter.current()))))))) {state = 6; return false; }
 				var7_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq152_join(((com.altova.mapforce.IMFNode)(var5_filter.current())), var7_filter)));
 				pos++;
@@ -16054,8 +16054,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_11() throws Exception {
 				state = 13;				
 				if (!var9_filter.moveNext()) {state = 12; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
 				var10_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var9_filter.current())))).enumerator();
 				return false;
 			}
@@ -16069,7 +16069,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var10_filter.moveNext()) {state = 14; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var10_filter.current()))))))))) {state = 13; return false; }
 				var11_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
-				if (!(com.altova.functions.Core.exists((new seq151_if_equal(((com.altova.mapforce.IMFNode)(var10_filter.current())), var11_filter))))) {state = 13; return false; }
+				if (!(com.altova.functions.Core.exists((new seq151_if_equal(var11_filter, ((com.altova.mapforce.IMFNode)(var10_filter.current()))))))) {state = 13; return false; }
 				var12_filter = (closure.var2_shared).enumerator();
 				return false;
 			}
@@ -16097,7 +16097,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var14_filter.moveNext()) {state = 18; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq37_map(((com.altova.mapforce.IMFNode)(var14_filter.current()))))))))) {state = 17; return false; }
 				var15_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq154_join(((com.altova.mapforce.IMFNode)(var14_filter.current())), ((com.altova.mapforce.IMFNode)(var10_filter.current())), var13_Cell, var15_filter)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq154_join(((com.altova.mapforce.IMFNode)(var14_filter.current())), ((com.altova.mapforce.IMFNode)(var10_filter.current())), var15_filter, var13_Cell)));
 				pos++;
 				return true;
 			}
@@ -16130,13 +16130,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq151_if_equal implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq151_if_equal(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq151_if_equal(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -16183,13 +16183,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 3;				
-				if (!(com.altova.functions.Core.equal(com.altova.CoreTypes.nodeToString(closure.var1_current), "IP"))) {state = 2; return false; }
-				var3_shared = (closure.var2_shared).enumerator();
+				if (!(com.altova.functions.Core.equal(com.altova.CoreTypes.nodeToString(closure.var2_current), "IP"))) {state = 2; return false; }
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 9;				
-				var5_shared = (closure.var2_shared).enumerator();
+				var5_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_3() throws Exception {
@@ -16530,7 +16530,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var5_filter = (closure.var3_shared).enumerator();
+				var5_filter = (closure.var4_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -16545,7 +16545,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
 				if( var5_filter != null ) { var5_filter.close(); var5_filter = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorAreaValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.functions.Core.multiply(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq155_if_equal(closure.var2_current, closure.var4_shared)))), com.altova.CoreTypes.parseDecimal(com.altova.CoreTypes.nodeToString(closure.var1_current))))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorAreaValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.functions.Core.multiply(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq155_if_equal(closure.var2_current, closure.var3_shared)))), com.altova.CoreTypes.parseDecimal(com.altova.CoreTypes.nodeToString(closure.var1_current))))));
 				pos++;
 				return true;
 			}
@@ -16696,13 +16696,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq156_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq156_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq156_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -16767,13 +16767,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq106_seq_(closure.var1_current)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq106_seq_(closure.var2_current)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				var3_filter = (closure.var2_shared).enumerator();
+				var3_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_3() throws Exception {
@@ -16787,7 +16787,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 8;				
 				if( var3_filter != null ) { var3_filter.close(); var3_filter = null; }
-				var5_filter = (closure.var2_shared).enumerator();
+				var5_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_5() throws Exception {
@@ -16814,7 +16814,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_9() throws Exception {
 				state = 13;				
 				if( var5_filter != null ) { var5_filter.close(); var5_filter = null; }
-				var7_filter = (closure.var2_shared).enumerator();
+				var7_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_10() throws Exception {
@@ -16841,7 +16841,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_14() throws Exception {
 				state = 18;				
 				if( var7_filter != null ) { var7_filter.close(); var7_filter = null; }
-				var9_filter = (closure.var2_shared).enumerator();
+				var9_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_15() throws Exception {
@@ -16868,7 +16868,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_19() throws Exception {
 				state = 23;				
 				if( var9_filter != null ) { var9_filter.close(); var9_filter = null; }
-				var11_filter = (closure.var2_shared).enumerator();
+				var11_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_20() throws Exception {
@@ -17131,7 +17131,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 12;				
 				if (!var7_filter.moveNext()) {state = 13; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq157_map(((com.altova.mapforce.IMFNode)(var7_filter.current()))))))))) {state = 12; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedFields", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq167_join(((com.altova.mapforce.IMFNode)(var7_filter.current())), closure.var3_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedFields", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq167_join(closure.var3_shared, ((com.altova.mapforce.IMFNode)(var7_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -17423,8 +17423,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 6;				
 				if (!var4_filter.moveNext()) {state = 5; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
 				var5_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var4_filter.current())))).enumerator();
 				return false;
 			}
@@ -17438,7 +17438,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var5_filter.moveNext()) {state = 7; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var5_filter.current()))))))))) {state = 6; return false; }
 				var6_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
-				if (!(com.altova.functions.Core.exists((new seq162_if_equal(((com.altova.mapforce.IMFNode)(var5_filter.current())), var6_filter))))) {state = 6; return false; }
+				if (!(com.altova.functions.Core.exists((new seq162_if_equal(var6_filter, ((com.altova.mapforce.IMFNode)(var5_filter.current()))))))) {state = 6; return false; }
 				var7_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq163_join(((com.altova.mapforce.IMFNode)(var5_filter.current())), var7_filter)));
 				pos++;
@@ -17463,8 +17463,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_11() throws Exception {
 				state = 13;				
 				if (!var9_filter.moveNext()) {state = 12; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 11; return false; }
 				var10_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var9_filter.current())))).enumerator();
 				return false;
 			}
@@ -17478,7 +17478,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var10_filter.moveNext()) {state = 14; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var10_filter.current()))))))))) {state = 13; return false; }
 				var11_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
-				if (!(com.altova.functions.Core.exists((new seq162_if_equal(((com.altova.mapforce.IMFNode)(var10_filter.current())), var11_filter))))) {state = 13; return false; }
+				if (!(com.altova.functions.Core.exists((new seq162_if_equal(var11_filter, ((com.altova.mapforce.IMFNode)(var10_filter.current()))))))) {state = 13; return false; }
 				var12_filter = (closure.var2_shared).enumerator();
 				return false;
 			}
@@ -17506,7 +17506,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var14_filter.moveNext()) {state = 18; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq157_map(((com.altova.mapforce.IMFNode)(var14_filter.current()))))))))) {state = 17; return false; }
 				var15_filter = new com.altova.functions.Core.SequenceCache((new seq117_filter(closure.var2_shared)));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq165_join(((com.altova.mapforce.IMFNode)(var14_filter.current())), ((com.altova.mapforce.IMFNode)(var10_filter.current())), var13_Cell, var15_filter)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorArea", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq165_join(((com.altova.mapforce.IMFNode)(var14_filter.current())), ((com.altova.mapforce.IMFNode)(var10_filter.current())), var15_filter, var13_Cell)));
 				pos++;
 				return true;
 			}
@@ -17539,13 +17539,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq162_if_equal implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq162_if_equal(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq162_if_equal(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -17592,13 +17592,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 3;				
-				if (!(com.altova.functions.Core.equal(com.altova.CoreTypes.nodeToString(closure.var1_current), "IP"))) {state = 2; return false; }
-				var3_shared = (closure.var2_shared).enumerator();
+				if (!(com.altova.functions.Core.equal(com.altova.CoreTypes.nodeToString(closure.var2_current), "IP"))) {state = 2; return false; }
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 9;				
-				var5_shared = (closure.var2_shared).enumerator();
+				var5_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_3() throws Exception {
@@ -17939,7 +17939,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var5_filter = (closure.var3_shared).enumerator();
+				var5_filter = (closure.var4_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -17954,7 +17954,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
 				if( var5_filter != null ) { var5_filter.close(); var5_filter = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorAreaValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.functions.Core.multiply(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq166_if_equal(closure.var2_current, closure.var4_shared)))), com.altova.CoreTypes.parseDecimal(com.altova.CoreTypes.nodeToString(closure.var1_current))))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FloorAreaValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.functions.Core.multiply(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq166_if_equal(closure.var2_current, closure.var3_shared)))), com.altova.CoreTypes.parseDecimal(com.altova.CoreTypes.nodeToString(closure.var1_current))))));
 				pos++;
 				return true;
 			}
@@ -18105,13 +18105,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq167_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq167_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq167_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -18176,13 +18176,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq106_seq_(closure.var1_current)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq106_seq_(closure.var2_current)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				var3_filter = (closure.var2_shared).enumerator();
+				var3_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_3() throws Exception {
@@ -18196,7 +18196,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 8;				
 				if( var3_filter != null ) { var3_filter.close(); var3_filter = null; }
-				var5_filter = (closure.var2_shared).enumerator();
+				var5_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_5() throws Exception {
@@ -18223,7 +18223,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_9() throws Exception {
 				state = 13;				
 				if( var5_filter != null ) { var5_filter.close(); var5_filter = null; }
-				var7_filter = (closure.var2_shared).enumerator();
+				var7_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_10() throws Exception {
@@ -18250,7 +18250,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_14() throws Exception {
 				state = 18;				
 				if( var7_filter != null ) { var7_filter.close(); var7_filter = null; }
-				var9_filter = (closure.var2_shared).enumerator();
+				var9_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_15() throws Exception {
@@ -18277,7 +18277,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_19() throws Exception {
 				state = 23;				
 				if( var9_filter != null ) { var9_filter.close(); var9_filter = null; }
-				var11_filter = (closure.var2_shared).enumerator();
+				var11_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_20() throws Exception {
@@ -18345,21 +18345,21 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq168_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
+		com.altova.mapforce.IEnumerable var1_shared;
 		com.altova.mapforce.IEnumerable var2_shared;
 		com.altova.mapforce.IEnumerable var3_shared;
 		com.altova.mapforce.IEnumerable var4_shared;
 		com.altova.mapforce.IEnumerable var5_shared;
-		com.altova.mapforce.IEnumerable var6_shared;
+		com.altova.mapforce.IMFNode var6_current;
 	
-		public seq168_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IEnumerable var3_shared, com.altova.mapforce.IEnumerable var4_shared, com.altova.mapforce.IEnumerable var5_shared, com.altova.mapforce.IEnumerable var6_shared)
+		public seq168_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IEnumerable var3_shared, com.altova.mapforce.IEnumerable var4_shared, com.altova.mapforce.IEnumerable var5_shared, com.altova.mapforce.IMFNode var6_current)
 		{
-			this.var1_current = var1_current;
+			this.var1_shared = var1_shared;
 			this.var2_shared = var2_shared;
 			this.var3_shared = var3_shared;
 			this.var4_shared = var4_shared;
 			this.var5_shared = var5_shared;
-			this.var6_shared = var6_shared;
+			this.var6_current = var6_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -18433,15 +18433,15 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 9;				
 				if( var7_shared != null ) { var7_shared.close(); var7_shared = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq172_join(closure.var1_current, closure.var5_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq172_join(closure.var1_shared, closure.var6_current)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 6;				
 				if (!var8_filter.moveNext()) {state = 5; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var8_filter.current()))))))))) {state = 4; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var8_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var8_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var8_filter.current()))))))))) {state = 4; return false; }
 				var9_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var8_filter.current())))).enumerator();
 				return false;
 			}
@@ -18466,7 +18466,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_9() throws Exception {
 				state = 10;				
-				var10_shared = (closure.var6_shared).enumerator();
+				var10_shared = (closure.var5_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_10() throws Exception {
@@ -18485,7 +18485,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 12;				
 				if (!var11_filter.moveNext()) {state = 13; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq37_map(((com.altova.mapforce.IMFNode)(var11_filter.current()))))))))) {state = 12; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq173_join(((com.altova.mapforce.IMFNode)(var11_filter.current())), closure.var6_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq173_join(closure.var5_shared, ((com.altova.mapforce.IMFNode)(var11_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -18967,13 +18967,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq172_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq172_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq172_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -19013,7 +19013,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_shared = (closure.var2_shared).enumerator();
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -19025,7 +19025,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
 				if( var3_shared != null ) { var3_shared.close(); var3_shared = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var1_current)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var2_current)));
 				pos++;
 				return true;
 			}
@@ -19060,13 +19060,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq173_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq173_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq173_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -19106,7 +19106,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_shared = (closure.var2_shared).enumerator();
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -19118,7 +19118,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
 				if( var3_shared != null ) { var3_shared.close(); var3_shared = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var1_current)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var2_current)));
 				pos++;
 				return true;
 			}
@@ -20427,8 +20427,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var55_filter.moveNext()) {state = 89; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq37_map(((com.altova.mapforce.IMFNode)(var55_filter.current()))))))))) {state = 88; return false; }
 				if (!(com.altova.functions.Core.greater(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var55_filter.current()))), com.altova.CoreTypes.decimalToString(new java.math.BigDecimal("0.5"))))) {state = 88; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq467_seq_(((com.altova.mapforce.IMFNode)(var50_filter.current())), ((com.altova.mapforce.IMFNode)(var55_filter.current())), ((com.altova.mapforce.IMFNode)(var53_filter.current()))))))))) {state = 88; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FanSystems", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq468_join(((com.altova.mapforce.IMFNode)(var50_filter.current())), ((com.altova.mapforce.IMFNode)(var53_filter.current())), var48_Row, var46_Worksheet)));
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq467_seq_(((com.altova.mapforce.IMFNode)(var55_filter.current())), ((com.altova.mapforce.IMFNode)(var53_filter.current())), ((com.altova.mapforce.IMFNode)(var50_filter.current()))))))))) {state = 88; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FanSystems", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq468_join(((com.altova.mapforce.IMFNode)(var53_filter.current())), ((com.altova.mapforce.IMFNode)(var50_filter.current())), var46_Worksheet, var48_Row)));
 				pos++;
 				return true;
 			}
@@ -20926,8 +20926,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_174() throws Exception {
 				state = 176;				
 				if (!var107_filter.moveNext()) {state = 175; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var107_filter.current()))))))))) {state = 174; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var107_filter.current()))))))))) {state = 174; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var107_filter.current()))))))))) {state = 174; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var107_filter.current()))))))))) {state = 174; return false; }
 				var108_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var107_filter.current())))).enumerator();
 				return false;
 			}
@@ -21080,8 +21080,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_201() throws Exception {
 				state = 203;				
 				if (!var122_filter.moveNext()) {state = 202; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var122_filter.current()))))))))) {state = 201; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var122_filter.current()))))))))) {state = 201; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var122_filter.current()))))))))) {state = 201; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var122_filter.current()))))))))) {state = 201; return false; }
 				var123_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var122_filter.current())))).enumerator();
 				return false;
 			}
@@ -21616,7 +21616,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				var17_cast = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var8_filter.current()))));
 				var18_cast = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var10_filter.current()))));
 				var19_filter = new com.altova.functions.Core.SequenceCache((new seq190_filter(var4_Row)));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Plants", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq194_join(((com.altova.mapforce.IMFNode)(var12_filter.current())), ((com.altova.mapforce.IMFNode)(var14_filter.current())), var4_Row, var16_cast, var18_cast, var15_cast, var17_cast, var19_filter)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Plants", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq194_join(((com.altova.mapforce.IMFNode)(var12_filter.current())), ((com.altova.mapforce.IMFNode)(var14_filter.current())), var4_Row, var17_cast, var19_filter, var16_cast, var18_cast, var15_cast)));
 				pos++;
 				return true;
 			}
@@ -21658,7 +21658,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!((Boolean)com.altova.functions.Core.first((new seq271_if_cast(((com.altova.mapforce.IMFNode)(var23_filter.current())), var21_Row))))) {state = 29; return false; }
 				var24_cast = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var23_filter.current()))));
 				var25_filter = new com.altova.functions.Core.SequenceCache((new seq281_filter(var21_Row)));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("HeatingAndCoolingSystems", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq283_join(closure.var1_shared, var21_Row, var24_cast, var25_filter)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("HeatingAndCoolingSystems", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq283_join(closure.var1_shared, var21_Row, var25_filter, var24_cast)));
 				pos++;
 				return true;
 			}
@@ -22560,12 +22560,12 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 		com.altova.mapforce.IMFNode var2_cur_Cell;
 		com.altova.mapforce.IEnumerable var3_shared;
 		boolean var4_shared;
-		boolean var5_shared;
-		java.lang.String var6_shared;
+		com.altova.mapforce.IEnumerable var5_shared;
+		boolean var6_shared;
 		boolean var7_shared;
-		com.altova.mapforce.IEnumerable var8_shared;
+		java.lang.String var8_shared;
 	
-		public seq194_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IMFNode var2_cur_Cell, com.altova.mapforce.IEnumerable var3_shared, boolean var4_shared, boolean var5_shared, java.lang.String var6_shared, boolean var7_shared, com.altova.mapforce.IEnumerable var8_shared)
+		public seq194_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IMFNode var2_cur_Cell, com.altova.mapforce.IEnumerable var3_shared, boolean var4_shared, com.altova.mapforce.IEnumerable var5_shared, boolean var6_shared, boolean var7_shared, java.lang.String var8_shared)
 		{
 			this.var1_current = var1_current;
 			this.var2_cur_Cell = var2_cur_Cell;
@@ -22658,7 +22658,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 13;				
 				if( var9_filter != null ) { var9_filter.close(); var9_filter = null; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq229_seq_(closure.var4_shared, closure.var5_shared, closure.var7_shared))))))) {state = 13; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq229_seq_(closure.var4_shared, closure.var6_shared, closure.var7_shared))))))) {state = 13; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("CoolingPlantType", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq230_join(closure.var1_current, closure.var2_cur_Cell, closure.var3_shared, closure.var4_shared, closure.var5_shared, closure.var6_shared, closure.var7_shared, closure.var8_shared)));
 				pos++;
 				return true;
@@ -22704,7 +22704,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_13() throws Exception {
 				state = 14;				
-				var13_shared = (closure.var8_shared).enumerator();
+				var13_shared = (closure.var5_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_14() throws Exception {
@@ -22772,13 +22772,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 24;				
 				if (!var18_filter.moveNext()) {state = 25; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var18_filter.current()))))))))) {state = 24; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq266_seq_(((com.altova.mapforce.IMFNode)(var18_filter.current())), closure.var1_current, ((com.altova.mapforce.IMFNode)(var14_filter.current())), ((com.altova.mapforce.IMFNode)(var16_filter.current())), closure.var2_cur_Cell))))))) {state = 24; return false; }
-				var19_cast = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var18_filter.current()))));
-				var20_cast = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var16_filter.current()))));
-				var21_cast = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var14_filter.current()))));
-				var22_cast = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var2_cur_Cell));
-				var23_cast = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_current));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("CondenserPlant", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq267_join(var21_cast, var22_cast, var20_cast, var19_cast, var23_cast)));
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq266_seq_(((com.altova.mapforce.IMFNode)(var16_filter.current())), ((com.altova.mapforce.IMFNode)(var18_filter.current())), closure.var1_current, ((com.altova.mapforce.IMFNode)(var14_filter.current())), closure.var2_cur_Cell))))))) {state = 24; return false; }
+				var19_cast = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var16_filter.current()))));
+				var20_cast = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var2_cur_Cell));
+				var21_cast = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_current));
+				var22_cast = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var18_filter.current()))));
+				var23_cast = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var14_filter.current()))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("CondenserPlant", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq267_join(var20_cast, var19_cast, var23_cast, var21_cast, var22_cast)));
 				pos++;
 				return true;
 			}
@@ -24500,7 +24500,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var2_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq217_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq218_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq219_map(((com.altova.mapforce.IMFNode)(var2_filter.current())), closure.var1_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq219_map(closure.var1_shared, ((com.altova.mapforce.IMFNode)(var2_filter.current())))))));
 				pos++;
 				return true;
 			}
@@ -24672,13 +24672,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq219_map implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq219_map(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq219_map(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -24715,14 +24715,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var1_current)).enumerator();
+				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var2_current)).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var3_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq220_map(closure.var2_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq220_map(closure.var1_shared)))));
 				pos++;
 				return true;
 			}
@@ -25479,19 +25479,19 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = closure.var1_shared;
+				current = closure.var2_shared;
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				current = closure.var3_shared;
+				current = closure.var1_shared;
 				pos++;
 				return true;
 			}
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
-				current = closure.var2_shared;
+				current = closure.var3_shared;
 				pos++;
 				return true;
 			}
@@ -25515,12 +25515,12 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 		com.altova.mapforce.IMFNode var2_cur_Cell;
 		com.altova.mapforce.IEnumerable var3_shared;
 		boolean var4_shared;
-		boolean var5_shared;
-		java.lang.String var6_shared;
+		com.altova.mapforce.IEnumerable var5_shared;
+		boolean var6_shared;
 		boolean var7_shared;
-		com.altova.mapforce.IEnumerable var8_shared;
+		java.lang.String var8_shared;
 	
-		public seq230_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IMFNode var2_cur_Cell, com.altova.mapforce.IEnumerable var3_shared, boolean var4_shared, boolean var5_shared, java.lang.String var6_shared, boolean var7_shared, com.altova.mapforce.IEnumerable var8_shared)
+		public seq230_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IMFNode var2_cur_Cell, com.altova.mapforce.IEnumerable var3_shared, boolean var4_shared, com.altova.mapforce.IEnumerable var5_shared, boolean var6_shared, boolean var7_shared, java.lang.String var8_shared)
 		{
 			this.var1_current = var1_current;
 			this.var2_cur_Cell = var2_cur_Cell;
@@ -25572,22 +25572,22 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 5;				
-				if (!(closure.var7_shared)) {state = 5; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Chiller", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq231_join(closure.var1_current, closure.var2_cur_Cell, closure.var3_shared, closure.var8_shared)));
+				if (!(closure.var4_shared)) {state = 5; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Chiller", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq231_join(closure.var1_current, closure.var2_cur_Cell, closure.var3_shared, closure.var5_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_5() throws Exception {
 				state = 8;				
-				if (!(closure.var5_shared)) {state = 8; return false; }
+				if (!(closure.var7_shared)) {state = 8; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("DistrictChilledWater", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq228_seq_()));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_8() throws Exception {
 				state = 0;				
-				if (!(closure.var4_shared)) {state = 0; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("OtherCombination", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(closure.var6_shared));
+				if (!(closure.var6_shared)) {state = 0; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("OtherCombination", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(closure.var8_shared));
 				pos++;
 				return true;
 			}
@@ -26954,7 +26954,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var2_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq44_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq45_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq248_map(((com.altova.mapforce.IMFNode)(var2_filter.current())), closure.var1_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq248_map(closure.var1_shared, ((com.altova.mapforce.IMFNode)(var2_filter.current())))))));
 				pos++;
 				return true;
 			}
@@ -26980,13 +26980,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq248_map implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq248_map(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq248_map(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -27023,14 +27023,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var1_current)).enumerator();
+				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var2_current)).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var3_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq249_map(closure.var2_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq249_map(closure.var1_shared)))));
 				pos++;
 				return true;
 			}
@@ -27667,7 +27667,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var3_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq256_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 2; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq257_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq258_map(closure.var1_current, ((com.altova.mapforce.IMFNode)(var3_filter.current())), closure.var2_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq258_map(closure.var1_current, closure.var2_shared, ((com.altova.mapforce.IMFNode)(var3_filter.current())))))));
 				pos++;
 				return true;
 			}
@@ -27840,14 +27840,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	static class seq258_map implements IEnumerable
 	{
 		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IMFNode var2_current;
-		com.altova.mapforce.IEnumerable var3_shared;
+		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IMFNode var3_current;
 	
-		public seq258_map(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IMFNode var2_current, com.altova.mapforce.IEnumerable var3_shared)
+		public seq258_map(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IMFNode var3_current)
 		{
 			this.var1_current = var1_current;
-			this.var2_current = var2_current;
-			this.var3_shared = var3_shared;
+			this.var2_shared = var2_shared;
+			this.var3_current = var3_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -27884,14 +27884,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var4_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var2_current)).enumerator();
+				var4_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var3_current)).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var4_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq259_map(closure.var1_current, closure.var3_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq259_map(closure.var1_current, closure.var2_shared)))));
 				pos++;
 				return true;
 			}
@@ -28562,16 +28562,16 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq266_seq_ implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_cur_Cell;
-		com.altova.mapforce.IMFNode var2_current;
+		com.altova.mapforce.IMFNode var1_current;
+		com.altova.mapforce.IMFNode var2_cur_Cell;
 		com.altova.mapforce.IMFNode var3_current;
 		com.altova.mapforce.IMFNode var4_current;
 		com.altova.mapforce.IMFNode var5_cur_Cell;
 	
-		public seq266_seq_(com.altova.mapforce.IMFNode var1_cur_Cell, com.altova.mapforce.IMFNode var2_current, com.altova.mapforce.IMFNode var3_current, com.altova.mapforce.IMFNode var4_current, com.altova.mapforce.IMFNode var5_cur_Cell)
+		public seq266_seq_(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IMFNode var2_cur_Cell, com.altova.mapforce.IMFNode var3_current, com.altova.mapforce.IMFNode var4_current, com.altova.mapforce.IMFNode var5_cur_Cell)
 		{
-			this.var1_cur_Cell = var1_cur_Cell;
-			this.var2_current = var2_current;
+			this.var1_current = var1_current;
+			this.var2_cur_Cell = var2_cur_Cell;
 			this.var3_current = var3_current;
 			this.var4_current = var4_current;
 			this.var5_cur_Cell = var5_cur_Cell;
@@ -28612,7 +28612,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var2_current));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var3_current));
 				pos++;
 				return true;
 			}
@@ -28624,19 +28624,19 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_3() throws Exception {
 				state = 4;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var3_current));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var4_current));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 5;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var4_current));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_current));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_5() throws Exception {
 				state = 0;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_cur_Cell));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var2_cur_Cell));
 				pos++;
 				return true;
 			}
@@ -28712,21 +28712,21 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 7;				
-				if (!(closure.var5_shared)) {state = 7; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("AirCooled", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq269_cond_box(closure.var3_shared, closure.var4_shared)));
+				if (!(closure.var4_shared)) {state = 7; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("AirCooled", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq269_cond_box(closure.var2_shared, closure.var5_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_7() throws Exception {
 				state = 10;				
-				if (!(closure.var2_shared)) {state = 10; return false; }
+				if (!(closure.var1_shared)) {state = 10; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("WaterCooled", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq228_seq_()));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_10() throws Exception {
 				state = 0;				
-				if (!(closure.var1_shared)) {state = 0; return false; }
+				if (!(closure.var3_shared)) {state = 0; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("GroundSource", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq228_seq_()));
 				pos++;
 				return true;
@@ -28797,31 +28797,31 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = closure.var5_shared;
+				current = closure.var4_shared;
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				current = closure.var2_shared;
+				current = closure.var1_shared;
 				pos++;
 				return true;
 			}
 			private boolean moveNext_3() throws Exception {
 				state = 4;				
-				current = closure.var1_shared;
+				current = closure.var3_shared;
 				pos++;
 				return true;
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 5;				
-				current = closure.var3_shared;
+				current = closure.var2_shared;
 				pos++;
 				return true;
 			}
 			private boolean moveNext_5() throws Exception {
 				state = 0;				
-				current = closure.var4_shared;
+				current = closure.var5_shared;
 				pos++;
 				return true;
 			}
@@ -29086,7 +29086,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var2_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq66_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq67_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq273_map(((com.altova.mapforce.IMFNode)(var2_filter.current())), closure.var1_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq273_map(closure.var1_shared, ((com.altova.mapforce.IMFNode)(var2_filter.current())))))));
 				pos++;
 				return true;
 			}
@@ -29112,13 +29112,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq273_map implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq273_map(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq273_map(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -29156,7 +29156,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var1_current)).enumerator();
+				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var2_current)).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -29175,7 +29175,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 2;				
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq274_map(closure.var2_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq274_map(closure.var1_shared)))));
 				pos++;
 				return true;
 			}
@@ -29691,8 +29691,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_filter.moveNext()) {state = 3; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq241_map(((com.altova.mapforce.IMFNode)(var2_filter.current())))))));
 				pos++;
 				return true;
@@ -29869,10 +29869,10 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	{
 		com.altova.mapforce.IEnumerable var1_shared;
 		com.altova.mapforce.IEnumerable var2_shared;
-		boolean var3_shared;
-		com.altova.mapforce.IEnumerable var4_shared;
+		com.altova.mapforce.IEnumerable var3_shared;
+		boolean var4_shared;
 	
-		public seq283_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IEnumerable var2_shared, boolean var3_shared, com.altova.mapforce.IEnumerable var4_shared)
+		public seq283_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IEnumerable var3_shared, boolean var4_shared)
 		{
 			this.var1_shared = var1_shared;
 			this.var2_shared = var2_shared;
@@ -29924,13 +29924,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("HeatingSource", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq284_join(closure.var1_shared, closure.var2_shared, closure.var3_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("HeatingSource", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq284_join(closure.var1_shared, closure.var2_shared, closure.var4_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				var5_shared = (closure.var4_shared).enumerator();
+				var5_shared = (closure.var3_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_3() throws Exception {
@@ -29942,7 +29942,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 8;				
 				if( var5_shared != null ) { var5_shared.close(); var5_shared = null; }
-				var7_shared = (closure.var4_shared).enumerator();
+				var7_shared = (closure.var3_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_5() throws Exception {
@@ -29968,7 +29968,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_9() throws Exception {
 				state = 0;				
 				if( var7_shared != null ) { var7_shared.close(); var7_shared = null; }
-				if (!(closure.var3_shared)) {state = 0; return false; }
+				if (!(closure.var4_shared)) {state = 0; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Delivery", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq374_seq_()));
 				pos++;
 				return true;
@@ -30274,7 +30274,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 30;				
 				if (!var19_filter.moveNext()) {state = 31; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var19_filter.current()))))))))) {state = 30; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq298_if_cast(((com.altova.mapforce.IMFNode)(var19_filter.current())), closure.var1_shared, closure.var2_shared))))) {state = 30; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq298_if_cast(closure.var1_shared, closure.var2_shared, ((com.altova.mapforce.IMFNode)(var19_filter.current()))))))) {state = 30; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("PrimaryFuel", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box((java.lang.String)com.altova.functions.Core.last((new seq317_if_cast(((com.altova.mapforce.IMFNode)(var19_filter.current())), closure.var1_shared, closure.var2_shared)))));
 				pos++;
 				return true;
@@ -31235,8 +31235,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_23() throws Exception {
 				state = 25;				
 				if (!var9_filter.moveNext()) {state = 24; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 23; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 23; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 23; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 23; return false; }
 				var10_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var9_filter.current())))).enumerator();
 				return false;
 			}
@@ -31428,15 +31428,15 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq298_if_cast implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
+		com.altova.mapforce.IEnumerable var1_shared;
 		com.altova.mapforce.IEnumerable var2_shared;
-		com.altova.mapforce.IEnumerable var3_shared;
+		com.altova.mapforce.IMFNode var3_current;
 	
-		public seq298_if_cast(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IEnumerable var3_shared)
+		public seq298_if_cast(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IMFNode var3_current)
 		{
-			this.var1_current = var1_current;
+			this.var1_shared = var1_shared;
 			this.var2_shared = var2_shared;
-			this.var3_shared = var3_shared;
+			this.var3_current = var3_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -31471,14 +31471,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 0;				
-				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_current)))) {state = 2; return false; }
+				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var3_current)))) {state = 2; return false; }
 				current = com.altova.CoreTypes.parseBoolean("true");
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 0;				
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq299_map(closure.var2_shared, closure.var3_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq299_map(closure.var1_shared, closure.var2_shared)))));
 				pos++;
 				return true;
 			}
@@ -33412,7 +33412,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var2_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq11_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq12_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq322_map(((com.altova.mapforce.IMFNode)(var2_filter.current())), closure.var1_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq322_map(closure.var1_shared, ((com.altova.mapforce.IMFNode)(var2_filter.current())))))));
 				pos++;
 				return true;
 			}
@@ -33438,13 +33438,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq322_map implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq322_map(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq322_map(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -33482,7 +33482,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var1_current)).enumerator();
+				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var2_current)).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -33501,7 +33501,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 2;				
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq323_map(closure.var2_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq323_map(closure.var1_shared)))));
 				pos++;
 				return true;
 			}
@@ -33992,8 +33992,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 4;				
 				if (!var4_filter.moveNext()) {state = 3; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 2; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 2; return false; }
 				var5_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var4_filter.current())))).enumerator();
 				return false;
 			}
@@ -34133,10 +34133,10 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 24;				
 				if (!var15_filter.moveNext()) {state = 25; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var15_filter.current()))))))))) {state = 24; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq329_seq_(((com.altova.mapforce.IMFNode)(var7_filter.current())), ((com.altova.mapforce.IMFNode)(var5_filter.current())), ((com.altova.mapforce.IMFNode)(var13_filter.current())), ((com.altova.mapforce.IMFNode)(var15_filter.current())), ((com.altova.mapforce.IMFNode)(var9_filter.current())), ((com.altova.mapforce.IMFNode)(var11_filter.current()))))))))) {state = 24; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq329_seq_(((com.altova.mapforce.IMFNode)(var15_filter.current())), ((com.altova.mapforce.IMFNode)(var9_filter.current())), ((com.altova.mapforce.IMFNode)(var11_filter.current())), ((com.altova.mapforce.IMFNode)(var5_filter.current())), ((com.altova.mapforce.IMFNode)(var13_filter.current())), ((com.altova.mapforce.IMFNode)(var7_filter.current()))))))))) {state = 24; return false; }
 				var16_cast = com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var15_filter.current())));
 				var17_cast = com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var5_filter.current())));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("CoolingSourceType", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq330_join(((com.altova.mapforce.IMFNode)(var7_filter.current())), ((com.altova.mapforce.IMFNode)(var13_filter.current())), ((com.altova.mapforce.IMFNode)(var9_filter.current())), ((com.altova.mapforce.IMFNode)(var11_filter.current())), closure.var3_shared, var16_cast, var17_cast)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("CoolingSourceType", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq330_join(((com.altova.mapforce.IMFNode)(var9_filter.current())), ((com.altova.mapforce.IMFNode)(var11_filter.current())), closure.var3_shared, var17_cast, var16_cast, ((com.altova.mapforce.IMFNode)(var13_filter.current())), ((com.altova.mapforce.IMFNode)(var7_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -34167,7 +34167,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 30;				
 				if (!var19_filter.moveNext()) {state = 31; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var19_filter.current()))))))))) {state = 30; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq356_if_cast(((com.altova.mapforce.IMFNode)(var19_filter.current())), closure.var2_shared, closure.var3_shared))))) {state = 30; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq356_if_cast(closure.var2_shared, closure.var3_shared, ((com.altova.mapforce.IMFNode)(var19_filter.current()))))))) {state = 30; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("PrimaryFuel", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box((java.lang.String)com.altova.functions.Core.last((new seq372_if_cast(((com.altova.mapforce.IMFNode)(var19_filter.current())), closure.var2_shared, closure.var3_shared)))));
 				pos++;
 				return true;
@@ -34207,20 +34207,20 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq329_seq_ implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
+		com.altova.mapforce.IMFNode var1_cur_Cell;
 		com.altova.mapforce.IMFNode var2_current;
-		com.altova.mapforce.IMFNode var3_cur_Cell;
-		com.altova.mapforce.IMFNode var4_cur_Cell;
-		com.altova.mapforce.IMFNode var5_current;
+		com.altova.mapforce.IMFNode var3_current;
+		com.altova.mapforce.IMFNode var4_current;
+		com.altova.mapforce.IMFNode var5_cur_Cell;
 		com.altova.mapforce.IMFNode var6_current;
 	
-		public seq329_seq_(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IMFNode var2_current, com.altova.mapforce.IMFNode var3_cur_Cell, com.altova.mapforce.IMFNode var4_cur_Cell, com.altova.mapforce.IMFNode var5_current, com.altova.mapforce.IMFNode var6_current)
+		public seq329_seq_(com.altova.mapforce.IMFNode var1_cur_Cell, com.altova.mapforce.IMFNode var2_current, com.altova.mapforce.IMFNode var3_current, com.altova.mapforce.IMFNode var4_current, com.altova.mapforce.IMFNode var5_cur_Cell, com.altova.mapforce.IMFNode var6_current)
 		{
-			this.var1_current = var1_current;
+			this.var1_cur_Cell = var1_cur_Cell;
 			this.var2_current = var2_current;
-			this.var3_cur_Cell = var3_cur_Cell;
-			this.var4_cur_Cell = var4_cur_Cell;
-			this.var5_current = var5_current;
+			this.var3_current = var3_current;
+			this.var4_current = var4_current;
+			this.var5_cur_Cell = var5_cur_Cell;
 			this.var6_current = var6_current;
 		}
 
@@ -34260,37 +34260,37 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var2_current));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var4_current));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_current));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var6_current));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_3() throws Exception {
 				state = 4;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var5_current));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var2_current));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 5;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var6_current));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var3_current));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_5() throws Exception {
 				state = 6;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var3_cur_Cell));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var5_cur_Cell));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_6() throws Exception {
 				state = 0;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var4_cur_Cell));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_cur_Cell));
 				pos++;
 				return true;
 			}
@@ -34311,22 +34311,22 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	static class seq330_join implements IEnumerable
 	{
 		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IMFNode var2_cur_Cell;
-		com.altova.mapforce.IMFNode var3_current;
-		com.altova.mapforce.IMFNode var4_current;
-		com.altova.mapforce.IEnumerable var5_shared;
-		java.lang.String var6_shared;
-		java.lang.String var7_shared;
+		com.altova.mapforce.IMFNode var2_current;
+		com.altova.mapforce.IEnumerable var3_shared;
+		java.lang.String var4_shared;
+		java.lang.String var5_shared;
+		com.altova.mapforce.IMFNode var6_cur_Cell;
+		com.altova.mapforce.IMFNode var7_current;
 	
-		public seq330_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IMFNode var2_cur_Cell, com.altova.mapforce.IMFNode var3_current, com.altova.mapforce.IMFNode var4_current, com.altova.mapforce.IEnumerable var5_shared, java.lang.String var6_shared, java.lang.String var7_shared)
+		public seq330_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IMFNode var2_current, com.altova.mapforce.IEnumerable var3_shared, java.lang.String var4_shared, java.lang.String var5_shared, com.altova.mapforce.IMFNode var6_cur_Cell, com.altova.mapforce.IMFNode var7_current)
 		{
 			this.var1_current = var1_current;
-			this.var2_cur_Cell = var2_cur_Cell;
-			this.var3_current = var3_current;
-			this.var4_current = var4_current;
+			this.var2_current = var2_current;
+			this.var3_shared = var3_shared;
+			this.var4_shared = var4_shared;
 			this.var5_shared = var5_shared;
-			this.var6_shared = var6_shared;
-			this.var7_shared = var7_shared;
+			this.var6_cur_Cell = var6_cur_Cell;
+			this.var7_current = var7_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -34364,30 +34364,30 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 4;				
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq331_seq_(closure.var2_cur_Cell, closure.var3_current, closure.var4_current))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq331_seq_(closure.var1_current, closure.var2_current, closure.var6_cur_Cell))))))) {state = 4; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("CoolingPlantID", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.functions.Core.createAttribute(com.altova.functions.Core.createQName("IDref", ""), com.altova.functions.Core.box("CoolingPlant1"))));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 7;				
-				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_current)))) {state = 7; return false; }
-				var8_filter = new com.altova.functions.Core.SequenceCache((new seq332_filter(closure.var5_shared)));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("DX", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq334_join(closure.var5_shared, var8_filter)));
+				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var7_current)))) {state = 7; return false; }
+				var8_filter = new com.altova.functions.Core.SequenceCache((new seq332_filter(closure.var3_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("DX", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq334_join(closure.var3_shared, var8_filter)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_7() throws Exception {
 				state = 10;				
-				if (!(com.altova.CoreTypes.parseBoolean(closure.var6_shared))) {state = 10; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("OtherCombination", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(closure.var6_shared));
+				if (!(com.altova.CoreTypes.parseBoolean(closure.var5_shared))) {state = 10; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("OtherCombination", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(closure.var5_shared));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_10() throws Exception {
 				state = 0;				
-				if (!(com.altova.CoreTypes.parseBoolean(closure.var7_shared))) {state = 0; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("NoCooling", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(closure.var7_shared));
+				if (!(com.altova.CoreTypes.parseBoolean(closure.var4_shared))) {state = 0; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("NoCooling", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(closure.var4_shared));
 				pos++;
 				return true;
 			}
@@ -34407,15 +34407,15 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq331_seq_ implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_cur_Cell;
+		com.altova.mapforce.IMFNode var1_current;
 		com.altova.mapforce.IMFNode var2_current;
-		com.altova.mapforce.IMFNode var3_current;
+		com.altova.mapforce.IMFNode var3_cur_Cell;
 	
-		public seq331_seq_(com.altova.mapforce.IMFNode var1_cur_Cell, com.altova.mapforce.IMFNode var2_current, com.altova.mapforce.IMFNode var3_current)
+		public seq331_seq_(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IMFNode var2_current, com.altova.mapforce.IMFNode var3_cur_Cell)
 		{
-			this.var1_cur_Cell = var1_cur_Cell;
+			this.var1_current = var1_current;
 			this.var2_current = var2_current;
-			this.var3_current = var3_current;
+			this.var3_cur_Cell = var3_cur_Cell;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -34451,19 +34451,19 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var2_current));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_current));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var3_current));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var2_current));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_cur_Cell));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var3_cur_Cell));
 				pos++;
 				return true;
 			}
@@ -35004,7 +35004,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var2_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq44_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq45_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq339_map(((com.altova.mapforce.IMFNode)(var2_filter.current())), closure.var1_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq339_map(closure.var1_shared, ((com.altova.mapforce.IMFNode)(var2_filter.current())))))));
 				pos++;
 				return true;
 			}
@@ -35030,13 +35030,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq339_map implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq339_map(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq339_map(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -35073,14 +35073,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var1_current)).enumerator();
+				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var2_current)).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var3_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq340_map(closure.var2_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq340_map(closure.var1_shared)))));
 				pos++;
 				return true;
 			}
@@ -35565,7 +35565,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var2_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq188_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq189_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq345_map(((com.altova.mapforce.IMFNode)(var2_filter.current())), closure.var1_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq345_map(closure.var1_shared, ((com.altova.mapforce.IMFNode)(var2_filter.current())))))));
 				pos++;
 				return true;
 			}
@@ -35591,13 +35591,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq345_map implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq345_map(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq345_map(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -35634,14 +35634,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var1_current)).enumerator();
+				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var2_current)).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var3_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq346_map(closure.var2_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq346_map(closure.var1_shared)))));
 				pos++;
 				return true;
 			}
@@ -35867,7 +35867,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var2_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq256_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq257_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq349_map(((com.altova.mapforce.IMFNode)(var2_filter.current())), closure.var1_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq349_map(closure.var1_shared, ((com.altova.mapforce.IMFNode)(var2_filter.current())))))));
 				pos++;
 				return true;
 			}
@@ -35893,13 +35893,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq349_map implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq349_map(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq349_map(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -35936,14 +35936,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var1_current)).enumerator();
+				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var2_current)).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var3_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq350_map(closure.var2_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq350_map(closure.var1_shared)))));
 				pos++;
 				return true;
 			}
@@ -36394,7 +36394,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 20;				
 				if (!var12_filter.moveNext()) {state = 21; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var12_filter.current()))))))))) {state = 20; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq354_seq_(((com.altova.mapforce.IMFNode)(var12_filter.current())), ((com.altova.mapforce.IMFNode)(var8_filter.current())), ((com.altova.mapforce.IMFNode)(var4_filter.current())), ((com.altova.mapforce.IMFNode)(var10_filter.current())), ((com.altova.mapforce.IMFNode)(var6_filter.current()))))))))) {state = 20; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq354_seq_(((com.altova.mapforce.IMFNode)(var12_filter.current())), ((com.altova.mapforce.IMFNode)(var8_filter.current())), ((com.altova.mapforce.IMFNode)(var10_filter.current())), ((com.altova.mapforce.IMFNode)(var6_filter.current())), ((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 20; return false; }
 				current = "CondenserPlant1";
 				pos++;
 				return true;
@@ -36480,13 +36480,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var3_current));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var5_current));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var5_current));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var4_current));
 				pos++;
 				return true;
 			}
@@ -36498,7 +36498,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 5;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var4_current));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var3_current));
 				pos++;
 				return true;
 			}
@@ -36740,15 +36740,15 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq356_if_cast implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
+		com.altova.mapforce.IEnumerable var1_shared;
 		com.altova.mapforce.IEnumerable var2_shared;
-		com.altova.mapforce.IEnumerable var3_shared;
+		com.altova.mapforce.IMFNode var3_current;
 	
-		public seq356_if_cast(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IEnumerable var3_shared)
+		public seq356_if_cast(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IMFNode var3_current)
 		{
-			this.var1_current = var1_current;
+			this.var1_shared = var1_shared;
 			this.var2_shared = var2_shared;
-			this.var3_shared = var3_shared;
+			this.var3_current = var3_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -36783,14 +36783,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 0;				
-				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_current)))) {state = 2; return false; }
+				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var3_current)))) {state = 2; return false; }
 				current = com.altova.CoreTypes.parseBoolean("true");
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 0;				
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq357_map(closure.var2_shared, closure.var3_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq357_map(closure.var1_shared, closure.var2_shared)))));
 				pos++;
 				return true;
 			}
@@ -38120,8 +38120,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_19() throws Exception {
 				state = 21;				
 				if (!var9_filter.moveNext()) {state = 20; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 19; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 19; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 19; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 19; return false; }
 				var10_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var9_filter.current())))).enumerator();
 				return false;
 			}
@@ -39610,7 +39610,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 3;				
 				if (!var3_filter.moveNext()) {state = 4; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq136_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 3; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq389_join(((com.altova.mapforce.IMFNode)(var3_filter.current())), closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq389_join(closure.var2_shared, ((com.altova.mapforce.IMFNode)(var3_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -39624,7 +39624,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 6;				
 				if (!var4_filter.moveNext()) {state = 7; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq390_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 6; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq391_join(((com.altova.mapforce.IMFNode)(var4_filter.current())), closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq391_join(closure.var2_shared, ((com.altova.mapforce.IMFNode)(var4_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -39638,7 +39638,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 9;				
 				if (!var5_filter.moveNext()) {state = 10; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq392_map(((com.altova.mapforce.IMFNode)(var5_filter.current()))))))))) {state = 9; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq393_join(((com.altova.mapforce.IMFNode)(var5_filter.current())), closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq393_join(closure.var2_shared, ((com.altova.mapforce.IMFNode)(var5_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -39775,13 +39775,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq389_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq389_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq389_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -39821,7 +39821,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_shared = (closure.var2_shared).enumerator();
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -39833,7 +39833,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
 				if( var3_shared != null ) { var3_shared.close(); var3_shared = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var1_current)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var2_current)));
 				pos++;
 				return true;
 			}
@@ -39941,13 +39941,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq391_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq391_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq391_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -39987,7 +39987,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_shared = (closure.var2_shared).enumerator();
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -39999,7 +39999,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
 				if( var3_shared != null ) { var3_shared.close(); var3_shared = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var1_current)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var2_current)));
 				pos++;
 				return true;
 			}
@@ -40107,13 +40107,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq393_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq393_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq393_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -40153,7 +40153,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_shared = (closure.var2_shared).enumerator();
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -40165,7 +40165,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
 				if( var3_shared != null ) { var3_shared.close(); var3_shared = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var1_current)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var2_current)));
 				pos++;
 				return true;
 			}
@@ -40410,7 +40410,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 3;				
 				if (!var3_filter.moveNext()) {state = 4; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq136_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 3; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq389_join(((com.altova.mapforce.IMFNode)(var3_filter.current())), closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq389_join(closure.var2_shared, ((com.altova.mapforce.IMFNode)(var3_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -40424,7 +40424,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 6;				
 				if (!var4_filter.moveNext()) {state = 7; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq390_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 6; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq391_join(((com.altova.mapforce.IMFNode)(var4_filter.current())), closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq391_join(closure.var2_shared, ((com.altova.mapforce.IMFNode)(var4_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -41297,21 +41297,21 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var4_filter.moveNext()) {state = 5; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq383_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
 				var5_vmf15_inputtoresult = com.mapforce.vmf.vmf15_inputtoresult.eval(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var4_filter.current()))));
-				var6_equal = com.altova.functions.Core.equal("Linear Fluorescent", var5_vmf15_inputtoresult);
-				var7_equal = com.altova.functions.Core.equal("Photoluminescent", var5_vmf15_inputtoresult);
-				var8_equal = com.altova.functions.Core.equal("Induction", var5_vmf15_inputtoresult);
-				var9_equal = com.altova.functions.Core.equal("Compact Fluorescent", var5_vmf15_inputtoresult);
-				var10_equal = com.altova.functions.Core.equal("Solid State Lighting", var5_vmf15_inputtoresult);
-				var11_equal = com.altova.functions.Core.equal("Other", var5_vmf15_inputtoresult);
-				var12_equal = com.altova.functions.Core.equal("Self-Luminous", var5_vmf15_inputtoresult);
-				var13_equal = com.altova.functions.Core.equal("Neon", var5_vmf15_inputtoresult);
-				var14_equal = com.altova.functions.Core.equal("Plasma", var5_vmf15_inputtoresult);
-				var15_equal = com.altova.functions.Core.equal("High Intensity Discharge", var5_vmf15_inputtoresult);
-				var16_equal = com.altova.functions.Core.equal("Incandescent", var5_vmf15_inputtoresult);
-				var17_equal = com.altova.functions.Core.equal("Halogen", var5_vmf15_inputtoresult);
+				var6_equal = com.altova.functions.Core.equal("Neon", var5_vmf15_inputtoresult);
+				var7_equal = com.altova.functions.Core.equal("Other", var5_vmf15_inputtoresult);
+				var8_equal = com.altova.functions.Core.equal("Solid State Lighting", var5_vmf15_inputtoresult);
+				var9_equal = com.altova.functions.Core.equal("Halogen", var5_vmf15_inputtoresult);
+				var10_equal = com.altova.functions.Core.equal("Incandescent", var5_vmf15_inputtoresult);
+				var11_equal = com.altova.functions.Core.equal("Plasma", var5_vmf15_inputtoresult);
+				var12_equal = com.altova.functions.Core.equal("Linear Fluorescent", var5_vmf15_inputtoresult);
+				var13_equal = com.altova.functions.Core.equal("Photoluminescent", var5_vmf15_inputtoresult);
+				var14_equal = com.altova.functions.Core.equal("High Intensity Discharge", var5_vmf15_inputtoresult);
+				var15_equal = com.altova.functions.Core.equal("Induction", var5_vmf15_inputtoresult);
+				var16_equal = com.altova.functions.Core.equal("Compact Fluorescent", var5_vmf15_inputtoresult);
+				var17_equal = com.altova.functions.Core.equal("Self-Luminous", var5_vmf15_inputtoresult);
 				var18_filter = new com.altova.functions.Core.SequenceCache((new seq404_filter(var3_Cell)));
 				var19_filter = new com.altova.functions.Core.SequenceCache((new seq405_filter(var3_Cell)));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("LightingSystem", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq406_join(var18_filter, var8_equal, var12_equal, var16_equal, var19_filter, var7_equal, var17_equal, var10_equal, var6_equal, var9_equal, var11_equal, var13_equal, var3_Cell, var15_equal, var14_equal)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("LightingSystem", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq406_join(var3_Cell, var6_equal, var7_equal, var9_equal, var8_equal, var14_equal, var12_equal, var11_equal, var16_equal, var15_equal, var19_filter, var17_equal, var10_equal, var13_equal, var18_filter)));
 				pos++;
 				return true;
 			}
@@ -41490,19 +41490,19 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 		boolean var2_shared;
 		boolean var3_shared;
 		boolean var4_shared;
-		com.altova.mapforce.IEnumerable var5_shared;
+		boolean var5_shared;
 		boolean var6_shared;
 		boolean var7_shared;
 		boolean var8_shared;
 		boolean var9_shared;
 		boolean var10_shared;
-		boolean var11_shared;
+		com.altova.mapforce.IEnumerable var11_shared;
 		boolean var12_shared;
-		com.altova.mapforce.IEnumerable var13_shared;
+		boolean var13_shared;
 		boolean var14_shared;
-		boolean var15_shared;
+		com.altova.mapforce.IEnumerable var15_shared;
 	
-		public seq406_join(com.altova.mapforce.IEnumerable var1_shared, boolean var2_shared, boolean var3_shared, boolean var4_shared, com.altova.mapforce.IEnumerable var5_shared, boolean var6_shared, boolean var7_shared, boolean var8_shared, boolean var9_shared, boolean var10_shared, boolean var11_shared, boolean var12_shared, com.altova.mapforce.IEnumerable var13_shared, boolean var14_shared, boolean var15_shared)
+		public seq406_join(com.altova.mapforce.IEnumerable var1_shared, boolean var2_shared, boolean var3_shared, boolean var4_shared, boolean var5_shared, boolean var6_shared, boolean var7_shared, boolean var8_shared, boolean var9_shared, boolean var10_shared, com.altova.mapforce.IEnumerable var11_shared, boolean var12_shared, boolean var13_shared, boolean var14_shared, com.altova.mapforce.IEnumerable var15_shared)
 		{
 			this.var1_shared = var1_shared;
 			this.var2_shared = var2_shared;
@@ -41574,13 +41574,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("LampType", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq407_join(closure.var2_shared, closure.var3_shared, closure.var4_shared, closure.var6_shared, closure.var7_shared, closure.var8_shared, closure.var9_shared, closure.var10_shared, closure.var11_shared, closure.var12_shared, closure.var14_shared, closure.var15_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("LampType", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq407_join(closure.var2_shared, closure.var3_shared, closure.var4_shared, closure.var5_shared, closure.var6_shared, closure.var7_shared, closure.var8_shared, closure.var9_shared, closure.var10_shared, closure.var12_shared, closure.var13_shared, closure.var14_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				var16_filter = (closure.var13_shared).enumerator();
+				var16_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_3() throws Exception {
@@ -41594,7 +41594,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 6;				
 				if( var16_filter != null ) { var16_filter.close(); var16_filter = null; }
-				var17_filter = (closure.var1_shared).enumerator();
+				var17_filter = (closure.var15_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_6() throws Exception {
@@ -41608,7 +41608,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_7() throws Exception {
 				state = 9;				
 				if( var17_filter != null ) { var17_filter.close(); var17_filter = null; }
-				var18_filter = (closure.var1_shared).enumerator();
+				var18_filter = (closure.var15_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_9() throws Exception {
@@ -41622,7 +41622,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_10() throws Exception {
 				state = 12;				
 				if( var18_filter != null ) { var18_filter.close(); var18_filter = null; }
-				var19_filter = (closure.var13_shared).enumerator();
+				var19_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_12() throws Exception {
@@ -41637,7 +41637,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_13() throws Exception {
 				state = 15;				
 				if( var19_filter != null ) { var19_filter.close(); var19_filter = null; }
-				var20_filter = (closure.var5_shared).enumerator();
+				var20_filter = (closure.var11_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_15() throws Exception {
@@ -41651,7 +41651,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_16() throws Exception {
 				state = 18;				
 				if( var20_filter != null ) { var20_filter.close(); var20_filter = null; }
-				var21_filter = (closure.var1_shared).enumerator();
+				var21_filter = (closure.var15_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_18() throws Exception {
@@ -41665,7 +41665,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_19() throws Exception {
 				state = 21;				
 				if( var21_filter != null ) { var21_filter.close(); var21_filter = null; }
-				var22_filter = (closure.var5_shared).enumerator();
+				var22_filter = (closure.var11_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_21() throws Exception {
@@ -41777,14 +41777,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 4;				
-				if (!(closure.var3_shared)) {state = 4; return false; }
+				if (!(closure.var11_shared)) {state = 4; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Incandescent", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq228_seq_()));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 7;				
-				if (!(closure.var7_shared)) {state = 7; return false; }
+				if (!(closure.var6_shared)) {state = 7; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("LinearFluorescent", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq228_seq_()));
 				pos++;
 				return true;
@@ -41798,63 +41798,63 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_10() throws Exception {
 				state = 13;				
-				if (!(closure.var5_shared)) {state = 13; return false; }
+				if (!(closure.var3_shared)) {state = 13; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Halogen", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq228_seq_()));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_13() throws Exception {
 				state = 16;				
-				if (!(closure.var11_shared)) {state = 16; return false; }
+				if (!(closure.var5_shared)) {state = 16; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("HighIntensityDischarge", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq228_seq_()));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_16() throws Exception {
 				state = 19;				
-				if (!(closure.var6_shared)) {state = 19; return false; }
+				if (!(closure.var4_shared)) {state = 19; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("SolidStateLighting", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq228_seq_()));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_19() throws Exception {
 				state = 22;				
-				if (!(closure.var1_shared)) {state = 22; return false; }
+				if (!(closure.var9_shared)) {state = 22; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Induction", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq228_seq_()));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_22() throws Exception {
 				state = 25;				
-				if (!(closure.var10_shared)) {state = 25; return false; }
+				if (!(closure.var1_shared)) {state = 25; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Neon", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.booleanToString(com.altova.CoreTypes.parseBoolean("true"))));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_25() throws Exception {
 				state = 28;				
-				if (!(closure.var12_shared)) {state = 28; return false; }
+				if (!(closure.var7_shared)) {state = 28; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Plasma", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.booleanToString(com.altova.CoreTypes.parseBoolean("true"))));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_28() throws Exception {
 				state = 31;				
-				if (!(closure.var4_shared)) {state = 31; return false; }
+				if (!(closure.var12_shared)) {state = 31; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Photoluminescent", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.booleanToString(com.altova.CoreTypes.parseBoolean("true"))));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_31() throws Exception {
 				state = 34;				
-				if (!(closure.var2_shared)) {state = 34; return false; }
+				if (!(closure.var10_shared)) {state = 34; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("SelfLuminous", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.booleanToString(com.altova.CoreTypes.parseBoolean("true"))));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_34() throws Exception {
 				state = 37;				
-				if (!(closure.var9_shared)) {state = 37; return false; }
+				if (!(closure.var2_shared)) {state = 37; return false; }
 				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("OtherCombination", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.booleanToString(com.altova.CoreTypes.parseBoolean("true"))));
 				pos++;
 				return true;
@@ -41957,13 +41957,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = closure.var3_shared;
+				current = closure.var11_shared;
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				current = closure.var7_shared;
+				current = closure.var6_shared;
 				pos++;
 				return true;
 			}
@@ -41975,55 +41975,55 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 5;				
-				current = closure.var5_shared;
+				current = closure.var3_shared;
 				pos++;
 				return true;
 			}
 			private boolean moveNext_5() throws Exception {
 				state = 6;				
-				current = closure.var11_shared;
+				current = closure.var5_shared;
 				pos++;
 				return true;
 			}
 			private boolean moveNext_6() throws Exception {
 				state = 7;				
-				current = closure.var6_shared;
+				current = closure.var4_shared;
 				pos++;
 				return true;
 			}
 			private boolean moveNext_7() throws Exception {
 				state = 8;				
-				current = closure.var1_shared;
+				current = closure.var9_shared;
 				pos++;
 				return true;
 			}
 			private boolean moveNext_8() throws Exception {
 				state = 9;				
-				current = closure.var10_shared;
+				current = closure.var1_shared;
 				pos++;
 				return true;
 			}
 			private boolean moveNext_9() throws Exception {
 				state = 10;				
-				current = closure.var12_shared;
+				current = closure.var7_shared;
 				pos++;
 				return true;
 			}
 			private boolean moveNext_10() throws Exception {
 				state = 11;				
-				current = closure.var4_shared;
+				current = closure.var12_shared;
 				pos++;
 				return true;
 			}
 			private boolean moveNext_11() throws Exception {
 				state = 12;				
-				current = closure.var2_shared;
+				current = closure.var10_shared;
 				pos++;
 				return true;
 			}
 			private boolean moveNext_12() throws Exception {
 				state = 0;				
-				current = closure.var9_shared;
+				current = closure.var2_shared;
 				pos++;
 				return true;
 			}
@@ -42306,7 +42306,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var12_filter.current()))))))))) {state = 18; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq419_seq_(((com.altova.mapforce.IMFNode)(var12_filter.current())), ((com.altova.mapforce.IMFNode)(var10_filter.current())), ((com.altova.mapforce.IMFNode)(var8_filter.current())), ((com.altova.mapforce.IMFNode)(var6_filter.current()))))))))) {state = 18; return false; }
 				var13_cast = com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var12_filter.current())));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("DomesticHotWaterType", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq420_join(((com.altova.mapforce.IMFNode)(var10_filter.current())), ((com.altova.mapforce.IMFNode)(var8_filter.current())), ((com.altova.mapforce.IMFNode)(var6_filter.current())), var4_Row, var13_cast)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("DomesticHotWaterType", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq420_join(((com.altova.mapforce.IMFNode)(var10_filter.current())), ((com.altova.mapforce.IMFNode)(var8_filter.current())), ((com.altova.mapforce.IMFNode)(var6_filter.current())), var13_cast, var4_Row)));
 				pos++;
 				return true;
 			}
@@ -42344,8 +42344,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 25;				
 				if (!var17_filter.moveNext()) {state = 26; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var17_filter.current()))))))))) {state = 25; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq435_if_cast(((com.altova.mapforce.IMFNode)(var17_filter.current())), var15_Row, closure.var1_shared))))) {state = 25; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("PrimaryFuel", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box((java.lang.String)com.altova.functions.Core.last((new seq451_if_cast(((com.altova.mapforce.IMFNode)(var17_filter.current())), var15_Row, closure.var1_shared)))));
+				if (!((Boolean)com.altova.functions.Core.first((new seq435_if_cast(closure.var1_shared, var15_Row, ((com.altova.mapforce.IMFNode)(var17_filter.current()))))))) {state = 25; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("PrimaryFuel", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box((java.lang.String)com.altova.functions.Core.last((new seq451_if_cast(((com.altova.mapforce.IMFNode)(var17_filter.current())), closure.var1_shared, var15_Row)))));
 				pos++;
 				return true;
 			}
@@ -43054,10 +43054,10 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 		com.altova.mapforce.IMFNode var1_current;
 		com.altova.mapforce.IMFNode var2_current;
 		com.altova.mapforce.IMFNode var3_current;
-		com.altova.mapforce.IEnumerable var4_shared;
-		java.lang.String var5_shared;
+		java.lang.String var4_shared;
+		com.altova.mapforce.IEnumerable var5_shared;
 	
-		public seq420_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IMFNode var2_current, com.altova.mapforce.IMFNode var3_current, com.altova.mapforce.IEnumerable var4_shared, java.lang.String var5_shared)
+		public seq420_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IMFNode var2_current, com.altova.mapforce.IMFNode var3_current, java.lang.String var4_shared, com.altova.mapforce.IEnumerable var5_shared)
 		{
 			this.var1_current = var1_current;
 			this.var2_current = var2_current;
@@ -43122,7 +43122,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var6_filter = (closure.var4_shared).enumerator();
+				var6_filter = (closure.var5_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -43136,14 +43136,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 11;				
 				if( var6_filter != null ) { var6_filter.close(); var6_filter = null; }
-				var11_filter = (closure.var4_shared).enumerator();
+				var11_filter = (closure.var5_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 6;				
 				if (!var7_filter.moveNext()) {state = 5; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var7_filter.current()))))))))) {state = 4; return false; }
-				var8_filter = (closure.var4_shared).enumerator();
+				var8_filter = (closure.var5_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_5() throws Exception {
@@ -43190,8 +43190,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_12() throws Exception {
 				state = 0;				
 				if( var11_filter != null ) { var11_filter.close(); var11_filter = null; }
-				if (!(com.altova.CoreTypes.parseBoolean(closure.var5_shared))) {state = 0; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Other", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(closure.var5_shared));
+				if (!(com.altova.CoreTypes.parseBoolean(closure.var4_shared))) {state = 0; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Other", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(closure.var4_shared));
 				pos++;
 				return true;
 			}
@@ -43199,7 +43199,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 15;				
 				if (!var12_filter.moveNext()) {state = 14; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var12_filter.current()))))))))) {state = 13; return false; }
-				var13_filter = (closure.var4_shared).enumerator();
+				var13_filter = (closure.var5_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_14() throws Exception {
@@ -44261,15 +44261,15 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq435_if_cast implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
+		com.altova.mapforce.IEnumerable var1_shared;
 		com.altova.mapforce.IEnumerable var2_shared;
-		com.altova.mapforce.IEnumerable var3_shared;
+		com.altova.mapforce.IMFNode var3_current;
 	
-		public seq435_if_cast(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IEnumerable var3_shared)
+		public seq435_if_cast(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IMFNode var3_current)
 		{
-			this.var1_current = var1_current;
+			this.var1_shared = var1_shared;
 			this.var2_shared = var2_shared;
-			this.var3_shared = var3_shared;
+			this.var3_current = var3_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -44304,14 +44304,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 0;				
-				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_current)))) {state = 2; return false; }
+				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var3_current)))) {state = 2; return false; }
 				current = com.altova.CoreTypes.parseBoolean("true");
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 0;				
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq436_map(closure.var2_shared, closure.var3_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq436_map(closure.var1_shared, closure.var2_shared)))));
 				pos++;
 				return true;
 			}
@@ -44374,7 +44374,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_filter = (closure.var1_shared).enumerator();
+				var3_filter = (closure.var2_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -44683,7 +44683,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_filter = (closure.var1_shared).enumerator();
+				var3_filter = (closure.var2_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -44984,7 +44984,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_filter = (closure.var1_shared).enumerator();
+				var3_filter = (closure.var2_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -44992,7 +44992,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var3_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq445_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 2; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq446_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq447_map(((com.altova.mapforce.IMFNode)(var3_filter.current())), closure.var2_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq447_map(((com.altova.mapforce.IMFNode)(var3_filter.current())), closure.var1_shared)))));
 				pos++;
 				return true;
 			}
@@ -45560,7 +45560,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 5;				
-				var4_filter = (closure.var2_shared).enumerator();
+				var4_filter = (closure.var3_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_5() throws Exception {
@@ -45592,7 +45592,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_9() throws Exception {
 				state = 12;				
-				var6_filter = (closure.var2_shared).enumerator();
+				var6_filter = (closure.var3_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_12() throws Exception {
@@ -45613,7 +45613,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var7_filter.moveNext()) {state = 15; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var7_filter.current()))))))))) {state = 14; return false; }
 				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var7_filter.current())))))) {state = 16; return false; }
-				var8_filter = (closure.var3_shared).enumerator();
+				var8_filter = (closure.var2_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_15() throws Exception {
@@ -45623,7 +45623,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_16() throws Exception {
 				state = 25;				
-				var11_filter = (closure.var2_shared).enumerator();
+				var11_filter = (closure.var3_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_17() throws Exception {
@@ -45682,7 +45682,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var12_filter.moveNext()) {state = 28; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var12_filter.current()))))))))) {state = 27; return false; }
 				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var12_filter.current())))))) {state = 29; return false; }
-				var13_filter = (closure.var3_shared).enumerator();
+				var13_filter = (closure.var2_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_28() throws Exception {
@@ -46368,7 +46368,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 3;				
 				if (!var3_filter.moveNext()) {state = 4; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq136_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 3; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq389_join(((com.altova.mapforce.IMFNode)(var3_filter.current())), closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq389_join(closure.var2_shared, ((com.altova.mapforce.IMFNode)(var3_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -46382,7 +46382,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 6;				
 				if (!var4_filter.moveNext()) {state = 7; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq390_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 6; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq391_join(((com.altova.mapforce.IMFNode)(var4_filter.current())), closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq391_join(closure.var2_shared, ((com.altova.mapforce.IMFNode)(var4_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -46396,7 +46396,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 9;				
 				if (!var5_filter.moveNext()) {state = 10; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq392_map(((com.altova.mapforce.IMFNode)(var5_filter.current()))))))))) {state = 9; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq393_join(((com.altova.mapforce.IMFNode)(var5_filter.current())), closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq393_join(closure.var2_shared, ((com.altova.mapforce.IMFNode)(var5_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -46410,7 +46410,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 12;				
 				if (!var6_filter.moveNext()) {state = 13; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq157_map(((com.altova.mapforce.IMFNode)(var6_filter.current()))))))))) {state = 12; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq457_join(((com.altova.mapforce.IMFNode)(var6_filter.current())), closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq457_join(closure.var2_shared, ((com.altova.mapforce.IMFNode)(var6_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -46424,7 +46424,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 15;				
 				if (!var7_filter.moveNext()) {state = 16; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq385_map(((com.altova.mapforce.IMFNode)(var7_filter.current()))))))))) {state = 15; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq458_join(((com.altova.mapforce.IMFNode)(var7_filter.current())), closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq458_join(closure.var2_shared, ((com.altova.mapforce.IMFNode)(var7_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -46454,13 +46454,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq457_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq457_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq457_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -46500,7 +46500,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_shared = (closure.var2_shared).enumerator();
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -46512,7 +46512,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
 				if( var3_shared != null ) { var3_shared.close(); var3_shared = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var1_current)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var2_current)));
 				pos++;
 				return true;
 			}
@@ -46547,13 +46547,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq458_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq458_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq458_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -46593,7 +46593,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_shared = (closure.var2_shared).enumerator();
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -46605,7 +46605,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
 				if( var3_shared != null ) { var3_shared.close(); var3_shared = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var1_current)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var2_current)));
 				pos++;
 				return true;
 			}
@@ -47533,15 +47533,15 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq467_seq_ implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
+		com.altova.mapforce.IMFNode var1_cur_Cell;
 		com.altova.mapforce.IMFNode var2_cur_Cell;
-		com.altova.mapforce.IMFNode var3_cur_Cell;
+		com.altova.mapforce.IMFNode var3_current;
 	
-		public seq467_seq_(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IMFNode var2_cur_Cell, com.altova.mapforce.IMFNode var3_cur_Cell)
+		public seq467_seq_(com.altova.mapforce.IMFNode var1_cur_Cell, com.altova.mapforce.IMFNode var2_cur_Cell, com.altova.mapforce.IMFNode var3_current)
 		{
-			this.var1_current = var1_current;
+			this.var1_cur_Cell = var1_cur_Cell;
 			this.var2_cur_Cell = var2_cur_Cell;
-			this.var3_cur_Cell = var3_cur_Cell;
+			this.var3_current = var3_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -47577,19 +47577,19 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_current));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var3_current));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var3_cur_Cell));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var2_cur_Cell));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
-				current = com.altova.functions.Core.greater(com.altova.CoreTypes.nodeToString(closure.var2_cur_Cell), com.altova.CoreTypes.decimalToString(new java.math.BigDecimal("0.5")));
+				current = com.altova.functions.Core.greater(com.altova.CoreTypes.nodeToString(closure.var1_cur_Cell), com.altova.CoreTypes.decimalToString(new java.math.BigDecimal("0.5")));
 				pos++;
 				return true;
 			}
@@ -47609,15 +47609,15 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq468_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IMFNode var2_cur_Cell;
+		com.altova.mapforce.IMFNode var1_cur_Cell;
+		com.altova.mapforce.IMFNode var2_current;
 		com.altova.mapforce.IEnumerable var3_shared;
 		com.altova.mapforce.IEnumerable var4_shared;
 	
-		public seq468_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IMFNode var2_cur_Cell, com.altova.mapforce.IEnumerable var3_shared, com.altova.mapforce.IEnumerable var4_shared)
+		public seq468_join(com.altova.mapforce.IMFNode var1_cur_Cell, com.altova.mapforce.IMFNode var2_current, com.altova.mapforce.IEnumerable var3_shared, com.altova.mapforce.IEnumerable var4_shared)
 		{
-			this.var1_current = var1_current;
-			this.var2_cur_Cell = var2_cur_Cell;
+			this.var1_cur_Cell = var1_cur_Cell;
+			this.var2_current = var2_current;
 			this.var3_shared = var3_shared;
 			this.var4_shared = var4_shared;
 		}
@@ -47667,21 +47667,21 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 4;				
-				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_current)))) {state = 4; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FanSystem", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq469_join(closure.var3_shared)));
+				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var2_current)))) {state = 4; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FanSystem", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq469_join(closure.var4_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 7;				
-				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var2_cur_Cell)))) {state = 7; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FanSystem", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq473_join(closure.var3_shared)));
+				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_cur_Cell)))) {state = 7; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FanSystem", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq473_join(closure.var4_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_7() throws Exception {
 				state = 8;				
-				var5_filter = (closure.var4_shared).enumerator();
+				var5_filter = (closure.var3_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_8() throws Exception {
@@ -48869,7 +48869,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 3;				
 				if (!var3_filter.moveNext()) {state = 4; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq136_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 3; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq389_join(((com.altova.mapforce.IMFNode)(var3_filter.current())), closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq389_join(closure.var2_shared, ((com.altova.mapforce.IMFNode)(var3_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -48898,7 +48898,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 9;				
 				if (!var6_filter.moveNext()) {state = 10; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq392_map(((com.altova.mapforce.IMFNode)(var6_filter.current()))))))))) {state = 9; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq393_join(((com.altova.mapforce.IMFNode)(var6_filter.current())), closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq393_join(closure.var2_shared, ((com.altova.mapforce.IMFNode)(var6_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -48912,7 +48912,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 12;				
 				if (!var7_filter.moveNext()) {state = 13; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq157_map(((com.altova.mapforce.IMFNode)(var7_filter.current()))))))))) {state = 12; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq457_join(((com.altova.mapforce.IMFNode)(var7_filter.current())), closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq457_join(closure.var2_shared, ((com.altova.mapforce.IMFNode)(var7_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -48926,7 +48926,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 15;				
 				if (!var8_filter.moveNext()) {state = 16; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq385_map(((com.altova.mapforce.IMFNode)(var8_filter.current()))))))))) {state = 15; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq458_join(((com.altova.mapforce.IMFNode)(var8_filter.current())), closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq458_join(closure.var2_shared, ((com.altova.mapforce.IMFNode)(var8_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -49462,7 +49462,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var6_filter.moveNext()) {state = 8; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq383_map(((com.altova.mapforce.IMFNode)(var6_filter.current()))))))))) {state = 7; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq486_if_cast(((com.altova.mapforce.IMFNode)(var6_filter.current())), var4_Row))))) {state = 7; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ExteriorWallConstruction", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box((java.lang.String)com.altova.functions.Core.last((new seq496_if_cast(((com.altova.mapforce.IMFNode)(var6_filter.current())), var4_Row)))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ExteriorWallConstruction", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box((java.lang.String)com.altova.functions.Core.last((new seq496_if_cast(var4_Row, ((com.altova.mapforce.IMFNode)(var6_filter.current())))))));
 				pos++;
 				return true;
 			}
@@ -49512,8 +49512,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_16() throws Exception {
 				state = 18;				
 				if (!var11_filter.moveNext()) {state = 17; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var11_filter.current()))))))))) {state = 16; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var11_filter.current()))))))))) {state = 16; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var11_filter.current()))))))))) {state = 16; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var11_filter.current()))))))))) {state = 16; return false; }
 				var12_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var11_filter.current())))).enumerator();
 				return false;
 			}
@@ -49552,7 +49552,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var14_filter.moveNext()) {state = 23; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq383_map(((com.altova.mapforce.IMFNode)(var14_filter.current()))))))))) {state = 22; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq499_if_any(((com.altova.mapforce.IMFNode)(var12_filter.current())), ((com.altova.mapforce.IMFNode)(var14_filter.current())), ((com.altova.mapforce.IMFNode)(var10_filter.current())), var8_Row))))) {state = 22; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ExteriorWallFinish", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box((java.lang.String)com.altova.functions.Core.last((new seq507_if_any(((com.altova.mapforce.IMFNode)(var12_filter.current())), ((com.altova.mapforce.IMFNode)(var14_filter.current())), ((com.altova.mapforce.IMFNode)(var10_filter.current())), var8_Row)))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ExteriorWallFinish", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box((java.lang.String)com.altova.functions.Core.last((new seq507_if_any(((com.altova.mapforce.IMFNode)(var12_filter.current())), ((com.altova.mapforce.IMFNode)(var10_filter.current())), var8_Row, ((com.altova.mapforce.IMFNode)(var14_filter.current())))))));
 				pos++;
 				return true;
 			}
@@ -49564,7 +49564,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_25() throws Exception {
 				state = 27;				
 				if (!var15_filter.moveNext()) {state = 26; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq25_map(((com.altova.mapforce.IMFNode)(var15_filter.current()))))))))) {state = 25; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq23_map(((com.altova.mapforce.IMFNode)(var15_filter.current()))))))))) {state = 25; return false; }
 				var16_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Row", ""), ((com.altova.mapforce.IMFNode)(var15_filter.current())))).enumerator();
 				return false;
 			}
@@ -49743,8 +49743,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_filter.moveNext()) {state = 3; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq488_map(((com.altova.mapforce.IMFNode)(var2_filter.current())), closure.var1_shared)))));
 				pos++;
 				return true;
@@ -50372,13 +50372,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq496_if_cast implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq496_if_cast(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq496_if_cast(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -50439,21 +50439,21 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 0;				
-				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_current)))) {state = 2; return false; }
+				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var2_current)))) {state = 2; return false; }
 				current = "Masonry";
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 5;				
-				var3_filter = (closure.var2_shared).enumerator();
+				var3_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_5() throws Exception {
 				state = 7;				
 				if (!var3_filter.moveNext()) {state = 6; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 5; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 5; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 5; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 5; return false; }
 				var4_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var3_filter.current())))).enumerator();
 				return false;
 			}
@@ -50466,7 +50466,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 9;				
 				if (!var4_filter.moveNext()) {state = 8; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq383_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 7; return false; }
-				var5_filter = (closure.var2_shared).enumerator();
+				var5_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_8() throws Exception {
@@ -50503,7 +50503,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_13() throws Exception {
 				state = 16;				
-				var7_filter = (closure.var2_shared).enumerator();
+				var7_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_16() throws Exception {
@@ -50523,7 +50523,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 20;				
 				if (!var8_filter.moveNext()) {state = 19; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq383_map(((com.altova.mapforce.IMFNode)(var8_filter.current()))))))))) {state = 18; return false; }
-				var9_filter = (closure.var2_shared).enumerator();
+				var9_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_19() throws Exception {
@@ -50917,8 +50917,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_filter.moveNext()) {state = 3; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq502_map(((com.altova.mapforce.IMFNode)(var2_filter.current())), closure.var1_shared)))));
 				pos++;
 				return true;
@@ -51078,7 +51078,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var2_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq56_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq57_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq504_map(((com.altova.mapforce.IMFNode)(var2_filter.current())), closure.var1_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq504_map(closure.var1_shared, ((com.altova.mapforce.IMFNode)(var2_filter.current())))))));
 				pos++;
 				return true;
 			}
@@ -51104,13 +51104,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq504_map implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq504_map(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq504_map(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -51147,14 +51147,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var1_current)).enumerator();
+				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var2_current)).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var3_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq383_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq505_map(closure.var2_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq505_map(closure.var1_shared)))));
 				pos++;
 				return true;
 			}
@@ -51333,15 +51333,15 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	{
 		com.altova.mapforce.IMFNode var1_current;
 		com.altova.mapforce.IMFNode var2_current;
-		com.altova.mapforce.IMFNode var3_current;
-		com.altova.mapforce.IEnumerable var4_shared;
+		com.altova.mapforce.IEnumerable var3_shared;
+		com.altova.mapforce.IMFNode var4_current;
 	
-		public seq507_if_any(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IMFNode var2_current, com.altova.mapforce.IMFNode var3_current, com.altova.mapforce.IEnumerable var4_shared)
+		public seq507_if_any(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IMFNode var2_current, com.altova.mapforce.IEnumerable var3_shared, com.altova.mapforce.IMFNode var4_current)
 		{
 			this.var1_current = var1_current;
 			this.var2_current = var2_current;
-			this.var3_current = var3_current;
-			this.var4_shared = var4_shared;
+			this.var3_shared = var3_shared;
+			this.var4_current = var4_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -51395,21 +51395,21 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 0;				
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq508_seq_(closure.var1_current, closure.var2_current, closure.var3_current))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq508_seq_(closure.var1_current, closure.var2_current, closure.var4_current))))))) {state = 2; return false; }
 				current = "Brick";
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 5;				
-				var5_filter = (closure.var4_shared).enumerator();
+				var5_filter = (closure.var3_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_5() throws Exception {
 				state = 7;				
 				if (!var5_filter.moveNext()) {state = 6; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var5_filter.current()))))))))) {state = 5; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var5_filter.current()))))))))) {state = 5; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var5_filter.current()))))))))) {state = 5; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var5_filter.current()))))))))) {state = 5; return false; }
 				var6_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var5_filter.current())))).enumerator();
 				return false;
 			}
@@ -51434,7 +51434,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_9() throws Exception {
 				state = 12;				
-				var7_filter = (closure.var4_shared).enumerator();
+				var7_filter = (closure.var3_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_12() throws Exception {
@@ -51454,7 +51454,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 16;				
 				if (!var8_filter.moveNext()) {state = 15; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq383_map(((com.altova.mapforce.IMFNode)(var8_filter.current()))))))))) {state = 14; return false; }
-				var9_filter = (closure.var4_shared).enumerator();
+				var9_filter = (closure.var3_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_15() throws Exception {
@@ -51555,7 +51555,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var3_current));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var2_current));
 				pos++;
 				return true;
 			}
@@ -51567,7 +51567,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
-				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var2_current));
+				current = com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var3_current));
 				pos++;
 				return true;
 			}
@@ -51708,7 +51708,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_shared.moveNext()) {state = 3; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq25_map(((com.altova.mapforce.IMFNode)(var2_shared.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq23_map(((com.altova.mapforce.IMFNode)(var2_shared.current()))))))))) {state = 2; return false; }
 				current = var2_shared.current();
 				pos++;
 				return true;
@@ -52500,7 +52500,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var2_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq86_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq87_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq517_map(((com.altova.mapforce.IMFNode)(var2_filter.current())), closure.var1_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq517_map(closure.var1_shared, ((com.altova.mapforce.IMFNode)(var2_filter.current())))))));
 				pos++;
 				return true;
 			}
@@ -52526,13 +52526,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq517_map implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq517_map(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq517_map(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -52570,7 +52570,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var1_current)).enumerator();
+				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var2_current)).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -52589,7 +52589,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 2;				
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq518_map(closure.var2_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq518_map(closure.var1_shared)))));
 				pos++;
 				return true;
 			}
@@ -53173,7 +53173,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var19_filter.moveNext()) {state = 33; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq383_map(((com.altova.mapforce.IMFNode)(var19_filter.current()))))))))) {state = 32; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq532_if_cast(((com.altova.mapforce.IMFNode)(var19_filter.current())), var17_Row))))) {state = 32; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FenestrationGlassLayers", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box((java.lang.String)com.altova.functions.Core.last((new seq540_if_cast(((com.altova.mapforce.IMFNode)(var19_filter.current())), var17_Row)))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FenestrationGlassLayers", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box((java.lang.String)com.altova.functions.Core.last((new seq540_if_cast(var17_Row, ((com.altova.mapforce.IMFNode)(var19_filter.current())))))));
 				pos++;
 				return true;
 			}
@@ -53454,7 +53454,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var2_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq91_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq92_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq525_map(((com.altova.mapforce.IMFNode)(var2_filter.current())), closure.var1_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq525_map(closure.var1_shared, ((com.altova.mapforce.IMFNode)(var2_filter.current())))))));
 				pos++;
 				return true;
 			}
@@ -53480,13 +53480,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq525_map implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq525_map(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq525_map(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -53524,7 +53524,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var1_current)).enumerator();
+				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var2_current)).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -53543,7 +53543,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 2;				
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq526_map(closure.var2_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq526_map(closure.var1_shared)))));
 				pos++;
 				return true;
 			}
@@ -53756,7 +53756,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var2_filter.moveNext()) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq91_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq92_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq529_map(((com.altova.mapforce.IMFNode)(var2_filter.current())), closure.var1_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq529_map(closure.var1_shared, ((com.altova.mapforce.IMFNode)(var2_filter.current())))))));
 				pos++;
 				return true;
 			}
@@ -53782,13 +53782,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq529_map implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq529_map(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq529_map(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -53826,7 +53826,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var1_current)).enumerator();
+				var3_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), closure.var2_current)).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -53845,7 +53845,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 2;				
-				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq530_map(closure.var2_shared)))));
+				current = (Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq530_map(closure.var1_shared)))));
 				pos++;
 				return true;
 			}
@@ -54697,13 +54697,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq540_if_cast implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq540_if_cast(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq540_if_cast(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -54764,14 +54764,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 0;				
-				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var1_current)))) {state = 2; return false; }
+				if (!(com.altova.CoreTypes.parseBoolean(com.altova.CoreTypes.nodeToString(closure.var2_current)))) {state = 2; return false; }
 				current = "Single pane";
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 5;				
-				var3_filter = (closure.var2_shared).enumerator();
+				var3_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_5() throws Exception {
@@ -54791,7 +54791,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 9;				
 				if (!var4_filter.moveNext()) {state = 8; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq383_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 7; return false; }
-				var5_filter = (closure.var2_shared).enumerator();
+				var5_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_8() throws Exception {
@@ -54828,7 +54828,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_13() throws Exception {
 				state = 16;				
-				var7_filter = (closure.var2_shared).enumerator();
+				var7_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_16() throws Exception {
@@ -54848,7 +54848,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 20;				
 				if (!var8_filter.moveNext()) {state = 19; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq383_map(((com.altova.mapforce.IMFNode)(var8_filter.current()))))))))) {state = 18; return false; }
-				var9_filter = (closure.var2_shared).enumerator();
+				var9_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_19() throws Exception {
@@ -55414,7 +55414,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 4;				
 				if (!var2_filter.moveNext()) {state = 3; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq25_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq23_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				var3_filter = new com.altova.functions.Core.SequenceCache((new seq544_filter(((com.altova.mapforce.IMFNode)(var2_filter.current())))));
 				var4_shared = (var3_filter).enumerator();
 				return false;
@@ -59252,7 +59252,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var4_filter.moveNext()) {state = 4; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq386_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 3; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq76_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 3; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq584_join(((com.altova.mapforce.IMFNode)(var4_filter.current())), closure.var2_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq584_join(closure.var2_shared, ((com.altova.mapforce.IMFNode)(var4_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -59371,13 +59371,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq584_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq584_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq584_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -59417,7 +59417,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_shared = (closure.var2_shared).enumerator();
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -59429,7 +59429,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
 				if( var3_shared != null ) { var3_shared.close(); var3_shared = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.doubleToString(com.altova.CoreTypes.parseDouble(com.altova.CoreTypes.nodeToString(closure.var1_current)))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.doubleToString(com.altova.CoreTypes.parseDouble(com.altova.CoreTypes.nodeToString(closure.var2_current)))));
 				pos++;
 				return true;
 			}
@@ -59537,7 +59537,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_shared = (closure.var2_shared).enumerator();
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -59550,7 +59550,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 11;				
 				if( var3_shared != null ) { var3_shared.close(); var3_shared = null; }
-				var16_shared = (closure.var2_shared).enumerator();
+				var16_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_4() throws Exception {
@@ -59585,12 +59585,12 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq112_map(((com.altova.mapforce.IMFNode)(var8_filter.current()))))))))) {state = 8; return false; }
 				var9_filter = new com.altova.functions.Core.SequenceCache((new seq587_filter(var4_Worksheet)));
 				var10_filter = new com.altova.functions.Core.SequenceCache((new seq588_filter(var4_Worksheet)));
-				var11_filter = new com.altova.functions.Core.SequenceCache((new seq589_filter(var4_Worksheet)));
+				var11_filter = new com.altova.functions.Core.SequenceCache((new seq590_filter(var4_Worksheet)));
 				var12_filter = new com.altova.functions.Core.SequenceCache((new seq591_filter(var4_Worksheet)));
 				var13_filter = new com.altova.functions.Core.SequenceCache((new seq592_filter(var4_Worksheet)));
 				var14_filter = new com.altova.functions.Core.SequenceCache((new seq593_filter(var6_Row)));
 				var15_filter = new com.altova.functions.Core.SequenceCache((new seq595_filter(var6_Row)));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Scenarios", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq597_seq_(((com.altova.mapforce.IMFNode)(var8_filter.current())), var14_filter, var6_Row, var9_filter, var13_filter, var15_filter, var11_filter, var12_filter, var10_filter)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Scenarios", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq597_seq_(((com.altova.mapforce.IMFNode)(var8_filter.current())), var14_filter, var6_Row, var9_filter, var12_filter, var11_filter, var15_filter, var13_filter, var10_filter)));
 				pos++;
 				return true;
 			}
@@ -59608,7 +59608,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_12() throws Exception {
 				state = 0;				
 				if( var16_shared != null ) { var16_shared.close(); var16_shared = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("AuditorContactID", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.functions.Core.createAttribute(com.altova.functions.Core.createQName("IDref", ""), closure.var1_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("AuditorContactID", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.functions.Core.createAttribute(com.altova.functions.Core.createQName("IDref", ""), closure.var2_shared)));
 				pos++;
 				return true;
 			}
@@ -59794,7 +59794,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_shared.moveNext()) {state = 3; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq6_map(((com.altova.mapforce.IMFNode)(var2_shared.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq21_map(((com.altova.mapforce.IMFNode)(var2_shared.current()))))))))) {state = 2; return false; }
 				current = var2_shared.current();
 				pos++;
 				return true;
@@ -59868,7 +59868,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_shared.moveNext()) {state = 3; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq571_map(((com.altova.mapforce.IMFNode)(var2_shared.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq589_map(((com.altova.mapforce.IMFNode)(var2_shared.current()))))))))) {state = 2; return false; }
 				current = var2_shared.current();
 				pos++;
 				return true;
@@ -59893,85 +59893,11 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 		}
 				
 	}
-	static class seq589_filter implements IEnumerable
-	{
-		com.altova.mapforce.IEnumerable var1_shared;
-	
-		public seq589_filter(com.altova.mapforce.IEnumerable var1_shared)
-		{
-			this.var1_shared = var1_shared;
-		}
-
-		public IEnumerator enumerator() {return new Enumerator(this);}
-		
-		public static class Enumerator implements IEnumerator
-		{
-			int pos = 0;
-			int state = 1;
-			Object current;
-			seq589_filter closure;
-			IEnumerator var2_shared;
-			public Enumerator(seq589_filter closure) 
-			{
-				this.closure = closure;
-			}
-			
-			public Object current() {return current;}
-			
-			public int position() {return pos;}
-			
-			public boolean moveNext() throws Exception
-			{
-				while (state != 0)
-				{
-					switch (state) 
-					{
-					case 1:	if (moveNext_1()) return true; break;
-					case 2:	if (moveNext_2()) return true; break;
-					case 3:	if (moveNext_3()) return true; break;
- 					}
-				}
-				return false;
-			}
-
-			private boolean moveNext_1() throws Exception {
-				state = 2;				
-				var2_shared = (closure.var1_shared).enumerator();
-				return false;
-			}
-			private boolean moveNext_2() throws Exception {
-				state = 2;				
-				if (!var2_shared.moveNext()) {state = 3; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq590_map(((com.altova.mapforce.IMFNode)(var2_shared.current()))))))))) {state = 2; return false; }
-				current = var2_shared.current();
-				pos++;
-				return true;
-			}
-			private boolean moveNext_3() throws Exception {
-				state = 0;				
-				if( var2_shared != null ) { var2_shared.close(); var2_shared = null; }
-				return false;
-			}
-
-			
-			public void close()
-			{
-				try
-				{
-				if( var2_shared != null ) { var2_shared.close(); var2_shared = null; }
-				}
-				catch (Exception e)
-				{
-				}
-			}
-		}
-				
-	}
-	static class seq590_map implements IEnumerable
+	static class seq589_map implements IEnumerable
 	{
 		com.altova.mapforce.IMFNode var1_cur_n;
 	
-		public seq590_map(com.altova.mapforce.IMFNode var1_cur_n)
+		public seq589_map(com.altova.mapforce.IMFNode var1_cur_n)
 		{
 			this.var1_cur_n = var1_cur_n;
 		}
@@ -59983,9 +59909,9 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			int pos = 0;
 			int state = 1;
 			Object current;
-			seq590_map closure;
+			seq589_map closure;
 			IEnumerator var2_Name;
-			public Enumerator(seq590_map closure) 
+			public Enumerator(seq589_map closure) 
 			{
 				this.closure = closure;
 			}
@@ -60032,6 +59958,80 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				try
 				{
 				if( var2_Name != null ) { var2_Name.close(); var2_Name = null; }
+				}
+				catch (Exception e)
+				{
+				}
+			}
+		}
+				
+	}
+	static class seq590_filter implements IEnumerable
+	{
+		com.altova.mapforce.IEnumerable var1_shared;
+	
+		public seq590_filter(com.altova.mapforce.IEnumerable var1_shared)
+		{
+			this.var1_shared = var1_shared;
+		}
+
+		public IEnumerator enumerator() {return new Enumerator(this);}
+		
+		public static class Enumerator implements IEnumerator
+		{
+			int pos = 0;
+			int state = 1;
+			Object current;
+			seq590_filter closure;
+			IEnumerator var2_shared;
+			public Enumerator(seq590_filter closure) 
+			{
+				this.closure = closure;
+			}
+			
+			public Object current() {return current;}
+			
+			public int position() {return pos;}
+			
+			public boolean moveNext() throws Exception
+			{
+				while (state != 0)
+				{
+					switch (state) 
+					{
+					case 1:	if (moveNext_1()) return true; break;
+					case 2:	if (moveNext_2()) return true; break;
+					case 3:	if (moveNext_3()) return true; break;
+ 					}
+				}
+				return false;
+			}
+
+			private boolean moveNext_1() throws Exception {
+				state = 2;				
+				var2_shared = (closure.var1_shared).enumerator();
+				return false;
+			}
+			private boolean moveNext_2() throws Exception {
+				state = 2;				
+				if (!var2_shared.moveNext()) {state = 3; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq6_map(((com.altova.mapforce.IMFNode)(var2_shared.current()))))))))) {state = 2; return false; }
+				current = var2_shared.current();
+				pos++;
+				return true;
+			}
+			private boolean moveNext_3() throws Exception {
+				state = 0;				
+				if( var2_shared != null ) { var2_shared.close(); var2_shared = null; }
+				return false;
+			}
+
+			
+			public void close()
+			{
+				try
+				{
+				if( var2_shared != null ) { var2_shared.close(); var2_shared = null; }
 				}
 				catch (Exception e)
 				{
@@ -60089,7 +60089,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_shared.moveNext()) {state = 3; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq23_map(((com.altova.mapforce.IMFNode)(var2_shared.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq565_map(((com.altova.mapforce.IMFNode)(var2_shared.current()))))))))) {state = 2; return false; }
 				current = var2_shared.current();
 				pos++;
 				return true;
@@ -60163,7 +60163,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_shared.moveNext()) {state = 3; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq565_map(((com.altova.mapforce.IMFNode)(var2_shared.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq571_map(((com.altova.mapforce.IMFNode)(var2_shared.current()))))))))) {state = 2; return false; }
 				current = var2_shared.current();
 				pos++;
 				return true;
@@ -60385,7 +60385,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_filter.moveNext()) {state = 3; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				current = var2_filter.current();
 				pos++;
 				return true;
@@ -60459,7 +60459,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_shared.moveNext()) {state = 3; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var2_shared.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var2_shared.current()))))))))) {state = 2; return false; }
 				current = var2_shared.current();
 				pos++;
 				return true;
@@ -60541,13 +60541,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Scenario", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq598_join(closure.var1_current, closure.var2_shared, closure.var3_shared, closure.var4_shared, closure.var5_shared, closure.var6_shared, closure.var7_shared, closure.var8_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Scenario", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq598_join(closure.var1_current, closure.var2_shared, closure.var3_shared, closure.var4_shared, closure.var5_shared, closure.var6_shared, closure.var7_shared, closure.var9_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 0;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Scenario", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq661_join(closure.var9_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Scenario", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq661_join(closure.var8_shared)));
 				pos++;
 				return true;
 			}
@@ -60666,31 +60666,31 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("WeatherType", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq599_join(closure.var4_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("WeatherType", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq599_join(closure.var6_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_3() throws Exception {
 				state = 4;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ResourceUses", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq600_join(closure.var3_shared, closure.var4_shared, closure.var5_shared, closure.var6_shared, closure.var7_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ResourceUses", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq600_join(closure.var3_shared, closure.var5_shared, closure.var6_shared, closure.var7_shared, closure.var8_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 5;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("TimeSeriesData", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq621_join(closure.var2_shared, closure.var3_shared, closure.var7_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("TimeSeriesData", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq621_join(closure.var2_shared, closure.var3_shared, closure.var8_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_5() throws Exception {
 				state = 6;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("AllResourceTotals", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq648_join(closure.var5_shared, closure.var6_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("AllResourceTotals", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq648_join(closure.var5_shared, closure.var7_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_6() throws Exception {
 				state = 7;				
-				var9_shared = (closure.var8_shared).enumerator();
+				var9_shared = (closure.var4_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_7() throws Exception {
@@ -60702,14 +60702,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_8() throws Exception {
 				state = 14;				
 				if( var9_shared != null ) { var9_shared.close(); var9_shared = null; }
-				var12_shared = (closure.var8_shared).enumerator();
+				var12_shared = (closure.var4_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_9() throws Exception {
 				state = 11;				
 				if (!var10_filter.moveNext()) {state = 10; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var10_filter.current()))))))))) {state = 9; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var10_filter.current()))))))))) {state = 9; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var10_filter.current()))))))))) {state = 9; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var10_filter.current()))))))))) {state = 9; return false; }
 				var11_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var10_filter.current())))).enumerator();
 				return false;
 			}
@@ -60722,8 +60722,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 11;				
 				if (!var11_filter.moveNext()) {state = 12; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var11_filter.current()))))))))) {state = 11; return false; }
-				if (!(com.altova.functions.Core.exists((new seq653_if_equal(((com.altova.mapforce.IMFNode)(var11_filter.current())), closure.var4_shared))))) {state = 11; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("AnnualHeatingDegreeDays", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq654_if_equal(((com.altova.mapforce.IMFNode)(var11_filter.current())), closure.var4_shared)))))));
+				if (!(com.altova.functions.Core.exists((new seq653_if_equal(((com.altova.mapforce.IMFNode)(var11_filter.current())), closure.var6_shared))))) {state = 11; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("AnnualHeatingDegreeDays", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq654_if_equal(((com.altova.mapforce.IMFNode)(var11_filter.current())), closure.var6_shared)))))));
 				pos++;
 				return true;
 			}
@@ -60741,14 +60741,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_15() throws Exception {
 				state = 21;				
 				if( var12_shared != null ) { var12_shared.close(); var12_shared = null; }
-				var15_shared = (closure.var8_shared).enumerator();
+				var15_shared = (closure.var4_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_16() throws Exception {
 				state = 18;				
 				if (!var13_filter.moveNext()) {state = 17; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var13_filter.current()))))))))) {state = 16; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var13_filter.current()))))))))) {state = 16; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var13_filter.current()))))))))) {state = 16; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var13_filter.current()))))))))) {state = 16; return false; }
 				var14_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var13_filter.current())))).enumerator();
 				return false;
 			}
@@ -60761,8 +60761,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 18;				
 				if (!var14_filter.moveNext()) {state = 19; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var14_filter.current()))))))))) {state = 18; return false; }
-				if (!(com.altova.functions.Core.exists((new seq655_if_equal(((com.altova.mapforce.IMFNode)(var14_filter.current())), closure.var4_shared))))) {state = 18; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("AnnualCoolingDegreeDays", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq656_if_equal(((com.altova.mapforce.IMFNode)(var14_filter.current())), closure.var4_shared)))))));
+				if (!(com.altova.functions.Core.exists((new seq655_if_equal(((com.altova.mapforce.IMFNode)(var14_filter.current())), closure.var6_shared))))) {state = 18; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("AnnualCoolingDegreeDays", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq656_if_equal(((com.altova.mapforce.IMFNode)(var14_filter.current())), closure.var6_shared)))))));
 				pos++;
 				return true;
 			}
@@ -60780,14 +60780,14 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_22() throws Exception {
 				state = 28;				
 				if( var15_shared != null ) { var15_shared.close(); var15_shared = null; }
-				var18_shared = (closure.var8_shared).enumerator();
+				var18_shared = (closure.var4_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_23() throws Exception {
 				state = 25;				
 				if (!var16_filter.moveNext()) {state = 24; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var16_filter.current()))))))))) {state = 23; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var16_filter.current()))))))))) {state = 23; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var16_filter.current()))))))))) {state = 23; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var16_filter.current()))))))))) {state = 23; return false; }
 				var17_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var16_filter.current())))).enumerator();
 				return false;
 			}
@@ -60800,8 +60800,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 25;				
 				if (!var17_filter.moveNext()) {state = 26; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var17_filter.current()))))))))) {state = 25; return false; }
-				if (!(com.altova.functions.Core.exists((new seq657_if_equal(((com.altova.mapforce.IMFNode)(var17_filter.current())), closure.var4_shared))))) {state = 25; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("HDDBaseTemperature", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq658_if_equal(((com.altova.mapforce.IMFNode)(var17_filter.current())), closure.var4_shared)))))));
+				if (!(com.altova.functions.Core.exists((new seq657_if_equal(((com.altova.mapforce.IMFNode)(var17_filter.current())), closure.var6_shared))))) {state = 25; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("HDDBaseTemperature", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq658_if_equal(((com.altova.mapforce.IMFNode)(var17_filter.current())), closure.var6_shared)))))));
 				pos++;
 				return true;
 			}
@@ -60826,8 +60826,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_30() throws Exception {
 				state = 32;				
 				if (!var19_filter.moveNext()) {state = 31; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var19_filter.current()))))))))) {state = 30; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var19_filter.current()))))))))) {state = 30; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var19_filter.current()))))))))) {state = 30; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var19_filter.current()))))))))) {state = 30; return false; }
 				var20_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var19_filter.current())))).enumerator();
 				return false;
 			}
@@ -60840,8 +60840,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 32;				
 				if (!var20_filter.moveNext()) {state = 33; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var20_filter.current()))))))))) {state = 32; return false; }
-				if (!(com.altova.functions.Core.exists((new seq659_if_equal(((com.altova.mapforce.IMFNode)(var20_filter.current())), closure.var4_shared))))) {state = 32; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("CDDBaseTemperature", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq660_if_equal(((com.altova.mapforce.IMFNode)(var20_filter.current())), closure.var4_shared)))))));
+				if (!(com.altova.functions.Core.exists((new seq659_if_equal(((com.altova.mapforce.IMFNode)(var20_filter.current())), closure.var6_shared))))) {state = 32; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("CDDBaseTemperature", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.CoreTypes.parseDecimal((java.lang.String)com.altova.functions.Core.last((new seq660_if_equal(((com.altova.mapforce.IMFNode)(var20_filter.current())), closure.var6_shared)))))));
 				pos++;
 				return true;
 			}
@@ -61102,7 +61102,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				var8_cast = com.altova.CoreTypes.parseDouble(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var7_filter.current()))));
 				var9_box = new com.altova.functions.Core.SequenceCache(com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.mapforce.vmf.vmf32_inputtoresult.eval(var8_cast))));
 				var10_filter = new com.altova.functions.Core.SequenceCache((new seq601_filter(closure.var1_shared)));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ResourceUse", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq603_join(var10_filter, closure.var2_shared, closure.var3_shared, var8_cast, var9_box)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ResourceUse", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq603_join(var10_filter, closure.var2_shared, closure.var3_shared, var9_box, var8_cast)));
 				pos++;
 				return true;
 			}
@@ -61131,7 +61131,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				var13_cast = com.altova.CoreTypes.parseDouble(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var12_filter.current()))));
 				var14_box = new com.altova.functions.Core.SequenceCache(com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.mapforce.vmf.vmf38_inputtoresult.eval(var13_cast))));
 				var15_filter = new com.altova.functions.Core.SequenceCache((new seq601_filter(closure.var1_shared)));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ResourceUse", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq606_join(var15_filter, closure.var2_shared, closure.var3_shared, var13_cast, var14_box)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ResourceUse", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq606_join(var15_filter, closure.var2_shared, closure.var3_shared, var14_box, var13_cast)));
 				pos++;
 				return true;
 			}
@@ -61161,7 +61161,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!(com.altova.functions.Core.exists(com.mapforce.vmf.vmf40_inputtoresult.eval(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var17_filter.current()))))))) {state = 14; return false; }
 				var18_vmf40_inputtoresult = new com.altova.functions.Core.SequenceCache(com.mapforce.vmf.vmf40_inputtoresult.eval(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var17_filter.current())))));
 				var19_filter = new com.altova.functions.Core.SequenceCache((new seq609_filter(closure.var1_shared)));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ResourceUse", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq611_join(closure.var2_shared, closure.var3_shared, closure.var4_shared, var19_filter, var18_vmf40_inputtoresult)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ResourceUse", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq611_join(closure.var2_shared, closure.var3_shared, closure.var4_shared, var18_vmf40_inputtoresult, var19_filter)));
 				pos++;
 				return true;
 			}
@@ -61430,10 +61430,10 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 		com.altova.mapforce.IEnumerable var1_shared;
 		com.altova.mapforce.IEnumerable var2_shared;
 		com.altova.mapforce.IEnumerable var3_shared;
-		double var4_shared;
-		com.altova.mapforce.IEnumerable var5_shared;
+		com.altova.mapforce.IEnumerable var4_shared;
+		double var5_shared;
 	
-		public seq603_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IEnumerable var3_shared, double var4_shared, com.altova.mapforce.IEnumerable var5_shared)
+		public seq603_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IEnumerable var3_shared, com.altova.mapforce.IEnumerable var4_shared, double var5_shared)
 		{
 			this.var1_shared = var1_shared;
 			this.var2_shared = var2_shared;
@@ -61523,7 +61523,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 8;				
 				if( var6_shared != null ) { var6_shared.close(); var6_shared = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ResourceBoundary", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.mapforce.vmf.vmf30_inputtoresult.eval(closure.var4_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ResourceBoundary", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.mapforce.vmf.vmf30_inputtoresult.eval(closure.var5_shared)));
 				pos++;
 				return true;
 			}
@@ -61542,37 +61542,37 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_8() throws Exception {
 				state = 9;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ResourceUnits", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.mapforce.vmf.vmf31_inputtoresult.eval(closure.var4_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ResourceUnits", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.mapforce.vmf.vmf31_inputtoresult.eval(closure.var5_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_9() throws Exception {
 				state = 10;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("PercentResource", "http://nrel.gov/schemas/bedes-auc/2014"), closure.var5_shared);
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("PercentResource", "http://nrel.gov/schemas/bedes-auc/2014"), closure.var4_shared);
 				pos++;
 				return true;
 			}
 			private boolean moveNext_10() throws Exception {
 				state = 11;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("EndUse", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.mapforce.vmf.vmf33_inputtoresult.eval(closure.var4_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("EndUse", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.mapforce.vmf.vmf33_inputtoresult.eval(closure.var5_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_11() throws Exception {
 				state = 12;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("PercentEndUse", "http://nrel.gov/schemas/bedes-auc/2014"), closure.var5_shared);
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("PercentEndUse", "http://nrel.gov/schemas/bedes-auc/2014"), closure.var4_shared);
 				pos++;
 				return true;
 			}
 			private boolean moveNext_12() throws Exception {
 				state = 13;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("AnnualFuelUseNativeUnits", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.CoreTypes.doubleToDecimal(closure.var4_shared))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("AnnualFuelUseNativeUnits", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.CoreTypes.doubleToDecimal(closure.var5_shared))));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_13() throws Exception {
 				state = 14;				
-				var8_shared = (closure.var3_shared).enumerator();
+				var8_shared = (closure.var2_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_14() throws Exception {
@@ -61584,7 +61584,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_15() throws Exception {
 				state = 21;				
 				if( var8_shared != null ) { var8_shared.close(); var8_shared = null; }
-				var11_shared = (closure.var2_shared).enumerator();
+				var11_shared = (closure.var3_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_16() throws Exception {
@@ -61892,10 +61892,10 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 		com.altova.mapforce.IEnumerable var1_shared;
 		com.altova.mapforce.IEnumerable var2_shared;
 		com.altova.mapforce.IEnumerable var3_shared;
-		double var4_shared;
-		com.altova.mapforce.IEnumerable var5_shared;
+		com.altova.mapforce.IEnumerable var4_shared;
+		double var5_shared;
 	
-		public seq606_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IEnumerable var3_shared, double var4_shared, com.altova.mapforce.IEnumerable var5_shared)
+		public seq606_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IEnumerable var3_shared, com.altova.mapforce.IEnumerable var4_shared, double var5_shared)
 		{
 			this.var1_shared = var1_shared;
 			this.var2_shared = var2_shared;
@@ -61985,7 +61985,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 8;				
 				if( var6_shared != null ) { var6_shared.close(); var6_shared = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ResourceBoundary", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.mapforce.vmf.vmf36_inputtoresult.eval(closure.var4_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ResourceBoundary", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.mapforce.vmf.vmf36_inputtoresult.eval(closure.var5_shared)));
 				pos++;
 				return true;
 			}
@@ -62004,37 +62004,37 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_8() throws Exception {
 				state = 9;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ResourceUnits", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.mapforce.vmf.vmf37_inputtoresult.eval(closure.var4_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ResourceUnits", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.mapforce.vmf.vmf37_inputtoresult.eval(closure.var5_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_9() throws Exception {
 				state = 10;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("PercentResource", "http://nrel.gov/schemas/bedes-auc/2014"), closure.var5_shared);
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("PercentResource", "http://nrel.gov/schemas/bedes-auc/2014"), closure.var4_shared);
 				pos++;
 				return true;
 			}
 			private boolean moveNext_10() throws Exception {
 				state = 11;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("EndUse", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.mapforce.vmf.vmf39_inputtoresult.eval(closure.var4_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("EndUse", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.mapforce.vmf.vmf39_inputtoresult.eval(closure.var5_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_11() throws Exception {
 				state = 12;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("PercentEndUse", "http://nrel.gov/schemas/bedes-auc/2014"), closure.var5_shared);
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("PercentEndUse", "http://nrel.gov/schemas/bedes-auc/2014"), closure.var4_shared);
 				pos++;
 				return true;
 			}
 			private boolean moveNext_12() throws Exception {
 				state = 13;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("AnnualFuelUseNativeUnits", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.CoreTypes.doubleToDecimal(closure.var4_shared))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("AnnualFuelUseNativeUnits", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.decimalToString(com.altova.CoreTypes.doubleToDecimal(closure.var5_shared))));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_13() throws Exception {
 				state = 14;				
-				var8_shared = (closure.var3_shared).enumerator();
+				var8_shared = (closure.var2_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_14() throws Exception {
@@ -62046,7 +62046,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_15() throws Exception {
 				state = 21;				
 				if( var8_shared != null ) { var8_shared.close(); var8_shared = null; }
-				var11_shared = (closure.var2_shared).enumerator();
+				var11_shared = (closure.var3_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_16() throws Exception {
@@ -62603,13 +62603,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("EnergyResource", "http://nrel.gov/schemas/bedes-auc/2014"), closure.var5_shared);
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("EnergyResource", "http://nrel.gov/schemas/bedes-auc/2014"), closure.var4_shared);
 				pos++;
 				return true;
 			}
 			private boolean moveNext_3() throws Exception {
 				state = 4;				
-				var6_shared = (closure.var4_shared).enumerator();
+				var6_shared = (closure.var5_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_4() throws Exception {
@@ -62621,7 +62621,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_5() throws Exception {
 				state = 9;				
 				if( var6_shared != null ) { var6_shared.close(); var6_shared = null; }
-				var8_shared = (closure.var4_shared).enumerator();
+				var8_shared = (closure.var5_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_6() throws Exception {
@@ -62646,7 +62646,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_10() throws Exception {
 				state = 14;				
 				if( var8_shared != null ) { var8_shared.close(); var8_shared = null; }
-				var10_shared = (closure.var4_shared).enumerator();
+				var10_shared = (closure.var5_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_11() throws Exception {
@@ -62671,7 +62671,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_15() throws Exception {
 				state = 19;				
 				if( var10_shared != null ) { var10_shared.close(); var10_shared = null; }
-				var12_shared = (closure.var4_shared).enumerator();
+				var12_shared = (closure.var5_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_16() throws Exception {
@@ -62696,7 +62696,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_20() throws Exception {
 				state = 24;				
 				if( var12_shared != null ) { var12_shared.close(); var12_shared = null; }
-				var14_shared = (closure.var4_shared).enumerator();
+				var14_shared = (closure.var5_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_21() throws Exception {
@@ -62746,7 +62746,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_30() throws Exception {
 				state = 34;				
 				if( var16_shared != null ) { var16_shared.close(); var16_shared = null; }
-				var18_shared = (closure.var2_shared).enumerator();
+				var18_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_31() throws Exception {
@@ -62771,7 +62771,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_35() throws Exception {
 				state = 41;				
 				if( var18_shared != null ) { var18_shared.close(); var18_shared = null; }
-				var21_shared = (closure.var1_shared).enumerator();
+				var21_shared = (closure.var2_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_36() throws Exception {
@@ -62830,8 +62830,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var24_filter.moveNext()) {state = 46; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq136_map(((com.altova.mapforce.IMFNode)(var24_filter.current()))))))))) {state = 45; return false; }
 				if (!(com.altova.functions.Core.exists(com.mapforce.vmf.vmf34_inputtoresult.eval(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var24_filter.current()))))))) {state = 45; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq612_map(closure.var5_shared, var23_Cell))))))) {state = 45; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Utility", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq613_join(((com.altova.mapforce.IMFNode)(var24_filter.current())), closure.var5_shared, var23_Cell)));
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq612_map(closure.var4_shared, var23_Cell))))))) {state = 45; return false; }
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Utility", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq613_join(((com.altova.mapforce.IMFNode)(var24_filter.current())), closure.var4_shared, var23_Cell)));
 				pos++;
 				return true;
 			}
@@ -63286,7 +63286,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_26() throws Exception {
 				state = 30;				
 				if( var14_filter != null ) { var14_filter.close(); var14_filter = null; }
-				var16_shared = (closure.var3_shared).enumerator();
+				var16_shared = (closure.var2_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_27() throws Exception {
@@ -63311,7 +63311,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_31() throws Exception {
 				state = 37;				
 				if( var16_shared != null ) { var16_shared.close(); var16_shared = null; }
-				var19_shared = (closure.var2_shared).enumerator();
+				var19_shared = (closure.var3_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_32() throws Exception {
@@ -63842,7 +63842,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_30() throws Exception {
 				state = 34;				
 				if( var16_filter != null ) { var16_filter.close(); var16_filter = null; }
-				var18_shared = (closure.var3_shared).enumerator();
+				var18_shared = (closure.var2_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_31() throws Exception {
@@ -63867,7 +63867,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_35() throws Exception {
 				state = 41;				
 				if( var18_shared != null ) { var18_shared.close(); var18_shared = null; }
-				var21_shared = (closure.var2_shared).enumerator();
+				var21_shared = (closure.var3_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_36() throws Exception {
@@ -64248,8 +64248,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			com.altova.mapforce.IEnumerable var14_Cell;
 			IEnumerator var15_filter;
 			IEnumerator var17_shared;
-			com.altova.mapforce.IEnumerable var11_r;
-			double var12_cast;
+			double var11_cast;
+			com.altova.mapforce.IEnumerable var12_r;
 			com.altova.mapforce.IEnumerable var18_Cell;
 			IEnumerator var19_filter;
 			IEnumerator var21_shared;
@@ -64416,9 +64416,9 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var10_filter.moveNext()) {state = 8; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq136_map(((com.altova.mapforce.IMFNode)(var10_filter.current()))))))))) {state = 7; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq76_map(((com.altova.mapforce.IMFNode)(var10_filter.current()))))))))) {state = 7; return false; }
-				var11_r = new com.altova.functions.Core.SequenceCache(com.altova.functions.Core.filterAttributes(com.altova.functions.Core.createQName("r", ""), ((com.altova.mapforce.IMFNode)(var8_shared.current()))));
-				var12_cast = com.altova.CoreTypes.parseDouble(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var10_filter.current()))));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("TimeSeries", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq626_join(var12_cast, var11_r, var9_Cell)));
+				var11_cast = com.altova.CoreTypes.parseDouble(com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var10_filter.current()))));
+				var12_r = new com.altova.functions.Core.SequenceCache(com.altova.functions.Core.filterAttributes(com.altova.functions.Core.createQName("r", ""), ((com.altova.mapforce.IMFNode)(var8_shared.current()))));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("TimeSeries", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq626_join(var9_Cell, var12_r, var11_cast)));
 				pos++;
 				return true;
 			}
@@ -65206,11 +65206,11 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq626_join implements IEnumerable
 	{
-		double var1_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
 		com.altova.mapforce.IEnumerable var2_shared;
-		com.altova.mapforce.IEnumerable var3_shared;
+		double var3_shared;
 	
-		public seq626_join(double var1_shared, com.altova.mapforce.IEnumerable var2_shared, com.altova.mapforce.IEnumerable var3_shared)
+		public seq626_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IEnumerable var2_shared, double var3_shared)
 		{
 			this.var1_shared = var1_shared;
 			this.var2_shared = var2_shared;
@@ -65267,13 +65267,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			}
 			private boolean moveNext_4() throws Exception {
 				state = 5;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("TimeSeriesReadingQuantity", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.mapforce.vmf.vmf56_inputtoresult.eval(closure.var1_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("TimeSeriesReadingQuantity", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.mapforce.vmf.vmf56_inputtoresult.eval(closure.var3_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_5() throws Exception {
 				state = 6;				
-				var4_filter = (closure.var3_shared).enumerator();
+				var4_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_6() throws Exception {
@@ -65288,7 +65288,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_7() throws Exception {
 				state = 9;				
 				if( var4_filter != null ) { var4_filter.close(); var4_filter = null; }
-				var5_filter = (closure.var3_shared).enumerator();
+				var5_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_9() throws Exception {
@@ -65303,7 +65303,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_10() throws Exception {
 				state = 12;				
 				if( var5_filter != null ) { var5_filter.close(); var5_filter = null; }
-				var6_filter = (closure.var3_shared).enumerator();
+				var6_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_12() throws Exception {
@@ -65317,7 +65317,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_13() throws Exception {
 				state = 15;				
 				if( var6_filter != null ) { var6_filter.close(); var6_filter = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("IntervalReading", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq627_seq_(closure.var1_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("IntervalReading", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq627_seq_(closure.var3_shared)));
 				pos++;
 				return true;
 			}
@@ -69480,8 +69480,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_5() throws Exception {
 				state = 7;				
 				if (!var3_filter.moveNext()) {state = 6; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 5; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 5; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 5; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 5; return false; }
 				var4_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var3_filter.current())))).enumerator();
 				return false;
 			}
@@ -69650,8 +69650,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 6;				
 				if (!var3_filter.moveNext()) {state = 5; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 4; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var3_filter.current()))))))))) {state = 4; return false; }
 				var4_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var3_filter.current())))).enumerator();
 				return false;
 			}
@@ -69728,8 +69728,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_18() throws Exception {
 				state = 20;				
 				if (!var11_filter.moveNext()) {state = 19; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var11_filter.current()))))))))) {state = 18; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var11_filter.current()))))))))) {state = 18; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var11_filter.current()))))))))) {state = 18; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var11_filter.current()))))))))) {state = 18; return false; }
 				var12_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var11_filter.current())))).enumerator();
 				return false;
 			}
@@ -69767,8 +69767,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_25() throws Exception {
 				state = 27;				
 				if (!var15_filter.moveNext()) {state = 26; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var15_filter.current()))))))))) {state = 25; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var15_filter.current()))))))))) {state = 25; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var15_filter.current()))))))))) {state = 25; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var15_filter.current()))))))))) {state = 25; return false; }
 				var16_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var15_filter.current())))).enumerator();
 				return false;
 			}
@@ -69805,8 +69805,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_32() throws Exception {
 				state = 34;				
 				if (!var18_filter.moveNext()) {state = 33; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var18_filter.current()))))))))) {state = 32; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var18_filter.current()))))))))) {state = 32; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var18_filter.current()))))))))) {state = 32; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var18_filter.current()))))))))) {state = 32; return false; }
 				var19_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var18_filter.current())))).enumerator();
 				return false;
 			}
@@ -69843,8 +69843,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_39() throws Exception {
 				state = 41;				
 				if (!var21_filter.moveNext()) {state = 40; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var21_filter.current()))))))))) {state = 39; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var21_filter.current()))))))))) {state = 39; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var21_filter.current()))))))))) {state = 39; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var21_filter.current()))))))))) {state = 39; return false; }
 				var22_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var21_filter.current())))).enumerator();
 				return false;
 			}
@@ -69880,8 +69880,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_46() throws Exception {
 				state = 48;				
 				if (!var24_filter.moveNext()) {state = 47; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var24_filter.current()))))))))) {state = 46; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var24_filter.current()))))))))) {state = 46; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var24_filter.current()))))))))) {state = 46; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var24_filter.current()))))))))) {state = 46; return false; }
 				var25_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var24_filter.current())))).enumerator();
 				return false;
 			}
@@ -69987,7 +69987,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_filter.moveNext()) {state = 3; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var2_filter.current()))))))))) {state = 2; return false; }
 				current = var2_filter.current();
 				pos++;
 				return true;
@@ -70061,7 +70061,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_2() throws Exception {
 				state = 2;				
 				if (!var2_shared.moveNext()) {state = 3; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var2_shared.current()))))))))) {state = 2; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var2_shared.current()))))))))) {state = 2; return false; }
 				current = var2_shared.current();
 				pos++;
 				return true;
@@ -70368,8 +70368,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_4() throws Exception {
 				state = 6;				
 				if (!var4_filter.moveNext()) {state = 5; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var4_filter.current()))))))))) {state = 4; return false; }
 				var5_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var4_filter.current())))).enumerator();
 				return false;
 			}
@@ -70382,7 +70382,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 6;				
 				if (!var5_filter.moveNext()) {state = 7; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq390_map(((com.altova.mapforce.IMFNode)(var5_filter.current()))))))))) {state = 6; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq668_join(((com.altova.mapforce.IMFNode)(var5_filter.current())), var3_Row)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq668_join(var3_Row, ((com.altova.mapforce.IMFNode)(var5_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -70406,8 +70406,8 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_11() throws Exception {
 				state = 13;				
 				if (!var8_filter.moveNext()) {state = 12; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq32_map(((com.altova.mapforce.IMFNode)(var8_filter.current()))))))))) {state = 11; return false; }
-				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq33_map(((com.altova.mapforce.IMFNode)(var8_filter.current()))))))))) {state = 11; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq28_map(((com.altova.mapforce.IMFNode)(var8_filter.current()))))))))) {state = 11; return false; }
+				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq29_map(((com.altova.mapforce.IMFNode)(var8_filter.current()))))))))) {state = 11; return false; }
 				var9_filter = (com.altova.functions.Core.filterElements(com.altova.functions.Core.createQName("Cell", ""), ((com.altova.mapforce.IMFNode)(var8_filter.current())))).enumerator();
 				return false;
 			}
@@ -70420,7 +70420,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				state = 13;				
 				if (!var9_filter.moveNext()) {state = 14; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq386_map(((com.altova.mapforce.IMFNode)(var9_filter.current()))))))))) {state = 13; return false; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq669_join(((com.altova.mapforce.IMFNode)(var9_filter.current())), var7_Row)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("UserDefinedField", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq669_join(var7_Row, ((com.altova.mapforce.IMFNode)(var9_filter.current())))));
 				pos++;
 				return true;
 			}
@@ -70451,13 +70451,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq668_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq668_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq668_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -70497,7 +70497,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_filter = (closure.var2_shared).enumerator();
+				var3_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -70511,7 +70511,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
 				if( var3_filter != null ) { var3_filter.close(); var3_filter = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var1_current)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var2_current)));
 				pos++;
 				return true;
 			}
@@ -70546,13 +70546,13 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq669_join implements IEnumerable
 	{
-		com.altova.mapforce.IMFNode var1_current;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		com.altova.mapforce.IMFNode var2_current;
 	
-		public seq669_join(com.altova.mapforce.IMFNode var1_current, com.altova.mapforce.IEnumerable var2_shared)
+		public seq669_join(com.altova.mapforce.IEnumerable var1_shared, com.altova.mapforce.IMFNode var2_current)
 		{
-			this.var1_current = var1_current;
-			this.var2_shared = var2_shared;
+			this.var1_shared = var1_shared;
+			this.var2_current = var2_current;
 		}
 
 		public IEnumerator enumerator() {return new Enumerator(this);}
@@ -70592,7 +70592,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_filter = (closure.var2_shared).enumerator();
+				var3_filter = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -70606,7 +70606,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
 				if( var3_filter != null ) { var3_filter.close(); var3_filter = null; }
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var1_current)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("FieldValue", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.altova.CoreTypes.nodeToString(closure.var2_current)));
 				pos++;
 				return true;
 			}
@@ -70694,7 +70694,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				var3_shared = (closure.var2_shared).enumerator();
+				var3_shared = (closure.var1_shared).enumerator();
 				return false;
 			}
 			private boolean moveNext_2() throws Exception {
@@ -70738,7 +70738,7 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 				if (!var6_filter.moveNext()) {state = 9; return false; }
 				if (!((Boolean)com.altova.functions.Core.first((new seq7_CoreAny((new seq10_map(((com.altova.mapforce.IMFNode)(var6_filter.current()))))))))) {state = 8; return false; }
 				var7_cast = com.altova.CoreTypes.nodeToString(((com.altova.mapforce.IMFNode)(var6_filter.current())));
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Contact", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq671_seq_(var7_cast, closure.var1_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("Contact", "http://nrel.gov/schemas/bedes-auc/2014"), (new seq671_seq_(closure.var2_shared, var7_cast)));
 				pos++;
 				return true;
 			}
@@ -70767,10 +70767,10 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 	}
 	static class seq671_seq_ implements IEnumerable
 	{
-		java.lang.String var1_shared;
-		com.altova.mapforce.IEnumerable var2_shared;
+		com.altova.mapforce.IEnumerable var1_shared;
+		java.lang.String var2_shared;
 	
-		public seq671_seq_(java.lang.String var1_shared, com.altova.mapforce.IEnumerable var2_shared)
+		public seq671_seq_(com.altova.mapforce.IEnumerable var1_shared, java.lang.String var2_shared)
 		{
 			this.var1_shared = var1_shared;
 			this.var2_shared = var2_shared;
@@ -70809,19 +70809,19 @@ public class ASHRAEtoBuildingSyncMapToBuildingSync extends com.altova.TraceProvi
 
 			private boolean moveNext_1() throws Exception {
 				state = 2;				
-				current = com.altova.functions.Core.createAttribute(com.altova.functions.Core.createQName("ID", ""), closure.var2_shared);
+				current = com.altova.functions.Core.createAttribute(com.altova.functions.Core.createQName("ID", ""), closure.var1_shared);
 				pos++;
 				return true;
 			}
 			private boolean moveNext_2() throws Exception {
 				state = 3;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ContactRole", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.mapforce.vmf.vmf108_inputtoresult.eval(closure.var1_shared)));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ContactRole", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(com.mapforce.vmf.vmf108_inputtoresult.eval(closure.var2_shared)));
 				pos++;
 				return true;
 			}
 			private boolean moveNext_3() throws Exception {
 				state = 0;				
-				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ContactName", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(closure.var1_shared));
+				current = com.altova.functions.Core.createElement(com.altova.functions.Core.createQName("ContactName", "http://nrel.gov/schemas/bedes-auc/2014"), com.altova.functions.Core.box(closure.var2_shared));
 				pos++;
 				return true;
 			}
