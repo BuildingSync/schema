@@ -2,6 +2,9 @@
 
 ## Unreleased Version (Likely to be Version 0.2)
 
+##### 04/12/2016
+* Pluralize MeasureIDs under PackageOfMeasure Reporting Scenario
+
 ##### 03/28/2016
 * Pluralize TechnologyCategory to TechnologyCategories
 

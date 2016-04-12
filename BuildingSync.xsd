@@ -2391,12 +2391,18 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element ref="auc:ReferenceCase" minOccurs="0"/>
-                  <xs:element name="MeasuresID" minOccurs="0" maxOccurs="unbounded">
+                  <xs:element name="MeasureIDs" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>ID numbers for measures included in the package. Multiple items may be selected.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
-                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                      <xs:sequence>
+                        <xs:element name="MeasureID" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:attribute name="IDref"/>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
                     </xs:complexType>
                   </xs:element>
                   <xs:element ref="auc:CalculationMethod" minOccurs="0"/>
