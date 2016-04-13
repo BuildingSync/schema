@@ -1,4 +1,4 @@
-# BuildingSync®
+# BuildingSync
 
 [![Circle CI](https://circleci.com/gh/BuildingSync/schema/tree/develop.svg?style=svg)](https://circleci.com/gh/BuildingSync/schema/tree/develop)
 
