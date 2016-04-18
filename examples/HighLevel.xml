@@ -18,8 +18,12 @@
           </FloorArea>
         </FloorAreas>
         <Facilities>
-          <Facility>
+          <Facility ID="Building1">
             <FacilityClassification>Commercial</FacilityClassification>
+            <FederalBuilding>
+              <Agency>GSA</Agency>
+              <DepartmentRegion>Region 3</DepartmentRegion>
+            </FederalBuilding>
             <Assessment>
               <AssessmentYear>2015</AssessmentYear>
             </Assessment>
@@ -31,7 +35,7 @@
       </Site>
     </Sites>
     <Measures>
-      <Measure>
+      <Measure ID="Measure1">
         <TypeOfMeasure>
           <Replacement/>
         </TypeOfMeasure>
@@ -63,7 +67,7 @@
           </AnnualSavingsByFuels>
         </MeasureSavingsAnalysis>
       </Measure>
-      <Measure>
+      <Measure ID="Measure2">
         <TypeOfMeasure>
           <Replacement/>
         </TypeOfMeasure>
@@ -90,7 +94,7 @@
           </AnnualSavingsByFuels>
         </MeasureSavingsAnalysis>
       </Measure>
-      <Measure>
+      <Measure ID="Measure3">
         <TypeOfMeasure>
           <ModificationRetrocommissioning/>
         </TypeOfMeasure>
@@ -122,7 +126,7 @@
           </AnnualSavingsByFuels>
         </MeasureSavingsAnalysis>
       </Measure>
-      <Measure>
+      <Measure ID="Measure4">
         <TypeOfMeasure>
           <ModificationRetrocommissioning/>
         </TypeOfMeasure>
@@ -149,7 +153,7 @@
           </AnnualSavingsByFuels>
         </MeasureSavingsAnalysis>
       </Measure>
-      <Measure>
+      <Measure ID="Measure5">
         <TypeOfMeasure>
           <Addition/>
         </TypeOfMeasure>
@@ -183,5 +187,36 @@
         </MeasureSavingsAnalysis>
       </Measure>
     </Measures>
+    <Report>
+      <Scenarios>
+        <Scenario ID="Package1">
+          <ScenarioName>AERG Package</ScenarioName>
+          <ScenarioType>
+            <PackageOfMeasures>
+              <MeasureIDs>
+                <MeasureID IDref="Measure1"/>
+                <MeasureID IDref="Measure2"/>
+                <MeasureID IDref="Measure3"/>
+                <MeasureID IDref="Measure4"/>
+                <MeasureID IDref="Measure5"/>
+              </MeasureIDs>
+              <AnnualSavingsSiteEnergy>6830</AnnualSavingsSiteEnergy>
+              <AnnualSavingsCost>285400</AnnualSavingsCost>
+              <AnnualWaterSavings>500</AnnualWaterSavings>
+              <PackageFirstCost>1089271</PackageFirstCost>
+              <OMCostAnnualSavings>3544</OMCostAnnualSavings>
+              <EquipmentDisposalAndSalvageCosts>0</EquipmentDisposalAndSalvageCosts>
+              <FundingFromIncentives>0</FundingFromIncentives>
+              <FundingFromTaxCredits>0</FundingFromTaxCredits>
+            </PackageOfMeasures>
+          </ScenarioType>
+          <LinkedPremises>
+            <Facility>
+              <LinkedFacilityID IDref="Building1"/>
+            </Facility>
+          </LinkedPremises>
+        </Scenario>
+      </Scenarios>
+    </Report>
   </Audit>
 </Audits>
