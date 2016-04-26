@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<project name="Mapping" default="test" basedir=".">
+	<property name="build.sysclasspath" value="last"/>
+
+	<target name="compile">
+		<javac srcdir="." classpath="." encoding="UTF-8" />
+	</target>
+	<target name="test" depends="compile">
+		<java classpath="C:\Users\Robert\Documents\GitHub\BuildingSync\schema\Java Files CTS" classname="com.mapforce.MappingConsole" fork="true" failonerror="true">
+			<arg line="${cmdline}"/>
+		</java>
+	</target>
+	<target name="clean">
+		<delete>
+			<fileset dir=".">
+				<include name="**/*.class"/>
+				<include name="*.jar"/>
+			</fileset>
+		</delete>
+	</target>
+	<target name="manifest" depends="compile">
+		<mkdir dir="C:\Users\Robert\Documents\GitHub\BuildingSync\schema\Java Files CTS/META-INF"/>
+		<manifest file="C:\Users\Robert\Documents\GitHub\BuildingSync\schema\Java Files CTS/META-INF/MANIFEST.MF" mode="replace">
+			<attribute name="Created-By" value="MapForce 2016r2"/>
+			<attribute name="Main-Class" value="com.mapforce.MappingConsole"/>
+		</manifest>
+	</target>
+	<target name="jar" depends="manifest">
+		<jar destfile="Mapping.jar" manifest="C:\Users\Robert\Documents\GitHub\BuildingSync\schema\Java Files CTS/META-INF/MANIFEST.MF" basedir="." includes="**/*.xml **/*.class **/*.png **/*.wsdl **/MANIFEST.MF" excludes="**/*.java"/>
+	</target>
+</project>
