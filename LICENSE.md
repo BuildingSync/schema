@@ -1,12 +1,12 @@
 SOFTWARE USE AGREEMENT
 
-Access to the data and/or software entitled BuildingSync (�Software�) is 
-provided by the National Renewable Energy Laboratory (�NREL�), which is 
-operated by Alliance for Sustainable Energy, LLC (�ALLIANCE�), for the 
-U.S. Department of Energy (�DOE�).
+Access to the data and/or software entitled BuildingSync ("Software") is 
+provided by the National Renewable Energy Laboratory ("NREL"), which is 
+operated by Alliance for Sustainable Energy, LLC ("ALLIANCE"), for the 
+U.S. Department of Energy ("DOE").
 
 Access to and use of the Software shall impose the following obligations 
-on the user, and use of the Software constitutes user�s agreement to 
+on the user, and use of the Software constitutes user's agreement to 
 these terms. The user is granted the right, without any fee or cost, to 
 use, copy, modify, alter, enhance and distribute the Software for any 
 purpose whatsoever, provided that this entire notice appears in all 
@@ -23,7 +23,7 @@ Software.
 
 USER AGREES TO INDEMNIFY DOE/NREL/ALLIANCE AND ITS SUBSIDIARIES, 
 AFFILIATES, OFFICERS, AGENTS, AND EMPLOYEES AGAINST ANY CLAIM OR DEMAND, 
-INCLUDING REASONABLE ATTORNEYS' FEES, RELATED TO USER�S USE OF THE 
+INCLUDING REASONABLE ATTORNEYS' FEES, RELATED TO USER'S USE OF THE 
 SOFTWARE.  THE SOFTWARE IS PROVIDED BY DOE/NREL/ALLIANCE "AS IS," AND 
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING BUT NOT LIMITED TO THE 
 IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
