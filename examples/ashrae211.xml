@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Audits xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nrel.gov/schemas/bedes-auc/2014 file:///C:/Users/Robert/Documents/GitHub/BuildingSync/schema/BuildingSync.xsd" xmlns="http://nrel.gov/schemas/bedes-auc/2014">
+<?xml version="1.0" encoding="UTF-8"?>
+<Audits xsi:schemaLocation="http://nrel.gov/schemas/bedes-auc/2014 file:///C:/Users/Robert/Documents/GitHub/BuildingSync/schema/BuildingSync.xsd" xmlns="http://nrel.gov/schemas/bedes-auc/2014" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Audit>
 		<Sites>
 			<Site>
@@ -17,7 +17,7 @@
 				<Facilities>
 					<Facility ID="Building1">
 						<PremisesName>Test Building Input Data</PremisesName>
-						<PremisesNotes> Spaces excluded from gross floor area: Parking</PremisesNotes>
+						<PremisesNotes>Historic landmark status. Spaces excluded from gross floor area: Parking</PremisesNotes>
 						<OccupancyClassification>Agricultural estate</OccupancyClassification>
 						<OccupancyLevels>
 							<OccupancyLevel>
@@ -33,15 +33,15 @@
 							</FloorArea>
 							<FloorArea>
 								<FloorAreaType>Conditioned</FloorAreaType>
-								<FloorAreaValue>120000</FloorAreaValue>
+								<FloorAreaValue>100000</FloorAreaValue>
 							</FloorArea>
 							<FloorArea>
 								<FloorAreaType>Heated only</FloorAreaType>
-								<FloorAreaValue>99000</FloorAreaValue>
+								<FloorAreaValue>50000</FloorAreaValue>
 							</FloorArea>
 							<FloorArea>
 								<FloorAreaType>Cooled only</FloorAreaType>
-								<FloorAreaValue>99000</FloorAreaValue>
+								<FloorAreaValue>80000</FloorAreaValue>
 							</FloorArea>
 						</FloorAreas>
 						<YearOfConstruction>1888</YearOfConstruction>
@@ -724,6 +724,9 @@
 				</FoundationSystem>
 			</FoundationSystems>
 			<CriticalITSystems>
+				<CriticalITSystem>
+					<ITSystemType>Building Automation System</ITSystemType>
+				</CriticalITSystem>
 				<CriticalITSystem ID="ITSystem13">
 					<YearInstalled>1588</YearInstalled>
 					<Location>Attic</Location>
@@ -933,7 +936,7 @@
 					</UserDefinedField>
 					<UserDefinedField>
 						<FieldName>Simple ROI</FieldName>
-						<FieldValue>0.1111111111111</FieldValue>
+						<FieldValue>0.111111111111111</FieldValue>
 					</UserDefinedField>
 				</UserDefinedFields>
 			</Measure>
@@ -967,7 +970,7 @@
 					</UserDefinedField>
 					<UserDefinedField>
 						<FieldName>Simple ROI</FieldName>
-						<FieldValue>0.2060156571899</FieldValue>
+						<FieldValue>0.206015657189946</FieldValue>
 					</UserDefinedField>
 				</UserDefinedFields>
 			</Measure>
@@ -1001,7 +1004,7 @@
 					</UserDefinedField>
 					<UserDefinedField>
 						<FieldName>Simple ROI</FieldName>
-						<FieldValue>0.1838763114301</FieldValue>
+						<FieldValue>0.183876311430149</FieldValue>
 					</UserDefinedField>
 				</UserDefinedFields>
 			</Measure>
@@ -1024,7 +1027,7 @@
 					</AnnualSavingsByFuels>
 					<SummerPeakElectricityReduction>8</SummerPeakElectricityReduction>
 					<FundingFromIncentives>336</FundingFromIncentives>
-					<SimplePayback>0.46844283497155</SimplePayback>
+					<SimplePayback>0.468442834971547</SimplePayback>
 				</MeasureSavingsAnalysis>
 				<UsefulLife>10</UsefulLife>
 				<MeasureFirstCost>2147</MeasureFirstCost>
@@ -1035,7 +1038,7 @@
 					</UserDefinedField>
 					<UserDefinedField>
 						<FieldName>Simple ROI</FieldName>
-						<FieldValue>2.134732192159</FieldValue>
+						<FieldValue>2.13473219215903</FieldValue>
 					</UserDefinedField>
 				</UserDefinedFields>
 			</Measure>
@@ -1069,7 +1072,7 @@
 					</UserDefinedField>
 					<UserDefinedField>
 						<FieldName>Simple ROI</FieldName>
-						<FieldValue>0.0182219768084</FieldValue>
+						<FieldValue>0.0182219768083932</FieldValue>
 					</UserDefinedField>
 				</UserDefinedFields>
 			</Measure>
@@ -1103,7 +1106,7 @@
 					</UserDefinedField>
 					<UserDefinedField>
 						<FieldName>Simple ROI</FieldName>
-						<FieldValue>0.5450027609056</FieldValue>
+						<FieldValue>0.545002760905577</FieldValue>
 					</UserDefinedField>
 				</UserDefinedFields>
 			</Measure>
@@ -1126,7 +1129,7 @@
 					</AnnualSavingsByFuels>
 					<SummerPeakElectricityReduction>8</SummerPeakElectricityReduction>
 					<FundingFromIncentives>336</FundingFromIncentives>
-					<SimplePayback>0.32431948424069</SimplePayback>
+					<SimplePayback>0.324319484240688</SimplePayback>
 				</MeasureSavingsAnalysis>
 				<UsefulLife>10</UsefulLife>
 				<MeasureFirstCost>2147</MeasureFirstCost>
@@ -1137,7 +1140,7 @@
 					</UserDefinedField>
 					<UserDefinedField>
 						<FieldName>Simple ROI</FieldName>
-						<FieldValue>3.0833793484263</FieldValue>
+						<FieldValue>3.08337934842628</FieldValue>
 					</UserDefinedField>
 				</UserDefinedFields>
 			</Measure>
@@ -1171,7 +1174,7 @@
 					</UserDefinedField>
 					<UserDefinedField>
 						<FieldName>Simple ROI</FieldName>
-						<FieldValue>0.2142462727775</FieldValue>
+						<FieldValue>0.214246272777471</FieldValue>
 					</UserDefinedField>
 				</UserDefinedFields>
 			</Measure>
@@ -1194,7 +1197,7 @@
 					</AnnualSavingsByFuels>
 					<SummerPeakElectricityReduction>8</SummerPeakElectricityReduction>
 					<FundingFromIncentives>336</FundingFromIncentives>
-					<SimplePayback>0.58082103912765</SimplePayback>
+					<SimplePayback>0.580821039127646</SimplePayback>
 				</MeasureSavingsAnalysis>
 				<UsefulLife>10</UsefulLife>
 				<MeasureFirstCost>2147</MeasureFirstCost>
@@ -1205,7 +1208,7 @@
 					</UserDefinedField>
 					<UserDefinedField>
 						<FieldName>Simple ROI</FieldName>
-						<FieldValue>1.7217007178354</FieldValue>
+						<FieldValue>1.72170071783545</FieldValue>
 					</UserDefinedField>
 				</UserDefinedFields>
 			</Measure>
@@ -1348,7 +1351,7 @@
 							<StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">83333.3333333333</IntervalReading>
+							<IntervalReading n0:Source="Utility" xmlns:n0="http://nrel.gov/schemas/bedes-auc/2014">83333.3333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1357,7 +1360,7 @@
 							<StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">83333.3333333333</IntervalReading>
+							<IntervalReading n1:Source="Utility" xmlns:n1="http://nrel.gov/schemas/bedes-auc/2014">83333.3333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1366,7 +1369,7 @@
 							<StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">83333.3333333333</IntervalReading>
+							<IntervalReading n2:Source="Utility" xmlns:n2="http://nrel.gov/schemas/bedes-auc/2014">83333.3333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1375,7 +1378,7 @@
 							<StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">83333.3333333333</IntervalReading>
+							<IntervalReading n3:Source="Utility" xmlns:n3="http://nrel.gov/schemas/bedes-auc/2014">83333.3333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1384,7 +1387,7 @@
 							<StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">83333.3333333333</IntervalReading>
+							<IntervalReading n4:Source="Utility" xmlns:n4="http://nrel.gov/schemas/bedes-auc/2014">83333.3333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1393,7 +1396,7 @@
 							<StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">83333.3333333333</IntervalReading>
+							<IntervalReading n5:Source="Utility" xmlns:n5="http://nrel.gov/schemas/bedes-auc/2014">83333.3333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1402,7 +1405,7 @@
 							<StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">83333.3333333333</IntervalReading>
+							<IntervalReading n6:Source="Utility" xmlns:n6="http://nrel.gov/schemas/bedes-auc/2014">83333.3333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1411,7 +1414,7 @@
 							<StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">83333.3333333333</IntervalReading>
+							<IntervalReading n7:Source="Utility" xmlns:n7="http://nrel.gov/schemas/bedes-auc/2014">83333.3333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1420,7 +1423,7 @@
 							<StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">83333.3333333333</IntervalReading>
+							<IntervalReading n8:Source="Utility" xmlns:n8="http://nrel.gov/schemas/bedes-auc/2014">83333.3333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1429,7 +1432,7 @@
 							<StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">83333.3333333333</IntervalReading>
+							<IntervalReading n9:Source="Utility" xmlns:n9="http://nrel.gov/schemas/bedes-auc/2014">83333.3333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1438,7 +1441,7 @@
 							<StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">83333.3333333333</IntervalReading>
+							<IntervalReading n10:Source="Utility" xmlns:n10="http://nrel.gov/schemas/bedes-auc/2014">83333.3333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1447,7 +1450,7 @@
 							<StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">83333.3333333333</IntervalReading>
+							<IntervalReading n11:Source="Utility" xmlns:n11="http://nrel.gov/schemas/bedes-auc/2014">83333.3333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1456,7 +1459,7 @@
 							<StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">200</IntervalReading>
+							<IntervalReading n12:Source="Utility" xmlns:n12="http://nrel.gov/schemas/bedes-auc/2014">200</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1465,7 +1468,7 @@
 							<StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">225</IntervalReading>
+							<IntervalReading n13:Source="Utility" xmlns:n13="http://nrel.gov/schemas/bedes-auc/2014">225</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1474,7 +1477,7 @@
 							<StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">240</IntervalReading>
+							<IntervalReading n14:Source="Utility" xmlns:n14="http://nrel.gov/schemas/bedes-auc/2014">240</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1483,7 +1486,7 @@
 							<StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">280</IntervalReading>
+							<IntervalReading n15:Source="Utility" xmlns:n15="http://nrel.gov/schemas/bedes-auc/2014">280</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1492,7 +1495,7 @@
 							<StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">300</IntervalReading>
+							<IntervalReading n16:Source="Utility" xmlns:n16="http://nrel.gov/schemas/bedes-auc/2014">300</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1501,7 +1504,7 @@
 							<StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">350</IntervalReading>
+							<IntervalReading n17:Source="Utility" xmlns:n17="http://nrel.gov/schemas/bedes-auc/2014">350</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1510,7 +1513,7 @@
 							<StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">325</IntervalReading>
+							<IntervalReading n18:Source="Utility" xmlns:n18="http://nrel.gov/schemas/bedes-auc/2014">325</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1519,7 +1522,7 @@
 							<StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">400</IntervalReading>
+							<IntervalReading n19:Source="Utility" xmlns:n19="http://nrel.gov/schemas/bedes-auc/2014">400</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1528,7 +1531,7 @@
 							<StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">375</IntervalReading>
+							<IntervalReading n20:Source="Utility" xmlns:n20="http://nrel.gov/schemas/bedes-auc/2014">375</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1537,7 +1540,7 @@
 							<StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">300</IntervalReading>
+							<IntervalReading n21:Source="Utility" xmlns:n21="http://nrel.gov/schemas/bedes-auc/2014">300</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1546,7 +1549,7 @@
 							<StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">325</IntervalReading>
+							<IntervalReading n22:Source="Utility" xmlns:n22="http://nrel.gov/schemas/bedes-auc/2014">325</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1555,7 +1558,7 @@
 							<StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">250</IntervalReading>
+							<IntervalReading n23:Source="Utility" xmlns:n23="http://nrel.gov/schemas/bedes-auc/2014">250</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1564,7 +1567,7 @@
 							<StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">0.56003584229391</IntervalReading>
+							<IntervalReading n24:Source="Utility" xmlns:n24="http://nrel.gov/schemas/bedes-auc/2014">0.560035842293907</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1573,7 +1576,7 @@
 							<StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">0.55114638447972</IntervalReading>
+							<IntervalReading n25:Source="Utility" xmlns:n25="http://nrel.gov/schemas/bedes-auc/2014">0.551146384479718</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1582,7 +1585,7 @@
 							<StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">0.46669653524492</IntervalReading>
+							<IntervalReading n26:Source="Utility" xmlns:n26="http://nrel.gov/schemas/bedes-auc/2014">0.466696535244922</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1591,7 +1594,7 @@
 							<StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">0.41335978835979</IntervalReading>
+							<IntervalReading n27:Source="Utility" xmlns:n27="http://nrel.gov/schemas/bedes-auc/2014">0.413359788359788</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1600,7 +1603,7 @@
 							<StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">0.37335722819594</IntervalReading>
+							<IntervalReading n28:Source="Utility" xmlns:n28="http://nrel.gov/schemas/bedes-auc/2014">0.373357228195938</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1609,7 +1612,7 @@
 							<StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">0.33068783068783</IntervalReading>
+							<IntervalReading n29:Source="Utility" xmlns:n29="http://nrel.gov/schemas/bedes-auc/2014">0.330687830687831</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1618,7 +1621,7 @@
 							<StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">0.34463744141163</IntervalReading>
+							<IntervalReading n30:Source="Utility" xmlns:n30="http://nrel.gov/schemas/bedes-auc/2014">0.344637441411635</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1627,7 +1630,7 @@
 							<StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">0.28001792114695</IntervalReading>
+							<IntervalReading n31:Source="Utility" xmlns:n31="http://nrel.gov/schemas/bedes-auc/2014">0.280017921146953</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1636,7 +1639,7 @@
 							<StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">0.30864197530864</IntervalReading>
+							<IntervalReading n32:Source="Utility" xmlns:n32="http://nrel.gov/schemas/bedes-auc/2014">0.308641975308642</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1645,7 +1648,7 @@
 							<StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">0.37335722819594</IntervalReading>
+							<IntervalReading n33:Source="Utility" xmlns:n33="http://nrel.gov/schemas/bedes-auc/2014">0.373357228195938</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1654,7 +1657,7 @@
 							<StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">0.35612535612536</IntervalReading>
+							<IntervalReading n34:Source="Utility" xmlns:n34="http://nrel.gov/schemas/bedes-auc/2014">0.356125356125356</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1663,7 +1666,7 @@
 							<StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">0.44802867383513</IntervalReading>
+							<IntervalReading n35:Source="Utility" xmlns:n35="http://nrel.gov/schemas/bedes-auc/2014">0.448028673835125</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1672,7 +1675,7 @@
 							<StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">8333.33333333333</IntervalReading>
+							<IntervalReading n36:Source="Utility" xmlns:n36="http://nrel.gov/schemas/bedes-auc/2014">8333.33333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1681,7 +1684,7 @@
 							<StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">8333.33333333333</IntervalReading>
+							<IntervalReading n37:Source="Utility" xmlns:n37="http://nrel.gov/schemas/bedes-auc/2014">8333.33333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1690,7 +1693,7 @@
 							<StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">8333.33333333333</IntervalReading>
+							<IntervalReading n38:Source="Utility" xmlns:n38="http://nrel.gov/schemas/bedes-auc/2014">8333.33333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1699,7 +1702,7 @@
 							<StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">8333.33333333333</IntervalReading>
+							<IntervalReading n39:Source="Utility" xmlns:n39="http://nrel.gov/schemas/bedes-auc/2014">8333.33333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1708,7 +1711,7 @@
 							<StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">8333.33333333333</IntervalReading>
+							<IntervalReading n40:Source="Utility" xmlns:n40="http://nrel.gov/schemas/bedes-auc/2014">8333.33333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1717,7 +1720,7 @@
 							<StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">8333.33333333333</IntervalReading>
+							<IntervalReading n41:Source="Utility" xmlns:n41="http://nrel.gov/schemas/bedes-auc/2014">8333.33333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1726,7 +1729,7 @@
 							<StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">8333.33333333333</IntervalReading>
+							<IntervalReading n42:Source="Utility" xmlns:n42="http://nrel.gov/schemas/bedes-auc/2014">8333.33333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1735,7 +1738,7 @@
 							<StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">8333.33333333333</IntervalReading>
+							<IntervalReading n43:Source="Utility" xmlns:n43="http://nrel.gov/schemas/bedes-auc/2014">8333.33333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1744,7 +1747,7 @@
 							<StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">8333.33333333333</IntervalReading>
+							<IntervalReading n44:Source="Utility" xmlns:n44="http://nrel.gov/schemas/bedes-auc/2014">8333.33333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1753,7 +1756,7 @@
 							<StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">8333.33333333333</IntervalReading>
+							<IntervalReading n45:Source="Utility" xmlns:n45="http://nrel.gov/schemas/bedes-auc/2014">8333.33333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1762,7 +1765,7 @@
 							<StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">8333.33333333333</IntervalReading>
+							<IntervalReading n46:Source="Utility" xmlns:n46="http://nrel.gov/schemas/bedes-auc/2014">8333.33333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1771,7 +1774,7 @@
 							<StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">8333.33333333333</IntervalReading>
+							<IntervalReading n47:Source="Utility" xmlns:n47="http://nrel.gov/schemas/bedes-auc/2014">8333.33333333333</IntervalReading>
 							<ResourceUseID IDref="Resource1"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1780,7 +1783,7 @@
 							<StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2145</IntervalReading>
+							<IntervalReading n48:Source="Utility" xmlns:n48="http://nrel.gov/schemas/bedes-auc/2014">2145</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1789,7 +1792,7 @@
 							<StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2145</IntervalReading>
+							<IntervalReading n49:Source="Utility" xmlns:n49="http://nrel.gov/schemas/bedes-auc/2014">2145</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1798,7 +1801,7 @@
 							<StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2145</IntervalReading>
+							<IntervalReading n50:Source="Utility" xmlns:n50="http://nrel.gov/schemas/bedes-auc/2014">2145</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1807,7 +1810,7 @@
 							<StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2145</IntervalReading>
+							<IntervalReading n51:Source="Utility" xmlns:n51="http://nrel.gov/schemas/bedes-auc/2014">2145</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1816,7 +1819,7 @@
 							<StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2145</IntervalReading>
+							<IntervalReading n52:Source="Utility" xmlns:n52="http://nrel.gov/schemas/bedes-auc/2014">2145</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1825,7 +1828,7 @@
 							<StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2145</IntervalReading>
+							<IntervalReading n53:Source="Utility" xmlns:n53="http://nrel.gov/schemas/bedes-auc/2014">2145</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1834,7 +1837,7 @@
 							<StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2145</IntervalReading>
+							<IntervalReading n54:Source="Utility" xmlns:n54="http://nrel.gov/schemas/bedes-auc/2014">2145</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1843,7 +1846,7 @@
 							<StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2145</IntervalReading>
+							<IntervalReading n55:Source="Utility" xmlns:n55="http://nrel.gov/schemas/bedes-auc/2014">2145</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1852,7 +1855,7 @@
 							<StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2145</IntervalReading>
+							<IntervalReading n56:Source="Utility" xmlns:n56="http://nrel.gov/schemas/bedes-auc/2014">2145</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1861,7 +1864,7 @@
 							<StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2145</IntervalReading>
+							<IntervalReading n57:Source="Utility" xmlns:n57="http://nrel.gov/schemas/bedes-auc/2014">2145</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1870,7 +1873,7 @@
 							<StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2145</IntervalReading>
+							<IntervalReading n58:Source="Utility" xmlns:n58="http://nrel.gov/schemas/bedes-auc/2014">2145</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1879,7 +1882,7 @@
 							<StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2145</IntervalReading>
+							<IntervalReading n59:Source="Utility" xmlns:n59="http://nrel.gov/schemas/bedes-auc/2014">2145</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1888,7 +1891,7 @@
 							<StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">1608.75</IntervalReading>
+							<IntervalReading n60:Source="Utility" xmlns:n60="http://nrel.gov/schemas/bedes-auc/2014">1608.75</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1897,7 +1900,7 @@
 							<StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">1608.75</IntervalReading>
+							<IntervalReading n61:Source="Utility" xmlns:n61="http://nrel.gov/schemas/bedes-auc/2014">1608.75</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1906,7 +1909,7 @@
 							<StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">1608.75</IntervalReading>
+							<IntervalReading n62:Source="Utility" xmlns:n62="http://nrel.gov/schemas/bedes-auc/2014">1608.75</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1915,7 +1918,7 @@
 							<StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">1608.75</IntervalReading>
+							<IntervalReading n63:Source="Utility" xmlns:n63="http://nrel.gov/schemas/bedes-auc/2014">1608.75</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1924,7 +1927,7 @@
 							<StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">1608.75</IntervalReading>
+							<IntervalReading n64:Source="Utility" xmlns:n64="http://nrel.gov/schemas/bedes-auc/2014">1608.75</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1933,7 +1936,7 @@
 							<StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">1608.75</IntervalReading>
+							<IntervalReading n65:Source="Utility" xmlns:n65="http://nrel.gov/schemas/bedes-auc/2014">1608.75</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1942,7 +1945,7 @@
 							<StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">1608.75</IntervalReading>
+							<IntervalReading n66:Source="Utility" xmlns:n66="http://nrel.gov/schemas/bedes-auc/2014">1608.75</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1951,7 +1954,7 @@
 							<StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">1608.75</IntervalReading>
+							<IntervalReading n67:Source="Utility" xmlns:n67="http://nrel.gov/schemas/bedes-auc/2014">1608.75</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1960,7 +1963,7 @@
 							<StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">1608.75</IntervalReading>
+							<IntervalReading n68:Source="Utility" xmlns:n68="http://nrel.gov/schemas/bedes-auc/2014">1608.75</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1969,7 +1972,7 @@
 							<StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">1608.75</IntervalReading>
+							<IntervalReading n69:Source="Utility" xmlns:n69="http://nrel.gov/schemas/bedes-auc/2014">1608.75</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1978,7 +1981,7 @@
 							<StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">1608.75</IntervalReading>
+							<IntervalReading n70:Source="Utility" xmlns:n70="http://nrel.gov/schemas/bedes-auc/2014">1608.75</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1987,7 +1990,7 @@
 							<StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">1608.75</IntervalReading>
+							<IntervalReading n71:Source="Utility" xmlns:n71="http://nrel.gov/schemas/bedes-auc/2014">1608.75</IntervalReading>
 							<ResourceUseID IDref="Resource2"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -1996,7 +1999,7 @@
 							<StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12375</IntervalReading>
+							<IntervalReading n72:Source="Utility" xmlns:n72="http://nrel.gov/schemas/bedes-auc/2014">12375</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2005,7 +2008,7 @@
 							<StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12375</IntervalReading>
+							<IntervalReading n73:Source="Utility" xmlns:n73="http://nrel.gov/schemas/bedes-auc/2014">12375</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2014,7 +2017,7 @@
 							<StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12375</IntervalReading>
+							<IntervalReading n74:Source="Utility" xmlns:n74="http://nrel.gov/schemas/bedes-auc/2014">12375</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2023,7 +2026,7 @@
 							<StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12375</IntervalReading>
+							<IntervalReading n75:Source="Utility" xmlns:n75="http://nrel.gov/schemas/bedes-auc/2014">12375</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2032,7 +2035,7 @@
 							<StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12375</IntervalReading>
+							<IntervalReading n76:Source="Utility" xmlns:n76="http://nrel.gov/schemas/bedes-auc/2014">12375</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2041,7 +2044,7 @@
 							<StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12375</IntervalReading>
+							<IntervalReading n77:Source="Utility" xmlns:n77="http://nrel.gov/schemas/bedes-auc/2014">12375</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2050,7 +2053,7 @@
 							<StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12375</IntervalReading>
+							<IntervalReading n78:Source="Utility" xmlns:n78="http://nrel.gov/schemas/bedes-auc/2014">12375</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2059,7 +2062,7 @@
 							<StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12375</IntervalReading>
+							<IntervalReading n79:Source="Utility" xmlns:n79="http://nrel.gov/schemas/bedes-auc/2014">12375</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2068,7 +2071,7 @@
 							<StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12375</IntervalReading>
+							<IntervalReading n80:Source="Utility" xmlns:n80="http://nrel.gov/schemas/bedes-auc/2014">12375</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2077,7 +2080,7 @@
 							<StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12375</IntervalReading>
+							<IntervalReading n81:Source="Utility" xmlns:n81="http://nrel.gov/schemas/bedes-auc/2014">12375</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2086,7 +2089,7 @@
 							<StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12375</IntervalReading>
+							<IntervalReading n82:Source="Utility" xmlns:n82="http://nrel.gov/schemas/bedes-auc/2014">12375</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2095,7 +2098,7 @@
 							<StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12375</IntervalReading>
+							<IntervalReading n83:Source="Utility" xmlns:n83="http://nrel.gov/schemas/bedes-auc/2014">12375</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2104,7 +2107,7 @@
 							<StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2970</IntervalReading>
+							<IntervalReading n84:Source="Utility" xmlns:n84="http://nrel.gov/schemas/bedes-auc/2014">2970</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2113,7 +2116,7 @@
 							<StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2970</IntervalReading>
+							<IntervalReading n85:Source="Utility" xmlns:n85="http://nrel.gov/schemas/bedes-auc/2014">2970</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2122,7 +2125,7 @@
 							<StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2970</IntervalReading>
+							<IntervalReading n86:Source="Utility" xmlns:n86="http://nrel.gov/schemas/bedes-auc/2014">2970</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2131,7 +2134,7 @@
 							<StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2970</IntervalReading>
+							<IntervalReading n87:Source="Utility" xmlns:n87="http://nrel.gov/schemas/bedes-auc/2014">2970</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2140,7 +2143,7 @@
 							<StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2970</IntervalReading>
+							<IntervalReading n88:Source="Utility" xmlns:n88="http://nrel.gov/schemas/bedes-auc/2014">2970</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2149,7 +2152,7 @@
 							<StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2970</IntervalReading>
+							<IntervalReading n89:Source="Utility" xmlns:n89="http://nrel.gov/schemas/bedes-auc/2014">2970</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2158,7 +2161,7 @@
 							<StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2970</IntervalReading>
+							<IntervalReading n90:Source="Utility" xmlns:n90="http://nrel.gov/schemas/bedes-auc/2014">2970</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2167,7 +2170,7 @@
 							<StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2970</IntervalReading>
+							<IntervalReading n91:Source="Utility" xmlns:n91="http://nrel.gov/schemas/bedes-auc/2014">2970</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2176,7 +2179,7 @@
 							<StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2970</IntervalReading>
+							<IntervalReading n92:Source="Utility" xmlns:n92="http://nrel.gov/schemas/bedes-auc/2014">2970</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2185,7 +2188,7 @@
 							<StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2970</IntervalReading>
+							<IntervalReading n93:Source="Utility" xmlns:n93="http://nrel.gov/schemas/bedes-auc/2014">2970</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2194,7 +2197,7 @@
 							<StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2970</IntervalReading>
+							<IntervalReading n94:Source="Utility" xmlns:n94="http://nrel.gov/schemas/bedes-auc/2014">2970</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2203,7 +2206,7 @@
 							<StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">2970</IntervalReading>
+							<IntervalReading n95:Source="Utility" xmlns:n95="http://nrel.gov/schemas/bedes-auc/2014">2970</IntervalReading>
 							<ResourceUseID IDref="Resource3"/>
 						</TimeSeries>
 						<TimeSeries>
@@ -2212,7 +2215,7 @@
 							<StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12912.0833333333</IntervalReading>
+							<IntervalReading n96:Source="Utility" xmlns:n96="http://nrel.gov/schemas/bedes-auc/2014">12912.0833333333</IntervalReading>
 							<UserDefinedFields>
 								<UserDefinedField>
 									<FieldName>Time Series Description</FieldName>
@@ -2226,7 +2229,7 @@
 							<StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12912.0833333333</IntervalReading>
+							<IntervalReading n97:Source="Utility" xmlns:n97="http://nrel.gov/schemas/bedes-auc/2014">12912.0833333333</IntervalReading>
 							<UserDefinedFields>
 								<UserDefinedField>
 									<FieldName>Time Series Description</FieldName>
@@ -2240,7 +2243,7 @@
 							<StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12912.0833333333</IntervalReading>
+							<IntervalReading n98:Source="Utility" xmlns:n98="http://nrel.gov/schemas/bedes-auc/2014">12912.0833333333</IntervalReading>
 							<UserDefinedFields>
 								<UserDefinedField>
 									<FieldName>Time Series Description</FieldName>
@@ -2254,7 +2257,7 @@
 							<StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12912.0833333333</IntervalReading>
+							<IntervalReading n99:Source="Utility" xmlns:n99="http://nrel.gov/schemas/bedes-auc/2014">12912.0833333333</IntervalReading>
 							<UserDefinedFields>
 								<UserDefinedField>
 									<FieldName>Time Series Description</FieldName>
@@ -2268,7 +2271,7 @@
 							<StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12912.0833333333</IntervalReading>
+							<IntervalReading n100:Source="Utility" xmlns:n100="http://nrel.gov/schemas/bedes-auc/2014">12912.0833333333</IntervalReading>
 							<UserDefinedFields>
 								<UserDefinedField>
 									<FieldName>Time Series Description</FieldName>
@@ -2282,7 +2285,7 @@
 							<StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12912.0833333333</IntervalReading>
+							<IntervalReading n101:Source="Utility" xmlns:n101="http://nrel.gov/schemas/bedes-auc/2014">12912.0833333333</IntervalReading>
 							<UserDefinedFields>
 								<UserDefinedField>
 									<FieldName>Time Series Description</FieldName>
@@ -2296,7 +2299,7 @@
 							<StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12912.0833333333</IntervalReading>
+							<IntervalReading n102:Source="Utility" xmlns:n102="http://nrel.gov/schemas/bedes-auc/2014">12912.0833333333</IntervalReading>
 							<UserDefinedFields>
 								<UserDefinedField>
 									<FieldName>Time Series Description</FieldName>
@@ -2310,7 +2313,7 @@
 							<StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12912.0833333333</IntervalReading>
+							<IntervalReading n103:Source="Utility" xmlns:n103="http://nrel.gov/schemas/bedes-auc/2014">12912.0833333333</IntervalReading>
 							<UserDefinedFields>
 								<UserDefinedField>
 									<FieldName>Time Series Description</FieldName>
@@ -2324,7 +2327,7 @@
 							<StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12912.0833333333</IntervalReading>
+							<IntervalReading n104:Source="Utility" xmlns:n104="http://nrel.gov/schemas/bedes-auc/2014">12912.0833333333</IntervalReading>
 							<UserDefinedFields>
 								<UserDefinedField>
 									<FieldName>Time Series Description</FieldName>
@@ -2338,7 +2341,7 @@
 							<StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12912.0833333333</IntervalReading>
+							<IntervalReading n105:Source="Utility" xmlns:n105="http://nrel.gov/schemas/bedes-auc/2014">12912.0833333333</IntervalReading>
 							<UserDefinedFields>
 								<UserDefinedField>
 									<FieldName>Time Series Description</FieldName>
@@ -2352,7 +2355,7 @@
 							<StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12912.0833333333</IntervalReading>
+							<IntervalReading n106:Source="Utility" xmlns:n106="http://nrel.gov/schemas/bedes-auc/2014">12912.0833333333</IntervalReading>
 							<UserDefinedFields>
 								<UserDefinedField>
 									<FieldName>Time Series Description</FieldName>
@@ -2366,7 +2369,7 @@
 							<StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
 							<EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
 							<IntervalFrequency>Month</IntervalFrequency>
-							<IntervalReading xmlns:ns0="http://nrel.gov/schemas/bedes-auc/2014" ns0:Source="Utility">12912.0833333333</IntervalReading>
+							<IntervalReading n107:Source="Utility" xmlns:n107="http://nrel.gov/schemas/bedes-auc/2014">12912.0833333333</IntervalReading>
 							<UserDefinedFields>
 								<UserDefinedField>
 									<FieldName>Time Series Description</FieldName>
@@ -2495,7 +2498,7 @@
 							<SiteEnergyUse>7804.15</SiteEnergyUse>
 							<SiteEnergyUseIntensity>39.414898989898987</SiteEnergyUseIntensity>
 							<EnergyCost>154945</EnergyCost>
-							<ElectricitySourcedFromOnsiteRenewableSystems>234.466588511137162954279015240328253223915592028135990621336459555</ElectricitySourcedFromOnsiteRenewableSystems>
+							<ElectricitySourcedFromOnsiteRenewableSystems>234.4665885111371629542790152403283</ElectricitySourcedFromOnsiteRenewableSystems>
 						</AllResourceTotal>
 						<AllResourceTotal>
 							<EndUse>All end uses</EndUse>
@@ -2506,10 +2509,10 @@
 							<EnergyCost>154136</EnergyCost>
 						</AllResourceTotal>
 					</AllResourceTotals>
-					<AnnualHeatingDegreeDays>9999</AnnualHeatingDegreeDays>
-					<AnnualCoolingDegreeDays>9999</AnnualCoolingDegreeDays>
-					<HDDBaseTemperature>65</HDDBaseTemperature>
-					<CDDBaseTemperature>65</CDDBaseTemperature>
+					<AnnualHeatingDegreeDays>4000</AnnualHeatingDegreeDays>
+					<AnnualCoolingDegreeDays>3000</AnnualCoolingDegreeDays>
+					<HDDBaseTemperature>0</HDDBaseTemperature>
+					<CDDBaseTemperature>0</CDDBaseTemperature>
 					<LinkedPremises>
 						<Facility>
 							<LinkedFacilityID IDref="Building1"/>
