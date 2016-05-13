@@ -2,6 +2,9 @@
 
 ## Unreleased Version (Likely to be Version 0.2)
 
+##### 04/19/2016
+* Removed SpaceID from Sides (KMFM)
+
 ##### 04/12/2016
 * Pluralize MeasureIDs under PackageOfMeasure Reporting Scenario
 
