@@ -2,6 +2,9 @@
 
 ## Unreleased Version (Likely to be Version 0.2)
 
+##### 05/13/2016
+* Removed SpaceID from Sides, since it's redundant with what's defined in thermal zone. (KMFM, per PNNL)
+
 ##### 04/12/2016
 * Pluralize MeasureIDs under PackageOfMeasure Reporting Scenario
 
