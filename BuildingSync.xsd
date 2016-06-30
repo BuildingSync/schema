@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2016 rel. 2 (x64) (http://www.altova.com) by Kristin Field-Macumber (NREL) -->
+<!-- edited with XMLSpy v2011 sp1 (x64) (http://www.altova.com) by Brian Ball (National Renewable Energy Laboratory) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://nrel.gov/schemas/bedes-auc/2014" targetNamespace="http://nrel.gov/schemas/bedes-auc/2014" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:annotation>
 		<xs:documentation>BuildingSync Schema - Version 0.2</xs:documentation>
@@ -7491,13 +7491,38 @@
 								<xs:attribute name="ID" type="xs:ID"/>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="CoolingTowerControlType" minOccurs="0">
+						<xs:element name="CoolingTowerFanControl" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Type of system operation control.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Single Speed"/>
+									<xs:enumeration value="Two Speed"/>
+									<xs:enumeration value="Variable Speed"/>
+									<xs:enumeration value="Other"/>
+									<xs:enumeration value="Unknown"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="CoolingTowerTemperatureControl" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Type of system operation control.</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="Wet Bulb Reset"/>
+									<xs:enumeration value="Other"/>
+									<xs:enumeration value="Unknown"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="CoolingTowerCellControl" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Type of system operation control.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
 									<xs:enumeration value="Max Cells"/>
 									<xs:enumeration value="Min Cells"/>
 									<xs:enumeration value="Other"/>
