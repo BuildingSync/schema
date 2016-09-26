@@ -2,6 +2,21 @@
 
 ## Unreleased Version (Likely to be Version 0.2)
 
+##### 09/26/2016
+Hendron updates for BEDES 2.0
+* "Public housing" added to OccupancyClassification
+* Added several new "ContactRole" options to enumeration, and dropped "Finance Specialist"
+* Added ContactTitle as a new element
+* Changed enumeration for OperatorType to match BEDES 2.0
+* "Fair" dropped from DuctInsulationCondition
+* RoofExteriorSolarReflectanceIndex was added as a new element
+* "Wind" was added to the enumeration for OtherEnergyGenerationTechnology
+* MeasureInstallationCost and MeasureMaterialCost were added as elements of measure costs.
+* Several new options for CostEffectivenessScreeningMethod were added.
+* Several new choices under TypeOfRateStructure were added. Detailed information was not, because they are really just subtypes of Tiered Rate, and if details are important they should be entered there.
+* NOx and SO2 were added as options under EmissionsType.
+
+
 ##### 05/13/2016
 * Removed SpaceID from Sides, since it's redundant with what's defined in thermal zone. (KMFM, per PNNL)
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2016 rel. 2 (x64) (http://www.altova.com) by Kristin Field-Macumber (NREL) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://nrel.gov/schemas/bedes-auc/2014" targetNamespace="http://nrel.gov/schemas/bedes-auc/2014" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:annotation>
@@ -1239,17 +1239,8 @@
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="Owner"/>
 						<xs:enumeration value="Occupant"/>
-						<xs:enumeration value="Property management company"/>
-						<xs:enumeration value="Other corporation/partnership/LLC"/>
-						<xs:enumeration value="Religious organization"/>
-						<xs:enumeration value="Other non-profit organization"/>
-						<xs:enumeration value="Privately-owned school"/>
-						<xs:enumeration value="Individual owner"/>
-						<xs:enumeration value="Other non-government owner"/>
-						<xs:enumeration value="Government"/>
-						<xs:enumeration value="Federal government"/>
-						<xs:enumeration value="State government"/>
-						<xs:enumeration value="Local government"/>
+						<xs:enumeration value="Tenant"/>
+						<xs:enumeration value="Landlord"/>
 						<xs:enumeration value="Other"/>
 						<xs:enumeration value="Unknown"/>
 					</xs:restriction>
@@ -2063,7 +2054,13 @@
 						<xs:enumeration value="Electric Distribution Utility (EDU)"/>
 						<xs:enumeration value="ESCO"/>
 						<xs:enumeration value="Facilitator"/>
-						<xs:enumeration value="Finance Specialist"/>
+						<xs:enumeration value="Facility Manager"/>
+						<xs:enumeration value="Trainer"/>
+						<xs:enumeration value="Electrical Engineer"/>
+						<xs:enumeration value="Controls Engineer"/>
+						<xs:enumeration value="Lender"/>
+						<xs:enumeration value="Servicer"/>
+						<xs:enumeration value="Originator"/>
 						<xs:enumeration value="Other"/>
 					</xs:restriction>
 				</xs:simpleType>
@@ -2076,6 +2073,11 @@
 			<xs:element name="ContactCompany" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Company name associated with the contact, if applicable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContactTitle" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The title or position of the contact within their organization.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="auc:Address" minOccurs="0"/>
@@ -3514,6 +3516,26 @@
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
+												<xs:element name="RealTimePricing" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>(RTP) - pricing rates generally apply to usage on an hourly basis.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="VariablePeakPricing" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>(VPP) - a hybrid of time-of-use and real-time pricing where the different periods for pricing are defined in advance (e.g., on-peak=6 hours for summer weekday afternoon; off-peak = all other hours in the summer months), but the price established for the on-peak period varies by utility and market conditions.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="CriticalPeakPricing" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>(CPP) - when utilities observe or anticipate high wholesale market prices or power system emergency conditions, they may call critical events during a specified time period (e.g., 3 p.m.—6 p.m. on a hot summer weekday), the price for electricity during these time periods is substantially raised. Two variants of this type of rate design exist: one where the time and duration of the price increase are predetermined when events are called and another where the time and duration of the price increase may vary based on the electric grid’s need to have loads reduced</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="CriticalPeakRebates" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>(CPR) - when utilities observe or anticipate high wholesale market prices or power system emergency conditions, they may call critical events during pre-specified time periods (e.g., 3 p.m.—6 p.m. summer weekday afternoons), the price for electricity during these time periods remains the same but the customer is refunded at a single, predetermined value for any reduction in consumption relative to what the utility deemed the customer was expected to consume.</xs:documentation>
+													</xs:annotation>
+												</xs:element>
 												<xs:element name="Other" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>Other type of rate structure, or combination of other types.</xs:documentation>
@@ -3739,10 +3761,12 @@
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
-									<xs:enumeration value="Co2e"/>
-									<xs:enumeration value="Co2"/>
+									<xs:enumeration value="CO2e"/>
+									<xs:enumeration value="CO2"/>
 									<xs:enumeration value="CH4"/>
 									<xs:enumeration value="N2O"/>
+									<xs:enumeration value="NOx"/>
+									<xs:enumeration value="SO2"/>
 									<xs:enumeration value="Other"/>
 								</xs:restriction>
 							</xs:simpleType>
@@ -5254,9 +5278,33 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="MeasureFirstCost" minOccurs="0">
+			<xs:element name="MeasureTotalFirstCost" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The sum of the initial expenditures to implement each occurrence of the measure; includes items such as equipment, transportation, installation, preparation for service, as well as other costs directly related to the measure. Soft costs related to project planning and management should not be included for individual measures. ($)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MeasureInstallationCost" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Cost of measure installation activity ($)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MeasureMaterialCost" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Costs of material needed to implement the measure. ($)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -6843,7 +6891,6 @@
 						<xs:enumeration value="Excellent"/>
 						<xs:enumeration value="Good"/>
 						<xs:enumeration value="Average"/>
-						<xs:enumeration value="Fair"/>
 						<xs:enumeration value="Poor"/>
 						<xs:enumeration value="Very poor"/>
 						<xs:enumeration value="None"/>
@@ -11133,6 +11180,18 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="RoofExteriorSolarReflectanceIndex" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A measure of a roof's ability to reject solar heat, as shown by a small temperature rise. It is defined so that a standard black (reflectance 0.05, emittance 0.90) is 0 and a standard white (reflectance 0.80, emittance 0.90) is 100.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:integer">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="RoofExteriorThermalAbsorptance" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The fraction of incident long wavelength infrared radiation that is absorbed by the material or surface. (0-1) (%)</xs:documentation>
@@ -12568,6 +12627,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 																		<xs:enumeration value="Hydrokinetic"/>
 																		<xs:enumeration value="Solar parabolic trough"/>
 																		<xs:enumeration value="Solar power tower"/>
+																		<xs:enumeration value="Wind"/>
 																		<xs:enumeration value="Other"/>
 																		<xs:enumeration value="Unknown"/>
 																	</xs:restriction>
@@ -13852,6 +13912,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 				<xs:enumeration value="Multifamily"/>
 				<xs:enumeration value="Multifamily with commercial"/>
 				<xs:enumeration value="Multifamily individual unit"/>
+				<xs:enumeration value="Public housing"/>
 				<xs:enumeration value="Residential"/>
 				<xs:enumeration value="Health care-Pharmacy"/>
 				<xs:enumeration value="Health care-Skilled nursing facility"/>
@@ -14520,6 +14581,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 				<xs:enumeration value="Lifecycle cost"/>
 				<xs:enumeration value="Net present value"/>
 				<xs:enumeration value="Internal rate of return"/>
+				<xs:enumeration value="Modified internal rate of return"/>
+				<xs:enumeration value="Levelized cost of energy"/>
+				<xs:enumeration value="Savings to investment ratio"/>
 				<xs:enumeration value="Other"/>
 			</xs:restriction>
 		</xs:simpleType>
