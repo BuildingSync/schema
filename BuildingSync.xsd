@@ -1103,6 +1103,16 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="BuildingAutomationSystem" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Does the facility include a building automation or management system.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HistoricalLandmark" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Does the facility have historical landmark status (e.g. is the facility listed in the National Register of Historic Places).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element ref="auc:FloorAreas" minOccurs="0"/>
 			<xs:element name="AspectRatio" minOccurs="0">
 				<xs:annotation>
