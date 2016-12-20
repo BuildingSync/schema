@@ -1081,7 +1081,7 @@
 			</xs:element>
 			<xs:element name="UnconditionedFloorsAboveGrade" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Nominal number of floors which are fully above ground and are conditioned.</xs:documentation>
+					<xs:documentation>Nominal number of floors which are fully above ground and are unconditioned.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -1093,7 +1093,7 @@
 			</xs:element>
 			<xs:element name="UnconditionedFloorsBelowGrade" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Nominal number of floors which are fully underground and are conditioned.</xs:documentation>
+					<xs:documentation>Nominal number of floors which are fully underground and are unconditioned.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -1274,6 +1274,18 @@
 				<xs:complexType>
 					<xs:simpleContent>
 						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="NumberOfFacilitiesOnSite" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Number of facilities on the site.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:integer">
 							<xs:attribute ref="auc:Source"/>
 						</xs:extension>
 					</xs:simpleContent>
