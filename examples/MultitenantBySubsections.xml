@@ -119,9 +119,9 @@
     </Sites>
     <Contacts>
       <Contact ID="Contact1">
-        <Role>Occupant</Role>
-        <Name>Arthur Dent</Name>
-        <Company>Colorado Phone Sanitizers Association</Company>
+        <ContactRole>Occupant</ContactRole>
+        <ContactName>Arthur Dent</ContactName>
+        <ContactCompany>Colorado Phone Sanitizers Association</ContactCompany>
         <ContactTelephoneNumber>
           <ContactTelephoneNumberLabel>Cell</ContactTelephoneNumberLabel>
           <TelephoneNumber>720-555-5555</TelephoneNumber>
@@ -142,22 +142,30 @@
     </Contacts>
     <Tenants>
       <Tenant ID="Tenant1">
-        <Name>Benchmark Imagination, LLC.</Name>
+        <TenantName>Benchmark Imagination, LLC.</TenantName>
       </Tenant>
       <Tenant ID="Tenant2">
-        <Name>Gruppo Dentale Ovest</Name>
+        <TenantName>Gruppo Dentale Ovest</TenantName>
       </Tenant>
       <Tenant ID="Tenant3">
-        <Name>Foggy River Associates</Name>
+        <TenantName>Foggy River Associates</TenantName>
       </Tenant>
       <Tenant ID="Tenant4">
-        <Name>R11 and Sons Construction</Name>
-        <TelephoneNumber>555-555-5555</TelephoneNumber>
-        <EmailAddress>freon@relevenco.com</EmailAddress>
-        <EmailAddress>info@relevenco.com</EmailAddress>
+        <TenantName>R11 and Sons Construction</TenantName>
+        <TenantTelephoneNumber>
+          <TenantTelephoneNumberLabel>Days</TenantTelephoneNumberLabel>
+          <TelephoneNumber>555-555-5555</TelephoneNumber>
+        </TenantTelephoneNumber>
+        <TenantEmailAddress>
+          <TenantEmailAddressLabel>Work</TenantEmailAddressLabel>
+          <EmailAddress>freon@relevenco.com</EmailAddress>
+        </TenantEmailAddress>
+        <TenantEmailAddress>
+          <EmailAddress>info@relevenco.com</EmailAddress>
+        </TenantEmailAddress>
       </Tenant>
       <Tenant ID="Tenant5">
-        <Name>Colorado Phone Sanitizers Association</Name>
+        <TenantName>Colorado Phone Sanitizers Association</TenantName>
       </Tenant>
     </Tenants>
   </Audit>
