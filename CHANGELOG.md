@@ -16,6 +16,8 @@ Hendron updates for BEDES 2.0
 * Several new choices under TypeOfRateStructure were added. Detailed information was not, because they are really just subtypes of Tiered Rate, and if details are important they should be entered there.
 * NOx and SO2 were added as options under EmissionsType.
 
+##### 06/10/2016
+* Changed cooling tower control to separate types - fan, temperature, and cell. (KMFM, per PNNL)
 
 ##### 05/13/2016
 * Removed SpaceID from Sides, since it's redundant with what's defined in thermal zone. (KMFM, per PNNL)

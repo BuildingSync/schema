@@ -7538,13 +7538,38 @@
 								<xs:attribute name="ID" type="xs:ID"/>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="CoolingTowerControlType" minOccurs="0">
+						<xs:element name="CoolingTowerFanControl" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Type of system operation control.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Single Speed"/>
+									<xs:enumeration value="Two Speed"/>
+									<xs:enumeration value="Variable Speed"/>
+									<xs:enumeration value="Other"/>
+									<xs:enumeration value="Unknown"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="CoolingTowerTemperatureControl" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Type of system operation control.</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="Wet Bulb Reset"/>
+									<xs:enumeration value="Other"/>
+									<xs:enumeration value="Unknown"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="CoolingTowerCellControl" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Type of system operation control.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
 									<xs:enumeration value="Max Cells"/>
 									<xs:enumeration value="Min Cells"/>
 									<xs:enumeration value="Other"/>
