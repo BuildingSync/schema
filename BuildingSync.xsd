@@ -13015,6 +13015,10 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 		</xs:annotation>
 		<xs:simpleType>
 			<xs:restriction base="xs:string">
+				<xs:enumeration value="Roof"/>
+				<xs:enumeration value="Mechanical Room"/>
+				<xs:enumeration value="Mechanical Floor"/>
+				<xs:enumeration value="Penthouse"/>
 				<xs:enumeration value="Interior"/>
 				<xs:enumeration value="Exterior"/>
 				<xs:enumeration value="Closet"/>
