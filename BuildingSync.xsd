@@ -893,6 +893,7 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="auc:OccupancyLevels" minOccurs="0"/>
+			<xs:element ref="auc:TypicalOccupantUsages" minOccurs="0"/>
 			<xs:element name="SpatialUnits" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
@@ -1330,6 +1331,7 @@
 									<xs:element ref="auc:PremisesIdentifiers" minOccurs="0" maxOccurs="unbounded"/>
 									<xs:element ref="auc:OccupancyClassification" minOccurs="0"/>
 									<xs:element ref="auc:OccupancyLevels" minOccurs="0"/>
+									<xs:element ref="auc:TypicalOccupantUsages" minOccurs="0"/>
 									<xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
 									<xs:element name="YearOfConstruction" type="xs:gYear" minOccurs="0">
 										<xs:annotation>
@@ -1923,6 +1925,7 @@
 			<xs:element ref="auc:PremisesIdentifiers" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="auc:OccupancyClassification" minOccurs="0"/>
 			<xs:element ref="auc:OccupancyLevels" minOccurs="0"/>
+			<xs:element ref="auc:TypicalOccupantUsages" minOccurs="0"/>
 			<xs:element name="OccupancyScheduleID" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>ID numbers of the occupancy schedules associated with the space.</xs:documentation>
@@ -13075,6 +13078,10 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 		</xs:annotation>
 		<xs:simpleType>
 			<xs:restriction base="xs:string">
+				<xs:enumeration value="Roof"/>
+				<xs:enumeration value="Mechanical Room"/>
+				<xs:enumeration value="Mechanical Floor"/>
+				<xs:enumeration value="Penthouse"/>
 				<xs:enumeration value="Interior"/>
 				<xs:enumeration value="Exterior"/>
 				<xs:enumeration value="Closet"/>
@@ -14141,6 +14148,38 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 				<xs:enumeration value="Unknown"/>
 			</xs:restriction>
 		</xs:simpleType>
+	</xs:element>
+	<xs:element name="TypicalOccupantUsages">
+		<xs:annotation>
+			<xs:documentation>Characterization of the usage of the space (complex, whole building, or subsection) by building occupants.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TypicalOccupantUsage" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="TypicalOccupantUsageValue" type="xs:decimal"/>
+							<xs:element name="TypicalOccupantUsageUnits">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="Hours per day"/>
+										<xs:enumeration value="Hours per week"/>
+										<xs:enumeration value="Hours per month"/>
+										<xs:enumeration value="Hours per year"/>
+										<xs:enumeration value="Days per week"/>
+										<xs:enumeration value="Days per month"/>
+										<xs:enumeration value="Days per year"/>
+										<xs:enumeration value="Weeks per month"/>
+										<xs:enumeration value="Weeks per year"/>
+										<xs:enumeration value="Months per year"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
 	</xs:element>
 	<xs:element name="UserDefinedFields">
 		<xs:complexType>
