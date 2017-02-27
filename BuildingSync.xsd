@@ -1153,7 +1153,19 @@
 			</xs:element>
 			<xs:element name="TotalExteriorBelowGradeWallArea" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Above grade wall area exposed to the ground. (square ft)</xs:documentation>
+					<xs:documentation>Below grade wall area exposed to the ground. (square ft)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OverallWindowToWallRatio" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Overall window to wall ratio of the facility.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
