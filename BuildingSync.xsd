@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2016 rel. 2 (x64) (http://www.altova.com) by Kristin Field-Macumber (NREL) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://nrel.gov/schemas/bedes-auc/2014" targetNamespace="http://nrel.gov/schemas/bedes-auc/2014" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:annotation>
@@ -5765,6 +5765,7 @@
 														</xs:simpleContent>
 													</xs:complexType>
 												</xs:element>
+												<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
 												<xs:element ref="auc:Quantity" minOccurs="0"/>
 											</xs:sequence>
 										</xs:complexType>
