@@ -11909,6 +11909,30 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
+									<xs:element name="SlabRValue" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Also known as thermal resistance, quantity determined by the temperature difference, at steady state, between two defined surfaces of a material or construction that induces a unit heat flow rate through unit area (R = ΔT/q). R-value is the reciprocal of thermal conductance. A unit of thermal resistance used for comparing insulating values of different materials, for the specific thickness of the material. The higher the R-value number, a material, the greater its insulating properties and the slower the heat flow through it. This R-value does not include air film coefficients. (hr-ft2-F/Btu)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="SlabUFactor" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above). (Btu/hr·ft2·°F)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
 									<xs:element ref="auc:SlabInsulationCondition" minOccurs="0"/>
 									<xs:element ref="auc:SlabHeating" minOccurs="0"/>
 								</xs:sequence>
@@ -12136,7 +12160,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 									</xs:element>
 									<xs:element name="FoundationWallRValue" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>(Also known as thermal resistance), quantity determined by the temperature difference, at steady state, between two defined surfaces of a material or construction that induces a unit heat flow rate through unit area (R = ΔT/q). R-value is the reciprocal of thermal conductance. A unit of thermal resistance used for comparing insulating values of different materials, for the specific thickness of the material. The higher the R-value number, a material, the greater its insulating properties and the slower the heat flow through it. This R-value does not include the interior and exterior air film coefficients. (hr-ft2-F/Btu)</xs:documentation>
+											<xs:documentation>Also known as thermal resistance, quantity determined by the temperature difference, at steady state, between two defined surfaces of a material or construction that induces a unit heat flow rate through unit area (R = ΔT/q). R-value is the reciprocal of thermal conductance. A unit of thermal resistance used for comparing insulating values of different materials, for the specific thickness of the material. The higher the R-value number, a material, the greater its insulating properties and the slower the heat flow through it. This R-value does not include the interior and exterior air film coefficients. (hr-ft2-F/Btu)</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:simpleContent>
