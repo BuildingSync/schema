@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2016 rel. 2 (x64) (http://www.altova.com) by Kristin Field-Macumber (NREL) -->
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://nrel.gov/schemas/bedes-auc/2014" targetNamespace="http://nrel.gov/schemas/bedes-auc/2014" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:annotation>
 		<xs:documentation>BuildingSync Schema - Version 0.2</xs:documentation>
@@ -1134,6 +1133,42 @@
 				<xs:complexType>
 					<xs:simpleContent>
 						<xs:extension base="xs:integer">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TotalExteriorAboveGradeWallArea" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Above grade wall area exposed to the elements. (square ft)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TotalExteriorBelowGradeWallArea" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Below grade wall area exposed to the ground. (square ft)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OverallWindowToWallRatio" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Overall window to wall ratio of the facility.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
 							<xs:attribute ref="auc:Source"/>
 						</xs:extension>
 					</xs:simpleContent>
@@ -5729,6 +5764,7 @@
 														</xs:simpleContent>
 													</xs:complexType>
 												</xs:element>
+												<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
 												<xs:element ref="auc:Quantity" minOccurs="0"/>
 											</xs:sequence>
 										</xs:complexType>
@@ -6895,6 +6931,29 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
+			<xs:element name="PrimaryHVACSystemType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Primary HVAC type.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Packaged Terminal Air Conditioner"/>
+						<xs:enumeration value="Four Pipe Fan Coil Unit"/>
+						<xs:enumeration value="Packaged Terminal Heat Pump"/>
+						<xs:enumeration value="Packaged Rooftop Air Conditioner"/>
+						<xs:enumeration value="Packaged Rooftop Heat Pump"/>
+						<xs:enumeration value="Packaged Rooftop VAV with Hot Water Reheat"/>
+						<xs:enumeration value="Packaged Rooftop VAV with Electric Reheat"/>
+						<xs:enumeration value="VAV with Hot Water Reheat"/>
+						<xs:enumeration value="VAV with Electric Reheat"/>
+						<xs:enumeration value="Warm Air Furnace"/>
+						<xs:enumeration value="Ventilation Only"/>
+						<xs:enumeration value="Dedicated Outdoor Air System"/>
+						<xs:enumeration value="Water Loop Heat Pump"/>
+						<xs:enumeration value="Ground Source Heat Pump"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="PrimaryHVACControlStrategy" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Primary HVAC equipment control strategy.</xs:documentation>
@@ -6956,22 +7015,7 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="DuctInsulationCondition" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Condition of duct insulation.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Excellent"/>
-						<xs:enumeration value="Good"/>
-						<xs:enumeration value="Average"/>
-						<xs:enumeration value="Poor"/>
-						<xs:enumeration value="Very poor"/>
-						<xs:enumeration value="None"/>
-						<xs:enumeration value="Unknown"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
+			<xs:element name="DuctInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
 			<xs:element name="DuctSealing" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Condition of duct sealing</xs:documentation>
@@ -7176,7 +7220,7 @@
 					<xs:sequence>
 						<xs:element name="ChillerType" minOccurs="0">
 							<xs:annotation>
-								<xs:documentation>Vehicle for driving the compressor used in a chiller</xs:documentation>
+								<xs:documentation>Type of chiller</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -7359,6 +7403,7 @@
 									<xs:enumeration value="Never-rarely"/>
 									<xs:enumeration value="Other"/>
 									<xs:enumeration value="Unknown"/>
+									<xs:enumeration value="None"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -10572,22 +10617,7 @@
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:element>
-									<xs:element name="WallInsulationCondition" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Assessed condition of installed insulation.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Excellent"/>
-												<xs:enumeration value="Good"/>
-												<xs:enumeration value="Average"/>
-												<xs:enumeration value="Poor"/>
-												<xs:enumeration value="Other"/>
-												<xs:enumeration value="Unknown"/>
-												<xs:enumeration value="None"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
+									<xs:element name="WallInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
 									<xs:element name="WallInsulationLocation" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Whether wall insulation is on the inside or outside of the wall.</xs:documentation>
@@ -10883,22 +10913,7 @@ Insulated: Where the cells are partially grouted and the remaining cells are fil
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-						<xs:element name="CeilingInsulationCondition" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Assessed condition of installed insulation.</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Excellent"/>
-									<xs:enumeration value="Good"/>
-									<xs:enumeration value="Average"/>
-									<xs:enumeration value="Poor"/>
-									<xs:enumeration value="Other"/>
-									<xs:enumeration value="Unknown"/>
-									<xs:enumeration value="None"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
+						<xs:element name="CeilingInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -11122,22 +11137,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-						<xs:element name="RoofInsulationCondition" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Assessed condition of installed insulation.</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Excellent"/>
-									<xs:enumeration value="Good"/>
-									<xs:enumeration value="Average"/>
-									<xs:enumeration value="Poor"/>
-									<xs:enumeration value="Other"/>
-									<xs:enumeration value="Unknown"/>
-									<xs:enumeration value="None"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
+						<xs:element name="RoofInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
 						<xs:element name="RoofInsulationRValue" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Insulation R Value of the layer (hr-ft2-F/Btu)</xs:documentation>
@@ -11873,7 +11873,31 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
-									<xs:element ref="auc:SlabInsulationCondition" minOccurs="0"/>
+									<xs:element name="SlabRValue" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Also known as thermal resistance, quantity determined by the temperature difference, at steady state, between two defined surfaces of a material or construction that induces a unit heat flow rate through unit area (R = ΔT/q). R-value is the reciprocal of thermal conductance. A unit of thermal resistance used for comparing insulating values of different materials, for the specific thickness of the material. The higher the R-value number, a material, the greater its insulating properties and the slower the heat flow through it. This R-value does not include air film coefficients. (hr-ft2-F/Btu)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="SlabUFactor" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above). (Btu/hr·ft2·°F)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="SlabInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
 									<xs:element ref="auc:SlabHeating" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
@@ -11899,22 +11923,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 																	</xs:simpleContent>
 																</xs:complexType>
 															</xs:element>
-															<xs:element name="FloorInsulationCondition" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>General physical condition of floor insulation.</xs:documentation>
-																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Excellent"/>
-																		<xs:enumeration value="Good"/>
-																		<xs:enumeration value="Average"/>
-																		<xs:enumeration value="Poor"/>
-																		<xs:enumeration value="Other"/>
-																		<xs:enumeration value="Unknown"/>
-																		<xs:enumeration value="None"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
+															<xs:element name="FloorInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
 															<xs:element name="FloorRValue" minOccurs="0">
 																<xs:annotation>
 																	<xs:documentation>(Also known as thermal resistance), quantity determined by the temperature difference, at steady state, between two defined surfaces of a material or construction that induces a unit heat flow rate through unit area (R = ΔT/q). R-value is the reciprocal of thermal conductance. A unit of thermal resistance used for comparing insulating values of different materials, for the specific thickness of the material. The higher the R-value number, a material, the greater its insulating properties and the slower the heat flow through it. This R-value does not include the interior and exterior air film coefficients. (hr-ft2-F/Btu)</xs:documentation>
@@ -12040,7 +12049,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 																</xs:complexType>
 															</xs:element>
 															<xs:element ref="auc:FoundationWallInsulationContinuity" minOccurs="0"/>
-															<xs:element ref="auc:FoundationWallInsulationCondition" minOccurs="0"/>
+															<xs:element name="FoundationWallInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
@@ -12100,7 +12109,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 									</xs:element>
 									<xs:element name="FoundationWallRValue" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>(Also known as thermal resistance), quantity determined by the temperature difference, at steady state, between two defined surfaces of a material or construction that induces a unit heat flow rate through unit area (R = ΔT/q). R-value is the reciprocal of thermal conductance. A unit of thermal resistance used for comparing insulating values of different materials, for the specific thickness of the material. The higher the R-value number, a material, the greater its insulating properties and the slower the heat flow through it. This R-value does not include the interior and exterior air film coefficients. (hr-ft2-F/Btu)</xs:documentation>
+											<xs:documentation>Also known as thermal resistance, quantity determined by the temperature difference, at steady state, between two defined surfaces of a material or construction that induces a unit heat flow rate through unit area (R = ΔT/q). R-value is the reciprocal of thermal conductance. A unit of thermal resistance used for comparing insulating values of different materials, for the specific thickness of the material. The higher the R-value number, a material, the greater its insulating properties and the slower the heat flow through it. This R-value does not include the interior and exterior air film coefficients. (hr-ft2-F/Btu)</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:simpleContent>
@@ -12123,7 +12132,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 										</xs:complexType>
 									</xs:element>
 									<xs:element ref="auc:FoundationWallInsulationContinuity" minOccurs="0"/>
-									<xs:element ref="auc:FoundationWallInsulationCondition" minOccurs="0"/>
+									<xs:element name="FoundationWallInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
 									<xs:element ref="auc:SlabInsulationOrientation" minOccurs="0"/>
 									<xs:element name="SlabArea" minOccurs="0">
 										<xs:annotation>
@@ -12173,7 +12182,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
-									<xs:element ref="auc:SlabInsulationCondition" minOccurs="0"/>
+									<xs:element name="SlabInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
 									<xs:element ref="auc:SlabHeating" minOccurs="0"/>
 								</xs:sequence>
 							</xs:complexType>
@@ -13092,6 +13101,20 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 			</xs:restriction>
 		</xs:simpleType>
 	</xs:element>
+	<xs:simpleType name="InsulationCondition">
+		<xs:annotation>
+			<xs:documentation>Assessed condition of installed insulation.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Excellent"/>
+			<xs:enumeration value="Good"/>
+			<xs:enumeration value="Average"/>
+			<xs:enumeration value="Poor"/>
+			<xs:enumeration value="Other"/>
+			<xs:enumeration value="Unknown"/>
+			<xs:enumeration value="None"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:element name="ControlledByEMCS" type="xs:boolean"/>
 	<xs:element name="PrimaryFuel" type="auc:FuelTypes">
 		<xs:annotation>
@@ -14947,22 +14970,6 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 			</xs:restriction>
 		</xs:simpleType>
 	</xs:element>
-	<xs:element name="FoundationWallInsulationCondition">
-		<xs:annotation>
-			<xs:documentation>Assessed condition of installed insulation.</xs:documentation>
-		</xs:annotation>
-		<xs:simpleType>
-			<xs:restriction base="xs:string">
-				<xs:enumeration value="Excellent"/>
-				<xs:enumeration value="Good"/>
-				<xs:enumeration value="Average"/>
-				<xs:enumeration value="Poor"/>
-				<xs:enumeration value="Other"/>
-				<xs:enumeration value="Unknown"/>
-				<xs:enumeration value="None"/>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
 	<xs:element name="SlabInsulationOrientation">
 		<xs:annotation>
 			<xs:documentation>The location and extent of slab-on-grade floor insulation</xs:documentation>
@@ -14980,22 +14987,6 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 				<xs:enumeration value="Fully Insulated Slab"/>
 				<xs:enumeration value="None"/>
 				<xs:enumeration value="Unknown"/>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
-	<xs:element name="SlabInsulationCondition">
-		<xs:annotation>
-			<xs:documentation>Assessed condition of installed insulation.</xs:documentation>
-		</xs:annotation>
-		<xs:simpleType>
-			<xs:restriction base="xs:string">
-				<xs:enumeration value="Excellent"/>
-				<xs:enumeration value="Good"/>
-				<xs:enumeration value="Average"/>
-				<xs:enumeration value="Poor"/>
-				<xs:enumeration value="Other"/>
-				<xs:enumeration value="Unknown"/>
-				<xs:enumeration value="None"/>
 			</xs:restriction>
 		</xs:simpleType>
 	</xs:element>
