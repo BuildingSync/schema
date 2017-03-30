@@ -7,3 +7,7 @@ test:
     - bundle exec rake test
     - bundle exec rake generate_data_dictionary
 
+notify:
+  webhooks:
+    - url: https://dashboard.buildingsync.net/projects/f9ca4851-0b17-420b-bf35-f23a3e68a4ad/status
+
