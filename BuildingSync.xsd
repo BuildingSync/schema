@@ -5505,407 +5505,12 @@
 			<xs:element name="Plants" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="HeatingPlantType" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="HeatingPlant" type="auc:HeatingPlantType" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Type of central heating system, defined as any source of heating energy separate from the zone being heated. Local heating systems (such as packaged systems and fan-coils) are recorded in a separate data field.</xs:documentation>
 							</xs:annotation>
-							<xs:complexType>
-								<xs:choice>
-									<xs:element name="Boiler" minOccurs="0">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="BoilerType" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>General type of boiler used for space or water heating</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Steam"/>
-															<xs:enumeration value="Hot water"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element ref="auc:BurnerType" minOccurs="0"/>
-												<xs:element name="BurnerTurndownRatio" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>If applicable, the turndown ratio for the burner (full input/minimum input).</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element ref="auc:IgnitionType" minOccurs="0"/>
-												<xs:element ref="auc:DraftType" minOccurs="0"/>
-												<xs:element name="CondensingOperation" type="xs:boolean" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>True if the boiler or furnace is capable of condensing the water vapor in the exhaust flue gas to obtain a higher efficiency.</xs:documentation>
-													</xs:annotation>
-												</xs:element>
-												<xs:element ref="auc:HeatingStaging" minOccurs="0"/>
-												<xs:element name="InputCapacity" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The rate of energy consumption of the heating equipment at full load.</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="OutputCapacity" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Output capacity of equipment.</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
-												<xs:element name="NumberOfHeatingStages" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The number of heating stages, excluding "off."</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:integer">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="HeatingStageCapacityFraction" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Average capacity of each heating stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) (%)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element ref="auc:Priority" minOccurs="0"/>
-												<xs:element name="AnnualHeatingEfficiencyValue" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Overall annual efficiency of a heating system</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
-												<xs:element name="CombustionEfficiency" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The measure of how much energy is extracted from the fuel and is the ratio of heat transferred to the combustion air divided by the heat input of the fuel. (0-1) (%)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="ThermalEfficiency" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The efficiency of heat transfer between the combustion process and the heated steam, water, or air. (0-1) (%)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element ref="auc:ThirdPartyCertification" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Independent organization has verified that product or appliance meets or exceeds the standard in question (ENERGY STAR, CEE, or other)</xs:documentation>
-													</xs:annotation>
-												</xs:element>
-												<xs:element name="BoilerInsulationRValue" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Insulation R-Value of hot water storage tank. (hr-ft2-F/Btu)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="BoilerInsulationThickness" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Insulation thickness of hot water storage tank. [in.]</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="HotWaterBoilerMinimumFlowRate" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The minimum flow rate of water required while the boiler is firing. [gpm]</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="HotWaterBoilerMaximumFlowRate" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The maximum flow rate of water that the boiler is designed to accept. [gpm]</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="BoilerEWT" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Temperature of water returning to the equipment. [°F]</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="BoilerLWT" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The water temperature that the equipment supplies , such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. [°F]</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="HotWaterResetControl" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Times when the HVAC equipment is setback. For example, when the heat is lowered during the heating season, or the cooling setpoint increased during the cooling season.</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="During the day"/>
-															<xs:enumeration value="At night"/>
-															<xs:enumeration value="During sleeping and unoccupied hours"/>
-															<xs:enumeration value="Seasonal"/>
-															<xs:enumeration value="Never-rarely"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element name="SteamBoilerMinimumOperatingPressure" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The minimum amount of steam pressure required during boiler operation. This should be input as gauge pressure. [psi]</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="SteamBoilerMaximumOperatingPressure" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The maximum amount of steam pressure allowed during boiler operation. This should be input as gauge pressure. [psi]</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="BoilerPercentCondensateReturn" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The percentage of condensed steam that is returned to the boiler. (0-1) (%)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
-												<xs:element ref="auc:Quantity" minOccurs="0"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="DistrictHeating" minOccurs="0">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="DistrictHeatingType" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>General type of district heating used for space or water heating</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Hot water"/>
-															<xs:enumeration value="Direct steam"/>
-															<xs:enumeration value="Steam to hot water heat exchanger"/>
-															<xs:enumeration value="Other"/>
-															<xs:enumeration value="Unknown"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element name="OutputCapacity" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Output capacity of equipment.</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
-												<xs:element name="AnnualHeatingEfficiencyValue" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Overall annual efficiency of a heating system</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
-												<xs:element name="HotWaterBoilerMaximumFlowRate" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The maximum flow rate of water that the boiler is designed to accept. [gpm]</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="BoilerLWT" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The water temperature that the equipment supplies , such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. [°F]</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="SteamBoilerMinimumOperatingPressure" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The minimum amount of steam pressure required during boiler operation. This should be input as gauge pressure. [psi]</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="SteamBoilerMaximumOperatingPressure" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>The maximum amount of steam pressure allowed during boiler operation. This should be input as gauge pressure. [psi]</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element ref="auc:Quantity" minOccurs="0"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="SolarThermal" minOccurs="0">
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="OutputCapacity" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Output capacity of equipment.</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
-												<xs:element name="AnnualHeatingEfficiencyValue" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Overall annual efficiency of a heating system</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-												<xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
-												<xs:element ref="auc:Quantity" minOccurs="0"/>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="OtherCombination" minOccurs="0"/>
-									<xs:element name="NoHeating" minOccurs="0"/>
-									<xs:element name="Unknown" minOccurs="0"/>
-								</xs:choice>
-								<xs:attribute name="ID" type="xs:ID"/>
-								<xs:attribute ref="auc:Status"/>
-							</xs:complexType>
 						</xs:element>
-						<xs:element name="CoolingPlantType" type="auc:CoolingPlantTypeType" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="CoolingPlant" type="auc:CoolingPlantType" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Type of cooling plant. Zonal cooling is recorded in a separate data field. Use of fans or blowers by themselves without chilled air or water is not included in this definition of cooling. Stand-alone dehumidifiers are also not included.</xs:documentation>
 							</xs:annotation>
@@ -7215,7 +6820,402 @@
 		<xs:attribute name="ID" type="xs:ID"/>
 		<xs:attribute ref="auc:Status"/>
 	</xs:complexType>
-	<xs:complexType name="CoolingPlantTypeType">
+	<xs:complexType name="HeatingPlantType">
+		<xs:choice>
+			<xs:element name="Boiler" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="BoilerType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>General type of boiler used for space or water heating</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Steam"/>
+									<xs:enumeration value="Hot water"/>
+									<xs:enumeration value="Other"/>
+									<xs:enumeration value="Unknown"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element ref="auc:BurnerType" minOccurs="0"/>
+						<xs:element name="BurnerTurndownRatio" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>If applicable, the turndown ratio for the burner (full input/minimum input).</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="auc:IgnitionType" minOccurs="0"/>
+						<xs:element ref="auc:DraftType" minOccurs="0"/>
+						<xs:element name="CondensingOperation" type="xs:boolean" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>True if the boiler or furnace is capable of condensing the water vapor in the exhaust flue gas to obtain a higher efficiency.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element ref="auc:HeatingStaging" minOccurs="0"/>
+						<xs:element name="InputCapacity" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The rate of energy consumption of the heating equipment at full load.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="OutputCapacity" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Output capacity of equipment.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
+						<xs:element name="NumberOfHeatingStages" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The number of heating stages, excluding "off."</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:integer">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="HeatingStageCapacityFraction" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Average capacity of each heating stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) (%)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="auc:Priority" minOccurs="0"/>
+						<xs:element name="AnnualHeatingEfficiencyValue" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Overall annual efficiency of a heating system</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+						<xs:element name="CombustionEfficiency" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The measure of how much energy is extracted from the fuel and is the ratio of heat transferred to the combustion air divided by the heat input of the fuel. (0-1) (%)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ThermalEfficiency" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The efficiency of heat transfer between the combustion process and the heated steam, water, or air. (0-1) (%)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="auc:ThirdPartyCertification" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Independent organization has verified that product or appliance meets or exceeds the standard in question (ENERGY STAR, CEE, or other)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="BoilerInsulationRValue" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Insulation R-Value of hot water storage tank. (hr-ft2-F/Btu)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="BoilerInsulationThickness" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Insulation thickness of hot water storage tank. [in.]</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="HotWaterBoilerMinimumFlowRate" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The minimum flow rate of water required while the boiler is firing. [gpm]</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="HotWaterBoilerMaximumFlowRate" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The maximum flow rate of water that the boiler is designed to accept. [gpm]</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="BoilerEWT" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Temperature of water returning to the equipment. [°F]</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="BoilerLWT" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The water temperature that the equipment supplies , such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. [°F]</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="HotWaterResetControl" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Times when the HVAC equipment is setback. For example, when the heat is lowered during the heating season, or the cooling setpoint increased during the cooling season.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="During the day"/>
+									<xs:enumeration value="At night"/>
+									<xs:enumeration value="During sleeping and unoccupied hours"/>
+									<xs:enumeration value="Seasonal"/>
+									<xs:enumeration value="Never-rarely"/>
+									<xs:enumeration value="Other"/>
+									<xs:enumeration value="Unknown"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="SteamBoilerMinimumOperatingPressure" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The minimum amount of steam pressure required during boiler operation. This should be input as gauge pressure. [psi]</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="SteamBoilerMaximumOperatingPressure" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The maximum amount of steam pressure allowed during boiler operation. This should be input as gauge pressure. [psi]</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="BoilerPercentCondensateReturn" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The percentage of condensed steam that is returned to the boiler. (0-1) (%)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+						<xs:element ref="auc:Quantity" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DistrictHeating" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="DistrictHeatingType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>General type of district heating used for space or water heating</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Hot water"/>
+									<xs:enumeration value="Direct steam"/>
+									<xs:enumeration value="Steam to hot water heat exchanger"/>
+									<xs:enumeration value="Other"/>
+									<xs:enumeration value="Unknown"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="OutputCapacity" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Output capacity of equipment.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
+						<xs:element name="AnnualHeatingEfficiencyValue" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Overall annual efficiency of a heating system</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+						<xs:element name="HotWaterBoilerMaximumFlowRate" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The maximum flow rate of water that the boiler is designed to accept. [gpm]</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="BoilerLWT" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The water temperature that the equipment supplies , such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. [°F]</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="SteamBoilerMinimumOperatingPressure" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The minimum amount of steam pressure required during boiler operation. This should be input as gauge pressure. [psi]</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="SteamBoilerMaximumOperatingPressure" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The maximum amount of steam pressure allowed during boiler operation. This should be input as gauge pressure. [psi]</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="auc:Quantity" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SolarThermal" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="OutputCapacity" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Output capacity of equipment.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="auc:CapacityUnits" minOccurs="0"/>
+						<xs:element name="AnnualHeatingEfficiencyValue" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Overall annual efficiency of a heating system</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+						<xs:element ref="auc:Quantity" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OtherCombination" minOccurs="0"/>
+			<xs:element name="NoHeating" minOccurs="0"/>
+			<xs:element name="Unknown" minOccurs="0"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute ref="auc:Status"/>
+	</xs:complexType>
+	<xs:complexType name="CoolingPlantType">
 		<xs:choice>
 			<xs:element name="Chiller" minOccurs="0">
 				<xs:complexType>

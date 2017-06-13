@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Audits xsi:schemaLocation="http://nrel.gov/schemas/bedes-auc/2014 file:///C:/Users/Robert/Documents/GitHub/BuildingSync/schema/BuildingSync.xsd" xmlns="http://nrel.gov/schemas/bedes-auc/2014" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Audits xmlns="http://nrel.gov/schemas/bedes-auc/2014" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nrel.gov/schemas/bedes-auc/2014 ../BuildingSync.xsd">
 	<Audit>
 		<Sites>
 			<Site>
@@ -385,18 +385,18 @@
 			<HVACSystems>
 				<HVACSystem>
 					<Plants>
-						<HeatingPlantType ID="HeatiingPlant1">
+						<HeatingPlant ID="HeatiingPlant1">
 							<Boiler>
 								<BoilerType>Hot water</BoilerType>
 								<DraftType>Mechanical forced</DraftType>
 							</Boiler>
-						</HeatingPlantType>
-						<CoolingPlantType ID="CoolingPlant1">
+						</HeatingPlant>
+						<CoolingPlant ID="CoolingPlant1">
 							<Chiller>
 								<ChillerType>Vapor compression</ChillerType>
 								<CondenserPlantID IDref="CondenserPlant1"/>
 							</Chiller>
-						</CoolingPlantType>
+						</CoolingPlant>
 						<CondenserPlant ID="CondenserPlant1">
 							<AirCooled>
 								<EvaporativelyCooledCondenser/>
