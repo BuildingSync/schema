@@ -5575,6 +5575,18 @@
 																</xs:simpleType>
 															</xs:element>
 															<xs:element ref="auc:BurnerType" minOccurs="0"/>
+															<xs:element name="BurnerQuantity" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The number of burners.</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:integer">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
 															<xs:element name="BurnerTurndownRatio" minOccurs="0">
 																<xs:annotation>
 																	<xs:documentation>If applicable, the turndown ratio for the burner (full input/minimum input).</xs:documentation>
@@ -6839,6 +6851,18 @@
 							</xs:simpleType>
 						</xs:element>
 						<xs:element ref="auc:BurnerType" minOccurs="0"/>
+						<xs:element name="BurnerQuantity" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The number of burners.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:integer">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
 						<xs:element name="BurnerTurndownRatio" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>If applicable, the turndown ratio for the burner (full input/minimum input).</xs:documentation>
@@ -14773,6 +14797,21 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 				<xs:enumeration value="Sealed Combustion"/>
 				<xs:enumeration value="Rotary Cup"/>
 				<xs:enumeration value="Other"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BurnerControlType">
+		<xs:annotation>
+			<xs:documentation>Control type of burner, if applicable.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Full Modulation Set to Manual"/>
+				<xs:enumeration value="Full Modulation Set to Modulation"/>
+				<xs:enumeration value="Step Modulation"/>
+				<xs:enumeration value="High Low Operation"/>
+				<xs:enumeration value="On Off"/>
 				<xs:enumeration value="Unknown"/>
 			</xs:restriction>
 		</xs:simpleType>
