@@ -2589,6 +2589,18 @@
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
+									<xs:element name="AnnualPeakElectricityReduction" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Reduction in largest 15 minute peak demand for the year as defined in the utility rate schedule (for electrical energy use only) (kW)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
 									<xs:element name="AnnualDemandSavingsCost" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Cost savings per year due to reduction in peak electricity demand. ($/year)</xs:documentation>
