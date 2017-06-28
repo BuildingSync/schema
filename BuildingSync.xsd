@@ -4488,7 +4488,7 @@
 					<xs:sequence>
 						<xs:element name="PremiseAffected" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>ID numbers of premises (site, facility, space, zone, or subsections) for measures that apply broadly to an entire building, or modify the properties of a building.</xs:documentation>
+								<xs:documentation>ID numbers of premises (site, facility, space, zone, or subsections) for measures that apply to an entire building or subset of the building, or modify the properties of a building or the subset of the building.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -5191,6 +5191,18 @@
 						<xs:element name="WinterPeakElectricityReduction" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Reduction in largest 15 minute peak demand for the winter months as defined in the utility rate schedule (for electrical energy use only) (kW)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="AnnualPeakElectricityReduction" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Reduction in largest 15 minute peak demand for the year as defined in the utility rate schedule (for electrical energy use only) (kW)</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:simpleContent>
