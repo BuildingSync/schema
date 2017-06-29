@@ -3351,6 +3351,7 @@
 								<BoilerLWT>177.8</BoilerLWT>
 								<Quantity>1</Quantity>
 							</Boiler>
+							<HeatingPlantCondition>Excellent</HeatingPlantCondition>
 						</HeatingPlant>
 						<CondenserPlant ID="Condenser1">
 							<AirCooled/>
@@ -3374,6 +3375,7 @@
 							<HeatingMedium>Air</HeatingMedium>
 							<HeatingStaging>Variable</HeatingStaging>
 							<PrimaryFuel>Natural gas</PrimaryFuel>
+							<HeatingSourceCondition>Average</HeatingSourceCondition>
 							<ControlTechnology>EMCS</ControlTechnology>
 							<Quantity>1</Quantity>
 						</HeatingSource>
@@ -3394,6 +3396,7 @@
 							<CoolingStageCapacity>0.5</CoolingStageCapacity>
 							<RatedCoolingSensibleHeatRatio>0.69</RatedCoolingSensibleHeatRatio>
 							<PrimaryFuel>Electricity</PrimaryFuel>
+							<CoolingSourceCondition>Good</CoolingSourceCondition>
 							<ControlTechnology>EMCS</ControlTechnology>
 							<Quantity>1</Quantity>
 						</CoolingSource>
@@ -3434,6 +3437,7 @@
 							<CoolingStageCapacity>0.5</CoolingStageCapacity>
 							<RatedCoolingSensibleHeatRatio>0.69</RatedCoolingSensibleHeatRatio>
 							<PrimaryFuel>Electricity</PrimaryFuel>
+							<CoolingSourceCondition>Poor</CoolingSourceCondition>
 							<ControlTechnology>EMCS</ControlTechnology>
 							<Quantity>1</Quantity>
 						</CoolingSource>
@@ -3454,7 +3458,14 @@
 							<CoolingStageCapacity>0.5</CoolingStageCapacity>
 							<RatedCoolingSensibleHeatRatio>0.69</RatedCoolingSensibleHeatRatio>
 							<PrimaryFuel>Electricity</PrimaryFuel>
+							<CoolingSourceCondition>Other</CoolingSourceCondition>
 							<ControlTechnology>EMCS</ControlTechnology>
+							<UserDefinedFields>
+								<UserDefinedField>
+									<FieldName>Condition Description</FieldName>
+									<FieldValue>Inoperable and in need of repair</FieldValue>
+								</UserDefinedField>
+							</UserDefinedFields>
 							<Quantity>1</Quantity>
 						</CoolingSource>
 						<Delivery ID="DeliveryPod1">
@@ -3652,6 +3663,7 @@
 									<DemandControlVentilation>true</DemandControlVentilation>
 								</MechanicalVentilation>
 							</OtherHVACType>
+							<OtherHVACSystemCondition>Unknown</OtherHVACSystemCondition>
 							<ControlTechnology>EMCS</ControlTechnology>
 							<LinkedPremises>
 								<ThermalZone>
