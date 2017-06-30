@@ -4876,12 +4876,54 @@
 					<HotWaterDistributionType>Looped</HotWaterDistributionType>
 					<WaterHeaterEfficiencyType>Thermal Efficiency</WaterHeaterEfficiencyType>
 					<WaterHeaterEfficiency>0.8</WaterHeaterEfficiency>
-					<DailyHotWaterDraw>2406</DailyHotWaterDraw>
+					<DailyHotWaterDraw>1203</DailyHotWaterDraw>
 					<HotWaterSetpointTemperature>140</HotWaterSetpointTemperature>
 					<ParasiticFuelConsumptionRate>2676</ParasiticFuelConsumptionRate>
 					<Capacity>58614</Capacity>
 					<CapacityUnits>W</CapacityUnits>
 					<PrimaryFuel>Natural gas</PrimaryFuel>
+					<Location>Interior</Location>
+					<LinkedPremises>
+						<Facility>
+							<LinkedFacilityID IDref="Building1">
+								<LinkedScheduleID IDref="DHWSchedule1"/>
+								<LinkedScheduleID IDref="DHWSchedule2"/>
+								<LinkedScheduleID IDref="DHWSchedule3"/>
+							</LinkedFacilityID>
+						</Facility>
+					</LinkedPremises>
+					<Quantity>1</Quantity>
+				</DomesticHotWaterSystem>
+				<DomesticHotWaterSystem ID="DHW2">
+					<DomesticHotWaterType>
+						<StorageTank>
+							<TankHeatingType>
+								<Direct>
+									<DirectTankHeatingSource>
+										<Other/>
+									</DirectTankHeatingSource>
+								</Direct>
+							</TankHeatingType>
+							<TankVolume>200</TankVolume>
+							<TankHeight>96</TankHeight>
+							<TankPerimeter>96</TankPerimeter>
+							<OffCycleHeatLossCoefficient>0.2856</OffCycleHeatLossCoefficient>
+						</StorageTank>
+					</DomesticHotWaterType>
+					<Recirculation>
+						<RecirculationLoopCount>1</RecirculationLoopCount>
+						<PipeLocation>1</PipeLocation>
+						<RecirculationEnergyLossRate>0</RecirculationEnergyLossRate>
+					</Recirculation>
+					<HotWaterDistributionType>Looped</HotWaterDistributionType>
+					<WaterHeaterEfficiencyType>COP</WaterHeaterEfficiencyType>
+					<WaterHeaterEfficiency>2.0</WaterHeaterEfficiency>
+					<DailyHotWaterDraw>1203</DailyHotWaterDraw>
+					<HotWaterSetpointTemperature>140</HotWaterSetpointTemperature>
+					<ParasiticFuelConsumptionRate>0</ParasiticFuelConsumptionRate>
+					<Capacity>58614</Capacity>
+					<CapacityUnits>W</CapacityUnits>
+					<PrimaryFuel>Electricity</PrimaryFuel>
 					<Location>Interior</Location>
 					<LinkedPremises>
 						<Facility>
