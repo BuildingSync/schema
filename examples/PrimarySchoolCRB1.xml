@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2016 rel. 2 (x64) (http://www.altova.com) by Kristin Field-Macumber (NREL) -->
 <Audits xmlns="http://nrel.gov/schemas/bedes-auc/2014" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nrel.gov/schemas/bedes-auc/2014 ../BuildingSync.xsd">
 	<Audit ID="Audit1">
 		<Sites>
@@ -37,7 +36,7 @@
 						<HorizontalSurroundings>No abutments</HorizontalSurroundings>
 						<VerticalSurroundings>Stand-alone</VerticalSurroundings>
 						<YearOfConstruction>2015</YearOfConstruction>
-						<OperatorType>Local government</OperatorType>
+						<OperatorType>Owner</OperatorType>
 						<Subsections>
 							<Subsection ID="Block1">
 								<PremisesName>CORNER_CLASS_1_POD_1_ZN_1_FLR_1 Block</PremisesName>
@@ -3341,7 +3340,7 @@
 			<HVACSystems>
 				<HVACSystem ID="HVAC1">
 					<Plants>
-						<HeatingPlantType ID="Boiler1">
+						<HeatingPlant ID="Boiler1">
 							<Boiler>
 								<BoilerType>Hot water</BoilerType>
 								<OutputCapacity>314</OutputCapacity>
@@ -3352,7 +3351,8 @@
 								<BoilerLWT>177.8</BoilerLWT>
 								<Quantity>1</Quantity>
 							</Boiler>
-						</HeatingPlantType>
+							<HeatingPlantCondition>Excellent</HeatingPlantCondition>
+						</HeatingPlant>
 						<CondenserPlant ID="Condenser1">
 							<AirCooled/>
 						</CondenserPlant>
@@ -3375,6 +3375,7 @@
 							<HeatingMedium>Air</HeatingMedium>
 							<HeatingStaging>Variable</HeatingStaging>
 							<PrimaryFuel>Natural gas</PrimaryFuel>
+							<HeatingSourceCondition>Average</HeatingSourceCondition>
 							<ControlTechnology>EMCS</ControlTechnology>
 							<Quantity>1</Quantity>
 						</HeatingSource>
@@ -3395,6 +3396,7 @@
 							<CoolingStageCapacity>0.5</CoolingStageCapacity>
 							<RatedCoolingSensibleHeatRatio>0.69</RatedCoolingSensibleHeatRatio>
 							<PrimaryFuel>Electricity</PrimaryFuel>
+							<CoolingSourceCondition>Good</CoolingSourceCondition>
 							<ControlTechnology>EMCS</ControlTechnology>
 							<Quantity>1</Quantity>
 						</CoolingSource>
@@ -3435,6 +3437,7 @@
 							<CoolingStageCapacity>0.5</CoolingStageCapacity>
 							<RatedCoolingSensibleHeatRatio>0.69</RatedCoolingSensibleHeatRatio>
 							<PrimaryFuel>Electricity</PrimaryFuel>
+							<CoolingSourceCondition>Poor</CoolingSourceCondition>
 							<ControlTechnology>EMCS</ControlTechnology>
 							<Quantity>1</Quantity>
 						</CoolingSource>
@@ -3455,7 +3458,14 @@
 							<CoolingStageCapacity>0.5</CoolingStageCapacity>
 							<RatedCoolingSensibleHeatRatio>0.69</RatedCoolingSensibleHeatRatio>
 							<PrimaryFuel>Electricity</PrimaryFuel>
+							<CoolingSourceCondition>Other</CoolingSourceCondition>
 							<ControlTechnology>EMCS</ControlTechnology>
+							<UserDefinedFields>
+								<UserDefinedField>
+									<FieldName>Condition Description</FieldName>
+									<FieldValue>Inoperable and in need of repair</FieldValue>
+								</UserDefinedField>
+							</UserDefinedFields>
 							<Quantity>1</Quantity>
 						</CoolingSource>
 						<Delivery ID="DeliveryPod1">
@@ -3653,6 +3663,7 @@
 									<DemandControlVentilation>true</DemandControlVentilation>
 								</MechanicalVentilation>
 							</OtherHVACType>
+							<OtherHVACSystemCondition>Unknown</OtherHVACSystemCondition>
 							<ControlTechnology>EMCS</ControlTechnology>
 							<LinkedPremises>
 								<ThermalZone>
@@ -8796,7 +8807,7 @@
 				</MeasureSavingsAnalysis>
 				<MVCost>0</MVCost>
 				<UsefulLife>5</UsefulLife>
-				<MeasureFirstCost>39054</MeasureFirstCost>
+				<MeasureTotalFirstCost>39054</MeasureTotalFirstCost>
 				<CapitalReplacementCost>39054</CapitalReplacementCost>
 				<ResidualValue>0</ResidualValue>
 				<Recommended>true</Recommended>
@@ -8859,7 +8870,7 @@
 				</MeasureSavingsAnalysis>
 				<MVCost>0</MVCost>
 				<UsefulLife>5</UsefulLife>
-				<MeasureFirstCost>380000</MeasureFirstCost>
+				<MeasureTotalFirstCost>380000</MeasureTotalFirstCost>
 				<CapitalReplacementCost>100000</CapitalReplacementCost>
 				<ResidualValue>0</ResidualValue>
 				<Recommended>true</Recommended>
@@ -8921,7 +8932,7 @@
 				</MeasureSavingsAnalysis>
 				<MVCost>0</MVCost>
 				<UsefulLife>5</UsefulLife>
-				<MeasureFirstCost>12000</MeasureFirstCost>
+				<MeasureTotalFirstCost>12000</MeasureTotalFirstCost>
 				<CapitalReplacementCost>6000</CapitalReplacementCost>
 				<ResidualValue>0</ResidualValue>
 				<Recommended>true</Recommended>
@@ -8983,7 +8994,7 @@
 				</MeasureSavingsAnalysis>
 				<MVCost>0</MVCost>
 				<UsefulLife>10</UsefulLife>
-				<MeasureFirstCost>15000</MeasureFirstCost>
+				<MeasureTotalFirstCost>15000</MeasureTotalFirstCost>
 				<CapitalReplacementCost>15000</CapitalReplacementCost>
 				<ResidualValue>0</ResidualValue>
 				<Recommended>true</Recommended>
@@ -9045,7 +9056,7 @@
 				</MeasureSavingsAnalysis>
 				<MVCost>0</MVCost>
 				<UsefulLife>5</UsefulLife>
-				<MeasureFirstCost>23000</MeasureFirstCost>
+				<MeasureTotalFirstCost>23000</MeasureTotalFirstCost>
 				<CapitalReplacementCost>11500</CapitalReplacementCost>
 				<ResidualValue>0</ResidualValue>
 				<Recommended>true</Recommended>
@@ -9107,7 +9118,7 @@
 				</MeasureSavingsAnalysis>
 				<MVCost>0</MVCost>
 				<UsefulLife>5</UsefulLife>
-				<MeasureFirstCost>32000</MeasureFirstCost>
+				<MeasureTotalFirstCost>32000</MeasureTotalFirstCost>
 				<CapitalReplacementCost>16000</CapitalReplacementCost>
 				<ResidualValue>0</ResidualValue>
 				<Recommended>true</Recommended>
@@ -9172,7 +9183,7 @@
 				</MeasureSavingsAnalysis>
 				<MVCost>0</MVCost>
 				<UsefulLife>10</UsefulLife>
-				<MeasureFirstCost>44000</MeasureFirstCost>
+				<MeasureTotalFirstCost>44000</MeasureTotalFirstCost>
 				<CapitalReplacementCost>44000</CapitalReplacementCost>
 				<ResidualValue>0</ResidualValue>
 				<Recommended>true</Recommended>
@@ -9239,7 +9250,7 @@
 				</MeasureSavingsAnalysis>
 				<MVCost>0</MVCost>
 				<UsefulLife>10</UsefulLife>
-				<MeasureFirstCost>6000</MeasureFirstCost>
+				<MeasureTotalFirstCost>6000</MeasureTotalFirstCost>
 				<CapitalReplacementCost>6000</CapitalReplacementCost>
 				<ResidualValue>0</ResidualValue>
 				<Recommended>true</Recommended>
@@ -9301,7 +9312,7 @@
 				</MeasureSavingsAnalysis>
 				<MVCost>0</MVCost>
 				<UsefulLife>10</UsefulLife>
-				<MeasureFirstCost>16000</MeasureFirstCost>
+				<MeasureTotalFirstCost>16000</MeasureTotalFirstCost>
 				<CapitalReplacementCost>8000</CapitalReplacementCost>
 				<ResidualValue>0</ResidualValue>
 				<Recommended>true</Recommended>
@@ -9363,7 +9374,7 @@
 				</MeasureSavingsAnalysis>
 				<MVCost>0</MVCost>
 				<UsefulLife>10</UsefulLife>
-				<MeasureFirstCost>104000</MeasureFirstCost>
+				<MeasureTotalFirstCost>104000</MeasureTotalFirstCost>
 				<CapitalReplacementCost>104000</CapitalReplacementCost>
 				<ResidualValue>0</ResidualValue>
 				<Recommended>true</Recommended>
@@ -9425,7 +9436,7 @@
 				</MeasureSavingsAnalysis>
 				<MVCost>0</MVCost>
 				<UsefulLife>10</UsefulLife>
-				<MeasureFirstCost>225000</MeasureFirstCost>
+				<MeasureTotalFirstCost>225000</MeasureTotalFirstCost>
 				<CapitalReplacementCost>112500</CapitalReplacementCost>
 				<ResidualValue>0</ResidualValue>
 				<Recommended>true</Recommended>
