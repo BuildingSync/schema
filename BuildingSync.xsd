@@ -956,11 +956,7 @@
 			<xs:element ref="auc:Ownership" minOccurs="0"/>
 			<xs:element ref="auc:OwnershipStatus" minOccurs="0"/>
 			<xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
-			<xs:element name="TenantID" minOccurs="0" maxOccurs="unbounded">
-				<xs:complexType>
-					<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-				</xs:complexType>
-			</xs:element>
+			<xs:element ref="auc:TenantID" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="NAICSCode" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>North American Industry Classification System code.</xs:documentation>
@@ -1380,11 +1376,7 @@
 									<xs:element ref="auc:OccupancyLevels" minOccurs="0"/>
 									<xs:element ref="auc:TypicalOccupantUsages" minOccurs="0"/>
 									<xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
-									<xs:element name="TenantID" minOccurs="0" maxOccurs="unbounded">
-										<xs:complexType>
-											<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-										</xs:complexType>
-									</xs:element>
+									<xs:element ref="auc:TenantID" minOccurs="0" maxOccurs="unbounded"/>
 									<xs:element name="YearOfConstruction" type="xs:gYear" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Year in which construction was completed on the premise. (CCYY)</xs:documentation>
@@ -2016,11 +2008,7 @@
 				</xs:complexType>
 			</xs:element>
 			<xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
-			<xs:element name="TenantID" minOccurs="0" maxOccurs="unbounded">
-				<xs:complexType>
-					<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-				</xs:complexType>
-			</xs:element>
+			<xs:element ref="auc:TenantID" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="auc:FloorAreas" minOccurs="0"/>
 			<xs:element name="PercentageOfCommonSpace" minOccurs="0">
 				<xs:annotation>
@@ -14369,6 +14357,14 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 	<xs:element name="PrimaryContactID">
 		<xs:annotation>
 			<xs:documentation>Primary contact ID number for the premises.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TenantID">
+		<xs:annotation>
+			<xs:documentation>Tenant ID number for the premises.</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
