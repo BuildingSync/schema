@@ -9614,23 +9614,7 @@
 							<AnnualFuelUseNativeUnits>1235643</AnnualFuelUseNativeUnits>
 							<AnnualFuelUseConsistentUnits>4219</AnnualFuelUseConsistentUnits>
 							<FuelUseIntensity>5.86</FuelUseIntensity>
-							<Utility>
-								<RateSchedule ID="ElectricUtility2">
-									<TypeOfRateStructure>
-										<FlatRate>
-											<RatePeriod>
-												<EnergyCostRate>0.084</EnergyCostRate>
-												<EnergyRateAdjustment>0.0067</EnergyRateAdjustment>
-												<ElectricDemandRate>5.75</ElectricDemandRate>
-												<DemandRateAdjustment>0.46</DemandRateAdjustment>
-											</RatePeriod>
-										</FlatRate>
-									</TypeOfRateStructure>
-									<RateStructureSector>Commercial</RateStructureSector>
-									<AverageMarginalCostRate>0.091</AverageMarginalCostRate>
-								</RateSchedule>
-								<SourceSiteRatio>3</SourceSiteRatio>
-							</Utility>
+							<UtilityID IDref="ElectricUtility1"/>
 						</ResourceUse>
 						<ResourceUse ID="PackageNatGas1">
 							<EnergyResource>Natural gas</EnergyResource>
@@ -9642,21 +9626,7 @@
 							<AnnualFuelUseNativeUnits>77866</AnnualFuelUseNativeUnits>
 							<AnnualFuelUseConsistentUnits>7787</AnnualFuelUseConsistentUnits>
 							<FuelUseIntensity>0.369</FuelUseIntensity>
-							<Utility>
-								<RateSchedule ID="GasUtility2">
-									<TypeOfRateStructure>
-										<FlatRate>
-											<RatePeriod>
-												<EnergyCostRate>0.865</EnergyCostRate>
-												<EnergyRateAdjustment>0.069</EnergyRateAdjustment>
-											</RatePeriod>
-										</FlatRate>
-									</TypeOfRateStructure>
-									<RateStructureSector>Commercial</RateStructureSector>
-									<AverageMarginalCostRate>0.934</AverageMarginalCostRate>
-								</RateSchedule>
-								<SourceSiteRatio>1</SourceSiteRatio>
-							</Utility>
+							<UtilityID IDref="GasUtility1"/>
 						</ResourceUse>
 					</ResourceUses>
 					<TimeSeriesData>
