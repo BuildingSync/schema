@@ -9475,23 +9475,7 @@
 							<AnnualFuelUseNativeUnits>2000000</AnnualFuelUseNativeUnits>
 							<AnnualFuelUseConsistentUnits>6829</AnnualFuelUseConsistentUnits>
 							<FuelUseIntensity>9.49</FuelUseIntensity>
-							<Utility>
-								<RateSchedule ID="ElectricUtility1">
-									<TypeOfRateStructure>
-										<FlatRate>
-											<RatePeriod>
-												<EnergyCostRate>0.084</EnergyCostRate>
-												<EnergyRateAdjustment>0.0067</EnergyRateAdjustment>
-												<ElectricDemandRate>5.75</ElectricDemandRate>
-												<DemandRateAdjustment>0.46</DemandRateAdjustment>
-											</RatePeriod>
-										</FlatRate>
-									</TypeOfRateStructure>
-									<RateStructureSector>Commercial</RateStructureSector>
-									<AverageMarginalCostRate>0.091</AverageMarginalCostRate>
-								</RateSchedule>
-								<SourceSiteRatio>3</SourceSiteRatio>
-							</Utility>
+							<UtilityID IDref="ElectricUtility1"/>
 						</ResourceUse>
 						<ResourceUse ID="BaseNatGas1">
 							<EnergyResource>Natural gas</EnergyResource>
@@ -9503,21 +9487,7 @@
 							<AnnualFuelUseNativeUnits>120000</AnnualFuelUseNativeUnits>
 							<AnnualFuelUseConsistentUnits>12000</AnnualFuelUseConsistentUnits>
 							<FuelUseIntensity>0.569</FuelUseIntensity>
-							<Utility>
-								<RateSchedule ID="GasUtility1">
-									<TypeOfRateStructure>
-										<FlatRate>
-											<RatePeriod>
-												<EnergyCostRate>0.865</EnergyCostRate>
-												<EnergyRateAdjustment>0.069</EnergyRateAdjustment>
-											</RatePeriod>
-										</FlatRate>
-									</TypeOfRateStructure>
-									<RateStructureSector>Commercial</RateStructureSector>
-									<AverageMarginalCostRate>0.934</AverageMarginalCostRate>
-								</RateSchedule>
-								<SourceSiteRatio>1</SourceSiteRatio>
-							</Utility>
+							<UtilityID IDref="GasUtility1"/>
 						</ResourceUse>
 					</ResourceUses>
 					<TimeSeriesData>
@@ -9750,6 +9720,40 @@
 			<ElectricityPriceEscalationRate>0.05</ElectricityPriceEscalationRate>
 			<WaterPriceEscalationRate>0.05</WaterPriceEscalationRate>
 			<InflationRate>0.03</InflationRate>
+			<Utilities>
+				<Utility ID="ElectricUtility1">
+					<RateSchedule>
+						<TypeOfRateStructure>
+							<FlatRate>
+								<RatePeriod>
+									<EnergyCostRate>0.084</EnergyCostRate>
+									<EnergyRateAdjustment>0.0067</EnergyRateAdjustment>
+									<ElectricDemandRate>5.75</ElectricDemandRate>
+									<DemandRateAdjustment>0.46</DemandRateAdjustment>
+								</RatePeriod>
+							</FlatRate>
+						</TypeOfRateStructure>
+						<RateStructureSector>Commercial</RateStructureSector>
+						<AverageMarginalCostRate>0.091</AverageMarginalCostRate>
+					</RateSchedule>
+					<SourceSiteRatio>3</SourceSiteRatio>
+				</Utility>
+				<Utility ID="GasUtility1">
+					<RateSchedule>
+						<TypeOfRateStructure>
+							<FlatRate>
+								<RatePeriod>
+									<EnergyCostRate>0.865</EnergyCostRate>
+									<EnergyRateAdjustment>0.069</EnergyRateAdjustment>
+								</RatePeriod>
+							</FlatRate>
+						</TypeOfRateStructure>
+						<RateStructureSector>Commercial</RateStructureSector>
+						<AverageMarginalCostRate>0.934</AverageMarginalCostRate>
+					</RateSchedule>
+					<SourceSiteRatio>1</SourceSiteRatio>
+				</Utility>
+			</Utilities>
 		</Report>
 	</Audit>
 </Audits>
