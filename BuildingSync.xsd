@@ -3777,6 +3777,7 @@
 				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
 	</xs:complexType>
 	<xs:complexType name="ResourceUseType">
 		<xs:sequence>
@@ -3858,6 +3859,14 @@
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Utility" type="auc:UtilityType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="UtilityID" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>ID of utility associated with this resource use.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="Emissions" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
