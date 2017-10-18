@@ -529,6 +529,17 @@
 												</xs:restriction>
 											</xs:simpleType>
 										</xs:element>
+										<xs:element name ="Utilities" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Utility" type="auc:UtilityType" minOccurs="0" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>Utility associated with a scenario or scenarios.</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
 										<xs:element name="AuditorContactID" minOccurs="0">
 											<xs:annotation>
 												<xs:documentation>Contact ID of auditor responsible for the audit report.</xs:documentation>
