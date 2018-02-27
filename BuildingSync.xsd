@@ -8357,7 +8357,7 @@
 						<xs:element ref="auc:Neon" minOccurs="0"/>
 						<xs:element ref="auc:Plasma" minOccurs="0"/>
 						<xs:element ref="auc:Photoluminescent" minOccurs="0"/>
-						<xs:element name="SelfLuminous" minOccurs="0"/>
+						<xs:element ref="auc:SelfLuminous" minOccurs="0"/>
 						<xs:element name="OtherCombination" minOccurs="0"/>
 						<xs:element name="Unknown" minOccurs="0"/>
 					</xs:choice>
@@ -15147,6 +15147,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 		<xs:complexType/>
 	</xs:element>
 	<xs:element name="Plasma">
+		<xs:complexType/>
+	</xs:element>
+	<xs:element name="SelfLuminous">
 		<xs:complexType/>
 	</xs:element>
 </xs:schema>
