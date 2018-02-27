@@ -5899,7 +5899,7 @@
 													</xs:complexType>
 												</xs:element>
 												<xs:element name="OtherCombination" minOccurs="0"/>
-												<xs:element name="NoCooling" minOccurs="0"/>
+												<xs:element ref="auc:NoCooling" minOccurs="0"/>
 												<xs:element name="Unknown" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
@@ -7490,7 +7490,7 @@
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="OtherCombination" minOccurs="0"/>
-				<xs:element name="NoCooling" minOccurs="0"/>
+				<xs:element ref="auc:NoCooling" minOccurs="0"/>
 				<xs:element name="Unknown" minOccurs="0"/>
 			</xs:choice>
 			<xs:element name="CoolingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
@@ -15138,4 +15138,5 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 			<xs:enumeration value="None"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:element name="NoCooling" type="xs:string" fixed=""/>
 </xs:schema>
