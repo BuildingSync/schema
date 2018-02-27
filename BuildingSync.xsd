@@ -15134,6 +15134,10 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 			<xs:enumeration value="None"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:element name="NoCooling" type="xs:string" fixed=""/>
-	<xs:element name="NoHeating" type="xs:string" fixed=""/>
+	<xs:element name="NoCooling">
+		<xs:complexType/>
+	</xs:element>
+	<xs:element name="NoHeating">
+		<xs:complexType/>
+	</xs:element>
 </xs:schema>
