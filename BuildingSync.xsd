@@ -5691,7 +5691,7 @@
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="OtherCombination" minOccurs="0"/>
+												<xs:element ref="auc:OtherCombination" minOccurs="0"/>
 												<xs:element ref="auc:NoHeating" minOccurs="0"/>
 												<xs:element name="Unknown" minOccurs="0"/>
 											</xs:choice>
@@ -5898,7 +5898,7 @@
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="OtherCombination" minOccurs="0"/>
+												<xs:element ref="auc:OtherCombination" minOccurs="0"/>
 												<xs:element ref="auc:NoCooling" minOccurs="0"/>
 												<xs:element name="Unknown" minOccurs="0"/>
 											</xs:choice>
@@ -7214,7 +7214,7 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="OtherCombination" minOccurs="0"/>
+				<xs:element ref="auc:OtherCombination" minOccurs="0"/>
 				<xs:element ref="auc:NoHeating" minOccurs="0"/>
 				<xs:element name="Unknown" minOccurs="0"/>
 			</xs:choice>
@@ -7489,7 +7489,7 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="OtherCombination" minOccurs="0"/>
+				<xs:element ref="auc:OtherCombination" minOccurs="0"/>
 				<xs:element ref="auc:NoCooling" minOccurs="0"/>
 				<xs:element name="Unknown" minOccurs="0"/>
 			</xs:choice>
@@ -8122,7 +8122,7 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="OtherCombination" minOccurs="0"/>
+						<xs:element ref="auc:OtherCombination" minOccurs="0"/>
 						<xs:element name="Unknown" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
@@ -8361,7 +8361,7 @@
 						<xs:element ref="auc:Plasma" minOccurs="0"/>
 						<xs:element ref="auc:Photoluminescent" minOccurs="0"/>
 						<xs:element ref="auc:SelfLuminous" minOccurs="0"/>
-						<xs:element name="OtherCombination" minOccurs="0"/>
+						<xs:element ref="auc:OtherCombination" minOccurs="0"/>
 						<xs:element name="Unknown" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
@@ -15145,6 +15145,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 		<xs:complexType/>
 	</xs:element>
 	<xs:element name="NoHeating">
+		<xs:complexType/>
+	</xs:element>
+	<xs:element name="OtherCombination">
 		<xs:complexType/>
 	</xs:element>
 	<xs:element name="Photoluminescent">
