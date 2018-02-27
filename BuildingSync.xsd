@@ -8357,7 +8357,7 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Neon" minOccurs="0"/>
+						<xs:element ref="auc:Neon" minOccurs="0"/>
 						<xs:element name="Plasma" minOccurs="0"/>
 						<xs:element name="Photoluminescent" minOccurs="0"/>
 						<xs:element name="SelfLuminous" minOccurs="0"/>
@@ -15138,6 +15138,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 			<xs:enumeration value="None"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:element name="Neon">
+		<xs:complexType/>
+	</xs:element>
 	<xs:element name="NoCooling">
 		<xs:complexType/>
 	</xs:element>
