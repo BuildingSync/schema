@@ -702,7 +702,7 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element ref="auc:CBECS" minOccurs="0"/>
+						<xs:element name="CBECS" type="auc:CBECSType" minOccurs="0"/>
 						<xs:element name="DOE" minOccurs="0">
 							<xs:complexType>
 								<xs:sequence>
@@ -959,7 +959,11 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element ref="auc:PortfolioManager" minOccurs="0"/>
+			<xs:element name="PortfolioManager" type="auc:PortfolioManagerType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>If exists then the data for this facility is included in Portfolio Manager.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="NumberOfBusinesses" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Number of separate business tenants within the premises.</xs:documentation>
@@ -2223,8 +2227,8 @@
 										</xs:annotation>
 										<xs:complexType>
 											<xs:choice>
-												<xs:element ref="auc:PortfolioManager" minOccurs="0"/>
-												<xs:element ref="auc:CBECS" minOccurs="0"/>
+												<xs:element name="PortfolioManager" type="auc:PortfolioManagerType" minOccurs="0"/>
+												<xs:element name="CBECS" type="auc:CBECSType" minOccurs="0"/>
 												<xs:element name="CodeMinimum" minOccurs="0">
 													<xs:complexType>
 														<xs:sequence>
@@ -3595,7 +3599,7 @@
 														<xs:documentation>Other type of rate structure, or combination of other types.</xs:documentation>
 													</xs:annotation>
 												</xs:element>
-												<xs:element ref="auc:Unknown" minOccurs="0"/>
+												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
@@ -5633,9 +5637,9 @@
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element ref="auc:OtherCombination" minOccurs="0"/>
-												<xs:element ref="auc:NoHeating" minOccurs="0"/>
-												<xs:element ref="auc:Unknown" minOccurs="0"/>
+												<xs:element name="OtherCombination" type="auc:OtherCombinationType" minOccurs="0"/>
+												<xs:element name="NoHeating" type="auc:NoHeatingType" minOccurs="0"/>
+												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
@@ -5840,9 +5844,9 @@
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element ref="auc:OtherCombination" minOccurs="0"/>
-												<xs:element ref="auc:NoCooling" minOccurs="0"/>
-												<xs:element ref="auc:Unknown" minOccurs="0"/>
+												<xs:element name="OtherCombination" type="auc:OtherCombinationType" minOccurs="0"/>
+												<xs:element name="NoCooling" type="auc:NoCoolingType" minOccurs="0"/>
+												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
@@ -7156,9 +7160,9 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element ref="auc:OtherCombination" minOccurs="0"/>
-				<xs:element ref="auc:NoHeating" minOccurs="0"/>
-				<xs:element ref="auc:Unknown" minOccurs="0"/>
+				<xs:element name="OtherCombination" type="auc:OtherCombinationType" minOccurs="0"/>
+				<xs:element name="NoHeating" type="auc:NoHeatingType" minOccurs="0"/>
+				<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 			</xs:choice>
 			<xs:element name="HeatingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
 		</xs:sequence>
@@ -7431,9 +7435,9 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element ref="auc:OtherCombination" minOccurs="0"/>
-				<xs:element ref="auc:NoCooling" minOccurs="0"/>
-				<xs:element ref="auc:Unknown" minOccurs="0"/>
+				<xs:element name="OtherCombination" type="auc:OtherCombinationType" minOccurs="0"/>
+				<xs:element name="NoCooling" type="auc:NoCoolingType" minOccurs="0"/>
+				<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 			</xs:choice>
 			<xs:element name="CoolingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
 		</xs:sequence>
@@ -7783,7 +7787,7 @@
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="Other" minOccurs="0"/>
-				<xs:element ref="auc:Unknown" minOccurs="0"/>
+				<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 			</xs:choice>
 			<xs:element name="CondenserPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
 		</xs:sequence>
@@ -8064,8 +8068,8 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element ref="auc:OtherCombination" minOccurs="0"/>
-						<xs:element ref="auc:Unknown" minOccurs="0"/>
+						<xs:element name="OtherCombination" type="auc:OtherCombinationType" minOccurs="0"/>
+						<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -8299,12 +8303,12 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element ref="auc:Neon" minOccurs="0"/>
-						<xs:element ref="auc:Plasma" minOccurs="0"/>
-						<xs:element ref="auc:Photoluminescent" minOccurs="0"/>
-						<xs:element ref="auc:SelfLuminous" minOccurs="0"/>
-						<xs:element ref="auc:OtherCombination" minOccurs="0"/>
-						<xs:element ref="auc:Unknown" minOccurs="0"/>
+						<xs:element name="Neon" type="auc:NeonType" minOccurs="0"/>
+						<xs:element name="Plasma" type="auc:PlasmaType" minOccurs="0"/>
+						<xs:element name="Photoluminescent" type="auc:PhotoluminescentType" minOccurs="0"/>
+						<xs:element name="SelfLuminous" type="auc:SelfLuminousType" minOccurs="0"/>
+						<xs:element name="OtherCombination" type="auc:OtherCombinationType" minOccurs="0"/>
+						<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -8689,7 +8693,7 @@
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:choice>
-																		<xs:element ref="auc:ElectricResistance" minOccurs="0"/>
+																		<xs:element name="ElectricResistance" type="auc:ElectricResistanceType" minOccurs="0"/>
 																		<xs:element name="Combustion" minOccurs="0">
 																			<xs:complexType>
 																				<xs:sequence>
@@ -8698,7 +8702,7 @@
 																			</xs:complexType>
 																		</xs:element>
 																		<xs:element name="Other" minOccurs="0"/>
-																		<xs:element ref="auc:Unknown" minOccurs="0"/>
+																		<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 																	</xs:choice>
 																</xs:complexType>
 															</xs:element>
@@ -8869,7 +8873,7 @@
 																			</xs:complexType>
 																		</xs:element>
 																		<xs:element name="Other" minOccurs="0"/>
-																		<xs:element ref="auc:Unknown" minOccurs="0"/>
+																		<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 																	</xs:choice>
 																</xs:complexType>
 															</xs:element>
@@ -8877,7 +8881,7 @@
 													</xs:complexType>
 												</xs:element>
 												<xs:element name="Other" minOccurs="0"/>
-												<xs:element ref="auc:Unknown" minOccurs="0"/>
+												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
@@ -8977,7 +8981,7 @@
 										</xs:annotation>
 										<xs:complexType>
 											<xs:choice>
-												<xs:element ref="auc:ElectricResistance" minOccurs="0"/>
+												<xs:element name="ElectricResistance" type="auc:ElectricResistanceType" minOccurs="0"/>
 												<xs:element name="Combustion" minOccurs="0">
 													<xs:complexType>
 														<xs:sequence>
@@ -8986,7 +8990,7 @@
 													</xs:complexType>
 												</xs:element>
 												<xs:element name="Other" minOccurs="0"/>
-												<xs:element ref="auc:Unknown" minOccurs="0"/>
+												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
@@ -8997,7 +9001,7 @@
 							<xs:complexType/>
 						</xs:element>
 						<xs:element name="Other" minOccurs="0"/>
-						<xs:element ref="auc:Unknown" minOccurs="0"/>
+						<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -9848,7 +9852,7 @@
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="Other" minOccurs="0"/>
-						<xs:element ref="auc:Unknown" minOccurs="0"/>
+						<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -12015,7 +12019,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 													</xs:complexType>
 												</xs:element>
 												<xs:element name="Other" minOccurs="0"/>
-												<xs:element ref="auc:Unknown" minOccurs="0"/>
+												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
@@ -12149,7 +12153,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="Other" minOccurs="0"/>
-						<xs:element ref="auc:Unknown" minOccurs="0"/>
+						<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -13028,7 +13032,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element ref="auc:Estimated" minOccurs="0"/>
+			<xs:element name="Estimated" type="auc:EstimatedType" minOccurs="0"/>
 			<xs:element name="Other" minOccurs="0"/>
 		</xs:choice>
 	</xs:complexType>
@@ -15083,95 +15087,68 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 			<xs:enumeration value="None"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:element name="CBECS">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="ClimateZone" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
-					</xs:annotation>
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="1"/>
-							<xs:enumeration value="2"/>
-							<xs:enumeration value="3"/>
-							<xs:enumeration value="4"/>
-							<xs:enumeration value="5"/>
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="ElectricResistance">
-		<xs:complexType/>
-	</xs:element>
-	<xs:element name="Estimated">
-		<xs:complexType/>
-	</xs:element>
-	<xs:element name="Neon">
-		<xs:complexType/>
-	</xs:element>
-	<xs:element name="NoCooling">
-		<xs:complexType/>
-	</xs:element>
-	<xs:element name="NoHeating">
-		<xs:complexType/>
-	</xs:element>
-	<xs:element name="OtherCombination">
-		<xs:complexType/>
-	</xs:element>
-	<xs:element name="Photoluminescent">
-		<xs:complexType/>
-	</xs:element>
-	<xs:element name="Plasma">
-		<xs:complexType/>
-	</xs:element>
-	<xs:element name="PortfolioManager">
-		<xs:annotation>
-			<xs:documentation>If exists then the data for this facility is included in Portfolio Manager.</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="PMBenchmarkDate" type="xs:date" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Date that the building was benchmarked in Portfolio Manager. (CCYY-MM-DD)</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="BuildingProfileStatus" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>The status of the building profile submission process for Portfolio Manager.</xs:documentation>
-					</xs:annotation>
-					<xs:simpleType>
-						<xs:restriction base="xs:string">
-							<xs:enumeration value="Draft"/>
-							<xs:enumeration value="Received"/>
-							<xs:enumeration value="Under Review"/>
-							<xs:enumeration value="On Hold"/>
-							<xs:enumeration value="Reviewed and Approved"/>
-							<xs:enumeration value="Reviewed and Not Approved"/>
-						</xs:restriction>
-					</xs:simpleType>
-				</xs:element>
-				<xs:element name="FederalSustainabilityChecklistCompletionPercentage" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Percentage of the Federal High Performance Sustainability Checklist that has been completed for federal building in Portfolio Manager. (0-100)</xs:documentation>
-					</xs:annotation>
-					<xs:complexType>
-						<xs:simpleContent>
-							<xs:extension base="xs:decimal">
-								<xs:attribute ref="auc:Source"/>
-							</xs:extension>
-						</xs:simpleContent>
-					</xs:complexType>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="SelfLuminous">
-		<xs:complexType/>
-	</xs:element>
-	<xs:element name="Unknown">
-		<xs:complexType/>
-	</xs:element>
+	<xs:complexType name="CBECSType">
+		<xs:sequence>
+			<xs:element name="ClimateZone" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ElectricResistanceType"/>
+	<xs:complexType name="EstimatedType"/>
+	<xs:complexType name="NeonType"/>
+	<xs:complexType name="NoCoolingType"/>
+	<xs:complexType name="NoHeatingType"/>
+	<xs:complexType name="OtherCombinationType"/>
+	<xs:complexType name="PhotoluminescentType"/>
+	<xs:complexType name="PlasmaType"/>
+	<xs:complexType name="PortfolioManagerType">
+		<xs:sequence>
+			<xs:element name="PMBenchmarkDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Date that the building was benchmarked in Portfolio Manager. (CCYY-MM-DD)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BuildingProfileStatus" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The status of the building profile submission process for Portfolio Manager.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Draft"/>
+						<xs:enumeration value="Received"/>
+						<xs:enumeration value="Under Review"/>
+						<xs:enumeration value="On Hold"/>
+						<xs:enumeration value="Reviewed and Approved"/>
+						<xs:enumeration value="Reviewed and Not Approved"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FederalSustainabilityChecklistCompletionPercentage" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Percentage of the Federal High Performance Sustainability Checklist that has been completed for federal building in Portfolio Manager. (0-100)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SelfLuminousType"/>
+	<xs:complexType name="Unknown"/>
 </xs:schema>
