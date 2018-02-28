@@ -13028,7 +13028,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Estimated" minOccurs="0"/>
+			<xs:element ref="auc:Estimated" minOccurs="0"/>
 			<xs:element name="Other" minOccurs="0"/>
 		</xs:choice>
 	</xs:complexType>
@@ -15104,6 +15104,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="ElectricResistance">
+		<xs:complexType/>
+	</xs:element>
+	<xs:element name="Estimated">
 		<xs:complexType/>
 	</xs:element>
 	<xs:element name="Neon">
