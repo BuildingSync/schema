@@ -3595,7 +3595,7 @@
 														<xs:documentation>Other type of rate structure, or combination of other types.</xs:documentation>
 													</xs:annotation>
 												</xs:element>
-												<xs:element name="Unknown" minOccurs="0"/>
+												<xs:element ref="auc:Unknown" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
@@ -5635,7 +5635,7 @@
 												</xs:element>
 												<xs:element ref="auc:OtherCombination" minOccurs="0"/>
 												<xs:element ref="auc:NoHeating" minOccurs="0"/>
-												<xs:element name="Unknown" minOccurs="0"/>
+												<xs:element ref="auc:Unknown" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
@@ -5842,7 +5842,7 @@
 												</xs:element>
 												<xs:element ref="auc:OtherCombination" minOccurs="0"/>
 												<xs:element ref="auc:NoCooling" minOccurs="0"/>
-												<xs:element name="Unknown" minOccurs="0"/>
+												<xs:element ref="auc:Unknown" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
@@ -7158,7 +7158,7 @@
 				</xs:element>
 				<xs:element ref="auc:OtherCombination" minOccurs="0"/>
 				<xs:element ref="auc:NoHeating" minOccurs="0"/>
-				<xs:element name="Unknown" minOccurs="0"/>
+				<xs:element ref="auc:Unknown" minOccurs="0"/>
 			</xs:choice>
 			<xs:element name="HeatingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
 		</xs:sequence>
@@ -7433,7 +7433,7 @@
 				</xs:element>
 				<xs:element ref="auc:OtherCombination" minOccurs="0"/>
 				<xs:element ref="auc:NoCooling" minOccurs="0"/>
-				<xs:element name="Unknown" minOccurs="0"/>
+				<xs:element ref="auc:Unknown" minOccurs="0"/>
 			</xs:choice>
 			<xs:element name="CoolingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
 		</xs:sequence>
@@ -7783,7 +7783,7 @@
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="Other" minOccurs="0"/>
-				<xs:element name="Unknown" minOccurs="0"/>
+				<xs:element ref="auc:Unknown" minOccurs="0"/>
 			</xs:choice>
 			<xs:element name="CondenserPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
 		</xs:sequence>
@@ -8065,7 +8065,7 @@
 							</xs:complexType>
 						</xs:element>
 						<xs:element ref="auc:OtherCombination" minOccurs="0"/>
-						<xs:element name="Unknown" minOccurs="0"/>
+						<xs:element ref="auc:Unknown" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -8304,7 +8304,7 @@
 						<xs:element ref="auc:Photoluminescent" minOccurs="0"/>
 						<xs:element ref="auc:SelfLuminous" minOccurs="0"/>
 						<xs:element ref="auc:OtherCombination" minOccurs="0"/>
-						<xs:element name="Unknown" minOccurs="0"/>
+						<xs:element ref="auc:Unknown" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -8698,7 +8698,7 @@
 																			</xs:complexType>
 																		</xs:element>
 																		<xs:element name="Other" minOccurs="0"/>
-																		<xs:element name="Unknown" minOccurs="0"/>
+																		<xs:element ref="auc:Unknown" minOccurs="0"/>
 																	</xs:choice>
 																</xs:complexType>
 															</xs:element>
@@ -8869,7 +8869,7 @@
 																			</xs:complexType>
 																		</xs:element>
 																		<xs:element name="Other" minOccurs="0"/>
-																		<xs:element name="Unknown" minOccurs="0"/>
+																		<xs:element ref="auc:Unknown" minOccurs="0"/>
 																	</xs:choice>
 																</xs:complexType>
 															</xs:element>
@@ -8877,7 +8877,7 @@
 													</xs:complexType>
 												</xs:element>
 												<xs:element name="Other" minOccurs="0"/>
-												<xs:element name="Unknown" minOccurs="0"/>
+												<xs:element ref="auc:Unknown" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
@@ -8986,7 +8986,7 @@
 													</xs:complexType>
 												</xs:element>
 												<xs:element name="Other" minOccurs="0"/>
-												<xs:element name="Unknown" minOccurs="0"/>
+												<xs:element ref="auc:Unknown" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
@@ -8997,7 +8997,7 @@
 							<xs:complexType/>
 						</xs:element>
 						<xs:element name="Other" minOccurs="0"/>
-						<xs:element name="Unknown" minOccurs="0"/>
+						<xs:element ref="auc:Unknown" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -9848,7 +9848,7 @@
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="Other" minOccurs="0"/>
-						<xs:element name="Unknown" minOccurs="0"/>
+						<xs:element ref="auc:Unknown" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -12015,7 +12015,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 													</xs:complexType>
 												</xs:element>
 												<xs:element name="Other" minOccurs="0"/>
-												<xs:element name="Unknown" minOccurs="0"/>
+												<xs:element ref="auc:Unknown" minOccurs="0"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
@@ -12149,7 +12149,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="Other" minOccurs="0"/>
-						<xs:element name="Unknown" minOccurs="0"/>
+						<xs:element ref="auc:Unknown" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -15169,6 +15169,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="SelfLuminous">
+		<xs:complexType/>
+	</xs:element>
+	<xs:element name="Unknown">
 		<xs:complexType/>
 	</xs:element>
 </xs:schema>
