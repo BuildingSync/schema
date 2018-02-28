@@ -2945,7 +2945,7 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Other" minOccurs="0"/>
+						<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -3597,7 +3597,7 @@
 													</xs:annotation>
 													<xs:complexType/>
 												</xs:element>
-												<xs:element name="Other" minOccurs="0">
+												<xs:element name="Other" type="auc:OtherType" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>Other type of rate structure, or combination of other types.</xs:documentation>
 													</xs:annotation>
@@ -6411,7 +6411,7 @@
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="Other" minOccurs="0"/>
+												<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
@@ -7789,7 +7789,7 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="Other" minOccurs="0"/>
+				<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 				<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 			</xs:choice>
 			<xs:element name="CondenserPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
@@ -8704,7 +8704,7 @@
 																				</xs:sequence>
 																			</xs:complexType>
 																		</xs:element>
-																		<xs:element name="Other" minOccurs="0"/>
+																		<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 																		<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 																	</xs:choice>
 																</xs:complexType>
@@ -8875,7 +8875,7 @@
 																				</xs:sequence>
 																			</xs:complexType>
 																		</xs:element>
-																		<xs:element name="Other" minOccurs="0"/>
+																		<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 																		<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 																	</xs:choice>
 																</xs:complexType>
@@ -8883,7 +8883,7 @@
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="Other" minOccurs="0"/>
+												<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
@@ -8992,7 +8992,7 @@
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="Other" minOccurs="0"/>
+												<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
@@ -9003,7 +9003,7 @@
 						<xs:element name="HeatExchanger" minOccurs="0">
 							<xs:complexType/>
 						</xs:element>
-						<xs:element name="Other" minOccurs="0"/>
+						<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 						<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
@@ -9855,7 +9855,7 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Other" minOccurs="0"/>
+						<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 						<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
@@ -11627,7 +11627,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Other" minOccurs="0"/>
+						<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -12022,7 +12022,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="Other" minOccurs="0"/>
+												<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 											</xs:sequence>
 										</xs:complexType>
@@ -12156,7 +12156,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Other" minOccurs="0"/>
+						<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 						<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
@@ -13029,7 +13029,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 									<xs:element name="DirectMeasurement" minOccurs="0">
 										<xs:complexType/>
 									</xs:element>
-									<xs:element name="Other" minOccurs="0"/>
+									<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 								</xs:choice>
 							</xs:complexType>
 						</xs:element>
@@ -13037,7 +13037,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Estimated" type="auc:EstimatedType" minOccurs="0"/>
-			<xs:element name="Other" minOccurs="0"/>
+			<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 		</xs:choice>
 	</xs:complexType>
 	<xs:element name="Quantity">
@@ -15115,6 +15115,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 	<xs:complexType name="NoCoolingType"/>
 	<xs:complexType name="NoHeatingType"/>
 	<xs:complexType name="OtherCombinationType"/>
+	<xs:complexType name="OtherType"/>
 	<xs:complexType name="PhotoluminescentType"/>
 	<xs:complexType name="PlasmaType"/>
 	<xs:complexType name="PortfolioManagerType">
