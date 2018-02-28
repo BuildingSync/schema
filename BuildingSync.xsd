@@ -702,26 +702,7 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="CBECS" minOccurs="0">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="ClimateZone" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="1"/>
-												<xs:enumeration value="2"/>
-												<xs:enumeration value="3"/>
-												<xs:enumeration value="4"/>
-												<xs:enumeration value="5"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
+						<xs:element ref="auc:CBECS" minOccurs="0"/>
 						<xs:element name="DOE" minOccurs="0">
 							<xs:complexType>
 								<xs:sequence>
@@ -978,47 +959,7 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="PortfolioManager" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>If exists then the data for this facility is included in Portfolio Manager.</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="PMBenchmarkDate" type="xs:date" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Date that the building was benchmarked in Portfolio Manager. (CCYY-MM-DD)</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="BuildingProfileStatus" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>The status of the building profile submission process for Portfolio Manager.</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Draft"/>
-									<xs:enumeration value="Received"/>
-									<xs:enumeration value="Under Review"/>
-									<xs:enumeration value="On Hold"/>
-									<xs:enumeration value="Reviewed and Approved"/>
-									<xs:enumeration value="Reviewed and Not Approved"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-						<xs:element name="FederalSustainabilityChecklistCompletionPercentage" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Percentage of the Federal High Performance Sustainability Checklist that has been completed for federal building in Portfolio Manager. (0-100)</xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:simpleContent>
-									<xs:extension base="xs:decimal">
-										<xs:attribute ref="auc:Source"/>
-									</xs:extension>
-								</xs:simpleContent>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+			<xs:element ref="auc:PortfolioManager" minOccurs="0"/>
 			<xs:element name="NumberOfBusinesses" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Number of separate business tenants within the premises.</xs:documentation>
@@ -2282,8 +2223,8 @@
 										</xs:annotation>
 										<xs:complexType>
 											<xs:choice>
-												<xs:element name="PortfolioManager" minOccurs="0"/>
-												<xs:element name="CBECS" minOccurs="0"/>
+												<xs:element ref="auc:PortfolioManager" minOccurs="0"/>
+												<xs:element ref="auc:CBECS" minOccurs="0"/>
 												<xs:element name="CodeMinimum" minOccurs="0">
 													<xs:complexType>
 														<xs:sequence>
@@ -15142,6 +15083,26 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 			<xs:enumeration value="None"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:element name="CBECS">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ClimateZone" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="1"/>
+							<xs:enumeration value="2"/>
+							<xs:enumeration value="3"/>
+							<xs:enumeration value="4"/>
+							<xs:enumeration value="5"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="Neon">
 		<xs:complexType/>
 	</xs:element>
@@ -15159,6 +15120,47 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 	</xs:element>
 	<xs:element name="Plasma">
 		<xs:complexType/>
+	</xs:element>
+	<xs:element name="PortfolioManager">
+		<xs:annotation>
+			<xs:documentation>If exists then the data for this facility is included in Portfolio Manager.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="PMBenchmarkDate" type="xs:date" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Date that the building was benchmarked in Portfolio Manager. (CCYY-MM-DD)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="BuildingProfileStatus" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The status of the building profile submission process for Portfolio Manager.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Draft"/>
+							<xs:enumeration value="Received"/>
+							<xs:enumeration value="Under Review"/>
+							<xs:enumeration value="On Hold"/>
+							<xs:enumeration value="Reviewed and Approved"/>
+							<xs:enumeration value="Reviewed and Not Approved"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="FederalSustainabilityChecklistCompletionPercentage" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Percentage of the Federal High Performance Sustainability Checklist that has been completed for federal building in Portfolio Manager. (0-100)</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:decimal">
+								<xs:attribute ref="auc:Source"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
 	</xs:element>
 	<xs:element name="SelfLuminous">
 		<xs:complexType/>
