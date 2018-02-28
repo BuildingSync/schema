@@ -8689,7 +8689,7 @@
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:choice>
-																		<xs:element name="ElectricResistance" minOccurs="0"/>
+																		<xs:element ref="auc:ElectricResistance" minOccurs="0"/>
 																		<xs:element name="Combustion" minOccurs="0">
 																			<xs:complexType>
 																				<xs:sequence>
@@ -8977,7 +8977,7 @@
 										</xs:annotation>
 										<xs:complexType>
 											<xs:choice>
-												<xs:element name="ElectricResistance" minOccurs="0"/>
+												<xs:element ref="auc:ElectricResistance" minOccurs="0"/>
 												<xs:element name="Combustion" minOccurs="0">
 													<xs:complexType>
 														<xs:sequence>
@@ -15102,6 +15102,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 				</xs:element>
 			</xs:sequence>
 		</xs:complexType>
+	</xs:element>
+	<xs:element name="ElectricResistance">
+		<xs:complexType/>
 	</xs:element>
 	<xs:element name="Neon">
 		<xs:complexType/>
