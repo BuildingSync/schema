@@ -529,6 +529,17 @@
 												</xs:restriction>
 											</xs:simpleType>
 										</xs:element>
+										<xs:element name ="Utilities" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Utility" type="auc:UtilityType" minOccurs="0" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>Utility associated with a scenario or scenarios.</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
 										<xs:element name="AuditorContactID" minOccurs="0">
 											<xs:annotation>
 												<xs:documentation>Contact ID of auditor responsible for the audit report.</xs:documentation>
@@ -2370,6 +2381,18 @@
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
+									<xs:element name="AnnualPeakElectricityReduction" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Reduction in largest 15 minute peak demand for the year as defined in the utility rate schedule (for electrical energy use only) (kW)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
 									<xs:element name="AnnualWaterSavings" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Total annual water savings (hot and cold). (gal/year)</xs:documentation>
@@ -2528,6 +2551,18 @@
 									<xs:element name="WinterPeakElectricityReduction" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Reduction in largest 15 minute peak demand for the winter months as defined in the utility rate schedule (for electrical energy use only) (kW)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="AnnualPeakElectricityReduction" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Reduction in largest 15 minute peak demand for the year as defined in the utility rate schedule (for electrical energy use only) (kW)</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:simpleContent>
@@ -2828,6 +2863,18 @@
 											</xs:simpleContent>
 										</xs:complexType>
 									</xs:element>
+									<xs:element name="AnnualPeakElectricityReduction" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Reduction in largest 15 minute peak demand for the year as defined in the utility rate schedule (for electrical energy use only) (kW)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
 									<xs:element name="AnnualWaterSavings" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Total annual water savings (hot and cold). (gal/year)</xs:documentation>
@@ -3027,6 +3074,699 @@
 		</xs:sequence>
 		<xs:attribute name="ID" type="xs:ID"/>
 	</xs:complexType>
+	<xs:complexType name="UtilityType">
+		<xs:sequence>
+			<xs:element name="RateSchedule" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Rate structure characteristics.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="RateStructureName" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The name or title of the rate structure.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TypeOfRateStructure" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Basic type of rate structure used by the utility.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:choice>
+									<xs:element name="FlatRate" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>A consumer will pay one flat rate no matter what the usage level is</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="RatePeriod" minOccurs="0" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="RatePeriodName" type="xs:string" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The name or title of rate period.This is intended to capture the seasonal changes in rates.</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The date from which the rate is applicable. (--MM-DD)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The date after which the rate is not applicable. (--MM-DD)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ApplicableStartDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The date from which the rate is applicable. (--MM-DD)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ApplicableEndDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The date after which the rate is not applicable. (--MM-DD)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="DemandWindow" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The time period of measurement through which the demand is established. (min)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:integer">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="DemandRatchetPercentage" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Certain rate schedules incorporate demand ratchet percentage to ensure minimum billing demands based on historical peak demands. Billing demand in these cases is based comparing the month's demand and maximum of previous 11 month's demand times the demand ratchet percentage. (0-1) (%)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="EnergyCostRate" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Energy rate to buy a unit of energy consumption. ($/unit)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="EnergyRateAdjustment" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Energy rate adjustment for any fees, riders, fuel adjustments ($/unit)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="ElectricDemandRate" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The rate to buy electric demand from the utility. ($/kW)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="DemandRateAdjustment" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The rate for any fees, riders, fuel adjustments ($/kW)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="EnergySellRate" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Energy rate to sell a unit of electricity back to the utility from customer site generation through PV, wind etc. ($/kWh)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TimeOfUseRate" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>TOU rates vary by time of day and time of year</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="RatePeriod" minOccurs="0" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="RatePeriodName" type="xs:string" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The name or title of rate period.This is intended to capture the seasonal changes in rates.</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The date from which the rate is applicable. (--MM-DD)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The date after which the rate is not applicable. (--MM-DD)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ApplicableStartDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The date from which the rate is applicable. (--MM-DD)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ApplicableEndDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The date after which the rate is not applicable. (--MM-DD)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="TimeOfUsePeriod" minOccurs="0" maxOccurs="unbounded">
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="TOUNumberForRateStructure" type="xs:int" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>The number associated with the TOU period.</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="ApplicableStartTimeForEnergyRate" type="xs:time" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>The time of day from which the rate is applicable. (hh:mm:ss)</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="ApplicableEndTimeForEnergyRate" type="xs:time" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>The time of day after which the rate is not applicable. (hh:mm:ss)</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="ApplicableStartTimeForDemandRate" type="xs:time" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>The time of day from which the rate is applicable. (hh:mm:ss)</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="ApplicableEndTimeForDemandRate" type="xs:time" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>The time of day after which the rate is not applicable. (hh:mm:ss)</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																		<xs:element name="EnergyCostRate" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>Energy rate to buy a unit of energy consumption. ($/unit)</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:decimal">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="ElectricDemandRate" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>The rate to buy electric demand from the utility. ($/kW)</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:decimal">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="EnergyRateAdjustment" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>Energy rate adjustment for any fees, riders, fuel adjustments ($/unit)</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:decimal">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="DemandRateAdjustment" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>The rate for any fees, riders, fuel adjustments ($/kW)</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:decimal">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="DemandWindow" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>The time period of measurement through which the demand is established. (min)</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:integer">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="DemandRatchetPercentage" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>Certain rate schedules incorporate demand ratchet percentage to ensure minimum billing demands based on historical peak demands. Billing demand in these cases is based comparing the month's demand and maximum of previous 11 month's demand times the demand ratchet percentage. (0-1) (%)</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:decimal">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="EnergySellRate" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Energy rate to sell a unit of electricity back to the utility from customer site generation through PV, wind etc. ($/kWh)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TieredRate" minOccurs="0" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Tiered rates increase the per-unit price of a utility as usage increases</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="RatePeriod" minOccurs="0" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="RatePeriodName" type="xs:string" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The name or title of rate period.This is intended to capture the seasonal changes in rates.</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The date from which the rate is applicable. (--MM-DD)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The date after which the rate is not applicable. (--MM-DD)</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="RateTier" minOccurs="0" maxOccurs="unbounded">
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="ConsumptionEnergyTierDesignation" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>For electricity pricing that is based on tiered pricing, each tier is allotted a certain maximum (kWh), above which the user is moved to the next tier that has a different unit pricing.</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:integer">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="MaxkWhUsage" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>The maximum amount of kWh used at which a kWh rate is applied (kWh)</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:decimal">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="MaxkWUsage" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>The maximum amount of kW used at which a kW rate is applied (kW)</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:decimal">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="EnergyCostRate" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>Energy rate to buy a unit of energy consumption. ($/unit)</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:decimal">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="ElectricDemandRate" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>The rate to buy electric demand from the utility. ($/kW)</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:decimal">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="EnergyRateAdjustment" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>Energy rate adjustment for any fees, riders, fuel adjustments ($/unit)</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:decimal">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="DemandRateAdjustment" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>The rate for any fees, riders, fuel adjustments ($/kW)</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:decimal">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="DemandWindow" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>The time period of measurement through which the demand is established. (min)</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:integer">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="DemandRatchetPercentage" minOccurs="0">
+																			<xs:annotation>
+																				<xs:documentation>Certain rate schedules incorporate demand ratchet percentage to ensure minimum billing demands based on historical peak demands. Billing demand in these cases is based comparing the month's demand and maximum of previous 11 month's demand times the demand ratchet percentage. (0-1) (%)</xs:documentation>
+																			</xs:annotation>
+																			<xs:complexType>
+																				<xs:simpleContent>
+																					<xs:extension base="xs:decimal">
+																						<xs:attribute ref="auc:Source"/>
+																					</xs:extension>
+																				</xs:simpleContent>
+																			</xs:complexType>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="EnergySellRate" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Energy rate to sell a unit of electricity back to the utility from customer site generation through PV, wind etc. ($/kWh)</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:decimal">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="TierDirection" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>Whether the rates increase or decrease as energy use increases.</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Increasing"/>
+															<xs:enumeration value="Decreasing"/>
+															<xs:enumeration value="Other"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="RealTimePricing" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>(RTP) - pricing rates generally apply to usage on an hourly basis.</xs:documentation>
+										</xs:annotation>
+													<xs:complexType/>
+									</xs:element>
+									<xs:element name="VariablePeakPricing" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>(VPP) - a hybrid of time-of-use and real-time pricing where the different periods for pricing are defined in advance (e.g., on-peak=6 hours for summer weekday afternoon; off-peak = all other hours in the summer months), but the price established for the on-peak period varies by utility and market conditions.</xs:documentation>
+										</xs:annotation>
+													<xs:complexType/>
+									</xs:element>
+									<xs:element name="CriticalPeakPricing" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>(CPP) - when utilities observe or anticipate high wholesale market prices or power system emergency conditions, they may call critical events during a specified time period (e.g., 3 p.m.—6 p.m. on a hot summer weekday), the price for electricity during these time periods is substantially raised. Two variants of this type of rate design exist: one where the time and duration of the price increase are predetermined when events are called and another where the time and duration of the price increase may vary based on the electric grid’s need to have loads reduced</xs:documentation>
+										</xs:annotation>
+													<xs:complexType/>
+									</xs:element>
+									<xs:element name="CriticalPeakRebates" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>(CPR) - when utilities observe or anticipate high wholesale market prices or power system emergency conditions, they may call critical events during pre-specified time periods (e.g., 3 p.m.—6 p.m. summer weekday afternoons), the price for electricity during these time periods remains the same but the customer is refunded at a single, predetermined value for any reduction in consumption relative to what the utility deemed the customer was expected to consume.</xs:documentation>
+										</xs:annotation>
+													<xs:complexType/>
+									</xs:element>
+												<xs:element name="Other" type="auc:OtherType" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Other type of rate structure, or combination of other types.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
+								</xs:choice>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="RateStructureSector" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Sector to which the rate structure is applicable.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Residential"/>
+									<xs:enumeration value="Commercial"/>
+									<xs:enumeration value="Industrial"/>
+									<xs:enumeration value="Other"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="ReferenceForRateStructure" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Reference or hyper link for the rate schedule, tariff book</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="RateStructureEffectiveDate" type="xs:date" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The first date the rate schedule becomes applicable. (CCYY-MM-DD)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="RateStructureEndDate" type="xs:date" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The date at which the rate schedule is no longer applicable. (CCYY-MM-DD)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ReactivePowerCharge" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The additional charge for low power factor. ($/kVAR)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="MinimumPowerFactorWithoutPenalty" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Minimum power factor that needs to maintained without any penalties. (0-1) (%)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="FixedMonthlyCharge" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The fixed charge or fee billed monthly regardless of consumption. ($/month)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="NetMetering" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Present if a billing mechanism is employed by utilities to credit onsite energy generation for this rate structure.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="AverageMarginalSellRate" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Annual average rate to sell a unit of electricity back to the utility from customer site electricity generation through PV, wind etc. ($/kWh)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:decimal">
+													<xs:attribute ref="auc:Source"/>
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="AverageMarginalCostRate" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The annual average cost of providing an additional unit of energy or water. Units should be consistent with Resource Units. ($/unit)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="ID" type="xs:ID"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MeteringConfiguration" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The structure of how the various meters are arranged</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Direct metering"/>
+						<xs:enumeration value="Master meter without sub metering"/>
+						<xs:enumeration value="Master meter with sub metering"/>
+						<xs:enumeration value="Other"/>
+						<xs:enumeration value="Unknown"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TypeOfResourceMeter" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Meters can be divided into several categories based on their capabilities</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Revenue grade meter"/>
+						<xs:enumeration value="Advanced resource meter"/>
+						<xs:enumeration value="Analog"/>
+						<xs:enumeration value="Interval"/>
+						<xs:enumeration value="Net"/>
+						<xs:enumeration value="Smart meter"/>
+						<xs:enumeration value="PDU input meter"/>
+						<xs:enumeration value="IT equipment input meter"/>
+						<xs:enumeration value="Supply UPS output meter"/>
+						<xs:enumeration value="PDU output meter"/>
+						<xs:enumeration value="Other"/>
+						<xs:enumeration value="Unknown"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FuelInterruptibility" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>This refers to the practice of supplementing fuel (electricity, natural gas, fuel oil.) by other means when there are interruptions in supply from the utility.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Interruptible"/>
+						<xs:enumeration value="Firm"/>
+						<xs:enumeration value="Other"/>
+						<xs:enumeration value="Unknown"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="UtilityName" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Name of utility company billing a Resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PowerPlant" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Name of an individual power plant to which the property is directly connected</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UtilityMeterNumber" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Unique identification number for the meter</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UtilityAccountNumber" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unique account number designated by the utility</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UtilityBillpayer" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Organization that is responsible for paying the bills associated with this meter.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ElectricDistributionUtility" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The company responsible for maintaining the utility lines and the electric distribution to the property. Note that the EDU is not the just "the utility company." In some states the energy markets are deregulated. This means that a property may contract with Company A to provide the power supply (energy from the power plant), while Company B will continue to provide the electric distribution (Company B is the EDU).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SourceSiteRatio" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Ratio of energy consumed at a central power plant to that delivered to a customer.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+	</xs:complexType>
 	<xs:complexType name="ResourceUseType">
 		<xs:sequence>
 			<xs:element ref="auc:EnergyResource" minOccurs="0"/>
@@ -3106,698 +3846,12 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Utility" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="UtilityID" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>ID of utility associated with this resource use.</xs:documentation>
+				</xs:annotation>
 				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="RateSchedule" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>Rate structure characteristics.</xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="RateStructureName" type="xs:string" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The name or title of the rate structure.</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="TypeOfRateStructure" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Basic type of rate structure used by the utility.</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:choice>
-												<xs:element name="FlatRate" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>A consumer will pay one flat rate no matter what the usage level is</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:sequence>
-															<xs:element name="RatePeriod" minOccurs="0" maxOccurs="unbounded">
-																<xs:complexType>
-																	<xs:sequence>
-																		<xs:element name="RatePeriodName" type="xs:string" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>The name or title of rate period.This is intended to capture the seasonal changes in rates.</xs:documentation>
-																			</xs:annotation>
-																		</xs:element>
-																		<xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>The date from which the rate is applicable. (--MM-DD)</xs:documentation>
-																			</xs:annotation>
-																		</xs:element>
-																		<xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>The date after which the rate is not applicable. (--MM-DD)</xs:documentation>
-																			</xs:annotation>
-																		</xs:element>
-																		<xs:element name="ApplicableStartDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>The date from which the rate is applicable. (--MM-DD)</xs:documentation>
-																			</xs:annotation>
-																		</xs:element>
-																		<xs:element name="ApplicableEndDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>The date after which the rate is not applicable. (--MM-DD)</xs:documentation>
-																			</xs:annotation>
-																		</xs:element>
-																		<xs:element name="DemandWindow" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>The time period of measurement through which the demand is established. (min)</xs:documentation>
-																			</xs:annotation>
-																			<xs:complexType>
-																				<xs:simpleContent>
-																					<xs:extension base="xs:integer">
-																						<xs:attribute ref="auc:Source"/>
-																					</xs:extension>
-																				</xs:simpleContent>
-																			</xs:complexType>
-																		</xs:element>
-																		<xs:element name="DemandRatchetPercentage" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>Certain rate schedules incorporate demand ratchet percentage to ensure minimum billing demands based on historical peak demands. Billing demand in these cases is based comparing the month's demand and maximum of previous 11 month's demand times the demand ratchet percentage. (0-1) (%)</xs:documentation>
-																			</xs:annotation>
-																			<xs:complexType>
-																				<xs:simpleContent>
-																					<xs:extension base="xs:decimal">
-																						<xs:attribute ref="auc:Source"/>
-																					</xs:extension>
-																				</xs:simpleContent>
-																			</xs:complexType>
-																		</xs:element>
-																		<xs:element name="EnergyCostRate" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>Energy rate to buy a unit of energy consumption. ($/unit)</xs:documentation>
-																			</xs:annotation>
-																			<xs:complexType>
-																				<xs:simpleContent>
-																					<xs:extension base="xs:decimal">
-																						<xs:attribute ref="auc:Source"/>
-																					</xs:extension>
-																				</xs:simpleContent>
-																			</xs:complexType>
-																		</xs:element>
-																		<xs:element name="EnergyRateAdjustment" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>Energy rate adjustment for any fees, riders, fuel adjustments ($/unit)</xs:documentation>
-																			</xs:annotation>
-																			<xs:complexType>
-																				<xs:simpleContent>
-																					<xs:extension base="xs:decimal">
-																						<xs:attribute ref="auc:Source"/>
-																					</xs:extension>
-																				</xs:simpleContent>
-																			</xs:complexType>
-																		</xs:element>
-																		<xs:element name="ElectricDemandRate" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>The rate to buy electric demand from the utility. ($/kW)</xs:documentation>
-																			</xs:annotation>
-																			<xs:complexType>
-																				<xs:simpleContent>
-																					<xs:extension base="xs:decimal">
-																						<xs:attribute ref="auc:Source"/>
-																					</xs:extension>
-																				</xs:simpleContent>
-																			</xs:complexType>
-																		</xs:element>
-																		<xs:element name="DemandRateAdjustment" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>The rate for any fees, riders, fuel adjustments ($/kW)</xs:documentation>
-																			</xs:annotation>
-																			<xs:complexType>
-																				<xs:simpleContent>
-																					<xs:extension base="xs:decimal">
-																						<xs:attribute ref="auc:Source"/>
-																					</xs:extension>
-																				</xs:simpleContent>
-																			</xs:complexType>
-																		</xs:element>
-																		<xs:element name="EnergySellRate" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>Energy rate to sell a unit of electricity back to the utility from customer site generation through PV, wind etc. ($/kWh)</xs:documentation>
-																			</xs:annotation>
-																			<xs:complexType>
-																				<xs:simpleContent>
-																					<xs:extension base="xs:decimal">
-																						<xs:attribute ref="auc:Source"/>
-																					</xs:extension>
-																				</xs:simpleContent>
-																			</xs:complexType>
-																		</xs:element>
-																	</xs:sequence>
-																</xs:complexType>
-															</xs:element>
-														</xs:sequence>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="TimeOfUseRate" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>TOU rates vary by time of day and time of year</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:sequence>
-															<xs:element name="RatePeriod" minOccurs="0" maxOccurs="unbounded">
-																<xs:complexType>
-																	<xs:sequence>
-																		<xs:element name="RatePeriodName" type="xs:string" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>The name or title of rate period.This is intended to capture the seasonal changes in rates.</xs:documentation>
-																			</xs:annotation>
-																		</xs:element>
-																		<xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>The date from which the rate is applicable. (--MM-DD)</xs:documentation>
-																			</xs:annotation>
-																		</xs:element>
-																		<xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>The date after which the rate is not applicable. (--MM-DD)</xs:documentation>
-																			</xs:annotation>
-																		</xs:element>
-																		<xs:element name="ApplicableStartDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>The date from which the rate is applicable. (--MM-DD)</xs:documentation>
-																			</xs:annotation>
-																		</xs:element>
-																		<xs:element name="ApplicableEndDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>The date after which the rate is not applicable. (--MM-DD)</xs:documentation>
-																			</xs:annotation>
-																		</xs:element>
-																		<xs:element name="TimeOfUsePeriod" minOccurs="0" maxOccurs="unbounded">
-																			<xs:complexType>
-																				<xs:sequence>
-																					<xs:element name="TOUNumberForRateStructure" type="xs:int" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>The number associated with the TOU period.</xs:documentation>
-																						</xs:annotation>
-																					</xs:element>
-																					<xs:element name="ApplicableStartTimeForEnergyRate" type="xs:time" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>The time of day from which the rate is applicable. (hh:mm:ss)</xs:documentation>
-																						</xs:annotation>
-																					</xs:element>
-																					<xs:element name="ApplicableEndTimeForEnergyRate" type="xs:time" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>The time of day after which the rate is not applicable. (hh:mm:ss)</xs:documentation>
-																						</xs:annotation>
-																					</xs:element>
-																					<xs:element name="ApplicableStartTimeForDemandRate" type="xs:time" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>The time of day from which the rate is applicable. (hh:mm:ss)</xs:documentation>
-																						</xs:annotation>
-																					</xs:element>
-																					<xs:element name="ApplicableEndTimeForDemandRate" type="xs:time" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>The time of day after which the rate is not applicable. (hh:mm:ss)</xs:documentation>
-																						</xs:annotation>
-																					</xs:element>
-																					<xs:element name="EnergyCostRate" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>Energy rate to buy a unit of energy consumption. ($/unit)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:decimal">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																					<xs:element name="ElectricDemandRate" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>The rate to buy electric demand from the utility. ($/kW)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:decimal">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																					<xs:element name="EnergyRateAdjustment" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>Energy rate adjustment for any fees, riders, fuel adjustments ($/unit)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:decimal">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																					<xs:element name="DemandRateAdjustment" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>The rate for any fees, riders, fuel adjustments ($/kW)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:decimal">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																					<xs:element name="DemandWindow" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>The time period of measurement through which the demand is established. (min)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:integer">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																					<xs:element name="DemandRatchetPercentage" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>Certain rate schedules incorporate demand ratchet percentage to ensure minimum billing demands based on historical peak demands. Billing demand in these cases is based comparing the month's demand and maximum of previous 11 month's demand times the demand ratchet percentage. (0-1) (%)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:decimal">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																				</xs:sequence>
-																			</xs:complexType>
-																		</xs:element>
-																		<xs:element name="EnergySellRate" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>Energy rate to sell a unit of electricity back to the utility from customer site generation through PV, wind etc. ($/kWh)</xs:documentation>
-																			</xs:annotation>
-																			<xs:complexType>
-																				<xs:simpleContent>
-																					<xs:extension base="xs:decimal">
-																						<xs:attribute ref="auc:Source"/>
-																					</xs:extension>
-																				</xs:simpleContent>
-																			</xs:complexType>
-																		</xs:element>
-																	</xs:sequence>
-																</xs:complexType>
-															</xs:element>
-														</xs:sequence>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="TieredRate" minOccurs="0" maxOccurs="unbounded">
-													<xs:annotation>
-														<xs:documentation>Tiered rates increase the per-unit price of a utility as usage increases</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:sequence>
-															<xs:element name="RatePeriod" minOccurs="0" maxOccurs="unbounded">
-																<xs:complexType>
-																	<xs:sequence>
-																		<xs:element name="RatePeriodName" type="xs:string" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>The name or title of rate period.This is intended to capture the seasonal changes in rates.</xs:documentation>
-																			</xs:annotation>
-																		</xs:element>
-																		<xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>The date from which the rate is applicable. (--MM-DD)</xs:documentation>
-																			</xs:annotation>
-																		</xs:element>
-																		<xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>The date after which the rate is not applicable. (--MM-DD)</xs:documentation>
-																			</xs:annotation>
-																		</xs:element>
-																		<xs:element name="RateTier" minOccurs="0" maxOccurs="unbounded">
-																			<xs:complexType>
-																				<xs:sequence>
-																					<xs:element name="ConsumptionEnergyTierDesignation" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>For electricity pricing that is based on tiered pricing, each tier is allotted a certain maximum (kWh), above which the user is moved to the next tier that has a different unit pricing.</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:integer">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																					<xs:element name="MaxkWhUsage" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>The maximum amount of kWh used at which a kWh rate is applied (kWh)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:decimal">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																					<xs:element name="MaxkWUsage" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>The maximum amount of kW used at which a kW rate is applied (kW)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:decimal">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																					<xs:element name="EnergyCostRate" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>Energy rate to buy a unit of energy consumption. ($/unit)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:decimal">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																					<xs:element name="ElectricDemandRate" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>The rate to buy electric demand from the utility. ($/kW)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:decimal">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																					<xs:element name="EnergyRateAdjustment" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>Energy rate adjustment for any fees, riders, fuel adjustments ($/unit)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:decimal">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																					<xs:element name="DemandRateAdjustment" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>The rate for any fees, riders, fuel adjustments ($/kW)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:decimal">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																					<xs:element name="DemandWindow" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>The time period of measurement through which the demand is established. (min)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:integer">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																					<xs:element name="DemandRatchetPercentage" minOccurs="0">
-																						<xs:annotation>
-																							<xs:documentation>Certain rate schedules incorporate demand ratchet percentage to ensure minimum billing demands based on historical peak demands. Billing demand in these cases is based comparing the month's demand and maximum of previous 11 month's demand times the demand ratchet percentage. (0-1) (%)</xs:documentation>
-																						</xs:annotation>
-																						<xs:complexType>
-																							<xs:simpleContent>
-																								<xs:extension base="xs:decimal">
-																									<xs:attribute ref="auc:Source"/>
-																								</xs:extension>
-																							</xs:simpleContent>
-																						</xs:complexType>
-																					</xs:element>
-																				</xs:sequence>
-																			</xs:complexType>
-																		</xs:element>
-																		<xs:element name="EnergySellRate" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>Energy rate to sell a unit of electricity back to the utility from customer site generation through PV, wind etc. ($/kWh)</xs:documentation>
-																			</xs:annotation>
-																			<xs:complexType>
-																				<xs:simpleContent>
-																					<xs:extension base="xs:decimal">
-																						<xs:attribute ref="auc:Source"/>
-																					</xs:extension>
-																				</xs:simpleContent>
-																			</xs:complexType>
-																		</xs:element>
-																	</xs:sequence>
-																</xs:complexType>
-															</xs:element>
-															<xs:element name="TierDirection" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Whether the rates increase or decrease as energy use increases.</xs:documentation>
-																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:enumeration value="Increasing"/>
-																		<xs:enumeration value="Decreasing"/>
-																		<xs:enumeration value="Other"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
-														</xs:sequence>
-													</xs:complexType>
-												</xs:element>
-												<xs:element name="RealTimePricing" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>(RTP) - pricing rates generally apply to usage on an hourly basis.</xs:documentation>
-													</xs:annotation>
-													<xs:complexType/>
-												</xs:element>
-												<xs:element name="VariablePeakPricing" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>(VPP) - a hybrid of time-of-use and real-time pricing where the different periods for pricing are defined in advance (e.g., on-peak=6 hours for summer weekday afternoon; off-peak = all other hours in the summer months), but the price established for the on-peak period varies by utility and market conditions.</xs:documentation>
-													</xs:annotation>
-													<xs:complexType/>
-												</xs:element>
-												<xs:element name="CriticalPeakPricing" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>(CPP) - when utilities observe or anticipate high wholesale market prices or power system emergency conditions, they may call critical events during a specified time period (e.g., 3 p.m.—6 p.m. on a hot summer weekday), the price for electricity during these time periods is substantially raised. Two variants of this type of rate design exist: one where the time and duration of the price increase are predetermined when events are called and another where the time and duration of the price increase may vary based on the electric grid’s need to have loads reduced</xs:documentation>
-													</xs:annotation>
-													<xs:complexType/>
-												</xs:element>
-												<xs:element name="CriticalPeakRebates" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>(CPR) - when utilities observe or anticipate high wholesale market prices or power system emergency conditions, they may call critical events during pre-specified time periods (e.g., 3 p.m.—6 p.m. summer weekday afternoons), the price for electricity during these time periods remains the same but the customer is refunded at a single, predetermined value for any reduction in consumption relative to what the utility deemed the customer was expected to consume.</xs:documentation>
-													</xs:annotation>
-													<xs:complexType/>
-												</xs:element>
-												<xs:element name="Other" type="auc:OtherType" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Other type of rate structure, or combination of other types.</xs:documentation>
-													</xs:annotation>
-												</xs:element>
-												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
-											</xs:choice>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="RateStructureSector" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Sector to which the rate structure is applicable.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="Residential"/>
-												<xs:enumeration value="Commercial"/>
-												<xs:enumeration value="Industrial"/>
-												<xs:enumeration value="Other"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="ReferenceForRateStructure" type="xs:string" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Reference or hyper link for the rate schedule, tariff book</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="RateStructureEffectiveDate" type="xs:date" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The first date the rate schedule becomes applicable. (CCYY-MM-DD)</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="RateStructureEndDate" type="xs:date" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The date at which the rate schedule is no longer applicable. (CCYY-MM-DD)</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="ReactivePowerCharge" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The additional charge for low power factor. ($/kVAR)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="MinimumPowerFactorWithoutPenalty" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Minimum power factor that needs to maintained without any penalties. (0-1) (%)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="FixedMonthlyCharge" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The fixed charge or fee billed monthly regardless of consumption. ($/month)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="NetMetering" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Present if a billing mechanism is employed by utilities to credit onsite energy generation for this rate structure.</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="AverageMarginalSellRate" minOccurs="0">
-													<xs:annotation>
-														<xs:documentation>Annual average rate to sell a unit of electricity back to the utility from customer site electricity generation through PV, wind etc. ($/kWh)</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:simpleContent>
-															<xs:extension base="xs:decimal">
-																<xs:attribute ref="auc:Source"/>
-															</xs:extension>
-														</xs:simpleContent>
-													</xs:complexType>
-												</xs:element>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-									<xs:element name="AverageMarginalCostRate" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>The annual average cost of providing an additional unit of energy or water. Units should be consistent with Resource Units. ($/unit)</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:simpleContent>
-												<xs:extension base="xs:decimal">
-													<xs:attribute ref="auc:Source"/>
-												</xs:extension>
-											</xs:simpleContent>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
-								<xs:attribute name="ID" type="xs:ID"/>
-							</xs:complexType>
-						</xs:element>
-						<xs:element name="MeteringConfiguration" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>The structure of how the various meters are arranged</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Direct metering"/>
-									<xs:enumeration value="Master meter without sub metering"/>
-									<xs:enumeration value="Master meter with sub metering"/>
-									<xs:enumeration value="Other"/>
-									<xs:enumeration value="Unknown"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-						<xs:element name="TypeOfResourceMeter" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Meters can be divided into several categories based on their capabilities</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Revenue grade meter"/>
-									<xs:enumeration value="Advanced resource meter"/>
-									<xs:enumeration value="Analog"/>
-									<xs:enumeration value="Interval"/>
-									<xs:enumeration value="Net"/>
-									<xs:enumeration value="Smart meter"/>
-									<xs:enumeration value="PDU input meter"/>
-									<xs:enumeration value="IT equipment input meter"/>
-									<xs:enumeration value="Supply UPS output meter"/>
-									<xs:enumeration value="PDU output meter"/>
-									<xs:enumeration value="Other"/>
-									<xs:enumeration value="Unknown"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-						<xs:element name="FuelInterruptibility" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>This refers to the practice of supplementing fuel (electricity, natural gas, fuel oil.) by other means when there are interruptions in supply from the utility.</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Interruptible"/>
-									<xs:enumeration value="Firm"/>
-									<xs:enumeration value="Other"/>
-									<xs:enumeration value="Unknown"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-						<xs:element name="UtilityName" type="xs:string" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Name of utility company billing a Resource.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="PowerPlant" type="xs:string" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Name of an individual power plant to which the property is directly connected</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="UtilityMeterNumber" type="xs:string" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>Unique identification number for the meter</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="UtilityAccountNumber" type="xs:string" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Unique account number designated by the utility</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="UtilityBillpayer" type="xs:string" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Organization that is responsible for paying the bills associated with this meter.</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="ElectricDistributionUtility" type="xs:string" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>The company responsible for maintaining the utility lines and the electric distribution to the property. Note that the EDU is not the just "the utility company." In some states the energy markets are deregulated. This means that a property may contract with Company A to provide the power supply (energy from the power plant), while Company B will continue to provide the electric distribution (Company B is the EDU).</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="SourceSiteRatio" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Ratio of energy consumed at a central power plant to that delivered to a customer.</xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:simpleContent>
-									<xs:extension base="xs:decimal">
-										<xs:attribute ref="auc:Source"/>
-									</xs:extension>
-								</xs:simpleContent>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
+					<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Emissions" minOccurs="0" maxOccurs="unbounded">
@@ -4440,7 +4494,7 @@
 					<xs:sequence>
 						<xs:element name="PremiseAffected" maxOccurs="unbounded">
 							<xs:annotation>
-								<xs:documentation>ID numbers of premises (site, facility, space, zone, or subsections) for measures that apply broadly to an entire building, or modify the properties of a building.</xs:documentation>
+								<xs:documentation>ID numbers of premises (site, facility, space, zone, or subsections) for measures that apply to an entire building or subset of the building, or modify the properties of a building or the subset of the building.</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
@@ -4494,6 +4548,7 @@
 															<xs:enumeration value="Clean and/or repair"/>
 															<xs:enumeration value="Implement training and/or documentation"/>
 															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+															<xs:enumeration value="Convert to Cleaner Fuels"/>
 															<xs:enumeration value="Other"/>
 														</xs:restriction>
 													</xs:simpleType>
@@ -4569,7 +4624,6 @@
 															<xs:enumeration value="Improve distribution fans"/>
 															<xs:enumeration value="Improve ventilation fans"/>
 															<xs:enumeration value="Convert CV system to VAV system"/>
-															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 															<xs:enumeration value="Repair leaks / seal ducts"/>
 															<xs:enumeration value="Add duct insulation"/>
 															<xs:enumeration value="Balance ventilation/distribution system"/>
@@ -4579,14 +4633,21 @@
 															<xs:enumeration value="Replace packaged terminal units"/>
 															<xs:enumeration value="Install passive solar heating"/>
 															<xs:enumeration value="Replace AC and heating units with ground coupled heat pump systems"/>
-															<xs:enumeration value="Add energy recovery"/>
-															<xs:enumeration value="Add or replace cooling tower"/>
-															<xs:enumeration value="Install gas cooling"/>
-															<xs:enumeration value="Add or repair economizer"/>
 															<xs:enumeration value="Add enhanced dehumidification"/>
 															<xs:enumeration value="Install solar ventilation preheating system"/>
+															<xs:enumeration value="Add or repair economizer"/>
+															<xs:enumeration value="Add energy recovery"/>
+															<xs:enumeration value="Add or replace cooling tower"/>
+															<xs:enumeration value="Install thermal destratification fans"/>
+															<xs:enumeration value="Install demand control ventilation"/>
+															<xs:enumeration value="Install gas cooling"/>
+															<xs:enumeration value="Install air source heat pump"/>
+															<xs:enumeration value="Install variable refrigerant flow system"/>
+															<xs:enumeration value="Capture and return condensate"/>
+															<xs:enumeration value="Install or Upgrade Master Venting"/>
 															<xs:enumeration value="Clean and/or repair"/>
 															<xs:enumeration value="Implement training and/or documentation"/>
+															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 															<xs:enumeration value="Other heating"/>
 															<xs:enumeration value="Other cooling"/>
 															<xs:enumeration value="Other ventilation"/>
@@ -4618,6 +4679,11 @@
 															<xs:enumeration value="Retrofit with light emitting diode technologies"/>
 															<xs:enumeration value="Add daylight controls"/>
 															<xs:enumeration value="Add occupancy sensors"/>
+															<xs:enumeration value="Install photocell control"/>
+															<xs:enumeration value="Install timers"/>
+															<xs:enumeration value="Replace diffusers"/>
+															<xs:enumeration value="Upgrade exit signs to LED"/>
+															<xs:enumeration value="Upgrade exterior lighting"/>
 															<xs:enumeration value="Clean and/or repair"/>
 															<xs:enumeration value="Implement training and/or documentation"/>
 															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
@@ -4683,9 +4749,12 @@
 															<xs:enumeration value="Replace or upgrade water heater"/>
 															<xs:enumeration value="Add energy recovery"/>
 															<xs:enumeration value="Install solar hot water system"/>
-															<xs:enumeration value="Separate DHW from heating"/>
+															<xs:enumeration value="Separate SHW from heating"/>
 															<xs:enumeration value="Replace with higher efficiency pump"/>
 															<xs:enumeration value="Replace with variable speed pump"/>
+															<xs:enumeration value="Install or upgrade master venting"/>
+															<xs:enumeration value="Replace steam traps with orifice plates"/>
+															<xs:enumeration value="Install steam condensate heat recovery"/>
 															<xs:enumeration value="Clean and/or repair"/>
 															<xs:enumeration value="Implement training and/or documentation"/>
 															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
@@ -4696,9 +4765,34 @@
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="ElectricMotorsAndDrives" minOccurs="0">
+									<xs:element name="ConveyanceSystems" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Electric Motors and Drives</xs:documentation>
+											<xs:documentation>Conveyance Systems (e.g., Elevators)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="MeasureName" maxOccurs="unbounded">
+													<xs:annotation>
+														<xs:documentation>Short description of measure</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Add elevator regenerative drives"/>
+															<xs:enumeration value="Upgrade controls"/>
+															<xs:enumeration value="Upgrade motors"/>
+															<xs:enumeration value="Clean and/or repair"/>
+															<xs:enumeration value="Implement training and/or documentation"/>
+															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+															<xs:enumeration value="Other"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="OtherElectricMotorsAndDrives" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Electric Motors and Drives Other than Those for Conveyance Systems</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
@@ -4814,6 +4908,40 @@
 															<xs:enumeration value="Implement power quality upgrades"/>
 															<xs:enumeration value="Upgrade transformers"/>
 															<xs:enumeration value="Install gas distribution systems"/>
+															<xs:enumeration value="Clean and/or repair"/>
+															<xs:enumeration value="Implement training and/or documentation"/>
+															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+															<xs:enumeration value="Other"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="ServiceHotWaterSystems" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Service hot water (SHW) and domestic hot water (DHW) systems</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="MeasureName" maxOccurs="unbounded">
+													<xs:annotation>
+														<xs:documentation>Short description of measure</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Decrease SHW temperature"/>
+															<xs:enumeration value="Install SHW controls"/>
+															<xs:enumeration value="Install solar thermal SHW"/>
+															<xs:enumeration value="Install water pressure booster"/>
+															<xs:enumeration value="Insulate SHW piping"/>
+															<xs:enumeration value="Insulate SHW tank"/>
+															<xs:enumeration value="Replace piping"/>
+															<xs:enumeration value="Replace tankless coil"/>
+															<xs:enumeration value="Separate SHW from heating"/>
+															<xs:enumeration value="Upgrade SHW boiler"/>
+															<xs:enumeration value="Install heat pump SHW system"/>
+															<xs:enumeration value="Install tankless water heaters"/>
 															<xs:enumeration value="Clean and/or repair"/>
 															<xs:enumeration value="Implement training and/or documentation"/>
 															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
@@ -4956,8 +5084,36 @@
 														<xs:restriction base="xs:string">
 															<xs:enumeration value="Replace with ENERGY STAR rated"/>
 															<xs:enumeration value="Install plug load controls"/>
+															<xs:enumeration value="Automatic shutdown or sleep mode for computers"/>
 															<xs:enumeration value="De-lamp vending machines"/>
+															<xs:enumeration value="Replace clothes dryers"/>
+															<xs:enumeration value="Replace washing machines"/>
+															<xs:enumeration value="Clean and/or repair"/>
+															<xs:enumeration value="Implement training and/or documentation"/>
+															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+															<xs:enumeration value="Other"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="DataCenterImprovements" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Data center energy conservation improvements</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="MeasureName" maxOccurs="unbounded">
+													<xs:annotation>
+														<xs:documentation>Short description of measure</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
 															<xs:enumeration value="Improve data center efficiency"/>
+															<xs:enumeration value="Implement hot aisle hold aisle design"/>
+															<xs:enumeration value="Implement server virtualization"/>
+															<xs:enumeration value="Upgrade servers"/>
 															<xs:enumeration value="Clean and/or repair"/>
 															<xs:enumeration value="Implement training and/or documentation"/>
 															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
@@ -5143,6 +5299,18 @@
 						<xs:element name="WinterPeakElectricityReduction" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Reduction in largest 15 minute peak demand for the winter months as defined in the utility rate schedule (for electrical energy use only) (kW)</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:decimal">
+										<xs:attribute ref="auc:Source"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="AnnualPeakElectricityReduction" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Reduction in largest 15 minute peak demand for the year as defined in the utility rate schedule (for electrical energy use only) (kW)</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
 								<xs:simpleContent>
@@ -5527,6 +5695,19 @@
 																</xs:simpleType>
 															</xs:element>
 															<xs:element ref="auc:BurnerType" minOccurs="0"/>
+															<xs:element ref="auc:BurnerControlType" minOccurs="0"/>
+															<xs:element name="BurnerQuantity" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>The number of burners.</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:integer">
+																			<xs:attribute ref="auc:Source"/>
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
 															<xs:element name="BurnerTurndownRatio" minOccurs="0">
 																<xs:annotation>
 																	<xs:documentation>If applicable, the turndown ratio for the burner (full input/minimum input).</xs:documentation>
@@ -6794,6 +6975,19 @@
 								</xs:simpleType>
 							</xs:element>
 							<xs:element ref="auc:BurnerType" minOccurs="0"/>
+							<xs:element ref="auc:BurnerControlType" minOccurs="0"/>
+							<xs:element name="BurnerQuantity" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>The number of burners.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:integer">
+											<xs:attribute ref="auc:Source"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
 							<xs:element name="BurnerTurndownRatio" minOccurs="0">
 								<xs:annotation>
 									<xs:documentation>If applicable, the turndown ratio for the burner (full input/minimum input).</xs:documentation>
@@ -14264,6 +14458,8 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 								</xs:annotation>
 								<xs:simpleType>
 									<xs:restriction base="xs:string">
+										<xs:enumeration value="Tenant"/>
+										<xs:enumeration value="Common"/>
 										<xs:enumeration value="Gross"/>
 										<xs:enumeration value="Net"/>
 										<xs:enumeration value="Finished"/>
@@ -14305,6 +14501,17 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 										</xs:extension>
 									</xs:simpleContent>
 								</xs:complexType>
+							</xs:element>
+							<xs:element name="FloorAreaPercentage" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>The percentage of subsection floor area that belongs to a FloorAreaType. (0-100) (%)</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:float">
+										<xs:minInclusive value="0.0"/>
+										<xs:maxInclusive value="100.0"/>
+									</xs:restriction>
+								</xs:simpleType>
 							</xs:element>
 							<xs:element name="Story" type="xs:int" minOccurs="0">
 								<xs:annotation>
@@ -14755,6 +14962,21 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 				<xs:enumeration value="Sealed Combustion"/>
 				<xs:enumeration value="Rotary Cup"/>
 				<xs:enumeration value="Other"/>
+				<xs:enumeration value="Unknown"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="BurnerControlType">
+		<xs:annotation>
+			<xs:documentation>Control type of burner, if applicable.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Full Modulation Manual"/>
+				<xs:enumeration value="Full Modulation Automatic"/>
+				<xs:enumeration value="Step Modulation"/>
+				<xs:enumeration value="High Low"/>
+				<xs:enumeration value="On Off"/>
 				<xs:enumeration value="Unknown"/>
 			</xs:restriction>
 		</xs:simpleType>

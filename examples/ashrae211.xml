@@ -1242,13 +1242,7 @@
 							<PercentEndUse>1</PercentEndUse>
 							<AnnualFuelUseNativeUnits>25740</AnnualFuelUseNativeUnits>
 							<AnnualFuelUseConsistentUnits>2574</AnnualFuelUseConsistentUnits>
-							<Utility>
-								<RateSchedule>
-									<RateStructureName>WSE 999-999</RateStructureName>
-								</RateSchedule>
-								<MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
-								<UtilityAccountNumber>999-9921</UtilityAccountNumber>
-							</Utility>
+							<UtilityID IDref="Utility1"/>
 						</ResourceUse>
 						<ResourceUse ID="Resource3">
 							<EnergyResource>Fuel oil</EnergyResource>
@@ -1259,27 +1253,9 @@
 							<PercentEndUse>1</PercentEndUse>
 							<AnnualFuelUseNativeUnits>148500</AnnualFuelUseNativeUnits>
 							<AnnualFuelUseConsistentUnits>1782</AnnualFuelUseConsistentUnits>
-							<Utility>
-								<RateSchedule>
-									<RateStructureName>WSE 999-999</RateStructureName>
-								</RateSchedule>
-								<MeteringConfiguration>Master meter without sub metering</MeteringConfiguration>
-								<UtilityAccountNumber>999-9998</UtilityAccountNumber>
-							</Utility>
-							<Utility>
-								<RateSchedule>
-									<RateStructureName>WSE 999-999</RateStructureName>
-								</RateSchedule>
-								<MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
-								<UtilityAccountNumber>999-9224</UtilityAccountNumber>
-							</Utility>
-							<Utility>
-								<RateSchedule>
-									<RateStructureName>WSE 999-999</RateStructureName>
-								</RateSchedule>
-								<MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
-								<UtilityAccountNumber>999-9994</UtilityAccountNumber>
-							</Utility>
+							<UtilityID IDref="Utility2"/>
+							<UtilityID IDref="Utility3"/>
+							<UtilityID IDref="Utility4"/>
 						</ResourceUse>
 						<ResourceUse ID="Resource4">
 							<EnergyResource>Fuel oil no 5 and no 6</EnergyResource>
@@ -1290,27 +1266,9 @@
 							<PercentEndUse>1</PercentEndUse>
 							<AnnualFuelUseNativeUnits>450</AnnualFuelUseNativeUnits>
 							<AnnualFuelUseConsistentUnits>4.95</AnnualFuelUseConsistentUnits>
-							<Utility>
-								<RateSchedule>
-									<RateStructureName>WSE 999-999</RateStructureName>
-								</RateSchedule>
-								<MeteringConfiguration>Master meter without sub metering</MeteringConfiguration>
-								<UtilityAccountNumber>999-9998</UtilityAccountNumber>
-							</Utility>
-							<Utility>
-								<RateSchedule>
-									<RateStructureName>WSE 999-999</RateStructureName>
-								</RateSchedule>
-								<MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
-								<UtilityAccountNumber>999-9224</UtilityAccountNumber>
-							</Utility>
-							<Utility>
-								<RateSchedule>
-									<RateStructureName>WSE 999-999</RateStructureName>
-								</RateSchedule>
-								<MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
-								<UtilityAccountNumber>999-9994</UtilityAccountNumber>
-							</Utility>
+							<UtilityID IDref="Utility5"/>
+							<UtilityID IDref="Utility6"/>
+							<UtilityID IDref="Utility7"/>
 						</ResourceUse>
 						<ResourceUse ID="Resource5">
 							<EnergyResource>Fuel oil</EnergyResource>
@@ -1321,27 +1279,9 @@
 							<PercentEndUse>1</PercentEndUse>
 							<AnnualFuelUseNativeUnits>390</AnnualFuelUseNativeUnits>
 							<AnnualFuelUseConsistentUnits>31.2</AnnualFuelUseConsistentUnits>
-							<Utility>
-								<RateSchedule>
-									<RateStructureName>WSE 999-999</RateStructureName>
-								</RateSchedule>
-								<MeteringConfiguration>Master meter without sub metering</MeteringConfiguration>
-								<UtilityAccountNumber>999-9998</UtilityAccountNumber>
-							</Utility>
-							<Utility>
-								<RateSchedule>
-									<RateStructureName>WSE 999-999</RateStructureName>
-								</RateSchedule>
-								<MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
-								<UtilityAccountNumber>999-9224</UtilityAccountNumber>
-							</Utility>
-							<Utility>
-								<RateSchedule>
-									<RateStructureName>WSE 999-999</RateStructureName>
-								</RateSchedule>
-								<MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
-								<UtilityAccountNumber>999-9994</UtilityAccountNumber>
-							</Utility>
+							<UtilityID IDref="Utility8"/>
+							<UtilityID IDref="Utility9"/>
+							<UtilityID IDref="Utility10"/>
 						</ResourceUse>
 					</ResourceUses>
 					<TimeSeriesData>
@@ -2559,6 +2499,78 @@
 				</Scenario>
 			</Scenarios>
 			<AuditDate>2015-02-05</AuditDate>
+			<Utilities>
+				<Utility ID="Utility1">
+					<RateSchedule>
+						<RateStructureName>WSE 999-999</RateStructureName>
+					</RateSchedule>
+					<MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
+					<UtilityAccountNumber>999-9921</UtilityAccountNumber>
+				</Utility>
+				<Utility ID="Utility2">
+					<RateSchedule>
+						<RateStructureName>WSE 999-999</RateStructureName>
+					</RateSchedule>
+					<MeteringConfiguration>Master meter without sub metering</MeteringConfiguration>
+					<UtilityAccountNumber>999-9998</UtilityAccountNumber>
+				</Utility>
+				<Utility ID="Utility3">
+					<RateSchedule>
+						<RateStructureName>WSE 999-999</RateStructureName>
+					</RateSchedule>
+					<MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
+					<UtilityAccountNumber>999-9224</UtilityAccountNumber>
+				</Utility>
+				<Utility ID="Utility4">
+					<RateSchedule>
+						<RateStructureName>WSE 999-999</RateStructureName>
+					</RateSchedule>
+					<MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
+					<UtilityAccountNumber>999-9994</UtilityAccountNumber>
+				</Utility>
+				<Utility ID="Utility5">
+					<RateSchedule>
+						<RateStructureName>WSE 999-999</RateStructureName>
+					</RateSchedule>
+					<MeteringConfiguration>Master meter without sub metering</MeteringConfiguration>
+					<UtilityAccountNumber>999-9998</UtilityAccountNumber>
+				</Utility>
+				<Utility ID="Utility6">
+					<RateSchedule>
+						<RateStructureName>WSE 999-999</RateStructureName>
+					</RateSchedule>
+					<MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
+					<UtilityAccountNumber>999-9224</UtilityAccountNumber>
+				</Utility>
+				<Utility ID="Utility7">
+					<RateSchedule>
+						<RateStructureName>WSE 999-999</RateStructureName>
+					</RateSchedule>
+					<MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
+					<UtilityAccountNumber>999-9994</UtilityAccountNumber>
+				</Utility>
+				<Utility ID="Utility8">
+					<RateSchedule>
+						<RateStructureName>WSE 999-999</RateStructureName>
+					</RateSchedule>
+					<MeteringConfiguration>Master meter without sub metering</MeteringConfiguration>
+					<UtilityAccountNumber>999-9998</UtilityAccountNumber>
+				</Utility>
+				<Utility ID="Utility9">
+					<RateSchedule>
+						<RateStructureName>WSE 999-999</RateStructureName>
+					</RateSchedule>
+					<MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
+					<UtilityAccountNumber>999-9224</UtilityAccountNumber>
+				</Utility>
+				<Utility ID="Utility10">
+					<RateSchedule>
+						<RateStructureName>WSE 999-999</RateStructureName>
+					</RateSchedule>
+					<MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
+					<UtilityAccountNumber>999-9994</UtilityAccountNumber>
+				</Utility>
+			</Utilities>
 			<AuditorContactID IDref="Auditor1"/>
 		</Report>
 		<Contacts>

@@ -315,6 +315,10 @@
 										<FloorAreaType>Conditioned</FloorAreaType>
 										<FloorAreaValue>2067</FloorAreaValue>
 									</FloorArea>
+									<FloorArea>
+										<FloorAreaType>Common Area</FloorAreaType>
+										<FloorAreaPercentage>1.0</FloorAreaPercentage>
+									</FloorArea>
 								</FloorAreas>
 								<ThermalZoneLayout>Single zone</ThermalZoneLayout>
 								<SideA1Orientation>0</SideA1Orientation>
@@ -3343,6 +3347,8 @@
 						<HeatingPlant ID="Boiler1">
 							<Boiler>
 								<BoilerType>Hot water</BoilerType>
+								<BurnerControlType>On Off</BurnerControlType>
+								<BurnerQuantity>1</BurnerQuantity>
 								<OutputCapacity>314</OutputCapacity>
 								<CapacityUnits>kW</CapacityUnits>
 								<AnnualHeatingEfficiencyValue>0.75</AnnualHeatingEfficiencyValue>
@@ -9310,9 +9316,9 @@
 				</PremisesAffected>
 				<TechnologyCategories>
 					<TechnologyCategory>
-						<ElectricMotorsAndDrives>
+						<OtherElectricMotorsAndDrives>
 							<MeasureName>Add VSD motor controller</MeasureName>
-						</ElectricMotorsAndDrives>
+						</OtherElectricMotorsAndDrives>
 					</TechnologyCategory>
 				</TechnologyCategories>
 				<MeasureScaleOfApplication>Entire facility</MeasureScaleOfApplication>
@@ -9372,9 +9378,9 @@
 				</PremisesAffected>
 				<TechnologyCategories>
 					<TechnologyCategory>
-						<ElectricMotorsAndDrives>
+						<OtherElectricMotorsAndDrives>
 							<MeasureName>Replace with higher efficiency</MeasureName>
-						</ElectricMotorsAndDrives>
+						</OtherElectricMotorsAndDrives>
 					</TechnologyCategory>
 				</TechnologyCategories>
 				<MeasureScaleOfApplication>Entire facility</MeasureScaleOfApplication>
@@ -9517,23 +9523,7 @@
 							<AnnualFuelUseNativeUnits>2000000</AnnualFuelUseNativeUnits>
 							<AnnualFuelUseConsistentUnits>6829</AnnualFuelUseConsistentUnits>
 							<FuelUseIntensity>9.49</FuelUseIntensity>
-							<Utility>
-								<RateSchedule ID="ElectricUtility1">
-									<TypeOfRateStructure>
-										<FlatRate>
-											<RatePeriod>
-												<EnergyCostRate>0.084</EnergyCostRate>
-												<EnergyRateAdjustment>0.0067</EnergyRateAdjustment>
-												<ElectricDemandRate>5.75</ElectricDemandRate>
-												<DemandRateAdjustment>0.46</DemandRateAdjustment>
-											</RatePeriod>
-										</FlatRate>
-									</TypeOfRateStructure>
-									<RateStructureSector>Commercial</RateStructureSector>
-									<AverageMarginalCostRate>0.091</AverageMarginalCostRate>
-								</RateSchedule>
-								<SourceSiteRatio>3</SourceSiteRatio>
-							</Utility>
+							<UtilityID IDref="ElectricUtility1"/>
 						</ResourceUse>
 						<ResourceUse ID="BaseNatGas1">
 							<EnergyResource>Natural gas</EnergyResource>
@@ -9545,21 +9535,7 @@
 							<AnnualFuelUseNativeUnits>120000</AnnualFuelUseNativeUnits>
 							<AnnualFuelUseConsistentUnits>12000</AnnualFuelUseConsistentUnits>
 							<FuelUseIntensity>0.569</FuelUseIntensity>
-							<Utility>
-								<RateSchedule ID="GasUtility1">
-									<TypeOfRateStructure>
-										<FlatRate>
-											<RatePeriod>
-												<EnergyCostRate>0.865</EnergyCostRate>
-												<EnergyRateAdjustment>0.069</EnergyRateAdjustment>
-											</RatePeriod>
-										</FlatRate>
-									</TypeOfRateStructure>
-									<RateStructureSector>Commercial</RateStructureSector>
-									<AverageMarginalCostRate>0.934</AverageMarginalCostRate>
-								</RateSchedule>
-								<SourceSiteRatio>1</SourceSiteRatio>
-							</Utility>
+							<UtilityID IDref="GasUtility1"/>
 						</ResourceUse>
 					</ResourceUses>
 					<TimeSeriesData>
@@ -9653,6 +9629,7 @@
 							</AnnualSavingsByFuel>
 							<SummerPeakElectricityReduction>385</SummerPeakElectricityReduction>
 							<WinterPeakElectricityReduction>100</WinterPeakElectricityReduction>
+							<AnnualPeakElectricityReduction>385</AnnualPeakElectricityReduction>
 							<AnnualWaterSavings>5000</AnnualWaterSavings>
 							<AnnualWaterCostSavings>500</AnnualWaterCostSavings>
 							<PackageFirstCost>1089271</PackageFirstCost>
@@ -9686,23 +9663,7 @@
 							<AnnualFuelUseNativeUnits>1235643</AnnualFuelUseNativeUnits>
 							<AnnualFuelUseConsistentUnits>4219</AnnualFuelUseConsistentUnits>
 							<FuelUseIntensity>5.86</FuelUseIntensity>
-							<Utility>
-								<RateSchedule ID="ElectricUtility2">
-									<TypeOfRateStructure>
-										<FlatRate>
-											<RatePeriod>
-												<EnergyCostRate>0.084</EnergyCostRate>
-												<EnergyRateAdjustment>0.0067</EnergyRateAdjustment>
-												<ElectricDemandRate>5.75</ElectricDemandRate>
-												<DemandRateAdjustment>0.46</DemandRateAdjustment>
-											</RatePeriod>
-										</FlatRate>
-									</TypeOfRateStructure>
-									<RateStructureSector>Commercial</RateStructureSector>
-									<AverageMarginalCostRate>0.091</AverageMarginalCostRate>
-								</RateSchedule>
-								<SourceSiteRatio>3</SourceSiteRatio>
-							</Utility>
+							<UtilityID IDref="ElectricUtility1"/>
 						</ResourceUse>
 						<ResourceUse ID="PackageNatGas1">
 							<EnergyResource>Natural gas</EnergyResource>
@@ -9714,21 +9675,7 @@
 							<AnnualFuelUseNativeUnits>77866</AnnualFuelUseNativeUnits>
 							<AnnualFuelUseConsistentUnits>7787</AnnualFuelUseConsistentUnits>
 							<FuelUseIntensity>0.369</FuelUseIntensity>
-							<Utility>
-								<RateSchedule ID="GasUtility2">
-									<TypeOfRateStructure>
-										<FlatRate>
-											<RatePeriod>
-												<EnergyCostRate>0.865</EnergyCostRate>
-												<EnergyRateAdjustment>0.069</EnergyRateAdjustment>
-											</RatePeriod>
-										</FlatRate>
-									</TypeOfRateStructure>
-									<RateStructureSector>Commercial</RateStructureSector>
-									<AverageMarginalCostRate>0.934</AverageMarginalCostRate>
-								</RateSchedule>
-								<SourceSiteRatio>1</SourceSiteRatio>
-							</Utility>
+							<UtilityID IDref="GasUtility1"/>
 						</ResourceUse>
 					</ResourceUses>
 					<TimeSeriesData>
@@ -9792,6 +9739,40 @@
 			<ElectricityPriceEscalationRate>0.05</ElectricityPriceEscalationRate>
 			<WaterPriceEscalationRate>0.05</WaterPriceEscalationRate>
 			<InflationRate>0.03</InflationRate>
+			<Utilities>
+				<Utility ID="ElectricUtility1">
+					<RateSchedule>
+						<TypeOfRateStructure>
+							<FlatRate>
+								<RatePeriod>
+									<EnergyCostRate>0.084</EnergyCostRate>
+									<EnergyRateAdjustment>0.0067</EnergyRateAdjustment>
+									<ElectricDemandRate>5.75</ElectricDemandRate>
+									<DemandRateAdjustment>0.46</DemandRateAdjustment>
+								</RatePeriod>
+							</FlatRate>
+						</TypeOfRateStructure>
+						<RateStructureSector>Commercial</RateStructureSector>
+						<AverageMarginalCostRate>0.091</AverageMarginalCostRate>
+					</RateSchedule>
+					<SourceSiteRatio>3</SourceSiteRatio>
+				</Utility>
+				<Utility ID="GasUtility1">
+					<RateSchedule>
+						<TypeOfRateStructure>
+							<FlatRate>
+								<RatePeriod>
+									<EnergyCostRate>0.865</EnergyCostRate>
+									<EnergyRateAdjustment>0.069</EnergyRateAdjustment>
+								</RatePeriod>
+							</FlatRate>
+						</TypeOfRateStructure>
+						<RateStructureSector>Commercial</RateStructureSector>
+						<AverageMarginalCostRate>0.934</AverageMarginalCostRate>
+					</RateSchedule>
+					<SourceSiteRatio>1</SourceSiteRatio>
+				</Utility>
+			</Utilities>
 		</Report>
 	</Audit>
 </Audits>
