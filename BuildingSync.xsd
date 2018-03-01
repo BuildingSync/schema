@@ -4596,6 +4596,7 @@
 															<xs:enumeration value="Clean and/or repair"/>
 															<xs:enumeration value="Implement training and/or documentation"/>
 															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+															<xs:enumeration value="Convert to Cleaner Fuels"/>
 															<xs:enumeration value="Other"/>
 														</xs:restriction>
 													</xs:simpleType>
@@ -4671,7 +4672,6 @@
 															<xs:enumeration value="Improve distribution fans"/>
 															<xs:enumeration value="Improve ventilation fans"/>
 															<xs:enumeration value="Convert CV system to VAV system"/>
-															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 															<xs:enumeration value="Repair leaks / seal ducts"/>
 															<xs:enumeration value="Add duct insulation"/>
 															<xs:enumeration value="Balance ventilation/distribution system"/>
@@ -4681,14 +4681,21 @@
 															<xs:enumeration value="Replace packaged terminal units"/>
 															<xs:enumeration value="Install passive solar heating"/>
 															<xs:enumeration value="Replace AC and heating units with ground coupled heat pump systems"/>
-															<xs:enumeration value="Add energy recovery"/>
-															<xs:enumeration value="Add or replace cooling tower"/>
-															<xs:enumeration value="Install gas cooling"/>
-															<xs:enumeration value="Add or repair economizer"/>
 															<xs:enumeration value="Add enhanced dehumidification"/>
 															<xs:enumeration value="Install solar ventilation preheating system"/>
+															<xs:enumeration value="Add or repair economizer"/>
+															<xs:enumeration value="Add energy recovery"/>
+															<xs:enumeration value="Add or replace cooling tower"/>
+															<xs:enumeration value="Install thermal destratification fans"/>
+															<xs:enumeration value="Install demand control ventilation"/>
+															<xs:enumeration value="Install gas cooling"/>
+															<xs:enumeration value="Install air source heat pump"/>
+															<xs:enumeration value="Install variable refrigerant flow system"/>
+															<xs:enumeration value="Capture and return condensate"/>
+															<xs:enumeration value="Install or Upgrade Master Venting"/>
 															<xs:enumeration value="Clean and/or repair"/>
 															<xs:enumeration value="Implement training and/or documentation"/>
+															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
 															<xs:enumeration value="Other heating"/>
 															<xs:enumeration value="Other cooling"/>
 															<xs:enumeration value="Other ventilation"/>
@@ -4720,6 +4727,11 @@
 															<xs:enumeration value="Retrofit with light emitting diode technologies"/>
 															<xs:enumeration value="Add daylight controls"/>
 															<xs:enumeration value="Add occupancy sensors"/>
+															<xs:enumeration value="Install photocell control"/>
+															<xs:enumeration value="Install timers"/>
+															<xs:enumeration value="Replace diffusers"/>
+															<xs:enumeration value="Upgrade exit signs to LED"/>
+															<xs:enumeration value="Upgrade exterior lighting"/>
 															<xs:enumeration value="Clean and/or repair"/>
 															<xs:enumeration value="Implement training and/or documentation"/>
 															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
@@ -4785,9 +4797,12 @@
 															<xs:enumeration value="Replace or upgrade water heater"/>
 															<xs:enumeration value="Add energy recovery"/>
 															<xs:enumeration value="Install solar hot water system"/>
-															<xs:enumeration value="Separate DHW from heating"/>
+															<xs:enumeration value="Separate SHW from heating"/>
 															<xs:enumeration value="Replace with higher efficiency pump"/>
 															<xs:enumeration value="Replace with variable speed pump"/>
+															<xs:enumeration value="Install or upgrade master venting"/>
+															<xs:enumeration value="Replace steam traps with orifice plates"/>
+															<xs:enumeration value="Install steam condensate heat recovery"/>
 															<xs:enumeration value="Clean and/or repair"/>
 															<xs:enumeration value="Implement training and/or documentation"/>
 															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
@@ -4798,9 +4813,34 @@
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="ElectricMotorsAndDrives" minOccurs="0">
+									<xs:element name="ConveyanceSystems" minOccurs="0">
 										<xs:annotation>
-											<xs:documentation>Electric Motors and Drives</xs:documentation>
+											<xs:documentation>Conveyance Systems (e.g., Elevators)</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="MeasureName" maxOccurs="unbounded">
+													<xs:annotation>
+														<xs:documentation>Short description of measure</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Add elevator regenerative drives"/>
+															<xs:enumeration value="Upgrade controls"/>
+															<xs:enumeration value="Upgrade motors"/>
+															<xs:enumeration value="Clean and/or repair"/>
+															<xs:enumeration value="Implement training and/or documentation"/>
+															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+															<xs:enumeration value="Other"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="OtherElectricMotorsAndDrives" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Electric Motors and Drives Other than Those for Conveyance Systems</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
 											<xs:sequence>
@@ -4916,6 +4956,40 @@
 															<xs:enumeration value="Implement power quality upgrades"/>
 															<xs:enumeration value="Upgrade transformers"/>
 															<xs:enumeration value="Install gas distribution systems"/>
+															<xs:enumeration value="Clean and/or repair"/>
+															<xs:enumeration value="Implement training and/or documentation"/>
+															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+															<xs:enumeration value="Other"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="ServiceHotWaterSystems" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Service hot water (SHW) and domestic hot water (DHW) systems</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="MeasureName" maxOccurs="unbounded">
+													<xs:annotation>
+														<xs:documentation>Short description of measure</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Decrease SHW temperature"/>
+															<xs:enumeration value="Install SHW controls"/>
+															<xs:enumeration value="Install solar thermal SHW"/>
+															<xs:enumeration value="Install water pressure booster"/>
+															<xs:enumeration value="Insulate SHW piping"/>
+															<xs:enumeration value="Insulate SHW tank"/>
+															<xs:enumeration value="Replace piping"/>
+															<xs:enumeration value="Replace tankless coil"/>
+															<xs:enumeration value="Separate SHW from heating"/>
+															<xs:enumeration value="Upgrade SHW boiler"/>
+															<xs:enumeration value="Install heat pump SHW system"/>
+															<xs:enumeration value="Install tankless water heaters"/>
 															<xs:enumeration value="Clean and/or repair"/>
 															<xs:enumeration value="Implement training and/or documentation"/>
 															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
@@ -5058,8 +5132,36 @@
 														<xs:restriction base="xs:string">
 															<xs:enumeration value="Replace with ENERGY STAR rated"/>
 															<xs:enumeration value="Install plug load controls"/>
+															<xs:enumeration value="Automatic shutdown or sleep mode for computers"/>
 															<xs:enumeration value="De-lamp vending machines"/>
+															<xs:enumeration value="Replace clothes dryers"/>
+															<xs:enumeration value="Replace washing machines"/>
+															<xs:enumeration value="Clean and/or repair"/>
+															<xs:enumeration value="Implement training and/or documentation"/>
+															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+															<xs:enumeration value="Other"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="DataCenterImprovements" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Data center energy conservation improvements</xs:documentation>
+										</xs:annotation>
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="MeasureName" maxOccurs="unbounded">
+													<xs:annotation>
+														<xs:documentation>Short description of measure</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
 															<xs:enumeration value="Improve data center efficiency"/>
+															<xs:enumeration value="Implement hot aisle hold aisle design"/>
+															<xs:enumeration value="Implement server virtualization"/>
+															<xs:enumeration value="Upgrade servers"/>
 															<xs:enumeration value="Clean and/or repair"/>
 															<xs:enumeration value="Implement training and/or documentation"/>
 															<xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
