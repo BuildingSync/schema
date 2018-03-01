@@ -702,26 +702,7 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="CBECS" minOccurs="0">
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="ClimateZone" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:enumeration value="1"/>
-												<xs:enumeration value="2"/>
-												<xs:enumeration value="3"/>
-												<xs:enumeration value="4"/>
-												<xs:enumeration value="5"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
+						<xs:element name="CBECS" type="auc:CBECSType" minOccurs="0"/>
 						<xs:element name="DOE" minOccurs="0">
 							<xs:complexType>
 								<xs:sequence>
@@ -978,46 +959,10 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="PortfolioManager" minOccurs="0">
+			<xs:element name="PortfolioManager" type="auc:PortfolioManagerType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>If exists then the data for this facility is included in Portfolio Manager.</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="PMBenchmarkDate" type="xs:date" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Date that the building was benchmarked in Portfolio Manager. (CCYY-MM-DD)</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="BuildingProfileStatus" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>The status of the building profile submission process for Portfolio Manager.</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Draft"/>
-									<xs:enumeration value="Received"/>
-									<xs:enumeration value="Under Review"/>
-									<xs:enumeration value="On Hold"/>
-									<xs:enumeration value="Reviewed and Approved"/>
-									<xs:enumeration value="Reviewed and Not Approved"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-						<xs:element name="FederalSustainabilityChecklistCompletionPercentage" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Percentage of the Federal High Performance Sustainability Checklist that has been completed for federal building in Portfolio Manager. (0-100)</xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:simpleContent>
-									<xs:extension base="xs:decimal">
-										<xs:attribute ref="auc:Source"/>
-									</xs:extension>
-								</xs:simpleContent>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 			<xs:element name="NumberOfBusinesses" minOccurs="0">
 				<xs:annotation>
@@ -2282,8 +2227,8 @@
 										</xs:annotation>
 										<xs:complexType>
 											<xs:choice>
-												<xs:element name="PortfolioManager" minOccurs="0"/>
-												<xs:element name="CBECS" minOccurs="0"/>
+												<xs:element name="PortfolioManager" type="auc:PortfolioManagerType" minOccurs="0"/>
+												<xs:element name="CBECS" type="auc:CBECSType" minOccurs="0"/>
 												<xs:element name="CodeMinimum" minOccurs="0">
 													<xs:complexType>
 														<xs:sequence>
@@ -2501,8 +2446,11 @@
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="MeasureID" maxOccurs="unbounded">
+													<xs:annotation>
+														<xs:documentation>ID number of measure.</xs:documentation>
+													</xs:annotation>
 													<xs:complexType>
-														<xs:attribute name="IDref"/>
+														<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
 													</xs:complexType>
 												</xs:element>
 											</xs:sequence>
@@ -2997,7 +2945,7 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Other" minOccurs="0"/>
+						<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -3629,28 +3577,32 @@
 													<xs:annotation>
 														<xs:documentation>(RTP) - pricing rates generally apply to usage on an hourly basis.</xs:documentation>
 													</xs:annotation>
+													<xs:complexType/>
 												</xs:element>
 												<xs:element name="VariablePeakPricing" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>(VPP) - a hybrid of time-of-use and real-time pricing where the different periods for pricing are defined in advance (e.g., on-peak=6 hours for summer weekday afternoon; off-peak = all other hours in the summer months), but the price established for the on-peak period varies by utility and market conditions.</xs:documentation>
 													</xs:annotation>
+													<xs:complexType/>
 												</xs:element>
 												<xs:element name="CriticalPeakPricing" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>(CPP) - when utilities observe or anticipate high wholesale market prices or power system emergency conditions, they may call critical events during a specified time period (e.g., 3 p.m.—6 p.m. on a hot summer weekday), the price for electricity during these time periods is substantially raised. Two variants of this type of rate design exist: one where the time and duration of the price increase are predetermined when events are called and another where the time and duration of the price increase may vary based on the electric grid’s need to have loads reduced</xs:documentation>
 													</xs:annotation>
+													<xs:complexType/>
 												</xs:element>
 												<xs:element name="CriticalPeakRebates" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>(CPR) - when utilities observe or anticipate high wholesale market prices or power system emergency conditions, they may call critical events during pre-specified time periods (e.g., 3 p.m.—6 p.m. summer weekday afternoons), the price for electricity during these time periods remains the same but the customer is refunded at a single, predetermined value for any reduction in consumption relative to what the utility deemed the customer was expected to consume.</xs:documentation>
 													</xs:annotation>
+													<xs:complexType/>
 												</xs:element>
-												<xs:element name="Other" minOccurs="0">
+												<xs:element name="Other" type="auc:OtherType" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>Other type of rate structure, or combination of other types.</xs:documentation>
 													</xs:annotation>
 												</xs:element>
-												<xs:element name="Unknown" minOccurs="0"/>
+												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
@@ -5688,9 +5640,9 @@
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="OtherCombination" minOccurs="0"/>
-												<xs:element name="NoHeating" minOccurs="0"/>
-												<xs:element name="Unknown" minOccurs="0"/>
+												<xs:element name="OtherCombination" type="auc:OtherCombinationType" minOccurs="0"/>
+												<xs:element name="NoHeating" type="auc:NoHeatingType" minOccurs="0"/>
+												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
@@ -5895,9 +5847,9 @@
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="OtherCombination" minOccurs="0"/>
-												<xs:element name="NoCooling" minOccurs="0"/>
-												<xs:element name="Unknown" minOccurs="0"/>
+												<xs:element name="OtherCombination" type="auc:OtherCombinationType" minOccurs="0"/>
+												<xs:element name="NoCooling" type="auc:NoCoolingType" minOccurs="0"/>
+												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
@@ -6459,7 +6411,7 @@
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="Other" minOccurs="0"/>
+												<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
@@ -7211,9 +7163,9 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="OtherCombination" minOccurs="0"/>
-				<xs:element name="NoHeating" minOccurs="0"/>
-				<xs:element name="Unknown" minOccurs="0"/>
+				<xs:element name="OtherCombination" type="auc:OtherCombinationType" minOccurs="0"/>
+				<xs:element name="NoHeating" type="auc:NoHeatingType" minOccurs="0"/>
+				<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 			</xs:choice>
 			<xs:element name="HeatingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
 		</xs:sequence>
@@ -7486,9 +7438,9 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="OtherCombination" minOccurs="0"/>
-				<xs:element name="NoCooling" minOccurs="0"/>
-				<xs:element name="Unknown" minOccurs="0"/>
+				<xs:element name="OtherCombination" type="auc:OtherCombinationType" minOccurs="0"/>
+				<xs:element name="NoCooling" type="auc:NoCoolingType" minOccurs="0"/>
+				<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 			</xs:choice>
 			<xs:element name="CoolingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
 		</xs:sequence>
@@ -7837,8 +7789,8 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="Other" minOccurs="0"/>
-				<xs:element name="Unknown" minOccurs="0"/>
+				<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
+				<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 			</xs:choice>
 			<xs:element name="CondenserPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
 		</xs:sequence>
@@ -8119,8 +8071,8 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="OtherCombination" minOccurs="0"/>
-						<xs:element name="Unknown" minOccurs="0"/>
+						<xs:element name="OtherCombination" type="auc:OtherCombinationType" minOccurs="0"/>
+						<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -8354,12 +8306,12 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Neon" minOccurs="0"/>
-						<xs:element name="Plasma" minOccurs="0"/>
-						<xs:element name="Photoluminescent" minOccurs="0"/>
-						<xs:element name="SelfLuminous" minOccurs="0"/>
-						<xs:element name="OtherCombination" minOccurs="0"/>
-						<xs:element name="Unknown" minOccurs="0"/>
+						<xs:element name="Neon" type="auc:NeonType" minOccurs="0"/>
+						<xs:element name="Plasma" type="auc:PlasmaType" minOccurs="0"/>
+						<xs:element name="Photoluminescent" type="auc:PhotoluminescentType" minOccurs="0"/>
+						<xs:element name="SelfLuminous" type="auc:SelfLuminousType" minOccurs="0"/>
+						<xs:element name="OtherCombination" type="auc:OtherCombinationType" minOccurs="0"/>
+						<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -8744,7 +8696,7 @@
 																</xs:annotation>
 																<xs:complexType>
 																	<xs:choice>
-																		<xs:element name="ElectricResistance" minOccurs="0"/>
+																		<xs:element name="ElectricResistance" type="auc:ElectricResistanceType" minOccurs="0"/>
 																		<xs:element name="Combustion" minOccurs="0">
 																			<xs:complexType>
 																				<xs:sequence>
@@ -8752,8 +8704,8 @@
 																				</xs:sequence>
 																			</xs:complexType>
 																		</xs:element>
-																		<xs:element name="Other" minOccurs="0"/>
-																		<xs:element name="Unknown" minOccurs="0"/>
+																		<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
+																		<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 																	</xs:choice>
 																</xs:complexType>
 															</xs:element>
@@ -8923,16 +8875,16 @@
 																				</xs:sequence>
 																			</xs:complexType>
 																		</xs:element>
-																		<xs:element name="Other" minOccurs="0"/>
-																		<xs:element name="Unknown" minOccurs="0"/>
+																		<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
+																		<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 																	</xs:choice>
 																</xs:complexType>
 															</xs:element>
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="Other" minOccurs="0"/>
-												<xs:element name="Unknown" minOccurs="0"/>
+												<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
+												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
@@ -9032,7 +8984,7 @@
 										</xs:annotation>
 										<xs:complexType>
 											<xs:choice>
-												<xs:element name="ElectricResistance" minOccurs="0"/>
+												<xs:element name="ElectricResistance" type="auc:ElectricResistanceType" minOccurs="0"/>
 												<xs:element name="Combustion" minOccurs="0">
 													<xs:complexType>
 														<xs:sequence>
@@ -9040,17 +8992,19 @@
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="Other" minOccurs="0"/>
-												<xs:element name="Unknown" minOccurs="0"/>
+												<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
+												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 											</xs:choice>
 										</xs:complexType>
 									</xs:element>
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="HeatExchanger" minOccurs="0"/>
-						<xs:element name="Other" minOccurs="0"/>
-						<xs:element name="Unknown" minOccurs="0"/>
+						<xs:element name="HeatExchanger" minOccurs="0">
+							<xs:complexType/>
+						</xs:element>
+						<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
+						<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -9901,8 +9855,8 @@
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Other" minOccurs="0"/>
-						<xs:element name="Unknown" minOccurs="0"/>
+						<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
+						<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -11673,7 +11627,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Other" minOccurs="0"/>
+						<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -12068,8 +12022,8 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 														</xs:sequence>
 													</xs:complexType>
 												</xs:element>
-												<xs:element name="Other" minOccurs="0"/>
-												<xs:element name="Unknown" minOccurs="0"/>
+												<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
+												<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
@@ -12202,8 +12156,8 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 								</xs:sequence>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="Other" minOccurs="0"/>
-						<xs:element name="Unknown" minOccurs="0"/>
+						<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
+						<xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
 					</xs:choice>
 				</xs:complexType>
 			</xs:element>
@@ -13072,16 +13026,18 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 											</xs:sequence>
 										</xs:complexType>
 									</xs:element>
-									<xs:element name="DirectMeasurement" minOccurs="0"/>
-									<xs:element name="Other" minOccurs="0"/>
+									<xs:element name="DirectMeasurement" minOccurs="0">
+										<xs:complexType/>
+									</xs:element>
+									<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 								</xs:choice>
 							</xs:complexType>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Estimated" minOccurs="0"/>
-			<xs:element name="Other" minOccurs="0"/>
+			<xs:element name="Estimated" type="auc:EstimatedType" minOccurs="0"/>
+			<xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
 		</xs:choice>
 	</xs:complexType>
 	<xs:element name="Quantity">
@@ -15135,4 +15091,69 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 			<xs:enumeration value="None"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="CBECSType">
+		<xs:sequence>
+			<xs:element name="ClimateZone" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ElectricResistanceType"/>
+	<xs:complexType name="EstimatedType"/>
+	<xs:complexType name="NeonType"/>
+	<xs:complexType name="NoCoolingType"/>
+	<xs:complexType name="NoHeatingType"/>
+	<xs:complexType name="OtherCombinationType"/>
+	<xs:complexType name="OtherType"/>
+	<xs:complexType name="PhotoluminescentType"/>
+	<xs:complexType name="PlasmaType"/>
+	<xs:complexType name="PortfolioManagerType">
+		<xs:sequence>
+			<xs:element name="PMBenchmarkDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Date that the building was benchmarked in Portfolio Manager. (CCYY-MM-DD)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BuildingProfileStatus" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The status of the building profile submission process for Portfolio Manager.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Draft"/>
+						<xs:enumeration value="Received"/>
+						<xs:enumeration value="Under Review"/>
+						<xs:enumeration value="On Hold"/>
+						<xs:enumeration value="Reviewed and Approved"/>
+						<xs:enumeration value="Reviewed and Not Approved"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FederalSustainabilityChecklistCompletionPercentage" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Percentage of the Federal High Performance Sustainability Checklist that has been completed for federal building in Portfolio Manager. (0-100)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:decimal">
+							<xs:attribute ref="auc:Source"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SelfLuminousType"/>
+	<xs:complexType name="UnknownType"/>
 </xs:schema>
