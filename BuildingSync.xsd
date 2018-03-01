@@ -14308,8 +14308,8 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 								</xs:annotation>
 								<xs:simpleType>
 									<xs:restriction base="xs:string">
-										<xs:enumeration value="Tenant Area"/>
-										<xs:enumeration value="Common Area"/>
+										<xs:enumeration value="Tenant"/>
+										<xs:enumeration value="Common"/>
 										<xs:enumeration value="Gross"/>
 										<xs:enumeration value="Net"/>
 										<xs:enumeration value="Finished"/>
@@ -14354,12 +14354,12 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 							</xs:element>
 							<xs:element name="FloorAreaPercentage" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>The percentage of subsection floor area that belongs to a FloorAreaType. (0-1) (%)</xs:documentation>
+									<xs:documentation>The percentage of subsection floor area that belongs to a FloorAreaType. (0-100) (%)</xs:documentation>
 								</xs:annotation>
 								<xs:simpleType>
 									<xs:restriction base="xs:float">
 										<xs:minInclusive value="0.0"/>
-										<xs:maxInclusive value="1.0"/>
+										<xs:maxInclusive value="100.0"/>
 									</xs:restriction>
 								</xs:simpleType>
 							</xs:element>
