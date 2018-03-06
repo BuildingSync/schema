@@ -1,6 +1,6 @@
 # BuildingSync
 
-[![Circle CI](https://circleci.com/gh/BuildingSync/schema/tree/develop.svg?style=svg)](https://circleci.com/gh/BuildingSync/schema/tree/develop)
+[![Build Status](https://travis-ci.org/BuildingSync/schema.svg?branch=develop)](https://travis-ci.org/BuildingSync/schema)
 
 BuildingSync® is a common schema for energy audit data that can be 
 utilized by different software and databases involved in the energy 
