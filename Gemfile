@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rake', '~> 10.4'
-gem 'nokogiri', '= 1.6.8.1'
+gem 'rake', '~> 12.3.0'
+gem 'nokogiri', '~> 1.8.2'
 gem 'rubyXL'
 
 gem 'minitest'
