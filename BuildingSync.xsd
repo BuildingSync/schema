@@ -6074,7 +6074,11 @@
 																							</xs:restriction>
 																						</xs:simpleType>
 																					</xs:element>
-																					<xs:element name="ReheatPlantID" type="xs:IDREF" minOccurs="0"/>
+																					<xs:element name="ReheatPlantID" minOccurs="0">
+																						<xs:complexType>
+																							<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+																						</xs:complexType>
+																					</xs:element>
 																				</xs:sequence>
 																			</xs:complexType>
 																		</xs:element>
