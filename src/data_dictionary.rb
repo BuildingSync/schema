@@ -157,9 +157,10 @@ class DataDictionary
           doc_string = node.parent.parent.parent.parent.parent.xpath('.//xs:annotation/xs:documentation').first
         end
 
-        sub_name = node.parent.parent.parent.parent.parent.attribute('name').value
-        data[:sub_name] = sub_name
-        name += " (#{sub_name})"
+        if sub_name = node.parent.parent.parent.parent.parent.attribute('name')
+          data[:sub_name] = sub_name.value
+          name += " (#{sub_name.value})"
+        end
 
       end
 
