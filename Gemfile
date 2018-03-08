@@ -5,4 +5,4 @@ gem 'nokogiri', '= 1.6.8.1'
 gem 'rubyXL'
 
 gem 'minitest'
-gem 'minitest-ci', git: 'https://github.com/circleci/minitest-ci.git', branch: 'master'
+gem 'minitest-ci', github: 'circleci/minitest-ci'
