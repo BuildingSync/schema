@@ -157,9 +157,10 @@ class DataDictionary
           doc_string = node.parent.parent.parent.parent.parent.xpath('.//xs:annotation/xs:documentation').first
         end
 
-        sub_name = node.parent.parent.parent.parent.parent.attribute('name').value
-        data[:sub_name] = sub_name
-        name += " (#{sub_name})"
+        if sub_name = node.parent.parent.parent.parent.parent.attribute('name')
+          data[:sub_name] = sub_name.value
+          name += " (#{sub_name.value})"
+        end
 
       end
 
@@ -217,7 +218,12 @@ class DataDictionary
 
     # also save as JSON
     # sore the new_data hash
-    new_enums.sort! { |a, b| [a[:name], a[:sub_name]] <=> [b[:name], b[:sub_name]] }
+
+    # NOTE If both `name` and `sub_name` attributes are given, then concatenate
+    # the string literals.
+    # NOTE Use `Enumerable#sort_by!` instance method for in-place sorting via a
+    # Schwartzian transform (for improved performance).
+    new_enums.sort_by! { |hash| [hash[:name], hash[:sub_name]].flatten.join('$') }
     pp new_enums
 
     File.open('docs/enumerations.json', 'w') { |f| f << JSON.pretty_generate(new_enums) }
