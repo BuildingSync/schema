@@ -1,4 +1,4 @@
-# BuildingSync
+# BuildingSync®
 
 [![Build Status](https://travis-ci.org/BuildingSync/schema.svg?branch=develop)](https://travis-ci.org/BuildingSync/schema)
 
