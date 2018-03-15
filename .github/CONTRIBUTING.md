@@ -120,4 +120,4 @@ BuildingSync is developed in collaboration with NREL, LBNL, and private firms.
 [BuildingSync_Contribution_Proposal_v1.0_2017-04-10.doc][buildingsync-proposal]
 
 
-[buildingsync-proposal]: https://github.com/BuildingSYnc/schema/raw/develop/.github/BuildingSync_Contribution_Proposal_v1.0_2017-04-10.doc
+[buildingsync-proposal]: https://github.com/BuildingSync/schema/raw/develop/.github/BuildingSync_Contribution_Proposal_v1.0_2017-04-10.doc
