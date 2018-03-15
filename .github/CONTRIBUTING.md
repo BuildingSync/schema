@@ -20,10 +20,10 @@ incorporated into BuildingSync and made available under the BuildingSync license
 
 The contribution process for BuildingSync is composed of three steps:
 
-1.	Send consent email
+1.	**Send consent email**
 
     In order for us to distribute your code as part of BuildingSync under the BuildingSync 
-[license](https://github.com/BuildingSync/schema/blob/master/LICENSE.md), we’ll need 
+[license](https://github.com/BuildingSync/schema/blob/develop/LICENSE.md), we’ll need 
 your consent. An email acknowledging understanding of these terms and agreeing to them is
 all that will be asked of any contributor. Send an email to the BuildingSync project manager (see 
 below for the address) including the following text and a list of co-contributors (if any):
@@ -48,7 +48,7 @@ contributions and grant the foregoing license(s) on behalf of my employer.*
 change of employer).
 
 
-2.	Scope agreement and timeline commitment
+2.	**Scope agreement and timeline commitment**
 
     If your contribution is small (e.g. a bug fix), simply submit your contribution via GitHub. 
 If you find a bug, first make sure it is not an already known issue, then report it in the GitHub 
@@ -64,7 +64,7 @@ which we will re-review. Before you do any work we must reach prior agreement an
 approval on project areas, scope, timeframe, expected contents, and functionalities to be 
 addressed. 
 
-3.	Technical contribution process
+3.  **Technical contribution process**
 
     We want BuildingSync to adhere to our established quality standards. As such, we ask that you follow 
 the information below. Smaller, non-code contributions may not require as much review as code contributions, 
