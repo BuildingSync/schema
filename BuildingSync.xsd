@@ -2524,8 +2524,11 @@
 										<xs:complexType>
 											<xs:sequence>
 												<xs:element name="MeasureID" maxOccurs="unbounded">
+													<xs:annotation>
+														<xs:documentation>ID number of measure.</xs:documentation>
+													</xs:annotation>
 													<xs:complexType>
-														<xs:attribute name="IDref"/>
+														<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
 													</xs:complexType>
 												</xs:element>
 											</xs:sequence>
