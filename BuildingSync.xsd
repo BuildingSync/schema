@@ -6207,7 +6207,11 @@
 																							</xs:restriction>
 																						</xs:simpleType>
 																					</xs:element>
-																					<xs:element name="ReheatPlantID" type="xs:IDREF" minOccurs="0"/>
+																					<xs:element name="ReheatPlantID" minOccurs="0">
+																						<xs:complexType>
+																							<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+																						</xs:complexType>
+																					</xs:element>
 																				</xs:sequence>
 																			</xs:complexType>
 																		</xs:element>
@@ -8293,10 +8297,13 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="LinkedDeliveryID" type="xs:IDREF" minOccurs="0">
+			<xs:element name="LinkedDeliveryID" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Connect to an air distribution system</xs:documentation>
 				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+				</xs:complexType>
 			</xs:element>
 			<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
 			<xs:element ref="auc:Quantity" minOccurs="0"/>
