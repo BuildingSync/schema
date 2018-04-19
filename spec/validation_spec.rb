@@ -25,9 +25,8 @@ RSpec.describe 'Validate Examples' do
       end
 
       total_errors += errors.size
-      puts total_errors
 
-      puts "\n\n"
+      puts "\n"
     end
 
     expect(total_errors).to eq 0
