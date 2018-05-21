@@ -12,8 +12,8 @@ The process is semi-formal and is not intended to be rigidly applied. The proced
   1. The proposer writes a Markdown document, modeled on this document, that succinctly describes the changes that are proposed.
   2. The proposer creates a GitHub pull request that adds the document to the proposal directory in a subdirectory named for the year in which the submission is being made (e.g. proposals/2018/Add_New_Feature_XYZ.md).
   3. The proposer, the BuildingSync team, and other stakeholders and interested parties discuss the proposal and make modifications using the GitHub pull request discussion facility. At the conclusion of this process, the proposal is accepted or rejected.
-  4. If the proposal is accepted, it is merged and the appropriate GitHub tracking procedure (issue, project, etc.) is initiated to track progress toward completion.
-  5. The change is made by the appropriate developer (not necessarily the proposer or a BuildingSync team member) following the contribution policy.
+  4. If the proposal is accepted, a developer is identified (not necessarily the proposer or a BuildingSync team member) and the pull request is merged. The appropriate GitHub tracking procedure (issue, project, etc.) is initiated to track progress toward completion (e.g. a GitHub issue assigned to the developer).
+  5. The change is made by the developer in accordance with the contribution policy.
   6. The developer initiates a GitHub pull request when the changes are complete. The BuildingSync team and other stakeholders and interested parties will review the implementation and request necessary changes. If consensus can be reached that the implementation is acceptable, the pull request is merged and tracking items are closed.
 
 The proposal document must contain at least three sections: **Overview**, **Justification**, and **Implementation**. The purpose of each of the sections is as follows:
