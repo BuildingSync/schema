@@ -128,8 +128,33 @@
 					</EnergyConversionType>
 					<LinkedPremises>
 						<Facility>
-							<LinkedFacilityID IDref="Building1"/>
-							<LinkedFacilityID IDref="Building2"/>
+							<LinkedFacilityID IDref="Building1">
+								<FloorAreas>
+									<FloorArea>
+										<FloorAreaType>Conditioned</FloorAreaType>
+										<FloorAreaPercentage>100</FloorAreaPercentage>
+									</FloorArea>
+								</FloorAreas>
+							</LinkedFacilityID>
+							<LinkedFacilityID IDref="Building2">
+								<FloorAreas>
+									<FloorArea>
+										<FloorAreaType>Gross</FloorAreaType>
+										<FloorAreaPercentage>25</FloorAreaPercentage>
+										<Story>1</Story>
+									</FloorArea>
+									<FloorArea>
+										<FloorAreaType>Gross</FloorAreaType>
+										<FloorAreaPercentage>50</FloorAreaPercentage>
+										<Story>2</Story>
+									</FloorArea>
+									<FloorArea>
+										<FloorAreaType>Gross</FloorAreaType>
+										<FloorAreaPercentage>50</FloorAreaPercentage>
+										<Story>3</Story>
+									</FloorArea>
+								</FloorAreas>
+							</LinkedFacilityID>
 						</Facility>
 					</LinkedPremises>
 				</OnSiteStorageTransmissionGenerationSystem>
