@@ -122,22 +122,26 @@
         <ContactRole>Occupant</ContactRole>
         <ContactName>Arthur Dent</ContactName>
         <ContactCompany>Colorado Phone Sanitizers Association</ContactCompany>
-        <ContactTelephoneNumber>
-          <ContactTelephoneNumberLabel>Cell</ContactTelephoneNumberLabel>
-          <TelephoneNumber>720-555-5555</TelephoneNumber>
-        </ContactTelephoneNumber>
-        <ContactTelephoneNumber>
-          <ContactTelephoneNumberLabel>Days</ContactTelephoneNumberLabel>
-          <TelephoneNumber>303-555-5555</TelephoneNumber>
-        </ContactTelephoneNumber>
-        <ContactEmailAddress>
-          <ContactEmailAddressLabel>Work</ContactEmailAddressLabel>
-          <EmailAddress>arthur@work.email</EmailAddress>
-        </ContactEmailAddress>
-        <ContactEmailAddress>
-          <ContactEmailAddressLabel>Personal</ContactEmailAddressLabel>
-          <EmailAddress>dent.arthur.dent@personal.email</EmailAddress>
-        </ContactEmailAddress>
+        <ContactTelephoneNumbers>
+          <ContactTelephoneNumber>
+            <ContactTelephoneNumberLabel>Cell</ContactTelephoneNumberLabel>
+            <TelephoneNumber>720-555-5555</TelephoneNumber>
+          </ContactTelephoneNumber>
+          <ContactTelephoneNumber>
+            <ContactTelephoneNumberLabel>Days</ContactTelephoneNumberLabel>
+            <TelephoneNumber>303-555-5555</TelephoneNumber>
+          </ContactTelephoneNumber>
+        </ContactTelephoneNumbers>
+        <ContactEmailAddresses>
+          <ContactEmailAddress>
+            <ContactEmailAddressLabel>Work</ContactEmailAddressLabel>
+            <EmailAddress>arthur@work.email</EmailAddress>
+          </ContactEmailAddress>
+          <ContactEmailAddress>
+            <ContactEmailAddressLabel>Personal</ContactEmailAddressLabel>
+            <EmailAddress>dent.arthur.dent@personal.email</EmailAddress>
+          </ContactEmailAddress>
+        </ContactEmailAddresses>
       </Contact>
     </Contacts>
     <Tenants>
@@ -152,17 +156,21 @@
       </Tenant>
       <Tenant ID="Tenant4">
         <TenantName>R11 and Sons Construction</TenantName>
-        <TenantTelephoneNumber>
-          <TenantTelephoneNumberLabel>Days</TenantTelephoneNumberLabel>
-          <TelephoneNumber>555-555-5555</TelephoneNumber>
-        </TenantTelephoneNumber>
-        <TenantEmailAddress>
-          <TenantEmailAddressLabel>Work</TenantEmailAddressLabel>
-          <EmailAddress>freon@relevenco.com</EmailAddress>
-        </TenantEmailAddress>
-        <TenantEmailAddress>
-          <EmailAddress>info@relevenco.com</EmailAddress>
-        </TenantEmailAddress>
+        <TenantTelephoneNumbers>
+          <TenantTelephoneNumber>
+            <TenantTelephoneNumberLabel>Days</TenantTelephoneNumberLabel>
+            <TelephoneNumber>555-555-5555</TelephoneNumber>
+          </TenantTelephoneNumber>
+        </TenantTelephoneNumbers>
+        <TenantEmailAddresses>
+          <TenantEmailAddress>
+            <TenantEmailAddressLabel>Work</TenantEmailAddressLabel>
+            <EmailAddress>freon@relevenco.com</EmailAddress>
+          </TenantEmailAddress>
+          <TenantEmailAddress>
+            <EmailAddress>info@relevenco.com</EmailAddress>
+          </TenantEmailAddress>
+        </TenantEmailAddresses>
       </Tenant>
       <Tenant ID="Tenant5">
         <TenantName>Colorado Phone Sanitizers Association</TenantName>

@@ -2155,42 +2155,54 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="auc:Address" minOccurs="0"/>
-			<xs:element name="ContactTelephoneNumber" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ContactTelephoneNumbers" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ContactTelephoneNumberLabel" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>The type of telephone number, to distinguish between multiple instances of Telephone Number.</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Days"/>
-									<xs:enumeration value="Evenings"/>
-									<xs:enumeration value="Cell"/>
-									<xs:enumeration value="Other"/>
-								</xs:restriction>
-							</xs:simpleType>
+						<xs:element name="ContactTelephoneNumber" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ContactTelephoneNumberLabel" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The type of telephone number, to distinguish between multiple instances of Telephone Number.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Days"/>
+												<xs:enumeration value="Evenings"/>
+												<xs:enumeration value="Cell"/>
+												<xs:enumeration value="Other"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element ref="auc:TelephoneNumber"/>
+								</xs:sequence>
+							</xs:complexType>
 						</xs:element>
-						<xs:element ref="auc:TelephoneNumber"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name ="ContactEmailAddress" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ContactEmailAddresses" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ContactEmailAddressLabel" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>The type of email address, to distinguish between multiple instances of Email Address.</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Personal"/>
-									<xs:enumeration value="Work"/>
-									<xs:enumeration value="Other"/>
-								</xs:restriction>
-							</xs:simpleType>
+						<xs:element name ="ContactEmailAddress" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ContactEmailAddressLabel" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The type of email address, to distinguish between multiple instances of Email Address.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Personal"/>
+												<xs:enumeration value="Work"/>
+												<xs:enumeration value="Other"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element ref="auc:EmailAddress"/>
+								</xs:sequence>
+							</xs:complexType>
 						</xs:element>
-						<xs:element ref="auc:EmailAddress"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -2206,46 +2218,57 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="auc:Address" minOccurs="0"/>
-						<xs:element name="TenantTelephoneNumber" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="TenantTelephoneNumbers" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="TenantTelephoneNumberLabel" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>The type of telephone number, to distinguish between multiple instances of Telephone Number.</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Days"/>
-									<xs:enumeration value="Evenings"/>
-									<xs:enumeration value="Cell"/>
-									<xs:enumeration value="Other"/>
-								</xs:restriction>
-							</xs:simpleType>
+						<xs:element name="TenantTelephoneNumber" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="TenantTelephoneNumberLabel" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The type of telephone number, to distinguish between multiple instances of Telephone Number.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Days"/>
+												<xs:enumeration value="Evenings"/>
+												<xs:enumeration value="Cell"/>
+												<xs:enumeration value="Other"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element ref="auc:TelephoneNumber"/>
+								</xs:sequence>
+							</xs:complexType>
 						</xs:element>
-						<xs:element ref="auc:TelephoneNumber"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name ="TenantEmailAddress" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="TenantEmailAddresses" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="TenantEmailAddressLabel" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>The type of email address, to distinguish between multiple instances of Email Address.</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Personal"/>
-									<xs:enumeration value="Work"/>
-									<xs:enumeration value="Other"/>
-								</xs:restriction>
-							</xs:simpleType>
+						<xs:element name ="TenantEmailAddress" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="TenantEmailAddressLabel" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The type of email address, to distinguish between multiple instances of Email Address.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Personal"/>
+												<xs:enumeration value="Work"/>
+												<xs:enumeration value="Other"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element ref="auc:EmailAddress"/>
+								</xs:sequence>
+							</xs:complexType>
 						</xs:element>
-						<xs:element ref="auc:EmailAddress"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element ref="auc:EmailAddress" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="ContactID" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
