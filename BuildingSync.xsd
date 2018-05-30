@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://nrel.gov/schemas/bedes-auc/2014" targetNamespace="http://nrel.gov/schemas/bedes-auc/2014" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:annotation>
-		<xs:documentation>BuildingSync Schema - Version 0.2</xs:documentation>
+		<xs:documentation>BuildingSync Schema - Version 0.3</xs:documentation>
 	</xs:annotation>
 	<xs:element name="Audits">
 		<xs:complexType>
@@ -559,6 +559,13 @@
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
+							<xs:element name="Tenants" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Tenant" type="auc:TenantType" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
 							<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
 						</xs:sequence>
 						<xs:attribute name="ID" type="xs:ID"/>
@@ -941,6 +948,7 @@
 			<xs:element ref="auc:Ownership" minOccurs="0"/>
 			<xs:element ref="auc:OwnershipStatus" minOccurs="0"/>
 			<xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
+			<xs:element ref="auc:TenantID" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="NAICSCode" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>North American Industry Classification System code.</xs:documentation>
@@ -1324,6 +1332,7 @@
 									<xs:element ref="auc:OccupancyLevels" minOccurs="0"/>
 									<xs:element ref="auc:TypicalOccupantUsages" minOccurs="0"/>
 									<xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
+									<xs:element ref="auc:TenantID" minOccurs="0" maxOccurs="unbounded"/>
 									<xs:element name="YearOfConstruction" type="xs:gYear" minOccurs="0">
 										<xs:annotation>
 											<xs:documentation>Year in which construction was completed on the premise. (CCYY)</xs:documentation>
@@ -1955,6 +1964,7 @@
 				</xs:complexType>
 			</xs:element>
 			<xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
+			<xs:element ref="auc:TenantID" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="auc:FloorAreas" minOccurs="0"/>
 			<xs:element name="PercentageOfCommonSpace" minOccurs="0">
 				<xs:annotation>
@@ -2145,47 +2155,123 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element ref="auc:Address" minOccurs="0"/>
-			<xs:element name="ContactTelephoneNumbers" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ContactTelephoneNumbers" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ContactTelephoneNumberLabel" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>The type of telephone number, to distinguish between multiple instances of Telephone Number.</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Days"/>
-									<xs:enumeration value="Evenings"/>
-									<xs:enumeration value="Cell"/>
-									<xs:enumeration value="Other"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-						<xs:element name="ContactTelephoneNumber" type="xs:string" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>Telephone number associated with the contact. Format: NNN-NNN-NNNN</xs:documentation>
-							</xs:annotation>
+						<xs:element name="ContactTelephoneNumber" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ContactTelephoneNumberLabel" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The type of telephone number, to distinguish between multiple instances of Telephone Number.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Days"/>
+												<xs:enumeration value="Evenings"/>
+												<xs:enumeration value="Cell"/>
+												<xs:enumeration value="Other"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element ref="auc:TelephoneNumber"/>
+								</xs:sequence>
+							</xs:complexType>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="ContactEmailAddresses" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ContactEmailAddresses" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="ContactEmailAddressLabel" minOccurs="0">
-							<xs:annotation>
-								<xs:documentation>The type of email address, to distinguish between multiple instances of Contact Email Address.</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Personal"/>
-									<xs:enumeration value="Work"/>
-									<xs:enumeration value="Other"/>
-								</xs:restriction>
-							</xs:simpleType>
+						<xs:element name ="ContactEmailAddress" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ContactEmailAddressLabel" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The type of email address, to distinguish between multiple instances of Email Address.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Personal"/>
+												<xs:enumeration value="Work"/>
+												<xs:enumeration value="Other"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element ref="auc:EmailAddress"/>
+								</xs:sequence>
+							</xs:complexType>
 						</xs:element>
-						<xs:element ref="auc:ContactEmailAddress" minOccurs="0"/>
 					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+	</xs:complexType>
+	<xs:complexType name="TenantType">
+		<xs:sequence>
+			<xs:element name="TenantName" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name of the tenant</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="auc:Address" minOccurs="0"/>
+			<xs:element name="TenantTelephoneNumbers" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TenantTelephoneNumber" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="TenantTelephoneNumberLabel" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The type of telephone number, to distinguish between multiple instances of Telephone Number.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Days"/>
+												<xs:enumeration value="Evenings"/>
+												<xs:enumeration value="Cell"/>
+												<xs:enumeration value="Other"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element ref="auc:TelephoneNumber"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TenantEmailAddresses" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name ="TenantEmailAddress" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="TenantEmailAddressLabel" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>The type of email address, to distinguish between multiple instances of Email Address.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Personal"/>
+												<xs:enumeration value="Work"/>
+												<xs:enumeration value="Other"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element ref="auc:EmailAddress"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ContactID" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
 				</xs:complexType>
 			</xs:element>
 			<xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
@@ -10862,8 +10948,7 @@
 			</xs:element>
 			<xs:element name="WallFramingSpacing" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Dimension of the distance between two components. Framing spacing: the dimension from centerline to centerline of a surface framing material. (in.)
-</xs:documentation>
+					<xs:documentation>Dimension of the distance between two components. Framing spacing: the dimension from centerline to centerline of a surface framing material. (in.)</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:simpleContent>
@@ -13963,7 +14048,12 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="ContactEmailAddress" type="xs:string">
+	<xs:element name="TelephoneNumber" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Telephone number may be specified for customer, contractors, and other contacts or businesses. Format: NNN-NNN-NNNN</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="EmailAddress" type="xs:string">
 		<xs:annotation>
 			<xs:documentation>Email address may be specified for customer, contractors, and other contacts or businesses.</xs:documentation>
 		</xs:annotation>
@@ -14453,6 +14543,14 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
 	<xs:element name="PrimaryContactID">
 		<xs:annotation>
 			<xs:documentation>Primary contact ID number for the premises.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TenantID">
+		<xs:annotation>
+			<xs:documentation>Tenant ID number for the premises.</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:attribute name="IDref" type="xs:IDREF" use="required"/>
