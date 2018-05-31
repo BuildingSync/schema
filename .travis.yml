@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 2.2.4
+before_install: gem install bundler -v 1.16.1
+script:
+  - bundle exec rake
+  - bundle exec rake generate_data_dictionary
+#notifications:
+#  webhooks:
+#    - https://dashboard.buildingsync.net/projects/e802aaf7-6879-4a06-8316-b5dd1deb5b2a/status
+
