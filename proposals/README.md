@@ -4,7 +4,7 @@
 This document lays out the procedure for the proposal and completion of changes to BuildingSync. The procedure is described in further detail below. The proposal process is initiated with the creation of a document similar to this one. The document is expected to have at least three sections: **Overview**, **Justification**, and **Implementation**. The overview section provides a high-level description of the proposal, the justification section provides evidence that the changes are needed or required, and the implementation section describes how the changes will be implemented. 
 
 ## Justification ##
-BuildingSync is intended to be a standardized language for commercial building energy audit data that software developers can use to exchange data between audit tools. BuildingSync will only continue to provide a standard data specification for audit-related information if there is an open, transparent process by which stakeholders can propose changes, in particular additions, to the schema.
+BuildingSync is intended to be a standardized language for commercial building energy audit data that software developers can use to exchange data between audit tools. BuildingSync will only continue to provide a standard data specification if there is an open, transparent process by which stakeholders can propose changes to the schema.
 
 ## Implementation ##
 The process is semi-formal and is not intended to be rigidly applied. The procedure is roughly comprised of the following steps:
