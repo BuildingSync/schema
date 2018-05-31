@@ -1,9 +1,30 @@
 # BuildingSync
 
-## Unreleased Version (Likely to be Version 0.2)
+## Version 0.3
 
-##### 09/26/2016
-Hendron updates for BEDES 2.0
+- Merged [#12]( https://github.com/BuildingSync/schema/pull/12 ), Removed SpaceID from Sides, since it's redundant with what's defined in thermal zone. (KMFM, per PNNL)
+- Merged [#13]( https://github.com/BuildingSync/schema/pull/13 ), Add New CTS Example
+- Merged [#14]( https://github.com/BuildingSync/schema/pull/14 ), Changed cooling tower control to separate types - fan, temperature, and cell. (KMFM, per PNNL)
+- Merged [#15]( https://github.com/BuildingSync/schema/pull/15 ), Updates based on revisions in BEDES Version 2.0
+- Merged [#23]( https://github.com/BuildingSync/schema/pull/23 ), Added user defined fields to Heating-Source and Cooling-Source in HVAC
+- Merged [#25]( https://github.com/BuildingSync/schema/pull/25 ), Change Heating Plant Type
+- Merged [#26]( https://github.com/BuildingSync/schema/pull/26 ), Burner Additions
+- Merged [#27]( https://github.com/BuildingSync/schema/pull/27 ), Equipment Condition
+- Merged [#28]( https://github.com/BuildingSync/schema/pull/28 ), Add Annual Peak Reduction Element
+- Merged [#30]( https://github.com/BuildingSync/schema/pull/30 ), Add COP to SHW units
+- Merged [#31]( https://github.com/BuildingSync/schema/pull/31 ), Initial Multi-Tenant Support
+- Merged [#32]( https://github.com/BuildingSync/schema/pull/32 ), Move Utility and Use References
+- Merged [#33]( https://github.com/BuildingSync/schema/pull/33 ), Remove unbounded from auc:PremisesIdentifiers.
+- Merged [#34]( https://github.com/BuildingSync/schema/pull/34 ), ECM categories and enumerations
+- Merged [#35]( https://github.com/BuildingSync/schema/pull/35 ), Common_tenant_area
+- Merged [#36]( https://github.com/BuildingSync/schema/pull/36 ), Fix example file failure
+- Merged [#37]( https://github.com/BuildingSync/schema/pull/37 ), Feature/fix undefined xsd attributes and elements
+- Merged [#46]( https://github.com/BuildingSync/schema/pull/46 ), Update license
+- Merged [#49]( https://github.com/BuildingSync/schema/pull/49 ), Add a Sharing Example
+- Merged [#50]( https://github.com/BuildingSync/schema/pull/50 ), Add FloorAreas to LinkedPremises
+
+Specific changes:
+
 * "Public housing" added to OccupancyClassification
 * Added several new "ContactRole" options to enumeration, and dropped "Finance Specialist"
 * Added ContactTitle as a new element
@@ -15,18 +36,12 @@ Hendron updates for BEDES 2.0
 * Several new options for CostEffectivenessScreeningMethod were added.
 * Several new choices under TypeOfRateStructure were added. Detailed information was not, because they are really just subtypes of Tiered Rate, and if details are important they should be entered there.
 * NOx and SO2 were added as options under EmissionsType.
-
-##### 06/10/2016
-* Changed cooling tower control to separate types - fan, temperature, and cell. (KMFM, per PNNL)
-
-##### 05/13/2016
-* Removed SpaceID from Sides, since it's redundant with what's defined in thermal zone. (KMFM, per PNNL)
-
-##### 04/12/2016
 * Pluralize MeasureIDs under PackageOfMeasure Reporting Scenario
-
-##### 03/28/2016
 * Pluralize TechnologyCategory to TechnologyCategories
+
+## Version 0.2
+
+Version 0.2 changes are listed below. The big change for 0.2 was the resetting of the version number from 2.0 to 0.2.
 
 #### 3/22/2016 
 * Hendron changed Space element to unconstrained.
