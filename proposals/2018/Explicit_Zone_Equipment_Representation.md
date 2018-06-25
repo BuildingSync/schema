@@ -1,4 +1,4 @@
-# Explicit Zone Equipment Representation #
+# Change Representation of Zone Equipment #
 
 ## Overview ##
 The schema presently does not allow for the representation of the presence of delivery-type zone equipment without specifying the type of zone equipment. Workarounds are possible, but all involve adding either additional enumerations or the use of user-defined fields. The proposed change splits the fan-based delivery equipment into two parts and branches on "zone equipment or not" before branching on the equipment type. 
