@@ -1,7 +1,7 @@
 # Explicit Zone Equipment Representation #
 
 ## Overview ##
-The schema presently does not allow for the representation of the presence of delivery-type zone equipment without specifying the type of zone equipment. Workarounds are possible, but it is better to undertake the breaking change now so as to minimize the impact of the breaking change. The proposed change splits the fan-based delivery equipment into two parts and branches on "zone equipment or not" before branching on the equipment type. 
+The schema presently does not allow for the representation of the presence of delivery-type zone equipment without specifying the type of zone equipment. Workarounds are possible, but all involve adding either additional enumerations or the use of user-defined fields. The proposed change splits the fan-based delivery equipment into two parts and branches on "zone equipment or not" before branching on the equipment type. 
 
 ## Justification ##
 The current schema for representation of delivery at
@@ -15,7 +15,7 @@ branches on
   * Radiant 
   * Other
 
-before it is possible to note that there is zone equipment present without specifying the type. For a detailed audit, it is logical to assume that the auditor will see the equipment and will be able to input the type. However, for higher-level audits (e.g. ASHRAE level 1 or 2) it may be desirable to note that zone equipment is present without specifying the type. The ASHRAE Standard 211 spreadsheet does this on the "L2 - HVAC" sheet. In the category of "Cooling Distribution Equipment Type", two checkboxes ask about zone equipment but not what type of zone equipment:
+so it is not possible to simple note that there is zone equipment present without specifying the type. For a detailed audit, it is logical to assume that the auditor will see the equipment and will be able to input the type. However, for higher-level audits (e.g. ASHRAE level 1 or 2) it may be desirable to note that zone equipment is present without specifying the type. The ASHRAE Standard 211 spreadsheet does this on the "L2 - HVAC" sheet. In the category of "Cooling Distribution Equipment Type", two checkboxes ask about zone equipment but not what type of zone equipment:
 
   * Hydronic to zone equipment (e.g. fan coil units, packaged terminal units or radiators)
   * Refrigerant to zone equipment (e.g. fan coil units, packaged terminal units or radiators)
@@ -42,7 +42,7 @@ will be maintained. Note that one level has been omitted here under FanBased for
     - Other
   * Other
 
-The CentralAirDistribution and ZoneEquipment/FanCoil branches will make use of the top-level type developed in step one.
+The CentralAirDistribution and ZoneEquipment/FanCoil branches will make use of the top-level type developed in step one. All tests will be modified to use the new representation
 
 ## References ##
 N/A
