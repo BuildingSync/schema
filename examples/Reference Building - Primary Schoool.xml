@@ -8809,9 +8809,7 @@
 						<LinkedFacilityID IDref="Building1">
 							<FloorAreas>
 								<FloorArea>
-									<FloorArea>
-										<FloorAreaPercentage>100</FloorAreaPercentage>
-									</FloorArea>
+									<FloorAreaPercentage>100</FloorAreaPercentage>
 								</FloorArea>
 							</FloorAreas>
 						</LinkedFacilityID>
@@ -9087,7 +9085,7 @@
 									<FloorAreaPercentage>100</FloorAreaPercentage>
 								</FloorArea>
 							</FloorAreas>
-						</LinkedFacilityID>
+						</LinkedSpaceID>
 					</Space>
 				</LinkedPremises>
 				<TechnologyCategories>
@@ -9291,13 +9289,15 @@
 				</TypeOfMeasure>
 				<SystemCategoryAffected>Water Use</SystemCategoryAffected>
 				<LinkedPremises>
-					<LinkedSpaceID IDref="Space20">
-						<FloorAreas>
-							<FloorArea>
-								<FloorAreaPercentage>100</FloorAreaPercentage>
-							</FloorArea>
-						</FloorAreas>
-					</LinkedSpaceID>
+					<Space>
+						<LinkedSpaceID IDref="Space20">
+							<FloorAreas>
+								<FloorArea>
+									<FloorAreaPercentage>100</FloorAreaPercentage>
+								</FloorArea>
+							</FloorAreas>
+						</LinkedSpaceID>
+					</Space>
 				</LinkedPremises>
 				<TechnologyCategories>
 					<TechnologyCategory>
@@ -9362,13 +9362,15 @@
 				</TypeOfMeasure>
 				<SystemCategoryAffected>Heating System</SystemCategoryAffected>
 				<LinkedPremises>
-					<LinkedFacilityID IDref="Building1">
-						<FloorAreas>
-							<FloorArea>
-								<FloorAreaPercentage>100</FloorAreaPercentage>
-							</FloorArea>
-						</FloorAreas>
-					</LinkedFacilityID>
+					<Facility>
+						<LinkedFacilityID IDref="Building1">
+							<FloorAreas>
+								<FloorArea>
+									<FloorAreaPercentage>100</FloorAreaPercentage>
+								</FloorArea>
+							</FloorAreas>
+						</LinkedFacilityID>
+					</Facility>
 				</LinkedPremises>
 				<TechnologyCategories>
 					<TechnologyCategory>
