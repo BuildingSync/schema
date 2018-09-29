@@ -51,7 +51,11 @@ Note that:
 
 ## Implementation
 
-This proposal is to harmonize the definition of the `PremisesAffected` element with that of the `LinkedPremises` element. For example:
+This proposal is:
+1. To remove the `PremisesAffected` element and to replace its use with that of the `LinkedPremises` element.
+2. To remove the `MeasureCoverage` element and to replace its use with that of the `FloorAreas` element.
+
+For example:
 
 ```xml
 <Measure>
@@ -59,17 +63,32 @@ This proposal is to harmonize the definition of the `PremisesAffected` element w
   <LinkedPremises>
     <Site>
       <LinkedSiteID IDref="Site1">
-        <MeasureCoverage>10</MeasureCoverage>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Tenant</FloorAreaType>
+            <FloorAreaPercentage>10</FloorAreaPercentage>
+          </FloorArea>
+        </FloorAreas>
       </LinkedSiteID>
     </Site>
     <Facility>
       <LinkedFacilityID IDref="Facility1">
-        <MeasureCoverage>20</MeasureCoverage>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Tenant</FloorAreaType>
+            <FloorAreaPercentage>20</FloorAreaPercentage>
+          </FloorArea>
+        </FloorAreas>
       </LinkedFacilityID>
     </Facility>
     <Subsection>
       <LinkedSubsectionID IDref="Subsection1">
-        <MeasureCoverage>40</MeasureCoverage>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Tenant</FloorAreaType>
+            <FloorAreaPercentage>40</FloorAreaPercentage>
+          </FloorArea>
+        </FloorAreas>
       </LinkedSubsectionID>
     </Subsection>
   </LinkedPremises>
@@ -80,6 +99,7 @@ This proposal is to harmonize the definition of the `PremisesAffected` element w
 Note that:
 * Using XSD, the `LinkedPremises` element can be defined as a child element of the `Measure` element (with optional `MeasureCoverage` elements).
 * The `LinkedPremises` structure indicates the type of the referenced element.
+* The `FloorAreaType` element indicates the floor area type ("Tenant" in the above example).
 
 ## References
 
