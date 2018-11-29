@@ -8,6 +8,12 @@ Follow the steps below when releasing a new version
 * (Optional) Convert XSD to JSON schema. This is still in prototype. Use XMLSpy to Generate JSON Schema (use default options).
 
 * Ensure that the XSD and JSON Schema have spaces, and not tabs.
+   
+    * You can run the following command to convert tabs to spaces (make sure to create backups of the files before running).
+
+        ```bash
+        rake remove_tabs
+        ```
 
 * Update the CHANGELOG to include the latest changes, and the most recent version.
 
