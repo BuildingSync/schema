@@ -2,7 +2,8 @@
 <Audits xmlns="http://nrel.gov/schemas/bedes-auc/2014" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nrel.gov/schemas/bedes-auc/2014 ../BuildingSync.xsd">
   <Audit>
     <Sites>
-      <Site>
+      <Site ID="SiteA">
+        <PremisesName>NREL Campus</PremisesName>
         <Address>
           <StreetAddressDetail>
             <Simplified>
@@ -14,7 +15,7 @@
           <PostalCode>80401</PostalCode>
         </Address>
         <Facilities>
-          <Facility ID="Building1">
+          <Facility ID="Facility1">
             <PremisesName>RSF</PremisesName>
             <OccupancyClassification>Office</OccupancyClassification>
             <OccupancyLevels>
@@ -31,8 +32,14 @@
               </FloorArea>
             </FloorAreas>
             <YearOfConstruction>2011</YearOfConstruction>
+            <UserDefinedFields>
+              <UserDefinedField>
+                <FieldName>Note</FieldName>
+                <FieldValue>This is a note on the RSF</FieldValue>
+              </UserDefinedField>
+            </UserDefinedFields>
           </Facility>
-          <Facility ID="Building2">
+          <Facility ID="Facility2">
             <PremisesName>ESIF</PremisesName>
             <OccupancyClassification>Laboratory-Testing</OccupancyClassification>
             <OccupancyLevels>
@@ -42,6 +49,8 @@
               </OccupancyLevel>
             </OccupancyLevels>
             <OwnershipStatus>Owned</OwnershipStatus>
+            <FloorsAboveGrade>3</FloorsAboveGrade>
+            <FloorsBelowGrade>1</FloorsBelowGrade>
             <FloorAreas>
               <FloorArea>
                 <FloorAreaType>Gross</FloorAreaType>
@@ -52,17 +61,27 @@
             <Subsections>
               <Subsection ID="Wholebuilding2">
                 <PremisesName>Wholebuilding2</PremisesName>
-                <FloorsAboveGrade>3</FloorsAboveGrade>
-                <FloorsBelowGrade>1</FloorsBelowGrade>
               </Subsection>
             </Subsections>
+            <UserDefinedFields>
+              <UserDefinedField>
+                <FieldName>Note</FieldName>
+                <FieldValue>This is a note on the ESIF</FieldValue>
+              </UserDefinedField>
+            </UserDefinedFields>
           </Facility>
         </Facilities>
+        <UserDefinedFields>
+          <UserDefinedField>
+            <FieldName>Note</FieldName>
+            <FieldValue>This is a note on the site</FieldValue>
+          </UserDefinedField>
+        </UserDefinedFields>
       </Site>
     </Sites>
     <Systems>
       <HVACSystems>
-        <HVACSystem>
+        <HVACSystem ID="UnsharedHeating">
           <Plants>
             <HeatingPlant ID="HeatingPlant1">
               <Boiler>
@@ -82,11 +101,11 @@
           </HeatingAndCoolingSystems>
           <LinkedPremises>
             <Facility>
-              <LinkedFacilityID IDref="Building2"/>
+              <LinkedFacilityID IDref="Facility2"/>
             </Facility>
           </LinkedPremises>
         </HVACSystem>
-        <HVACSystem>
+        <HVACSystem ID="SharedCooling">
           <Plants>
             <CoolingPlant ID="CoolingPlant1">
               <Chiller>
@@ -111,14 +130,14 @@
           </HeatingAndCoolingSystems>
           <LinkedPremises>
             <Facility>
-              <LinkedFacilityID IDref="Building1"/>
-              <LinkedFacilityID IDref="Building2"/>
+              <LinkedFacilityID IDref="Facility1"/>
+              <LinkedFacilityID IDref="Facility2"/>
             </Facility>
           </LinkedPremises>
         </HVACSystem>
       </HVACSystems>
       <OnSiteStorageTransmissionGenerationSystems>
-        <OnSiteStorageTransmissionGenerationSystem>
+        <OnSiteStorageTransmissionGenerationSystem ID="AllThePV">
           <EnergyConversionType>
             <Generation>
               <OnSiteGenerationType>
@@ -128,37 +147,62 @@
           </EnergyConversionType>
           <LinkedPremises>
             <Facility>
-              <LinkedFacilityID IDref="Building1">
-                <FloorAreas>
-                  <FloorArea>
-                    <FloorAreaType>Conditioned</FloorAreaType>
-                    <FloorAreaPercentage>100</FloorAreaPercentage>
-                  </FloorArea>
-                </FloorAreas>
-              </LinkedFacilityID>
-              <LinkedFacilityID IDref="Building2">
-                <FloorAreas>
-                  <FloorArea>
-                    <FloorAreaType>Gross</FloorAreaType>
-                    <FloorAreaPercentage>25</FloorAreaPercentage>
-                    <Story>1</Story>
-                  </FloorArea>
-                  <FloorArea>
-                    <FloorAreaType>Gross</FloorAreaType>
-                    <FloorAreaPercentage>50</FloorAreaPercentage>
-                    <Story>2</Story>
-                  </FloorArea>
-                  <FloorArea>
-                    <FloorAreaType>Gross</FloorAreaType>
-                    <FloorAreaPercentage>50</FloorAreaPercentage>
-                    <Story>3</Story>
-                  </FloorArea>
-                </FloorAreas>
-              </LinkedFacilityID>
+              <LinkedFacilityID IDref="Facility1"/>
+              <LinkedFacilityID IDref="Facility2"/>
             </Facility>
           </LinkedPremises>
         </OnSiteStorageTransmissionGenerationSystem>
       </OnSiteStorageTransmissionGenerationSystems>
     </Systems>
+    <Measures>
+      <Measure ID="Building1RemovePV">
+        <TypeOfMeasure>
+          <Removal>
+            <ExistingSystemRemoved IDref="AllThePV"/>
+          </Removal>
+        </TypeOfMeasure>
+        <LinkedPremises>
+          <Facility>
+            <LinkedFacilityID IDref="Facility1"></LinkedFacilityID>
+          </Facility>
+        </LinkedPremises>
+      </Measure>
+      <Measure ID="WholeSiteRemovePV">
+        <TypeOfMeasure>
+          <Removal>
+            <ExistingSystemRemoved IDref="AllThePV"/>
+          </Removal>
+        </TypeOfMeasure>
+        <LinkedPremises>
+          <Facility>
+            <LinkedFacilityID IDref="SiteA"></LinkedFacilityID>
+          </Facility>
+        </LinkedPremises>
+      </Measure>
+    </Measures>
+    <Report>
+      <Scenarios>
+        <Scenario ID="Scenario1">
+          <ScenarioName>Remove all the PV from the RSF</ScenarioName>
+          <ScenarioType>
+            <PackageOfMeasures>
+              <MeasureIDs>
+                <MeasureID IDref="Building1RemovePV"/>
+              </MeasureIDs>
+            </PackageOfMeasures>
+          </ScenarioType>
+        </Scenario>
+        <Scenario ID="Scenario2">
+          <ScenarioName>Remove all the PV from campus</ScenarioName>
+          <ScenarioType>
+            <PackageOfMeasures>
+              <MeasureIDs>
+                <MeasureID IDref="WholeSiteRemovePV"/>
+              </MeasureIDs>
+            </PackageOfMeasures>
+          </ScenarioType>
+        </Scenario>
+      </Scenarios>
+    </Report>
   </Audit>
 </Audits>
