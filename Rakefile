@@ -14,6 +14,18 @@ task :generate_data_dictionary do
   dd.generate
 end
 
+desc 'Convert tabs to spaces'
+task :remove_tabs do
+  Dir['examples/**/*.xml', 'BuildingSync.xsd'].each do |file|
+    puts " Cleaning #{file}"
+    doc = Nokogiri.XML(File.read(file)) do |config|
+      config.default_xml.noblanks
+    end
+
+    File.open(file, 'w') { |f| f << doc.to_xml(:indent => 2) }
+  end
+end
+
 require 'rspec/core/rake_task'
 # require 'ci/reporter/rake/rspec'  # Always create spec reports
 
