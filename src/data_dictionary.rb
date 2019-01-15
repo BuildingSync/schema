@@ -129,7 +129,8 @@ class DataDictionary
     ######################
     # Final Enumerations #
     ######################
-    enumerations = workbook.add_worksheet('Final Enumerations') # Sheet 5
+    workbook.worksheets[0].sheet_name = 'Final Enumerations'
+    enumerations = workbook.worksheets[0]
 
     enums = {}
     new_enums = []
@@ -227,10 +228,5 @@ class DataDictionary
     pp new_enums
 
     File.open('docs/enumerations.json', 'w') { |f| f << JSON.pretty_generate(new_enums) }
-
-    # Copy to website
-    if Dir.exist? '../website/_data'
-      File.open('../website/_data/enumerations.json', 'w') { |f| f << JSON.pretty_generate(new_enums) }
-    end
   end
 end
