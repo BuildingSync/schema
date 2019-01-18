@@ -28,12 +28,12 @@ Traditionally, the root element of an XML schema is a term used to define the da
 mind, the existing root element of Audits means that the schema is defining an Audit (which is partly true); however, this schema is 
 more reallistically defining a Building (or Facility). Also, based on other commonly used schemas, the root element is often 
 named the same as the schema (e.g. HPXML root element is HPXML, gbXML root element is gbXML); therefore, the root element in 
-this implementation could/should be `BuildingSync`.
+this implementation could/should be 'BuildingSync.'
 
 
 ## Implementation
 
-The proposed implementation is to rename the root element sequence in the BuildingSync.xsd file from `Audits/Audit/Sites/Site/Facilities/Facility` to:
+The proposed implementation is to rename the root element sequence in the BuildingSync.xsd file from 'Audits/Audit/Sites/Site/Facilities/Facility' to:
 BuildingSync/Campuses/Campus/Sites/Site/ Buildings/Building
 >BuildingSync/ (New)
 	oCampuses/Campus/ (Previously 'Audit')*
@@ -42,18 +42,18 @@ BuildingSync/Campuses/Campus/Sites/Site/ Buildings/Building
 
 *Note: Multiple options for the name of these elements (Campuses/Campus) have been proposed with the intent of finding the most appropriate term while remaining BEDES compliant. The options are:
 
-a)Campuses/Campus/
-b)Premises/PremisesIdentifer/
-c)Facilities/Facility/
+	a)Campuses/Campus/
+	b)Premises/PremisesIdentifer/
+	c)Facilities/Facility/
 
 If you are reviewing, please comment on the preferred version in a comment (enter either 'A,' 'B,' or 'C'). 
 
 Steps:
 
-1.	Create an element named ‘BuildingSync’ as a parent of the ‘Audits’ element.
-2.	Change the name of the ‘Audits’ and ‘Audit’ elements to ‘Campuses’ and ‘Campus’ (or the chosen term, if different).
-3.	Change the name of the ‘Facilities’ and ‘Facility’ elements to ‘Buildings’ and ‘Building.’
-4.	Add the BEDES definition of each BEDES term used as a description of the mentioned elements.
+	1.Create an element named 'BuildingSync' as a parent of the 'Audits' element.
+	2.Change the name of the 'Audits' and 'Audit' elements to 'Campuses' and 'Campus' (or the chosen term, if different).
+	3.Change the name of the 'Facilities' and 'Facility' elements to 'Buildings' and 'Building.'
+	4.Add the BEDES definition of each BEDES term used as a description of the mentioned elements.
 
   
 
