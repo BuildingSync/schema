@@ -1,0 +1,22 @@
+# Ensure adequate containerization of lists #
+
+## Overview ##
+The BuildingSync schema contains several elements that allow for multiple records. The general practice throughout this schema is to name these elements with a singular noun and to define them as children of elements named with the same noun in the plural form. The purpose of this proposal is to ensure that all elements that allow for multiple records follow the same described practice.
+
+## Justification ##
+
+The BuildingSync XML schema code must be consistent to ensure proper code execution and facilitate future code review and possible modifications.
+
+## Implementation ##
+
+The process to identify the elements that allow for multiple records relies on the "maxOccurs" occurrence indicator. This indicator specifies how many records of a defined element can be made. Whenever an element has this indicator set equal to a number higher than 1 or to the value "unbounded," said element allows for multiple records to be created.
+
+The following steps are to be performed in the BuildingSync.xsd document code:
+	1.Search for all occurrences of "maxOccurs" where the value is set to a number higher than 1 or to "unbounded."
+	2.Of the found elements, discard those whose name is a singular noun and whose parent element is named with the same noun in the plural form.
+	3.For all elements left:
+		a.Ensure their names are singular nouns.
+		b.Create a parent element for them that is named with the same noun in plural form.
+
+## References ##
+For more information on occurrence indicators: https://www.w3schools.com/xml/schema_complex_indicators.asp
