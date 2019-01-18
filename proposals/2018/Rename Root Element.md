@@ -33,14 +33,28 @@ this implementation could/should be `BuildingSync`.
 
 ## Implementation
 
-The proposed implementation is to rename the root element sequence from `Audits/Audit/Sites/Site/Facilities/Facility` to either
+The proposed implementation is to rename the root element sequence in the BuildingSync.xsd file from `Audits/Audit/Sites/Site/Facilities/Facility` to:
+BuildingSync/Campuses/Campus/Sites/Site/ Buildings/Building
+>BuildingSync/ (New)
+	oCampuses/Campus/ (Previously 'Audit')*
+		-Sites/Site/ (Unchanged)
+			>Buildings/Building (Previously 'Facility')
 
-    a) `Facilities/Facility/Sites/Site/Buildings/Building`  or
-    b) `BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building`
-    
-Note, that there are two changes proposed above as the root element and the name of the previously named `Facility` are both changing.
+*Note: Multiple options for the name of these elements (Campuses/Campus) have been proposed with the intent of finding the most appropriate term while remaining BEDES compliant. The options are:
 
-If you are reviewing, please comment on the preferred version in a comment (enter either 'A' or 'B'). 
+a)Campuses/Campus/
+b)Premises/PremisesIdentifer/
+c)Facilities/Facility/
+
+If you are reviewing, please comment on the preferred version in a comment (enter either 'A,' 'B,' or 'C'). 
+
+Steps:
+
+1.	Create an element named ‘BuildingSync’ as a parent of the ‘Audits’ element.
+2.	Change the name of the ‘Audits’ and ‘Audit’ elements to ‘Campuses’ and ‘Campus’ (or the chosen term, if different).
+3.	Change the name of the ‘Facilities’ and ‘Facility’ elements to ‘Buildings’ and ‘Building.’
+4.	Add the BEDES definition of each BEDES term used as a description of the mentioned elements.
+
   
 
 ## Questions
