@@ -7,11 +7,22 @@ The BuildingSync schema can be useful and leveraged for more types of project th
 A few relatively small changes are proposed to better support other cases. The proposed BuildingSync element names have been reviewed by LBNL BEDES team so that they use BEDES compliant terms and structure.
 
 ## Implementation ##
-~~Three~~ Two changes are proposed to better support non-audit projects: 
+The proposed implementation is to add the elements marked with a '*' to the BuildingSync.xsd code:
+	>BuildingSync/
+		oPrograms/*
+			-Program/*
+				+ProgramDate*
+				+ProgramFundingSource*
+				+ProgramClassification*
+		oCampuses/Campus/
+Note that this root element sequence refers to the one explained in Proposal #64.
 
-~~* Change the name of the "Audit" element to "Project". This is a breaking change, but as an element renaming it is a fairly minimal change.~~
-* Add a new element called "ProgramIdentifier" as a child of BuildingSync This change is non-breaking.
-* For the Program Identifier add new elements "ProgramDate", "ProgramFundingSource", "ProgramClassification". This change is non-breaking.
+Steps:
+	a)Create an element named 'Programs' as a sibling of 'Campuses.'
+	b)Create an element named 'Program' as a child of 'Programs.'
+	c)Create the elements 'ProgramDate,' 'ProgramFundingSource,' and 'Program Classification' as children of 'Program.'
+	d)Add the BEDES definition of each BEDES term used as a description of the mentioned elements.
+
 
 ## References ##
-NA
+Site used to research BEDES terms: https://bedes.lbl.gov/bedes-online
