@@ -22,15 +22,21 @@ Follow the steps below when releasing a new version
 
 * After merging down the release into the main branch, draft a release in GitHub. Upload the XSD and JSON file as part of the release.
 
-* Use xs3p to generate the documentation. .
+* Use xs3p to generate the documentation.
 
 	* Download [V1.1.5](https://sourceforge.net/projects/xs3p/) and unzip.
 	* Run `xsltproc xs3p.xsl <path-to-BuildingSync.xsd> > index.html` to generate the new html documentation. Note that xsltproc may need to be installed on your machine to run.
 
 * Edit the BuildingSync Website GitHub repo on a new branch (https://github.com/BuildingSync/website):
 
-	* Add generated documentation under /documents/schema/documentation/<new_version>
-	* Update /documents/schema/index.md to include new release, follow existing pattern.
+	* Run the schema's rake task for generating the data dictionary (`rake generate_data_dictionary`). This will create the list of enumerations in both JSON and XSLX format. In the BuildingSync/website repository:
+	    * Copy this repository's `docs/enumerations.json` file into a new `_data/vXXX` folder in the website folder. Note that the folder cannot contain a dot.
+	    * Copy `schema/documentation/v0.3` to a new folder. Update the files as needed to support the new version.
+	        * Copy the XLSX
+	        * Update the `datadictionary/index.html` and `measures/index.html` to point to the new enumerations.json file.
+        * Update `/schema/index.md` to include new release, follow existing pattern.
+	    * Add generated documentation under `/schema/documentation/<new_version>`
+	    
 
 * Create a Pull Request from the new branch to gh-pages.
 
