@@ -16,11 +16,11 @@ The process to identify the elements that allow for multiple records relies on t
 
 The following steps are to be performed in the BuildingSync.xsd document code:
 
-	1. Search for all occurrences of "maxOccurs" where the value is set to a number higher than 1 or to "unbounded."
-	2. Of the found elements, discard those whose name is a singular noun and whose parent element is named with the same noun in the plural form.
-	3. For all elements left:
-		* Ensure their names are plural nouns.
-		* Create a child element for them that is named with the same noun in singular form.
+1. Search for all occurrences of "maxOccurs" where the value is set to a number higher than 1 or to "unbounded."
+2. Of the found elements, discard those whose name is a singular noun and whose parent element is named with the same noun in the plural form.
+3. For all elements left:
+	* Ensure their names are plural nouns.
+	* Create a child element for them that is named with the same noun in singular form.
 
 List 1, 2, ad 3 are the proposed lists of elements to be changed. These elements were identified using steps 1 and 2.  Note that elements with repeated names each include their schema model path beside them as a comment.
 
