@@ -30,9 +30,9 @@ Originally Proposed: This is what we understood to be proposed originally. It is
 Delivery
 -DeliveryType  
   - FanBased  
-	- FanBasedDistributionType  
-        - CentralAirDistribution   
-        - ZoneEquipment (New)  
+    - FanBasedDistributionType  
+       - CentralAirDistribution   
+       - ZoneEquipment (New)  
           - FanCoil  
           - Convection  
           - Radiant  
@@ -41,31 +41,31 @@ Delivery
 
 Recommended Option A: This reflects what was requested originally with small modifications to make it more intuitive where CentralAirDistribution and ZoneEquipment are children of DeliveryType not FanBasedDistributionType. Pro: Similar to request. Con: ZoneEquipment has children (Convection, Radiant, etc) which might be limiting to use cases. 
 
-Delivery  
-	- DeliveryType  
-		- CentralAirDistribution  
-		- ZoneEquipment (New)  
-			- FanBased  
-				- FanBasedDistributionType   
-					- FanCoil  
-			- Convection  
-			- Radiant  
-			- Other  
-		- Other (New)  
+Delivery
+- DeliveryType  
+  - CentralAirDistribution  
+  - ZoneEquipment (New)  
+     - FanBased  
+       - FanBasedDistributionType   
+            - FanCoil  
+     - Convection  
+     - Radiant  
+     - Other  
+  - Other (New)  
 
 Recommended Option B: This is furthest from what was originally requested but would meet the goals of the 211 use case cleanly. Pro: Structure is intuitive. Con: Most changes.   		
-Delivery  
-	- DeliveryZoningType (New)  
-		- CentralAirDistribution   
-		- ZoneEquipment (New)    
-		- Other (New)  
-	- DeliveryType  
-		- FanBased  
-			- FanBasedDistributionType   
-				- FanCoil  
-		- Convection  
-		- Radiant  
-		- Other  
+Delivery
+- DeliveryZoningType (New)  
+  - CentralAirDistribution   
+  - ZoneEquipment (New)    
+  - Other (New)  
+- DeliveryType  
+  - FanBased  
+     - FanBasedDistributionType   
+       - FanCoil  
+  - Convection  
+  - Radiant  
+  - Other  
 
 ## References ##
 https://xp20.ashrae.org/211-2018/ tab L2-HVAC
