@@ -27,8 +27,8 @@ There are three options for implementation of the Zone Equipment representation 
 
 Originally Proposed: This is what we understood to be proposed originally. It is specified with no missing relevent parent/child relationships. Pro: Reflects request. Con: Organization of information is a bit confusing with having the ZoneEquipment as a child of the  FanBasedDistributionType.
 
-Delivery
--DeliveryType  
+Delivery  
+- DeliveryType  
   - FanBased  
     - FanBasedDistributionType  
        - CentralAirDistribution   
@@ -41,7 +41,7 @@ Delivery
 
 Recommended Option A: This reflects what was requested originally with small modifications to make it more intuitive where CentralAirDistribution and ZoneEquipment are children of DeliveryType not FanBasedDistributionType. Pro: Similar to request. Con: ZoneEquipment has children (Convection, Radiant, etc) which might be limiting to use cases. 
 
-Delivery
+Delivery  
 - DeliveryType  
   - CentralAirDistribution  
   - ZoneEquipment (New)  
@@ -54,7 +54,8 @@ Delivery
   - Other (New)  
 
 Recommended Option B: This is furthest from what was originally requested but would meet the goals of the 211 use case cleanly. Pro: Structure is intuitive. Con: Most changes.   		
-Delivery
+
+Delivery  
 - DeliveryZoningType (New)  
   - CentralAirDistribution   
   - ZoneEquipment (New)    
