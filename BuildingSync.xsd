@@ -3,234 +3,154 @@
   <xs:annotation>
     <xs:documentation>BuildingSync Schema - Version 0.3 (May 31, 2018)</xs:documentation>
   </xs:annotation>
-  <xs:element name="Audits">
+  <xs:element name="BuildingSync">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="Audit" maxOccurs="unbounded">
+        <xs:element name="Facilities">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Sites" minOccurs="0">
+              <xs:element name="Facility" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation>A group of sites which contain buildings.</xs:documentation>
+                </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="Site" type="auc:SiteType" maxOccurs="unbounded"/>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="Systems" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="HVACSystems" minOccurs="0">
+                    <xs:element name="Sites" minOccurs="0">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="HVACSystem" type="auc:HVACSystemType" maxOccurs="unbounded"/>
+                          <xs:element name="Site" type="auc:SiteType" maxOccurs="unbounded"/>
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    <xs:element name="LightingSystems" minOccurs="0">
+                    <xs:element name="Systems" minOccurs="0">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="LightingSystem" type="auc:LightingSystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="DomesticHotWaterSystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="DomesticHotWaterSystem" type="auc:DomesticHotWaterSystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="CookingSystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="CookingSystem" type="auc:CookingSystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="RefrigerationSystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="RefrigerationSystem" type="auc:RefrigerationSystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="DishwasherSystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="DishwasherSystem" type="auc:DishwasherSystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="LaundrySystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="LaundrySystem" type="auc:LaundrySystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="PumpSystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="PumpSystem" type="auc:PumpSystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="FanSystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="FanSystem" type="auc:FanSystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="MotorSystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="MotorSystem" type="auc:MotorSystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="HeatRecoverySystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="HeatRecoverySystem" type="auc:HeatRecoverySystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="WallSystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="WallSystem" type="auc:WallSystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="RoofSystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="RoofSystem" type="auc:RoofSystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="CeilingSystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="CeilingSystem" type="auc:CeilingSystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="FenestrationSystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="FenestrationSystem" type="auc:FenestrationSystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="FoundationSystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="FoundationSystem" type="auc:FoundationSystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="CriticalITSystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="CriticalITSystem" type="auc:CriticalITSystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="PlugLoads" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="PlugLoad" type="auc:PlugLoadType" maxOccurs="unbounded"/>
-                          <xs:element name="MiscellaneousElectricLoad" minOccurs="0">
-                            <xs:annotation>
-                              <xs:documentation>Weighted average electric loads resulting from electric devices not responsible for space heating, cooling, regulated lighting, and water heating. Examples include computers, printers, copiers, desk lighting, vending machines, and refrigerators. (W/ft2)</xs:documentation>
-                            </xs:annotation>
-                            <xs:complexType>
-                              <xs:simpleContent>
-                                <xs:extension base="xs:decimal">
-                                  <xs:attribute ref="auc:Source"/>
-                                </xs:extension>
-                              </xs:simpleContent>
-                            </xs:complexType>
-                          </xs:element>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="ProcessLoads" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="ProcessLoad" type="auc:ProcessLoadType" maxOccurs="unbounded"/>
-                          <xs:element name="MiscellaneousGasLoad" minOccurs="0">
-                            <xs:annotation>
-                              <xs:documentation>Weighted average gas loads resulting from gas devices not responsible for space heating and water heating. (kBtu/ft2)</xs:documentation>
-                            </xs:annotation>
-                            <xs:complexType>
-                              <xs:simpleContent>
-                                <xs:extension base="xs:decimal">
-                                  <xs:attribute ref="auc:Source"/>
-                                </xs:extension>
-                              </xs:simpleContent>
-                            </xs:complexType>
-                          </xs:element>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="ConveyanceSystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="ConveyanceSystem" type="auc:ConveyanceSystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="OnSiteStorageTransmissionGenerationSystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="OnSiteStorageTransmissionGenerationSystem" type="auc:OnSiteStorageTransmissionGenerationSystemType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="Pools" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="Pool" type="auc:PoolType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="WaterUses" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="WaterUse" type="auc:WaterUseType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="AirInfiltrationSystems" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="AirInfiltrationSystem" maxOccurs="unbounded">
-                            <xs:annotation>
-                              <xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
-                            </xs:annotation>
+                          <xs:element name="HVACSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="Tightness" minOccurs="0">
+                                <xs:element name="HVACSystem" type="auc:HVACSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="LightingSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="LightingSystem" type="auc:LightingSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="DomesticHotWaterSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="DomesticHotWaterSystem" type="auc:DomesticHotWaterSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="CookingSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="CookingSystem" type="auc:CookingSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="RefrigerationSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="RefrigerationSystem" type="auc:RefrigerationSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="DishwasherSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="DishwasherSystem" type="auc:DishwasherSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="LaundrySystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="LaundrySystem" type="auc:LaundrySystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="PumpSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="PumpSystem" type="auc:PumpSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="FanSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="FanSystem" type="auc:FanSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="MotorSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="MotorSystem" type="auc:MotorSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="HeatRecoverySystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="HeatRecoverySystem" type="auc:HeatRecoverySystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="WallSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="WallSystem" type="auc:WallSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="RoofSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="RoofSystem" type="auc:RoofSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="CeilingSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="CeilingSystem" type="auc:CeilingSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="FenestrationSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="FenestrationSystem" type="auc:FenestrationSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="FoundationSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="FoundationSystem" type="auc:FoundationSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="CriticalITSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="CriticalITSystem" type="auc:CriticalITSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="PlugLoads" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="PlugLoad" type="auc:PlugLoadType" maxOccurs="unbounded"/>
+                                <xs:element name="MiscellaneousElectricLoad" minOccurs="0">
                                   <xs:annotation>
-                                    <xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
-                                  </xs:annotation>
-                                  <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                      <xs:enumeration value="Very Tight"/>
-                                      <xs:enumeration value="Tight"/>
-                                      <xs:enumeration value="Average"/>
-                                      <xs:enumeration value="Leaky"/>
-                                      <xs:enumeration value="Very Leaky"/>
-                                      <xs:enumeration value="Unknown"/>
-                                    </xs:restriction>
-                                  </xs:simpleType>
-                                </xs:element>
-                                <xs:element name="AirInfiltrationValue" minOccurs="0">
-                                  <xs:annotation>
-                                    <xs:documentation>The measured value from the Air Infiltration test.</xs:documentation>
+                                    <xs:documentation>Weighted average electric loads resulting from electric devices not responsible for space heating, cooling, regulated lighting, and water heating. Examples include computers, printers, copiers, desk lighting, vending machines, and refrigerators. (W/ft2)</xs:documentation>
                                   </xs:annotation>
                                   <xs:complexType>
                                     <xs:simpleContent>
@@ -240,335 +160,424 @@
                                     </xs:simpleContent>
                                   </xs:complexType>
                                 </xs:element>
-                                <xs:element name="AirInfiltrationValueUnits" minOccurs="0">
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="ProcessLoads" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="ProcessLoad" type="auc:ProcessLoadType" maxOccurs="unbounded"/>
+                                <xs:element name="MiscellaneousGasLoad" minOccurs="0">
                                   <xs:annotation>
-                                    <xs:documentation>Units associated with Air Infiltration Value</xs:documentation>
+                                    <xs:documentation>Weighted average gas loads resulting from gas devices not responsible for space heating and water heating. (kBtu/ft2)</xs:documentation>
                                   </xs:annotation>
-                                  <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                      <xs:enumeration value="CFM25"/>
-                                      <xs:enumeration value="CFM50"/>
-                                      <xs:enumeration value="CFM75"/>
-                                      <xs:enumeration value="CFMnatural"/>
-                                      <xs:enumeration value="ACH50"/>
-                                      <xs:enumeration value="ACHnatural"/>
-                                      <xs:enumeration value="Effective Leakage Area"/>
-                                      <xs:enumeration value="Other"/>
-                                    </xs:restriction>
-                                  </xs:simpleType>
+                                  <xs:complexType>
+                                    <xs:simpleContent>
+                                      <xs:extension base="xs:decimal">
+                                        <xs:attribute ref="auc:Source"/>
+                                      </xs:extension>
+                                    </xs:simpleContent>
+                                  </xs:complexType>
                                 </xs:element>
-                                <xs:element name="AirInfiltrationTest" minOccurs="0">
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="ConveyanceSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="ConveyanceSystem" type="auc:ConveyanceSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="OnSiteStorageTransmissionGenerationSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="OnSiteStorageTransmissionGenerationSystem" type="auc:OnSiteStorageTransmissionGenerationSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="Pools" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Pool" type="auc:PoolType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="WaterUses" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="WaterUse" type="auc:WaterUseType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="AirInfiltrationSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="AirInfiltrationSystem" maxOccurs="unbounded">
                                   <xs:annotation>
-                                    <xs:documentation>Type of air infiltration test performed on the building</xs:documentation>
+                                    <xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
                                   </xs:annotation>
-                                  <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                      <xs:enumeration value="Blower door"/>
-                                      <xs:enumeration value="Tracer gas"/>
-                                      <xs:enumeration value="Checklist"/>
-                                      <xs:enumeration value="Other"/>
-                                    </xs:restriction>
-                                  </xs:simpleType>
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Tightness" minOccurs="0">
+                                        <xs:annotation>
+                                          <xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
+                                        </xs:annotation>
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:string">
+                                            <xs:enumeration value="Very Tight"/>
+                                            <xs:enumeration value="Tight"/>
+                                            <xs:enumeration value="Average"/>
+                                            <xs:enumeration value="Leaky"/>
+                                            <xs:enumeration value="Very Leaky"/>
+                                            <xs:enumeration value="Unknown"/>
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element name="AirInfiltrationValue" minOccurs="0">
+                                        <xs:annotation>
+                                          <xs:documentation>The measured value from the Air Infiltration test.</xs:documentation>
+                                        </xs:annotation>
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:decimal">
+                                              <xs:attribute ref="auc:Source"/>
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="AirInfiltrationValueUnits" minOccurs="0">
+                                        <xs:annotation>
+                                          <xs:documentation>Units associated with Air Infiltration Value</xs:documentation>
+                                        </xs:annotation>
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:string">
+                                            <xs:enumeration value="CFM25"/>
+                                            <xs:enumeration value="CFM50"/>
+                                            <xs:enumeration value="CFM75"/>
+                                            <xs:enumeration value="CFMnatural"/>
+                                            <xs:enumeration value="ACH50"/>
+                                            <xs:enumeration value="ACHnatural"/>
+                                            <xs:enumeration value="Effective Leakage Area"/>
+                                            <xs:enumeration value="Other"/>
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element name="AirInfiltrationTest" minOccurs="0">
+                                        <xs:annotation>
+                                          <xs:documentation>Type of air infiltration test performed on the building</xs:documentation>
+                                        </xs:annotation>
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:string">
+                                            <xs:enumeration value="Blower door"/>
+                                            <xs:enumeration value="Tracer gas"/>
+                                            <xs:enumeration value="Checklist"/>
+                                            <xs:enumeration value="Other"/>
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+                                      <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
                                 </xs:element>
-                                <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
-                                <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="WaterInfiltrationSystems" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="WaterInfiltrationSystem" maxOccurs="unbounded">
+                                  <xs:annotation>
+                                    <xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
+                                  </xs:annotation>
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="LocationsOfExteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:annotation>
+                                          <xs:documentation>Location of observed moisture problems on the outside of the building</xs:documentation>
+                                        </xs:annotation>
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:string">
+                                            <xs:enumeration value="Roof"/>
+                                            <xs:enumeration value="Interior ceiling"/>
+                                            <xs:enumeration value="Foundation"/>
+                                            <xs:enumeration value="Basement"/>
+                                            <xs:enumeration value="Crawlspace"/>
+                                            <xs:enumeration value="Walls"/>
+                                            <xs:enumeration value="Around windows"/>
+                                            <xs:enumeration value="Other"/>
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element name="LocationsOfInteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:annotation>
+                                          <xs:documentation>Location of observed moisture problems on the inside of the building</xs:documentation>
+                                        </xs:annotation>
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:string">
+                                            <xs:enumeration value="Kitchen"/>
+                                            <xs:enumeration value="Bathroom"/>
+                                            <xs:enumeration value="Basement"/>
+                                            <xs:enumeration value="Other"/>
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+                                      <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    <xs:element name="WaterInfiltrationSystems" minOccurs="0">
+                    <xs:element name="Schedules" minOccurs="0">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="WaterInfiltrationSystem" maxOccurs="unbounded">
+                          <xs:element name="Schedule" type="auc:ScheduleType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Measures" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Measure" type="auc:MeasureType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Report" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Scenarios" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Scenario" type="auc:ScenarioType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="AuditDate" type="xs:date" minOccurs="0">
                             <xs:annotation>
-                              <xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
+                              <xs:documentation>Date audit was conducted. (CCYY-MM-DD)</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element name="ASHRAEAuditLevel" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Energy audit level as defined in ASHRAE Procedures for Commercial Building Energy Audits.</xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:enumeration value="Preliminary Energy-Use Analysis"/>
+                                <xs:enumeration value="Level 1: Walk-through"/>
+                                <xs:enumeration value="Level 2: Energy Survey and Analysis"/>
+                                <xs:enumeration value="Level 3: Detailed Survey and Analysis"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="RetrocommissioningAudit" type="xs:boolean" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>True if an assessment of retro- or re-commissioning measures was completed as part of the audit.</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element name="AuditCost" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Total cost associated with the audit ($)</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:decimal">
+                                  <xs:attribute ref="auc:Source"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="DiscountFactor" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Discount factor applied to calculate present values of future cash flows. (%)</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:decimal">
+                                  <xs:attribute ref="auc:Source"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="AnalysisPeriod" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Period used for financial analysis. Can be combined with Interval Frequency to specify the units. (yrs)</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:decimal">
+                                  <xs:attribute ref="auc:Source"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="GasPriceEscalationRate" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Assumed annual increase in natural gas price (%)</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:decimal">
+                                  <xs:attribute ref="auc:Source"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="ElectricityPriceEscalationRate" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Assumed annual increase in electricity price (%)</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:decimal">
+                                  <xs:attribute ref="auc:Source"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="WaterPriceEscalationRate" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Assumed annual increase in water price (%)</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:decimal">
+                                  <xs:attribute ref="auc:Source"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="OtherEscalationRates" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element ref="auc:EnergyResource" minOccurs="0"/>
+                                <xs:element name="EscalationRate" type="xs:decimal" minOccurs="0">
+                                  <xs:annotation>
+                                    <xs:documentation>Assumed annual increase in price for the specified resource (%)</xs:documentation>
+                                  </xs:annotation>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute ref="auc:Source"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="InflationRate" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>Assumed annual inflation rate for non-energy costs (%)</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:decimal">
+                                  <xs:attribute ref="auc:Source"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="Qualifications" minOccurs="0" maxOccurs="unbounded">
+                            <xs:annotation>
+                              <xs:documentation>Qualifications of audit team.</xs:documentation>
                             </xs:annotation>
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="LocationsOfExteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
+                                <xs:element name="AuditorQualification" type="auc:AuditorQualificationType" minOccurs="0">
                                   <xs:annotation>
-                                    <xs:documentation>Location of observed moisture problems on the outside of the building</xs:documentation>
+                                    <xs:documentation>Qualification of auditor responsible for the audit report.</xs:documentation>
                                   </xs:annotation>
-                                  <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                      <xs:enumeration value="Roof"/>
-                                      <xs:enumeration value="Interior ceiling"/>
-                                      <xs:enumeration value="Foundation"/>
-                                      <xs:enumeration value="Basement"/>
-                                      <xs:enumeration value="Crawlspace"/>
-                                      <xs:enumeration value="Walls"/>
-                                      <xs:enumeration value="Around windows"/>
-                                      <xs:enumeration value="Other"/>
-                                    </xs:restriction>
-                                  </xs:simpleType>
                                 </xs:element>
-                                <xs:element name="LocationsOfInteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
+                                <xs:element name="AuditorQualificationNumber" type="xs:string" minOccurs="0">
                                   <xs:annotation>
-                                    <xs:documentation>Location of observed moisture problems on the inside of the building</xs:documentation>
+                                    <xs:documentation>Certificate number, license number, etc., of Auditor Qualification.</xs:documentation>
                                   </xs:annotation>
-                                  <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                      <xs:enumeration value="Kitchen"/>
-                                      <xs:enumeration value="Bathroom"/>
-                                      <xs:enumeration value="Basement"/>
-                                      <xs:enumeration value="Other"/>
-                                    </xs:restriction>
-                                  </xs:simpleType>
                                 </xs:element>
-                                <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
-                                <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+                                <xs:element name="AuditorQualificationState" type="auc:State" minOccurs="0">
+                                  <xs:annotation>
+                                    <xs:documentation>If Auditor Qualification is state-issued, the state the qualification is from.</xs:documentation>
+                                  </xs:annotation>
+                                </xs:element>
+                                <xs:element name="CertificationExpirationDate" type="xs:date" minOccurs="0">
+                                  <xs:annotation>
+                                    <xs:documentation>Date that the auditor qualification expires. (CCYY-MM-DD)</xs:documentation>
+                                  </xs:annotation>
+                                </xs:element>
+                                <xs:element name="CertifiedAuditTeamMemberContactID" minOccurs="0">
+                                  <xs:annotation>
+                                    <xs:documentation>Contact ID of auditor team member with certification.</xs:documentation>
+                                  </xs:annotation>
+                                  <xs:complexType>
+                                    <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="AuditTeamMemberCertificationType" type="auc:AuditorQualificationType" minOccurs="0">
+                                  <xs:annotation>
+                                    <xs:documentation>Type of certification held by an auditor team member.</xs:documentation>
+                                  </xs:annotation>
+                                </xs:element>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="Schedules" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="Schedule" type="auc:ScheduleType" maxOccurs="unbounded"/>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="Measures" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="Measure" type="auc:MeasureType" maxOccurs="unbounded"/>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="Report" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="Scenarios" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="Scenario" type="auc:ScenarioType" maxOccurs="unbounded"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="AuditDate" type="xs:date" minOccurs="0">
-                      <xs:annotation>
-                        <xs:documentation>Date audit was conducted. (CCYY-MM-DD)</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="ASHRAEAuditLevel" minOccurs="0">
-                      <xs:annotation>
-                        <xs:documentation>Energy audit level as defined in ASHRAE Procedures for Commercial Building Energy Audits.</xs:documentation>
-                      </xs:annotation>
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:enumeration value="Preliminary Energy-Use Analysis"/>
-                          <xs:enumeration value="Level 1: Walk-through"/>
-                          <xs:enumeration value="Level 2: Energy Survey and Analysis"/>
-                          <xs:enumeration value="Level 3: Detailed Survey and Analysis"/>
-                        </xs:restriction>
-                      </xs:simpleType>
-                    </xs:element>
-                    <xs:element name="RetrocommissioningAudit" type="xs:boolean" minOccurs="0">
-                      <xs:annotation>
-                        <xs:documentation>True if an assessment of retro- or re-commissioning measures was completed as part of the audit.</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="AuditCost" minOccurs="0">
-                      <xs:annotation>
-                        <xs:documentation>Total cost associated with the audit ($)</xs:documentation>
-                      </xs:annotation>
-                      <xs:complexType>
-                        <xs:simpleContent>
-                          <xs:extension base="xs:decimal">
-                            <xs:attribute ref="auc:Source"/>
-                          </xs:extension>
-                        </xs:simpleContent>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="DiscountFactor" minOccurs="0">
-                      <xs:annotation>
-                        <xs:documentation>Discount factor applied to calculate present values of future cash flows. (%)</xs:documentation>
-                      </xs:annotation>
-                      <xs:complexType>
-                        <xs:simpleContent>
-                          <xs:extension base="xs:decimal">
-                            <xs:attribute ref="auc:Source"/>
-                          </xs:extension>
-                        </xs:simpleContent>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="AnalysisPeriod" minOccurs="0">
-                      <xs:annotation>
-                        <xs:documentation>Period used for financial analysis. Can be combined with Interval Frequency to specify the units. (yrs)</xs:documentation>
-                      </xs:annotation>
-                      <xs:complexType>
-                        <xs:simpleContent>
-                          <xs:extension base="xs:decimal">
-                            <xs:attribute ref="auc:Source"/>
-                          </xs:extension>
-                        </xs:simpleContent>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="GasPriceEscalationRate" minOccurs="0">
-                      <xs:annotation>
-                        <xs:documentation>Assumed annual increase in natural gas price (%)</xs:documentation>
-                      </xs:annotation>
-                      <xs:complexType>
-                        <xs:simpleContent>
-                          <xs:extension base="xs:decimal">
-                            <xs:attribute ref="auc:Source"/>
-                          </xs:extension>
-                        </xs:simpleContent>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="ElectricityPriceEscalationRate" minOccurs="0">
-                      <xs:annotation>
-                        <xs:documentation>Assumed annual increase in electricity price (%)</xs:documentation>
-                      </xs:annotation>
-                      <xs:complexType>
-                        <xs:simpleContent>
-                          <xs:extension base="xs:decimal">
-                            <xs:attribute ref="auc:Source"/>
-                          </xs:extension>
-                        </xs:simpleContent>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="WaterPriceEscalationRate" minOccurs="0">
-                      <xs:annotation>
-                        <xs:documentation>Assumed annual increase in water price (%)</xs:documentation>
-                      </xs:annotation>
-                      <xs:complexType>
-                        <xs:simpleContent>
-                          <xs:extension base="xs:decimal">
-                            <xs:attribute ref="auc:Source"/>
-                          </xs:extension>
-                        </xs:simpleContent>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="OtherEscalationRates" minOccurs="0" maxOccurs="unbounded">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element ref="auc:EnergyResource" minOccurs="0"/>
-                          <xs:element name="EscalationRate" type="xs:decimal" minOccurs="0">
+                          <xs:element name="AuditExemption" minOccurs="0">
                             <xs:annotation>
-                              <xs:documentation>Assumed annual increase in price for the specified resource (%)</xs:documentation>
+                              <xs:documentation>Conditions under which the building is exempt from a mandated audit.</xs:documentation>
                             </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:enumeration value="EPA ENERGY STAR certified"/>
+                                <xs:enumeration value="LEED certified"/>
+                                <xs:enumeration value="Simple building"/>
+                                <xs:enumeration value="Class 1 building"/>
+                                <xs:enumeration value="Other"/>
+                                <xs:enumeration value="None"/>
+                              </xs:restriction>
+                            </xs:simpleType>
                           </xs:element>
-                        </xs:sequence>
-                        <xs:attribute ref="auc:Source"/>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="InflationRate" minOccurs="0">
-                      <xs:annotation>
-                        <xs:documentation>Assumed annual inflation rate for non-energy costs (%)</xs:documentation>
-                      </xs:annotation>
-                      <xs:complexType>
-                        <xs:simpleContent>
-                          <xs:extension base="xs:decimal">
-                            <xs:attribute ref="auc:Source"/>
-                          </xs:extension>
-                        </xs:simpleContent>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="Qualifications" minOccurs="0" maxOccurs="unbounded">
-                      <xs:annotation>
-                        <xs:documentation>Qualifications of audit team.</xs:documentation>
-                      </xs:annotation>
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="AuditorQualification" type="auc:AuditorQualificationType" minOccurs="0">
-                            <xs:annotation>
-                              <xs:documentation>Qualification of auditor responsible for the audit report.</xs:documentation>
-                            </xs:annotation>
+                          <xs:element name="Utilities" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Utility" type="auc:UtilityType" minOccurs="0" maxOccurs="unbounded">
+                                  <xs:annotation>
+                                    <xs:documentation>Utility associated with a scenario or scenarios.</xs:documentation>
+                                  </xs:annotation>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
                           </xs:element>
-                          <xs:element name="AuditorQualificationNumber" type="xs:string" minOccurs="0">
+                          <xs:element name="AuditorContactID" minOccurs="0">
                             <xs:annotation>
-                              <xs:documentation>Certificate number, license number, etc., of Auditor Qualification.</xs:documentation>
-                            </xs:annotation>
-                          </xs:element>
-                          <xs:element name="AuditorQualificationState" type="auc:State" minOccurs="0">
-                            <xs:annotation>
-                              <xs:documentation>If Auditor Qualification is state-issued, the state the qualification is from.</xs:documentation>
-                            </xs:annotation>
-                          </xs:element>
-                          <xs:element name="CertificationExpirationDate" type="xs:date" minOccurs="0">
-                            <xs:annotation>
-                              <xs:documentation>Date that the auditor qualification expires. (CCYY-MM-DD)</xs:documentation>
-                            </xs:annotation>
-                          </xs:element>
-                          <xs:element name="CertifiedAuditTeamMemberContactID" minOccurs="0">
-                            <xs:annotation>
-                              <xs:documentation>Contact ID of auditor team member with certification.</xs:documentation>
+                              <xs:documentation>Contact ID of auditor responsible for the audit report.</xs:documentation>
                             </xs:annotation>
                             <xs:complexType>
                               <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                             </xs:complexType>
                           </xs:element>
-                          <xs:element name="AuditTeamMemberCertificationType" type="auc:AuditorQualificationType" minOccurs="0">
-                            <xs:annotation>
-                              <xs:documentation>Type of certification held by an auditor team member.</xs:documentation>
-                            </xs:annotation>
-                          </xs:element>
+                          <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    <xs:element name="AuditExemption" minOccurs="0">
-                      <xs:annotation>
-                        <xs:documentation>Conditions under which the building is exempt from a mandated audit.</xs:documentation>
-                      </xs:annotation>
-                      <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                          <xs:enumeration value="EPA ENERGY STAR certified"/>
-                          <xs:enumeration value="LEED certified"/>
-                          <xs:enumeration value="Simple building"/>
-                          <xs:enumeration value="Class 1 building"/>
-                          <xs:enumeration value="Other"/>
-                          <xs:enumeration value="None"/>
-                        </xs:restriction>
-                      </xs:simpleType>
-                    </xs:element>
-                    <xs:element name="Utilities" minOccurs="0">
+                    <xs:element name="Contacts" minOccurs="0">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="Utility" type="auc:UtilityType" minOccurs="0" maxOccurs="unbounded">
-                            <xs:annotation>
-                              <xs:documentation>Utility associated with a scenario or scenarios.</xs:documentation>
-                            </xs:annotation>
-                          </xs:element>
+                          <xs:element name="Contact" type="auc:ContactType" maxOccurs="unbounded"/>
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                    <xs:element name="AuditorContactID" minOccurs="0">
-                      <xs:annotation>
-                        <xs:documentation>Contact ID of auditor responsible for the audit report.</xs:documentation>
-                      </xs:annotation>
+                    <xs:element name="Tenants" minOccurs="0">
                       <xs:complexType>
-                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                        <xs:sequence>
+                          <xs:element name="Tenant" type="auc:TenantType" maxOccurs="unbounded"/>
+                        </xs:sequence>
                       </xs:complexType>
                     </xs:element>
                     <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                   </xs:sequence>
+                  <xs:attribute name="ID" type="xs:ID"/>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="Contacts" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="Contact" type="auc:ContactType" maxOccurs="unbounded"/>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="Tenants" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="Tenant" type="auc:TenantType" maxOccurs="unbounded"/>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
             </xs:sequence>
-            <xs:attribute name="ID" type="xs:ID"/>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
@@ -856,10 +865,14 @@
         </xs:annotation>
       </xs:element>
       <xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
-      <xs:element name="Facilities" minOccurs="0">
+      <xs:element name="Buildings" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="Facility" type="auc:FacilityType" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="Building" type="auc:BuildingType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>A building is a single structure wholly or partially enclosed within exterior walls, or within exterior and abutment walls (party walls), and a roof, affording shelter to persons, animals, or property. A building can be two or more units held in the condominium form of ownership that are governed by the same board of managers.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -867,14 +880,14 @@
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
   </xs:complexType>
-  <xs:complexType name="FacilityType">
+  <xs:complexType name="BuildingType">
     <xs:sequence>
       <xs:element ref="auc:PremisesName" minOccurs="0"/>
       <xs:element ref="auc:PremisesNotes" minOccurs="0"/>
       <xs:element ref="auc:PremisesIdentifiers" minOccurs="0"/>
-      <xs:element name="FacilityClassification" minOccurs="0">
+      <xs:element name="BuildingClassification" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Specify the type of facility.</xs:documentation>
+          <xs:documentation>Specify the type of building.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -956,7 +969,7 @@
       </xs:element>
       <xs:element name="PubliclySubsidized" type="xs:boolean" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Does the facility include multi-family housing that receives or received public funding for construction or operations (this does not include Section 8 or similar vouchers received by individual tenants)?</xs:documentation>
+          <xs:documentation>Does the building include multi-family housing that receives or received public funding for construction or operations (this does not include Section 8 or similar vouchers received by individual tenants)?</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="FederalBuilding" minOccurs="0">
@@ -967,12 +980,12 @@
           <xs:sequence>
             <xs:element name="Agency" type="xs:string" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>Federal agency, required to designate a facility as a federal property in Portfolio Manager.</xs:documentation>
+                <xs:documentation>Federal agency, required to designate a building as a federal property in Portfolio Manager.</xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element name="DepartmentRegion" type="xs:string" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>Federal department/region, required to designate a facility as a federal property in Portfolio Manager.</xs:documentation>
+                <xs:documentation>Federal department/region, required to designate a building as a federal property in Portfolio Manager.</xs:documentation>
               </xs:annotation>
             </xs:element>
           </xs:sequence>
@@ -13506,7 +13519,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Facility" minOccurs="0">
+        <xs:element name="Building" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="LinkedFacilityID" maxOccurs="unbounded">
