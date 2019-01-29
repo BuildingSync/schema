@@ -7,13 +7,10 @@
   <xs:element name="BuildingSync">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="Campuses">
+        <xs:element name="Facilities">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Campus" maxOccurs="unbounded">
-                <xs:annotation>
-                  <xs:documentation>A campus is comprised of multiple buildings served by a single electric meter or by a group of meters with the same service address.</xs:documentation>
-                </xs:annotation>
+              <xs:element name="Facility" maxOccurs="unbounded">
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element name="Sites" minOccurs="0">
