@@ -15,7 +15,7 @@ Standard 211-type audit. For example:
 4) transferring building data for use in M&V IPMVP Option C/D type analysis
 5) exporting a benchmarking building from SEED.
 
-Existing root sequence for BuildingSync are:
+Prior root sequence for BuildingSync are:
 
 ```bash
 Audits/Audit/Sites/Site/Facilities
@@ -33,21 +33,10 @@ this implementation could/should be `BuildingSync`.
 
 ## Implementation
 
-The proposed implementation is to rename the root element sequence from `Audits/Audit/Sites/Site/Facilities/Facility` to either
+The proposed implementation is to rename the root element sequence from `Audits/Audit/Sites/Site/Facilities/Facility` to 
 
-    a) `Facilities/Facility/Sites/Site/Buildings/Building`  or
-    b) `BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building`
-    
-Note, that there are two changes proposed above as the root element and the name of the previously named `Facility` are both changing.
-
-If you are reviewing, please comment on the preferred version in a comment (enter either 'A' or 'B'). 
-  
-
-## Questions
-
-* Should there exist a new element to define the purpose of the file (e.g. audit, M&V, etc)? Does this already exist?
-* It is unclear if Building is an applicable BEDES term.
-
+    * `BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building`  
+ 
 ## References
 
-N/A
+https://bedes.lbl.gov/bedes-online/building-1
