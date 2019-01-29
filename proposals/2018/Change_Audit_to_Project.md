@@ -14,11 +14,11 @@ The proposed implementation is to add the elements marked with a '*' to the Buil
 				+ProgramDate*
 				+ProgramFundingSource*
 				+ProgramClassification*
-		oCampuses/Campus/
+		oFacilities/Facility/
 Note that this root element sequence refers to the one explained in Proposal #64.
 
 Steps:
-	a)Create an element named 'Programs' as a sibling of 'Campuses.'
+	a)Create an element named 'Programs' as a sibling of 'Facility.'
 	b)Create an element named 'Program' as a child of 'Programs.'
 	c)Create the elements 'ProgramDate,' 'ProgramFundingSource,' and 'Program Classification' as children of 'Program.'
 	d)Add the BEDES definition of each BEDES term used as a description of the mentioned elements.
