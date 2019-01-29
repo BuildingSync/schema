@@ -49,7 +49,8 @@ Implementation Steps:
 1. Create an element named `BuildingSync` as a parent of the `Audits` element.
 2. Change the name of the `Audits` and `Audit` elements to `Campuses` and `Campus` (or the chosen term, if different).
 3. Change the name of the `Facilities` and `Facility` elements to `Buildings` and `Building`.
-4. Add the BEDES definition of each BEDES term used as a description of the mentioned elements.
+4. Change the name of the `FacilityClassication` to `BuildingClassification`. Update annotations to replace facility with building.
+5. Add the BEDES definition of each BEDES term used as a description of the mentioned elements.
   
 
 ## Questions
