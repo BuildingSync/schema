@@ -84,21 +84,25 @@
         <HVACSystems>
           <HVACSystem ID="UnsharedHeating">
             <Plants>
+            <HeatingPlants>
               <HeatingPlant ID="HeatingPlant1">
                 <Boiler>
                   <BoilerType>Hot water</BoilerType>
                   <DraftType>Mechanical forced</DraftType>
                 </Boiler>
               </HeatingPlant>
+              </HeatingPlants>
             </Plants>
             <HeatingAndCoolingSystems>
-              <HeatingSource>
-                <HeatingSourceType>
-                  <SourceHeatingPlantID IDref="HeatingPlant1"/>
-                </HeatingSourceType>
-                <HeatingMedium>Hot water</HeatingMedium>
-                <PrimaryFuel>Fuel oil no 5 and no 6</PrimaryFuel>
-              </HeatingSource>
+              <HeatingSources>
+                <HeatingSource>
+                  <HeatingSourceType>
+                    <SourceHeatingPlantID IDref="HeatingPlant1"/>
+                  </HeatingSourceType>
+                  <HeatingMedium>Hot water</HeatingMedium>
+                  <PrimaryFuel>Fuel oil no 5 and no 6</PrimaryFuel>
+                </HeatingSource>
+              </HeatingSources>
             </HeatingAndCoolingSystems>
             <LinkedPremises>
               <Building>
@@ -108,19 +112,24 @@
           </HVACSystem>
           <HVACSystem ID="SharedCooling">
             <Plants>
+            <CoolingPlants>
               <CoolingPlant ID="CoolingPlant1">
                 <Chiller>
                   <ChillerType>Vapor compression</ChillerType>
                   <CondenserPlantID IDref="CondenserPlant1"/>
                 </Chiller>
               </CoolingPlant>
+              </CoolingPlants>
+              <CondenserPlants>
               <CondenserPlant ID="CondenserPlant1">
                 <AirCooled>
                   <EvaporativelyCooledCondenser/>
                 </AirCooled>
               </CondenserPlant>
+              </CondenserPlants>
             </Plants>
             <HeatingAndCoolingSystems>
+              <CoolingSources>
               <CoolingSource>
                 <CoolingSourceType>
                   <CoolingPlantID IDref="CoolingPlant1"/>
@@ -128,6 +137,7 @@
                 <CoolingMedium>Chilled water</CoolingMedium>
                 <PrimaryFuel>Fuel oil no 2</PrimaryFuel>
               </CoolingSource>
+              </CoolingSources>
             </HeatingAndCoolingSystems>
             <LinkedPremises>
               <Building>

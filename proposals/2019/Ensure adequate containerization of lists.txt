@@ -27,14 +27,65 @@ List 1, 2, ad 3 are the proposed lists of elements to be changed. These elements
 
 List 1: elements to be changed that do not represent any special cases.
 
+
+
+
+<xs:element name="" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+
+</xs:sequence>
+</xs:complexType>
+</xs:element>
 ```xml
-<xs:element name="LocationsOfExteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="LocationsOfInteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="OtherEscalationRates" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="Qualifications" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="SpatialUnits" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="Assessment" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="SkylightID" minOccurs="0" maxOccurs="unbounded">
+X <xs:element name="LocationsOfExteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded"> <!-- //NOT in examples, Added to .xsd <xs:element name="LocationsOfExteriorWaterIntrusionDamages" minOccurs="0" maxOccurs="unbounded">
+X <xs:element name="LocationsOfInteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded"> <!-- //NOT in examples, Added to .xsd <xs:element name="LocationsOfInteriorWaterIntrusionDamages" minOccurs="0">
+X <xs:element name="OtherEscalationRates" minOccurs="0" maxOccurs="unbounded"> <!-- //NOT in examples, Updated to singular <xs:element name="OtherEscalationRate" minOccurs="0" maxOccurs="unbounded">, Added to .xsd <xs:element name="OtherEscalationRates" minOccurs="0">
+X <xs:element name="Qualifications" minOccurs="0" maxOccurs="unbounded"><!-- //NOT in examples, Updated to singular <xs:element name="Qualification" minOccurs="0" maxOccurs="unbounded">, Added to .xsd <xs:element name="Qualifications" minOccurs="0">
+X <xs:element name="SpatialUnits" minOccurs="0" maxOccurs="unbounded"><!-- //NOT in examples, Updated to Singular <xs:element name="SpatialUnit" minOccurs="0" maxOccurs="unbounded">, added to xsd <xs:element name="SpatialUnits" minOccurs="0">
+X <xs:element name="Assessment" minOccurs="0" maxOccurs="unbounded"><!-- //updatede example: DC GSA Headquarters.xml,Added to .xsd <xs:element name="Assessments" minOccurs="0">
+X <xs:element name="ScheduleDetails" minOccurs="0" maxOccurs="unbounded"><!-- // PARTIAL example: Reference Building - Primary Schoool.xml (750 hits), made singular, Added to .xsd <xs:element name="ScheduleDetails" minOccurs="0"> updated xs:element name="ScheduleDetail" minOccurs="0" maxOccurs
+X <xs:element name="AnnualSavingsByFuel" minOccurs="0" maxOccurs="unbounded"><!-- // examples: ASHRAE 211 Export.xml (20 hits), DC GSA Headquarters.xml (7 hits), Reference Building - Primary Schoool.xml (24 hits), add to .xsd <xs:element name="AnnualSavingsByFuels" minOccurs="0">
+X <xs:element name="RateSchedule" minOccurs="0" maxOccurs="unbounded">!-- // updated examples:ASHRAE 211 Export.xml (10 hits), Reference Building - Primary Schoool.xml (2 hits), added to .xsd <xs:element name="RateSchedules" minOccurs="0">
+X <xs:element name="TimeOfUsePeriod" minOccurs="0" maxOccurs="unbounded"><!-- //NOT in examples, added to .xsd <xs:element name="TimeOfUsePeriods" minOccurs="0">
+X<xs:element name="TieredRate" minOccurs="0" maxOccurs="unbounded"><!-- //NOT in examples, added <xs:element name="TieredRates" minOccurs="0">
+X <xs:element name="RateTier" minOccurs="0" maxOccurs="unbounded"><!-- //NOT in examples, added <xs:element name="RateTiers" minOccurs="0">
+X <xs:element name="UtilityMeterNumber" type="xs:string" minOccurs="0" maxOccurs="unbounded"><!-- //NOT in examples,
+X <xs:element name="Emissions" minOccurs="0" maxOccurs="unbounded"><!-- //NOT in examples, updted to singular <xs:element name="Emissions" minOccurs="0" maxOccurs="unbounded">, added <xs:element name="Emissions" minOccurs="0">
+X <xs:element name="HeatingSource" minOccurs="0" maxOccurs="unbounded"><!-- // updated examples:Reference Building - Primary Schoool.xml (4 hits), ASHRAE 211 Export.xml (1 hit), Golden Test File.xml (1 hit), Multi-Facility Shared Systems.xml (1 hit), added to .xsd <xs:element name="HeatingSources" minOccurs="0">
+X <xs:element name="CoolingSource" minOccurs="0" maxOccurs="unbounded"><!-- //updated examples: Reference Building - Primary Schoool.xml (8 hits), ASHRAE 211 Export.xml (1 hit), Golden Test File.xml (1 hit), Multi-Facility Shared Systems.xml (1 hit), added to .xsd <xs:element name="CoolingSources" minOccurs="0">
+X <xs:element name="Delivery" minOccurs="0" maxOccurs="unbounded"><!-- //examples: Reference Building - Primary Schoool.xml,  added <xs:element name="Deliveries" minOccurs="0">
+X <xs:element name="CeilingInsulation" minOccurs="0" maxOccurs="unbounded"><!-- //NOT in examples, added <xs:element name="CeilingInsulations" minOccurs="0">
+X <xs:element name="RoofInsulation" minOccurs="0" maxOccurs="unbounded"><!-- //example: Reference Building - Primary Schoool.xml, added <xs:element name="RoofInsulations" minOccurs="0">
+X <xs:element name="GroundCoupling" minOccurs="0" maxOccurs="unbounded"> <!-- // added <xs:element name="GroundCouplings" minOccurs="0">, examples: ASHRAE 211 Export.xml, Reference Building - Primary Schoool.xml 
+X <xs:element name="EnergyUseByEndUse" minOccurs="0" maxOccurs="unbounded"> <!-- // added <xs:element name="EnergyUseByEndUses" minOccurs="0">, examples: none
+X <xs:element name="UseType" minOccurs="0" maxOccurs="unbounded"><!-- // added <xs:element name="UseTypes" minOccurs="0">, examples: none
+X <xs:element name="HeatingPlant" type="auc:HeatingPlantType" minOccurs="0" maxOccurs="unbounded"><!-- // added <xs:element name="HeatingPlants" minOccurs="0">, examples: ASHRAE 211 Export.xml, Golden Test File.xml,Multi-Facility Shared Systems.xml, Reference Building - Primary Schoool.xml
+X <xs:element name="CoolingPlant" type="auc:CoolingPlantType" minOccurs="0" maxOccurs="unbounded"><!-- // added <xs:element name="CoolingPlants" minOccurs="0">, examples: ASHRAE 211 Export.xml, Golden Test File.xml, Multi-Facility Shared Systems.xml
+X <xs:element name="CondenserPlant" type="auc:CondenserPlantType" minOccurs="0" maxOccurs="unbounded"><!-- // added <xs:element name="CondenserPlants" minOccurs="0">, examples:  ASHRAE 211 Export.xml, Golden Test File.xml, Multi-Facility Shared Systems.xml, Reference Building - Primary Schoool.xml
+X<xs:element name="RatePeriod" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:UtilityType)/auc:RateSchedule/auc:TypeOfRateStructure/auc:FlatRate/auc:RatePeriod --> <!-- added <xs:element name="RatePeriods" minOccurs="0">, example: </RatePeriods>
+X<xs:element name="RatePeriod" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:UtilityType)/auc:RateSchedule/auc:TypeOfRateStructure/auc:TimeOfUseRate/auc:RatePeriod --> <!--  added <xs:element name="RatePeriods" minOccurs="0">, example: none
+X<xs:element name="RatePeriod" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:UtilityType)/auc:RateSchedule/auc:TypeOfRateStructure/auc:TieredRate/auc:RatePeriod --><!--   added <xs:element name="RatePeriods" minOccurs="0">, example: none
+
+
+```
+<xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded"> <!-- auc:LinkedPremises/auc:Site/auc:LinkedSiteID/auc:LinkedScheduleID -->
+<xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded"> <!-- auc:LinkedPremises/auc:Facility/auc:LinkedFacilityID/auc:LinkedScheduleID -->
+<xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded"> <!-- auc:LinkedPremises/auc:Subsection/auc:LinkedSubsectionID/auc:LinkedScheduleID -->
+<xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded"> <!-- auc:LinkedPremises/auc:ThermalZone/auc:LinkedThermalZoneID/auc:LinkedScheduleID -->
+<xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded"> <!-- auc:LinkedPremises/auc:Space/auc:LinkedSpaceID/auc:LinkedScheduleID -->
+<xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:CoolingPlantType)/auc:Chiller/auc:CondenserPlantID -->
+<xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:RefrigerationSystemType)/auc:RefrigerationSystemCategory/auc:CentralRefrigerationSystem/auc:CondenserPlantID -->
+<xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:HVACSystemType)/auc:HeatingAndCoolingSystems/auc:CoolingSource/auc:CoolingSourceType/auc:DX/auc:CondenserPlantID -->
+<xs:element name="UtilityID" minOccurs="0" maxOccurs="unbounded">
+<xs:element name="ContactID" minOccurs="0" maxOccurs="unbounded">
+<xs:element name="SkylightID" minOccurs="0" maxOccurs="unbounded"><!-- //<!-- //example: Reference Building - Primary Schoool.xml 
+<xs:element name="ThermalZoneID" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:FacilityType)/auc:Subsections/auc:Subsection/auc:CeilingID/auc:ThermalZoneID -->
+<xs:element name="SpaceID" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:FacilityType)/auc:Subsections/auc:Subsection/auc:CeilingID/auc:SpaceID -->
+<xs:element name="ThermalZoneID" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:FacilityType)/auc:Subsections/auc:Subsection/auc:FoundationID/auc:ThermalZoneID -->
+<xs:element name="SpaceID" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:FacilityType)/auc:Subsections/auc:Subsection/auc:FoundationID/auc:SpaceID -->
+<xs:element name="DeliveryID" minOccurs="0" maxOccurs="unbounded">
+<xs:element name="SkylightID" minOccurs="0" maxOccurs="unbounded"><!-- //<!-- //example: Reference Building - Primary Schoool.xml 
 <xs:element name="ThermalZoneID" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:FacilityType)/auc:Subsections/auc:Subsection/auc:CeilingID/auc:ThermalZoneID -->
 <xs:element name="SpaceID" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:FacilityType)/auc:Subsections/auc:Subsection/auc:CeilingID/auc:SpaceID -->
 <xs:element name="ThermalZoneID" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:FacilityType)/auc:Subsections/auc:Subsection/auc:FoundationID/auc:ThermalZoneID -->
@@ -42,59 +93,32 @@ List 1: elements to be changed that do not represent any special cases.
 <xs:element name="DeliveryID" minOccurs="0" maxOccurs="unbounded">
 <xs:element name="HVACScheduleID" minOccurs="0" maxOccurs="unbounded">
 <xs:element name="OccupancyScheduleID" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="ScheduleDetails" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="ContactID" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="AnnualSavingsByFuel" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="RateSchedule" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="TimeOfUsePeriod" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="TieredRate" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="RateTier" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="UtilityMeterNumber" type="xs:string" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="UtilityID" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="Emissions" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="HeatingSource" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="CoolingSource" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:HVACSystemType)/auc:HeatingAndCoolingSystems/auc:CoolingSource/auc:CoolingSourceType/auc:DX/auc:CondenserPlantID -->
-<xs:element name="Delivery" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:CoolingPlantType)/auc:Chiller/auc:CondenserPlantID -->
-<xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:RefrigerationSystemType)/auc:RefrigerationSystemCategory/auc:CentralRefrigerationSystem/auc:CondenserPlantID -->
 <xs:element name="LinkedSystemID" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:PumpSystemType)/auc:LinkedSystemID -->
 <xs:element name="LinkedSystemID" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:FanSystemType)/auc:LinkedSystemID -->
 <xs:element name="LinkedSystemID" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MotorSystemType)/auc:LinkedSystemID -->
-<xs:element name="CeilingInsulation" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="RoofInsulation" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="GroundCoupling" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="EnergyUseByEndUse" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="UseType" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="RatePeriod" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:UtilityType)/auc:RateSchedule/auc:TypeOfRateStructure/auc:FlatRate/auc:RatePeriod -->
-<xs:element name="RatePeriod" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:UtilityType)/auc:RateSchedule/auc:TypeOfRateStructure/auc:TimeOfUseRate/auc:RatePeriod -->
-<xs:element name="RatePeriod" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:UtilityType)/auc:RateSchedule/auc:TypeOfRateStructure/auc:TieredRate/auc:RatePeriod -->
-<xs:element name="HeatingPlant" type="auc:HeatingPlantType" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="CoolingPlant" type="auc:CoolingPlantType" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="CondenserPlant" type="auc:CondenserPlantType" minOccurs="0" maxOccurs="unbounded">
-<xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded"> <!-- auc:LinkedPremises/auc:Site/auc:LinkedSiteID/auc:LinkedScheduleID -->
-<xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded"> <!-- auc:LinkedPremises/auc:Facility/auc:LinkedFacilityID/auc:LinkedScheduleID -->
-<xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded"> <!-- auc:LinkedPremises/auc:Subsection/auc:LinkedSubsectionID/auc:LinkedScheduleID -->
-<xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded"> <!-- auc:LinkedPremises/auc:ThermalZone/auc:LinkedThermalZoneID/auc:LinkedScheduleID -->
-<xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded"> <!-- auc:LinkedPremises/auc:Space/auc:LinkedSpaceID/auc:LinkedScheduleID -->
-```
 
-
-List 2: elements that are defined outside of the main schema path (at the bottom of the code) and are referenced throughout the schema code. For mor information, reference the following pull request comment: https://github.com/BuildingSync/schema/pull/67#issuecomment-456912360. 
-
+XList 2: elements that are defined outside of the main schema path (at the bottom of the code) and are referenced throughout the schema code. For mor information, reference the following pull request comment: https://github.com/BuildingSync/schema/pull/67#issuecomment-456912360 
+Approved
 ```xml
-<xs:element name="TenantID">
-<xs:element name="EnergyUseByFuelType">
-```
+X <xs:element name="EnergyUseByFuelType"><!-- // added <xs:element name="EnergyUseByFuelTypes">,updated ref's to <xs:element ref="auc:EnergyUseByFuelTypes" plural example: none
+X <xs:element name="TenantID"><!-- // added  added <xs:element name="TenantIDs">, updated ref's to <xs:element ref="auc:TenantIDs" plural, example: MultitenantBySubsections.xml
 
+```
+<xs:element name="">
+<xs:complexType>
+<xs:sequence>
+
+</xs:sequence>
+</xs:complexType>
+</xs:element>
 
 List 3: unique cases to be reviewed by the BuildingSync technical lead to define approach.
 
 
 *Unique case A: We recommend that the following listed elements each get treated as the elements in List 2. This case is unique because it is unclear whether the maxOccurs="unbounded" should be added to the listed elements or to their parents instead.
-
+?Confirm: Based on note from Nick input: under child of Type of Measure insert Replacements, ModificationRetrocommissions, Additions, Removals
 ```xml
-<xs:element name="ExistingSystemReplaced" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MeasureType)/auc:TypeOfMeasure/auc:Replacement/auc:ExistingSystemReplaced -->
+<xs:element name="ExistingSystemReplaced" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MeasureType)/auc:TypeOfMeasure/auc:Replacement/auc:ExistingSystemReplaced --> 
 <xs:element name="AlternativeSystemReplacement" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MeasureType)/auc:TypeOfMeasure/auc:Replacement/auc:AlternativeSystemReplacement -->
 <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MeasureType)/auc:TypeOfMeasure/auc:Replacement/auc:ExistingScheduleAffected -->
 <xs:element name="ModifiedSchedule" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MeasureType)/auc:TypeOfMeasure/auc:Replacement/auc:ModifiedSchedule -->
@@ -112,67 +136,20 @@ List 3: unique cases to be reviewed by the BuildingSync technical lead to define
 <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MeasureType)/auc:TypeOfMeasure/auc:Removal/auc:ExistingScheduleAffected -->
 <xs:element name="ModifiedSchedule" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MeasureType)/auc:TypeOfMeasure/auc:Removal/auc:ModifiedSchedule -->
 ```
+Examples: none
+<xs:element name="" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
 
-
-*Unique case B: The children of the children of the "TechnologyCategory" element are all named "Measure Name". Proposed Approach: Ensure all children of "TechnologyCategory" are in plural form. Then, change the name of those elements' children from "Measure Name" to the singular form of their respective parent's name.
-
-```xml
-<xs:element name="TechnologyCategory" maxOccurs="unbounded">
-```
-
-Proposed names for "TechnologyCategory" children and their respective child elements:
-
-	"BoilerPlantImprovements/BoilerPlantImprovement"
-	"ChillerPlantImprovements/ChillerPlantImprovement"
-	"BuildingAutomationSystems/BuildingAutomationSystem"
-	"OtherHVACs/OtherHVAC"
-	"LightingImprovements/LightingImprovement"
-	"BuildingEnvelopeModifications/BuildingEnvelopeModification"
-	"ChilledWaterHotWaterAndSteamDistributionSystems/ChilledWaterHotWaterAndSteamDistributionSystem"
-	"ConveyanceSystems/ConveyanceSystem"
-	"OtherElectricMotorsAndDrives/OtherElectricMotorAndDrive"
-	"Refrigerations/Refrigeration"
-	"DistributedGenerations/DistributedGeneration"
-	"RenewableEnergySystems/RenewableEnergySystem"
-	"EnergyDistributionSystems/EnergyDistributionSystem"
-	"ServiceHotWaterSystems/ServiceHotWaterSystem"
-	"WaterAndSewerConservationSystems/WaterAndSewerConservationSystem"
-	"ElectricalPeakShavingLoadShifts/ElectricalPeakShavingLoadShifting"
-	"EnergyCostReductionThroughRateAdjustments/EnergyCostReductionThroughRateAdjustment"
-	"EnergyRelatedProcessImprovements/EnergyRelatedProcessImprovement"
-	"AdvancedMeteringSystems/AdvancedMeteringSystem"
-	"PlugLoadReductions/PlugLoadReduction"
-	"DataCenterImprovements/DataCenterImprovement"
-	"FutureOtherECMs/FutureOtherECM"
-	"HealthAndSafetyData/HealthAndSafety"
-	"UncategorizedData/Uncategorized"
-
-
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+                                                                                                                                                                                                            
 *Unique case C: The following element is a child of another element of the same exact name. Since this one is the child element, it should be in singular form. Proposed approach: remove the 's' at the end of the following element's name. 
-
+APPROVED
 ```xml
-<xs:element name="DuctSystems" type="auc:DuctSystemType" maxOccurs="unbounded"/>
+X <xs:element name="DuctSystems" type="auc:DuctSystemType" maxOccurs="unbounded"/> <!-- //changed to <xs:element name="DuctSystem" type="auc:DuctSystemType" maxOccurs="unbounded"/>, example: Reference Building - Primary Schoool.xml
 ```
-
-
-*Unique case D: The parents of the following elments are not named with the plural version of thir children's names. However, they are very simmilar. Proposed approach: for each of the listed elements, name the respective parent using the plural version of the listed element's name.
-
-```xml
-<xs:element name="LinkedSiteID" maxOccurs="unbounded"> <!-- auc:LinkedPremises/auc:Site/auc:LinkedSiteID -->
-<xs:element name="LinkedFacilityID" maxOccurs="unbounded"> <!-- auc:LinkedPremises/auc:Facility/auc:LinkedFacilityID -->
-<xs:element name="LinkedSubsectionID" maxOccurs="unbounded"> <!-- auc:LinkedPremises/auc:Subsection/auc:LinkedSubsectionID -->
-<xs:element name="LinkedThermalZoneID" maxOccurs="unbounded"> <!-- auc:LinkedPremises/auc:ThermalZone/auc:LinkedThermalZoneID -->
-<xs:element name="LinkedSpaceID" maxOccurs="unbounded"> <!-- auc:LinkedPremises/auc:Space/auc:LinkedSpaceID -->
-```
-
-Proposed names for the parents of the listed elements:
-
-	"LinkedSiteIDs"
-	"LinkedFacilityIDs"
-	"LinkedSubsectionIDs"
-	"LinkedThermalZoneIDs"
-	"LinkedSpaceIDs"
-
 
 ## References
 

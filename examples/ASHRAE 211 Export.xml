@@ -386,39 +386,49 @@
         <HVACSystems>
           <HVACSystem>
             <Plants>
+            <HeatingPlants>
               <HeatingPlant ID="HeatiingPlant1">
                 <Boiler>
                   <BoilerType>Hot water</BoilerType>
                   <DraftType>Mechanical forced</DraftType>
                 </Boiler>
               </HeatingPlant>
+              </HeatingPlants>
+              <CoolingPlants>
               <CoolingPlant ID="CoolingPlant1">
                 <Chiller>
                   <ChillerType>Vapor compression</ChillerType>
                   <CondenserPlantID IDref="CondenserPlant1"/>
                 </Chiller>
               </CoolingPlant>
+              </CoolingPlants>
+              <CondenserPlants>
               <CondenserPlant ID="CondenserPlant1">
                 <AirCooled>
                   <EvaporativelyCooledCondenser/>
                 </AirCooled>
               </CondenserPlant>
+            </CondenserPlants>
             </Plants>
             <HeatingAndCoolingSystems>
-              <HeatingSource>
-                <HeatingSourceType>
-                  <SourceHeatingPlantID IDref="HeatiingPlant1"/>
-                </HeatingSourceType>
-                <HeatingMedium>Hot water</HeatingMedium>
-                <PrimaryFuel>Fuel oil no 5 and no 6</PrimaryFuel>
-              </HeatingSource>
-              <CoolingSource>
-                <CoolingSourceType>
-                  <CoolingPlantID IDref="CoolingPlant1"/>
-                </CoolingSourceType>
-                <CoolingMedium>Chilled water</CoolingMedium>
-                <PrimaryFuel>Fuel oil no 2</PrimaryFuel>
-              </CoolingSource>
+              <HeatingSources>
+                <HeatingSource>
+                  <HeatingSourceType>
+                    <SourceHeatingPlantID IDref="HeatiingPlant1"/>
+                  </HeatingSourceType>
+                  <HeatingMedium>Hot water</HeatingMedium>
+                  <PrimaryFuel>Fuel oil no 5 and no 6</PrimaryFuel>
+                </HeatingSource>
+              </HeatingSources>
+              <CoolingSources>
+                <CoolingSource>
+                  <CoolingSourceType>
+                    <CoolingPlantID IDref="CoolingPlant1"/>
+                  </CoolingSourceType>
+                  <CoolingMedium>Chilled water</CoolingMedium>
+                  <PrimaryFuel>Fuel oil no 2</PrimaryFuel>
+                </CoolingSource>
+              </CoolingSources>
             </HeatingAndCoolingSystems>
           </HVACSystem>
         </HVACSystems>
@@ -718,9 +728,11 @@
         </FenestrationSystems>
         <FoundationSystems>
           <FoundationSystem ID="Foundation1">
+            <GroundCouplings>
             <GroundCoupling>
               <Crawlspace/>
             </GroundCoupling>
+            </GroundCouplings>
             <FloorConstructionType>Wood frame</FloorConstructionType>
           </FoundationSystem>
         </FoundationSystems>
@@ -2466,6 +2478,7 @@
             <ScenarioType>
               <PackageOfMeasures>
                 <AnnualSavingsCost>15809</AnnualSavingsCost>
+                <AnnualSavingsByFuels>
                 <AnnualSavingsByFuel>
                   <EnergyResource>Electricity</EnergyResource>
                   <ResourceUnits>kWh</ResourceUnits>
@@ -2476,6 +2489,7 @@
                   <ResourceUnits>therms</ResourceUnits>
                   <AnnualSavingsNativeUnits>3859</AnnualSavingsNativeUnits>
                 </AnnualSavingsByFuel>
+                </AnnualSavingsByFuels>
                 <SummerPeakElectricityReduction>71</SummerPeakElectricityReduction>
                 <PackageFirstCost>25683</PackageFirstCost>
                 <FundingFromIncentives>3652</FundingFromIncentives>
@@ -2502,72 +2516,92 @@
         <AuditDate>2015-02-05</AuditDate>
         <Utilities>
           <Utility ID="Utility1">
-            <RateSchedule>
-              <RateStructureName>WSE 999-999</RateStructureName>
-            </RateSchedule>
+            <RateSchedules>
+              <RateSchedule>
+                <RateStructureName>WSE 999-999</RateStructureName>
+              </RateSchedule>
+            </RateSchedules>
             <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
             <UtilityAccountNumber>999-9921</UtilityAccountNumber>
           </Utility>
           <Utility ID="Utility2">
-            <RateSchedule>
-              <RateStructureName>WSE 999-999</RateStructureName>
-            </RateSchedule>
+            <RateSchedules>
+              <RateSchedule>
+                <RateStructureName>WSE 999-999</RateStructureName>
+              </RateSchedule>
+            </RateSchedules>
             <MeteringConfiguration>Master meter without sub metering</MeteringConfiguration>
             <UtilityAccountNumber>999-9998</UtilityAccountNumber>
           </Utility>
           <Utility ID="Utility3">
-            <RateSchedule>
-              <RateStructureName>WSE 999-999</RateStructureName>
-            </RateSchedule>
+            <RateSchedules>
+              <RateSchedule>
+                <RateStructureName>WSE 999-999</RateStructureName>
+              </RateSchedule>
+            </RateSchedules>
             <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
             <UtilityAccountNumber>999-9224</UtilityAccountNumber>
           </Utility>
           <Utility ID="Utility4">
-            <RateSchedule>
-              <RateStructureName>WSE 999-999</RateStructureName>
-            </RateSchedule>
+            <RateSchedules>
+              <RateSchedule>
+                <RateStructureName>WSE 999-999</RateStructureName>
+              </RateSchedule>
+            </RateSchedules>
             <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
             <UtilityAccountNumber>999-9994</UtilityAccountNumber>
           </Utility>
           <Utility ID="Utility5">
-            <RateSchedule>
-              <RateStructureName>WSE 999-999</RateStructureName>
-            </RateSchedule>
+            <RateSchedules>
+              <RateSchedule>
+                <RateStructureName>WSE 999-999</RateStructureName>
+              </RateSchedule>
+            </RateSchedules>
             <MeteringConfiguration>Master meter without sub metering</MeteringConfiguration>
             <UtilityAccountNumber>999-9998</UtilityAccountNumber>
           </Utility>
           <Utility ID="Utility6">
-            <RateSchedule>
-              <RateStructureName>WSE 999-999</RateStructureName>
-            </RateSchedule>
+            <RateSchedules>
+              <RateSchedule>
+                <RateStructureName>WSE 999-999</RateStructureName>
+              </RateSchedule>
+            </RateSchedules>
             <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
             <UtilityAccountNumber>999-9224</UtilityAccountNumber>
           </Utility>
           <Utility ID="Utility7">
-            <RateSchedule>
-              <RateStructureName>WSE 999-999</RateStructureName>
-            </RateSchedule>
+            <RateSchedules>
+              <RateSchedule>
+                <RateStructureName>WSE 999-999</RateStructureName>
+              </RateSchedule>
+            </RateSchedules>
             <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
             <UtilityAccountNumber>999-9994</UtilityAccountNumber>
           </Utility>
           <Utility ID="Utility8">
-            <RateSchedule>
-              <RateStructureName>WSE 999-999</RateStructureName>
-            </RateSchedule>
+            <RateSchedules>
+              <RateSchedule>
+                <RateStructureName>WSE 999-999</RateStructureName>
+              </RateSchedule>
+            </RateSchedules>
             <MeteringConfiguration>Master meter without sub metering</MeteringConfiguration>
             <UtilityAccountNumber>999-9998</UtilityAccountNumber>
           </Utility>
           <Utility ID="Utility9">
-            <RateSchedule>
-              <RateStructureName>WSE 999-999</RateStructureName>
-            </RateSchedule>
+            <RateSchedules>
+              <RateSchedule>
+                <RateStructureName>WSE 999-999</RateStructureName>
+              </RateSchedule>
+            </RateSchedules>
             <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
             <UtilityAccountNumber>999-9224</UtilityAccountNumber>
           </Utility>
           <Utility ID="Utility10">
-            <RateSchedule>
-              <RateStructureName>WSE 999-999</RateStructureName>
-            </RateSchedule>
+            <RateSchedules>
+              <RateSchedule>
+                <RateStructureName>WSE 999-999</RateStructureName>
+              </RateSchedule>
+            </RateSchedules>
             <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
             <UtilityAccountNumber>999-9994</UtilityAccountNumber>
           </Utility>
