@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2019 sp1 (http://www.altova.com) by Adriane Wolfe (PSD) -->
+<!-- edited with XMLSpy v2019 sp1 (http://www.altova.com) by Chris Balbach (PSD) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://nrel.gov/schemas/bedes-auc/2014" targetNamespace="http://nrel.gov/schemas/bedes-auc/2014" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xs:annotation>
     <xs:documentation>BuildingSync Schema - Version 0.3 (May 31, 2018)</xs:documentation>
@@ -6245,6 +6245,86 @@
             <xs:element name="Delivery" minOccurs="0" maxOccurs="unbounded">
               <xs:complexType>
                 <xs:sequence>
+                  <xs:element name="DeliveryZoningType">
+                    <xs:complexType>
+                      <xs:choice>
+                        <xs:element name="ZoneEquipment"/>
+                        <xs:element name="Other"/>
+                        <xs:element name="CentralAirDistribution" minOccurs="0">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="AirDeliveryType" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>Method for delivering air for heating and cooling to the zone.</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Central fan"/>
+                                    <xs:enumeration value="Induction units"/>
+                                    <xs:enumeration value="Low pressure under floor"/>
+                                    <xs:enumeration value="Local fan"/>
+                                    <xs:enumeration value="Other"/>
+                                    <xs:enumeration value="Unknown"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="TerminalUnit" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>Type of terminal unit serving each zone of a central air distribution system.</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="CAV terminal box with reheat"/>
+                                    <xs:enumeration value="VAV terminal box fan powered no reheat"/>
+                                    <xs:enumeration value="VAV terminal box fan powered with reheat"/>
+                                    <xs:enumeration value="VAV terminal box not fan powered no reheat"/>
+                                    <xs:enumeration value="VAV terminal box not fan powered with reheat"/>
+                                    <xs:enumeration value="Automatically controlled register"/>
+                                    <xs:enumeration value="Manually controlled register"/>
+                                    <xs:enumeration value="Uncontrolled register"/>
+                                    <xs:enumeration value="Other"/>
+                                    <xs:enumeration value="Unknown"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="ReheatSource" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>Energy source used to provide reheat energy at a terminal unit.</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Heating plant"/>
+                                    <xs:enumeration value="Local electric resistance"/>
+                                    <xs:enumeration value="Local gas"/>
+                                    <xs:enumeration value="Other"/>
+                                    <xs:enumeration value="Unknown"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="ReheatControlMethod" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>The air/temperature control strategy for VAV systems with reheat boxes.</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Dual Maximum"/>
+                                    <xs:enumeration value="Single Maximum"/>
+                                    <xs:enumeration value="Other"/>
+                                    <xs:enumeration value="Unknown"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="ReheatPlantID" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:choice>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element name="DeliveryType" minOccurs="0">
                     <xs:complexType>
                       <xs:choice>
@@ -6254,78 +6334,6 @@
                               <xs:element name="FanBasedDistributionType" minOccurs="0">
                                 <xs:complexType>
                                   <xs:choice>
-                                    <xs:element name="CentralAirDistribution" minOccurs="0">
-                                      <xs:complexType>
-                                        <xs:sequence>
-                                          <xs:element name="AirDeliveryType" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>Method for delivering air for heating and cooling to the zone.</xs:documentation>
-                                            </xs:annotation>
-                                            <xs:simpleType>
-                                              <xs:restriction base="xs:string">
-                                                <xs:enumeration value="Central fan"/>
-                                                <xs:enumeration value="Induction units"/>
-                                                <xs:enumeration value="Low pressure under floor"/>
-                                                <xs:enumeration value="Local fan"/>
-                                                <xs:enumeration value="Other"/>
-                                                <xs:enumeration value="Unknown"/>
-                                              </xs:restriction>
-                                            </xs:simpleType>
-                                          </xs:element>
-                                          <xs:element name="TerminalUnit" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>Type of terminal unit serving each zone of a central air distribution system.</xs:documentation>
-                                            </xs:annotation>
-                                            <xs:simpleType>
-                                              <xs:restriction base="xs:string">
-                                                <xs:enumeration value="CAV terminal box with reheat"/>
-                                                <xs:enumeration value="VAV terminal box fan powered no reheat"/>
-                                                <xs:enumeration value="VAV terminal box fan powered with reheat"/>
-                                                <xs:enumeration value="VAV terminal box not fan powered no reheat"/>
-                                                <xs:enumeration value="VAV terminal box not fan powered with reheat"/>
-                                                <xs:enumeration value="Automatically controlled register"/>
-                                                <xs:enumeration value="Manually controlled register"/>
-                                                <xs:enumeration value="Uncontrolled register"/>
-                                                <xs:enumeration value="Other"/>
-                                                <xs:enumeration value="Unknown"/>
-                                              </xs:restriction>
-                                            </xs:simpleType>
-                                          </xs:element>
-                                          <xs:element name="ReheatSource" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>Energy source used to provide reheat energy at a terminal unit.</xs:documentation>
-                                            </xs:annotation>
-                                            <xs:simpleType>
-                                              <xs:restriction base="xs:string">
-                                                <xs:enumeration value="Heating plant"/>
-                                                <xs:enumeration value="Local electric resistance"/>
-                                                <xs:enumeration value="Local gas"/>
-                                                <xs:enumeration value="Other"/>
-                                                <xs:enumeration value="Unknown"/>
-                                              </xs:restriction>
-                                            </xs:simpleType>
-                                          </xs:element>
-                                          <xs:element name="ReheatControlMethod" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The air/temperature control strategy for VAV systems with reheat boxes.</xs:documentation>
-                                            </xs:annotation>
-                                            <xs:simpleType>
-                                              <xs:restriction base="xs:string">
-                                                <xs:enumeration value="Dual Maximum"/>
-                                                <xs:enumeration value="Single Maximum"/>
-                                                <xs:enumeration value="Other"/>
-                                                <xs:enumeration value="Unknown"/>
-                                              </xs:restriction>
-                                            </xs:simpleType>
-                                          </xs:element>
-                                          <xs:element name="ReheatPlantID" minOccurs="0">
-                                            <xs:complexType>
-                                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                            </xs:complexType>
-                                          </xs:element>
-                                        </xs:sequence>
-                                      </xs:complexType>
-                                    </xs:element>
                                     <xs:element name="FanCoil" minOccurs="0">
                                       <xs:complexType>
                                         <xs:sequence>
