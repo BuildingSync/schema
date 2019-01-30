@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2019 sp1 (http://www.altova.com) by Adriane Wolfe (PSD) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://nrel.gov/schemas/bedes-auc/2014" targetNamespace="http://nrel.gov/schemas/bedes-auc/2014" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xs:annotation>
     <xs:documentation>BuildingSync Schema - Version 0.3 (May 31, 2018)</xs:documentation>
@@ -6,6 +7,47 @@
   <xs:element name="BuildingSync">
     <xs:complexType>
       <xs:sequence>
+        <xs:element name="Programs" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Program" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation>Authorized or supported program such as rebate or audit. </xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ProgramDate" type="xs:date" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>Date associated with the program.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ProgramFundingSource" type="xs:string" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>The source of funding or sponsor of the program.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ProgramClassification" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>The classification or type of the program.</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:enumeration value="Audit"/>
+                          <xs:enumeration value="Performance"/>
+                          <xs:enumeration value="Deemed"/>
+                          <xs:enumeration value="Retrofit"/>
+                          <xs:enumeration value="Rebate"/>
+                          <xs:enumeration value="Other"/>
+                          <xs:enumeration value="Not Applicable"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="Facilities">
           <xs:complexType>
             <xs:sequence>
