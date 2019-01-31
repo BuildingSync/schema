@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2019 sp1 (http://www.altova.com) by Adriane Wolfe (PSD) -->
+<!-- edited with XMLSpy v2019 sp1 (http://www.altova.com) by Chris Balbach (PSD) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://nrel.gov/schemas/bedes-auc/2014" targetNamespace="http://nrel.gov/schemas/bedes-auc/2014" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xs:annotation>
     <xs:documentation>BuildingSync Schema - Version 0.3 (May 31, 2018)</xs:documentation>
@@ -6248,180 +6248,32 @@
                   <xs:element name="DeliveryType" minOccurs="0">
                     <xs:complexType>
                       <xs:choice>
-                        <xs:element name="FanBased" minOccurs="0">
+                        <xs:element name="ZoneEquipment" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>A type of HVAC equipment serving a single thermal zone, such as a hotel room PTHP/PTAC.</xs:documentation>
+                          </xs:annotation>
                           <xs:complexType>
                             <xs:sequence>
-                              <xs:element name="FanBasedDistributionType" minOccurs="0">
-                                <xs:complexType>
-                                  <xs:choice>
-                                    <xs:element name="CentralAirDistribution" minOccurs="0">
-                                      <xs:complexType>
-                                        <xs:sequence>
-                                          <xs:element name="AirDeliveryType" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>Method for delivering air for heating and cooling to the zone.</xs:documentation>
-                                            </xs:annotation>
-                                            <xs:simpleType>
-                                              <xs:restriction base="xs:string">
-                                                <xs:enumeration value="Central fan"/>
-                                                <xs:enumeration value="Induction units"/>
-                                                <xs:enumeration value="Low pressure under floor"/>
-                                                <xs:enumeration value="Local fan"/>
-                                                <xs:enumeration value="Other"/>
-                                                <xs:enumeration value="Unknown"/>
-                                              </xs:restriction>
-                                            </xs:simpleType>
-                                          </xs:element>
-                                          <xs:element name="TerminalUnit" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>Type of terminal unit serving each zone of a central air distribution system.</xs:documentation>
-                                            </xs:annotation>
-                                            <xs:simpleType>
-                                              <xs:restriction base="xs:string">
-                                                <xs:enumeration value="CAV terminal box with reheat"/>
-                                                <xs:enumeration value="VAV terminal box fan powered no reheat"/>
-                                                <xs:enumeration value="VAV terminal box fan powered with reheat"/>
-                                                <xs:enumeration value="VAV terminal box not fan powered no reheat"/>
-                                                <xs:enumeration value="VAV terminal box not fan powered with reheat"/>
-                                                <xs:enumeration value="Automatically controlled register"/>
-                                                <xs:enumeration value="Manually controlled register"/>
-                                                <xs:enumeration value="Uncontrolled register"/>
-                                                <xs:enumeration value="Other"/>
-                                                <xs:enumeration value="Unknown"/>
-                                              </xs:restriction>
-                                            </xs:simpleType>
-                                          </xs:element>
-                                          <xs:element name="ReheatSource" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>Energy source used to provide reheat energy at a terminal unit.</xs:documentation>
-                                            </xs:annotation>
-                                            <xs:simpleType>
-                                              <xs:restriction base="xs:string">
-                                                <xs:enumeration value="Heating plant"/>
-                                                <xs:enumeration value="Local electric resistance"/>
-                                                <xs:enumeration value="Local gas"/>
-                                                <xs:enumeration value="Other"/>
-                                                <xs:enumeration value="Unknown"/>
-                                              </xs:restriction>
-                                            </xs:simpleType>
-                                          </xs:element>
-                                          <xs:element name="ReheatControlMethod" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The air/temperature control strategy for VAV systems with reheat boxes.</xs:documentation>
-                                            </xs:annotation>
-                                            <xs:simpleType>
-                                              <xs:restriction base="xs:string">
-                                                <xs:enumeration value="Dual Maximum"/>
-                                                <xs:enumeration value="Single Maximum"/>
-                                                <xs:enumeration value="Other"/>
-                                                <xs:enumeration value="Unknown"/>
-                                              </xs:restriction>
-                                            </xs:simpleType>
-                                          </xs:element>
-                                          <xs:element name="ReheatPlantID" minOccurs="0">
-                                            <xs:complexType>
-                                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                            </xs:complexType>
-                                          </xs:element>
-                                        </xs:sequence>
-                                      </xs:complexType>
-                                    </xs:element>
-                                    <xs:element name="FanCoil" minOccurs="0">
-                                      <xs:complexType>
-                                        <xs:sequence>
-                                          <xs:element name="FanCoilType" minOccurs="0">
-                                            <xs:simpleType>
-                                              <xs:restriction base="xs:string">
-                                                <xs:enumeration value="Mini-split"/>
-                                                <xs:enumeration value="Multi-split"/>
-                                                <xs:enumeration value="Terminal reheat"/>
-                                                <xs:enumeration value="Fan coil 2 pipe"/>
-                                                <xs:enumeration value="Fan coil 4 pipe"/>
-                                                <xs:enumeration value="VRF terminal units"/>
-                                                <xs:enumeration value="Other"/>
-                                                <xs:enumeration value="Unknown"/>
-                                              </xs:restriction>
-                                            </xs:simpleType>
-                                          </xs:element>
-                                          <xs:element name="HVACPipeConfiguration" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>Number of pipes for distributing steam, refrigerant, or water to individual zones.</xs:documentation>
-                                            </xs:annotation>
-                                            <xs:simpleType>
-                                              <xs:restriction base="xs:string">
-                                                <xs:enumeration value="1 pipe"/>
-                                                <xs:enumeration value="2 pipe"/>
-                                                <xs:enumeration value="3 pipe"/>
-                                                <xs:enumeration value="4 pipe"/>
-                                                <xs:enumeration value="Other"/>
-                                                <xs:enumeration value="Unknown"/>
-                                              </xs:restriction>
-                                            </xs:simpleType>
-                                          </xs:element>
-                                          <xs:element name="PipeInsulationThickness" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>Defines how thick insulation on pipes in a heating, cooling, water heating system is. (in.)</xs:documentation>
-                                            </xs:annotation>
-                                            <xs:complexType>
-                                              <xs:simpleContent>
-                                                <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                </xs:extension>
-                                              </xs:simpleContent>
-                                            </xs:complexType>
-                                          </xs:element>
-                                          <xs:element name="PipeLocation" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>Percent of pipe length in conditioned space. (0-1) (%)</xs:documentation>
-                                            </xs:annotation>
-                                            <xs:complexType>
-                                              <xs:simpleContent>
-                                                <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                </xs:extension>
-                                              </xs:simpleContent>
-                                            </xs:complexType>
-                                          </xs:element>
-                                        </xs:sequence>
-                                      </xs:complexType>
-                                    </xs:element>
-                                  </xs:choice>
-                                </xs:complexType>
-                              </xs:element>
-                              <xs:element name="AirSideEconomizer" minOccurs="0">
+                              <xs:element ref="auc:FanBased" minOccurs="0"/>
+                              <xs:element name="Convection" minOccurs="0">
                                 <xs:complexType>
                                   <xs:sequence>
-                                    <xs:element name="AirSideEconomizerType" minOccurs="0">
+                                    <xs:element name="ConvectionType" minOccurs="0">
                                       <xs:annotation>
-                                        <xs:documentation>Type of air economizer system associated with a cooling system.</xs:documentation>
+                                        <xs:documentation>Type of convection equipment used for heating and cooling at the zone.</xs:documentation>
                                       </xs:annotation>
                                       <xs:simpleType>
                                         <xs:restriction base="xs:string">
-                                          <xs:enumeration value="Dry bulb temperature"/>
-                                          <xs:enumeration value="Enthalpy"/>
-                                          <xs:enumeration value="Demand controlled ventilation"/>
-                                          <xs:enumeration value="Nonintegrated"/>
+                                          <xs:enumeration value="Perimeter baseboard"/>
+                                          <xs:enumeration value="Chilled beam"/>
                                           <xs:enumeration value="Other"/>
                                           <xs:enumeration value="Unknown"/>
                                         </xs:restriction>
                                       </xs:simpleType>
                                     </xs:element>
-                                    <xs:element name="EconomizerControl" minOccurs="0">
+                                    <xs:element name="PipeInsulationThickness" minOccurs="0">
                                       <xs:annotation>
-                                        <xs:documentation>Logic used for economizer control.</xs:documentation>
-                                      </xs:annotation>
-                                      <xs:simpleType>
-                                        <xs:restriction base="xs:string">
-                                          <xs:enumeration value="Fixed"/>
-                                          <xs:enumeration value="Differential"/>
-                                          <xs:enumeration value="Other"/>
-                                          <xs:enumeration value="Unknown"/>
-                                        </xs:restriction>
-                                      </xs:simpleType>
-                                    </xs:element>
-                                    <xs:element name="EconomizerDryBulbControlPoint" minOccurs="0">
-                                      <xs:annotation>
-                                        <xs:documentation>Dry bulb temperature setting for use of economizer for cooling (fixed or differential) (°F)</xs:documentation>
+                                        <xs:documentation>Defines how thick insulation on pipes in a heating, cooling, water heating system is. (in.)</xs:documentation>
                                       </xs:annotation>
                                       <xs:complexType>
                                         <xs:simpleContent>
@@ -6431,21 +6283,9 @@
                                         </xs:simpleContent>
                                       </xs:complexType>
                                     </xs:element>
-                                    <xs:element name="EconomizerEnthalpyControlPoint" minOccurs="0">
+                                    <xs:element name="PipeLocation" minOccurs="0">
                                       <xs:annotation>
-                                        <xs:documentation>Maximum enthalpy setting for use of economizer for cooling (fixed or differential) (Btu/lb)</xs:documentation>
-                                      </xs:annotation>
-                                      <xs:complexType>
-                                        <xs:simpleContent>
-                                          <xs:extension base="xs:decimal">
-                                            <xs:attribute ref="auc:Source"/>
-                                          </xs:extension>
-                                        </xs:simpleContent>
-                                      </xs:complexType>
-                                    </xs:element>
-                                    <xs:element name="EconomizerLowTemperatureLockout" minOccurs="0">
-                                      <xs:annotation>
-                                        <xs:documentation>The outside air temperature below which the economizer will return to the minimum position. (°F)</xs:documentation>
+                                        <xs:documentation>Percent of pipe length in conditioned space. (0-1) (%)</xs:documentation>
                                       </xs:annotation>
                                       <xs:complexType>
                                         <xs:simpleContent>
@@ -6456,258 +6296,126 @@
                                       </xs:complexType>
                                     </xs:element>
                                   </xs:sequence>
-                                  <xs:attribute name="ID" type="xs:ID"/>
-                                  <xs:attribute ref="auc:Status"/>
                                 </xs:complexType>
                               </xs:element>
-                              <xs:element name="HeatingSupplyAirTemperatureControl" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Defines the control method for heating supply air temperature.</xs:documentation>
-                                </xs:annotation>
-                                <xs:simpleType>
-                                  <xs:restriction base="xs:string">
-                                    <xs:enumeration value="Coldest Reset"/>
-                                    <xs:enumeration value="Fixed"/>
-                                    <xs:enumeration value="Outside Air Reset"/>
-                                    <xs:enumeration value="Scheduled"/>
-                                    <xs:enumeration value="Staged Setpoint"/>
-                                    <xs:enumeration value="Other"/>
-                                    <xs:enumeration value="Unknown"/>
-                                  </xs:restriction>
-                                </xs:simpleType>
-                              </xs:element>
-                              <xs:element name="CoolingSupplyAirTemperature" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Temperature setting of supply air for cooling under normal conditions. (°F)</xs:documentation>
-                                </xs:annotation>
+                              <xs:element name="Radiant" minOccurs="0">
                                 <xs:complexType>
-                                  <xs:simpleContent>
-                                    <xs:extension base="xs:decimal">
-                                      <xs:attribute ref="auc:Source"/>
-                                    </xs:extension>
-                                  </xs:simpleContent>
+                                  <xs:sequence>
+                                    <xs:element name="RadiantType" minOccurs="0">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Radiator"/>
+                                          <xs:enumeration value="Radiant floor or ceiling"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="Unknown"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="PipeInsulationThickness" minOccurs="0">
+                                      <xs:annotation>
+                                        <xs:documentation>Defines how thick insulation on pipes in a heating, cooling, water heating system is. (in.)</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:complexType>
+                                        <xs:simpleContent>
+                                          <xs:extension base="xs:decimal">
+                                            <xs:attribute ref="auc:Source"/>
+                                          </xs:extension>
+                                        </xs:simpleContent>
+                                      </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="PipeLocation" minOccurs="0">
+                                      <xs:annotation>
+                                        <xs:documentation>Percent of pipe length in conditioned space. (0-1) (%)</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:complexType>
+                                        <xs:simpleContent>
+                                          <xs:extension base="xs:decimal">
+                                            <xs:attribute ref="auc:Source"/>
+                                          </xs:extension>
+                                        </xs:simpleContent>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
                                 </xs:complexType>
                               </xs:element>
-                              <xs:element name="CoolingSupplyAirTemperatureControlType" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Defines the control method for controlling cooling supply air temperature.</xs:documentation>
-                                </xs:annotation>
-                                <xs:simpleType>
-                                  <xs:restriction base="xs:string">
-                                    <xs:enumeration value="Fixed"/>
-                                    <xs:enumeration value="Outside Air Reset"/>
-                                    <xs:enumeration value="Scheduled"/>
-                                    <xs:enumeration value="Warmest Reset"/>
-                                    <xs:enumeration value="Other"/>
-                                    <xs:enumeration value="Unknown"/>
-                                  </xs:restriction>
-                                </xs:simpleType>
-                              </xs:element>
-                              <xs:element name="OutsideAirResetMaximumHeatingSupplyTemperature" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Maximum temperature setting of supply air for heating during outside air reset. (°F)</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:simpleContent>
-                                    <xs:extension base="xs:decimal">
-                                      <xs:attribute ref="auc:Source"/>
-                                    </xs:extension>
-                                  </xs:simpleContent>
-                                </xs:complexType>
-                              </xs:element>
-                              <xs:element name="OutsideAirResetMinimumHeatingSupplyTemperature" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Minimum temperature setting of supply air for heating during outside air reset. (°F)</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:simpleContent>
-                                    <xs:extension base="xs:decimal">
-                                      <xs:attribute ref="auc:Source"/>
-                                    </xs:extension>
-                                  </xs:simpleContent>
-                                </xs:complexType>
-                              </xs:element>
-                              <xs:element name="OutsideAirTemperatureUpperLimitHeatingResetControl" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Maximum outside air temperature where supply air temperature is reset for heating. (°F)</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:simpleContent>
-                                    <xs:extension base="xs:decimal">
-                                      <xs:attribute ref="auc:Source"/>
-                                    </xs:extension>
-                                  </xs:simpleContent>
-                                </xs:complexType>
-                              </xs:element>
-                              <xs:element name="OutsideAirTemperatureLowerLimitHeatingResetControl" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Minimum outside air temperature where supply air temperature is reset for heating. (°F)</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:simpleContent>
-                                    <xs:extension base="xs:decimal">
-                                      <xs:attribute ref="auc:Source"/>
-                                    </xs:extension>
-                                  </xs:simpleContent>
-                                </xs:complexType>
-                              </xs:element>
-                              <xs:element name="OutsideAirResetMaximumCoolingSupplyTemperature" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Maximum temperature setting of supply air for cooling during outside air reset. (°F)</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:simpleContent>
-                                    <xs:extension base="xs:decimal">
-                                      <xs:attribute ref="auc:Source"/>
-                                    </xs:extension>
-                                  </xs:simpleContent>
-                                </xs:complexType>
-                              </xs:element>
-                              <xs:element name="OutsideAirResetMinimumCoolingSupplyTemperature" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Minimum temperature setting of supply air for cooling during outside air reset. (°F)</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:simpleContent>
-                                    <xs:extension base="xs:decimal">
-                                      <xs:attribute ref="auc:Source"/>
-                                    </xs:extension>
-                                  </xs:simpleContent>
-                                </xs:complexType>
-                              </xs:element>
-                              <xs:element name="OutsideAirTemperatureUpperLimitCoolingResetControl" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Maximum outside air temperature where supply air temperature is reset for cooling. (°F)</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:simpleContent>
-                                    <xs:extension base="xs:decimal">
-                                      <xs:attribute ref="auc:Source"/>
-                                    </xs:extension>
-                                  </xs:simpleContent>
-                                </xs:complexType>
-                              </xs:element>
-                              <xs:element name="OutsideAirTemperatureLowerLimitCoolingResetControl" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Minimum outside air temperature where supply air temperature is reset for cooling. (°F)</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:simpleContent>
-                                    <xs:extension base="xs:decimal">
-                                      <xs:attribute ref="auc:Source"/>
-                                    </xs:extension>
-                                  </xs:simpleContent>
-                                </xs:complexType>
-                              </xs:element>
-                              <xs:element name="HeatingSupplyAirTemperature" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Temperature setting of supply air for heating or cooling. (°F)</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:simpleContent>
-                                    <xs:extension base="xs:decimal">
-                                      <xs:attribute ref="auc:Source"/>
-                                    </xs:extension>
-                                  </xs:simpleContent>
-                                </xs:complexType>
-                              </xs:element>
-                              <xs:element name="SupplyAirTemperatureResetControl" type="xs:boolean" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>True if the supply-air-temperature set point can be reset based on the outside air temperature, false otherwise.</xs:documentation>
-                                </xs:annotation>
-                              </xs:element>
-                              <xs:element name="StaticPressureResetControl" type="xs:boolean" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>True if duct static pressure can be reset to keep it only as high as is needed to satisfy the neediest zone, false otherwise.</xs:documentation>
-                                </xs:annotation>
-                              </xs:element>
+                              <xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
                             </xs:sequence>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="Convection" minOccurs="0">
+                        <xs:element name="CentralAirDistribution" minOccurs="0">
                           <xs:complexType>
                             <xs:sequence>
-                              <xs:element name="ConvectionType" minOccurs="0">
+                              <xs:element name="AirDeliveryType" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>Type of convection equipment used for heating and cooling at the zone.</xs:documentation>
+                                  <xs:documentation>Method for delivering air for heating and cooling to the zone.</xs:documentation>
                                 </xs:annotation>
                                 <xs:simpleType>
                                   <xs:restriction base="xs:string">
-                                    <xs:enumeration value="Perimeter baseboard"/>
-                                    <xs:enumeration value="Chilled beam"/>
+                                    <xs:enumeration value="Central fan"/>
+                                    <xs:enumeration value="Induction units"/>
+                                    <xs:enumeration value="Low pressure under floor"/>
+                                    <xs:enumeration value="Local fan"/>
                                     <xs:enumeration value="Other"/>
                                     <xs:enumeration value="Unknown"/>
                                   </xs:restriction>
                                 </xs:simpleType>
                               </xs:element>
-                              <xs:element name="PipeInsulationThickness" minOccurs="0">
+                              <xs:element name="TerminalUnit" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>Defines how thick insulation on pipes in a heating, cooling, water heating system is. (in.)</xs:documentation>
+                                  <xs:documentation>Type of terminal unit serving each zone of a central air distribution system.</xs:documentation>
                                 </xs:annotation>
-                                <xs:complexType>
-                                  <xs:simpleContent>
-                                    <xs:extension base="xs:decimal">
-                                      <xs:attribute ref="auc:Source"/>
-                                    </xs:extension>
-                                  </xs:simpleContent>
-                                </xs:complexType>
-                              </xs:element>
-                              <xs:element name="PipeLocation" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Percent of pipe length in conditioned space. (0-1) (%)</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:simpleContent>
-                                    <xs:extension base="xs:decimal">
-                                      <xs:attribute ref="auc:Source"/>
-                                    </xs:extension>
-                                  </xs:simpleContent>
-                                </xs:complexType>
-                              </xs:element>
-                            </xs:sequence>
-                          </xs:complexType>
-                        </xs:element>
-                        <xs:element name="Radiant" minOccurs="0">
-                          <xs:complexType>
-                            <xs:sequence>
-                              <xs:element name="RadiantType" minOccurs="0">
                                 <xs:simpleType>
                                   <xs:restriction base="xs:string">
-                                    <xs:enumeration value="Radiator"/>
-                                    <xs:enumeration value="Radiant floor or ceiling"/>
+                                    <xs:enumeration value="CAV terminal box with reheat"/>
+                                    <xs:enumeration value="VAV terminal box fan powered no reheat"/>
+                                    <xs:enumeration value="VAV terminal box fan powered with reheat"/>
+                                    <xs:enumeration value="VAV terminal box not fan powered no reheat"/>
+                                    <xs:enumeration value="VAV terminal box not fan powered with reheat"/>
+                                    <xs:enumeration value="Automatically controlled register"/>
+                                    <xs:enumeration value="Manually controlled register"/>
+                                    <xs:enumeration value="Uncontrolled register"/>
                                     <xs:enumeration value="Other"/>
                                     <xs:enumeration value="Unknown"/>
                                   </xs:restriction>
                                 </xs:simpleType>
                               </xs:element>
-                              <xs:element name="PipeInsulationThickness" minOccurs="0">
+                              <xs:element name="ReheatSource" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>Defines how thick insulation on pipes in a heating, cooling, water heating system is. (in.)</xs:documentation>
+                                  <xs:documentation>Energy source used to provide reheat energy at a terminal unit.</xs:documentation>
                                 </xs:annotation>
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Heating plant"/>
+                                    <xs:enumeration value="Local electric resistance"/>
+                                    <xs:enumeration value="Local gas"/>
+                                    <xs:enumeration value="Other"/>
+                                    <xs:enumeration value="Unknown"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="ReheatControlMethod" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>The air/temperature control strategy for VAV systems with reheat boxes.</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Dual Maximum"/>
+                                    <xs:enumeration value="Single Maximum"/>
+                                    <xs:enumeration value="Other"/>
+                                    <xs:enumeration value="Unknown"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="ReheatPlantID" minOccurs="0">
                                 <xs:complexType>
-                                  <xs:simpleContent>
-                                    <xs:extension base="xs:decimal">
-                                      <xs:attribute ref="auc:Source"/>
-                                    </xs:extension>
-                                  </xs:simpleContent>
+                                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                 </xs:complexType>
                               </xs:element>
-                              <xs:element name="PipeLocation" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Percent of pipe length in conditioned space. (0-1) (%)</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:simpleContent>
-                                    <xs:extension base="xs:decimal">
-                                      <xs:attribute ref="auc:Source"/>
-                                    </xs:extension>
-                                  </xs:simpleContent>
-                                </xs:complexType>
-                              </xs:element>
+                              <xs:element ref="auc:FanBased" minOccurs="0"/>
                             </xs:sequence>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
+                        <xs:element name="Other" minOccurs="0"/>
                       </xs:choice>
                     </xs:complexType>
                   </xs:element>
@@ -15512,4 +15220,312 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
   </xs:complexType>
   <xs:complexType name="SelfLuminousType"/>
   <xs:complexType name="UnknownType"/>
+  <xs:complexType name="FanBasedDistributionTypeType">
+    <xs:choice>
+      <xs:element name="FanCoil" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="FanCoilType" minOccurs="0">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Mini-split"/>
+                  <xs:enumeration value="Multi-split"/>
+                  <xs:enumeration value="Terminal reheat"/>
+                  <xs:enumeration value="Fan coil 2 pipe"/>
+                  <xs:enumeration value="Fan coil 4 pipe"/>
+                  <xs:enumeration value="VRF terminal units"/>
+                  <xs:enumeration value="Other"/>
+                  <xs:enumeration value="Unknown"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="HVACPipeConfiguration" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Number of pipes for distributing steam, refrigerant, or water to individual zones.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="1 pipe"/>
+                  <xs:enumeration value="2 pipe"/>
+                  <xs:enumeration value="3 pipe"/>
+                  <xs:enumeration value="4 pipe"/>
+                  <xs:enumeration value="Other"/>
+                  <xs:enumeration value="Unknown"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="PipeInsulationThickness" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Defines how thick insulation on pipes in a heating, cooling, water heating system is. (in.)</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:decimal">
+                    <xs:attribute ref="auc:Source"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="PipeLocation" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Percent of pipe length in conditioned space. (0-1) (%)</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:decimal">
+                    <xs:attribute ref="auc:Source"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="FanBased" type="auc:FanBasedType"/>
+  <xs:complexType name="FanBasedType">
+    <xs:sequence>
+      <xs:element name="FanBasedDistributionType" minOccurs="0">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="auc:FanBasedDistributionTypeType"/>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AirSideEconomizer" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AirSideEconomizerType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Type of air economizer system associated with a cooling system.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Dry bulb temperature"/>
+                  <xs:enumeration value="Enthalpy"/>
+                  <xs:enumeration value="Demand controlled ventilation"/>
+                  <xs:enumeration value="Nonintegrated"/>
+                  <xs:enumeration value="Other"/>
+                  <xs:enumeration value="Unknown"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="EconomizerControl" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Logic used for economizer control.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Fixed"/>
+                  <xs:enumeration value="Differential"/>
+                  <xs:enumeration value="Other"/>
+                  <xs:enumeration value="Unknown"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="EconomizerDryBulbControlPoint" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Dry bulb temperature setting for use of economizer for cooling (fixed or differential) (°F)</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:decimal">
+                    <xs:attribute ref="auc:Source"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="EconomizerEnthalpyControlPoint" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Maximum enthalpy setting for use of economizer for cooling (fixed or differential) (Btu/lb)</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:decimal">
+                    <xs:attribute ref="auc:Source"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="EconomizerLowTemperatureLockout" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>The outside air temperature below which the economizer will return to the minimum position. (°F)</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:decimal">
+                    <xs:attribute ref="auc:Source"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="ID" type="xs:ID"/>
+          <xs:attribute ref="auc:Status"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HeatingSupplyAirTemperatureControl" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Defines the control method for heating supply air temperature.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Coldest Reset"/>
+            <xs:enumeration value="Fixed"/>
+            <xs:enumeration value="Outside Air Reset"/>
+            <xs:enumeration value="Scheduled"/>
+            <xs:enumeration value="Staged Setpoint"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Unknown"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CoolingSupplyAirTemperature" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Temperature setting of supply air for cooling under normal conditions. (°F)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CoolingSupplyAirTemperatureControlType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Defines the control method for controlling cooling supply air temperature.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Fixed"/>
+            <xs:enumeration value="Outside Air Reset"/>
+            <xs:enumeration value="Scheduled"/>
+            <xs:enumeration value="Warmest Reset"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Unknown"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="OutsideAirResetMaximumHeatingSupplyTemperature" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Maximum temperature setting of supply air for heating during outside air reset. (°F)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OutsideAirResetMinimumHeatingSupplyTemperature" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Minimum temperature setting of supply air for heating during outside air reset. (°F)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OutsideAirTemperatureUpperLimitHeatingResetControl" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Maximum outside air temperature where supply air temperature is reset for heating. (°F)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OutsideAirTemperatureLowerLimitHeatingResetControl" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Minimum outside air temperature where supply air temperature is reset for heating. (°F)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OutsideAirResetMaximumCoolingSupplyTemperature" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Maximum temperature setting of supply air for cooling during outside air reset. (°F)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OutsideAirResetMinimumCoolingSupplyTemperature" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Minimum temperature setting of supply air for cooling during outside air reset. (°F)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OutsideAirTemperatureUpperLimitCoolingResetControl" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Maximum outside air temperature where supply air temperature is reset for cooling. (°F)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OutsideAirTemperatureLowerLimitCoolingResetControl" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Minimum outside air temperature where supply air temperature is reset for cooling. (°F)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HeatingSupplyAirTemperature" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Temperature setting of supply air for heating or cooling. (°F)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SupplyAirTemperatureResetControl" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>True if the supply-air-temperature set point can be reset based on the outside air temperature, false otherwise.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="StaticPressureResetControl" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>True if duct static pressure can be reset to keep it only as high as is needed to satisfy the neediest zone, false otherwise.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>
