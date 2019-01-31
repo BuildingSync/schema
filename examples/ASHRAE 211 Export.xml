@@ -386,29 +386,31 @@
         <HVACSystems>
           <HVACSystem>
             <Plants>
-            <HeatingPlants>
-              <HeatingPlant ID="HeatiingPlant1">
-                <Boiler>
-                  <BoilerType>Hot water</BoilerType>
-                  <DraftType>Mechanical forced</DraftType>
-                </Boiler>
-              </HeatingPlant>
+              <HeatingPlants>
+                <HeatingPlant ID="HeatiingPlant1">
+                  <Boiler>
+                    <BoilerType>Hot water</BoilerType>
+                    <DraftType>Mechanical forced</DraftType>
+                  </Boiler>
+                </HeatingPlant>
               </HeatingPlants>
               <CoolingPlants>
-              <CoolingPlant ID="CoolingPlant1">
-                <Chiller>
-                  <ChillerType>Vapor compression</ChillerType>
-                  <CondenserPlantID IDref="CondenserPlant1"/>
-                </Chiller>
-              </CoolingPlant>
+                <CoolingPlant ID="CoolingPlant1">
+                  <Chiller>
+                    <ChillerType>Vapor compression</ChillerType>
+                    <CondenserPlantIDs>
+                      <CondenserPlantID IDref="CondenserPlant1"/>
+                    </CondenserPlantIDs>
+                  </Chiller>
+                </CoolingPlant>
               </CoolingPlants>
               <CondenserPlants>
-              <CondenserPlant ID="CondenserPlant1">
-                <AirCooled>
-                  <EvaporativelyCooledCondenser/>
-                </AirCooled>
-              </CondenserPlant>
-            </CondenserPlants>
+                <CondenserPlant ID="CondenserPlant1">
+                  <AirCooled>
+                    <EvaporativelyCooledCondenser/>
+                  </AirCooled>
+                </CondenserPlant>
+              </CondenserPlants>
             </Plants>
             <HeatingAndCoolingSystems>
               <HeatingSources>
@@ -729,9 +731,9 @@
         <FoundationSystems>
           <FoundationSystem ID="Foundation1">
             <GroundCouplings>
-            <GroundCoupling>
-              <Crawlspace/>
-            </GroundCoupling>
+              <GroundCoupling>
+                <Crawlspace/>
+              </GroundCoupling>
             </GroundCouplings>
             <FloorConstructionType>Wood frame</FloorConstructionType>
           </FoundationSystem>
@@ -1255,7 +1257,9 @@
                 <PercentEndUse>1</PercentEndUse>
                 <AnnualFuelUseNativeUnits>25740</AnnualFuelUseNativeUnits>
                 <AnnualFuelUseConsistentUnits>2574</AnnualFuelUseConsistentUnits>
-                <UtilityID IDref="Utility1"/>
+                <UtilityIDs>
+                  <UtilityID IDref="Utility1"/>
+                </UtilityIDs>
               </ResourceUse>
               <ResourceUse ID="Resource3">
                 <EnergyResource>Fuel oil</EnergyResource>
@@ -1266,9 +1270,11 @@
                 <PercentEndUse>1</PercentEndUse>
                 <AnnualFuelUseNativeUnits>148500</AnnualFuelUseNativeUnits>
                 <AnnualFuelUseConsistentUnits>1782</AnnualFuelUseConsistentUnits>
-                <UtilityID IDref="Utility2"/>
-                <UtilityID IDref="Utility3"/>
-                <UtilityID IDref="Utility4"/>
+                <UtilityIDs>
+                  <UtilityID IDref="Utility2"/>
+                  <UtilityID IDref="Utility3"/>
+                  <UtilityID IDref="Utility4"/>
+                </UtilityIDs>
               </ResourceUse>
               <ResourceUse ID="Resource4">
                 <EnergyResource>Fuel oil no 5 and no 6</EnergyResource>
@@ -1279,9 +1285,11 @@
                 <PercentEndUse>1</PercentEndUse>
                 <AnnualFuelUseNativeUnits>450</AnnualFuelUseNativeUnits>
                 <AnnualFuelUseConsistentUnits>4.95</AnnualFuelUseConsistentUnits>
-                <UtilityID IDref="Utility5"/>
-                <UtilityID IDref="Utility6"/>
-                <UtilityID IDref="Utility7"/>
+                <UtilityIDs>
+                  <UtilityID IDref="Utility5"/>
+                  <UtilityID IDref="Utility6"/>
+                  <UtilityID IDref="Utility7"/>
+                </UtilityIDs>
               </ResourceUse>
               <ResourceUse ID="Resource5">
                 <EnergyResource>Fuel oil</EnergyResource>
@@ -1292,9 +1300,11 @@
                 <PercentEndUse>1</PercentEndUse>
                 <AnnualFuelUseNativeUnits>390</AnnualFuelUseNativeUnits>
                 <AnnualFuelUseConsistentUnits>31.2</AnnualFuelUseConsistentUnits>
-                <UtilityID IDref="Utility8"/>
-                <UtilityID IDref="Utility9"/>
-                <UtilityID IDref="Utility10"/>
+                <UtilityIDs>
+                  <UtilityID IDref="Utility8"/>
+                  <UtilityID IDref="Utility9"/>
+                  <UtilityID IDref="Utility10"/>
+                </UtilityIDs>
               </ResourceUse>
             </ResourceUses>
             <TimeSeriesData>
@@ -2479,16 +2489,16 @@
               <PackageOfMeasures>
                 <AnnualSavingsCost>15809</AnnualSavingsCost>
                 <AnnualSavingsByFuels>
-                <AnnualSavingsByFuel>
-                  <EnergyResource>Electricity</EnergyResource>
-                  <ResourceUnits>kWh</ResourceUnits>
-                  <AnnualSavingsNativeUnits>7855</AnnualSavingsNativeUnits>
-                </AnnualSavingsByFuel>
-                <AnnualSavingsByFuel>
-                  <EnergyResource>Natural gas</EnergyResource>
-                  <ResourceUnits>therms</ResourceUnits>
-                  <AnnualSavingsNativeUnits>3859</AnnualSavingsNativeUnits>
-                </AnnualSavingsByFuel>
+                  <AnnualSavingsByFuel>
+                    <EnergyResource>Electricity</EnergyResource>
+                    <ResourceUnits>kWh</ResourceUnits>
+                    <AnnualSavingsNativeUnits>7855</AnnualSavingsNativeUnits>
+                  </AnnualSavingsByFuel>
+                  <AnnualSavingsByFuel>
+                    <EnergyResource>Natural gas</EnergyResource>
+                    <ResourceUnits>therms</ResourceUnits>
+                    <AnnualSavingsNativeUnits>3859</AnnualSavingsNativeUnits>
+                  </AnnualSavingsByFuel>
                 </AnnualSavingsByFuels>
                 <SummerPeakElectricityReduction>71</SummerPeakElectricityReduction>
                 <PackageFirstCost>25683</PackageFirstCost>

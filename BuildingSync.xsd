@@ -1580,12 +1580,18 @@
                                   <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                 </xs:complexType>
                               </xs:element>
-                              <xs:element name="ThermalZoneID" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>ID number of the zone type associated with this space or side of the subsection</xs:documentation>
-                                </xs:annotation>
+                              <xs:element name="ThermalZoneIDs" minOccurs="0">
                                 <xs:complexType>
-                                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                  <xs:sequence>
+                                    <xs:element name="ThermalZoneID" minOccurs="0">
+                                      <xs:annotation>
+                                        <xs:documentation>ID number of the zone type associated with this space or side of the subsection</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:complexType>
+                                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
                                 </xs:complexType>
                               </xs:element>
                             </xs:sequence>
@@ -1624,26 +1630,32 @@
                             </xs:simpleContent>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="SkylightID" minOccurs="0" maxOccurs="unbounded">
-                          <xs:annotation>
-                            <xs:documentation>ID number of the skylight type associated with this side of the subsection</xs:documentation>
-                          </xs:annotation>
+                        <xs:element name="SkylightIDs" minOccurs="0">
                           <xs:complexType>
                             <xs:sequence>
-                              <xs:element name="PercentSkylightArea" minOccurs="0">
+                              <xs:element name="SkylightID" minOccurs="0" maxOccurs="unbounded">
                                 <xs:annotation>
-                                  <xs:documentation>The percentage of the skylight area relative to the roof area. (0-1) (%)</xs:documentation>
+                                  <xs:documentation>ID number of the skylight type associated with this side of the subsection</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
-                                  <xs:simpleContent>
-                                    <xs:extension base="xs:decimal">
-                                      <xs:attribute ref="auc:Source"/>
-                                    </xs:extension>
-                                  </xs:simpleContent>
+                                  <xs:sequence>
+                                    <xs:element name="PercentSkylightArea" minOccurs="0">
+                                      <xs:annotation>
+                                        <xs:documentation>The percentage of the skylight area relative to the roof area. (0-1) (%)</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:complexType>
+                                        <xs:simpleContent>
+                                          <xs:extension base="xs:decimal">
+                                            <xs:attribute ref="auc:Source"/>
+                                          </xs:extension>
+                                        </xs:simpleContent>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                 </xs:complexType>
                               </xs:element>
                             </xs:sequence>
-                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                           </xs:complexType>
                         </xs:element>
                       </xs:sequence>
@@ -1680,20 +1692,32 @@
                             </xs:simpleContent>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="ThermalZoneID" minOccurs="0" maxOccurs="unbounded">
-                          <xs:annotation>
-                            <xs:documentation>ID number of the zone type associated with this space or side of the subsection</xs:documentation>
-                          </xs:annotation>
+                        <xs:element name="ThermalZoneIDs" minOccurs="0">
                           <xs:complexType>
-                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            <xs:sequence>
+                              <xs:element name="ThermalZoneID" minOccurs="0" maxOccurs="unbounded">
+                                <xs:annotation>
+                                  <xs:documentation>ID number of the zone type associated with this space or side of the subsection</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="SpaceID" minOccurs="0" maxOccurs="unbounded">
-                          <xs:annotation>
-                            <xs:documentation>ID number of the space type associated with this side of the subsection</xs:documentation>
-                          </xs:annotation>
+                        <xs:element name="SpaceIDs" minOccurs="0">
                           <xs:complexType>
-                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            <xs:sequence>
+                              <xs:element name="SpaceID" minOccurs="0" maxOccurs="unbounded">
+                                <xs:annotation>
+                                  <xs:documentation>ID number of the space type associated with this side of the subsection</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
                           </xs:complexType>
                         </xs:element>
                       </xs:sequence>
@@ -1718,20 +1742,32 @@
                             </xs:simpleContent>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="ThermalZoneID" minOccurs="0" maxOccurs="unbounded">
-                          <xs:annotation>
-                            <xs:documentation>ID number of the zone type associated with this space or side of the subsection</xs:documentation>
-                          </xs:annotation>
+                        <xs:element name="ThermalZoneIDs" minOccurs="0">
                           <xs:complexType>
-                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            <xs:sequence>
+                              <xs:element name="ThermalZoneID" minOccurs="0" maxOccurs="unbounded">
+                                <xs:annotation>
+                                  <xs:documentation>ID number of the zone type associated with this space or side of the subsection</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="SpaceID" minOccurs="0" maxOccurs="unbounded">
-                          <xs:annotation>
-                            <xs:documentation>ID number of the space type associated with this side of the subsection</xs:documentation>
-                          </xs:annotation>
+                        <xs:element name="SpaceIDs" minOccurs="0">
                           <xs:complexType>
-                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            <xs:sequence>
+                              <xs:element name="SpaceID" minOccurs="0" maxOccurs="unbounded">
+                                <xs:annotation>
+                                  <xs:documentation>ID number of the space type associated with this side of the subsection</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
                           </xs:complexType>
                         </xs:element>
                       </xs:sequence>
@@ -1859,20 +1895,32 @@
   <xs:complexType name="ThermalZoneType">
     <xs:sequence>
       <xs:element ref="auc:PremisesName" minOccurs="0"/>
-      <xs:element name="DeliveryID" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>ID number of HVAC delivery systems supporting the zone</xs:documentation>
-        </xs:annotation>
+      <xs:element name="DeliveryIDs" minOccurs="0">
         <xs:complexType>
-          <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+          <xs:sequence>
+            <xs:element name="DeliveryID" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>ID number of HVAC delivery systems supporting the zone</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="HVACScheduleID" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>ID numbers of the heating, cooling, or other HVAC schedules associated with the zone.</xs:documentation>
-        </xs:annotation>
+      <xs:element name="HVACScheduleIDs" minOccurs="0">
         <xs:complexType>
-          <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+          <xs:sequence>
+            <xs:element name="HVACScheduleID" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>ID numbers of the heating, cooling, or other HVAC schedules associated with the zone.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="SetpointTemperatureHeating" minOccurs="0">
@@ -1976,12 +2024,18 @@
       <xs:element ref="auc:OccupancyClassification" minOccurs="0"/>
       <xs:element ref="auc:OccupancyLevels" minOccurs="0"/>
       <xs:element ref="auc:TypicalOccupantUsages" minOccurs="0"/>
-      <xs:element name="OccupancyScheduleID" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>ID numbers of the occupancy schedules associated with the space.</xs:documentation>
-        </xs:annotation>
+      <xs:element name="OccupancyScheduleIDs" minOccurs="0">
         <xs:complexType>
-          <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+          <xs:sequence>
+            <xs:element name="OccupancyScheduleID" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>ID numbers of the occupancy schedules associated with the space.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="OccupantsActivityLevel" minOccurs="0">
@@ -2325,9 +2379,15 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="ContactID" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="ContactIDs" minOccurs="0">
         <xs:complexType>
-          <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+          <xs:sequence>
+            <xs:element name="ContactID" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
@@ -4042,12 +4102,18 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="UtilityID" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>ID of utility associated with this resource use.</xs:documentation>
-        </xs:annotation>
+      <xs:element name="UtilityIDs" minOccurs="0">
         <xs:complexType>
-          <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+          <xs:sequence>
+            <xs:element name="UtilityID" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>ID of utility associated with this resource use.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="Emissions" minOccurs="0">
@@ -6203,12 +6269,18 @@
                                       </xs:simpleType>
                                     </xs:element>
                                     <xs:element ref="auc:CompressorStaging" minOccurs="0"/>
-                                    <xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded">
-                                      <xs:annotation>
-                                        <xs:documentation>ID numbers of the central condenser plants serving as the source for this cooling system.</xs:documentation>
-                                      </xs:annotation>
+                                    <xs:element name="CondenserPlantIDs" minOccurs="0">
                                       <xs:complexType>
-                                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                        <xs:sequence>
+                                          <xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:annotation>
+                                              <xs:documentation>ID numbers of the central condenser plants serving as the source for this cooling system.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                            </xs:complexType>
+                                          </xs:element>
+                                        </xs:sequence>
                                       </xs:complexType>
                                     </xs:element>
                                     <xs:element ref="auc:Refrigerant" minOccurs="0"/>
@@ -7675,12 +7747,18 @@
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded">
-                <xs:annotation>
-                  <xs:documentation>ID numbers of the central condenser plants serving as the source for this cooling system.</xs:documentation>
-                </xs:annotation>
+              <xs:element name="CondenserPlantIDs" minOccurs="0">
                 <xs:complexType>
-                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                  <xs:sequence>
+                    <xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded">
+                      <xs:annotation>
+                        <xs:documentation>ID numbers of the central condenser plants serving as the source for this cooling system.</xs:documentation>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
                 </xs:complexType>
               </xs:element>
               <xs:element ref="auc:Refrigerant" minOccurs="0"/>
@@ -9861,12 +9939,18 @@
                       <xs:attribute name="ID" type="xs:ID"/>
                     </xs:complexType>
                   </xs:element>
-                  <xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>ID numbers of the condenser plants serving as the source for this cooling system.</xs:documentation>
-                    </xs:annotation>
+                  <xs:element name="CondenserPlantIDs" minOccurs="0">
                     <xs:complexType>
-                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                      <xs:sequence>
+                        <xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>ID numbers of the condenser plants serving as the source for this cooling system.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
                     </xs:complexType>
                   </xs:element>
                 </xs:sequence>
@@ -10472,12 +10556,18 @@
       <xs:element ref="auc:Manufacturer" minOccurs="0"/>
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
-      <xs:element name="LinkedSystemID" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>ID number of system(s) supported by this equipment</xs:documentation>
-        </xs:annotation>
+      <xs:element name="LinkedSystemIDs" minOccurs="0">
         <xs:complexType>
-          <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+          <xs:sequence>
+            <xs:element name="LinkedSystemID" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>ID number of system(s) supported by this equipment</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
@@ -10680,12 +10770,18 @@
       <xs:element ref="auc:Manufacturer" minOccurs="0"/>
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
-      <xs:element name="LinkedSystemID" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>ID number of system(s) supported by this equipment</xs:documentation>
-        </xs:annotation>
+      <xs:element name="LinkedSystemIDs" minOccurs="0">
         <xs:complexType>
-          <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+          <xs:sequence>
+            <xs:element name="LinkedSystemID" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>ID number of system(s) supported by this equipment</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
@@ -10818,12 +10914,18 @@
       <xs:element ref="auc:Manufacturer" minOccurs="0"/>
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
-      <xs:element name="LinkedSystemID" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>ID number of system(s) supported by this equipment</xs:documentation>
-        </xs:annotation>
+      <xs:element name="LinkedSystemIDs" minOccurs="0">
         <xs:complexType>
-          <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+          <xs:sequence>
+            <xs:element name="LinkedSystemID" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>ID number of system(s) supported by this equipment</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
@@ -13684,12 +13786,18 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
-                      <xs:annotation>
-                        <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
-                      </xs:annotation>
+                    <xs:element name="LinkedScheduleIDs" minOccurs="0">
                       <xs:complexType>
-                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                        <xs:sequence>
+                          <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
+                            <xs:annotation>
+                              <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
                       </xs:complexType>
                     </xs:element>
                     <xs:element ref="auc:FloorAreas" minOccurs="0"/>
@@ -13709,12 +13817,18 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
-                      <xs:annotation>
-                        <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
-                      </xs:annotation>
+                    <xs:element name="LinkedScheduleIDs" minOccurs="0">
                       <xs:complexType>
-                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                        <xs:sequence>
+                          <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
+                            <xs:annotation>
+                              <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
                       </xs:complexType>
                     </xs:element>
                     <xs:element ref="auc:FloorAreas" minOccurs="0"/>
@@ -13734,12 +13848,18 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
-                      <xs:annotation>
-                        <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
-                      </xs:annotation>
+                    <xs:element name="LinkedScheduleIDs" minOccurs="0">
                       <xs:complexType>
-                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                        <xs:sequence>
+                          <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
+                            <xs:annotation>
+                              <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
                       </xs:complexType>
                     </xs:element>
                     <xs:element ref="auc:FloorAreas" minOccurs="0"/>
@@ -13759,12 +13879,18 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
-                      <xs:annotation>
-                        <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
-                      </xs:annotation>
+                    <xs:element name="LinkedScheduleIDs" minOccurs="0">
                       <xs:complexType>
-                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                        <xs:sequence>
+                          <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
+                            <xs:annotation>
+                              <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
                       </xs:complexType>
                     </xs:element>
                     <xs:element ref="auc:FloorAreas" minOccurs="0"/>
@@ -13784,12 +13910,18 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
-                      <xs:annotation>
-                        <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
-                      </xs:annotation>
+                    <xs:element name="LinkedScheduleIDs" minOccurs="0">
                       <xs:complexType>
-                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                        <xs:sequence>
+                          <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
+                            <xs:annotation>
+                              <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
                       </xs:complexType>
                     </xs:element>
                     <xs:element ref="auc:FloorAreas" minOccurs="0"/>

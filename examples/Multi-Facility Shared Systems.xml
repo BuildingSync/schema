@@ -97,7 +97,9 @@
                 <CoolingPlant ID="CoolingPlant1">
                   <Chiller>
                     <ChillerType>Vapor compression</ChillerType>
-                    <CondenserPlantID IDref="CondenserPlant1"/>
+                    <CondenserPlantIDs>
+                      <CondenserPlantID IDref="CondenserPlant1"/>
+                    </CondenserPlantIDs>
                   </Chiller>
                 </CoolingPlant>
               </CoolingPlants>

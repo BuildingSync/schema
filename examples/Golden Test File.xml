@@ -84,13 +84,13 @@
         <HVACSystems>
           <HVACSystem ID="UnsharedHeating">
             <Plants>
-            <HeatingPlants>
-              <HeatingPlant ID="HeatingPlant1">
-                <Boiler>
-                  <BoilerType>Hot water</BoilerType>
-                  <DraftType>Mechanical forced</DraftType>
-                </Boiler>
-              </HeatingPlant>
+              <HeatingPlants>
+                <HeatingPlant ID="HeatingPlant1">
+                  <Boiler>
+                    <BoilerType>Hot water</BoilerType>
+                    <DraftType>Mechanical forced</DraftType>
+                  </Boiler>
+                </HeatingPlant>
               </HeatingPlants>
             </Plants>
             <HeatingAndCoolingSystems>
@@ -112,31 +112,33 @@
           </HVACSystem>
           <HVACSystem ID="SharedCooling">
             <Plants>
-            <CoolingPlants>
-              <CoolingPlant ID="CoolingPlant1">
-                <Chiller>
-                  <ChillerType>Vapor compression</ChillerType>
-                  <CondenserPlantID IDref="CondenserPlant1"/>
-                </Chiller>
-              </CoolingPlant>
+              <CoolingPlants>
+                <CoolingPlant ID="CoolingPlant1">
+                  <Chiller>
+                    <ChillerType>Vapor compression</ChillerType>
+                    <CondenserPlantIDs>
+                      <CondenserPlantID IDref="CondenserPlant1"/>
+                    </CondenserPlantIDs>
+                  </Chiller>
+                </CoolingPlant>
               </CoolingPlants>
               <CondenserPlants>
-              <CondenserPlant ID="CondenserPlant1">
-                <AirCooled>
-                  <EvaporativelyCooledCondenser/>
-                </AirCooled>
-              </CondenserPlant>
+                <CondenserPlant ID="CondenserPlant1">
+                  <AirCooled>
+                    <EvaporativelyCooledCondenser/>
+                  </AirCooled>
+                </CondenserPlant>
               </CondenserPlants>
             </Plants>
             <HeatingAndCoolingSystems>
               <CoolingSources>
-              <CoolingSource>
-                <CoolingSourceType>
-                  <CoolingPlantID IDref="CoolingPlant1"/>
-                </CoolingSourceType>
-                <CoolingMedium>Chilled water</CoolingMedium>
-                <PrimaryFuel>Fuel oil no 2</PrimaryFuel>
-              </CoolingSource>
+                <CoolingSource>
+                  <CoolingSourceType>
+                    <CoolingPlantID IDref="CoolingPlant1"/>
+                  </CoolingSourceType>
+                  <CoolingMedium>Chilled water</CoolingMedium>
+                  <PrimaryFuel>Fuel oil no 2</PrimaryFuel>
+                </CoolingSource>
               </CoolingSources>
             </HeatingAndCoolingSystems>
             <LinkedPremises>
@@ -169,9 +171,9 @@
         <Measure ID="Building1RemovePV">
           <TypeOfMeasure>
             <Removals>
-            <Removal>
-              <ExistingSystemRemoved IDref="AllThePV"/>
-            </Removal>
+              <Removal>
+                <ExistingSystemRemoved IDref="AllThePV"/>
+              </Removal>
             </Removals>
           </TypeOfMeasure>
           <LinkedPremises>
@@ -183,9 +185,9 @@
         <Measure ID="WholeSiteRemovePV">
           <TypeOfMeasure>
             <Removals>
-            <Removal>
-              <ExistingSystemRemoved IDref="AllThePV"/>
-            </Removal>
+              <Removal>
+                <ExistingSystemRemoved IDref="AllThePV"/>
+              </Removal>
             </Removals>
           </TypeOfMeasure>
           <LinkedPremises>
