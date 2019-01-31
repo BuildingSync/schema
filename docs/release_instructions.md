@@ -15,28 +15,29 @@ Follow the steps below when releasing a new version
         rake remove_tabs
         ```
 
-* Update the CHANGELOG to include the latest changes, and the most recent version.
+* Update the CHANGELOG.md to include the latest changes, and the most recent version.
 
 	* Run the change_log.rb script (e.g. ruby src/change_log.rb -t abcdefghijklmnopqrstuvwxyz -s <last-release-data>).
 	* Copy the results of this into the CHANGELOG. Remove items that are not useful to an end user such as version bumps, formatting, etc.
 
 * After merging down the release into the main branch, draft a release in GitHub. Upload the XSD and JSON file as part of the release.
 
-* Use xs3p to generate the documentation.
+* Use XMLSpy to generate documentation.
 
-	* Download [V1.1.5](https://sourceforge.net/projects/xs3p/) and unzip.
-	* Run `xsltproc xs3p.xsl <path-to-BuildingSync.xsd> > index.html` to generate the new html documentation. Note that xsltproc may need to be installed on your machine to run.
-
+    * Schema Design -> Generate Documentation
+    * Set to HTML
+    * Check all the includes and details
+    * Make sure to output to a single file (uncheck "Split output in mulitple files")
+    * Embed CSS into HTML
+    * Export as the default name, then go to the system and rename the html file as `index.html` in the website's `schema/vXXX/documentation` folder.
+    
 * Edit the BuildingSync Website GitHub repo on a new branch (https://github.com/BuildingSync/website):
 
-	* Run the schema's rake task for generating the data dictionary (`rake generate_data_dictionary`). This will create the list of enumerations in both JSON and XSLX format. In the BuildingSync/website repository:
+	* Run the schema's rake task for generating the data dictionary (`bundle exec rake generate_data_dictionary`). This will create the list of enumerations in both JSON and XSLX format. In the BuildingSync/website repository:
 	    * Copy this repository's `docs/enumerations.json` file into a new `_data/vXXX` folder in the website folder. Note that the folder cannot contain a dot.
-	    * Copy `schema/documentation/v0.3` to a new folder. Update the files as needed to support the new version.
-	        * Copy the XLSX
-	        * Update the `datadictionary/index.html` and `measures/index.html` to point to the new enumerations.json file.
-        * Update `/schema/index.md` to include new release, follow existing pattern.
-	    * Add generated documentation under `/schema/documentation/<new_version>`
-	    
+	    * Copy the `DataDictionary.xlsx` into the `schema/vXXX/datadictionary` folder.
+        * Update the `datadictionary/index.html` and `measures/index.html` to point to the new `enumerations.json` file.
+        * Update `/schema/index.md` to include new release by following the existing pattern.
 
 * Create a Pull Request from the new branch to gh-pages.
 

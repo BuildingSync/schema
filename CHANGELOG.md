@@ -1,5 +1,27 @@
 # BuildingSync
 
+## Version 1.0
+
+Date Range: 05/31/18 - 01/31/19:
+
+Schema Related Changes:
+- Merged [#53]( https://github.com/BuildingSync/schema/pull/53 ), Spaces (not tabs). JSON schema
+- Merged [#56]( https://github.com/BuildingSync/schema/pull/56 ), Remove Double Dash in Annotations
+- Merged [#57]( https://github.com/BuildingSync/schema/pull/57 ), Change Representation of Zone Equipment
+- Merged [#58]( https://github.com/BuildingSync/schema/pull/58 ), Add Program Identifier to Support Other Projects
+- Merged [#59]( https://github.com/BuildingSync/schema/pull/59 ), Harmonize definitions of `PremisesAffected` and `LinkedPremises`
+- Merged [#63]( https://github.com/BuildingSync/schema/pull/63 ), Add UBID
+- Merged [#64]( https://github.com/BuildingSync/schema/pull/64 ), Rename root element to BuildingSync/Facilities
+- Merged [#65]( https://github.com/BuildingSync/schema/pull/65 ), Ensure all “IDREF” instances in BuildingSync.xsd are consistent and W3C compliant
+- Merges [#67]( https://github.com/BuildingSync/schema/pull/67 ), Ensure adequate containerization of lists
+- Merged [#68]( https://github.com/BuildingSync/schema/pull/68 ), Update the list of qualified auditors
+
+Other Changes:
+- Merged [#47]( https://github.com/BuildingSync/schema/issues/47 ), Formal process for using the issue feature for requesting extensions to BuildingSync
+- Merged [#51]( https://github.com/BuildingSync/schema/pull/51 ), Feature Proposal Procedure
+- Merged [#61]( https://github.com/BuildingSync/schema/pull/61 ), Add Golden Test File
+
+
 ## Version 0.3
 
 - Merged [#12]( https://github.com/BuildingSync/schema/pull/12 ), Removed SpaceID from Sides, since it's redundant with what's defined in thermal zone. (KMFM, per PNNL)
