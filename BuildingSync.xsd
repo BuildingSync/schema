@@ -4512,143 +4512,161 @@
         </xs:annotation>
         <xs:complexType>
           <xs:choice>
-            <xs:element name="Replacement" minOccurs="0">
+            <xs:element name="Replacements" minOccurs="0">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="ExistingSystemReplaced" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>ID numbers of any existing systems replaced by the measure.</xs:documentation>
-                    </xs:annotation>
+                  <xs:element name="Replacement" minOccurs="0">
                     <xs:complexType>
-                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                    </xs:complexType>
-                  </xs:element>
-                  <xs:element name="AlternativeSystemReplacement" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>ID numbers of alternative systems that would replace the existing systems.</xs:documentation>
-                    </xs:annotation>
-                    <xs:complexType>
-                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                    </xs:complexType>
-                  </xs:element>
-                  <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>ID numbers of schedules replaced by the measure.</xs:documentation>
-                    </xs:annotation>
-                    <xs:complexType>
-                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                    </xs:complexType>
-                  </xs:element>
-                  <xs:element name="ModifiedSchedule" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>ID numbers of schedules associated with the improved systems.</xs:documentation>
-                    </xs:annotation>
-                    <xs:complexType>
-                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                      <xs:sequence>
+                        <xs:element name="ExistingSystemReplaced" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>ID numbers of any existing systems replaced by the measure.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="AlternativeSystemReplacement" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>ID numbers of alternative systems that would replace the existing systems.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>ID numbers of schedules replaced by the measure.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="ModifiedSchedule" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>ID numbers of schedules associated with the improved systems.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
                     </xs:complexType>
                   </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
             <xs:element name="ModificationRetrocommissions" minOccurs="0">
-<xs:complexType>
-<xs:sequence>
-            <xs:element name="ModificationRetrocommissioning" minOccurs="0">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="ExistingSystemAffected" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>ID numbers of any existing systems affected by the measure.</xs:documentation>
-                    </xs:annotation>
+                  <xs:element name="ModificationRetrocommissioning" minOccurs="0">
                     <xs:complexType>
-                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                    </xs:complexType>
-                  </xs:element>
-                  <xs:element name="ModifiedSystem" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>ID numbers of alternative systems that represent "improvements" to existing systems.</xs:documentation>
-                    </xs:annotation>
-                    <xs:complexType>
-                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                    </xs:complexType>
-                  </xs:element>
-                  <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>ID numbers of schedules replaced by the measure.</xs:documentation>
-                    </xs:annotation>
-                    <xs:complexType>
-                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                    </xs:complexType>
-                  </xs:element>
-                  <xs:element name="ModifiedSchedule" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>ID numbers of schedules associated with the improved systems.</xs:documentation>
-                    </xs:annotation>
-                    <xs:complexType>
-                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                      <xs:sequence>
+                        <xs:element name="ExistingSystemAffected" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>ID numbers of any existing systems affected by the measure.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="ModifiedSystem" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>ID numbers of alternative systems that represent "improvements" to existing systems.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>ID numbers of schedules replaced by the measure.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="ModifiedSchedule" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>ID numbers of schedules associated with the improved systems.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
                     </xs:complexType>
                   </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            </xs:sequence>
-</xs:complexType>
-</xs:element>
-            <xs:element name="Addition" minOccurs="0">
+            <xs:element name="Additions" minOccurs="0">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="AlternativeSystemAdded" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>ID numbers of alternative systems that would be added as part of the measure.</xs:documentation>
-                    </xs:annotation>
+                  <xs:element name="Addition" minOccurs="0">
                     <xs:complexType>
-                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                    </xs:complexType>
-                  </xs:element>
-                  <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>ID numbers of schedules replaced by the measure.</xs:documentation>
-                    </xs:annotation>
-                    <xs:complexType>
-                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                    </xs:complexType>
-                  </xs:element>
-                  <xs:element name="ModifiedSchedule" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>ID numbers of schedules associated with the improved systems.</xs:documentation>
-                    </xs:annotation>
-                    <xs:complexType>
-                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                      <xs:sequence>
+                        <xs:element name="AlternativeSystemAdded" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>ID numbers of alternative systems that would be added as part of the measure.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>ID numbers of schedules replaced by the measure.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="ModifiedSchedule" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>ID numbers of schedules associated with the improved systems.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
                     </xs:complexType>
                   </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="Removal" minOccurs="0">
+            <xs:element name="Removals" minOccurs="0">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="ExistingSystemRemoved" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>ID numbers of any existing systems removed as part of the measure.</xs:documentation>
-                    </xs:annotation>
+                  <xs:element name="Removal" minOccurs="0">
                     <xs:complexType>
-                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                    </xs:complexType>
-                  </xs:element>
-                  <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>ID numbers of schedules replaced by the measure.</xs:documentation>
-                    </xs:annotation>
-                    <xs:complexType>
-                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                    </xs:complexType>
-                  </xs:element>
-                  <xs:element name="ModifiedSchedule" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>ID numbers of schedules associated with the improved systems.</xs:documentation>
-                    </xs:annotation>
-                    <xs:complexType>
-                      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                      <xs:sequence>
+                        <xs:element name="ExistingSystemRemoved" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>ID numbers of any existing systems removed as part of the measure.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>ID numbers of schedules replaced by the measure.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="ModifiedSchedule" minOccurs="0" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>ID numbers of schedules associated with the improved systems.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
                     </xs:complexType>
                   </xs:element>
                 </xs:sequence>
