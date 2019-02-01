@@ -39,8 +39,6 @@ puts options
 ### Repository options
 repo_owner = 'BuildingSync'
 repo = 'schema'
-# List of users who are part of the core team. Their pull requests will not appear as 'external collaborator'
-internal_users = %w[nllong axelstudios jasondegraw]
 
 github = Github.new
 if options[:token]
@@ -54,7 +52,6 @@ total_open_pull_requests = []
 new_issues = []
 closed_issues = []
 accepted_pull_requests = []
-accepted_external_pull_requests = []
 
 def get_num(issue)
   issue.html_url.split('/')[-1].to_i
@@ -128,10 +125,6 @@ while results != 0
       end
     elsif closed >= options[:start_date] && closed <= options[:end_date]
       accepted_pull_requests << issue
-      unless internal_users.include? issue.user.login
-        accepted_external_pull_requests << issue
-      end
-
     end
   end
 
@@ -153,9 +146,6 @@ closed_issues.each { |issue| puts print_issue(issue) }
 
 puts "\nAccepted Pull Requests: #{accepted_pull_requests.length}"
 accepted_pull_requests.each { |issue| puts print_issue(issue) }
-
-puts "\nAccepted External Pull Requests: #{accepted_external_pull_requests.length}"
-accepted_external_pull_requests.each { |issue| puts print_issue(issue) }
 
 puts "\nAll Open Issues: #{total_open_issues.length} (" + total_open_issues.map { |issue| get_issue_num(issue) }.join(', ') + ')'
 
