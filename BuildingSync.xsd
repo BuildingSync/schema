@@ -1064,7 +1064,7 @@
       </xs:element>
       <xs:element name="PortfolioManager" type="auc:PortfolioManagerType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>If exists then the data for this facility is included in Portfolio Manager.</xs:documentation>
+          <xs:documentation>If exists then the data for this building is included in Portfolio Manager.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="NumberOfBusinesses" minOccurs="0">
@@ -1153,7 +1153,7 @@
       </xs:element>
       <xs:element name="BuildingAutomationSystem" type="xs:boolean" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Does the facility include a building automation or management system?</xs:documentation>
+          <xs:documentation>Does the building include a building automation or management system?</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="HistoricalLandmark" type="xs:boolean" minOccurs="0">
@@ -5496,6 +5496,7 @@
             <xs:enumeration value="Multiple premises"/>
             <xs:enumeration value="Entire facility"/>
             <xs:enumeration value="Entire site"/>
+            <xs:enumeration value="Entire building"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -13525,6 +13526,37 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
+        <xs:element name="Facility" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LinkedFacilityID" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation>ID numbers of the facilities associated with the system.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="LinkedScheduleIDs" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
+                            <xs:annotation>
+                              <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element ref="auc:FloorAreas" minOccurs="0"/>
+                  </xs:sequence>
+                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="Site" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
@@ -13559,9 +13591,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
         <xs:element name="Building" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="LinkedFacilityID" maxOccurs="unbounded">
+              <xs:element name="LinkedBuildingID" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>ID numbers of the facilities associated with the system.</xs:documentation>
+                  <xs:documentation>ID numbers of the buildings associated with the system.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
