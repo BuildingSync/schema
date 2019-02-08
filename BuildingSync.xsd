@@ -6485,7 +6485,7 @@
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:sequence>
-                                    <xs:element ref="auc:FanBased" minOccurs="0"/>
+                                    <xs:element name="FanBased" type="auc:FanBasedType"/>
                                     <xs:element name="Convection" minOccurs="0">
                                       <xs:complexType>
                                         <xs:sequence>
@@ -6642,7 +6642,7 @@
                                         <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                       </xs:complexType>
                                     </xs:element>
-                                    <xs:element ref="auc:FanBased" minOccurs="0"/>
+                                    <xs:element name="FanBased" type="auc:FanBasedType" minOccurs="0"/>
                                   </xs:sequence>
                                 </xs:complexType>
                               </xs:element>
@@ -15650,16 +15650,9 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       </xs:element>
     </xs:choice>
   </xs:complexType>
-  <xs:element name="FanBased" type="auc:FanBasedType"/>
   <xs:complexType name="FanBasedType">
     <xs:sequence>
-      <xs:element name="FanBasedDistributionType" minOccurs="0">
-        <xs:complexType>
-          <xs:complexContent>
-            <xs:extension base="auc:FanBasedDistributionTypeType"/>
-          </xs:complexContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="FanBasedDistributionType" type="auc:FanBasedDistributionTypeType" minOccurs="0"/>
       <xs:element name="AirSideEconomizer" minOccurs="0">
         <xs:complexType>
           <xs:sequence>

@@ -58,3 +58,10 @@ RSpec.describe 'No Tabs in Examples' do
     expect(total_errors).to eq 0
   end
 end
+
+RSpec.describe 'No complexContent in XSD' do
+  it 'should not have any complexContent' do
+    expect(File.read('BuildingSync.xsd').include? "complexContent").to eq false
+  end
+end
+
