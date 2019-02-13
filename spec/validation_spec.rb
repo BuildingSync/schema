@@ -11,6 +11,8 @@ RSpec.describe 'Validate Examples' do
     total_errors = 0
     Dir['examples/*.xml'].each do |xml|
       puts "Validating file: #{xml}"
+      # skip the invalid schema file
+      next if xml =~ /Invalid Schema/
 
       doc = Nokogiri::XML(File.read(xml))
 
@@ -18,14 +20,11 @@ RSpec.describe 'Validate Examples' do
       @xsd.validate(doc).each do |error|
         errors << { file: xml, error: error }
       end
-
       unless errors.size.zero?
         puts "  There were #{errors.size} errors!"
         pp errors
       end
-
       total_errors += errors.size
-
       puts "\n"
     end
 

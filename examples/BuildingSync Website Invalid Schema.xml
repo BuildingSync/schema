@@ -1,8 +1,9 @@
-<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v1.0-patch/BuildingSync.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0"?>
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v1.0-patch/BuildingSync.xsd">
   <auc:Facilities>
     <auc:Facility ID="Facility-1">
       <auc:PremisesName>Example Building</auc:PremisesName>
-      <auc:PremisesNotes></auc:PremisesNotes>
+      <auc:PremisesNotes/>
       <auc:PremisesIdentifiers>
         <auc:PremisesIdentifier>
           <auc:IdentifierLabel>Custom</auc:IdentifierLabel>
@@ -102,7 +103,7 @@
         </auc:UserDefinedField>
         <auc:UserDefinedField>
           <auc:FieldName>Spaces Excluded from GFA</auc:FieldName>
-          <auc:FieldValue></auc:FieldValue>
+          <auc:FieldValue/>
         </auc:UserDefinedField>
       </auc:UserDefinedFields>
     </auc:Facility>
@@ -127,7 +128,7 @@
             <auc:Chiller>
               <auc:ChillerType>Absorption</auc:ChillerType>
               <auc:ChillerCompressorDriver>Other</auc:ChillerCompressorDriver>
-              <auc:CondenserPlantID IDref="CondenserPlant-1"></auc:CondenserPlantID>
+              <auc:CondenserPlantID IDref="CondenserPlant-1"/>
               <auc:AbsorptionStages>Single effect</auc:AbsorptionStages>
               <auc:AnnualCoolingEfficiencyValue>0.7200000286102295</auc:AnnualCoolingEfficiencyValue>
               <auc:AnnualCoolingEfficiencyUnits>kW/ton</auc:AnnualCoolingEfficiencyUnits>
@@ -149,13 +150,13 @@
           <auc:ZoningSystemType>Multi zone</auc:ZoningSystemType>
           <auc:HeatingSource ID="HeatingSource-1">
             <auc:HeatingSourceType>
-              <auc:SourceHeatingPlantID IDref="HeatingPlant-1"></auc:SourceHeatingPlantID>
+              <auc:SourceHeatingPlantID IDref="HeatingPlant-1"/>
             </auc:HeatingSourceType>
             <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
           </auc:HeatingSource>
           <auc:CoolingSource ID="CoolingSource-1">
             <auc:CoolingSourceType>
-              <auc:CoolingPlantID IDref="CoolingPlant-1"></auc:CoolingPlantID>
+              <auc:CoolingPlantID IDref="CoolingPlant-1"/>
             </auc:CoolingSourceType>
             <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
           </auc:CoolingSource>
@@ -169,8 +170,8 @@
                 </auc:FanBasedDistributionType>
               </auc:FanBased>
             </auc:DeliveryType>
-            <auc:HeatingSourceID IDref="HeatingSource-1"></auc:HeatingSourceID>
-            <auc:CoolingSourceID IDref="CoolingSource-1"></auc:CoolingSourceID>
+            <auc:HeatingSourceID IDref="HeatingSource-1"/>
+            <auc:CoolingSourceID IDref="CoolingSource-1"/>
           </auc:Delivery>
         </auc:HeatingAndCoolingSystems>
         <auc:OtherHVACSystems>
@@ -191,7 +192,7 @@
         </auc:OtherHVACSystems>
         <auc:LinkedPremises>
           <auc:Subsection>
-            <auc:LinkedSubsectionID IDref="Subsection-1"></auc:LinkedSubsectionID>
+            <auc:LinkedSubsectionID IDref="Subsection-1"/>
           </auc:Subsection>
         </auc:LinkedPremises>
         <auc:UserDefinedFields>
@@ -209,11 +210,11 @@
           </auc:UserDefinedField>
           <auc:UserDefinedField>
             <auc:FieldName>OtherCentralDistributionType</auc:FieldName>
-            <auc:FieldValue></auc:FieldValue>
+            <auc:FieldValue/>
           </auc:UserDefinedField>
           <auc:UserDefinedField>
             <auc:FieldName>OtherDistributionEquipmentType</auc:FieldName>
-            <auc:FieldValue></auc:FieldValue>
+            <auc:FieldValue/>
           </auc:UserDefinedField>
         </auc:UserDefinedFields>
       </auc:HVACSystem>
@@ -222,13 +223,13 @@
           <auc:ZoningSystemType>Single zone</auc:ZoningSystemType>
           <auc:HeatingSource ID="HeatingSource-2">
             <auc:HeatingSourceType>
-              <auc:NoHeating></auc:NoHeating>
+              <auc:NoHeating/>
             </auc:HeatingSourceType>
             <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
           </auc:HeatingSource>
           <auc:CoolingSource ID="CoolingSource-2">
             <auc:CoolingSourceType>
-              <auc:NoCooling></auc:NoCooling>
+              <auc:NoCooling/>
             </auc:CoolingSourceType>
             <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
           </auc:CoolingSource>
@@ -242,8 +243,8 @@
                 </auc:FanBasedDistributionType>
               </auc:FanBased>
             </auc:DeliveryType>
-            <auc:HeatingSourceID IDref="HeatingSource-2"></auc:HeatingSourceID>
-            <auc:CoolingSourceID IDref="CoolingSource-2"></auc:CoolingSourceID>
+            <auc:HeatingSourceID IDref="HeatingSource-2"/>
+            <auc:CoolingSourceID IDref="CoolingSource-2"/>
           </auc:Delivery>
         </auc:HeatingAndCoolingSystems>
         <auc:OtherHVACSystems>
@@ -264,7 +265,7 @@
         </auc:OtherHVACSystems>
         <auc:LinkedPremises>
           <auc:Subsection>
-            <auc:LinkedSubsectionID IDref="Subsection-2"></auc:LinkedSubsectionID>
+            <auc:LinkedSubsectionID IDref="Subsection-2"/>
           </auc:Subsection>
         </auc:LinkedPremises>
         <auc:UserDefinedFields>
@@ -282,11 +283,11 @@
           </auc:UserDefinedField>
           <auc:UserDefinedField>
             <auc:FieldName>OtherCentralDistributionType</auc:FieldName>
-            <auc:FieldValue></auc:FieldValue>
+            <auc:FieldValue/>
           </auc:UserDefinedField>
           <auc:UserDefinedField>
             <auc:FieldName>OtherDistributionEquipmentType</auc:FieldName>
-            <auc:FieldValue></auc:FieldValue>
+            <auc:FieldValue/>
           </auc:UserDefinedField>
         </auc:UserDefinedFields>
       </auc:HVACSystem>
@@ -304,7 +305,7 @@
         <auc:NumberOfLampsPerLuminaire>1</auc:NumberOfLampsPerLuminaire>
         <auc:LinkedPremises>
           <auc:Subsection>
-            <auc:LinkedSubsectionID IDref="Subsection-1"></auc:LinkedSubsectionID>
+            <auc:LinkedSubsectionID IDref="Subsection-1"/>
           </auc:Subsection>
         </auc:LinkedPremises>
         <auc:UserDefinedFields>
@@ -331,8 +332,8 @@
         <auc:NumberOfLampsPerLuminaire>4</auc:NumberOfLampsPerLuminaire>
         <auc:LinkedPremises>
           <auc:Subsection>
-            <auc:LinkedSubsectionID IDref="Subsection-2"></auc:LinkedSubsectionID>
-            <auc:LinkedSubsectionID IDref="Subsection-1"></auc:LinkedSubsectionID>
+            <auc:LinkedSubsectionID IDref="Subsection-2"/>
+            <auc:LinkedSubsectionID IDref="Subsection-1"/>
           </auc:Subsection>
         </auc:LinkedPremises>
         <auc:UserDefinedFields>
@@ -385,7 +386,7 @@
         <auc:Location>Mechanical Room</auc:Location>
         <auc:LinkedPremises>
           <auc:Subsection>
-            <auc:LinkedSubsectionID IDref="Subsection-2"></auc:LinkedSubsectionID>
+            <auc:LinkedSubsectionID IDref="Subsection-2"/>
           </auc:Subsection>
         </auc:LinkedPremises>
         <auc:UserDefinedFields>
@@ -407,13 +408,13 @@
         <auc:DomesticHotWaterType>
           <auc:StorageTank>
             <auc:TankHeatingType>
-              <auc:Unknown></auc:Unknown>
+              <auc:Unknown/>
             </auc:TankHeatingType>
           </auc:StorageTank>
         </auc:DomesticHotWaterType>
         <auc:LinkedPremises>
           <auc:Subsection>
-            <auc:LinkedSubsectionID IDref="Subsection-2"></auc:LinkedSubsectionID>
+            <auc:LinkedSubsectionID IDref="Subsection-2"/>
           </auc:Subsection>
         </auc:LinkedPremises>
         <auc:UserDefinedFields>
@@ -435,7 +436,7 @@
     <auc:PumpSystems>
       <auc:PumpSystem ID="PumpSystem-2">
         <auc:PumpControlType>Constant Volume</auc:PumpControlType>
-        <auc:LinkedSystemID IDref="CondenserPlant-2"></auc:LinkedSystemID>
+        <auc:LinkedSystemID IDref="CondenserPlant-2"/>
       </auc:PumpSystem>
     </auc:PumpSystems>
     <auc:WallSystems>
@@ -470,7 +471,7 @@
     <auc:FenestrationSystems>
       <auc:FenestrationSystem ID="FenestrationSystem-1">
         <auc:FenestrationType>
-          <auc:Window></auc:Window>
+          <auc:Window/>
         </auc:FenestrationType>
         <auc:FenestrationFrameMaterial>Aluminum no thermal break</auc:FenestrationFrameMaterial>
         <auc:FenestrationOperation>false</auc:FenestrationOperation>
@@ -486,7 +487,7 @@
       <auc:PlugLoad ID="PlugLoad-1">
         <auc:LinkedPremises>
           <auc:Subsection>
-            <auc:LinkedSubsectionID IDref="Subsection-2"></auc:LinkedSubsectionID>
+            <auc:LinkedSubsectionID IDref="Subsection-2"/>
           </auc:Subsection>
         </auc:LinkedPremises>
       </auc:PlugLoad>
@@ -505,7 +506,7 @@
       <auc:LongDescription>new servers</auc:LongDescription>
       <auc:MeasureSavingsAnalysis>
         <auc:CalculationMethod>
-          <auc:Estimated></auc:Estimated>
+          <auc:Estimated/>
         </auc:CalculationMethod>
         <auc:FundingFromIncentives>1000.0</auc:FundingFromIncentives>
       </auc:MeasureSavingsAnalysis>
@@ -531,7 +532,7 @@
       <auc:LongDescription>add insulation</auc:LongDescription>
       <auc:MeasureSavingsAnalysis>
         <auc:CalculationMethod>
-          <auc:Modeled></auc:Modeled>
+          <auc:Modeled/>
         </auc:CalculationMethod>
         <auc:FundingFromIncentives>100.0</auc:FundingFromIncentives>
       </auc:MeasureSavingsAnalysis>
@@ -557,7 +558,7 @@
       <auc:LongDescription>Hilton bldg only</auc:LongDescription>
       <auc:MeasureSavingsAnalysis>
         <auc:CalculationMethod>
-          <auc:Estimated></auc:Estimated>
+          <auc:Estimated/>
         </auc:CalculationMethod>
         <auc:FundingFromIncentives>50.0</auc:FundingFromIncentives>
       </auc:MeasureSavingsAnalysis>
@@ -579,7 +580,7 @@
         <auc:ScenarioType>
           <auc:PackageOfMeasures>
             <auc:MeasureIDs>
-              <auc:MeasureID IDref="Measure-1"></auc:MeasureID>
+              <auc:MeasureID IDref="Measure-1"/>
             </auc:MeasureIDs>
             <auc:AnnualSavingsCost>1500</auc:AnnualSavingsCost>
             <auc:AnnualSavingsByFuel>
@@ -607,7 +608,7 @@
         </auc:ScenarioType>
         <auc:LinkedPremises>
           <auc:Facility>
-            <auc:LinkedFacilityID IDref="Facility-1"></auc:LinkedFacilityID>
+            <auc:LinkedFacilityID IDref="Facility-1"/>
           </auc:Facility>
         </auc:LinkedPremises>
         <auc:UserDefinedFields>
@@ -622,8 +623,8 @@
         <auc:ScenarioType>
           <auc:PackageOfMeasures>
             <auc:MeasureIDs>
-              <auc:MeasureID IDref="Measure-1"></auc:MeasureID>
-              <auc:MeasureID IDref="Measure-2"></auc:MeasureID>
+              <auc:MeasureID IDref="Measure-1"/>
+              <auc:MeasureID IDref="Measure-2"/>
             </auc:MeasureIDs>
             <auc:AnnualSavingsCost>1000</auc:AnnualSavingsCost>
             <auc:AnnualSavingsByFuel>
@@ -656,7 +657,7 @@
         </auc:ScenarioType>
         <auc:LinkedPremises>
           <auc:Facility>
-            <auc:LinkedFacilityID IDref="Facility-1"></auc:LinkedFacilityID>
+            <auc:LinkedFacilityID IDref="Facility-1"/>
           </auc:Facility>
         </auc:LinkedPremises>
         <auc:UserDefinedFields>
@@ -674,7 +675,7 @@
         </auc:AllResourceTotals>
         <auc:LinkedPremises>
           <auc:Facility>
-            <auc:LinkedFacilityID IDref="Facility-1"></auc:LinkedFacilityID>
+            <auc:LinkedFacilityID IDref="Facility-1"/>
           </auc:Facility>
         </auc:LinkedPremises>
       </auc:Scenario>
@@ -711,7 +712,7 @@
         </auc:ResourceUses>
         <auc:LinkedPremises>
           <auc:Facility>
-            <auc:LinkedFacilityID IDref="Facility-1"></auc:LinkedFacilityID>
+            <auc:LinkedFacilityID IDref="Facility-1"/>
           </auc:Facility>
         </auc:LinkedPremises>
       </auc:Scenario>
@@ -720,18 +721,18 @@
       <auc:AuditorQualification>Certified Energy Auditor (CEA)</auc:AuditorQualification>
       <auc:AuditorQualificationNumber>1234</auc:AuditorQualificationNumber>
       <auc:CertificationExpirationDate>2018-08-01</auc:CertificationExpirationDate>
-      <auc:CertifiedAuditTeamMemberContactID IDref="Contact-70234558989420"></auc:CertifiedAuditTeamMemberContactID>
+      <auc:CertifiedAuditTeamMemberContactID IDref="Contact-70234558989420"/>
     </auc:Qualifications>
     <auc:Qualifications>
       <auc:AuditorQualificationNumber>1234</auc:AuditorQualificationNumber>
       <auc:CertificationExpirationDate>2018-08-01</auc:CertificationExpirationDate>
-      <auc:CertifiedAuditTeamMemberContactID IDref="Contact-1"></auc:CertifiedAuditTeamMemberContactID>
+      <auc:CertifiedAuditTeamMemberContactID IDref="Contact-1"/>
       <auc:AuditTeamMemberCertificationType>Building Performance Institute (BPI) Certification</auc:AuditTeamMemberCertificationType>
     </auc:Qualifications>
     <auc:Qualifications>
       <auc:AuditorQualificationNumber>1234</auc:AuditorQualificationNumber>
       <auc:CertificationExpirationDate>2018-08-01</auc:CertificationExpirationDate>
-      <auc:CertifiedAuditTeamMemberContactID IDref="Contact-2"></auc:CertifiedAuditTeamMemberContactID>
+      <auc:CertifiedAuditTeamMemberContactID IDref="Contact-2"/>
       <auc:AuditTeamMemberCertificationType>Department of Buildings (DOB) Approved Agent</auc:AuditTeamMemberCertificationType>
     </auc:Qualifications>
     <auc:UserDefinedFields>
@@ -744,7 +745,7 @@
         <auc:FieldValue>2017-08-01</auc:FieldValue>
       </auc:UserDefinedField>
       <auc:UserDefinedField>
-        <auc:FieldName>Auditor&apos;s Years of Experience</auc:FieldName>
+        <auc:FieldName>Auditor's Years of Experience</auc:FieldName>
         <auc:FieldValue>5</auc:FieldValue>
       </auc:UserDefinedField>
     </auc:UserDefinedFields>
@@ -771,7 +772,7 @@
         <auc:ContactEmailAddress>bob.auditor@test.com</auc:ContactEmailAddress>
       </auc:ContactEmailAddresses>
     </auc:Contact>
-  </auc:Contacts>  
+  </auc:Contacts>
   <auc:UserDefinedFields>
     <auc:UserDefinedField>
       <auc:FieldName>BIN</auc:FieldName>
@@ -802,4 +803,4 @@
       <auc:FieldValue>1234</auc:FieldValue>
     </auc:UserDefinedField>
   </auc:UserDefinedFields>
-</auc:BuildingSync>  
+</auc:BuildingSync>
