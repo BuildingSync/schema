@@ -87,7 +87,7 @@
             </HeatingAndCoolingSystems>
             <LinkedPremises>
               <Building>
-                <LinkedFacilityID IDref="Building2"/>
+                <LinkedBuildingID IDref="Building2"/>
               </Building>
             </LinkedPremises>
           </HVACSystem>
@@ -124,8 +124,8 @@
             </HeatingAndCoolingSystems>
             <LinkedPremises>
               <Building>
-                <LinkedFacilityID IDref="Building1"/>
-                <LinkedFacilityID IDref="Building2"/>
+                <LinkedBuildingID IDref="Building1"/>
+                <LinkedBuildingID IDref="Building2"/>
               </Building>
             </LinkedPremises>
           </HVACSystem>
@@ -141,15 +141,15 @@
             </EnergyConversionType>
             <LinkedPremises>
               <Building>
-                <LinkedFacilityID IDref="Building1">
+                <LinkedBuildingID IDref="Building1">
                   <FloorAreas>
                     <FloorArea>
                       <FloorAreaType>Conditioned</FloorAreaType>
                       <FloorAreaPercentage>100</FloorAreaPercentage>
                     </FloorArea>
                   </FloorAreas>
-                </LinkedFacilityID>
-                <LinkedFacilityID IDref="Building2">
+                </LinkedBuildingID>
+                <LinkedBuildingID IDref="Building2">
                   <FloorAreas>
                     <FloorArea>
                       <FloorAreaType>Gross</FloorAreaType>
@@ -167,7 +167,7 @@
                       <Story>3</Story>
                     </FloorArea>
                   </FloorAreas>
-                </LinkedFacilityID>
+                </LinkedBuildingID>
               </Building>
             </LinkedPremises>
           </OnSiteStorageTransmissionGenerationSystem>
