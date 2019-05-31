@@ -241,19 +241,21 @@
   {
     "name": "AuditorQualificationType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 0.3 (May 31, 2018)",
+    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
     "enumerations": [
       "Professional Engineer (PE)",
-      "Certified Energy Manager (CEM)",
-      "Building Operator Certification (BOC)",
+      "Association of Energy Engineers Certified Energy Manager (CEM)",
+      "Association of Energy Engineers Certified Energy Auditor (CEA)",
+      "Building Operator Certification (BOC): Level 1",
+      "Building Operator Certification (BOC): Level 2",
       "Building Performance Institute (BPI) Certification",
-      "Building Performance Institute: Building Analyst (BA)",
-      "Building Performance Institute: Advanced Home Energy Professional (HEP)",
-      "Building Performance Institute: Advanced Home Energy Professional - Energy Auditor (HEP-EA)",
-      "Building Performance Institute: Advanced Home Energy Professional - Quality Control Inspector (HEP-QCI)",
-      "Building Performance Institute: Advanced Home Energy Professional - Retrofit Installer (HEP-RI)",
-      "Building Performance Institute: Advanced Home Energy Professional - Crew Leader (HEP-CL)",
-      "Building Performance Institute: Multifamily Building Analyst",
+      "Building Performance Institute (BPI): Building Analyst (BA)",
+      "Building Performance Institute (BPI): Advanced Home Energy Professional (HEP)",
+      "Building Performance Institute (BPI): Advanced Home Energy Professional - Energy Auditor (HEP-EA)",
+      "Building Performance Institute (BPI): Advanced Home Energy Professional - Quality Control Inspector (HEP-QCI)",
+      "Building Performance Institute (BPI): Advanced Home Energy Professional - Retrofit Installer (HEP-RI)",
+      "Building Performance Institute (BPI): Advanced Home Energy Professional - Crew Leader (HEP-CL)",
+      "Building Performance Institute (BPI): Multifamily Building Analyst",
       "Residential Energy Services Network (RESNET) Certification",
       "Residential Energy Services Network (RESNET) - Home Partner",
       "Registered Architect (RA)",
@@ -265,12 +267,13 @@
       "Commissioning Process Management Professional (CPMP)",
       "Accredited Commissioning Process Authority Professional (CxAP)",
       "NYSERDA FlexTech Consultant",
-      "Certified Energy Auditor (CEA)",
+      "ASHRAE Building Energy Assessment Professional (BEAP)",
+      "Department of Buildings (DOB) Approved Agent",
       "High-Performance Building Design Professional (HBDP)",
       "Other",
       "None"
     ],
-    "enumerations_html": "<ul><li>Professional Engineer (PE)</li><li>Certified Energy Manager (CEM)</li><li>Building Operator Certification (BOC)</li><li>Building Performance Institute (BPI) Certification</li><li>Building Performance Institute: Building Analyst (BA)</li><li>Building Performance Institute: Advanced Home Energy Professional (HEP)</li><li>Building Performance Institute: Advanced Home Energy Professional - Energy Auditor (HEP-EA)</li><li>Building Performance Institute: Advanced Home Energy Professional - Quality Control Inspector (HEP-QCI)</li><li>Building Performance Institute: Advanced Home Energy Professional - Retrofit Installer (HEP-RI)</li><li>Building Performance Institute: Advanced Home Energy Professional - Crew Leader (HEP-CL)</li><li>Building Performance Institute: Multifamily Building Analyst</li><li>Residential Energy Services Network (RESNET) Certification</li><li>Residential Energy Services Network (RESNET) - Home Partner</li><li>Registered Architect (RA)</li><li>Refrigerating System Operating Engineer</li><li>High Pressure Boiler Operating Engineer</li><li>Certified Commissioning Professional (CCP)</li><li>Associate Commissioning Professional (ACP)</li><li>Existing Building Commissioning Professional (EBCP)</li><li>Commissioning Process Management Professional (CPMP)</li><li>Accredited Commissioning Process Authority Professional (CxAP)</li><li>NYSERDA FlexTech Consultant</li><li>Certified Energy Auditor (CEA)</li><li>High-Performance Building Design Professional (HBDP)</li><li>Other</li><li>None</li></ul>"
+    "enumerations_html": "<ul><li>Professional Engineer (PE)</li><li>Association of Energy Engineers Certified Energy Manager (CEM)</li><li>Association of Energy Engineers Certified Energy Auditor (CEA)</li><li>Building Operator Certification (BOC): Level 1</li><li>Building Operator Certification (BOC): Level 2</li><li>Building Performance Institute (BPI) Certification</li><li>Building Performance Institute (BPI): Building Analyst (BA)</li><li>Building Performance Institute (BPI): Advanced Home Energy Professional (HEP)</li><li>Building Performance Institute (BPI): Advanced Home Energy Professional - Energy Auditor (HEP-EA)</li><li>Building Performance Institute (BPI): Advanced Home Energy Professional - Quality Control Inspector (HEP-QCI)</li><li>Building Performance Institute (BPI): Advanced Home Energy Professional - Retrofit Installer (HEP-RI)</li><li>Building Performance Institute (BPI): Advanced Home Energy Professional - Crew Leader (HEP-CL)</li><li>Building Performance Institute (BPI): Multifamily Building Analyst</li><li>Residential Energy Services Network (RESNET) Certification</li><li>Residential Energy Services Network (RESNET) - Home Partner</li><li>Registered Architect (RA)</li><li>Refrigerating System Operating Engineer</li><li>High Pressure Boiler Operating Engineer</li><li>Certified Commissioning Professional (CCP)</li><li>Associate Commissioning Professional (ACP)</li><li>Existing Building Commissioning Professional (EBCP)</li><li>Commissioning Process Management Professional (CPMP)</li><li>Accredited Commissioning Process Authority Professional (CxAP)</li><li>NYSERDA FlexTech Consultant</li><li>ASHRAE Building Energy Assessment Professional (BEAP)</li><li>Department of Buildings (DOB) Approved Agent</li><li>High-Performance Building Design Professional (HBDP)</li><li>Other</li><li>None</li></ul>"
   },
   {
     "name": "BallastType",
@@ -339,6 +342,18 @@
       "Unknown"
     ],
     "enumerations_html": "<ul><li>Steam</li><li>Hot water</li><li>Other</li><li>Unknown</li></ul>"
+  },
+  {
+    "name": "BuildingClassification",
+    "sub_name": null,
+    "documentation": "Specify the type of building.",
+    "enumerations": [
+      "Commercial",
+      "Residential",
+      "Mixed use commercial",
+      "Other"
+    ],
+    "enumerations_html": "<ul><li>Commercial</li><li>Residential</li><li>Mixed use commercial</li><li>Other</li></ul>"
   },
   {
     "name": "BuildingProfileStatus",
@@ -1310,7 +1325,7 @@
   {
     "name": "EndUse",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 0.3 (May 31, 2018)",
+    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
     "enumerations": [
       "All end uses",
       "Total lighting",
@@ -1363,7 +1378,7 @@
   {
     "name": "EnvelopeConstructionType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 0.3 (May 31, 2018)",
+    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
     "enumerations": [
       "Masonry",
       "Structural brick",
@@ -1405,7 +1420,7 @@
   {
     "name": "EquipmentCondition",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 0.3 (May 31, 2018)",
+    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
     "enumerations": [
       "Excellent",
       "Good",
@@ -1554,18 +1569,6 @@
       "Unknown"
     ],
     "enumerations_html": "<ul><li>AC to AC</li><li>AC to DC</li><li>Low Voltage</li><li>No Load</li><li>Other</li><li>Unknown</li></ul>"
-  },
-  {
-    "name": "FacilityClassification",
-    "sub_name": null,
-    "documentation": "Specify the type of facility.",
-    "enumerations": [
-      "Commercial",
-      "Residential",
-      "Mixed use commercial",
-      "Other"
-    ],
-    "enumerations_html": "<ul><li>Commercial</li><li>Residential</li><li>Mixed use commercial</li><li>Other</li></ul>"
   },
   {
     "name": "FanApplication",
@@ -1813,7 +1816,7 @@
   {
     "name": "FuelTypes",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 0.3 (May 31, 2018)",
+    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
     "enumerations": [
       "Electricity",
       "Natural gas",
@@ -2170,7 +2173,7 @@
   {
     "name": "InsulationCondition",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 0.3 (May 31, 2018)",
+    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
     "enumerations": [
       "Excellent",
       "Good",
@@ -2185,7 +2188,7 @@
   {
     "name": "InsulationMaterialType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 0.3 (May 31, 2018)",
+    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
     "enumerations": [
       "Fiberglass",
       "Cellulose",
@@ -3440,6 +3443,21 @@
     "enumerations_html": "<ul><li>Medical Equipment</li><li>Laboratory Equipment</li><li>Machinery</li><li>Air Compressor</li><li>Fume Hood</li><li>Appliance</li><li>Gaming/Hobby/Leisure</li><li>Infrastructure</li><li>Electric Vehicle Charging</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
+    "name": "ProgramClassification",
+    "sub_name": null,
+    "documentation": "The classification or type of the program.",
+    "enumerations": [
+      "Audit",
+      "Performance",
+      "Deemed",
+      "Retrofit",
+      "Rebate",
+      "Other",
+      "Not Applicable"
+    ],
+    "enumerations_html": "<ul><li>Audit</li><li>Performance</li><li>Deemed</li><li>Retrofit</li><li>Rebate</li><li>Other</li><li>Not Applicable</li></ul>"
+  },
+  {
     "name": "PumpApplication",
     "sub_name": null,
     "documentation": "Type of system served by the pump.",
@@ -3519,7 +3537,7 @@
   {
     "name": "RankType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 0.3 (May 31, 2018)",
+    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
     "enumerations": [
       "Fair",
       "Good",
@@ -4036,7 +4054,7 @@
   {
     "name": "State",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 0.3 (May 31, 2018)",
+    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
     "enumerations": [
       "AA",
       "AE",
@@ -4454,7 +4472,7 @@
   {
     "name": "TelephoneNumber",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 0.3 (May 31, 2018)",
+    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
     "enumerations": [
 
     ],
@@ -5005,7 +5023,7 @@
   {
     "name": "ZipCode",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 0.3 (May 31, 2018)",
+    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
     "enumerations": [
 
     ],
