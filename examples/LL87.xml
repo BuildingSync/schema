@@ -150,6 +150,21 @@
             </LinkedPremises>
           </HVACSystem>
         </HVACSystems>
+        <LightingSystems>
+          <LightingSystem ID="LightingSystem-01">
+            <LampType>
+              <LinearFluorescent>
+                <LampLabel>T12HO</LampLabel>
+                <LampLength>4 ft</LampLength>
+              </LinearFluorescent>
+            </LampType>
+            <LinkedPremises>
+              <Facility>
+                <LinkedFacilityID IDref="Facility2"/>
+              </Facility>
+            </LinkedPremises>
+          </LightingSystem>
+        </LightingSystems>
         <OnSiteStorageTransmissionGenerationSystems>
           <OnSiteStorageTransmissionGenerationSystem ID="AllThePV">
             <EnergyConversionType>
