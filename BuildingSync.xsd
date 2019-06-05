@@ -658,7 +658,11 @@
           <xs:documentation>Classification of main utilization of the premises by building occupants.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element ref="auc:Address" minOccurs="0"/>
+      <xs:element ref="auc:Address" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Characterization of the address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ClimateZoneType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>The climate zone type, based on the organization defining it. Many different organizations have implemented different climate zone definitions based on their needs. The list below represents the current list. This list can be added to over time based on the collaborative BEDES development process.</xs:documentation>
@@ -950,6 +954,11 @@
       <xs:element ref="auc:PremisesName" minOccurs="0"/>
       <xs:element ref="auc:PremisesNotes" minOccurs="0"/>
       <xs:element ref="auc:PremisesIdentifiers" minOccurs="0"/>
+      <xs:element ref="auc:Address" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Characterization of the address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="BuildingClassification" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Specify the type of building.</xs:documentation>
