@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xs:annotation>
-    <xs:documentation>BuildingSync Schema - Version 1.0 (January 31, 2019)</xs:documentation>
+    <xs:documentation>BuildingSync Schema - Version 1.1-prerelease</xs:documentation>
   </xs:annotation>
   <xs:element name="BuildingSync">
     <xs:complexType>
@@ -580,6 +580,7 @@
                                         </xs:annotation>
                                       </xs:element>
                                     </xs:sequence>
+                                    <xs:attribute name="ID" type="xs:ID"/>
                                   </xs:complexType>
                                 </xs:element>
                               </xs:sequence>
@@ -621,6 +622,7 @@
                           </xs:element>
                           <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                         </xs:sequence>
+                        <xs:attribute name="ID" type="xs:ID"/>
                       </xs:complexType>
                     </xs:element>
                     <xs:element name="Contacts" minOccurs="0">
