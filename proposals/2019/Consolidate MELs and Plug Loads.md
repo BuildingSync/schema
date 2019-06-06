@@ -12,6 +12,6 @@ The XSD complex type `PlugLoadType` will be renamed to `PlugElectricLoadType`, w
 Next, two changes will be made to `PlugElectricLoadType` so that the information that was previously represented by the `MiscellaneousElectricLoad` element can be fully represented.
 
   1. Add an element to represent weighted average electric loads in W/ft2
-  2. Add `MiscellaneousElectricLoad` to the `PlugLoadType` enumeration
+  2. Add `Miscellaneous Electric Load` to the `PlugLoadType` enumeration
 
 Finally, the `MiscellaneousElectricLoad` element will be removed. This is a breaking change.
