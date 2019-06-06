@@ -13527,199 +13527,223 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
             <xs:documentation>Method used to determine energy use.</xs:documentation>
         </xs:annotation>
     </xs:element>
-    <xs:element name="LinkedPremises">
+    <xs:complexType name="LinkedPremisesType">
+        <xs:sequence>
+            <xs:element name="Facility" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="LinkedFacilityID" maxOccurs="unbounded">
+                            <xs:annotation>
+                                <xs:documentation>ID numbers of the facilities associated with the system.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="LinkedScheduleIDs" minOccurs="0">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
+                                                    <xs:annotation>
+                                                        <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
+                                                    </xs:annotation>
+                                                    <xs:complexType>
+                                                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element ref="auc:FloorAreas" minOccurs="0"/>
+                                </xs:sequence>
+                                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Site" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="LinkedSiteID" maxOccurs="unbounded">
+                            <xs:annotation>
+                                <xs:documentation>ID numbers of the sites associated with the system.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="LinkedScheduleIDs" minOccurs="0">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
+                                                    <xs:annotation>
+                                                        <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
+                                                    </xs:annotation>
+                                                    <xs:complexType>
+                                                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element ref="auc:FloorAreas" minOccurs="0"/>
+                                </xs:sequence>
+                                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Building" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="LinkedBuildingID" maxOccurs="unbounded">
+                            <xs:annotation>
+                                <xs:documentation>ID numbers of the buildings associated with the system.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="LinkedScheduleIDs" minOccurs="0">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
+                                                    <xs:annotation>
+                                                        <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
+                                                    </xs:annotation>
+                                                    <xs:complexType>
+                                                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element ref="auc:FloorAreas" minOccurs="0"/>
+                                </xs:sequence>
+                                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Subsection" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="LinkedSubsectionID" maxOccurs="unbounded">
+                            <xs:annotation>
+                                <xs:documentation>ID numbers of the subsections associated with the system.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="LinkedScheduleIDs" minOccurs="0">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
+                                                    <xs:annotation>
+                                                        <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
+                                                    </xs:annotation>
+                                                    <xs:complexType>
+                                                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element ref="auc:FloorAreas" minOccurs="0"/>
+                                </xs:sequence>
+                                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ThermalZone" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="LinkedThermalZoneID" maxOccurs="unbounded">
+                            <xs:annotation>
+                                <xs:documentation>ID numbers of the zones associated with the system.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="LinkedScheduleIDs" minOccurs="0">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
+                                                    <xs:annotation>
+                                                        <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
+                                                    </xs:annotation>
+                                                    <xs:complexType>
+                                                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element ref="auc:FloorAreas" minOccurs="0"/>
+                                </xs:sequence>
+                                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Space" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="LinkedSpaceID" maxOccurs="unbounded">
+                            <xs:annotation>
+                                <xs:documentation>ID numbers of the spaces associated with the system.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="LinkedScheduleIDs" minOccurs="0">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
+                                                    <xs:annotation>
+                                                        <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
+                                                    </xs:annotation>
+                                                    <xs:complexType>
+                                                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element ref="auc:FloorAreas" minOccurs="0"/>
+                                </xs:sequence>
+                                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="LinkedPremises" type="auc:LinkedPremisesType">
         <xs:annotation>
             <xs:documentation>Establishes whether the system applies to one or more entire buildings, subsections, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
         </xs:annotation>
+    </xs:element>
+    <xs:element name="LinkedPremisesOrSystem">
         <xs:complexType>
-            <xs:sequence>
-                <xs:element name="Facility" minOccurs="0">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="LinkedFacilityID" maxOccurs="unbounded">
-                                <xs:annotation>
-                                    <xs:documentation>ID numbers of the facilities associated with the system.</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="LinkedScheduleIDs" minOccurs="0">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
-                                                        <xs:annotation>
-                                                            <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
-                                                        </xs:annotation>
-                                                        <xs:complexType>
-                                                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element ref="auc:FloorAreas" minOccurs="0"/>
-                                    </xs:sequence>
-                                    <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Site" minOccurs="0">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="LinkedSiteID" maxOccurs="unbounded">
-                                <xs:annotation>
-                                    <xs:documentation>ID numbers of the sites associated with the system.</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="LinkedScheduleIDs" minOccurs="0">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
-                                                        <xs:annotation>
-                                                            <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
-                                                        </xs:annotation>
-                                                        <xs:complexType>
-                                                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element ref="auc:FloorAreas" minOccurs="0"/>
-                                    </xs:sequence>
-                                    <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Building" minOccurs="0">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="LinkedBuildingID" maxOccurs="unbounded">
-                                <xs:annotation>
-                                    <xs:documentation>ID numbers of the buildings associated with the system.</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="LinkedScheduleIDs" minOccurs="0">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
-                                                        <xs:annotation>
-                                                            <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
-                                                        </xs:annotation>
-                                                        <xs:complexType>
-                                                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element ref="auc:FloorAreas" minOccurs="0"/>
-                                    </xs:sequence>
-                                    <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Subsection" minOccurs="0">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="LinkedSubsectionID" maxOccurs="unbounded">
-                                <xs:annotation>
-                                    <xs:documentation>ID numbers of the subsections associated with the system.</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="LinkedScheduleIDs" minOccurs="0">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
-                                                        <xs:annotation>
-                                                            <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
-                                                        </xs:annotation>
-                                                        <xs:complexType>
-                                                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element ref="auc:FloorAreas" minOccurs="0"/>
-                                    </xs:sequence>
-                                    <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="ThermalZone" minOccurs="0">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="LinkedThermalZoneID" maxOccurs="unbounded">
-                                <xs:annotation>
-                                    <xs:documentation>ID numbers of the zones associated with the system.</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="LinkedScheduleIDs" minOccurs="0">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
-                                                        <xs:annotation>
-                                                            <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
-                                                        </xs:annotation>
-                                                        <xs:complexType>
-                                                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element ref="auc:FloorAreas" minOccurs="0"/>
-                                    </xs:sequence>
-                                    <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Space" minOccurs="0">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="LinkedSpaceID" maxOccurs="unbounded">
-                                <xs:annotation>
-                                    <xs:documentation>ID numbers of the spaces associated with the system.</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="LinkedScheduleIDs" minOccurs="0">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
-                                                        <xs:annotation>
-                                                            <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
-                                                        </xs:annotation>
-                                                        <xs:complexType>
-                                                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element ref="auc:FloorAreas" minOccurs="0"/>
-                                    </xs:sequence>
-                                    <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-            </xs:sequence>
+            <xs:complexContent>
+                <xs:extension base="auc:LinkedPremisesType">
+                    <xs:sequence>
+                        <xs:element name="System" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="LinkedSystemID" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:annotation>
+                                            <xs:documentation>ID numbers of systems associated with this report</xs:documentation>
+                                        </xs:annotation>
+                                        <xs:complexType>
+                                            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
     <xs:element name="PremisesNotes" type="xs:string">
