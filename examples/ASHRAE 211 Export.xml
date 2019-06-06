@@ -1228,1396 +1228,1398 @@
           </UserDefinedFields>
         </Measure>
       </Measures>
-      <Report>
-        <Scenarios>
-          <Scenario>
-            <TemporalStatus>Pre retrofit</TemporalStatus>
-            <WeatherType>
-              <Actual>
-                <WeatherDataSource>On Site Measurement</WeatherDataSource>
-              </Actual>
-            </WeatherType>
-            <ResourceUses>
-              <ResourceUse ID="Resource1">
-                <EnergyResource>Electricity</EnergyResource>
-                <ResourceBoundary>Site</ResourceBoundary>
-                <ResourceUnits>kWh</ResourceUnits>
-                <PercentResource>1</PercentResource>
-                <EndUse>All end uses</EndUse>
-                <PercentEndUse>1</PercentEndUse>
-                <AnnualFuelUseNativeUnits>1000000</AnnualFuelUseNativeUnits>
-                <AnnualFuelUseConsistentUnits>3412.0000000000005</AnnualFuelUseConsistentUnits>
-              </ResourceUse>
-              <ResourceUse ID="Resource2">
-                <EnergyResource>Natural gas</EnergyResource>
-                <ResourceBoundary>Site</ResourceBoundary>
-                <ResourceUnits>therms</ResourceUnits>
-                <PercentResource>1</PercentResource>
-                <EndUse>All end uses</EndUse>
-                <PercentEndUse>1</PercentEndUse>
-                <AnnualFuelUseNativeUnits>25740</AnnualFuelUseNativeUnits>
-                <AnnualFuelUseConsistentUnits>2574</AnnualFuelUseConsistentUnits>
-                <UtilityIDs>
-                  <UtilityID IDref="Utility1"/>
-                </UtilityIDs>
-              </ResourceUse>
-              <ResourceUse ID="Resource3">
-                <EnergyResource>Fuel oil</EnergyResource>
-                <ResourceBoundary>Site</ResourceBoundary>
-                <ResourceUnits>Gallons</ResourceUnits>
-                <PercentResource>1</PercentResource>
-                <EndUse>All end uses</EndUse>
-                <PercentEndUse>1</PercentEndUse>
-                <AnnualFuelUseNativeUnits>148500</AnnualFuelUseNativeUnits>
-                <AnnualFuelUseConsistentUnits>1782</AnnualFuelUseConsistentUnits>
-                <UtilityIDs>
-                  <UtilityID IDref="Utility2"/>
-                  <UtilityID IDref="Utility3"/>
-                  <UtilityID IDref="Utility4"/>
-                </UtilityIDs>
-              </ResourceUse>
-              <ResourceUse ID="Resource4">
-                <EnergyResource>Fuel oil no 5 and no 6</EnergyResource>
-                <ResourceBoundary>Site</ResourceBoundary>
-                <ResourceUnits>Gallons</ResourceUnits>
-                <PercentResource>1</PercentResource>
-                <EndUse>All end uses</EndUse>
-                <PercentEndUse>1</PercentEndUse>
-                <AnnualFuelUseNativeUnits>450</AnnualFuelUseNativeUnits>
-                <AnnualFuelUseConsistentUnits>4.95</AnnualFuelUseConsistentUnits>
-                <UtilityIDs>
-                  <UtilityID IDref="Utility5"/>
-                  <UtilityID IDref="Utility6"/>
-                  <UtilityID IDref="Utility7"/>
-                </UtilityIDs>
-              </ResourceUse>
-              <ResourceUse ID="Resource5">
-                <EnergyResource>Fuel oil</EnergyResource>
-                <ResourceBoundary>Site</ResourceBoundary>
-                <ResourceUnits>Gallons</ResourceUnits>
-                <PercentResource>1</PercentResource>
-                <EndUse>All end uses</EndUse>
-                <PercentEndUse>1</PercentEndUse>
-                <AnnualFuelUseNativeUnits>390</AnnualFuelUseNativeUnits>
-                <AnnualFuelUseConsistentUnits>31.2</AnnualFuelUseConsistentUnits>
-                <UtilityIDs>
-                  <UtilityID IDref="Utility8"/>
-                  <UtilityID IDref="Utility9"/>
-                  <UtilityID IDref="Utility10"/>
-                </UtilityIDs>
-              </ResourceUse>
-            </ResourceUses>
-            <TimeSeriesData>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n0="http://buildingsync.net/schemas/bedes-auc/2019" n0:Source="Utility">83333.3333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n1="http://buildingsync.net/schemas/bedes-auc/2019" n1:Source="Utility">83333.3333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n2="http://buildingsync.net/schemas/bedes-auc/2019" n2:Source="Utility">83333.3333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n3="http://buildingsync.net/schemas/bedes-auc/2019" n3:Source="Utility">83333.3333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n4="http://buildingsync.net/schemas/bedes-auc/2019" n4:Source="Utility">83333.3333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n5="http://buildingsync.net/schemas/bedes-auc/2019" n5:Source="Utility">83333.3333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n6="http://buildingsync.net/schemas/bedes-auc/2019" n6:Source="Utility">83333.3333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n7="http://buildingsync.net/schemas/bedes-auc/2019" n7:Source="Utility">83333.3333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n8="http://buildingsync.net/schemas/bedes-auc/2019" n8:Source="Utility">83333.3333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n9="http://buildingsync.net/schemas/bedes-auc/2019" n9:Source="Utility">83333.3333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n10="http://buildingsync.net/schemas/bedes-auc/2019" n10:Source="Utility">83333.3333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n11="http://buildingsync.net/schemas/bedes-auc/2019" n11:Source="Utility">83333.3333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Peak</ReadingType>
-                <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n12="http://buildingsync.net/schemas/bedes-auc/2019" n12:Source="Utility">200</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Peak</ReadingType>
-                <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n13="http://buildingsync.net/schemas/bedes-auc/2019" n13:Source="Utility">225</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Peak</ReadingType>
-                <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n14="http://buildingsync.net/schemas/bedes-auc/2019" n14:Source="Utility">240</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Peak</ReadingType>
-                <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n15="http://buildingsync.net/schemas/bedes-auc/2019" n15:Source="Utility">280</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Peak</ReadingType>
-                <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n16="http://buildingsync.net/schemas/bedes-auc/2019" n16:Source="Utility">300</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Peak</ReadingType>
-                <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n17="http://buildingsync.net/schemas/bedes-auc/2019" n17:Source="Utility">350</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Peak</ReadingType>
-                <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n18="http://buildingsync.net/schemas/bedes-auc/2019" n18:Source="Utility">325</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Peak</ReadingType>
-                <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n19="http://buildingsync.net/schemas/bedes-auc/2019" n19:Source="Utility">400</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Peak</ReadingType>
-                <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n20="http://buildingsync.net/schemas/bedes-auc/2019" n20:Source="Utility">375</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Peak</ReadingType>
-                <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n21="http://buildingsync.net/schemas/bedes-auc/2019" n21:Source="Utility">300</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Peak</ReadingType>
-                <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n22="http://buildingsync.net/schemas/bedes-auc/2019" n22:Source="Utility">325</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Peak</ReadingType>
-                <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n23="http://buildingsync.net/schemas/bedes-auc/2019" n23:Source="Utility">250</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Average</ReadingType>
-                <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n24="http://buildingsync.net/schemas/bedes-auc/2019" n24:Source="Utility">0.560035842293907</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Average</ReadingType>
-                <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n25="http://buildingsync.net/schemas/bedes-auc/2019" n25:Source="Utility">0.551146384479718</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Average</ReadingType>
-                <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n26="http://buildingsync.net/schemas/bedes-auc/2019" n26:Source="Utility">0.466696535244922</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Average</ReadingType>
-                <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n27="http://buildingsync.net/schemas/bedes-auc/2019" n27:Source="Utility">0.413359788359788</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Average</ReadingType>
-                <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n28="http://buildingsync.net/schemas/bedes-auc/2019" n28:Source="Utility">0.373357228195938</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Average</ReadingType>
-                <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n29="http://buildingsync.net/schemas/bedes-auc/2019" n29:Source="Utility">0.330687830687831</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Average</ReadingType>
-                <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n30="http://buildingsync.net/schemas/bedes-auc/2019" n30:Source="Utility">0.344637441411635</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Average</ReadingType>
-                <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n31="http://buildingsync.net/schemas/bedes-auc/2019" n31:Source="Utility">0.280017921146953</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Average</ReadingType>
-                <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n32="http://buildingsync.net/schemas/bedes-auc/2019" n32:Source="Utility">0.308641975308642</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Average</ReadingType>
-                <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n33="http://buildingsync.net/schemas/bedes-auc/2019" n33:Source="Utility">0.373357228195938</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Average</ReadingType>
-                <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n34="http://buildingsync.net/schemas/bedes-auc/2019" n34:Source="Utility">0.356125356125356</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Average</ReadingType>
-                <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n35="http://buildingsync.net/schemas/bedes-auc/2019" n35:Source="Utility">0.448028673835125</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n36="http://buildingsync.net/schemas/bedes-auc/2019" n36:Source="Utility">8333.33333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n37="http://buildingsync.net/schemas/bedes-auc/2019" n37:Source="Utility">8333.33333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n38="http://buildingsync.net/schemas/bedes-auc/2019" n38:Source="Utility">8333.33333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n39="http://buildingsync.net/schemas/bedes-auc/2019" n39:Source="Utility">8333.33333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n40="http://buildingsync.net/schemas/bedes-auc/2019" n40:Source="Utility">8333.33333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n41="http://buildingsync.net/schemas/bedes-auc/2019" n41:Source="Utility">8333.33333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n42="http://buildingsync.net/schemas/bedes-auc/2019" n42:Source="Utility">8333.33333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n43="http://buildingsync.net/schemas/bedes-auc/2019" n43:Source="Utility">8333.33333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n44="http://buildingsync.net/schemas/bedes-auc/2019" n44:Source="Utility">8333.33333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n45="http://buildingsync.net/schemas/bedes-auc/2019" n45:Source="Utility">8333.33333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n46="http://buildingsync.net/schemas/bedes-auc/2019" n46:Source="Utility">8333.33333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n47="http://buildingsync.net/schemas/bedes-auc/2019" n47:Source="Utility">8333.33333333333</IntervalReading>
-                <ResourceUseID IDref="Resource1"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n48="http://buildingsync.net/schemas/bedes-auc/2019" n48:Source="Utility">2145</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n49="http://buildingsync.net/schemas/bedes-auc/2019" n49:Source="Utility">2145</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n50="http://buildingsync.net/schemas/bedes-auc/2019" n50:Source="Utility">2145</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n51="http://buildingsync.net/schemas/bedes-auc/2019" n51:Source="Utility">2145</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n52="http://buildingsync.net/schemas/bedes-auc/2019" n52:Source="Utility">2145</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n53="http://buildingsync.net/schemas/bedes-auc/2019" n53:Source="Utility">2145</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n54="http://buildingsync.net/schemas/bedes-auc/2019" n54:Source="Utility">2145</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n55="http://buildingsync.net/schemas/bedes-auc/2019" n55:Source="Utility">2145</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n56="http://buildingsync.net/schemas/bedes-auc/2019" n56:Source="Utility">2145</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n57="http://buildingsync.net/schemas/bedes-auc/2019" n57:Source="Utility">2145</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n58="http://buildingsync.net/schemas/bedes-auc/2019" n58:Source="Utility">2145</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n59="http://buildingsync.net/schemas/bedes-auc/2019" n59:Source="Utility">2145</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n60="http://buildingsync.net/schemas/bedes-auc/2019" n60:Source="Utility">1608.75</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n61="http://buildingsync.net/schemas/bedes-auc/2019" n61:Source="Utility">1608.75</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n62="http://buildingsync.net/schemas/bedes-auc/2019" n62:Source="Utility">1608.75</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n63="http://buildingsync.net/schemas/bedes-auc/2019" n63:Source="Utility">1608.75</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n64="http://buildingsync.net/schemas/bedes-auc/2019" n64:Source="Utility">1608.75</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n65="http://buildingsync.net/schemas/bedes-auc/2019" n65:Source="Utility">1608.75</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n66="http://buildingsync.net/schemas/bedes-auc/2019" n66:Source="Utility">1608.75</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n67="http://buildingsync.net/schemas/bedes-auc/2019" n67:Source="Utility">1608.75</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n68="http://buildingsync.net/schemas/bedes-auc/2019" n68:Source="Utility">1608.75</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n69="http://buildingsync.net/schemas/bedes-auc/2019" n69:Source="Utility">1608.75</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n70="http://buildingsync.net/schemas/bedes-auc/2019" n70:Source="Utility">1608.75</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n71="http://buildingsync.net/schemas/bedes-auc/2019" n71:Source="Utility">1608.75</IntervalReading>
-                <ResourceUseID IDref="Resource2"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n72="http://buildingsync.net/schemas/bedes-auc/2019" n72:Source="Utility">12375</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n73="http://buildingsync.net/schemas/bedes-auc/2019" n73:Source="Utility">12375</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n74="http://buildingsync.net/schemas/bedes-auc/2019" n74:Source="Utility">12375</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n75="http://buildingsync.net/schemas/bedes-auc/2019" n75:Source="Utility">12375</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n76="http://buildingsync.net/schemas/bedes-auc/2019" n76:Source="Utility">12375</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n77="http://buildingsync.net/schemas/bedes-auc/2019" n77:Source="Utility">12375</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n78="http://buildingsync.net/schemas/bedes-auc/2019" n78:Source="Utility">12375</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n79="http://buildingsync.net/schemas/bedes-auc/2019" n79:Source="Utility">12375</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n80="http://buildingsync.net/schemas/bedes-auc/2019" n80:Source="Utility">12375</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n81="http://buildingsync.net/schemas/bedes-auc/2019" n81:Source="Utility">12375</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n82="http://buildingsync.net/schemas/bedes-auc/2019" n82:Source="Utility">12375</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n83="http://buildingsync.net/schemas/bedes-auc/2019" n83:Source="Utility">12375</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n84="http://buildingsync.net/schemas/bedes-auc/2019" n84:Source="Utility">2970</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n85="http://buildingsync.net/schemas/bedes-auc/2019" n85:Source="Utility">2970</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n86="http://buildingsync.net/schemas/bedes-auc/2019" n86:Source="Utility">2970</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n87="http://buildingsync.net/schemas/bedes-auc/2019" n87:Source="Utility">2970</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n88="http://buildingsync.net/schemas/bedes-auc/2019" n88:Source="Utility">2970</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n89="http://buildingsync.net/schemas/bedes-auc/2019" n89:Source="Utility">2970</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n90="http://buildingsync.net/schemas/bedes-auc/2019" n90:Source="Utility">2970</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n91="http://buildingsync.net/schemas/bedes-auc/2019" n91:Source="Utility">2970</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n92="http://buildingsync.net/schemas/bedes-auc/2019" n92:Source="Utility">2970</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n93="http://buildingsync.net/schemas/bedes-auc/2019" n93:Source="Utility">2970</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n94="http://buildingsync.net/schemas/bedes-auc/2019" n94:Source="Utility">2970</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n95="http://buildingsync.net/schemas/bedes-auc/2019" n95:Source="Utility">2970</IntervalReading>
-                <ResourceUseID IDref="Resource3"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n96="http://buildingsync.net/schemas/bedes-auc/2019" n96:Source="Utility">12912.0833333333</IntervalReading>
-                <UserDefinedFields>
-                  <UserDefinedField>
-                    <FieldName>Time Series Description</FieldName>
-                    <FieldValue>Total Metered Energy Cost</FieldValue>
-                  </UserDefinedField>
-                </UserDefinedFields>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n97="http://buildingsync.net/schemas/bedes-auc/2019" n97:Source="Utility">12912.0833333333</IntervalReading>
-                <UserDefinedFields>
-                  <UserDefinedField>
-                    <FieldName>Time Series Description</FieldName>
-                    <FieldValue>Total Metered Energy Cost</FieldValue>
-                  </UserDefinedField>
-                </UserDefinedFields>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n98="http://buildingsync.net/schemas/bedes-auc/2019" n98:Source="Utility">12912.0833333333</IntervalReading>
-                <UserDefinedFields>
-                  <UserDefinedField>
-                    <FieldName>Time Series Description</FieldName>
-                    <FieldValue>Total Metered Energy Cost</FieldValue>
-                  </UserDefinedField>
-                </UserDefinedFields>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n99="http://buildingsync.net/schemas/bedes-auc/2019" n99:Source="Utility">12912.0833333333</IntervalReading>
-                <UserDefinedFields>
-                  <UserDefinedField>
-                    <FieldName>Time Series Description</FieldName>
-                    <FieldValue>Total Metered Energy Cost</FieldValue>
-                  </UserDefinedField>
-                </UserDefinedFields>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n100="http://buildingsync.net/schemas/bedes-auc/2019" n100:Source="Utility">12912.0833333333</IntervalReading>
-                <UserDefinedFields>
-                  <UserDefinedField>
-                    <FieldName>Time Series Description</FieldName>
-                    <FieldValue>Total Metered Energy Cost</FieldValue>
-                  </UserDefinedField>
-                </UserDefinedFields>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n101="http://buildingsync.net/schemas/bedes-auc/2019" n101:Source="Utility">12912.0833333333</IntervalReading>
-                <UserDefinedFields>
-                  <UserDefinedField>
-                    <FieldName>Time Series Description</FieldName>
-                    <FieldValue>Total Metered Energy Cost</FieldValue>
-                  </UserDefinedField>
-                </UserDefinedFields>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n102="http://buildingsync.net/schemas/bedes-auc/2019" n102:Source="Utility">12912.0833333333</IntervalReading>
-                <UserDefinedFields>
-                  <UserDefinedField>
-                    <FieldName>Time Series Description</FieldName>
-                    <FieldValue>Total Metered Energy Cost</FieldValue>
-                  </UserDefinedField>
-                </UserDefinedFields>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n103="http://buildingsync.net/schemas/bedes-auc/2019" n103:Source="Utility">12912.0833333333</IntervalReading>
-                <UserDefinedFields>
-                  <UserDefinedField>
-                    <FieldName>Time Series Description</FieldName>
-                    <FieldValue>Total Metered Energy Cost</FieldValue>
-                  </UserDefinedField>
-                </UserDefinedFields>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n104="http://buildingsync.net/schemas/bedes-auc/2019" n104:Source="Utility">12912.0833333333</IntervalReading>
-                <UserDefinedFields>
-                  <UserDefinedField>
-                    <FieldName>Time Series Description</FieldName>
-                    <FieldValue>Total Metered Energy Cost</FieldValue>
-                  </UserDefinedField>
-                </UserDefinedFields>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n105="http://buildingsync.net/schemas/bedes-auc/2019" n105:Source="Utility">12912.0833333333</IntervalReading>
-                <UserDefinedFields>
-                  <UserDefinedField>
-                    <FieldName>Time Series Description</FieldName>
-                    <FieldValue>Total Metered Energy Cost</FieldValue>
-                  </UserDefinedField>
-                </UserDefinedFields>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n106="http://buildingsync.net/schemas/bedes-auc/2019" n106:Source="Utility">12912.0833333333</IntervalReading>
-                <UserDefinedFields>
-                  <UserDefinedField>
-                    <FieldName>Time Series Description</FieldName>
-                    <FieldValue>Total Metered Energy Cost</FieldValue>
-                  </UserDefinedField>
-                </UserDefinedFields>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
-                <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Month</IntervalFrequency>
-                <IntervalReading xmlns:n107="http://buildingsync.net/schemas/bedes-auc/2019" n107:Source="Utility">12912.0833333333</IntervalReading>
-                <UserDefinedFields>
-                  <UserDefinedField>
-                    <FieldName>Time Series Description</FieldName>
-                    <FieldValue>Total Metered Energy Cost</FieldValue>
-                  </UserDefinedField>
-                </UserDefinedFields>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-01-10T00:00:00</StartTimeStamp>
-                <IntervalFrequency>Unknown</IntervalFrequency>
-                <IntervalReading>100</IntervalReading>
-                <ResourceUseID IDref="Resource4"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-07-12T00:00:00</StartTimeStamp>
-                <IntervalFrequency>Unknown</IntervalFrequency>
-                <IntervalReading>200</IntervalReading>
-                <ResourceUseID IDref="Resource4"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-12-25T00:00:00</StartTimeStamp>
-                <IntervalFrequency>Unknown</IntervalFrequency>
-                <IntervalReading>150</IntervalReading>
-                <ResourceUseID IDref="Resource4"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-01-10T00:00:00</StartTimeStamp>
-                <IntervalFrequency>Unknown</IntervalFrequency>
-                <IntervalReading>20</IntervalReading>
-                <ResourceUseID IDref="Resource4"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-07-12T00:00:00</StartTimeStamp>
-                <IntervalFrequency>Unknown</IntervalFrequency>
-                <IntervalReading>40</IntervalReading>
-                <ResourceUseID IDref="Resource4"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-12-25T00:00:00</StartTimeStamp>
-                <IntervalFrequency>Unknown</IntervalFrequency>
-                <IntervalReading>30</IntervalReading>
-                <ResourceUseID IDref="Resource4"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-01-15T00:00:00</StartTimeStamp>
-                <IntervalFrequency>Unknown</IntervalFrequency>
-                <IntervalReading>90</IntervalReading>
-                <ResourceUseID IDref="Resource5"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-04-15T00:00:00</StartTimeStamp>
-                <IntervalFrequency>Unknown</IntervalFrequency>
-                <IntervalReading>100</IntervalReading>
-                <ResourceUseID IDref="Resource5"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-09-15T00:00:00</StartTimeStamp>
-                <IntervalFrequency>Unknown</IntervalFrequency>
-                <IntervalReading>120</IntervalReading>
-                <ResourceUseID IDref="Resource5"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-12-30T00:00:00</StartTimeStamp>
-                <IntervalFrequency>Unknown</IntervalFrequency>
-                <IntervalReading>80</IntervalReading>
-                <ResourceUseID IDref="Resource5"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-01-15T00:00:00</StartTimeStamp>
-                <IntervalFrequency>Unknown</IntervalFrequency>
-                <IntervalReading>10</IntervalReading>
-                <ResourceUseID IDref="Resource5"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-04-15T00:00:00</StartTimeStamp>
-                <IntervalFrequency>Unknown</IntervalFrequency>
-                <IntervalReading>20</IntervalReading>
-                <ResourceUseID IDref="Resource5"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-09-15T00:00:00</StartTimeStamp>
-                <IntervalFrequency>Unknown</IntervalFrequency>
-                <IntervalReading>5</IntervalReading>
-                <ResourceUseID IDref="Resource5"/>
-              </TimeSeries>
-              <TimeSeries>
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2010-12-30T00:00:00</StartTimeStamp>
-                <IntervalFrequency>Unknown</IntervalFrequency>
-                <IntervalReading>66</IntervalReading>
-                <ResourceUseID IDref="Resource5"/>
-              </TimeSeries>
-            </TimeSeriesData>
-            <AllResourceTotals>
-              <AllResourceTotal>
-                <EndUse>All end uses</EndUse>
-                <TemporalStatus>Pre retrofit</TemporalStatus>
-                <ResourceBoundary>Gross</ResourceBoundary>
-                <SiteEnergyUse>7804.15</SiteEnergyUse>
-                <SiteEnergyUseIntensity>39.414898989898987</SiteEnergyUseIntensity>
-                <EnergyCost>154945</EnergyCost>
-                <ElectricitySourcedFromOnsiteRenewableSystems>234.4665885111</ElectricitySourcedFromOnsiteRenewableSystems>
-              </AllResourceTotal>
-              <AllResourceTotal>
-                <EndUse>All end uses</EndUse>
-                <TemporalStatus>Pre retrofit</TemporalStatus>
-                <ResourceBoundary>Net</ResourceBoundary>
-                <SiteEnergyUse>7803.35</SiteEnergyUse>
-                <SiteEnergyUseIntensity>39.410858585858584</SiteEnergyUseIntensity>
-                <EnergyCost>154136</EnergyCost>
-              </AllResourceTotal>
-            </AllResourceTotals>
-            <AnnualHeatingDegreeDays>4000</AnnualHeatingDegreeDays>
-            <AnnualCoolingDegreeDays>3000</AnnualCoolingDegreeDays>
-            <HDDBaseTemperature>0</HDDBaseTemperature>
-            <CDDBaseTemperature>0</CDDBaseTemperature>
-            <LinkedPremises>
-              <Building>
-                <LinkedBuildingID IDref="Building1"/>
-              </Building>
-            </LinkedPremises>
-          </Scenario>
-          <Scenario>
-            <ScenarioName>RecommendedPackage1</ScenarioName>
-            <TemporalStatus>Post retrofit</TemporalStatus>
-            <ScenarioType>
-              <PackageOfMeasures>
-                <AnnualSavingsCost>15809</AnnualSavingsCost>
-                <AnnualSavingsByFuels>
-                  <AnnualSavingsByFuel>
-                    <EnergyResource>Electricity</EnergyResource>
-                    <ResourceUnits>kWh</ResourceUnits>
-                    <AnnualSavingsNativeUnits>7855</AnnualSavingsNativeUnits>
-                  </AnnualSavingsByFuel>
-                  <AnnualSavingsByFuel>
-                    <EnergyResource>Natural gas</EnergyResource>
-                    <ResourceUnits>therms</ResourceUnits>
-                    <AnnualSavingsNativeUnits>3859</AnnualSavingsNativeUnits>
-                  </AnnualSavingsByFuel>
-                </AnnualSavingsByFuels>
-                <SummerPeakElectricityReduction>71</SummerPeakElectricityReduction>
-                <PackageFirstCost>25683</PackageFirstCost>
-                <FundingFromIncentives>3652</FundingFromIncentives>
-                <SimplePayback>1.3935732810424442</SimplePayback>
-              </PackageOfMeasures>
-            </ScenarioType>
-            <LinkedPremises>
-              <Building>
-                <LinkedBuildingID IDref="Building1"/>
-              </Building>
-            </LinkedPremises>
-            <UserDefinedFields>
-              <UserDefinedField>
-                <FieldName>Net Measure Cost</FieldName>
-                <FieldValue>22031</FieldValue>
-              </UserDefinedField>
-              <UserDefinedField>
-                <FieldName>Simple ROI</FieldName>
-                <FieldValue>0.71757977395488171</FieldValue>
-              </UserDefinedField>
-            </UserDefinedFields>
-          </Scenario>
-        </Scenarios>
-        <AuditDate>2015-02-05</AuditDate>
-        <Utilities>
-          <Utility ID="Utility1">
-            <RateSchedules>
-              <RateSchedule>
-                <RateStructureName>WSE 999-999</RateStructureName>
-              </RateSchedule>
-            </RateSchedules>
-            <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
-            <UtilityAccountNumber>999-9921</UtilityAccountNumber>
-          </Utility>
-          <Utility ID="Utility2">
-            <RateSchedules>
-              <RateSchedule>
-                <RateStructureName>WSE 999-999</RateStructureName>
-              </RateSchedule>
-            </RateSchedules>
-            <MeteringConfiguration>Master meter without sub metering</MeteringConfiguration>
-            <UtilityAccountNumber>999-9998</UtilityAccountNumber>
-          </Utility>
-          <Utility ID="Utility3">
-            <RateSchedules>
-              <RateSchedule>
-                <RateStructureName>WSE 999-999</RateStructureName>
-              </RateSchedule>
-            </RateSchedules>
-            <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
-            <UtilityAccountNumber>999-9224</UtilityAccountNumber>
-          </Utility>
-          <Utility ID="Utility4">
-            <RateSchedules>
-              <RateSchedule>
-                <RateStructureName>WSE 999-999</RateStructureName>
-              </RateSchedule>
-            </RateSchedules>
-            <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
-            <UtilityAccountNumber>999-9994</UtilityAccountNumber>
-          </Utility>
-          <Utility ID="Utility5">
-            <RateSchedules>
-              <RateSchedule>
-                <RateStructureName>WSE 999-999</RateStructureName>
-              </RateSchedule>
-            </RateSchedules>
-            <MeteringConfiguration>Master meter without sub metering</MeteringConfiguration>
-            <UtilityAccountNumber>999-9998</UtilityAccountNumber>
-          </Utility>
-          <Utility ID="Utility6">
-            <RateSchedules>
-              <RateSchedule>
-                <RateStructureName>WSE 999-999</RateStructureName>
-              </RateSchedule>
-            </RateSchedules>
-            <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
-            <UtilityAccountNumber>999-9224</UtilityAccountNumber>
-          </Utility>
-          <Utility ID="Utility7">
-            <RateSchedules>
-              <RateSchedule>
-                <RateStructureName>WSE 999-999</RateStructureName>
-              </RateSchedule>
-            </RateSchedules>
-            <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
-            <UtilityAccountNumber>999-9994</UtilityAccountNumber>
-          </Utility>
-          <Utility ID="Utility8">
-            <RateSchedules>
-              <RateSchedule>
-                <RateStructureName>WSE 999-999</RateStructureName>
-              </RateSchedule>
-            </RateSchedules>
-            <MeteringConfiguration>Master meter without sub metering</MeteringConfiguration>
-            <UtilityAccountNumber>999-9998</UtilityAccountNumber>
-          </Utility>
-          <Utility ID="Utility9">
-            <RateSchedules>
-              <RateSchedule>
-                <RateStructureName>WSE 999-999</RateStructureName>
-              </RateSchedule>
-            </RateSchedules>
-            <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
-            <UtilityAccountNumber>999-9224</UtilityAccountNumber>
-          </Utility>
-          <Utility ID="Utility10">
-            <RateSchedules>
-              <RateSchedule>
-                <RateStructureName>WSE 999-999</RateStructureName>
-              </RateSchedule>
-            </RateSchedules>
-            <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
-            <UtilityAccountNumber>999-9994</UtilityAccountNumber>
-          </Utility>
-        </Utilities>
-        <AuditorContactID IDref="Auditor1"/>
-      </Report>
+      <Reports>
+        <Report>
+          <Scenarios>
+            <Scenario>
+              <TemporalStatus>Pre retrofit</TemporalStatus>
+              <WeatherType>
+                <Actual>
+                  <WeatherDataSource>On Site Measurement</WeatherDataSource>
+                </Actual>
+              </WeatherType>
+              <ResourceUses>
+                <ResourceUse ID="Resource1">
+                  <EnergyResource>Electricity</EnergyResource>
+                  <ResourceBoundary>Site</ResourceBoundary>
+                  <ResourceUnits>kWh</ResourceUnits>
+                  <PercentResource>1</PercentResource>
+                  <EndUse>All end uses</EndUse>
+                  <PercentEndUse>1</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>1000000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>3412.0000000000005</AnnualFuelUseConsistentUnits>
+                </ResourceUse>
+                <ResourceUse ID="Resource2">
+                  <EnergyResource>Natural gas</EnergyResource>
+                  <ResourceBoundary>Site</ResourceBoundary>
+                  <ResourceUnits>therms</ResourceUnits>
+                  <PercentResource>1</PercentResource>
+                  <EndUse>All end uses</EndUse>
+                  <PercentEndUse>1</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>25740</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>2574</AnnualFuelUseConsistentUnits>
+                  <UtilityIDs>
+                    <UtilityID IDref="Utility1"/>
+                  </UtilityIDs>
+                </ResourceUse>
+                <ResourceUse ID="Resource3">
+                  <EnergyResource>Fuel oil</EnergyResource>
+                  <ResourceBoundary>Site</ResourceBoundary>
+                  <ResourceUnits>Gallons</ResourceUnits>
+                  <PercentResource>1</PercentResource>
+                  <EndUse>All end uses</EndUse>
+                  <PercentEndUse>1</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>148500</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>1782</AnnualFuelUseConsistentUnits>
+                  <UtilityIDs>
+                    <UtilityID IDref="Utility2"/>
+                    <UtilityID IDref="Utility3"/>
+                    <UtilityID IDref="Utility4"/>
+                  </UtilityIDs>
+                </ResourceUse>
+                <ResourceUse ID="Resource4">
+                  <EnergyResource>Fuel oil no 5 and no 6</EnergyResource>
+                  <ResourceBoundary>Site</ResourceBoundary>
+                  <ResourceUnits>Gallons</ResourceUnits>
+                  <PercentResource>1</PercentResource>
+                  <EndUse>All end uses</EndUse>
+                  <PercentEndUse>1</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>450</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>4.95</AnnualFuelUseConsistentUnits>
+                  <UtilityIDs>
+                    <UtilityID IDref="Utility5"/>
+                    <UtilityID IDref="Utility6"/>
+                    <UtilityID IDref="Utility7"/>
+                  </UtilityIDs>
+                </ResourceUse>
+                <ResourceUse ID="Resource5">
+                  <EnergyResource>Fuel oil</EnergyResource>
+                  <ResourceBoundary>Site</ResourceBoundary>
+                  <ResourceUnits>Gallons</ResourceUnits>
+                  <PercentResource>1</PercentResource>
+                  <EndUse>All end uses</EndUse>
+                  <PercentEndUse>1</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>390</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>31.2</AnnualFuelUseConsistentUnits>
+                  <UtilityIDs>
+                    <UtilityID IDref="Utility8"/>
+                    <UtilityID IDref="Utility9"/>
+                    <UtilityID IDref="Utility10"/>
+                  </UtilityIDs>
+                </ResourceUse>
+              </ResourceUses>
+              <TimeSeriesData>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n0="http://buildingsync.net/schemas/bedes-auc/2019" n0:Source="Utility">83333.3333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n1="http://buildingsync.net/schemas/bedes-auc/2019" n1:Source="Utility">83333.3333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n2="http://buildingsync.net/schemas/bedes-auc/2019" n2:Source="Utility">83333.3333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n3="http://buildingsync.net/schemas/bedes-auc/2019" n3:Source="Utility">83333.3333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n4="http://buildingsync.net/schemas/bedes-auc/2019" n4:Source="Utility">83333.3333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n5="http://buildingsync.net/schemas/bedes-auc/2019" n5:Source="Utility">83333.3333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n6="http://buildingsync.net/schemas/bedes-auc/2019" n6:Source="Utility">83333.3333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n7="http://buildingsync.net/schemas/bedes-auc/2019" n7:Source="Utility">83333.3333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n8="http://buildingsync.net/schemas/bedes-auc/2019" n8:Source="Utility">83333.3333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n9="http://buildingsync.net/schemas/bedes-auc/2019" n9:Source="Utility">83333.3333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n10="http://buildingsync.net/schemas/bedes-auc/2019" n10:Source="Utility">83333.3333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n11="http://buildingsync.net/schemas/bedes-auc/2019" n11:Source="Utility">83333.3333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Peak</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n12="http://buildingsync.net/schemas/bedes-auc/2019" n12:Source="Utility">200</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Peak</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n13="http://buildingsync.net/schemas/bedes-auc/2019" n13:Source="Utility">225</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Peak</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n14="http://buildingsync.net/schemas/bedes-auc/2019" n14:Source="Utility">240</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Peak</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n15="http://buildingsync.net/schemas/bedes-auc/2019" n15:Source="Utility">280</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Peak</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n16="http://buildingsync.net/schemas/bedes-auc/2019" n16:Source="Utility">300</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Peak</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n17="http://buildingsync.net/schemas/bedes-auc/2019" n17:Source="Utility">350</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Peak</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n18="http://buildingsync.net/schemas/bedes-auc/2019" n18:Source="Utility">325</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Peak</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n19="http://buildingsync.net/schemas/bedes-auc/2019" n19:Source="Utility">400</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Peak</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n20="http://buildingsync.net/schemas/bedes-auc/2019" n20:Source="Utility">375</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Peak</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n21="http://buildingsync.net/schemas/bedes-auc/2019" n21:Source="Utility">300</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Peak</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n22="http://buildingsync.net/schemas/bedes-auc/2019" n22:Source="Utility">325</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Peak</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n23="http://buildingsync.net/schemas/bedes-auc/2019" n23:Source="Utility">250</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Average</ReadingType>
+                  <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n24="http://buildingsync.net/schemas/bedes-auc/2019" n24:Source="Utility">0.560035842293907</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Average</ReadingType>
+                  <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n25="http://buildingsync.net/schemas/bedes-auc/2019" n25:Source="Utility">0.551146384479718</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Average</ReadingType>
+                  <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n26="http://buildingsync.net/schemas/bedes-auc/2019" n26:Source="Utility">0.466696535244922</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Average</ReadingType>
+                  <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n27="http://buildingsync.net/schemas/bedes-auc/2019" n27:Source="Utility">0.413359788359788</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Average</ReadingType>
+                  <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n28="http://buildingsync.net/schemas/bedes-auc/2019" n28:Source="Utility">0.373357228195938</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Average</ReadingType>
+                  <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n29="http://buildingsync.net/schemas/bedes-auc/2019" n29:Source="Utility">0.330687830687831</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Average</ReadingType>
+                  <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n30="http://buildingsync.net/schemas/bedes-auc/2019" n30:Source="Utility">0.344637441411635</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Average</ReadingType>
+                  <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n31="http://buildingsync.net/schemas/bedes-auc/2019" n31:Source="Utility">0.280017921146953</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Average</ReadingType>
+                  <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n32="http://buildingsync.net/schemas/bedes-auc/2019" n32:Source="Utility">0.308641975308642</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Average</ReadingType>
+                  <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n33="http://buildingsync.net/schemas/bedes-auc/2019" n33:Source="Utility">0.373357228195938</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Average</ReadingType>
+                  <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n34="http://buildingsync.net/schemas/bedes-auc/2019" n34:Source="Utility">0.356125356125356</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Average</ReadingType>
+                  <TimeSeriesReadingQuantity>Power Factor</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n35="http://buildingsync.net/schemas/bedes-auc/2019" n35:Source="Utility">0.448028673835125</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n36="http://buildingsync.net/schemas/bedes-auc/2019" n36:Source="Utility">8333.33333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n37="http://buildingsync.net/schemas/bedes-auc/2019" n37:Source="Utility">8333.33333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n38="http://buildingsync.net/schemas/bedes-auc/2019" n38:Source="Utility">8333.33333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n39="http://buildingsync.net/schemas/bedes-auc/2019" n39:Source="Utility">8333.33333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n40="http://buildingsync.net/schemas/bedes-auc/2019" n40:Source="Utility">8333.33333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n41="http://buildingsync.net/schemas/bedes-auc/2019" n41:Source="Utility">8333.33333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n42="http://buildingsync.net/schemas/bedes-auc/2019" n42:Source="Utility">8333.33333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n43="http://buildingsync.net/schemas/bedes-auc/2019" n43:Source="Utility">8333.33333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n44="http://buildingsync.net/schemas/bedes-auc/2019" n44:Source="Utility">8333.33333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n45="http://buildingsync.net/schemas/bedes-auc/2019" n45:Source="Utility">8333.33333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n46="http://buildingsync.net/schemas/bedes-auc/2019" n46:Source="Utility">8333.33333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n47="http://buildingsync.net/schemas/bedes-auc/2019" n47:Source="Utility">8333.33333333333</IntervalReading>
+                  <ResourceUseID IDref="Resource1"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n48="http://buildingsync.net/schemas/bedes-auc/2019" n48:Source="Utility">2145</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n49="http://buildingsync.net/schemas/bedes-auc/2019" n49:Source="Utility">2145</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n50="http://buildingsync.net/schemas/bedes-auc/2019" n50:Source="Utility">2145</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n51="http://buildingsync.net/schemas/bedes-auc/2019" n51:Source="Utility">2145</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n52="http://buildingsync.net/schemas/bedes-auc/2019" n52:Source="Utility">2145</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n53="http://buildingsync.net/schemas/bedes-auc/2019" n53:Source="Utility">2145</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n54="http://buildingsync.net/schemas/bedes-auc/2019" n54:Source="Utility">2145</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n55="http://buildingsync.net/schemas/bedes-auc/2019" n55:Source="Utility">2145</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n56="http://buildingsync.net/schemas/bedes-auc/2019" n56:Source="Utility">2145</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n57="http://buildingsync.net/schemas/bedes-auc/2019" n57:Source="Utility">2145</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n58="http://buildingsync.net/schemas/bedes-auc/2019" n58:Source="Utility">2145</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n59="http://buildingsync.net/schemas/bedes-auc/2019" n59:Source="Utility">2145</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n60="http://buildingsync.net/schemas/bedes-auc/2019" n60:Source="Utility">1608.75</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n61="http://buildingsync.net/schemas/bedes-auc/2019" n61:Source="Utility">1608.75</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n62="http://buildingsync.net/schemas/bedes-auc/2019" n62:Source="Utility">1608.75</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n63="http://buildingsync.net/schemas/bedes-auc/2019" n63:Source="Utility">1608.75</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n64="http://buildingsync.net/schemas/bedes-auc/2019" n64:Source="Utility">1608.75</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n65="http://buildingsync.net/schemas/bedes-auc/2019" n65:Source="Utility">1608.75</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n66="http://buildingsync.net/schemas/bedes-auc/2019" n66:Source="Utility">1608.75</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n67="http://buildingsync.net/schemas/bedes-auc/2019" n67:Source="Utility">1608.75</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n68="http://buildingsync.net/schemas/bedes-auc/2019" n68:Source="Utility">1608.75</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n69="http://buildingsync.net/schemas/bedes-auc/2019" n69:Source="Utility">1608.75</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n70="http://buildingsync.net/schemas/bedes-auc/2019" n70:Source="Utility">1608.75</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n71="http://buildingsync.net/schemas/bedes-auc/2019" n71:Source="Utility">1608.75</IntervalReading>
+                  <ResourceUseID IDref="Resource2"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n72="http://buildingsync.net/schemas/bedes-auc/2019" n72:Source="Utility">12375</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n73="http://buildingsync.net/schemas/bedes-auc/2019" n73:Source="Utility">12375</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n74="http://buildingsync.net/schemas/bedes-auc/2019" n74:Source="Utility">12375</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n75="http://buildingsync.net/schemas/bedes-auc/2019" n75:Source="Utility">12375</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n76="http://buildingsync.net/schemas/bedes-auc/2019" n76:Source="Utility">12375</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n77="http://buildingsync.net/schemas/bedes-auc/2019" n77:Source="Utility">12375</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n78="http://buildingsync.net/schemas/bedes-auc/2019" n78:Source="Utility">12375</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n79="http://buildingsync.net/schemas/bedes-auc/2019" n79:Source="Utility">12375</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n80="http://buildingsync.net/schemas/bedes-auc/2019" n80:Source="Utility">12375</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n81="http://buildingsync.net/schemas/bedes-auc/2019" n81:Source="Utility">12375</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n82="http://buildingsync.net/schemas/bedes-auc/2019" n82:Source="Utility">12375</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n83="http://buildingsync.net/schemas/bedes-auc/2019" n83:Source="Utility">12375</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n84="http://buildingsync.net/schemas/bedes-auc/2019" n84:Source="Utility">2970</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n85="http://buildingsync.net/schemas/bedes-auc/2019" n85:Source="Utility">2970</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n86="http://buildingsync.net/schemas/bedes-auc/2019" n86:Source="Utility">2970</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n87="http://buildingsync.net/schemas/bedes-auc/2019" n87:Source="Utility">2970</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n88="http://buildingsync.net/schemas/bedes-auc/2019" n88:Source="Utility">2970</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n89="http://buildingsync.net/schemas/bedes-auc/2019" n89:Source="Utility">2970</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n90="http://buildingsync.net/schemas/bedes-auc/2019" n90:Source="Utility">2970</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n91="http://buildingsync.net/schemas/bedes-auc/2019" n91:Source="Utility">2970</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n92="http://buildingsync.net/schemas/bedes-auc/2019" n92:Source="Utility">2970</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n93="http://buildingsync.net/schemas/bedes-auc/2019" n93:Source="Utility">2970</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n94="http://buildingsync.net/schemas/bedes-auc/2019" n94:Source="Utility">2970</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n95="http://buildingsync.net/schemas/bedes-auc/2019" n95:Source="Utility">2970</IntervalReading>
+                  <ResourceUseID IDref="Resource3"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-01-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-02-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n96="http://buildingsync.net/schemas/bedes-auc/2019" n96:Source="Utility">12912.0833333333</IntervalReading>
+                  <UserDefinedFields>
+                    <UserDefinedField>
+                      <FieldName>Time Series Description</FieldName>
+                      <FieldValue>Total Metered Energy Cost</FieldValue>
+                    </UserDefinedField>
+                  </UserDefinedFields>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-02-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-03-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n97="http://buildingsync.net/schemas/bedes-auc/2019" n97:Source="Utility">12912.0833333333</IntervalReading>
+                  <UserDefinedFields>
+                    <UserDefinedField>
+                      <FieldName>Time Series Description</FieldName>
+                      <FieldValue>Total Metered Energy Cost</FieldValue>
+                    </UserDefinedField>
+                  </UserDefinedFields>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-03-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-04-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n98="http://buildingsync.net/schemas/bedes-auc/2019" n98:Source="Utility">12912.0833333333</IntervalReading>
+                  <UserDefinedFields>
+                    <UserDefinedField>
+                      <FieldName>Time Series Description</FieldName>
+                      <FieldValue>Total Metered Energy Cost</FieldValue>
+                    </UserDefinedField>
+                  </UserDefinedFields>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-04-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-05-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n99="http://buildingsync.net/schemas/bedes-auc/2019" n99:Source="Utility">12912.0833333333</IntervalReading>
+                  <UserDefinedFields>
+                    <UserDefinedField>
+                      <FieldName>Time Series Description</FieldName>
+                      <FieldValue>Total Metered Energy Cost</FieldValue>
+                    </UserDefinedField>
+                  </UserDefinedFields>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-05-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-06-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n100="http://buildingsync.net/schemas/bedes-auc/2019" n100:Source="Utility">12912.0833333333</IntervalReading>
+                  <UserDefinedFields>
+                    <UserDefinedField>
+                      <FieldName>Time Series Description</FieldName>
+                      <FieldValue>Total Metered Energy Cost</FieldValue>
+                    </UserDefinedField>
+                  </UserDefinedFields>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-06-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-07-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n101="http://buildingsync.net/schemas/bedes-auc/2019" n101:Source="Utility">12912.0833333333</IntervalReading>
+                  <UserDefinedFields>
+                    <UserDefinedField>
+                      <FieldName>Time Series Description</FieldName>
+                      <FieldValue>Total Metered Energy Cost</FieldValue>
+                    </UserDefinedField>
+                  </UserDefinedFields>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-07-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-08-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n102="http://buildingsync.net/schemas/bedes-auc/2019" n102:Source="Utility">12912.0833333333</IntervalReading>
+                  <UserDefinedFields>
+                    <UserDefinedField>
+                      <FieldName>Time Series Description</FieldName>
+                      <FieldValue>Total Metered Energy Cost</FieldValue>
+                    </UserDefinedField>
+                  </UserDefinedFields>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-08-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-09-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n103="http://buildingsync.net/schemas/bedes-auc/2019" n103:Source="Utility">12912.0833333333</IntervalReading>
+                  <UserDefinedFields>
+                    <UserDefinedField>
+                      <FieldName>Time Series Description</FieldName>
+                      <FieldValue>Total Metered Energy Cost</FieldValue>
+                    </UserDefinedField>
+                  </UserDefinedFields>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-09-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-10-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n104="http://buildingsync.net/schemas/bedes-auc/2019" n104:Source="Utility">12912.0833333333</IntervalReading>
+                  <UserDefinedFields>
+                    <UserDefinedField>
+                      <FieldName>Time Series Description</FieldName>
+                      <FieldValue>Total Metered Energy Cost</FieldValue>
+                    </UserDefinedField>
+                  </UserDefinedFields>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-10-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-11-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n105="http://buildingsync.net/schemas/bedes-auc/2019" n105:Source="Utility">12912.0833333333</IntervalReading>
+                  <UserDefinedFields>
+                    <UserDefinedField>
+                      <FieldName>Time Series Description</FieldName>
+                      <FieldValue>Total Metered Energy Cost</FieldValue>
+                    </UserDefinedField>
+                  </UserDefinedFields>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-11-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2010-12-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n106="http://buildingsync.net/schemas/bedes-auc/2019" n106:Source="Utility">12912.0833333333</IntervalReading>
+                  <UserDefinedFields>
+                    <UserDefinedField>
+                      <FieldName>Time Series Description</FieldName>
+                      <FieldValue>Total Metered Energy Cost</FieldValue>
+                    </UserDefinedField>
+                  </UserDefinedFields>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-12-02T00:00:00</StartTimeStamp>
+                  <EndTimeStamp>2011-01-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading xmlns:n107="http://buildingsync.net/schemas/bedes-auc/2019" n107:Source="Utility">12912.0833333333</IntervalReading>
+                  <UserDefinedFields>
+                    <UserDefinedField>
+                      <FieldName>Time Series Description</FieldName>
+                      <FieldValue>Total Metered Energy Cost</FieldValue>
+                    </UserDefinedField>
+                  </UserDefinedFields>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-01-10T00:00:00</StartTimeStamp>
+                  <IntervalFrequency>Unknown</IntervalFrequency>
+                  <IntervalReading>100</IntervalReading>
+                  <ResourceUseID IDref="Resource4"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-07-12T00:00:00</StartTimeStamp>
+                  <IntervalFrequency>Unknown</IntervalFrequency>
+                  <IntervalReading>200</IntervalReading>
+                  <ResourceUseID IDref="Resource4"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-12-25T00:00:00</StartTimeStamp>
+                  <IntervalFrequency>Unknown</IntervalFrequency>
+                  <IntervalReading>150</IntervalReading>
+                  <ResourceUseID IDref="Resource4"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-01-10T00:00:00</StartTimeStamp>
+                  <IntervalFrequency>Unknown</IntervalFrequency>
+                  <IntervalReading>20</IntervalReading>
+                  <ResourceUseID IDref="Resource4"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-07-12T00:00:00</StartTimeStamp>
+                  <IntervalFrequency>Unknown</IntervalFrequency>
+                  <IntervalReading>40</IntervalReading>
+                  <ResourceUseID IDref="Resource4"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-12-25T00:00:00</StartTimeStamp>
+                  <IntervalFrequency>Unknown</IntervalFrequency>
+                  <IntervalReading>30</IntervalReading>
+                  <ResourceUseID IDref="Resource4"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-01-15T00:00:00</StartTimeStamp>
+                  <IntervalFrequency>Unknown</IntervalFrequency>
+                  <IntervalReading>90</IntervalReading>
+                  <ResourceUseID IDref="Resource5"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-04-15T00:00:00</StartTimeStamp>
+                  <IntervalFrequency>Unknown</IntervalFrequency>
+                  <IntervalReading>100</IntervalReading>
+                  <ResourceUseID IDref="Resource5"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-09-15T00:00:00</StartTimeStamp>
+                  <IntervalFrequency>Unknown</IntervalFrequency>
+                  <IntervalReading>120</IntervalReading>
+                  <ResourceUseID IDref="Resource5"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-12-30T00:00:00</StartTimeStamp>
+                  <IntervalFrequency>Unknown</IntervalFrequency>
+                  <IntervalReading>80</IntervalReading>
+                  <ResourceUseID IDref="Resource5"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-01-15T00:00:00</StartTimeStamp>
+                  <IntervalFrequency>Unknown</IntervalFrequency>
+                  <IntervalReading>10</IntervalReading>
+                  <ResourceUseID IDref="Resource5"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-04-15T00:00:00</StartTimeStamp>
+                  <IntervalFrequency>Unknown</IntervalFrequency>
+                  <IntervalReading>20</IntervalReading>
+                  <ResourceUseID IDref="Resource5"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-09-15T00:00:00</StartTimeStamp>
+                  <IntervalFrequency>Unknown</IntervalFrequency>
+                  <IntervalReading>5</IntervalReading>
+                  <ResourceUseID IDref="Resource5"/>
+                </TimeSeries>
+                <TimeSeries>
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Currency</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2010-12-30T00:00:00</StartTimeStamp>
+                  <IntervalFrequency>Unknown</IntervalFrequency>
+                  <IntervalReading>66</IntervalReading>
+                  <ResourceUseID IDref="Resource5"/>
+                </TimeSeries>
+              </TimeSeriesData>
+              <AllResourceTotals>
+                <AllResourceTotal>
+                  <EndUse>All end uses</EndUse>
+                  <TemporalStatus>Pre retrofit</TemporalStatus>
+                  <ResourceBoundary>Gross</ResourceBoundary>
+                  <SiteEnergyUse>7804.15</SiteEnergyUse>
+                  <SiteEnergyUseIntensity>39.414898989898987</SiteEnergyUseIntensity>
+                  <EnergyCost>154945</EnergyCost>
+                  <ElectricitySourcedFromOnsiteRenewableSystems>234.4665885111</ElectricitySourcedFromOnsiteRenewableSystems>
+                </AllResourceTotal>
+                <AllResourceTotal>
+                  <EndUse>All end uses</EndUse>
+                  <TemporalStatus>Pre retrofit</TemporalStatus>
+                  <ResourceBoundary>Net</ResourceBoundary>
+                  <SiteEnergyUse>7803.35</SiteEnergyUse>
+                  <SiteEnergyUseIntensity>39.410858585858584</SiteEnergyUseIntensity>
+                  <EnergyCost>154136</EnergyCost>
+                </AllResourceTotal>
+              </AllResourceTotals>
+              <AnnualHeatingDegreeDays>4000</AnnualHeatingDegreeDays>
+              <AnnualCoolingDegreeDays>3000</AnnualCoolingDegreeDays>
+              <HDDBaseTemperature>0</HDDBaseTemperature>
+              <CDDBaseTemperature>0</CDDBaseTemperature>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building1"/>
+                </Building>
+              </LinkedPremises>
+            </Scenario>
+            <Scenario>
+              <ScenarioName>RecommendedPackage1</ScenarioName>
+              <TemporalStatus>Post retrofit</TemporalStatus>
+              <ScenarioType>
+                <PackageOfMeasures>
+                  <AnnualSavingsCost>15809</AnnualSavingsCost>
+                  <AnnualSavingsByFuels>
+                    <AnnualSavingsByFuel>
+                      <EnergyResource>Electricity</EnergyResource>
+                      <ResourceUnits>kWh</ResourceUnits>
+                      <AnnualSavingsNativeUnits>7855</AnnualSavingsNativeUnits>
+                    </AnnualSavingsByFuel>
+                    <AnnualSavingsByFuel>
+                      <EnergyResource>Natural gas</EnergyResource>
+                      <ResourceUnits>therms</ResourceUnits>
+                      <AnnualSavingsNativeUnits>3859</AnnualSavingsNativeUnits>
+                    </AnnualSavingsByFuel>
+                  </AnnualSavingsByFuels>
+                  <SummerPeakElectricityReduction>71</SummerPeakElectricityReduction>
+                  <PackageFirstCost>25683</PackageFirstCost>
+                  <FundingFromIncentives>3652</FundingFromIncentives>
+                  <SimplePayback>1.3935732810424442</SimplePayback>
+                </PackageOfMeasures>
+              </ScenarioType>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building1"/>
+                </Building>
+              </LinkedPremises>
+              <UserDefinedFields>
+                <UserDefinedField>
+                  <FieldName>Net Measure Cost</FieldName>
+                  <FieldValue>22031</FieldValue>
+                </UserDefinedField>
+                <UserDefinedField>
+                  <FieldName>Simple ROI</FieldName>
+                  <FieldValue>0.71757977395488171</FieldValue>
+                </UserDefinedField>
+              </UserDefinedFields>
+            </Scenario>
+          </Scenarios>
+          <AuditDate>2015-02-05</AuditDate>
+          <Utilities>
+            <Utility ID="Utility1">
+              <RateSchedules>
+                <RateSchedule>
+                  <RateStructureName>WSE 999-999</RateStructureName>
+                </RateSchedule>
+              </RateSchedules>
+              <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
+              <UtilityAccountNumber>999-9921</UtilityAccountNumber>
+            </Utility>
+            <Utility ID="Utility2">
+              <RateSchedules>
+                <RateSchedule>
+                  <RateStructureName>WSE 999-999</RateStructureName>
+                </RateSchedule>
+              </RateSchedules>
+              <MeteringConfiguration>Master meter without sub metering</MeteringConfiguration>
+              <UtilityAccountNumber>999-9998</UtilityAccountNumber>
+            </Utility>
+            <Utility ID="Utility3">
+              <RateSchedules>
+                <RateSchedule>
+                  <RateStructureName>WSE 999-999</RateStructureName>
+                </RateSchedule>
+              </RateSchedules>
+              <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
+              <UtilityAccountNumber>999-9224</UtilityAccountNumber>
+            </Utility>
+            <Utility ID="Utility4">
+              <RateSchedules>
+                <RateSchedule>
+                  <RateStructureName>WSE 999-999</RateStructureName>
+                </RateSchedule>
+              </RateSchedules>
+              <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
+              <UtilityAccountNumber>999-9994</UtilityAccountNumber>
+            </Utility>
+            <Utility ID="Utility5">
+              <RateSchedules>
+                <RateSchedule>
+                  <RateStructureName>WSE 999-999</RateStructureName>
+                </RateSchedule>
+              </RateSchedules>
+              <MeteringConfiguration>Master meter without sub metering</MeteringConfiguration>
+              <UtilityAccountNumber>999-9998</UtilityAccountNumber>
+            </Utility>
+            <Utility ID="Utility6">
+              <RateSchedules>
+                <RateSchedule>
+                  <RateStructureName>WSE 999-999</RateStructureName>
+                </RateSchedule>
+              </RateSchedules>
+              <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
+              <UtilityAccountNumber>999-9224</UtilityAccountNumber>
+            </Utility>
+            <Utility ID="Utility7">
+              <RateSchedules>
+                <RateSchedule>
+                  <RateStructureName>WSE 999-999</RateStructureName>
+                </RateSchedule>
+              </RateSchedules>
+              <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
+              <UtilityAccountNumber>999-9994</UtilityAccountNumber>
+            </Utility>
+            <Utility ID="Utility8">
+              <RateSchedules>
+                <RateSchedule>
+                  <RateStructureName>WSE 999-999</RateStructureName>
+                </RateSchedule>
+              </RateSchedules>
+              <MeteringConfiguration>Master meter without sub metering</MeteringConfiguration>
+              <UtilityAccountNumber>999-9998</UtilityAccountNumber>
+            </Utility>
+            <Utility ID="Utility9">
+              <RateSchedules>
+                <RateSchedule>
+                  <RateStructureName>WSE 999-999</RateStructureName>
+                </RateSchedule>
+              </RateSchedules>
+              <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
+              <UtilityAccountNumber>999-9224</UtilityAccountNumber>
+            </Utility>
+            <Utility ID="Utility10">
+              <RateSchedules>
+                <RateSchedule>
+                  <RateStructureName>WSE 999-999</RateStructureName>
+                </RateSchedule>
+              </RateSchedules>
+              <MeteringConfiguration>Master meter with sub metering</MeteringConfiguration>
+              <UtilityAccountNumber>999-9994</UtilityAccountNumber>
+            </Utility>
+          </Utilities>
+          <AuditorContactID IDref="Auditor1"/>
+        </Report>
+      </Reports>
       <Contacts>
         <Contact ID="Auditor1">
           <ContactRole>Energy Auditor</ContactRole>

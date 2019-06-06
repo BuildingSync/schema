@@ -198,35 +198,37 @@
           </LinkedPremises>
         </Measure>
       </Measures>
-      <Report ID="Report-01">
-        <Scenarios>
-          <Scenario ID="Scenario1">
-            <ScenarioName>Remove all the PV from the RSF</ScenarioName>
-            <ScenarioType>
-              <PackageOfMeasures>
-                <MeasureIDs>
-                  <MeasureID IDref="Building1RemovePV"/>
-                </MeasureIDs>
-              </PackageOfMeasures>
-            </ScenarioType>
-          </Scenario>
-          <Scenario ID="Scenario2">
-            <ScenarioName>Remove all the PV from campus</ScenarioName>
-            <ScenarioType>
-              <PackageOfMeasures>
-                <MeasureIDs>
-                  <MeasureID IDref="WholeSiteRemovePV"/>
-                </MeasureIDs>
-              </PackageOfMeasures>
-            </ScenarioType>
-          </Scenario>
-        </Scenarios>
-        <Qualifications>
-          <Qualification ID="ReportQualification-01">
-            <AuditTeamMemberCertificationType>High-Performance Building Design Professional (HBDP)</AuditTeamMemberCertificationType>
-          </Qualification>
-        </Qualifications>
-      </Report>
+      <Reports>
+        <Report ID="Report-01">
+          <Scenarios>
+            <Scenario ID="Scenario1">
+              <ScenarioName>Remove all the PV from the RSF</ScenarioName>
+              <ScenarioType>
+                <PackageOfMeasures>
+                  <MeasureIDs>
+                    <MeasureID IDref="Building1RemovePV"/>
+                  </MeasureIDs>
+                </PackageOfMeasures>
+              </ScenarioType>
+            </Scenario>
+            <Scenario ID="Scenario2">
+              <ScenarioName>Remove all the PV from campus</ScenarioName>
+              <ScenarioType>
+                <PackageOfMeasures>
+                  <MeasureIDs>
+                    <MeasureID IDref="WholeSiteRemovePV"/>
+                  </MeasureIDs>
+                </PackageOfMeasures>
+              </ScenarioType>
+            </Scenario>
+          </Scenarios>
+          <Qualifications>
+            <Qualification ID="ReportQualification-01">
+              <AuditTeamMemberCertificationType>High-Performance Building Design Professional (HBDP)</AuditTeamMemberCertificationType>
+            </Qualification>
+          </Qualifications>
+        </Report>
+      </Reports>
     </Facility>
   </Facilities>
 </BuildingSync>

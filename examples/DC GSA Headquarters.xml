@@ -209,37 +209,39 @@
           </MeasureSavingsAnalysis>
         </Measure>
       </Measures>
-      <Report>
-        <Scenarios>
-          <Scenario ID="Package1">
-            <ScenarioName>AERG Package</ScenarioName>
-            <ScenarioType>
-              <PackageOfMeasures>
-                <MeasureIDs>
-                  <MeasureID IDref="Measure1"/>
-                  <MeasureID IDref="Measure2"/>
-                  <MeasureID IDref="Measure3"/>
-                  <MeasureID IDref="Measure4"/>
-                  <MeasureID IDref="Measure5"/>
-                </MeasureIDs>
-                <AnnualSavingsSiteEnergy>6830</AnnualSavingsSiteEnergy>
-                <AnnualSavingsCost>285400</AnnualSavingsCost>
-                <AnnualWaterSavings>500</AnnualWaterSavings>
-                <PackageFirstCost>1089271</PackageFirstCost>
-                <OMCostAnnualSavings>3544</OMCostAnnualSavings>
-                <EquipmentDisposalAndSalvageCosts>0</EquipmentDisposalAndSalvageCosts>
-                <FundingFromIncentives>0</FundingFromIncentives>
-                <FundingFromTaxCredits>0</FundingFromTaxCredits>
-              </PackageOfMeasures>
-            </ScenarioType>
-            <LinkedPremises>
-              <Building>
-                <LinkedBuildingID IDref="Building1"/>
-              </Building>
-            </LinkedPremises>
-          </Scenario>
-        </Scenarios>
-      </Report>
+      <Reports>
+        <Report>
+          <Scenarios>
+            <Scenario ID="Package1">
+              <ScenarioName>AERG Package</ScenarioName>
+              <ScenarioType>
+                <PackageOfMeasures>
+                  <MeasureIDs>
+                    <MeasureID IDref="Measure1"/>
+                    <MeasureID IDref="Measure2"/>
+                    <MeasureID IDref="Measure3"/>
+                    <MeasureID IDref="Measure4"/>
+                    <MeasureID IDref="Measure5"/>
+                  </MeasureIDs>
+                  <AnnualSavingsSiteEnergy>6830</AnnualSavingsSiteEnergy>
+                  <AnnualSavingsCost>285400</AnnualSavingsCost>
+                  <AnnualWaterSavings>500</AnnualWaterSavings>
+                  <PackageFirstCost>1089271</PackageFirstCost>
+                  <OMCostAnnualSavings>3544</OMCostAnnualSavings>
+                  <EquipmentDisposalAndSalvageCosts>0</EquipmentDisposalAndSalvageCosts>
+                  <FundingFromIncentives>0</FundingFromIncentives>
+                  <FundingFromTaxCredits>0</FundingFromTaxCredits>
+                </PackageOfMeasures>
+              </ScenarioType>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building1"/>
+                </Building>
+              </LinkedPremises>
+            </Scenario>
+          </Scenarios>
+        </Report>
+      </Reports>
     </Facility>
   </Facilities>
 </BuildingSync>
