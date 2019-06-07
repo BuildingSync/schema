@@ -16,9 +16,20 @@
             <State>NY</State>
             <PostalCode>10012</PostalCode>
           </Address>
+          <Ownership>Non-profit organization</Ownership>
           <Buildings>
             <Building ID="Facility1">
               <PremisesName>RSF</PremisesName>
+              <Address>
+                <StreetAddressDetail>
+                  <Simplified>
+                    <StreetAddress>123 Secondary Street</StreetAddress>
+                  </Simplified>
+                </StreetAddressDetail>
+                <City>New York</City>
+                <State>NY</State>
+                <PostalCode>10012</PostalCode>
+              </Address>
               <OccupancyClassification>Office</OccupancyClassification>
               <OccupancyLevels>
                 <OccupancyLevel>
@@ -63,6 +74,7 @@
               <Subsections>
                 <Subsection ID="Wholebuilding2">
                   <PremisesName>Wholebuilding2</PremisesName>
+                  <RoofID IDref="RoofSystem-01"/>
                 </Subsection>
               </Subsections>
               <UserDefinedFields>
@@ -150,6 +162,27 @@
             </LinkedPremises>
           </HVACSystem>
         </HVACSystems>
+        <LightingSystems>
+          <LightingSystem ID="LightingSystem-01">
+            <LampType>
+              <LinearFluorescent>
+                <LampLabel>T12HO</LampLabel>
+                <LampLength>4 ft</LampLength>
+              </LinearFluorescent>
+            </LampType>
+            <LinkedPremises>
+              <Facility>
+                <LinkedFacilityID IDref="Facility2"/>
+              </Facility>
+            </LinkedPremises>
+          </LightingSystem>
+        </LightingSystems>
+        <RoofSystems>
+          <RoofSystem ID="RoofSystem-01">
+            <SpecialRoofClassification>Blue roof</SpecialRoofClassification>
+            <YearInstalled>1999</YearInstalled>
+          </RoofSystem>
+        </RoofSystems>
         <OnSiteStorageTransmissionGenerationSystems>
           <OnSiteStorageTransmissionGenerationSystem ID="AllThePV">
             <EnergyConversionType>
@@ -222,6 +255,10 @@
           </Scenario>
         </Scenarios>
         <Qualifications>
+          <Qualification>
+            <AuditorQualification>Association of Energy Engineers Certified Building Commissioning Professional (CBCP)</AuditorQualification>
+            <AuditorQualificationNumber>4-8-15-16-23-42</AuditorQualificationNumber>
+          </Qualification>
           <Qualification ID="ReportQualification-01">
             <AuditTeamMemberCertificationType>High-Performance Building Design Professional (HBDP)</AuditTeamMemberCertificationType>
           </Qualification>

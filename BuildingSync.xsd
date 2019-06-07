@@ -660,7 +660,11 @@
           <xs:documentation>Classification of main utilization of the premises by building occupants.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element ref="auc:Address" minOccurs="0"/>
+      <xs:element ref="auc:Address" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Characterization of the address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ClimateZoneType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>The climate zone type, based on the organization defining it. Many different organizations have implemented different climate zone definitions based on their needs. The list below represents the current list. This list can be added to over time based on the collaborative BEDES development process.</xs:documentation>
@@ -952,6 +956,11 @@
       <xs:element ref="auc:PremisesName" minOccurs="0"/>
       <xs:element ref="auc:PremisesNotes" minOccurs="0"/>
       <xs:element ref="auc:PremisesIdentifiers" minOccurs="0"/>
+      <xs:element ref="auc:Address" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Characterization of the address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="BuildingClassification" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Specify the type of building.</xs:documentation>
@@ -8434,6 +8443,7 @@
                       <xs:restriction base="xs:string">
                         <xs:enumeration value="Super T8"/>
                         <xs:enumeration value="T12"/>
+                        <xs:enumeration value="T12HO"/>
                         <xs:enumeration value="T5"/>
                         <xs:enumeration value="T5HO"/>
                         <xs:enumeration value="T8"/>
@@ -11301,6 +11311,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:enumeration value="Cool roof"/>
+            <xs:enumeration value="Blue roof"/>
             <xs:enumeration value="Green roof"/>
             <xs:enumeration value="Other"/>
           </xs:restriction>
@@ -14167,9 +14178,11 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:restriction base="xs:string">
         <xs:enumeration value="Property management company"/>
         <xs:enumeration value="Corporation/partnership/LLC"/>
-        <xs:enumeration value="Religious organization"/>
+        <xs:enumeration value="Privately owned"/>
         <xs:enumeration value="Individual"/>
         <xs:enumeration value="Franchise"/>
+        <xs:enumeration value="Religious organization"/>
+        <xs:enumeration value="Non-profit organization"/>
         <xs:enumeration value="Other non-government"/>
         <xs:enumeration value="Government"/>
         <xs:enumeration value="Federal government"/>
@@ -15432,6 +15445,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:enumeration value="Professional Engineer (PE)"/>
       <xs:enumeration value="Association of Energy Engineers Certified Energy Manager (CEM)"/>
       <xs:enumeration value="Association of Energy Engineers Certified Energy Auditor (CEA)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Building Commissioning Professional (CBCP)"/>
       <xs:enumeration value="Building Operator Certification (BOC): Level 1"/>
       <xs:enumeration value="Building Operator Certification (BOC): Level 2"/>
       <xs:enumeration value="Building Performance Institute (BPI) Certification"/>
@@ -15456,6 +15470,11 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:enumeration value="ASHRAE Building Energy Assessment Professional (BEAP)"/>
       <xs:enumeration value="Department of Buildings (DOB) Approved Agent"/>
       <xs:enumeration value="High-Performance Building Design Professional (HBDP)"/>
+      <xs:enumeration value="GreenPoint Rater Existing Home Multifamily Rater"/>
+      <xs:enumeration value="HERS Whole House (HERS II) Rater"/>
+      <xs:enumeration value="International Union of Operating Engineers Certified Energy Specialist"/>
+      <xs:enumeration value="Northwest Energy Education Institute Energy Management Certification"/>
+      <xs:enumeration value="PhD in Mechanical Engineering"/>
       <xs:enumeration value="Other"/>
       <xs:enumeration value="None"/>
     </xs:restriction>
