@@ -2251,58 +2251,68 @@
   </xs:complexType>
   <xs:complexType name="ContactType">
     <xs:sequence>
-      <xs:element name="ContactRole" minOccurs="0">
+      <xs:element name="ContactRoles" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Characterization of the contact.</xs:documentation>
+          <xs:documentation>Container for the a list of roles that a contact can have.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Premises"/>
-            <xs:enumeration value="Occupant"/>
-            <xs:enumeration value="Agency"/>
-            <xs:enumeration value="Owner"/>
-            <xs:enumeration value="Customer"/>
-            <xs:enumeration value="Customer agreement"/>
-            <xs:enumeration value="Administrator"/>
-            <xs:enumeration value="Qualified Assessor"/>
-            <xs:enumeration value="Contributor"/>
-            <xs:enumeration value="Property Management Company"/>
-            <xs:enumeration value="Operator"/>
-            <xs:enumeration value="Energy Auditor"/>
-            <xs:enumeration value="Energy Modeler"/>
-            <xs:enumeration value="Contractor"/>
-            <xs:enumeration value="Implementer"/>
-            <xs:enumeration value="Financier"/>
-            <xs:enumeration value="Commissioning Agent"/>
-            <xs:enumeration value="MV Agent"/>
-            <xs:enumeration value="Evaluator"/>
-            <xs:enumeration value="Builder"/>
-            <xs:enumeration value="Service"/>
-            <xs:enumeration value="Billing"/>
-            <xs:enumeration value="Architect"/>
-            <xs:enumeration value="Mechanical Engineer"/>
-            <xs:enumeration value="Energy Consultant"/>
-            <xs:enumeration value="Service and Product Provider"/>
-            <xs:enumeration value="Authority Having Jurisdiction"/>
-            <xs:enumeration value="Utility"/>
-            <xs:enumeration value="Power plant"/>
-            <xs:enumeration value="Electric Distribution Utility (EDU)"/>
-            <xs:enumeration value="ESCO"/>
-            <xs:enumeration value="Facilitator"/>
-            <xs:enumeration value="Facility Manager"/>
-            <xs:enumeration value="Trainer"/>
-            <xs:enumeration value="Electrical Engineer"/>
-            <xs:enumeration value="Controls Engineer"/>
-            <xs:enumeration value="Lender"/>
-            <xs:enumeration value="Servicer"/>
-            <xs:enumeration value="Originator"/>
-            <xs:enumeration value="Other"/>
-          </xs:restriction>
-        </xs:simpleType>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ContactRole" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Characterization of the contact.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Premises"/>
+                  <xs:enumeration value="Occupant"/>
+                  <xs:enumeration value="Agency"/>
+                  <xs:enumeration value="Owner"/>
+                  <xs:enumeration value="Customer"/>
+                  <xs:enumeration value="Customer agreement"/>
+                  <xs:enumeration value="Administrator"/>
+                  <xs:enumeration value="Qualified Assessor"/>
+                  <xs:enumeration value="Contributor"/>
+                  <xs:enumeration value="Property Management Company"/>
+                  <xs:enumeration value="Operator"/>
+                  <xs:enumeration value="Energy Auditor"/>
+                  <xs:enumeration value="Energy Modeler"/>
+                  <xs:enumeration value="Contractor"/>
+                  <xs:enumeration value="Implementer"/>
+                  <xs:enumeration value="Financier"/>
+                  <xs:enumeration value="Commissioning Agent"/>
+                  <xs:enumeration value="MV Agent"/>
+                  <xs:enumeration value="Evaluator"/>
+                  <xs:enumeration value="Builder"/>
+                  <xs:enumeration value="Service"/>
+                  <xs:enumeration value="Billing"/>
+                  <xs:enumeration value="Architect"/>
+                  <xs:enumeration value="Mechanical Engineer"/>
+                  <xs:enumeration value="Energy Consultant"/>
+                  <xs:enumeration value="Service and Product Provider"/>
+                  <xs:enumeration value="Authority Having Jurisdiction"/>
+                  <xs:enumeration value="Utility"/>
+                  <xs:enumeration value="Power plant"/>
+                  <xs:enumeration value="Electric Distribution Utility (EDU)"/>
+                  <xs:enumeration value="ESCO"/>
+                  <xs:enumeration value="Facilitator"/>
+                  <xs:enumeration value="Facility Manager"/>
+                  <xs:enumeration value="Trainer"/>
+                  <xs:enumeration value="Electrical Engineer"/>
+                  <xs:enumeration value="Controls Engineer"/>
+                  <xs:enumeration value="Lender"/>
+                  <xs:enumeration value="Servicer"/>
+                  <xs:enumeration value="Originator"/>
+                  <xs:enumeration value="Submitter"/>
+                  <xs:enumeration value="Other"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
       <xs:element name="ContactName" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The name, first and last, associated with the contact</xs:documentation>
+          <xs:documentation>The name, first and last, associated with the contact.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ContactCompany" type="xs:string" minOccurs="0">
