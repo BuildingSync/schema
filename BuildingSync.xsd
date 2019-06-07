@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xs:annotation>
-    <xs:documentation>BuildingSync Schema - Version 1.0 (January 31, 2019)</xs:documentation>
+    <xs:documentation>BuildingSync Schema - Version 1.1-prerelease</xs:documentation>
   </xs:annotation>
   <xs:element name="BuildingSync">
     <xs:complexType>
@@ -580,6 +580,7 @@
                                         </xs:annotation>
                                       </xs:element>
                                     </xs:sequence>
+                                    <xs:attribute name="ID" type="xs:ID"/>
                                   </xs:complexType>
                                 </xs:element>
                               </xs:sequence>
@@ -621,6 +622,7 @@
                           </xs:element>
                           <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                         </xs:sequence>
+                        <xs:attribute name="ID" type="xs:ID"/>
                       </xs:complexType>
                     </xs:element>
                     <xs:element name="Contacts" minOccurs="0">
@@ -11298,6 +11300,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:enumeration value="Cool roof"/>
+            <xs:enumeration value="Blue roof"/>
             <xs:enumeration value="Green roof"/>
             <xs:enumeration value="Other"/>
           </xs:restriction>
@@ -15429,6 +15432,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:enumeration value="Professional Engineer (PE)"/>
       <xs:enumeration value="Association of Energy Engineers Certified Energy Manager (CEM)"/>
       <xs:enumeration value="Association of Energy Engineers Certified Energy Auditor (CEA)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Building Commissioning Professional (CBCP)"/>
       <xs:enumeration value="Building Operator Certification (BOC): Level 1"/>
       <xs:enumeration value="Building Operator Certification (BOC): Level 2"/>
       <xs:enumeration value="Building Performance Institute (BPI) Certification"/>
@@ -15453,6 +15457,11 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:enumeration value="ASHRAE Building Energy Assessment Professional (BEAP)"/>
       <xs:enumeration value="Department of Buildings (DOB) Approved Agent"/>
       <xs:enumeration value="High-Performance Building Design Professional (HBDP)"/>
+      <xs:enumeration value="GreenPoint Rater Existing Home Multifamily Rater"/>
+      <xs:enumeration value="HERS Whole House (HERS II) Rater"/>
+      <xs:enumeration value="International Union of Operating Engineers Certified Energy Specialist"/>
+      <xs:enumeration value="Northwest Energy Education Institute Energy Management Certification"/>
+      <xs:enumeration value="PhD in Mechanical Engineering"/>
       <xs:enumeration value="Other"/>
       <xs:enumeration value="None"/>
     </xs:restriction>
