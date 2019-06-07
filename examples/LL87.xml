@@ -152,6 +152,21 @@
             </LinkedPremises>
           </HVACSystem>
         </HVACSystems>
+        <LightingSystems>
+          <LightingSystem ID="LightingSystem-01">
+            <LampType>
+              <LinearFluorescent>
+                <LampLabel>T12HO</LampLabel>
+                <LampLength>4 ft</LampLength>
+              </LinearFluorescent>
+            </LampType>
+            <LinkedPremises>
+              <Facility>
+                <LinkedFacilityID IDref="Facility2"/>
+              </Facility>
+            </LinkedPremises>
+          </LightingSystem>
+        </LightingSystems>
         <RoofSystems>
           <RoofSystem ID="RoofSystem-01">
             <SpecialRoofClassification>Blue roof</SpecialRoofClassification>
@@ -230,6 +245,10 @@
           </Scenario>
         </Scenarios>
         <Qualifications>
+          <Qualification>
+            <AuditorQualification>Association of Energy Engineers Certified Building Commissioning Professional (CBCP)</AuditorQualification>
+            <AuditorQualificationNumber>4-8-15-16-23-42</AuditorQualificationNumber>
+          </Qualification>
           <Qualification ID="ReportQualification-01">
             <AuditTeamMemberCertificationType>High-Performance Building Design Professional (HBDP)</AuditTeamMemberCertificationType>
           </Qualification>
