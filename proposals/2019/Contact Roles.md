@@ -5,7 +5,7 @@
 If the same contact has multiple roles, then the entire contact has to be duplicated. Also, there needs to be a submitter as a contact role. The current list of contact roles is the following:
 
 ```xml
-	<xs:enumeration value="Premises"/>
+    <xs:enumeration value="Premises"/>
     <xs:enumeration value="Occupant"/>
     <xs:enumeration value="Agency"/>
     <xs:enumeration value="Owner"/>
