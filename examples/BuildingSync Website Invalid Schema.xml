@@ -573,183 +573,185 @@
       </auc:UserDefinedFields>
     </auc:Measure>
   </auc:Measures>
-  <auc:Report>
-    <auc:Scenarios>
-      <auc:Scenario ID="Scenario-1">
-        <auc:ScenarioName>Computer pack</auc:ScenarioName>
-        <auc:ScenarioType>
-          <auc:PackageOfMeasures>
-            <auc:MeasureIDs>
-              <auc:MeasureID IDref="Measure-1"/>
-            </auc:MeasureIDs>
-            <auc:AnnualSavingsCost>1500</auc:AnnualSavingsCost>
-            <auc:AnnualSavingsByFuel>
-              <auc:EnergyResource>Electricity</auc:EnergyResource>
-              <auc:ResourceUnits>kWh</auc:ResourceUnits>
-              <auc:AnnualSavingsNativeUnits>1000.0</auc:AnnualSavingsNativeUnits>
-            </auc:AnnualSavingsByFuel>
-            <auc:AnnualSavingsByFuel>
+  <auc:Reports>
+    <auc:Report>
+      <auc:Scenarios>
+        <auc:Scenario ID="Scenario-1">
+          <auc:ScenarioName>Computer pack</auc:ScenarioName>
+          <auc:ScenarioType>
+            <auc:PackageOfMeasures>
+              <auc:MeasureIDs>
+                <auc:MeasureID IDref="Measure-1"/>
+              </auc:MeasureIDs>
+              <auc:AnnualSavingsCost>1500</auc:AnnualSavingsCost>
+              <auc:AnnualSavingsByFuel>
+                <auc:EnergyResource>Electricity</auc:EnergyResource>
+                <auc:ResourceUnits>kWh</auc:ResourceUnits>
+                <auc:AnnualSavingsNativeUnits>1000.0</auc:AnnualSavingsNativeUnits>
+              </auc:AnnualSavingsByFuel>
+              <auc:AnnualSavingsByFuel>
+                <auc:EnergyResource>Natural gas</auc:EnergyResource>
+                <auc:ResourceUnits>therms</auc:ResourceUnits>
+                <auc:AnnualSavingsNativeUnits>300.0</auc:AnnualSavingsNativeUnits>
+              </auc:AnnualSavingsByFuel>
+              <auc:AnnualSavingsByFuel>
+                <auc:EnergyResource>Fuel oil no 1</auc:EnergyResource>
+                <auc:ResourceUnits>Gallons</auc:ResourceUnits>
+                <auc:AnnualSavingsNativeUnits>10.0</auc:AnnualSavingsNativeUnits>
+              </auc:AnnualSavingsByFuel>
+              <auc:AnnualSavingsByFuel>
+                <auc:EnergyResource>Fuel oil no 2</auc:EnergyResource>
+                <auc:ResourceUnits>Gallons</auc:ResourceUnits>
+                <auc:AnnualSavingsNativeUnits>20.0</auc:AnnualSavingsNativeUnits>
+              </auc:AnnualSavingsByFuel>
+              <auc:AnnualPeakElectricityReduction>500.0</auc:AnnualPeakElectricityReduction>
+            </auc:PackageOfMeasures>
+          </auc:ScenarioType>
+          <auc:LinkedPremises>
+            <auc:Facility>
+              <auc:LinkedFacilityID IDref="Facility-1"/>
+            </auc:Facility>
+          </auc:LinkedPremises>
+          <auc:UserDefinedFields>
+            <auc:UserDefinedField>
+              <auc:FieldName>Recommendation Category</auc:FieldName>
+              <auc:FieldValue>Low Cost and No Cost Recommendations</auc:FieldValue>
+            </auc:UserDefinedField>
+          </auc:UserDefinedFields>
+        </auc:Scenario>
+        <auc:Scenario ID="Scenario-2">
+          <auc:ScenarioName>SHW package</auc:ScenarioName>
+          <auc:ScenarioType>
+            <auc:PackageOfMeasures>
+              <auc:MeasureIDs>
+                <auc:MeasureID IDref="Measure-1"/>
+                <auc:MeasureID IDref="Measure-2"/>
+              </auc:MeasureIDs>
+              <auc:AnnualSavingsCost>1000</auc:AnnualSavingsCost>
+              <auc:AnnualSavingsByFuel>
+                <auc:EnergyResource>Electricity</auc:EnergyResource>
+                <auc:ResourceUnits>kWh</auc:ResourceUnits>
+                <auc:AnnualSavingsNativeUnits>50.0</auc:AnnualSavingsNativeUnits>
+              </auc:AnnualSavingsByFuel>
+              <auc:AnnualSavingsByFuel>
+                <auc:EnergyResource>Natural gas</auc:EnergyResource>
+                <auc:ResourceUnits>therms</auc:ResourceUnits>
+                <auc:AnnualSavingsNativeUnits>100.0</auc:AnnualSavingsNativeUnits>
+              </auc:AnnualSavingsByFuel>
+              <auc:AnnualSavingsByFuel>
+                <auc:EnergyResource>District steam</auc:EnergyResource>
+                <auc:ResourceUnits>Mlbs</auc:ResourceUnits>
+                <auc:AnnualSavingsNativeUnits>0.0</auc:AnnualSavingsNativeUnits>
+              </auc:AnnualSavingsByFuel>
+              <auc:AnnualSavingsByFuel>
+                <auc:EnergyResource>Fuel oil no 1</auc:EnergyResource>
+                <auc:ResourceUnits>Gallons</auc:ResourceUnits>
+                <auc:AnnualSavingsNativeUnits>20.0</auc:AnnualSavingsNativeUnits>
+              </auc:AnnualSavingsByFuel>
+              <auc:AnnualSavingsByFuel>
+                <auc:EnergyResource>Fuel oil no 2</auc:EnergyResource>
+                <auc:ResourceUnits>Gallons</auc:ResourceUnits>
+                <auc:AnnualSavingsNativeUnits>0.0</auc:AnnualSavingsNativeUnits>
+              </auc:AnnualSavingsByFuel>
+              <auc:AnnualPeakElectricityReduction>150.0</auc:AnnualPeakElectricityReduction>
+            </auc:PackageOfMeasures>
+          </auc:ScenarioType>
+          <auc:LinkedPremises>
+            <auc:Facility>
+              <auc:LinkedFacilityID IDref="Facility-1"/>
+            </auc:Facility>
+          </auc:LinkedPremises>
+          <auc:UserDefinedFields>
+            <auc:UserDefinedField>
+              <auc:FieldName>Recommendation Category</auc:FieldName>
+              <auc:FieldValue>Low Cost and No Cost Recommendations</auc:FieldValue>
+            </auc:UserDefinedField>
+          </auc:UserDefinedFields>
+        </auc:Scenario>
+        <auc:Scenario ID="Scenario-3">
+          <auc:AllResourceTotals>
+            <auc:AllResourceTotal ID="AllResourceTotal-1">
+              <auc:WaterIntensity>56.0</auc:WaterIntensity>
+            </auc:AllResourceTotal>
+          </auc:AllResourceTotals>
+          <auc:LinkedPremises>
+            <auc:Facility>
+              <auc:LinkedFacilityID IDref="Facility-1"/>
+            </auc:Facility>
+          </auc:LinkedPremises>
+        </auc:Scenario>
+        <auc:Scenario ID="Scenario-4">
+          <auc:ResourceUses>
+            <auc:ResourceUse ID="ResourceUse-1">
               <auc:EnergyResource>Natural gas</auc:EnergyResource>
+              <auc:ResourceBoundary>Site</auc:ResourceBoundary>
               <auc:ResourceUnits>therms</auc:ResourceUnits>
-              <auc:AnnualSavingsNativeUnits>300.0</auc:AnnualSavingsNativeUnits>
-            </auc:AnnualSavingsByFuel>
-            <auc:AnnualSavingsByFuel>
-              <auc:EnergyResource>Fuel oil no 1</auc:EnergyResource>
-              <auc:ResourceUnits>Gallons</auc:ResourceUnits>
-              <auc:AnnualSavingsNativeUnits>10.0</auc:AnnualSavingsNativeUnits>
-            </auc:AnnualSavingsByFuel>
-            <auc:AnnualSavingsByFuel>
-              <auc:EnergyResource>Fuel oil no 2</auc:EnergyResource>
-              <auc:ResourceUnits>Gallons</auc:ResourceUnits>
-              <auc:AnnualSavingsNativeUnits>20.0</auc:AnnualSavingsNativeUnits>
-            </auc:AnnualSavingsByFuel>
-            <auc:AnnualPeakElectricityReduction>500.0</auc:AnnualPeakElectricityReduction>
-          </auc:PackageOfMeasures>
-        </auc:ScenarioType>
-        <auc:LinkedPremises>
-          <auc:Facility>
-            <auc:LinkedFacilityID IDref="Facility-1"/>
-          </auc:Facility>
-        </auc:LinkedPremises>
-        <auc:UserDefinedFields>
-          <auc:UserDefinedField>
-            <auc:FieldName>Recommendation Category</auc:FieldName>
-            <auc:FieldValue>Low Cost and No Cost Recommendations</auc:FieldValue>
-          </auc:UserDefinedField>
-        </auc:UserDefinedFields>
-      </auc:Scenario>
-      <auc:Scenario ID="Scenario-2">
-        <auc:ScenarioName>SHW package</auc:ScenarioName>
-        <auc:ScenarioType>
-          <auc:PackageOfMeasures>
-            <auc:MeasureIDs>
-              <auc:MeasureID IDref="Measure-1"/>
-              <auc:MeasureID IDref="Measure-2"/>
-            </auc:MeasureIDs>
-            <auc:AnnualSavingsCost>1000</auc:AnnualSavingsCost>
-            <auc:AnnualSavingsByFuel>
+              <auc:EndUse>Domestic hot water</auc:EndUse>
+              <auc:AnnualFuelUseNativeUnits>800.0</auc:AnnualFuelUseNativeUnits>
+            </auc:ResourceUse>
+            <auc:ResourceUse ID="ResourceUse-2">
               <auc:EnergyResource>Electricity</auc:EnergyResource>
+              <auc:ResourceBoundary>Site</auc:ResourceBoundary>
               <auc:ResourceUnits>kWh</auc:ResourceUnits>
-              <auc:AnnualSavingsNativeUnits>50.0</auc:AnnualSavingsNativeUnits>
-            </auc:AnnualSavingsByFuel>
-            <auc:AnnualSavingsByFuel>
+              <auc:EndUse>Cooling</auc:EndUse>
+              <auc:AnnualFuelUseNativeUnits>333.0</auc:AnnualFuelUseNativeUnits>
+            </auc:ResourceUse>
+            <auc:ResourceUse ID="ResourceUse-3">
               <auc:EnergyResource>Natural gas</auc:EnergyResource>
+              <auc:ResourceBoundary>Site</auc:ResourceBoundary>
               <auc:ResourceUnits>therms</auc:ResourceUnits>
-              <auc:AnnualSavingsNativeUnits>100.0</auc:AnnualSavingsNativeUnits>
-            </auc:AnnualSavingsByFuel>
-            <auc:AnnualSavingsByFuel>
-              <auc:EnergyResource>District steam</auc:EnergyResource>
-              <auc:ResourceUnits>Mlbs</auc:ResourceUnits>
-              <auc:AnnualSavingsNativeUnits>0.0</auc:AnnualSavingsNativeUnits>
-            </auc:AnnualSavingsByFuel>
-            <auc:AnnualSavingsByFuel>
-              <auc:EnergyResource>Fuel oil no 1</auc:EnergyResource>
-              <auc:ResourceUnits>Gallons</auc:ResourceUnits>
-              <auc:AnnualSavingsNativeUnits>20.0</auc:AnnualSavingsNativeUnits>
-            </auc:AnnualSavingsByFuel>
-            <auc:AnnualSavingsByFuel>
-              <auc:EnergyResource>Fuel oil no 2</auc:EnergyResource>
-              <auc:ResourceUnits>Gallons</auc:ResourceUnits>
-              <auc:AnnualSavingsNativeUnits>0.0</auc:AnnualSavingsNativeUnits>
-            </auc:AnnualSavingsByFuel>
-            <auc:AnnualPeakElectricityReduction>150.0</auc:AnnualPeakElectricityReduction>
-          </auc:PackageOfMeasures>
-        </auc:ScenarioType>
-        <auc:LinkedPremises>
-          <auc:Facility>
-            <auc:LinkedFacilityID IDref="Facility-1"/>
-          </auc:Facility>
-        </auc:LinkedPremises>
-        <auc:UserDefinedFields>
-          <auc:UserDefinedField>
-            <auc:FieldName>Recommendation Category</auc:FieldName>
-            <auc:FieldValue>Low Cost and No Cost Recommendations</auc:FieldValue>
-          </auc:UserDefinedField>
-        </auc:UserDefinedFields>
-      </auc:Scenario>
-      <auc:Scenario ID="Scenario-3">
-        <auc:AllResourceTotals>
-          <auc:AllResourceTotal ID="AllResourceTotal-1">
-            <auc:WaterIntensity>56.0</auc:WaterIntensity>
-          </auc:AllResourceTotal>
-        </auc:AllResourceTotals>
-        <auc:LinkedPremises>
-          <auc:Facility>
-            <auc:LinkedFacilityID IDref="Facility-1"/>
-          </auc:Facility>
-        </auc:LinkedPremises>
-      </auc:Scenario>
-      <auc:Scenario ID="Scenario-4">
-        <auc:ResourceUses>
-          <auc:ResourceUse ID="ResourceUse-1">
-            <auc:EnergyResource>Natural gas</auc:EnergyResource>
-            <auc:ResourceBoundary>Site</auc:ResourceBoundary>
-            <auc:ResourceUnits>therms</auc:ResourceUnits>
-            <auc:EndUse>Domestic hot water</auc:EndUse>
-            <auc:AnnualFuelUseNativeUnits>800.0</auc:AnnualFuelUseNativeUnits>
-          </auc:ResourceUse>
-          <auc:ResourceUse ID="ResourceUse-2">
-            <auc:EnergyResource>Electricity</auc:EnergyResource>
-            <auc:ResourceBoundary>Site</auc:ResourceBoundary>
-            <auc:ResourceUnits>kWh</auc:ResourceUnits>
-            <auc:EndUse>Cooling</auc:EndUse>
-            <auc:AnnualFuelUseNativeUnits>333.0</auc:AnnualFuelUseNativeUnits>
-          </auc:ResourceUse>
-          <auc:ResourceUse ID="ResourceUse-3">
-            <auc:EnergyResource>Natural gas</auc:EnergyResource>
-            <auc:ResourceBoundary>Site</auc:ResourceBoundary>
-            <auc:ResourceUnits>therms</auc:ResourceUnits>
-            <auc:EndUse>All end uses</auc:EndUse>
-            <auc:AnnualFuelUseNativeUnits>800.0</auc:AnnualFuelUseNativeUnits>
-          </auc:ResourceUse>
-          <auc:ResourceUse ID="ResourceUse-4">
-            <auc:EnergyResource>Electricity</auc:EnergyResource>
-            <auc:ResourceBoundary>Site</auc:ResourceBoundary>
-            <auc:ResourceUnits>kWh</auc:ResourceUnits>
-            <auc:EndUse>All end uses</auc:EndUse>
-            <auc:AnnualFuelUseNativeUnits>333.0</auc:AnnualFuelUseNativeUnits>
-          </auc:ResourceUse>
-        </auc:ResourceUses>
-        <auc:LinkedPremises>
-          <auc:Facility>
-            <auc:LinkedFacilityID IDref="Facility-1"/>
-          </auc:Facility>
-        </auc:LinkedPremises>
-      </auc:Scenario>
-    </auc:Scenarios>
-    <auc:Qualifications>
-      <auc:AuditorQualification>Certified Energy Auditor (CEA)</auc:AuditorQualification>
-      <auc:AuditorQualificationNumber>1234</auc:AuditorQualificationNumber>
-      <auc:CertificationExpirationDate>2018-08-01</auc:CertificationExpirationDate>
-      <auc:CertifiedAuditTeamMemberContactID IDref="Contact-70234558989420"/>
-    </auc:Qualifications>
-    <auc:Qualifications>
-      <auc:AuditorQualificationNumber>1234</auc:AuditorQualificationNumber>
-      <auc:CertificationExpirationDate>2018-08-01</auc:CertificationExpirationDate>
-      <auc:CertifiedAuditTeamMemberContactID IDref="Contact-1"/>
-      <auc:AuditTeamMemberCertificationType>Building Performance Institute (BPI) Certification</auc:AuditTeamMemberCertificationType>
-    </auc:Qualifications>
-    <auc:Qualifications>
-      <auc:AuditorQualificationNumber>1234</auc:AuditorQualificationNumber>
-      <auc:CertificationExpirationDate>2018-08-01</auc:CertificationExpirationDate>
-      <auc:CertifiedAuditTeamMemberContactID IDref="Contact-2"/>
-      <auc:AuditTeamMemberCertificationType>Department of Buildings (DOB) Approved Agent</auc:AuditTeamMemberCertificationType>
-    </auc:Qualifications>
-    <auc:UserDefinedFields>
-      <auc:UserDefinedField>
-        <auc:FieldName>ASHRAEAuditLevel1Date</auc:FieldName>
-        <auc:FieldValue>2017-01-31</auc:FieldValue>
-      </auc:UserDefinedField>
-      <auc:UserDefinedField>
-        <auc:FieldName>ASHRAEAuditLevel2Date</auc:FieldName>
-        <auc:FieldValue>2017-08-01</auc:FieldValue>
-      </auc:UserDefinedField>
-      <auc:UserDefinedField>
-        <auc:FieldName>Auditor's Years of Experience</auc:FieldName>
-        <auc:FieldValue>5</auc:FieldValue>
-      </auc:UserDefinedField>
-    </auc:UserDefinedFields>
-  </auc:Report>
+              <auc:EndUse>All end uses</auc:EndUse>
+              <auc:AnnualFuelUseNativeUnits>800.0</auc:AnnualFuelUseNativeUnits>
+            </auc:ResourceUse>
+            <auc:ResourceUse ID="ResourceUse-4">
+              <auc:EnergyResource>Electricity</auc:EnergyResource>
+              <auc:ResourceBoundary>Site</auc:ResourceBoundary>
+              <auc:ResourceUnits>kWh</auc:ResourceUnits>
+              <auc:EndUse>All end uses</auc:EndUse>
+              <auc:AnnualFuelUseNativeUnits>333.0</auc:AnnualFuelUseNativeUnits>
+            </auc:ResourceUse>
+          </auc:ResourceUses>
+          <auc:LinkedPremises>
+            <auc:Facility>
+              <auc:LinkedFacilityID IDref="Facility-1"/>
+            </auc:Facility>
+          </auc:LinkedPremises>
+        </auc:Scenario>
+      </auc:Scenarios>
+      <auc:Qualifications>
+        <auc:AuditorQualification>Certified Energy Auditor (CEA)</auc:AuditorQualification>
+        <auc:AuditorQualificationNumber>1234</auc:AuditorQualificationNumber>
+        <auc:CertificationExpirationDate>2018-08-01</auc:CertificationExpirationDate>
+        <auc:CertifiedAuditTeamMemberContactID IDref="Contact-70234558989420"/>
+      </auc:Qualifications>
+      <auc:Qualifications>
+        <auc:AuditorQualificationNumber>1234</auc:AuditorQualificationNumber>
+        <auc:CertificationExpirationDate>2018-08-01</auc:CertificationExpirationDate>
+        <auc:CertifiedAuditTeamMemberContactID IDref="Contact-1"/>
+        <auc:AuditTeamMemberCertificationType>Building Performance Institute (BPI) Certification</auc:AuditTeamMemberCertificationType>
+      </auc:Qualifications>
+      <auc:Qualifications>
+        <auc:AuditorQualificationNumber>1234</auc:AuditorQualificationNumber>
+        <auc:CertificationExpirationDate>2018-08-01</auc:CertificationExpirationDate>
+        <auc:CertifiedAuditTeamMemberContactID IDref="Contact-2"/>
+        <auc:AuditTeamMemberCertificationType>Department of Buildings (DOB) Approved Agent</auc:AuditTeamMemberCertificationType>
+      </auc:Qualifications>
+      <auc:UserDefinedFields>
+        <auc:UserDefinedField>
+          <auc:FieldName>ASHRAEAuditLevel1Date</auc:FieldName>
+          <auc:FieldValue>2017-01-31</auc:FieldValue>
+        </auc:UserDefinedField>
+        <auc:UserDefinedField>
+          <auc:FieldName>ASHRAEAuditLevel2Date</auc:FieldName>
+          <auc:FieldValue>2017-08-01</auc:FieldValue>
+        </auc:UserDefinedField>
+        <auc:UserDefinedField>
+          <auc:FieldName>Auditor's Years of Experience</auc:FieldName>
+          <auc:FieldValue>5</auc:FieldValue>
+        </auc:UserDefinedField>
+      </auc:UserDefinedFields>
+    </auc:Report>
+  </auc:Reports>
   <auc:Contacts>
     <auc:Contact ID="Contact-4">
       <auc:ContactRole>Energy Auditor</auc:ContactRole>

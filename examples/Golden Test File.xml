@@ -197,30 +197,32 @@
           </LinkedPremises>
         </Measure>
       </Measures>
-      <Report>
-        <Scenarios>
-          <Scenario ID="Scenario1">
-            <ScenarioName>Remove all the PV from the RSF</ScenarioName>
-            <ScenarioType>
-              <PackageOfMeasures>
-                <MeasureIDs>
-                  <MeasureID IDref="Building1RemovePV"/>
-                </MeasureIDs>
-              </PackageOfMeasures>
-            </ScenarioType>
-          </Scenario>
-          <Scenario ID="Scenario2">
-            <ScenarioName>Remove all the PV from campus</ScenarioName>
-            <ScenarioType>
-              <PackageOfMeasures>
-                <MeasureIDs>
-                  <MeasureID IDref="WholeSiteRemovePV"/>
-                </MeasureIDs>
-              </PackageOfMeasures>
-            </ScenarioType>
-          </Scenario>
-        </Scenarios>
-      </Report>
+      <Reports>
+        <Report>
+          <Scenarios>
+            <Scenario ID="Scenario1">
+              <ScenarioName>Remove all the PV from the RSF</ScenarioName>
+              <ScenarioType>
+                <PackageOfMeasures>
+                  <MeasureIDs>
+                    <MeasureID IDref="Building1RemovePV"/>
+                  </MeasureIDs>
+                </PackageOfMeasures>
+              </ScenarioType>
+            </Scenario>
+            <Scenario ID="Scenario2">
+              <ScenarioName>Remove all the PV from campus</ScenarioName>
+              <ScenarioType>
+                <PackageOfMeasures>
+                  <MeasureIDs>
+                    <MeasureID IDref="WholeSiteRemovePV"/>
+                  </MeasureIDs>
+                </PackageOfMeasures>
+              </ScenarioType>
+            </Scenario>
+          </Scenarios>
+        </Report>
+      </Reports>
     </Facility>
   </Facilities>
 </BuildingSync>
