@@ -188,19 +188,7 @@
                           <xs:element name="PlugLoads" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="PlugLoad" type="auc:PlugLoadType" maxOccurs="unbounded"/>
-                                <xs:element name="MiscellaneousElectricLoad" minOccurs="0">
-                                  <xs:annotation>
-                                    <xs:documentation>Weighted average electric loads resulting from electric devices not responsible for space heating, cooling, regulated lighting, and water heating. Examples include computers, printers, copiers, desk lighting, vending machines, and refrigerators. (W/ft2)</xs:documentation>
-                                  </xs:annotation>
-                                  <xs:complexType>
-                                    <xs:simpleContent>
-                                      <xs:extension base="xs:decimal">
-                                        <xs:attribute ref="auc:Source"/>
-                                      </xs:extension>
-                                    </xs:simpleContent>
-                                  </xs:complexType>
-                                </xs:element>
+                                <xs:element name="PlugLoad" type="auc:PlugElectricLoadType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
@@ -2034,58 +2022,68 @@
   </xs:complexType>
   <xs:complexType name="ContactType">
     <xs:sequence>
-      <xs:element name="ContactRole" minOccurs="0">
+      <xs:element name="ContactRoles" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Characterization of the contact.</xs:documentation>
+          <xs:documentation>Container for the a list of roles that a contact can have.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Premises"/>
-            <xs:enumeration value="Occupant"/>
-            <xs:enumeration value="Agency"/>
-            <xs:enumeration value="Owner"/>
-            <xs:enumeration value="Customer"/>
-            <xs:enumeration value="Customer agreement"/>
-            <xs:enumeration value="Administrator"/>
-            <xs:enumeration value="Qualified Assessor"/>
-            <xs:enumeration value="Contributor"/>
-            <xs:enumeration value="Property Management Company"/>
-            <xs:enumeration value="Operator"/>
-            <xs:enumeration value="Energy Auditor"/>
-            <xs:enumeration value="Energy Modeler"/>
-            <xs:enumeration value="Contractor"/>
-            <xs:enumeration value="Implementer"/>
-            <xs:enumeration value="Financier"/>
-            <xs:enumeration value="Commissioning Agent"/>
-            <xs:enumeration value="MV Agent"/>
-            <xs:enumeration value="Evaluator"/>
-            <xs:enumeration value="Builder"/>
-            <xs:enumeration value="Service"/>
-            <xs:enumeration value="Billing"/>
-            <xs:enumeration value="Architect"/>
-            <xs:enumeration value="Mechanical Engineer"/>
-            <xs:enumeration value="Energy Consultant"/>
-            <xs:enumeration value="Service and Product Provider"/>
-            <xs:enumeration value="Authority Having Jurisdiction"/>
-            <xs:enumeration value="Utility"/>
-            <xs:enumeration value="Power plant"/>
-            <xs:enumeration value="Electric Distribution Utility (EDU)"/>
-            <xs:enumeration value="ESCO"/>
-            <xs:enumeration value="Facilitator"/>
-            <xs:enumeration value="Facility Manager"/>
-            <xs:enumeration value="Trainer"/>
-            <xs:enumeration value="Electrical Engineer"/>
-            <xs:enumeration value="Controls Engineer"/>
-            <xs:enumeration value="Lender"/>
-            <xs:enumeration value="Servicer"/>
-            <xs:enumeration value="Originator"/>
-            <xs:enumeration value="Other"/>
-          </xs:restriction>
-        </xs:simpleType>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ContactRole" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Characterization of the contact.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Premises"/>
+                  <xs:enumeration value="Occupant"/>
+                  <xs:enumeration value="Agency"/>
+                  <xs:enumeration value="Owner"/>
+                  <xs:enumeration value="Customer"/>
+                  <xs:enumeration value="Customer agreement"/>
+                  <xs:enumeration value="Administrator"/>
+                  <xs:enumeration value="Qualified Assessor"/>
+                  <xs:enumeration value="Contributor"/>
+                  <xs:enumeration value="Property Management Company"/>
+                  <xs:enumeration value="Operator"/>
+                  <xs:enumeration value="Energy Auditor"/>
+                  <xs:enumeration value="Energy Modeler"/>
+                  <xs:enumeration value="Contractor"/>
+                  <xs:enumeration value="Implementer"/>
+                  <xs:enumeration value="Financier"/>
+                  <xs:enumeration value="Commissioning Agent"/>
+                  <xs:enumeration value="MV Agent"/>
+                  <xs:enumeration value="Evaluator"/>
+                  <xs:enumeration value="Builder"/>
+                  <xs:enumeration value="Service"/>
+                  <xs:enumeration value="Billing"/>
+                  <xs:enumeration value="Architect"/>
+                  <xs:enumeration value="Mechanical Engineer"/>
+                  <xs:enumeration value="Energy Consultant"/>
+                  <xs:enumeration value="Service and Product Provider"/>
+                  <xs:enumeration value="Authority Having Jurisdiction"/>
+                  <xs:enumeration value="Utility"/>
+                  <xs:enumeration value="Power plant"/>
+                  <xs:enumeration value="Electric Distribution Utility (EDU)"/>
+                  <xs:enumeration value="ESCO"/>
+                  <xs:enumeration value="Facilitator"/>
+                  <xs:enumeration value="Facility Manager"/>
+                  <xs:enumeration value="Trainer"/>
+                  <xs:enumeration value="Electrical Engineer"/>
+                  <xs:enumeration value="Controls Engineer"/>
+                  <xs:enumeration value="Lender"/>
+                  <xs:enumeration value="Servicer"/>
+                  <xs:enumeration value="Originator"/>
+                  <xs:enumeration value="Submitter"/>
+                  <xs:enumeration value="Other"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
       <xs:element name="ContactName" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The name, first and last, associated with the contact</xs:documentation>
+          <xs:documentation>The name, first and last, associated with the contact.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ContactCompany" type="xs:string" minOccurs="0">
@@ -10999,13 +10997,15 @@
       </xs:element>
       <xs:element name="CMUFill" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The fill condition of hollow unit masonry walls. The definitions correspond to the following conditions:
+          <xs:documentation>
+            The fill condition of hollow unit masonry walls. The definitions correspond to the following conditions:
 
-Solid: Where every cell is grouted
+            Solid: Where every cell is grouted
 
-Empty: Where the cells are partially grouted and the remaining cells are left empty
+            Empty: Where the cells are partially grouted and the remaining cells are left empty
 
-Insulated: Where the cells are partially grouted and the remaining cells are filled with insulating material.</xs:documentation>
+            Insulated: Where the cells are partially grouted and the remaining cells are filled with insulating material.
+          </xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -11236,11 +11236,13 @@ Insulated: Where the cells are partially grouted and the remaining cells are fil
       </xs:element>
       <xs:element name="CeilingFramingSpacing" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Dimension of the distance between two components.
+          <xs:documentation>
+            Dimension of the distance between two components.
 
-Examples include: Framing spacing: the dimension from centerline to centerline of a surface framing material.
+            Examples include: Framing spacing: the dimension from centerline to centerline of a surface framing material.
 
-Window spacing: the dimension between windows in a discrete window layout. (in.)</xs:documentation>
+            Window spacing: the dimension between windows in a discrete window layout. (in.)
+          </xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -12587,7 +12589,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
     <xs:attribute name="ID" type="xs:ID"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
-  <xs:complexType name="PlugLoadType">
+  <xs:complexType name="PlugElectricLoadType">
     <xs:sequence>
       <xs:element name="PlugLoadType" minOccurs="0">
         <xs:annotation>
@@ -12603,6 +12605,7 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
             <xs:enumeration value="Display"/>
             <xs:enumeration value="Set Top Box"/>
             <xs:enumeration value="Business Equipment"/>
+            <xs:enumeration value="Miscellaneous Electric Load"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
@@ -12635,6 +12638,18 @@ Window spacing: the dimension between windows in a discrete window layout. (in.)
       <xs:element name="PlugLoadNominalPower" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Nominal electrical load for plug load category. (W)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="WeightedAverageLoad" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Weighted average electric load. (W/ft2)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
