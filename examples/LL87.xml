@@ -16,6 +16,7 @@
             <State>NY</State>
             <PostalCode>10012</PostalCode>
           </Address>
+          <Ownership>Non-profit organization</Ownership>
           <Buildings>
             <Building ID="Facility1">
               <PremisesName>RSF</PremisesName>
@@ -161,6 +162,21 @@
             </LinkedPremises>
           </HVACSystem>
         </HVACSystems>
+        <LightingSystems>
+          <LightingSystem ID="LightingSystem-01">
+            <LampType>
+              <LinearFluorescent>
+                <LampLabel>T12HO</LampLabel>
+                <LampLength>4 ft</LampLength>
+              </LinearFluorescent>
+            </LampType>
+            <LinkedPremises>
+              <Facility>
+                <LinkedFacilityID IDref="Facility2"/>
+              </Facility>
+            </LinkedPremises>
+          </LightingSystem>
+        </LightingSystems>
         <RoofSystems>
           <RoofSystem ID="RoofSystem-01">
             <SpecialRoofClassification>Blue roof</SpecialRoofClassification>
