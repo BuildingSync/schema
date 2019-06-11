@@ -7434,6 +7434,7 @@
         <xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
       </xs:choice>
       <xs:element name="HeatingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element ref="auc:YearInstalled" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
     <xs:attribute ref="auc:Status"/>
@@ -7715,6 +7716,7 @@
         <xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
       </xs:choice>
       <xs:element name="CoolingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element ref="auc:YearInstalled" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
     <xs:attribute ref="auc:Status"/>
@@ -8065,6 +8067,7 @@
         <xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
       </xs:choice>
       <xs:element name="CondenserPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element ref="auc:YearInstalled" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
   </xs:complexType>
