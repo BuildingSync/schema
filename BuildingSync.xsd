@@ -6047,6 +6047,7 @@
                                         </xs:simpleContent>
                                       </xs:complexType>
                                     </xs:element>
+                                    <xs:element ref="auc:BurnerYearInstalled" minOccurs="0"/>
                                     <xs:element name="BurnerTurndownRatio" minOccurs="0">
                                       <xs:annotation>
                                         <xs:documentation>If applicable, the turndown ratio for the burner (full input/minimum input).</xs:documentation>
@@ -7059,6 +7060,11 @@
                     </xs:extension>
                   </xs:simpleContent>
                 </xs:complexType>
+              </xs:element>
+              <xs:element ref="auc:BurnerYearInstalled" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Year that the burner was installed.</xs:documentation>
+                </xs:annotation>
               </xs:element>
               <xs:element name="BurnerTurndownRatio" minOccurs="0">
                 <xs:annotation>
@@ -16145,4 +16151,9 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+  <xs:element name="BurnerYearInstalled" type="xs:gYear">
+    <xs:annotation>
+      <xs:documentation>Year that the burner was installed</xs:documentation>
+    </xs:annotation>
+  </xs:element>
 </xs:schema>
