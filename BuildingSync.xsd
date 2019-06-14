@@ -6613,11 +6613,13 @@
                                       </xs:annotation>
                                       <xs:simpleType>
                                         <xs:restriction base="xs:string">
+                                          <xs:enumeration value="CAV terminal box no reheat"/>
                                           <xs:enumeration value="CAV terminal box with reheat"/>
                                           <xs:enumeration value="VAV terminal box fan powered no reheat"/>
                                           <xs:enumeration value="VAV terminal box fan powered with reheat"/>
                                           <xs:enumeration value="VAV terminal box not fan powered no reheat"/>
                                           <xs:enumeration value="VAV terminal box not fan powered with reheat"/>
+                                          <xs:enumeration value="Powered induction unit"/>
                                           <xs:enumeration value="Automatically controlled register"/>
                                           <xs:enumeration value="Manually controlled register"/>
                                           <xs:enumeration value="Uncontrolled register"/>
