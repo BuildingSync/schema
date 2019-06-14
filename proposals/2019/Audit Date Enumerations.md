@@ -23,6 +23,8 @@ The existing enumerations being proposed are:
 	<xs:enumeration value="Completion"/>
 ```
 
+This is a breaking change. 
+
 ## References
 
 N/A
