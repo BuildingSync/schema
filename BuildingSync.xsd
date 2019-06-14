@@ -3341,7 +3341,7 @@
                                                         <xs:complexType>
                                                           <xs:simpleContent>
                                                             <xs:extension base="xs:decimal">
-                                                            <xs:attribute ref="auc:Source"/>
+                                                              <xs:attribute ref="auc:Source"/>
                                                             </xs:extension>
                                                           </xs:simpleContent>
                                                         </xs:complexType>
@@ -3353,7 +3353,7 @@
                                                         <xs:complexType>
                                                           <xs:simpleContent>
                                                             <xs:extension base="xs:decimal">
-                                                            <xs:attribute ref="auc:Source"/>
+                                                              <xs:attribute ref="auc:Source"/>
                                                             </xs:extension>
                                                           </xs:simpleContent>
                                                         </xs:complexType>
@@ -3365,7 +3365,7 @@
                                                         <xs:complexType>
                                                           <xs:simpleContent>
                                                             <xs:extension base="xs:decimal">
-                                                            <xs:attribute ref="auc:Source"/>
+                                                              <xs:attribute ref="auc:Source"/>
                                                             </xs:extension>
                                                           </xs:simpleContent>
                                                         </xs:complexType>
@@ -3377,7 +3377,7 @@
                                                         <xs:complexType>
                                                           <xs:simpleContent>
                                                             <xs:extension base="xs:decimal">
-                                                            <xs:attribute ref="auc:Source"/>
+                                                              <xs:attribute ref="auc:Source"/>
                                                             </xs:extension>
                                                           </xs:simpleContent>
                                                         </xs:complexType>
@@ -3389,7 +3389,7 @@
                                                         <xs:complexType>
                                                           <xs:simpleContent>
                                                             <xs:extension base="xs:integer">
-                                                            <xs:attribute ref="auc:Source"/>
+                                                              <xs:attribute ref="auc:Source"/>
                                                             </xs:extension>
                                                           </xs:simpleContent>
                                                         </xs:complexType>
@@ -3401,7 +3401,7 @@
                                                         <xs:complexType>
                                                           <xs:simpleContent>
                                                             <xs:extension base="xs:decimal">
-                                                            <xs:attribute ref="auc:Source"/>
+                                                              <xs:attribute ref="auc:Source"/>
                                                             </xs:extension>
                                                           </xs:simpleContent>
                                                         </xs:complexType>
@@ -3470,112 +3470,112 @@
                                                         <xs:complexType>
                                                           <xs:sequence>
                                                             <xs:element name="ConsumptionEnergyTierDesignation" minOccurs="0">
-                                                            <xs:annotation>
-                                                            <xs:documentation>For electricity pricing that is based on tiered pricing, each tier is allotted a certain maximum (kWh), above which the user is moved to the next tier that has a different unit pricing.</xs:documentation>
-                                                            </xs:annotation>
-                                                            <xs:complexType>
-                                                            <xs:simpleContent>
-                                                            <xs:extension base="xs:integer">
-                                                            <xs:attribute ref="auc:Source"/>
-                                                            </xs:extension>
-                                                            </xs:simpleContent>
-                                                            </xs:complexType>
+                                                              <xs:annotation>
+                                                                <xs:documentation>For electricity pricing that is based on tiered pricing, each tier is allotted a certain maximum (kWh), above which the user is moved to the next tier that has a different unit pricing.</xs:documentation>
+                                                              </xs:annotation>
+                                                              <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                  <xs:extension base="xs:integer">
+                                                                    <xs:attribute ref="auc:Source"/>
+                                                                  </xs:extension>
+                                                                </xs:simpleContent>
+                                                              </xs:complexType>
                                                             </xs:element>
                                                             <xs:element name="MaxkWhUsage" minOccurs="0">
-                                                            <xs:annotation>
-                                                            <xs:documentation>The maximum amount of kWh used at which a kWh rate is applied (kWh)</xs:documentation>
-                                                            </xs:annotation>
-                                                            <xs:complexType>
-                                                            <xs:simpleContent>
-                                                            <xs:extension base="xs:decimal">
-                                                            <xs:attribute ref="auc:Source"/>
-                                                            </xs:extension>
-                                                            </xs:simpleContent>
-                                                            </xs:complexType>
+                                                              <xs:annotation>
+                                                                <xs:documentation>The maximum amount of kWh used at which a kWh rate is applied (kWh)</xs:documentation>
+                                                              </xs:annotation>
+                                                              <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                  <xs:extension base="xs:decimal">
+                                                                    <xs:attribute ref="auc:Source"/>
+                                                                  </xs:extension>
+                                                                </xs:simpleContent>
+                                                              </xs:complexType>
                                                             </xs:element>
                                                             <xs:element name="MaxkWUsage" minOccurs="0">
-                                                            <xs:annotation>
-                                                            <xs:documentation>The maximum amount of kW used at which a kW rate is applied (kW)</xs:documentation>
-                                                            </xs:annotation>
-                                                            <xs:complexType>
-                                                            <xs:simpleContent>
-                                                            <xs:extension base="xs:decimal">
-                                                            <xs:attribute ref="auc:Source"/>
-                                                            </xs:extension>
-                                                            </xs:simpleContent>
-                                                            </xs:complexType>
+                                                              <xs:annotation>
+                                                                <xs:documentation>The maximum amount of kW used at which a kW rate is applied (kW)</xs:documentation>
+                                                              </xs:annotation>
+                                                              <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                  <xs:extension base="xs:decimal">
+                                                                    <xs:attribute ref="auc:Source"/>
+                                                                  </xs:extension>
+                                                                </xs:simpleContent>
+                                                              </xs:complexType>
                                                             </xs:element>
                                                             <xs:element name="EnergyCostRate" minOccurs="0">
-                                                            <xs:annotation>
-                                                            <xs:documentation>Energy rate to buy a unit of energy consumption. ($/unit)</xs:documentation>
-                                                            </xs:annotation>
-                                                            <xs:complexType>
-                                                            <xs:simpleContent>
-                                                            <xs:extension base="xs:decimal">
-                                                            <xs:attribute ref="auc:Source"/>
-                                                            </xs:extension>
-                                                            </xs:simpleContent>
-                                                            </xs:complexType>
+                                                              <xs:annotation>
+                                                                <xs:documentation>Energy rate to buy a unit of energy consumption. ($/unit)</xs:documentation>
+                                                              </xs:annotation>
+                                                              <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                  <xs:extension base="xs:decimal">
+                                                                    <xs:attribute ref="auc:Source"/>
+                                                                  </xs:extension>
+                                                                </xs:simpleContent>
+                                                              </xs:complexType>
                                                             </xs:element>
                                                             <xs:element name="ElectricDemandRate" minOccurs="0">
-                                                            <xs:annotation>
-                                                            <xs:documentation>The rate to buy electric demand from the utility. ($/kW)</xs:documentation>
-                                                            </xs:annotation>
-                                                            <xs:complexType>
-                                                            <xs:simpleContent>
-                                                            <xs:extension base="xs:decimal">
-                                                            <xs:attribute ref="auc:Source"/>
-                                                            </xs:extension>
-                                                            </xs:simpleContent>
-                                                            </xs:complexType>
+                                                              <xs:annotation>
+                                                                <xs:documentation>The rate to buy electric demand from the utility. ($/kW)</xs:documentation>
+                                                              </xs:annotation>
+                                                              <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                  <xs:extension base="xs:decimal">
+                                                                    <xs:attribute ref="auc:Source"/>
+                                                                  </xs:extension>
+                                                                </xs:simpleContent>
+                                                              </xs:complexType>
                                                             </xs:element>
                                                             <xs:element name="EnergyRateAdjustment" minOccurs="0">
-                                                            <xs:annotation>
-                                                            <xs:documentation>Energy rate adjustment for any fees, riders, fuel adjustments ($/unit)</xs:documentation>
-                                                            </xs:annotation>
-                                                            <xs:complexType>
-                                                            <xs:simpleContent>
-                                                            <xs:extension base="xs:decimal">
-                                                            <xs:attribute ref="auc:Source"/>
-                                                            </xs:extension>
-                                                            </xs:simpleContent>
-                                                            </xs:complexType>
+                                                              <xs:annotation>
+                                                                <xs:documentation>Energy rate adjustment for any fees, riders, fuel adjustments ($/unit)</xs:documentation>
+                                                              </xs:annotation>
+                                                              <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                  <xs:extension base="xs:decimal">
+                                                                    <xs:attribute ref="auc:Source"/>
+                                                                  </xs:extension>
+                                                                </xs:simpleContent>
+                                                              </xs:complexType>
                                                             </xs:element>
                                                             <xs:element name="DemandRateAdjustment" minOccurs="0">
-                                                            <xs:annotation>
-                                                            <xs:documentation>The rate for any fees, riders, fuel adjustments ($/kW)</xs:documentation>
-                                                            </xs:annotation>
-                                                            <xs:complexType>
-                                                            <xs:simpleContent>
-                                                            <xs:extension base="xs:decimal">
-                                                            <xs:attribute ref="auc:Source"/>
-                                                            </xs:extension>
-                                                            </xs:simpleContent>
-                                                            </xs:complexType>
+                                                              <xs:annotation>
+                                                                <xs:documentation>The rate for any fees, riders, fuel adjustments ($/kW)</xs:documentation>
+                                                              </xs:annotation>
+                                                              <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                  <xs:extension base="xs:decimal">
+                                                                    <xs:attribute ref="auc:Source"/>
+                                                                  </xs:extension>
+                                                                </xs:simpleContent>
+                                                              </xs:complexType>
                                                             </xs:element>
                                                             <xs:element name="DemandWindow" minOccurs="0">
-                                                            <xs:annotation>
-                                                            <xs:documentation>The time period of measurement through which the demand is established. (min)</xs:documentation>
-                                                            </xs:annotation>
-                                                            <xs:complexType>
-                                                            <xs:simpleContent>
-                                                            <xs:extension base="xs:integer">
-                                                            <xs:attribute ref="auc:Source"/>
-                                                            </xs:extension>
-                                                            </xs:simpleContent>
-                                                            </xs:complexType>
+                                                              <xs:annotation>
+                                                                <xs:documentation>The time period of measurement through which the demand is established. (min)</xs:documentation>
+                                                              </xs:annotation>
+                                                              <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                  <xs:extension base="xs:integer">
+                                                                    <xs:attribute ref="auc:Source"/>
+                                                                  </xs:extension>
+                                                                </xs:simpleContent>
+                                                              </xs:complexType>
                                                             </xs:element>
                                                             <xs:element name="DemandRatchetPercentage" minOccurs="0">
-                                                            <xs:annotation>
-                                                            <xs:documentation>Certain rate schedules incorporate demand ratchet percentage to ensure minimum billing demands based on historical peak demands. Billing demand in these cases is based comparing the month's demand and maximum of previous 11 month's demand times the demand ratchet percentage. (0-1) (%)</xs:documentation>
-                                                            </xs:annotation>
-                                                            <xs:complexType>
-                                                            <xs:simpleContent>
-                                                            <xs:extension base="xs:decimal">
-                                                            <xs:attribute ref="auc:Source"/>
-                                                            </xs:extension>
-                                                            </xs:simpleContent>
-                                                            </xs:complexType>
+                                                              <xs:annotation>
+                                                                <xs:documentation>Certain rate schedules incorporate demand ratchet percentage to ensure minimum billing demands based on historical peak demands. Billing demand in these cases is based comparing the month's demand and maximum of previous 11 month's demand times the demand ratchet percentage. (0-1) (%)</xs:documentation>
+                                                              </xs:annotation>
+                                                              <xs:complexType>
+                                                                <xs:simpleContent>
+                                                                  <xs:extension base="xs:decimal">
+                                                                    <xs:attribute ref="auc:Source"/>
+                                                                  </xs:extension>
+                                                                </xs:simpleContent>
+                                                              </xs:complexType>
                                                             </xs:element>
                                                           </xs:sequence>
                                                         </xs:complexType>
@@ -5744,8 +5744,15 @@
                         <xs:enumeration value="Site Visit"/>
                         <xs:enumeration value="Conducted"/>
                         <xs:enumeration value="Completion"/>
+                        <xs:enumeration value="Custom"/>
+                        <xs:enumeration value="Other"/>
                       </xs:restriction>
                     </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CustomDateType" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Custom name if DateType is Custom.</xs:documentation>
+                    </xs:annotation>
                   </xs:element>
                 </xs:sequence>
               </xs:complexType>
@@ -5773,7 +5780,7 @@
       </xs:element>
       <xs:element name="AuditCost" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Total cost associated with the audit ($)</xs:documentation>
+          <xs:documentation>Total cost associated with the audit. ($)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
