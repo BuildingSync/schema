@@ -5724,10 +5724,34 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="AuditDate" type="xs:date" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Date audit was conducted. (CCYY-MM-DD)</xs:documentation>
-        </xs:annotation>
+      <xs:element name="AuditDates" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="AuditDate" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Date" type="xs:date">
+                    <xs:annotation>
+                      <xs:documentation>Date of DateType enumeration. (CCYY-MM-DD)</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="DateType">
+                    <xs:annotation>
+                      <xs:documentation>Type of AuditDate.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Site Visit"/>
+                        <xs:enumeration value="Conducted"/>
+                        <xs:enumeration value="Completion"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
       <xs:element name="ASHRAEAuditLevel" minOccurs="0">
         <xs:annotation>
