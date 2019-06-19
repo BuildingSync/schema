@@ -16,9 +16,20 @@
             <State>NY</State>
             <PostalCode>10012</PostalCode>
           </Address>
+          <Ownership>Non-profit organization</Ownership>
           <Buildings>
             <Building ID="Facility1">
               <PremisesName>RSF</PremisesName>
+              <Address>
+                <StreetAddressDetail>
+                  <Simplified>
+                    <StreetAddress>123 Secondary Street</StreetAddress>
+                  </Simplified>
+                </StreetAddressDetail>
+                <City>New York</City>
+                <State>NY</State>
+                <PostalCode>10012</PostalCode>
+              </Address>
               <OccupancyClassification>Office</OccupancyClassification>
               <OccupancyLevels>
                 <OccupancyLevel>
@@ -63,6 +74,7 @@
               <Subsections>
                 <Subsection ID="Wholebuilding2">
                   <PremisesName>Wholebuilding2</PremisesName>
+                  <RoofID IDref="RoofSystem-01"/>
                 </Subsection>
               </Subsections>
               <UserDefinedFields>
@@ -89,8 +101,10 @@
                 <HeatingPlant ID="HeatingPlant1">
                   <Boiler>
                     <BoilerType>Hot water</BoilerType>
+                    <BurnerYearInstalled>2014</BurnerYearInstalled>
                     <DraftType>Mechanical forced</DraftType>
                   </Boiler>
+                  <YearInstalled>1999</YearInstalled>
                 </HeatingPlant>
               </HeatingPlants>
             </Plants>
@@ -104,6 +118,15 @@
                   <PrimaryFuel>Fuel oil no 5 and no 6</PrimaryFuel>
                 </HeatingSource>
               </HeatingSources>
+              <Deliveries>
+                <Delivery>
+                  <DeliveryType>
+                    <CentralAirDistribution>
+                      <TerminalUnit>Powered induction unit</TerminalUnit>
+                    </CentralAirDistribution>
+                  </DeliveryType>
+                </Delivery>
+              </Deliveries>
             </HeatingAndCoolingSystems>
             <LinkedPremises>
               <Building>
@@ -121,6 +144,7 @@
                       <CondenserPlantID IDref="CondenserPlant1"/>
                     </CondenserPlantIDs>
                   </Chiller>
+                  <YearInstalled>2005</YearInstalled>
                 </CoolingPlant>
               </CoolingPlants>
               <CondenserPlants>
@@ -128,6 +152,13 @@
                   <AirCooled>
                     <EvaporativelyCooledCondenser/>
                   </AirCooled>
+                  <YearInstalled>2005</YearInstalled>
+                  <UserDefinedFields>
+                    <UserDefinedField>
+                      <FieldName>TestUDF</FieldName>
+                      <FieldValue>tested</FieldValue>
+                    </UserDefinedField>
+                  </UserDefinedFields>
                 </CondenserPlant>
               </CondenserPlants>
             </Plants>
@@ -150,6 +181,27 @@
             </LinkedPremises>
           </HVACSystem>
         </HVACSystems>
+        <LightingSystems>
+          <LightingSystem ID="LightingSystem-01">
+            <LampType>
+              <LinearFluorescent>
+                <LampLabel>T12HO</LampLabel>
+                <LampLength>4 ft</LampLength>
+              </LinearFluorescent>
+            </LampType>
+            <LinkedPremises>
+              <Facility>
+                <LinkedFacilityID IDref="Facility2"/>
+              </Facility>
+            </LinkedPremises>
+          </LightingSystem>
+        </LightingSystems>
+        <RoofSystems>
+          <RoofSystem ID="RoofSystem-01">
+            <SpecialRoofClassification>Blue roof</SpecialRoofClassification>
+            <YearInstalled>1999</YearInstalled>
+          </RoofSystem>
+        </RoofSystems>
         <OnSiteStorageTransmissionGenerationSystems>
           <OnSiteStorageTransmissionGenerationSystem ID="AllThePV">
             <EnergyConversionType>
@@ -198,30 +250,75 @@
           </LinkedPremises>
         </Measure>
       </Measures>
-      <Report>
-        <Scenarios>
-          <Scenario ID="Scenario1">
-            <ScenarioName>Remove all the PV from the RSF</ScenarioName>
-            <ScenarioType>
-              <PackageOfMeasures>
-                <MeasureIDs>
-                  <MeasureID IDref="Building1RemovePV"/>
-                </MeasureIDs>
-              </PackageOfMeasures>
-            </ScenarioType>
-          </Scenario>
-          <Scenario ID="Scenario2">
-            <ScenarioName>Remove all the PV from campus</ScenarioName>
-            <ScenarioType>
-              <PackageOfMeasures>
-                <MeasureIDs>
-                  <MeasureID IDref="WholeSiteRemovePV"/>
-                </MeasureIDs>
-              </PackageOfMeasures>
-            </ScenarioType>
-          </Scenario>
-        </Scenarios>
-      </Report>
+      <Reports>
+        <Report ID="Report-01">
+          <Scenarios>
+            <Scenario ID="Scenario1">
+              <ScenarioName>Remove all the PV from the RSF</ScenarioName>
+              <ScenarioType>
+                <PackageOfMeasures>
+                  <MeasureIDs>
+                    <MeasureID IDref="Building1RemovePV"/>
+                  </MeasureIDs>
+                </PackageOfMeasures>
+              </ScenarioType>
+            </Scenario>
+            <Scenario ID="Scenario2">
+              <ScenarioName>Remove all the PV from campus</ScenarioName>
+              <ScenarioType>
+                <PackageOfMeasures>
+                  <MeasureIDs>
+                    <MeasureID IDref="WholeSiteRemovePV"/>
+                  </MeasureIDs>
+                </PackageOfMeasures>
+              </ScenarioType>
+            </Scenario>
+          </Scenarios>
+          <AuditDates>
+            <AuditDate>
+              <Date>2019-05-15</Date>
+              <DateType>Site Visit</DateType>
+            </AuditDate>
+            <AuditDate>
+              <Date>2019-05-20</Date>
+              <DateType>Conducted</DateType>
+            </AuditDate>
+            <AuditDate>
+              <Date>2019-06-01</Date>
+              <DateType>Completion</DateType>
+            </AuditDate>
+            <AuditDate>
+              <Date>2019-06-15</Date>
+              <DateType>Custom</DateType>
+              <CustomDateType>Risk Assessment Completed</CustomDateType>
+            </AuditDate>
+          </AuditDates>
+          <Qualifications>
+            <Qualification>
+              <AuditorQualification>Association of Energy Engineers Certified Building Commissioning Professional (CBCP)</AuditorQualification>
+              <AuditorQualificationNumber>4-8-15-16-23-42</AuditorQualificationNumber>
+            </Qualification>
+            <Qualification ID="ReportQualification-01">
+              <AuditTeamMemberCertificationType>High-Performance Building Design Professional (HBDP)</AuditTeamMemberCertificationType>
+            </Qualification>
+          </Qualifications>
+        </Report>
+      </Reports>
+      <Contacts>
+        <Contact>
+          <ContactRoles>
+            <ContactRole>Submitter</ContactRole>
+          </ContactRoles>
+          <ContactName>Jane Doe</ContactName>
+          <Address>
+            <StreetAddressDetail>
+              <Simplified>
+                <StreetAddress>742 Evergreen Terrace, Springfield, USA</StreetAddress>
+              </Simplified>
+            </StreetAddressDetail>
+          </Address>
+        </Contact>
+      </Contacts>
     </Facility>
   </Facilities>
 </BuildingSync>

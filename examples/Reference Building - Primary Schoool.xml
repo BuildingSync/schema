@@ -10312,307 +10312,314 @@
           <ImplementationStatus>Selected</ImplementationStatus>
         </Measure>
       </Measures>
-      <Report>
-        <Scenarios>
-          <Scenario ID="Baseline1">
-            <ScenarioName>Baseline</ScenarioName>
-            <TemporalStatus>Pre retrofit</TemporalStatus>
-            <Normalization>Weather normalized</Normalization>
-            <ScenarioType>
-              <CurrentBuilding>
-                <CalculationMethod>
-                  <Modeled>
-                    <SoftwareProgramUsed>EnergyPlus</SoftwareProgramUsed>
-                    <SoftwareProgramVersion>6.0</SoftwareProgramVersion>
-                  </Modeled>
-                </CalculationMethod>
-              </CurrentBuilding>
-            </ScenarioType>
-            <WeatherType>
-              <Normalized>
-                <WeatherDataSource>TMY3</WeatherDataSource>
-              </Normalized>
-            </WeatherType>
-            <ResourceUses>
-              <ResourceUse ID="BaseElec1">
-                <EnergyResource>Electricity</EnergyResource>
-                <ResourceBoundary>Site</ResourceBoundary>
-                <ResourceUnits>kWh</ResourceUnits>
-                <PercentResource>1</PercentResource>
-                <EndUse>All end uses</EndUse>
-                <PercentEndUse>1</PercentEndUse>
-                <AnnualFuelUseNativeUnits>2000000</AnnualFuelUseNativeUnits>
-                <AnnualFuelUseConsistentUnits>6829</AnnualFuelUseConsistentUnits>
-                <FuelUseIntensity>9.49</FuelUseIntensity>
-                <UtilityIDs>
-                  <UtilityID IDref="ElectricUtility1"/>
-                </UtilityIDs>
-              </ResourceUse>
-              <ResourceUse ID="BaseNatGas1">
-                <EnergyResource>Natural gas</EnergyResource>
-                <ResourceBoundary>Site</ResourceBoundary>
-                <ResourceUnits>therms</ResourceUnits>
-                <PercentResource>1</PercentResource>
-                <EndUse>All end uses</EndUse>
-                <PercentEndUse>1</PercentEndUse>
-                <AnnualFuelUseNativeUnits>120000</AnnualFuelUseNativeUnits>
-                <AnnualFuelUseConsistentUnits>12000</AnnualFuelUseConsistentUnits>
-                <FuelUseIntensity>0.569</FuelUseIntensity>
-                <UtilityIDs>
-                  <UtilityID IDref="GasUtility1"/>
-                </UtilityIDs>
-              </ResourceUse>
-            </ResourceUses>
-            <TimeSeriesData>
-              <TimeSeries ID="ElectricityTimeSeries1">
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2014-01-01T01:00:00</StartTimeStamp>
-                <EndTimeStamp>2015-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Annual</IntervalFrequency>
-                <IntervalReading>2000000</IntervalReading>
-                <HeatingDegreeDays>6311</HeatingDegreeDays>
-                <CoolingDegreeDays>842</CoolingDegreeDays>
-                <ResourceUseID IDref="BaseElec1"/>
-              </TimeSeries>
-              <TimeSeries ID="NatGasTimeSeries1">
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2014-01-01T01:00:00</StartTimeStamp>
-                <EndTimeStamp>2015-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Annual</IntervalFrequency>
-                <IntervalReading>120000</IntervalReading>
-                <HeatingDegreeDays>6311</HeatingDegreeDays>
-                <CoolingDegreeDays>842</CoolingDegreeDays>
-                <ResourceUseID IDref="BaseNatGas1"/>
-              </TimeSeries>
-            </TimeSeriesData>
-            <AllResourceTotals>
-              <AllResourceTotal ID="BaseEnergy1">
-                <EndUse>All end uses</EndUse>
-                <TemporalStatus>Baseline</TemporalStatus>
-                <SiteEnergyUse>21713000</SiteEnergyUse>
-                <SiteEnergyUseIntensity>103</SiteEnergyUseIntensity>
-                <SourceEnergyUse>43426000</SourceEnergyUse>
-                <SourceEnergyUseIntensity>206</SourceEnergyUseIntensity>
-                <EnergyCost>900000</EnergyCost>
-                <SummerPeak>1000</SummerPeak>
-                <WinterPeak>500</WinterPeak>
-                <WaterUse>100</WaterUse>
-                <WaterIntensity>0.000474</WaterIntensity>
-                <WaterCost>10000</WaterCost>
-              </AllResourceTotal>
-            </AllResourceTotals>
-            <AnnualHeatingDegreeDays>6311</AnnualHeatingDegreeDays>
-            <AnnualCoolingDegreeDays>842</AnnualCoolingDegreeDays>
-            <HDDBaseTemperature>65</HDDBaseTemperature>
-            <CDDBaseTemperature>65</CDDBaseTemperature>
-            <LinkedPremises>
-              <Building>
-                <LinkedBuildingID IDref="Building1"/>
-              </Building>
-            </LinkedPremises>
-          </Scenario>
-          <Scenario ID="Package1">
-            <ScenarioName>AERG Package</ScenarioName>
-            <TemporalStatus>Post retrofit</TemporalStatus>
-            <Normalization>Weather normalized</Normalization>
-            <ScenarioType>
-              <PackageOfMeasures>
-                <ReferenceCase IDref="Baseline1"/>
-                <MeasureIDs>
-                  <MeasureID IDref="Measure1"/>
-                  <MeasureID IDref="Measure2"/>
-                  <MeasureID IDref="Measure3"/>
-                  <MeasureID IDref="Measure4"/>
-                  <MeasureID IDref="Measure6"/>
-                  <MeasureID IDref="Measure8"/>
-                  <MeasureID IDref="Measure9"/>
-                  <MeasureID IDref="Measure16"/>
-                  <MeasureID IDref="Measure19"/>
-                  <MeasureID IDref="Measure20"/>
-                  <MeasureID IDref="Measure21"/>
-                </MeasureIDs>
-                <CalculationMethod>
-                  <Modeled>
-                    <SoftwareProgramUsed>EnergyPlus</SoftwareProgramUsed>
-                    <SoftwareProgramVersion>6.0</SoftwareProgramVersion>
-                  </Modeled>
-                </CalculationMethod>
-                <AnnualSavingsSiteEnergy>6830</AnnualSavingsSiteEnergy>
-                <AnnualSavingsSourceEnergy>12000</AnnualSavingsSourceEnergy>
-                <AnnualSavingsCost>285400</AnnualSavingsCost>
-                <AnnualSavingsByFuels>
-                  <AnnualSavingsByFuel>
-                    <EnergyResource>Electricity</EnergyResource>
-                    <ResourceUnits>kWh</ResourceUnits>
-                    <AnnualSavingsNativeUnits>764357</AnnualSavingsNativeUnits>
-                  </AnnualSavingsByFuel>
-                  <AnnualSavingsByFuel>
-                    <EnergyResource>Natural gas</EnergyResource>
-                    <ResourceUnits>therms</ResourceUnits>
-                    <AnnualSavingsNativeUnits>42134</AnnualSavingsNativeUnits>
-                  </AnnualSavingsByFuel>
-                </AnnualSavingsByFuels>
-                <SummerPeakElectricityReduction>385</SummerPeakElectricityReduction>
-                <WinterPeakElectricityReduction>100</WinterPeakElectricityReduction>
-                <AnnualPeakElectricityReduction>385</AnnualPeakElectricityReduction>
-                <AnnualWaterSavings>5000</AnnualWaterSavings>
-                <AnnualWaterCostSavings>500</AnnualWaterCostSavings>
-                <PackageFirstCost>1089271</PackageFirstCost>
-                <MVCost>15000</MVCost>
-                <OMCostAnnualSavings>3544</OMCostAnnualSavings>
-                <EquipmentDisposalAndSalvageCosts>0</EquipmentDisposalAndSalvageCosts>
-                <ImplementationPeriodCostSavings>0</ImplementationPeriodCostSavings>
-                <FundingFromIncentives>0</FundingFromIncentives>
-                <FundingFromTaxCredits>0</FundingFromTaxCredits>
-                <OtherFinancialIncentives>0</OtherFinancialIncentives>
-                <RecurringIncentives>0</RecurringIncentives>
-                <NPVofTaxImplications>0</NPVofTaxImplications>
-                <CostEffectivenessScreeningMethod>Net present value</CostEffectivenessScreeningMethod>
-                <SimplePayback>3.8</SimplePayback>
-                <NetPresentValue>3577302</NetPresentValue>
-              </PackageOfMeasures>
-            </ScenarioType>
-            <WeatherType>
-              <Normalized>
-                <WeatherDataSource>TMY3</WeatherDataSource>
-              </Normalized>
-            </WeatherType>
-            <ResourceUses>
-              <ResourceUse ID="PackageElec1">
-                <EnergyResource>Electricity</EnergyResource>
-                <ResourceBoundary>Site</ResourceBoundary>
-                <ResourceUnits>kWh</ResourceUnits>
-                <PercentResource>1</PercentResource>
-                <EndUse>All end uses</EndUse>
-                <PercentEndUse>1</PercentEndUse>
-                <AnnualFuelUseNativeUnits>1235643</AnnualFuelUseNativeUnits>
-                <AnnualFuelUseConsistentUnits>4219</AnnualFuelUseConsistentUnits>
-                <FuelUseIntensity>5.86</FuelUseIntensity>
-                <UtilityIDs>
-                  <UtilityID IDref="ElectricUtility1"/>
-                </UtilityIDs>
-              </ResourceUse>
-              <ResourceUse ID="PackageNatGas1">
-                <EnergyResource>Natural gas</EnergyResource>
-                <ResourceBoundary>Site</ResourceBoundary>
-                <ResourceUnits>therms</ResourceUnits>
-                <PercentResource>1</PercentResource>
-                <EndUse>All end uses</EndUse>
-                <PercentEndUse>1</PercentEndUse>
-                <AnnualFuelUseNativeUnits>77866</AnnualFuelUseNativeUnits>
-                <AnnualFuelUseConsistentUnits>7787</AnnualFuelUseConsistentUnits>
-                <FuelUseIntensity>0.369</FuelUseIntensity>
-                <UtilityIDs>
-                  <UtilityID IDref="GasUtility1"/>
-                </UtilityIDs>
-              </ResourceUse>
-            </ResourceUses>
-            <TimeSeriesData>
-              <TimeSeries ID="ElectricityTimeSeriesPackage1">
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2014-01-01T01:00:00</StartTimeStamp>
-                <EndTimeStamp>2015-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Annual</IntervalFrequency>
-                <IntervalReading>1235643</IntervalReading>
-                <HeatingDegreeDays>6311</HeatingDegreeDays>
-                <CoolingDegreeDays>842</CoolingDegreeDays>
-                <ResourceUseID IDref="PackageElec1"/>
-              </TimeSeries>
-              <TimeSeries ID="NatGasTimeSeriesPackage1">
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2014-01-01T01:00:00</StartTimeStamp>
-                <EndTimeStamp>2015-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Annual</IntervalFrequency>
-                <IntervalReading>77866</IntervalReading>
-                <HeatingDegreeDays>6311</HeatingDegreeDays>
-                <CoolingDegreeDays>842</CoolingDegreeDays>
-                <ResourceUseID IDref="PackageNatGas1"/>
-              </TimeSeries>
-            </TimeSeriesData>
-            <AllResourceTotals>
-              <AllResourceTotal ID="PackageEnergy1">
-                <EndUse>All end uses</EndUse>
-                <TemporalStatus>Baseline</TemporalStatus>
-                <SiteEnergyUse>14883000</SiteEnergyUse>
-                <SiteEnergyUseIntensity>71</SiteEnergyUseIntensity>
-                <SourceEnergyUse>29766000</SourceEnergyUse>
-                <SourceEnergyUseIntensity>142</SourceEnergyUseIntensity>
-                <EnergyCost>614600</EnergyCost>
-                <SummerPeak>615</SummerPeak>
-                <WinterPeak>400</WinterPeak>
-                <WaterUse>95</WaterUse>
-                <WaterIntensity>0.000451</WaterIntensity>
-                <WaterCost>9500</WaterCost>
-              </AllResourceTotal>
-            </AllResourceTotals>
-            <AnnualHeatingDegreeDays>6311</AnnualHeatingDegreeDays>
-            <AnnualCoolingDegreeDays>842</AnnualCoolingDegreeDays>
-            <HDDBaseTemperature>65</HDDBaseTemperature>
-            <CDDBaseTemperature>65</CDDBaseTemperature>
-            <LinkedPremises>
-              <Building>
-                <LinkedBuildingID IDref="Building1"/>
-              </Building>
-            </LinkedPremises>
-          </Scenario>
-        </Scenarios>
-        <AuditDate>2015-10-07</AuditDate>
-        <ASHRAEAuditLevel>Level 2: Energy Survey and Analysis</ASHRAEAuditLevel>
-        <RetrocommissioningAudit>true</RetrocommissioningAudit>
-        <AuditCost>1000</AuditCost>
-        <DiscountFactor>0.15</DiscountFactor>
-        <AnalysisPeriod>20</AnalysisPeriod>
-        <GasPriceEscalationRate>0.05</GasPriceEscalationRate>
-        <ElectricityPriceEscalationRate>0.05</ElectricityPriceEscalationRate>
-        <WaterPriceEscalationRate>0.05</WaterPriceEscalationRate>
-        <InflationRate>0.03</InflationRate>
-        <Utilities>
-          <Utility ID="ElectricUtility1">
-            <RateSchedules>
-              <RateSchedule>
-                <TypeOfRateStructure>
-                  <FlatRate>
-                    <RatePeriods>
-                      <RatePeriod>
-                        <EnergyCostRate>0.084</EnergyCostRate>
-                        <EnergyRateAdjustment>0.0067</EnergyRateAdjustment>
-                        <ElectricDemandRate>5.75</ElectricDemandRate>
-                        <DemandRateAdjustment>0.46</DemandRateAdjustment>
-                      </RatePeriod>
-                    </RatePeriods>
-                  </FlatRate>
-                </TypeOfRateStructure>
-                <RateStructureSector>Commercial</RateStructureSector>
-                <AverageMarginalCostRate>0.091</AverageMarginalCostRate>
-              </RateSchedule>
-            </RateSchedules>
-            <SourceSiteRatio>3</SourceSiteRatio>
-          </Utility>
-          <Utility ID="GasUtility1">
-            <RateSchedules>
-              <RateSchedule>
-                <TypeOfRateStructure>
-                  <FlatRate>
-                    <RatePeriods>
-                      <RatePeriod>
-                        <EnergyCostRate>0.865</EnergyCostRate>
-                        <EnergyRateAdjustment>0.069</EnergyRateAdjustment>
-                      </RatePeriod>
-                    </RatePeriods>
-                  </FlatRate>
-                </TypeOfRateStructure>
-                <RateStructureSector>Commercial</RateStructureSector>
-                <AverageMarginalCostRate>0.934</AverageMarginalCostRate>
-              </RateSchedule>
-            </RateSchedules>
-            <SourceSiteRatio>1</SourceSiteRatio>
-          </Utility>
-        </Utilities>
-      </Report>
+      <Reports>
+        <Report>
+          <Scenarios>
+            <Scenario ID="Baseline1">
+              <ScenarioName>Baseline</ScenarioName>
+              <TemporalStatus>Pre retrofit</TemporalStatus>
+              <Normalization>Weather normalized</Normalization>
+              <ScenarioType>
+                <CurrentBuilding>
+                  <CalculationMethod>
+                    <Modeled>
+                      <SoftwareProgramUsed>EnergyPlus</SoftwareProgramUsed>
+                      <SoftwareProgramVersion>6.0</SoftwareProgramVersion>
+                    </Modeled>
+                  </CalculationMethod>
+                </CurrentBuilding>
+              </ScenarioType>
+              <WeatherType>
+                <Normalized>
+                  <WeatherDataSource>TMY3</WeatherDataSource>
+                </Normalized>
+              </WeatherType>
+              <ResourceUses>
+                <ResourceUse ID="BaseElec1">
+                  <EnergyResource>Electricity</EnergyResource>
+                  <ResourceBoundary>Site</ResourceBoundary>
+                  <ResourceUnits>kWh</ResourceUnits>
+                  <PercentResource>1</PercentResource>
+                  <EndUse>All end uses</EndUse>
+                  <PercentEndUse>1</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>2000000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>6829</AnnualFuelUseConsistentUnits>
+                  <FuelUseIntensity>9.49</FuelUseIntensity>
+                  <UtilityIDs>
+                    <UtilityID IDref="ElectricUtility1"/>
+                  </UtilityIDs>
+                </ResourceUse>
+                <ResourceUse ID="BaseNatGas1">
+                  <EnergyResource>Natural gas</EnergyResource>
+                  <ResourceBoundary>Site</ResourceBoundary>
+                  <ResourceUnits>therms</ResourceUnits>
+                  <PercentResource>1</PercentResource>
+                  <EndUse>All end uses</EndUse>
+                  <PercentEndUse>1</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>120000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>12000</AnnualFuelUseConsistentUnits>
+                  <FuelUseIntensity>0.569</FuelUseIntensity>
+                  <UtilityIDs>
+                    <UtilityID IDref="GasUtility1"/>
+                  </UtilityIDs>
+                </ResourceUse>
+              </ResourceUses>
+              <TimeSeriesData>
+                <TimeSeries ID="ElectricityTimeSeries1">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2014-01-01T01:00:00</StartTimeStamp>
+                  <EndTimeStamp>2015-01-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Annual</IntervalFrequency>
+                  <IntervalReading>2000000</IntervalReading>
+                  <HeatingDegreeDays>6311</HeatingDegreeDays>
+                  <CoolingDegreeDays>842</CoolingDegreeDays>
+                  <ResourceUseID IDref="BaseElec1"/>
+                </TimeSeries>
+                <TimeSeries ID="NatGasTimeSeries1">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2014-01-01T01:00:00</StartTimeStamp>
+                  <EndTimeStamp>2015-01-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Annual</IntervalFrequency>
+                  <IntervalReading>120000</IntervalReading>
+                  <HeatingDegreeDays>6311</HeatingDegreeDays>
+                  <CoolingDegreeDays>842</CoolingDegreeDays>
+                  <ResourceUseID IDref="BaseNatGas1"/>
+                </TimeSeries>
+              </TimeSeriesData>
+              <AllResourceTotals>
+                <AllResourceTotal ID="BaseEnergy1">
+                  <EndUse>All end uses</EndUse>
+                  <TemporalStatus>Baseline</TemporalStatus>
+                  <SiteEnergyUse>21713000</SiteEnergyUse>
+                  <SiteEnergyUseIntensity>103</SiteEnergyUseIntensity>
+                  <SourceEnergyUse>43426000</SourceEnergyUse>
+                  <SourceEnergyUseIntensity>206</SourceEnergyUseIntensity>
+                  <EnergyCost>900000</EnergyCost>
+                  <SummerPeak>1000</SummerPeak>
+                  <WinterPeak>500</WinterPeak>
+                  <WaterUse>100</WaterUse>
+                  <WaterIntensity>0.000474</WaterIntensity>
+                  <WaterCost>10000</WaterCost>
+                </AllResourceTotal>
+              </AllResourceTotals>
+              <AnnualHeatingDegreeDays>6311</AnnualHeatingDegreeDays>
+              <AnnualCoolingDegreeDays>842</AnnualCoolingDegreeDays>
+              <HDDBaseTemperature>65</HDDBaseTemperature>
+              <CDDBaseTemperature>65</CDDBaseTemperature>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building1"/>
+                </Building>
+              </LinkedPremises>
+            </Scenario>
+            <Scenario ID="Package1">
+              <ScenarioName>AERG Package</ScenarioName>
+              <TemporalStatus>Post retrofit</TemporalStatus>
+              <Normalization>Weather normalized</Normalization>
+              <ScenarioType>
+                <PackageOfMeasures>
+                  <ReferenceCase IDref="Baseline1"/>
+                  <MeasureIDs>
+                    <MeasureID IDref="Measure1"/>
+                    <MeasureID IDref="Measure2"/>
+                    <MeasureID IDref="Measure3"/>
+                    <MeasureID IDref="Measure4"/>
+                    <MeasureID IDref="Measure6"/>
+                    <MeasureID IDref="Measure8"/>
+                    <MeasureID IDref="Measure9"/>
+                    <MeasureID IDref="Measure16"/>
+                    <MeasureID IDref="Measure19"/>
+                    <MeasureID IDref="Measure20"/>
+                    <MeasureID IDref="Measure21"/>
+                  </MeasureIDs>
+                  <CalculationMethod>
+                    <Modeled>
+                      <SoftwareProgramUsed>EnergyPlus</SoftwareProgramUsed>
+                      <SoftwareProgramVersion>6.0</SoftwareProgramVersion>
+                    </Modeled>
+                  </CalculationMethod>
+                  <AnnualSavingsSiteEnergy>6830</AnnualSavingsSiteEnergy>
+                  <AnnualSavingsSourceEnergy>12000</AnnualSavingsSourceEnergy>
+                  <AnnualSavingsCost>285400</AnnualSavingsCost>
+                  <AnnualSavingsByFuels>
+                    <AnnualSavingsByFuel>
+                      <EnergyResource>Electricity</EnergyResource>
+                      <ResourceUnits>kWh</ResourceUnits>
+                      <AnnualSavingsNativeUnits>764357</AnnualSavingsNativeUnits>
+                    </AnnualSavingsByFuel>
+                    <AnnualSavingsByFuel>
+                      <EnergyResource>Natural gas</EnergyResource>
+                      <ResourceUnits>therms</ResourceUnits>
+                      <AnnualSavingsNativeUnits>42134</AnnualSavingsNativeUnits>
+                    </AnnualSavingsByFuel>
+                  </AnnualSavingsByFuels>
+                  <SummerPeakElectricityReduction>385</SummerPeakElectricityReduction>
+                  <WinterPeakElectricityReduction>100</WinterPeakElectricityReduction>
+                  <AnnualPeakElectricityReduction>385</AnnualPeakElectricityReduction>
+                  <AnnualWaterSavings>5000</AnnualWaterSavings>
+                  <AnnualWaterCostSavings>500</AnnualWaterCostSavings>
+                  <PackageFirstCost>1089271</PackageFirstCost>
+                  <MVCost>15000</MVCost>
+                  <OMCostAnnualSavings>3544</OMCostAnnualSavings>
+                  <EquipmentDisposalAndSalvageCosts>0</EquipmentDisposalAndSalvageCosts>
+                  <ImplementationPeriodCostSavings>0</ImplementationPeriodCostSavings>
+                  <FundingFromIncentives>0</FundingFromIncentives>
+                  <FundingFromTaxCredits>0</FundingFromTaxCredits>
+                  <OtherFinancialIncentives>0</OtherFinancialIncentives>
+                  <RecurringIncentives>0</RecurringIncentives>
+                  <NPVofTaxImplications>0</NPVofTaxImplications>
+                  <CostEffectivenessScreeningMethod>Net present value</CostEffectivenessScreeningMethod>
+                  <SimplePayback>3.8</SimplePayback>
+                  <NetPresentValue>3577302</NetPresentValue>
+                </PackageOfMeasures>
+              </ScenarioType>
+              <WeatherType>
+                <Normalized>
+                  <WeatherDataSource>TMY3</WeatherDataSource>
+                </Normalized>
+              </WeatherType>
+              <ResourceUses>
+                <ResourceUse ID="PackageElec1">
+                  <EnergyResource>Electricity</EnergyResource>
+                  <ResourceBoundary>Site</ResourceBoundary>
+                  <ResourceUnits>kWh</ResourceUnits>
+                  <PercentResource>1</PercentResource>
+                  <EndUse>All end uses</EndUse>
+                  <PercentEndUse>1</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>1235643</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>4219</AnnualFuelUseConsistentUnits>
+                  <FuelUseIntensity>5.86</FuelUseIntensity>
+                  <UtilityIDs>
+                    <UtilityID IDref="ElectricUtility1"/>
+                  </UtilityIDs>
+                </ResourceUse>
+                <ResourceUse ID="PackageNatGas1">
+                  <EnergyResource>Natural gas</EnergyResource>
+                  <ResourceBoundary>Site</ResourceBoundary>
+                  <ResourceUnits>therms</ResourceUnits>
+                  <PercentResource>1</PercentResource>
+                  <EndUse>All end uses</EndUse>
+                  <PercentEndUse>1</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>77866</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>7787</AnnualFuelUseConsistentUnits>
+                  <FuelUseIntensity>0.369</FuelUseIntensity>
+                  <UtilityIDs>
+                    <UtilityID IDref="GasUtility1"/>
+                  </UtilityIDs>
+                </ResourceUse>
+              </ResourceUses>
+              <TimeSeriesData>
+                <TimeSeries ID="ElectricityTimeSeriesPackage1">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2014-01-01T01:00:00</StartTimeStamp>
+                  <EndTimeStamp>2015-01-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Annual</IntervalFrequency>
+                  <IntervalReading>1235643</IntervalReading>
+                  <HeatingDegreeDays>6311</HeatingDegreeDays>
+                  <CoolingDegreeDays>842</CoolingDegreeDays>
+                  <ResourceUseID IDref="PackageElec1"/>
+                </TimeSeries>
+                <TimeSeries ID="NatGasTimeSeriesPackage1">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimeStamp>2014-01-01T01:00:00</StartTimeStamp>
+                  <EndTimeStamp>2015-01-01T00:00:00</EndTimeStamp>
+                  <IntervalFrequency>Annual</IntervalFrequency>
+                  <IntervalReading>77866</IntervalReading>
+                  <HeatingDegreeDays>6311</HeatingDegreeDays>
+                  <CoolingDegreeDays>842</CoolingDegreeDays>
+                  <ResourceUseID IDref="PackageNatGas1"/>
+                </TimeSeries>
+              </TimeSeriesData>
+              <AllResourceTotals>
+                <AllResourceTotal ID="PackageEnergy1">
+                  <EndUse>All end uses</EndUse>
+                  <TemporalStatus>Baseline</TemporalStatus>
+                  <SiteEnergyUse>14883000</SiteEnergyUse>
+                  <SiteEnergyUseIntensity>71</SiteEnergyUseIntensity>
+                  <SourceEnergyUse>29766000</SourceEnergyUse>
+                  <SourceEnergyUseIntensity>142</SourceEnergyUseIntensity>
+                  <EnergyCost>614600</EnergyCost>
+                  <SummerPeak>615</SummerPeak>
+                  <WinterPeak>400</WinterPeak>
+                  <WaterUse>95</WaterUse>
+                  <WaterIntensity>0.000451</WaterIntensity>
+                  <WaterCost>9500</WaterCost>
+                </AllResourceTotal>
+              </AllResourceTotals>
+              <AnnualHeatingDegreeDays>6311</AnnualHeatingDegreeDays>
+              <AnnualCoolingDegreeDays>842</AnnualCoolingDegreeDays>
+              <HDDBaseTemperature>65</HDDBaseTemperature>
+              <CDDBaseTemperature>65</CDDBaseTemperature>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building1"/>
+                </Building>
+              </LinkedPremises>
+            </Scenario>
+          </Scenarios>
+          <AuditDates>
+            <AuditDate>
+              <Date>2015-10-07</Date>
+              <DateType>Completion</DateType>
+            </AuditDate>
+          </AuditDates>
+          <ASHRAEAuditLevel>Level 2: Energy Survey and Analysis</ASHRAEAuditLevel>
+          <RetrocommissioningAudit>true</RetrocommissioningAudit>
+          <AuditCost>1000</AuditCost>
+          <DiscountFactor>0.15</DiscountFactor>
+          <AnalysisPeriod>20</AnalysisPeriod>
+          <GasPriceEscalationRate>0.05</GasPriceEscalationRate>
+          <ElectricityPriceEscalationRate>0.05</ElectricityPriceEscalationRate>
+          <WaterPriceEscalationRate>0.05</WaterPriceEscalationRate>
+          <InflationRate>0.03</InflationRate>
+          <Utilities>
+            <Utility ID="ElectricUtility1">
+              <RateSchedules>
+                <RateSchedule>
+                  <TypeOfRateStructure>
+                    <FlatRate>
+                      <RatePeriods>
+                        <RatePeriod>
+                          <EnergyCostRate>0.084</EnergyCostRate>
+                          <EnergyRateAdjustment>0.0067</EnergyRateAdjustment>
+                          <ElectricDemandRate>5.75</ElectricDemandRate>
+                          <DemandRateAdjustment>0.46</DemandRateAdjustment>
+                        </RatePeriod>
+                      </RatePeriods>
+                    </FlatRate>
+                  </TypeOfRateStructure>
+                  <RateStructureSector>Commercial</RateStructureSector>
+                  <AverageMarginalCostRate>0.091</AverageMarginalCostRate>
+                </RateSchedule>
+              </RateSchedules>
+              <SourceSiteRatio>3</SourceSiteRatio>
+            </Utility>
+            <Utility ID="GasUtility1">
+              <RateSchedules>
+                <RateSchedule>
+                  <TypeOfRateStructure>
+                    <FlatRate>
+                      <RatePeriods>
+                        <RatePeriod>
+                          <EnergyCostRate>0.865</EnergyCostRate>
+                          <EnergyRateAdjustment>0.069</EnergyRateAdjustment>
+                        </RatePeriod>
+                      </RatePeriods>
+                    </FlatRate>
+                  </TypeOfRateStructure>
+                  <RateStructureSector>Commercial</RateStructureSector>
+                  <AverageMarginalCostRate>0.934</AverageMarginalCostRate>
+                </RateSchedule>
+              </RateSchedules>
+              <SourceSiteRatio>1</SourceSiteRatio>
+            </Utility>
+          </Utilities>
+        </Report>
+      </Reports>
     </Facility>
   </Facilities>
 </BuildingSync>
