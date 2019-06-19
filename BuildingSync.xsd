@@ -195,19 +195,7 @@
                           <xs:element name="ProcessLoads" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="ProcessLoad" type="auc:ProcessLoadType" maxOccurs="unbounded"/>
-                                <xs:element name="MiscellaneousGasLoad" minOccurs="0">
-                                  <xs:annotation>
-                                    <xs:documentation>Weighted average gas loads resulting from gas devices not responsible for space heating and water heating. (kBtu/ft2)</xs:documentation>
-                                  </xs:annotation>
-                                  <xs:complexType>
-                                    <xs:simpleContent>
-                                      <xs:extension base="xs:decimal">
-                                        <xs:attribute ref="auc:Source"/>
-                                      </xs:extension>
-                                    </xs:simpleContent>
-                                  </xs:complexType>
-                                </xs:element>
+                                <xs:element name="ProcessLoad" type="auc:ProcessGasElecLoadType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
@@ -12717,9 +12705,10 @@
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute ref="auc:Source"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
-  <xs:complexType name="ProcessLoadType">
+  <xs:complexType name="ProcessGasElecLoadType">
     <xs:sequence>
       <xs:element name="ProcessLoadType" minOccurs="0">
         <xs:annotation>
@@ -12736,6 +12725,7 @@
             <xs:enumeration value="Gaming/Hobby/Leisure"/>
             <xs:enumeration value="Infrastructure"/>
             <xs:enumeration value="Electric Vehicle Charging"/>
+            <xs:enumeration value="Miscellaneous Gas Load"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
@@ -12756,6 +12746,18 @@
       <xs:element name="ProcessLoadStandbyPower" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Electric power consumed by while the equipment is switched off or in a standby mode. (W)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="WeightedAverageLoad" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Weighted average process load. (W/ft2)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -12791,6 +12793,7 @@
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute ref="auc:Source"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="ConveyanceSystemType">
