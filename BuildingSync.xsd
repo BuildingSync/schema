@@ -308,6 +308,7 @@
                                       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
                                       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                                     </xs:sequence>
+                                    <xs:attribute name="ID" type="xs:ID"/>
                                   </xs:complexType>
                                 </xs:element>
                               </xs:sequence>
@@ -2836,6 +2837,7 @@
                   </xs:element>
                   <xs:element ref="auc:AssetScore" minOccurs="0"/>
                   <xs:element ref="auc:ENERGYSTARScore" minOccurs="0"/>
+                  <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -12650,6 +12652,9 @@
             <xs:enumeration value="Display"/>
             <xs:enumeration value="Set Top Box"/>
             <xs:enumeration value="Business Equipment"/>
+            <xs:enumeration value="Broadcast Antenna"/>
+            <xs:enumeration value="Kitchen Equipment"/>
+            <xs:enumeration value="Signage Display"/>
             <xs:enumeration value="Miscellaneous Electric Load"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
@@ -13072,6 +13077,7 @@
                                     <xs:enumeration value="Standby generator"/>
                                     <xs:enumeration value="Turbine"/>
                                     <xs:enumeration value="Microturbine"/>
+                                    <xs:enumeration value="Reciprocating engine"/>
                                     <xs:enumeration value="Fuel cell"/>
                                     <xs:enumeration value="Gasification"/>
                                     <xs:enumeration value="Binary Cycle"/>
@@ -14798,6 +14804,8 @@
         <xs:enumeration value="Refrigerated storage"/>
         <xs:enumeration value="Bar"/>
         <xs:enumeration value="Dance floor"/>
+        <xs:enumeration value="Trading floor"/>
+        <xs:enumeration value="TV studio"/>
         <xs:enumeration value="Security room"/>
         <xs:enumeration value="Shipping and receiving"/>
         <xs:enumeration value="Mechanical room"/>

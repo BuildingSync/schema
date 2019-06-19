@@ -202,12 +202,24 @@
             <YearInstalled>1999</YearInstalled>
           </RoofSystem>
         </RoofSystems>
+        <PlugLoads>
+          <PlugLoad>
+            <PlugLoadType>Signage Display</PlugLoadType>
+            <LinkedPremises>
+              <Facility>
+                <LinkedFacilityID IDref="Facility1"/>
+              </Facility>
+            </LinkedPremises>
+          </PlugLoad>
+        </PlugLoads>
         <OnSiteStorageTransmissionGenerationSystems>
           <OnSiteStorageTransmissionGenerationSystem ID="AllThePV">
             <EnergyConversionType>
               <Generation>
                 <OnSiteGenerationType>
-                  <PV/>
+                  <Other>
+                    <OtherEnergyGenerationTechnology>Reciprocating engine</OtherEnergyGenerationTechnology>
+                  </Other>
                 </OnSiteGenerationType>
               </Generation>
             </EnergyConversionType>
@@ -219,6 +231,15 @@
             </LinkedPremises>
           </OnSiteStorageTransmissionGenerationSystem>
         </OnSiteStorageTransmissionGenerationSystems>
+        <AirInfiltrationSystems>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem1">
+            <LinkedPremises>
+              <Facility>
+                <LinkedFacilityID IDref="Facility1"/>
+              </Facility>
+            </LinkedPremises>
+          </AirInfiltrationSystem>
+        </AirInfiltrationSystems>
       </Systems>
       <Measures>
         <Measure ID="Building1RemovePV">
@@ -270,6 +291,12 @@
                   <MeasureIDs>
                     <MeasureID IDref="WholeSiteRemovePV"/>
                   </MeasureIDs>
+                  <UserDefinedFields>
+                    <UserDefinedField>
+                      <FieldName>TestUDF</FieldName>
+                      <FieldValue>tested</FieldValue>
+                    </UserDefinedField>
+                  </UserDefinedFields>
                 </PackageOfMeasures>
               </ScenarioType>
             </Scenario>
