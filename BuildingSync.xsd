@@ -1113,34 +1113,10 @@
           <xs:documentation>Year in which construction was completed on the premise. (CCYY)</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="FootprintShape" minOccurs="0">
+      <xs:element name="FootprintShape" type="auc:FootprintShapeType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>General shape of building footprint as defined in the BuildingSync Geometry Reference Sheet.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Rectangular"/>
-            <xs:enumeration value="L-Shape"/>
-            <xs:enumeration value="U-Shape"/>
-            <xs:enumeration value="H-Shape"/>
-            <xs:enumeration value="T-Shape"/>
-            <xs:enumeration value="O-Shape"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="Unknown"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="SideA1Orientation" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The orientation of the canonical A1 side of the shape, as defined in the BuildingSync Geometry Reference Sheet. (degrees clockwise from north)</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:decimal">
-              <xs:attribute ref="auc:Source"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
       </xs:element>
       <xs:element name="YearOccupied" type="xs:gYear" minOccurs="0">
         <xs:annotation>
@@ -1233,7 +1209,7 @@
                       <xs:documentation>General shape of subsection or building footprint as defined in the BuildingSync Geometry Reference Sheet.</xs:documentation>
                     </xs:annotation>
                     <xs:simpleType>
-                      <xs:restriction base="xs:string">
+                      <xs:restriction base="auc:FootprintShapeType">
                         <xs:enumeration value="Rectangular"/>
                         <xs:enumeration value="L-Shape"/>
                         <xs:enumeration value="U-Shape"/>
@@ -16258,4 +16234,16 @@
       <xs:documentation>Year that the burner was installed</xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:simpleType name="FootprintShapeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Rectangular"/>
+      <xs:enumeration value="L-Shape"/>
+      <xs:enumeration value="U-Shape"/>
+      <xs:enumeration value="H-Shape"/>
+      <xs:enumeration value="T-Shape"/>
+      <xs:enumeration value="O-Shape"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>
