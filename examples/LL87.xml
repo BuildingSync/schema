@@ -110,7 +110,7 @@
             </Plants>
             <HeatingAndCoolingSystems>
               <HeatingSources>
-                <HeatingSource>
+                <HeatingSource ID="HeatingSource1">
                   <HeatingSourceType>
                     <SourceHeatingPlantID IDref="HeatingPlant1"/>
                   </HeatingSourceType>
@@ -121,13 +121,38 @@
               <Deliveries>
                 <Delivery>
                   <DeliveryType>
-                    <CentralAirDistribution>
-                      <TerminalUnit>Powered induction unit</TerminalUnit>
-                    </CentralAirDistribution>
+                    <ZoneEquipment>
+                      <Radiant>
+                        <RadiantType>Radiator</RadiantType>
+                      </Radiant>
+                    </ZoneEquipment>
                   </DeliveryType>
+                  <PrimaryFuel>Electricity</PrimaryFuel>
+                </Delivery>
+                <Delivery>
+                  <DeliveryType>
+                    <ZoneEquipment>
+                      <Radiant>
+                        <RadiantType>Radiator</RadiantType>
+                      </Radiant>
+                    </ZoneEquipment>
+                  </DeliveryType>
+                  <HeatingSourceID IDref="HeatingSource1"/>
                 </Delivery>
               </Deliveries>
             </HeatingAndCoolingSystems>
+            <OtherHVACSystems>
+              <OtherHVACSystem>
+                <OtherHVACType>
+                  <MechanicalVentilation>
+                    <VentilationControlMethods>
+                      <VentilationControlMethod>CO2 Sensors</VentilationControlMethod>
+                      <VentilationControlMethod>Scheduled</VentilationControlMethod>
+                    </VentilationControlMethods>
+                  </MechanicalVentilation>
+                </OtherHVACType>
+              </OtherHVACSystem>
+            </OtherHVACSystems>
             <LinkedPremises>
               <Building>
                 <LinkedBuildingID IDref="Facility2"/>
@@ -164,7 +189,7 @@
             </Plants>
             <HeatingAndCoolingSystems>
               <CoolingSources>
-                <CoolingSource>
+                <CoolingSource ID="CoolingSource1">
                   <CoolingSourceType>
                     <CoolingPlantID IDref="CoolingPlant1"/>
                   </CoolingSourceType>
@@ -172,6 +197,16 @@
                   <PrimaryFuel>Fuel oil no 2</PrimaryFuel>
                 </CoolingSource>
               </CoolingSources>
+              <Deliveries>
+                <Delivery>
+                  <DeliveryType>
+                    <CentralAirDistribution>
+                      <TerminalUnit>Powered induction unit</TerminalUnit>
+                    </CentralAirDistribution>
+                  </DeliveryType>
+                  <CoolingSourceID IDref="CoolingSource1"/>
+                </Delivery>
+              </Deliveries>
             </HeatingAndCoolingSystems>
             <LinkedPremises>
               <Building>
@@ -223,15 +258,15 @@
             </LinkedPremises>
           </ProcessLoad>
         </ProcessLoads>
-        <OnSiteStorageTransmissionGenerationSystems>
-          <OnSiteStorageTransmissionGenerationSystem ID="AllThePV">
+        <OnsiteStorageTransmissionGenerationSystems>
+          <OnsiteStorageTransmissionGenerationSystem ID="AllThePV">
             <EnergyConversionType>
               <Generation>
-                <OnSiteGenerationType>
+                <OnsiteGenerationType>
                   <Other>
                     <OtherEnergyGenerationTechnology>Reciprocating engine</OtherEnergyGenerationTechnology>
                   </Other>
-                </OnSiteGenerationType>
+                </OnsiteGenerationType>
               </Generation>
             </EnergyConversionType>
             <LinkedPremises>
@@ -240,8 +275,8 @@
                 <LinkedBuildingID IDref="Facility2"/>
               </Building>
             </LinkedPremises>
-          </OnSiteStorageTransmissionGenerationSystem>
-        </OnSiteStorageTransmissionGenerationSystems>
+          </OnsiteStorageTransmissionGenerationSystem>
+        </OnsiteStorageTransmissionGenerationSystems>
         <AirInfiltrationSystems>
           <AirInfiltrationSystem ID="AirInfiltrationSystem1">
             <LinkedPremises>
@@ -288,7 +323,7 @@
             <Scenario ID="Scenario1">
               <ScenarioName>Remove all the PV from the RSF</ScenarioName>
               <ScenarioType>
-                <PackageOfMeasures>
+                <PackageOfMeasures ID="Package01">
                   <MeasureIDs>
                     <MeasureID IDref="Building1RemovePV"/>
                   </MeasureIDs>
