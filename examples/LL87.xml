@@ -235,15 +235,15 @@
             </LinkedPremises>
           </ProcessLoad>
         </ProcessLoads>
-        <OnSiteStorageTransmissionGenerationSystems>
-          <OnSiteStorageTransmissionGenerationSystem ID="AllThePV">
+        <OnsiteStorageTransmissionGenerationSystems>
+          <OnsiteStorageTransmissionGenerationSystem ID="AllThePV">
             <EnergyConversionType>
               <Generation>
-                <OnSiteGenerationType>
+                <OnsiteGenerationType>
                   <Other>
                     <OtherEnergyGenerationTechnology>Reciprocating engine</OtherEnergyGenerationTechnology>
                   </Other>
-                </OnSiteGenerationType>
+                </OnsiteGenerationType>
               </Generation>
             </EnergyConversionType>
             <LinkedPremises>
@@ -252,8 +252,8 @@
                 <LinkedBuildingID IDref="Facility2"/>
               </Building>
             </LinkedPremises>
-          </OnSiteStorageTransmissionGenerationSystem>
-        </OnSiteStorageTransmissionGenerationSystems>
+          </OnsiteStorageTransmissionGenerationSystem>
+        </OnsiteStorageTransmissionGenerationSystems>
         <AirInfiltrationSystems>
           <AirInfiltrationSystem ID="AirInfiltrationSystem1">
             <LinkedPremises>
@@ -300,7 +300,7 @@
             <Scenario ID="Scenario1">
               <ScenarioName>Remove all the PV from the RSF</ScenarioName>
               <ScenarioType>
-                <PackageOfMeasures>
+                <PackageOfMeasures ID="Package01">
                   <MeasureIDs>
                     <MeasureID IDref="Building1RemovePV"/>
                   </MeasureIDs>

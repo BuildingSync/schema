@@ -206,10 +206,10 @@
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
-                          <xs:element name="OnSiteStorageTransmissionGenerationSystems" minOccurs="0">
+                          <xs:element name="OnsiteStorageTransmissionGenerationSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="OnSiteStorageTransmissionGenerationSystem" type="auc:OnSiteStorageTransmissionGenerationSystemType" maxOccurs="unbounded"/>
+                                <xs:element name="OnsiteStorageTransmissionGenerationSystem" type="auc:OnsiteStorageTransmissionGenerationSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
@@ -2827,6 +2827,7 @@
                   <xs:element ref="auc:ENERGYSTARScore" minOccurs="0"/>
                   <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                 </xs:sequence>
+                <xs:attribute name="ID" type="xs:ID"/>
               </xs:complexType>
             </xs:element>
             <xs:element name="Other" minOccurs="0">
@@ -4043,7 +4044,7 @@
       <xs:element ref="auc:ResourceBoundary" minOccurs="0"/>
       <xs:element name="SiteEnergyUse" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The annual amount of all the energy the premises consumes on-site, as reported on the utility bills. (kBtu)</xs:documentation>
+          <xs:documentation>The annual amount of all the energy the premises consumes onsite, as reported on the utility bills. (kBtu)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -4103,7 +4104,7 @@
       </xs:element>
       <xs:element name="OnsiteRenewableSystemElectricityExported" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The portion of energy produced from the on-site renewable energy system(s) that is exported (not used on-site). (kWh)</xs:documentation>
+          <xs:documentation>The portion of energy produced from the onsite renewable energy system(s) that is exported (not used onsite). (kWh)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -4593,7 +4594,7 @@
             <xs:enumeration value="Plug Load"/>
             <xs:enumeration value="Process Load"/>
             <xs:enumeration value="Conveyance"/>
-            <xs:enumeration value="On-Site Storage, Transmission, Generation"/>
+            <xs:enumeration value="Onsite Storage, Transmission, Generation"/>
             <xs:enumeration value="Pool"/>
             <xs:enumeration value="Water Use"/>
             <xs:enumeration value="Other"/>
@@ -5050,7 +5051,7 @@
                             <xs:restriction base="xs:string">
                               <xs:enumeration value="Install low-flow faucets and showerheads"/>
                               <xs:enumeration value="Install low-flow plumbing equipment"/>
-                              <xs:enumeration value="Install on-site sewer treatment systems"/>
+                              <xs:enumeration value="Install onsite sewer treatment systems"/>
                               <xs:enumeration value="Implement water efficient irrigation"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
@@ -9156,7 +9157,7 @@
                                           </xs:element>
                                           <xs:element name="SolarThermalSystemCollectorAzimuth" minOccurs="0">
                                             <xs:annotation>
-                                              <xs:documentation>Degrees clockwise from North. For a premises, it is the azimuth of the front facing element. It can also be applied to envelope components, such as walls, windows (fenestration), as well as on-site generation technologies, such as photovoltaic panels. Legal Values: 0 - 360. (degrees)</xs:documentation>
+                                              <xs:documentation>Degrees clockwise from North. For a premises, it is the azimuth of the front facing element. It can also be applied to envelope components, such as walls, windows (fenestration), as well as onsite generation technologies, such as photovoltaic panels. Legal Values: 0 - 360. (degrees)</xs:documentation>
                                             </xs:annotation>
                                             <xs:complexType>
                                               <xs:simpleContent>
@@ -10207,7 +10208,7 @@
       </xs:element>
       <xs:element name="QuantityOfLaundry" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Quantity of laundry processed on-site annually (lb/yr)</xs:documentation>
+          <xs:documentation>Quantity of laundry processed onsite annually (lb/yr)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -11683,7 +11684,7 @@
                   </xs:element>
                   <xs:element name="WindowOrientation" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Orientation of a surface or premises in terms of the attributes of North, South, East and West. Can be applied to the orientation of the front of the building, of a specific surface (wall, roof), window or skylight, or on-site generation technology, such as photovoltaic panels.</xs:documentation>
+                      <xs:documentation>Orientation of a surface or premises in terms of the attributes of North, South, East and West. Can be applied to the orientation of the front of the building, of a specific surface (wall, roof), window or skylight, or onsite generation technology, such as photovoltaic panels.</xs:documentation>
                     </xs:annotation>
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
@@ -12899,7 +12900,7 @@
     <xs:attribute name="ID" type="xs:ID"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
-  <xs:complexType name="OnSiteStorageTransmissionGenerationSystemType">
+  <xs:complexType name="OnsiteStorageTransmissionGenerationSystemType">
     <xs:sequence>
       <xs:element name="EnergyConversionType" minOccurs="0">
         <xs:annotation>
@@ -12950,7 +12951,7 @@
             <xs:element name="Generation" minOccurs="0">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="OnSiteGenerationType" minOccurs="0">
+                  <xs:element name="OnsiteGenerationType" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>Identifies whether the onsite generation is provided by a photovoltaic system or by another technology.</xs:documentation>
                     </xs:annotation>
@@ -13009,7 +13010,7 @@
                               </xs:element>
                               <xs:element name="PhotovoltaicSystemArrayAzimuth" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>Degrees clockwise from North. For a premises, it is the azimuth of the front facing element. It can also be applied to envelope components, such as walls, windows (fenestration), as well as on-site generation technologies, such as photovoltaic panels. Legal Values: 0 - 360. (degrees)</xs:documentation>
+                                  <xs:documentation>Degrees clockwise from North. For a premises, it is the azimuth of the front facing element. It can also be applied to envelope components, such as walls, windows (fenestration), as well as onsite generation technologies, such as photovoltaic panels. Legal Values: 0 - 360. (degrees)</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:simpleContent>
