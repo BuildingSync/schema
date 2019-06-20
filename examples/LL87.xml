@@ -1,362 +1,377 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2016 (x64) (http://www.altova.com) by kflemin (NREL) -->
 <!--This example file is meant to cover the majority of the functionality of New York Local Law 87-->
 <BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../BuildingSync.xsd">
-  <Facilities>
-    <Facility>
-      <Sites>
-        <Site ID="SiteA">
-          <PremisesName>NREL Campus</PremisesName>
-          <Address>
-            <StreetAddressDetail>
-              <Simplified>
-                <StreetAddress>123 Main Street</StreetAddress>
-              </Simplified>
-            </StreetAddressDetail>
-            <City>New York</City>
-            <State>NY</State>
-            <PostalCode>10012</PostalCode>
-          </Address>
-          <Ownership>Non-profit organization</Ownership>
-          <Buildings>
-            <Building ID="Facility1">
-              <PremisesName>RSF</PremisesName>
-              <Address>
-                <StreetAddressDetail>
-                  <Simplified>
-                    <StreetAddress>123 Secondary Street</StreetAddress>
-                  </Simplified>
-                </StreetAddressDetail>
-                <City>New York</City>
-                <State>NY</State>
-                <PostalCode>10012</PostalCode>
-              </Address>
-              <OccupancyClassification>Office</OccupancyClassification>
-              <OccupancyLevels>
-                <OccupancyLevel>
-                  <OccupantQuantityType>Adults</OccupantQuantityType>
-                  <OccupantQuantity>1325</OccupantQuantity>
-                </OccupancyLevel>
-              </OccupancyLevels>
-              <OwnershipStatus>Owned</OwnershipStatus>
-              <FloorAreas>
-                <FloorArea>
-                  <FloorAreaType>Conditioned</FloorAreaType>
-                  <FloorAreaValue>360000</FloorAreaValue>
-                </FloorArea>
-              </FloorAreas>
-              <YearOfConstruction>2011</YearOfConstruction>
-              <UserDefinedFields>
-                <UserDefinedField>
-                  <FieldName>Note</FieldName>
-                  <FieldValue>This is a note on the RSF</FieldValue>
-                </UserDefinedField>
-              </UserDefinedFields>
-            </Building>
-            <Building ID="Facility2">
-              <PremisesName>ESIF</PremisesName>
-              <OccupancyClassification>Laboratory-Testing</OccupancyClassification>
-              <OccupancyLevels>
-                <OccupancyLevel>
-                  <OccupantQuantityType>Adults</OccupantQuantityType>
-                  <OccupantQuantity>200</OccupantQuantity>
-                </OccupancyLevel>
-              </OccupancyLevels>
-              <OwnershipStatus>Owned</OwnershipStatus>
-              <FloorsAboveGrade>3</FloorsAboveGrade>
-              <FloorsBelowGrade>1</FloorsBelowGrade>
-              <FloorAreas>
-                <FloorArea>
-                  <FloorAreaType>Gross</FloorAreaType>
-                  <FloorAreaValue>185000</FloorAreaValue>
-                </FloorArea>
-              </FloorAreas>
-              <YearOfConstruction>2013</YearOfConstruction>
-              <Subsections>
-                <Subsection ID="Wholebuilding2">
-                  <PremisesName>Wholebuilding2</PremisesName>
-                  <RoofID IDref="RoofSystem-01"/>
-                </Subsection>
-              </Subsections>
-              <UserDefinedFields>
-                <UserDefinedField>
-                  <FieldName>Note</FieldName>
-                  <FieldValue>This is a note on the ESIF</FieldValue>
-                </UserDefinedField>
-              </UserDefinedFields>
-            </Building>
-          </Buildings>
-          <UserDefinedFields>
-            <UserDefinedField>
-              <FieldName>Note</FieldName>
-              <FieldValue>This is a note on the site</FieldValue>
-            </UserDefinedField>
-          </UserDefinedFields>
-        </Site>
-      </Sites>
-      <Systems>
-        <HVACSystems>
-          <HVACSystem ID="UnsharedHeating">
-            <Plants>
-              <HeatingPlants>
-                <HeatingPlant ID="HeatingPlant1">
-                  <Boiler>
-                    <BoilerType>Hot water</BoilerType>
-                    <BurnerYearInstalled>2014</BurnerYearInstalled>
-                    <DraftType>Mechanical forced</DraftType>
-                  </Boiler>
-                  <YearInstalled>1999</YearInstalled>
-                </HeatingPlant>
-              </HeatingPlants>
-            </Plants>
-            <HeatingAndCoolingSystems>
-              <HeatingSources>
-                <HeatingSource>
-                  <HeatingSourceType>
-                    <SourceHeatingPlantID IDref="HeatingPlant1"/>
-                  </HeatingSourceType>
-                  <HeatingMedium>Hot water</HeatingMedium>
-                  <PrimaryFuel>Fuel oil no 5 and no 6</PrimaryFuel>
-                </HeatingSource>
-              </HeatingSources>
-              <Deliveries>
-                <Delivery>
-                  <DeliveryType>
-                    <CentralAirDistribution>
-                      <TerminalUnit>Powered induction unit</TerminalUnit>
-                    </CentralAirDistribution>
-                  </DeliveryType>
-                </Delivery>
-              </Deliveries>
-            </HeatingAndCoolingSystems>
-            <LinkedPremises>
-              <Building>
-                <LinkedBuildingID IDref="Facility2"/>
-              </Building>
-            </LinkedPremises>
-          </HVACSystem>
-          <HVACSystem ID="SharedCooling">
-            <Plants>
-              <CoolingPlants>
-                <CoolingPlant ID="CoolingPlant1">
-                  <Chiller>
-                    <ChillerType>Vapor compression</ChillerType>
-                    <CondenserPlantIDs>
-                      <CondenserPlantID IDref="CondenserPlant1"/>
-                    </CondenserPlantIDs>
-                  </Chiller>
-                  <YearInstalled>2005</YearInstalled>
-                </CoolingPlant>
-              </CoolingPlants>
-              <CondenserPlants>
-                <CondenserPlant ID="CondenserPlant1">
-                  <AirCooled>
-                    <EvaporativelyCooledCondenser/>
-                  </AirCooled>
-                  <YearInstalled>2005</YearInstalled>
-                  <UserDefinedFields>
-                    <UserDefinedField>
-                      <FieldName>TestUDF</FieldName>
-                      <FieldValue>tested</FieldValue>
-                    </UserDefinedField>
-                  </UserDefinedFields>
-                </CondenserPlant>
-              </CondenserPlants>
-            </Plants>
-            <HeatingAndCoolingSystems>
-              <CoolingSources>
-                <CoolingSource>
-                  <CoolingSourceType>
-                    <CoolingPlantID IDref="CoolingPlant1"/>
-                  </CoolingSourceType>
-                  <CoolingMedium>Chilled water</CoolingMedium>
-                  <PrimaryFuel>Fuel oil no 2</PrimaryFuel>
-                </CoolingSource>
-              </CoolingSources>
-            </HeatingAndCoolingSystems>
-            <LinkedPremises>
-              <Building>
-                <LinkedBuildingID IDref="Facility1"/>
-                <LinkedBuildingID IDref="Facility2"/>
-              </Building>
-            </LinkedPremises>
-          </HVACSystem>
-        </HVACSystems>
-        <LightingSystems>
-          <LightingSystem ID="LightingSystem-01">
-            <LampType>
-              <LinearFluorescent>
-                <LampLabel>T12HO</LampLabel>
-                <LampLength>4 ft</LampLength>
-              </LinearFluorescent>
-            </LampType>
-            <LinkedPremises>
-              <Facility>
-                <LinkedFacilityID IDref="Facility2"/>
-              </Facility>
-            </LinkedPremises>
-          </LightingSystem>
-        </LightingSystems>
-        <RoofSystems>
-          <RoofSystem ID="RoofSystem-01">
-            <SpecialRoofClassification>Blue roof</SpecialRoofClassification>
-            <YearInstalled>1999</YearInstalled>
-          </RoofSystem>
-        </RoofSystems>
-        <PlugLoads>
-          <PlugLoad>
-            <PlugLoadType>Signage Display</PlugLoadType>
-            <LinkedPremises>
-              <Facility>
-                <LinkedFacilityID IDref="Facility1"/>
-              </Facility>
-            </LinkedPremises>
-          </PlugLoad>
-        </PlugLoads>
-        <ProcessLoads>
-          <ProcessLoad>
-            <ProcessLoadType>Miscellaneous Gas Load</ProcessLoadType>
-            <WeightedAverageLoad>1000</WeightedAverageLoad>
-            <LinkedPremises>
-              <Facility>
-                <LinkedFacilityID IDref="Facility1"/>
-              </Facility>
-            </LinkedPremises>
-          </ProcessLoad>
-        </ProcessLoads>
-        <OnSiteStorageTransmissionGenerationSystems>
-          <OnSiteStorageTransmissionGenerationSystem ID="AllThePV">
-            <EnergyConversionType>
-              <Generation>
-                <OnSiteGenerationType>
-                  <Other>
-                    <OtherEnergyGenerationTechnology>Reciprocating engine</OtherEnergyGenerationTechnology>
-                  </Other>
-                </OnSiteGenerationType>
-              </Generation>
-            </EnergyConversionType>
-            <LinkedPremises>
-              <Building>
-                <LinkedBuildingID IDref="Facility1"/>
-                <LinkedBuildingID IDref="Facility2"/>
-              </Building>
-            </LinkedPremises>
-          </OnSiteStorageTransmissionGenerationSystem>
-        </OnSiteStorageTransmissionGenerationSystems>
-        <AirInfiltrationSystems>
-          <AirInfiltrationSystem ID="AirInfiltrationSystem1">
-            <LinkedPremises>
-              <Facility>
-                <LinkedFacilityID IDref="Facility1"/>
-              </Facility>
-            </LinkedPremises>
-          </AirInfiltrationSystem>
-        </AirInfiltrationSystems>
-      </Systems>
-      <Measures>
-        <Measure ID="Building1RemovePV">
-          <TypeOfMeasure>
-            <Removals>
-              <Removal>
-                <ExistingSystemRemoved IDref="AllThePV"/>
-              </Removal>
-            </Removals>
-          </TypeOfMeasure>
-          <LinkedPremises>
-            <Building>
-              <LinkedBuildingID IDref="Facility1"/>
-            </Building>
-          </LinkedPremises>
-        </Measure>
-        <Measure ID="WholeSiteRemovePV">
-          <TypeOfMeasure>
-            <Removals>
-              <Removal>
-                <ExistingSystemRemoved IDref="AllThePV"/>
-              </Removal>
-            </Removals>
-          </TypeOfMeasure>
-          <LinkedPremises>
-            <Building>
-              <LinkedBuildingID IDref="SiteA"/>
-            </Building>
-          </LinkedPremises>
-        </Measure>
-      </Measures>
-      <Reports>
-        <Report ID="Report-01">
-          <Scenarios>
-            <Scenario ID="Scenario1">
-              <ScenarioName>Remove all the PV from the RSF</ScenarioName>
-              <ScenarioType>
-                <PackageOfMeasures>
-                  <MeasureIDs>
-                    <MeasureID IDref="Building1RemovePV"/>
-                  </MeasureIDs>
-                </PackageOfMeasures>
-              </ScenarioType>
-            </Scenario>
-            <Scenario ID="Scenario2">
-              <ScenarioName>Remove all the PV from campus</ScenarioName>
-              <ScenarioType>
-                <PackageOfMeasures>
-                  <MeasureIDs>
-                    <MeasureID IDref="WholeSiteRemovePV"/>
-                  </MeasureIDs>
-                  <UserDefinedFields>
-                    <UserDefinedField>
-                      <FieldName>TestUDF</FieldName>
-                      <FieldValue>tested</FieldValue>
-                    </UserDefinedField>
-                  </UserDefinedFields>
-                </PackageOfMeasures>
-              </ScenarioType>
-            </Scenario>
-          </Scenarios>
-          <AuditDates>
-            <AuditDate>
-              <Date>2019-05-15</Date>
-              <DateType>Site Visit</DateType>
-            </AuditDate>
-            <AuditDate>
-              <Date>2019-05-20</Date>
-              <DateType>Conducted</DateType>
-            </AuditDate>
-            <AuditDate>
-              <Date>2019-06-01</Date>
-              <DateType>Completion</DateType>
-            </AuditDate>
-            <AuditDate>
-              <Date>2019-06-15</Date>
-              <DateType>Custom</DateType>
-              <CustomDateType>Risk Assessment Completed</CustomDateType>
-            </AuditDate>
-          </AuditDates>
-          <Qualifications>
-            <Qualification>
-              <AuditorQualification>Association of Energy Engineers Certified Building Commissioning Professional (CBCP)</AuditorQualification>
-              <AuditorQualificationNumber>4-8-15-16-23-42</AuditorQualificationNumber>
-            </Qualification>
-            <Qualification ID="ReportQualification-01">
-              <AuditTeamMemberCertificationType>High-Performance Building Design Professional (HBDP)</AuditTeamMemberCertificationType>
-            </Qualification>
-          </Qualifications>
-        </Report>
-      </Reports>
-      <Contacts>
-        <Contact>
-          <ContactRoles>
-            <ContactRole>Submitter</ContactRole>
-          </ContactRoles>
-          <ContactName>Jane Doe</ContactName>
-          <Address>
-            <StreetAddressDetail>
-              <Simplified>
-                <StreetAddress>742 Evergreen Terrace, Springfield, USA</StreetAddress>
-              </Simplified>
-            </StreetAddressDetail>
-          </Address>
-        </Contact>
-      </Contacts>
-    </Facility>
-  </Facilities>
+	<Facilities>
+		<Facility>
+			<Sites>
+				<Site ID="SiteA">
+					<PremisesName>NREL Campus</PremisesName>
+					<Address>
+						<StreetAddressDetail>
+							<Simplified>
+								<StreetAddress>123 Main Street</StreetAddress>
+							</Simplified>
+						</StreetAddressDetail>
+						<City>New York</City>
+						<State>NY</State>
+						<PostalCode>10012</PostalCode>
+					</Address>
+					<Ownership>Non-profit organization</Ownership>
+					<Buildings>
+						<Building ID="Facility1">
+							<PremisesName>RSF</PremisesName>
+							<Address>
+								<StreetAddressDetail>
+									<Simplified>
+										<StreetAddress>123 Secondary Street</StreetAddress>
+									</Simplified>
+								</StreetAddressDetail>
+								<City>New York</City>
+								<State>NY</State>
+								<PostalCode>10012</PostalCode>
+							</Address>
+							<OccupancyClassification>Office</OccupancyClassification>
+							<OccupancyLevels>
+								<OccupancyLevel>
+									<OccupantQuantityType>Adults</OccupantQuantityType>
+									<OccupantQuantity>1325</OccupantQuantity>
+								</OccupancyLevel>
+							</OccupancyLevels>
+							<OwnershipStatus>Owned</OwnershipStatus>
+							<FloorAreas>
+								<FloorArea>
+									<FloorAreaType>Conditioned</FloorAreaType>
+									<FloorAreaValue>360000</FloorAreaValue>
+								</FloorArea>
+							</FloorAreas>
+							<YearOfConstruction>2011</YearOfConstruction>
+							<UserDefinedFields>
+								<UserDefinedField>
+									<FieldName>Note</FieldName>
+									<FieldValue>This is a note on the RSF</FieldValue>
+								</UserDefinedField>
+							</UserDefinedFields>
+						</Building>
+						<Building ID="Facility2">
+							<PremisesName>ESIF</PremisesName>
+							<OccupancyClassification>Laboratory-Testing</OccupancyClassification>
+							<OccupancyLevels>
+								<OccupancyLevel>
+									<OccupantQuantityType>Adults</OccupantQuantityType>
+									<OccupantQuantity>200</OccupantQuantity>
+								</OccupancyLevel>
+							</OccupancyLevels>
+							<OwnershipStatus>Owned</OwnershipStatus>
+							<FloorsAboveGrade>3</FloorsAboveGrade>
+							<FloorsBelowGrade>1</FloorsBelowGrade>
+							<FloorAreas>
+								<FloorArea>
+									<FloorAreaType>Gross</FloorAreaType>
+									<FloorAreaValue>185000</FloorAreaValue>
+								</FloorArea>
+							</FloorAreas>
+							<YearOfConstruction>2013</YearOfConstruction>
+							<Subsections>
+								<Subsection ID="Wholebuilding2">
+									<PremisesName>Wholebuilding2</PremisesName>
+									<RoofID IDref="RoofSystem-01"/>
+								</Subsection>
+							</Subsections>
+							<UserDefinedFields>
+								<UserDefinedField>
+									<FieldName>Note</FieldName>
+									<FieldValue>This is a note on the ESIF</FieldValue>
+								</UserDefinedField>
+							</UserDefinedFields>
+						</Building>
+					</Buildings>
+					<UserDefinedFields>
+						<UserDefinedField>
+							<FieldName>Note</FieldName>
+							<FieldValue>This is a note on the site</FieldValue>
+						</UserDefinedField>
+					</UserDefinedFields>
+				</Site>
+			</Sites>
+			<Systems>
+				<HVACSystems>
+					<HVACSystem ID="UnsharedHeating">
+						<Plants>
+							<HeatingPlants>
+								<HeatingPlant ID="HeatingPlant1">
+									<Boiler>
+										<BoilerType>Hot water</BoilerType>
+										<BurnerYearInstalled>2014</BurnerYearInstalled>
+										<DraftType>Mechanical forced</DraftType>
+									</Boiler>
+									<YearInstalled>1999</YearInstalled>
+								</HeatingPlant>
+							</HeatingPlants>
+						</Plants>
+						<HeatingAndCoolingSystems>
+							<HeatingSources>
+								<HeatingSource>
+									<HeatingSourceType>
+										<SourceHeatingPlantID IDref="HeatingPlant1"/>
+									</HeatingSourceType>
+									<HeatingMedium>Hot water</HeatingMedium>
+									<PrimaryFuel>Fuel oil no 5 and no 6</PrimaryFuel>
+								</HeatingSource>
+							</HeatingSources>
+							<Deliveries>
+								<Delivery>
+									<DeliveryType>
+										<CentralAirDistribution>
+											<TerminalUnit>Powered induction unit</TerminalUnit>
+										</CentralAirDistribution>
+									</DeliveryType>
+								</Delivery>
+							</Deliveries>
+						</HeatingAndCoolingSystems>
+						<LinkedPremises>
+							<Building>
+								<LinkedBuildingID IDref="Facility2"/>
+							</Building>
+						</LinkedPremises>
+					</HVACSystem>
+					<HVACSystem ID="SharedCooling">
+						<Plants>
+							<CoolingPlants>
+								<CoolingPlant ID="CoolingPlant1">
+									<Chiller>
+										<ChillerType>Vapor compression</ChillerType>
+										<CondenserPlantIDs>
+											<CondenserPlantID IDref="CondenserPlant1"/>
+										</CondenserPlantIDs>
+									</Chiller>
+									<YearInstalled>2005</YearInstalled>
+								</CoolingPlant>
+							</CoolingPlants>
+							<CondenserPlants>
+								<CondenserPlant ID="CondenserPlant1">
+									<AirCooled>
+										<EvaporativelyCooledCondenser/>
+									</AirCooled>
+									<YearInstalled>2005</YearInstalled>
+									<UserDefinedFields>
+										<UserDefinedField>
+											<FieldName>TestUDF</FieldName>
+											<FieldValue>tested</FieldValue>
+										</UserDefinedField>
+									</UserDefinedFields>
+								</CondenserPlant>
+							</CondenserPlants>
+						</Plants>
+						<HeatingAndCoolingSystems>
+							<CoolingSources>
+								<CoolingSource>
+									<CoolingSourceType>
+										<CoolingPlantID IDref="CoolingPlant1"/>
+									</CoolingSourceType>
+									<CoolingMedium>Chilled water</CoolingMedium>
+									<PrimaryFuel>Fuel oil no 2</PrimaryFuel>
+								</CoolingSource>
+							</CoolingSources>
+						</HeatingAndCoolingSystems>
+						<LinkedPremises>
+							<Building>
+								<LinkedBuildingID IDref="Facility1"/>
+								<LinkedBuildingID IDref="Facility2"/>
+							</Building>
+						</LinkedPremises>
+					</HVACSystem>
+				</HVACSystems>
+				<LightingSystems>
+					<LightingSystem ID="LightingSystem-01">
+						<LampType>
+							<LinearFluorescent>
+								<LampLabel>T12HO</LampLabel>
+								<LampLength>4 ft</LampLength>
+							</LinearFluorescent>
+						</LampType>
+						<LinkedPremises>
+							<Facility>
+								<LinkedFacilityID IDref="Facility2"/>
+							</Facility>
+						</LinkedPremises>
+					</LightingSystem>
+				</LightingSystems>
+				<RoofSystems>
+					<RoofSystem ID="RoofSystem-01">
+						<SpecialRoofClassification>Blue roof</SpecialRoofClassification>
+						<YearInstalled>1999</YearInstalled>
+					</RoofSystem>
+				</RoofSystems>
+				<PlugLoads>
+					<PlugLoad>
+						<PlugLoadType>Signage Display</PlugLoadType>
+						<LinkedPremises>
+							<Facility>
+								<LinkedFacilityID IDref="Facility1"/>
+							</Facility>
+						</LinkedPremises>
+					</PlugLoad>
+				</PlugLoads>
+				<ProcessLoads>
+					<ProcessLoad>
+						<ProcessLoadType>Miscellaneous Gas Load</ProcessLoadType>
+						<WeightedAverageLoad>1000</WeightedAverageLoad>
+						<LinkedPremises>
+							<Facility>
+								<LinkedFacilityID IDref="Facility1"/>
+							</Facility>
+						</LinkedPremises>
+					</ProcessLoad>
+				</ProcessLoads>
+				<OnSiteStorageTransmissionGenerationSystems>
+					<OnSiteStorageTransmissionGenerationSystem ID="AllThePV">
+						<EnergyConversionType>
+							<Generation>
+								<OnSiteGenerationType>
+									<Other>
+										<OtherEnergyGenerationTechnology>Reciprocating engine</OtherEnergyGenerationTechnology>
+									</Other>
+								</OnSiteGenerationType>
+							</Generation>
+						</EnergyConversionType>
+						<LinkedPremises>
+							<Building>
+								<LinkedBuildingID IDref="Facility1"/>
+								<LinkedBuildingID IDref="Facility2"/>
+							</Building>
+						</LinkedPremises>
+					</OnSiteStorageTransmissionGenerationSystem>
+				</OnSiteStorageTransmissionGenerationSystems>
+				<AirInfiltrationSystems>
+					<AirInfiltrationSystem ID="AirInfiltrationSystem1">
+						<LinkedPremises>
+							<Facility>
+								<LinkedFacilityID IDref="Facility1"/>
+							</Facility>
+						</LinkedPremises>
+					</AirInfiltrationSystem>
+				</AirInfiltrationSystems>
+			</Systems>
+			<Measures>
+				<Measure ID="Building1RemovePV">
+					<TypeOfMeasure>
+						<Removals>
+							<Removal>
+								<ExistingSystemRemoved IDref="AllThePV"/>
+							</Removal>
+						</Removals>
+					</TypeOfMeasure>
+					<LinkedPremises>
+						<Building>
+							<LinkedBuildingID IDref="Facility1"/>
+						</Building>
+					</LinkedPremises>
+					<CustomMeasureName>RemoveBuildingPV</CustomMeasureName>
+				</Measure>
+				<Measure ID="WholeSiteRemovePV">
+					<TypeOfMeasure>
+						<Removals>
+							<Removal>
+								<ExistingSystemRemoved IDref="AllThePV"/>
+							</Removal>
+						</Removals>
+					</TypeOfMeasure>
+					<LinkedPremises>
+						<Building>
+							<LinkedBuildingID IDref="SiteA"/>
+						</Building>
+					</LinkedPremises>
+					<CustomMeasureName>RemoveSitePV</CustomMeasureName>
+				</Measure>
+			</Measures>
+			<Reports>
+				<Report ID="Report-01">
+					<Scenarios>
+						<Scenario ID="Scenario1">
+							<ScenarioName>Remove all the PV from the RSF</ScenarioName>
+							<ScenarioType>
+								<PackageOfMeasures>
+									<MeasureIDs>
+										<MeasureID IDref="Building1RemovePV"/>
+									</MeasureIDs>
+								</PackageOfMeasures>
+							</ScenarioType>
+							<ResourceUses>
+								<ResourceUse>
+									<EnergyResource>Electricity</EnergyResource>
+									<AnnualPeakNativeUnits>20</AnnualPeakNativeUnits>
+								</ResourceUse>
+							</ResourceUses>
+						</Scenario>
+						<Scenario ID="Scenario2">
+							<ScenarioName>Remove all the PV from campus</ScenarioName>
+							<ScenarioType>
+								<PackageOfMeasures>
+									<MeasureIDs>
+										<MeasureID IDref="WholeSiteRemovePV"/>
+									</MeasureIDs>
+									<CalculationMethod>
+										<Modeled>
+											<WeatherDataType>Typical Meteorological Year</WeatherDataType>
+											<SimulationCompletionStatus>Not Started</SimulationCompletionStatus>
+										</Modeled>
+									</CalculationMethod>
+									<UserDefinedFields>
+										<UserDefinedField>
+											<FieldName>TestUDF</FieldName>
+											<FieldValue>tested</FieldValue>
+										</UserDefinedField>
+									</UserDefinedFields>
+								</PackageOfMeasures>
+							</ScenarioType>
+						</Scenario>
+					</Scenarios>
+					<AuditDates>
+						<AuditDate>
+							<Date>2019-05-15</Date>
+							<DateType>Site Visit</DateType>
+						</AuditDate>
+						<AuditDate>
+							<Date>2019-05-20</Date>
+							<DateType>Conducted</DateType>
+						</AuditDate>
+						<AuditDate>
+							<Date>2019-06-01</Date>
+							<DateType>Completion</DateType>
+						</AuditDate>
+						<AuditDate>
+							<Date>2019-06-15</Date>
+							<DateType>Custom</DateType>
+							<CustomDateType>Risk Assessment Completed</CustomDateType>
+						</AuditDate>
+					</AuditDates>
+					<Qualifications>
+						<Qualification>
+							<AuditorQualification>Association of Energy Engineers Certified Building Commissioning Professional (CBCP)</AuditorQualification>
+							<AuditorQualificationNumber>4-8-15-16-23-42</AuditorQualificationNumber>
+						</Qualification>
+						<Qualification ID="ReportQualification-01">
+							<AuditTeamMemberCertificationType>High-Performance Building Design Professional (HBDP)</AuditTeamMemberCertificationType>
+						</Qualification>
+					</Qualifications>
+				</Report>
+			</Reports>
+			<Contacts>
+				<Contact>
+					<ContactRoles>
+						<ContactRole>Submitter</ContactRole>
+					</ContactRoles>
+					<ContactName>Jane Doe</ContactName>
+					<Address>
+						<StreetAddressDetail>
+							<Simplified>
+								<StreetAddress>742 Evergreen Terrace, Springfield, USA</StreetAddress>
+							</Simplified>
+						</StreetAddressDetail>
+					</Address>
+				</Contact>
+			</Contacts>
+		</Facility>
+	</Facilities>
 </BuildingSync>
