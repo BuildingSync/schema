@@ -110,7 +110,7 @@
             </Plants>
             <HeatingAndCoolingSystems>
               <HeatingSources>
-                <HeatingSource>
+                <HeatingSource ID="HeatingSource1">
                   <HeatingSourceType>
                     <SourceHeatingPlantID IDref="HeatingPlant1"/>
                   </HeatingSourceType>
@@ -121,10 +121,23 @@
               <Deliveries>
                 <Delivery>
                   <DeliveryType>
-                    <CentralAirDistribution>
-                      <TerminalUnit>Powered induction unit</TerminalUnit>
-                    </CentralAirDistribution>
+                    <ZoneEquipment>
+                      <Radiant>
+                        <RadiantType>Radiator</RadiantType>
+                      </Radiant>
+                    </ZoneEquipment>
                   </DeliveryType>
+                  <PrimaryFuel>Electricity</PrimaryFuel>
+                </Delivery>
+                <Delivery>
+                  <DeliveryType>
+                    <ZoneEquipment>
+                      <Radiant>
+                        <RadiantType>Radiator</RadiantType>
+                      </Radiant>
+                    </ZoneEquipment>
+                  </DeliveryType>
+                  <HeatingSourceID IDref="HeatingSource1"/>
                 </Delivery>
               </Deliveries>
             </HeatingAndCoolingSystems>
@@ -176,7 +189,7 @@
             </Plants>
             <HeatingAndCoolingSystems>
               <CoolingSources>
-                <CoolingSource>
+                <CoolingSource ID="CoolingSource1">
                   <CoolingSourceType>
                     <CoolingPlantID IDref="CoolingPlant1"/>
                   </CoolingSourceType>
@@ -184,6 +197,16 @@
                   <PrimaryFuel>Fuel oil no 2</PrimaryFuel>
                 </CoolingSource>
               </CoolingSources>
+              <Deliveries>
+                <Delivery>
+                  <DeliveryType>
+                    <CentralAirDistribution>
+                      <TerminalUnit>Powered induction unit</TerminalUnit>
+                    </CentralAirDistribution>
+                  </DeliveryType>
+                  <CoolingSourceID IDref="CoolingSource1"/>
+                </Delivery>
+              </Deliveries>
             </HeatingAndCoolingSystems>
             <LinkedPremises>
               <Building>
