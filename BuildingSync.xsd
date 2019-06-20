@@ -218,10 +218,10 @@
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
-                          <xs:element name="OnSiteStorageTransmissionGenerationSystems" minOccurs="0">
+                          <xs:element name="OnsiteStorageTransmissionGenerationSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="OnSiteStorageTransmissionGenerationSystem" type="auc:OnSiteStorageTransmissionGenerationSystemType" maxOccurs="unbounded"/>
+                                <xs:element name="OnsiteStorageTransmissionGenerationSystem" type="auc:OnsiteStorageTransmissionGenerationSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
@@ -12868,7 +12868,7 @@
     <xs:attribute name="ID" type="xs:ID"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
-  <xs:complexType name="OnSiteStorageTransmissionGenerationSystemType">
+  <xs:complexType name="OnsiteStorageTransmissionGenerationSystemType">
     <xs:sequence>
       <xs:element name="EnergyConversionType" minOccurs="0">
         <xs:annotation>
@@ -12919,7 +12919,7 @@
             <xs:element name="Generation" minOccurs="0">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="OnSiteGenerationType" minOccurs="0">
+                  <xs:element name="OnsiteGenerationType" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>Identifies whether the onsite generation is provided by a photovoltaic system or by another technology.</xs:documentation>
                     </xs:annotation>
