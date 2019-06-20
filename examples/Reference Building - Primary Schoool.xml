@@ -4788,7 +4788,9 @@
                     <ExhaustLocation>Bathroom</ExhaustLocation>
                     <VentilationRate>600</VentilationRate>
                     <RequiredVentilationRate>600</RequiredVentilationRate>
-                    <VentilationControlMethod>Scheduled</VentilationControlMethod>
+                    <VentilationControlMethods>
+                      <VentilationControlMethod>Scheduled</VentilationControlMethod>
+                    </VentilationControlMethods>
                   </SpotExhaust>
                 </OtherHVACType>
                 <ControlTechnology>EMCS</ControlTechnology>
@@ -4809,7 +4811,9 @@
                     <ExhaustLocation>Kitchen hood</ExhaustLocation>
                     <VentilationRate>3302</VentilationRate>
                     <RequiredVentilationRate>3302</RequiredVentilationRate>
-                    <VentilationControlMethod>Scheduled</VentilationControlMethod>
+                    <VentilationControlMethods>
+                      <VentilationControlMethod>Scheduled</VentilationControlMethod>
+                    </VentilationControlMethods>
                     <MakeupAirSourceID>Zone22</MakeupAirSourceID>
                   </SpotExhaust>
                 </OtherHVACType>
@@ -6269,8 +6273,8 @@
             <Quantity>1</Quantity>
           </PlugLoad>
         </PlugLoads>
-        <OnSiteStorageTransmissionGenerationSystems>
-          <OnSiteStorageTransmissionGenerationSystem>
+        <OnsiteStorageTransmissionGenerationSystems>
+          <OnsiteStorageTransmissionGenerationSystem>
             <EnergyConversionType>
               <Generation>
                 <ExternalPowerSupply>AC to AC</ExternalPowerSupply>
@@ -6289,8 +6293,8 @@
                 <FieldValue>0.982</FieldValue>
               </UserDefinedField>
             </UserDefinedFields>
-          </OnSiteStorageTransmissionGenerationSystem>
-        </OnSiteStorageTransmissionGenerationSystems>
+          </OnsiteStorageTransmissionGenerationSystem>
+        </OnsiteStorageTransmissionGenerationSystems>
         <AirInfiltrationSystems>
           <AirInfiltrationSystem>
             <AirInfiltrationValue>112.9</AirInfiltrationValue>
