@@ -10,7 +10,7 @@ The footprint can be defined at both levels, that is, the building and subsectio
 
 ## Implementation
 
-Copy the `auc:FootprintShape` and `auc:Side1AOrientation` elements to the auc:BuildingType.
+Copy the `auc:FootprintShape` element to the auc:BuildingType.
 
 ## References
 
