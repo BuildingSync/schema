@@ -6275,6 +6275,7 @@
                         </xs:element>
                         <xs:element name="HeatingSourceCondition" type="auc:EquipmentCondition" minOccurs="0"/>
                         <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+                        <xs:element ref="auc:Location" minOccurs="0"/>
                         <xs:element ref="auc:YearInstalled" minOccurs="0"/>
                         <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
                         <xs:element ref="auc:Manufacturer" minOccurs="0"/>
@@ -6494,6 +6495,7 @@
                         </xs:element>
                         <xs:element name="CoolingSourceCondition" type="auc:EquipmentCondition" minOccurs="0"/>
                         <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+                        <xs:element ref="auc:Location" minOccurs="0"/>
                         <xs:element ref="auc:YearInstalled" minOccurs="0"/>
                         <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
                         <xs:element ref="auc:Manufacturer" minOccurs="0"/>
@@ -7464,6 +7466,7 @@
         <xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
       </xs:choice>
       <xs:element name="HeatingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
@@ -7747,6 +7750,7 @@
         <xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
       </xs:choice>
       <xs:element name="CoolingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
@@ -8099,6 +8103,7 @@
         <xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
       </xs:choice>
       <xs:element name="CondenserPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
