@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2016 (x64) (http://www.altova.com) by kflemin (NREL) -->
 <!--This example file is meant to cover the majority of the functionality of New York Local Law 87-->
 <BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../BuildingSync.xsd">
   <Facilities>
@@ -326,6 +327,7 @@
           <Scenarios>
             <Scenario ID="Scenario1">
               <ScenarioName>Remove all the PV from the RSF</ScenarioName>
+              <ScenarioNotes>These are details for scenario 1.</ScenarioNotes>
               <ScenarioType>
                 <PackageOfMeasures ID="Package01">
                   <MeasureIDs>
@@ -342,6 +344,7 @@
             </Scenario>
             <Scenario ID="Scenario2">
               <ScenarioName>Remove all the PV from campus</ScenarioName>
+              <ScenarioNotes>Details for scenario 2.</ScenarioNotes>
               <ScenarioType>
                 <PackageOfMeasures>
                   <MeasureIDs>
