@@ -8,7 +8,7 @@ Follow the steps below when releasing a new version
 * (Optional) Convert XSD to JSON schema. This is still in prototype. Use XMLSpy to Generate JSON Schema (use default options).
 
 * Ensure that the XSD and JSON Schema have spaces, and not tabs.
-   
+
     * You can run the following command to convert tabs to spaces (make sure to create backups of the files before running).
 
         ```bash
@@ -30,7 +30,7 @@ Follow the steps below when releasing a new version
     * Make sure to output to a single file (uncheck "Split output in mulitple files")
     * Embed CSS into HTML
     * Export as the default name, then go to the system and rename the html file as `index.html` in the website's `schema/vXXX/documentation` folder.
-    
+
 * Edit the BuildingSync Website GitHub repo on a new branch (https://github.com/BuildingSync/website):
 
 	* Run the schema's rake task for generating the data dictionary (`bundle exec rake generate_data_dictionary`). This will create the list of enumerations in both JSON and XSLX format. In the BuildingSync/website repository:
@@ -40,4 +40,3 @@ Follow the steps below when releasing a new version
         * Update `/schema/index.md` to include new release by following the existing pattern.
 
 * Create a Pull Request from the new branch to gh-pages.
-
