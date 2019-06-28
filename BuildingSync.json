@@ -3048,6 +3048,71 @@
 									],
 									"type": "object"
 								},
+								"auc:Plants": {
+									"additionalProperties": false,
+									"patternProperties": {
+										"^@xmlns(:\\w+)?$": {
+											"type": "string"
+										},
+										"^@xsi:\\w+$": {
+											"type": "string"
+										},
+										"^\\?\\w+$": {
+											"type": "string"
+										}
+									},
+									"properties": {
+										"#": {
+											"type": "string"
+										},
+										"auc:CondenserPlant": {
+											"anyOf": [
+												{
+													"$ref": "#/definitions/auc:CondenserPlantType",
+													"description": "Type of condenser used for refrigerant-based systems."
+												},
+												{
+													"items": {
+														"$ref": "#/definitions/auc:CondenserPlantType",
+														"description": "Type of condenser used for refrigerant-based systems."
+													},
+													"type": "array"
+												}
+											]
+										},
+										"auc:CoolingPlant": {
+											"anyOf": [
+												{
+													"$ref": "#/definitions/auc:CoolingPlantType",
+													"description": "Type of cooling plant. Zonal cooling is recorded in a separate data field. Use of fans or blowers by themselves without chilled air or water is not included in this definition of cooling. Stand-alone dehumidifiers are also not included."
+												},
+												{
+													"items": {
+														"$ref": "#/definitions/auc:CoolingPlantType",
+														"description": "Type of cooling plant. Zonal cooling is recorded in a separate data field. Use of fans or blowers by themselves without chilled air or water is not included in this definition of cooling. Stand-alone dehumidifiers are also not included."
+													},
+													"type": "array"
+												}
+											]
+										},
+										"auc:HeatingPlant": {
+											"anyOf": [
+												{
+													"$ref": "#/definitions/auc:HeatingPlantType",
+													"description": "Type of central heating system, defined as any source of heating energy separate from the zone being heated. Local heating systems (such as packaged systems and fan-coils) are recorded in a separate data field."
+												},
+												{
+													"items": {
+														"$ref": "#/definitions/auc:HeatingPlantType",
+														"description": "Type of central heating system, defined as any source of heating energy separate from the zone being heated. Local heating systems (such as packaged systems and fan-coils) are recorded in a separate data field."
+													},
+													"type": "array"
+												}
+											]
+										}
+									},
+									"type": "object"
+								},
 								"auc:Systems": {
 									"additionalProperties": false,
 									"patternProperties": {
@@ -40130,71 +40195,6 @@
 					"required": [
 						"auc:OtherHVACSystem"
 					],
-					"type": "object"
-				},
-				"auc:Plants": {
-					"additionalProperties": false,
-					"patternProperties": {
-						"^@xmlns(:\\w+)?$": {
-							"type": "string"
-						},
-						"^@xsi:\\w+$": {
-							"type": "string"
-						},
-						"^\\?\\w+$": {
-							"type": "string"
-						}
-					},
-					"properties": {
-						"#": {
-							"type": "string"
-						},
-						"auc:CondenserPlant": {
-							"anyOf": [
-								{
-									"$ref": "#/definitions/auc:CondenserPlantType",
-									"description": "Type of condenser used for refrigerant-based systems."
-								},
-								{
-									"items": {
-										"$ref": "#/definitions/auc:CondenserPlantType",
-										"description": "Type of condenser used for refrigerant-based systems."
-									},
-									"type": "array"
-								}
-							]
-						},
-						"auc:CoolingPlant": {
-							"anyOf": [
-								{
-									"$ref": "#/definitions/auc:CoolingPlantType",
-									"description": "Type of cooling plant. Zonal cooling is recorded in a separate data field. Use of fans or blowers by themselves without chilled air or water is not included in this definition of cooling. Stand-alone dehumidifiers are also not included."
-								},
-								{
-									"items": {
-										"$ref": "#/definitions/auc:CoolingPlantType",
-										"description": "Type of cooling plant. Zonal cooling is recorded in a separate data field. Use of fans or blowers by themselves without chilled air or water is not included in this definition of cooling. Stand-alone dehumidifiers are also not included."
-									},
-									"type": "array"
-								}
-							]
-						},
-						"auc:HeatingPlant": {
-							"anyOf": [
-								{
-									"$ref": "#/definitions/auc:HeatingPlantType",
-									"description": "Type of central heating system, defined as any source of heating energy separate from the zone being heated. Local heating systems (such as packaged systems and fan-coils) are recorded in a separate data field."
-								},
-								{
-									"items": {
-										"$ref": "#/definitions/auc:HeatingPlantType",
-										"description": "Type of central heating system, defined as any source of heating energy separate from the zone being heated. Local heating systems (such as packaged systems and fan-coils) are recorded in a separate data field."
-									},
-									"type": "array"
-								}
-							]
-						}
-					},
 					"type": "object"
 				},
 				"auc:PrimaryHVACControlStrategy": {

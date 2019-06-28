@@ -63,6 +63,45 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
+                    <xs:element name="Plants" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="HeatingPlants" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="HeatingPlant" type="auc:HeatingPlantType" minOccurs="0" maxOccurs="unbounded">
+                                  <xs:annotation>
+                                    <xs:documentation>Type of central heating system, defined as any source of heating energy separate from the zone being heated. Local heating systems (such as packaged systems and fan-coils) are recorded in a separate data field.</xs:documentation>
+                                  </xs:annotation>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="CoolingPlants" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="CoolingPlant" type="auc:CoolingPlantType" minOccurs="0" maxOccurs="unbounded">
+                                  <xs:annotation>
+                                    <xs:documentation>Type of cooling plant. Zonal cooling is recorded in a separate data field. Use of fans or blowers by themselves without chilled air or water is not included in this definition of cooling. Stand-alone dehumidifiers are also not included.</xs:documentation>
+                                  </xs:annotation>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="CondenserPlants" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="CondenserPlant" type="auc:CondenserPlantType" minOccurs="0" maxOccurs="unbounded">
+                                  <xs:annotation>
+                                    <xs:documentation>Type of condenser used for refrigerant-based systems.</xs:documentation>
+                                  </xs:annotation>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
                     <xs:element name="Systems" minOccurs="0">
                       <xs:complexType>
                         <xs:sequence>
@@ -6007,45 +6046,6 @@
   </xs:complexType>
   <xs:complexType name="HVACSystemType">
     <xs:sequence>
-      <xs:element name="Plants" minOccurs="0">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="HeatingPlants" minOccurs="0">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="HeatingPlant" type="auc:HeatingPlantType" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Type of central heating system, defined as any source of heating energy separate from the zone being heated. Local heating systems (such as packaged systems and fan-coils) are recorded in a separate data field.</xs:documentation>
-                    </xs:annotation>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="CoolingPlants" minOccurs="0">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="CoolingPlant" type="auc:CoolingPlantType" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Type of cooling plant. Zonal cooling is recorded in a separate data field. Use of fans or blowers by themselves without chilled air or water is not included in this definition of cooling. Stand-alone dehumidifiers are also not included.</xs:documentation>
-                    </xs:annotation>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="CondenserPlants" minOccurs="0">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="CondenserPlant" type="auc:CondenserPlantType" minOccurs="0" maxOccurs="unbounded">
-                    <xs:annotation>
-                      <xs:documentation>Type of condenser used for refrigerant-based systems.</xs:documentation>
-                    </xs:annotation>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
       <xs:element name="HeatingAndCoolingSystems" minOccurs="0">
         <xs:complexType>
           <xs:sequence>

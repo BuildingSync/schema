@@ -80,19 +80,36 @@
           </UserDefinedFields>
         </Site>
       </Sites>
+      <Plants>
+        <HeatingPlants>
+          <HeatingPlant ID="HeatingPlant1">
+            <Boiler>
+              <BoilerType>Hot water</BoilerType>
+              <DraftType>Mechanical forced</DraftType>
+            </Boiler>
+          </HeatingPlant>
+        </HeatingPlants>
+        <CoolingPlants>
+          <CoolingPlant ID="CoolingPlant1">
+            <Chiller>
+              <ChillerType>Vapor compression</ChillerType>
+              <CondenserPlantIDs>
+                <CondenserPlantID IDref="CondenserPlant1"/>
+              </CondenserPlantIDs>
+            </Chiller>
+          </CoolingPlant>
+        </CoolingPlants>
+        <CondenserPlants>
+          <CondenserPlant ID="CondenserPlant1">
+            <AirCooled>
+              <EvaporativelyCooledCondenser/>
+            </AirCooled>
+          </CondenserPlant>
+        </CondenserPlants>
+      </Plants>
       <Systems>
         <HVACSystems>
           <HVACSystem ID="UnsharedHeating">
-            <Plants>
-              <HeatingPlants>
-                <HeatingPlant ID="HeatingPlant1">
-                  <Boiler>
-                    <BoilerType>Hot water</BoilerType>
-                    <DraftType>Mechanical forced</DraftType>
-                  </Boiler>
-                </HeatingPlant>
-              </HeatingPlants>
-            </Plants>
             <HeatingAndCoolingSystems>
               <HeatingSources>
                 <HeatingSource>
@@ -111,25 +128,6 @@
             </LinkedPremises>
           </HVACSystem>
           <HVACSystem ID="SharedCooling">
-            <Plants>
-              <CoolingPlants>
-                <CoolingPlant ID="CoolingPlant1">
-                  <Chiller>
-                    <ChillerType>Vapor compression</ChillerType>
-                    <CondenserPlantIDs>
-                      <CondenserPlantID IDref="CondenserPlant1"/>
-                    </CondenserPlantIDs>
-                  </Chiller>
-                </CoolingPlant>
-              </CoolingPlants>
-              <CondenserPlants>
-                <CondenserPlant ID="CondenserPlant1">
-                  <AirCooled>
-                    <EvaporativelyCooledCondenser/>
-                  </AirCooled>
-                </CondenserPlant>
-              </CondenserPlants>
-            </Plants>
             <HeatingAndCoolingSystems>
               <CoolingSources>
                 <CoolingSource>

@@ -93,23 +93,48 @@
           </UserDefinedFields>
         </Site>
       </Sites>
+      <Plants>
+        <HeatingPlants>
+          <HeatingPlant ID="HeatingPlant1">
+            <Boiler>
+              <BoilerType>Hot water</BoilerType>
+              <BurnerYearInstalled>2014</BurnerYearInstalled>
+              <DraftType>Mechanical forced</DraftType>
+            </Boiler>
+            <HeatingPlantCondition>Excellent</HeatingPlantCondition>
+            <Location>Mechanical Room</Location>
+            <YearInstalled>1999</YearInstalled>
+          </HeatingPlant>
+        </HeatingPlants>
+        <CoolingPlants>
+          <CoolingPlant ID="CoolingPlant1">
+            <Chiller>
+              <ChillerType>Vapor compression</ChillerType>
+              <CondenserPlantIDs>
+                <CondenserPlantID IDref="CondenserPlant1"/>
+              </CondenserPlantIDs>
+            </Chiller>
+            <YearInstalled>2005</YearInstalled>
+          </CoolingPlant>
+        </CoolingPlants>
+        <CondenserPlants>
+          <CondenserPlant ID="CondenserPlant1">
+            <AirCooled>
+              <EvaporativelyCooledCondenser/>
+            </AirCooled>
+            <YearInstalled>2005</YearInstalled>
+            <UserDefinedFields>
+              <UserDefinedField>
+                <FieldName>TestUDF</FieldName>
+                <FieldValue>tested</FieldValue>
+              </UserDefinedField>
+            </UserDefinedFields>
+          </CondenserPlant>
+        </CondenserPlants>
+      </Plants>
       <Systems>
         <HVACSystems>
           <HVACSystem ID="UnsharedHeating">
-            <Plants>
-              <HeatingPlants>
-                <HeatingPlant ID="HeatingPlant1">
-                  <Boiler>
-                    <BoilerType>Hot water</BoilerType>
-                    <BurnerYearInstalled>2014</BurnerYearInstalled>
-                    <DraftType>Mechanical forced</DraftType>
-                  </Boiler>
-                  <HeatingPlantCondition>Excellent</HeatingPlantCondition>
-                  <Location>Mechanical Room</Location>
-                  <YearInstalled>1999</YearInstalled>
-                </HeatingPlant>
-              </HeatingPlants>
-            </Plants>
             <HeatingAndCoolingSystems>
               <HeatingSources>
                 <HeatingSource ID="HeatingSource1">
@@ -162,33 +187,6 @@
             </LinkedPremises>
           </HVACSystem>
           <HVACSystem ID="SharedCooling">
-            <Plants>
-              <CoolingPlants>
-                <CoolingPlant ID="CoolingPlant1">
-                  <Chiller>
-                    <ChillerType>Vapor compression</ChillerType>
-                    <CondenserPlantIDs>
-                      <CondenserPlantID IDref="CondenserPlant1"/>
-                    </CondenserPlantIDs>
-                  </Chiller>
-                  <YearInstalled>2005</YearInstalled>
-                </CoolingPlant>
-              </CoolingPlants>
-              <CondenserPlants>
-                <CondenserPlant ID="CondenserPlant1">
-                  <AirCooled>
-                    <EvaporativelyCooledCondenser/>
-                  </AirCooled>
-                  <YearInstalled>2005</YearInstalled>
-                  <UserDefinedFields>
-                    <UserDefinedField>
-                      <FieldName>TestUDF</FieldName>
-                      <FieldValue>tested</FieldValue>
-                    </UserDefinedField>
-                  </UserDefinedFields>
-                </CondenserPlant>
-              </CondenserPlants>
-            </Plants>
             <HeatingAndCoolingSystems>
               <CoolingSources>
                 <CoolingSource ID="CoolingSource1">

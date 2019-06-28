@@ -3641,42 +3641,61 @@
           </Buildings>
         </Site>
       </Sites>
+      <Plants>
+        <HeatingPlants>
+          <HeatingPlant ID="Boiler1">
+            <Boiler>
+              <BoilerType>Hot water</BoilerType>
+              <BurnerControlType>On Off</BurnerControlType>
+              <BurnerQuantity>1</BurnerQuantity>
+              <OutputCapacity>314</OutputCapacity>
+              <CapacityUnits>kW</CapacityUnits>
+              <AnnualHeatingEfficiencyValue>0.75</AnnualHeatingEfficiencyValue>
+              <AnnualHeatingEfficiencyUnit>COP</AnnualHeatingEfficiencyUnit>
+              <ThermalEfficiency>0.8</ThermalEfficiency>
+              <BoilerLWT>177.8</BoilerLWT>
+              <Quantity>1</Quantity>
+            </Boiler>
+            <HeatingPlantCondition>Excellent</HeatingPlantCondition>
+          </HeatingPlant>
+        </HeatingPlants>
+        <CondenserPlants>
+          <CondenserPlant ID="Condenser1">
+            <AirCooled/>
+          </CondenserPlant>
+          <CondenserPlant ID="Condenser2">
+            <AirCooled/>
+          </CondenserPlant>
+          <CondenserPlant ID="Condenser3">
+            <AirCooled/>
+          </CondenserPlant>
+          <CondenserPlant ID="Condenser4">
+            <AirCooled/>
+          </CondenserPlant>
+          <CondenserPlant ID="Condenser5">
+            <AirCooled/>
+          </CondenserPlant>
+          <CondenserPlant ID="Condenser6">
+            <AirCooled/>
+          </CondenserPlant>
+          <CondenserPlant ID="Condenser7">
+            <AirCooled/>
+          </CondenserPlant>
+          <CondenserPlant ID="Condenser8">
+            <AirCooled>
+              <CondenserFanSpeedOperation>Constant Volume</CondenserFanSpeedOperation>
+            </AirCooled>
+          </CondenserPlant>
+          <CondenserPlant ID="Condenser9">
+            <AirCooled>
+              <CondenserFanSpeedOperation>Constant Volume</CondenserFanSpeedOperation>
+            </AirCooled>
+          </CondenserPlant>
+        </CondenserPlants>
+      </Plants>
       <Systems>
         <HVACSystems>
           <HVACSystem ID="HVAC1">
-            <Plants>
-              <HeatingPlants>
-                <HeatingPlant ID="Boiler1">
-                  <Boiler>
-                    <BoilerType>Hot water</BoilerType>
-                    <BurnerControlType>On Off</BurnerControlType>
-                    <BurnerQuantity>1</BurnerQuantity>
-                    <OutputCapacity>314</OutputCapacity>
-                    <CapacityUnits>kW</CapacityUnits>
-                    <AnnualHeatingEfficiencyValue>0.75</AnnualHeatingEfficiencyValue>
-                    <AnnualHeatingEfficiencyUnit>COP</AnnualHeatingEfficiencyUnit>
-                    <ThermalEfficiency>0.8</ThermalEfficiency>
-                    <BoilerLWT>177.8</BoilerLWT>
-                    <Quantity>1</Quantity>
-                  </Boiler>
-                  <HeatingPlantCondition>Excellent</HeatingPlantCondition>
-                </HeatingPlant>
-              </HeatingPlants>
-              <CondenserPlants>
-                <CondenserPlant ID="Condenser1">
-                  <AirCooled/>
-                </CondenserPlant>
-                <CondenserPlant ID="Condenser2">
-                  <AirCooled/>
-                </CondenserPlant>
-                <CondenserPlant ID="Condenser3">
-                  <AirCooled/>
-                </CondenserPlant>
-                <CondenserPlant ID="Condenser4">
-                  <AirCooled/>
-                </CondenserPlant>
-              </CondenserPlants>
-            </Plants>
             <HeatingAndCoolingSystems>
               <ZoningSystemType>Multi zone</ZoningSystemType>
               <HeatingSources>
@@ -4449,13 +4468,6 @@
             <Quantity>1</Quantity>
           </HVACSystem>
           <HVACSystem ID="HVAC2">
-            <Plants>
-              <CondenserPlants>
-                <CondenserPlant ID="Condenser5">
-                  <AirCooled/>
-                </CondenserPlant>
-              </CondenserPlants>
-            </Plants>
             <HeatingAndCoolingSystems>
               <ZoningSystemType>Single zone</ZoningSystemType>
               <HeatingSources>
@@ -4559,13 +4571,6 @@
             <Quantity>1</Quantity>
           </HVACSystem>
           <HVACSystem ID="HVAC3">
-            <Plants>
-              <CondenserPlants>
-                <CondenserPlant ID="Condenser6">
-                  <AirCooled/>
-                </CondenserPlant>
-              </CondenserPlants>
-            </Plants>
             <HeatingAndCoolingSystems>
               <ZoningSystemType>Single zone</ZoningSystemType>
               <HeatingSources>
@@ -4671,13 +4676,6 @@
             <Quantity>1</Quantity>
           </HVACSystem>
           <HVACSystem ID="HVAC4">
-            <Plants>
-              <CondenserPlants>
-                <CondenserPlant ID="Condenser7">
-                  <AirCooled/>
-                </CondenserPlant>
-              </CondenserPlants>
-            </Plants>
             <HeatingAndCoolingSystems>
               <ZoningSystemType>Single zone</ZoningSystemType>
               <HeatingSources>
@@ -4836,27 +4834,35 @@
             <Quantity>1</Quantity>
           </HVACSystem>
           <HVACSystem ID="RackCondenser1">
-            <Plants>
-              <CondenserPlants>
-                <CondenserPlant>
-                  <AirCooled>
-                    <CondenserFanSpeedOperation>Constant Volume</CondenserFanSpeedOperation>
-                  </AirCooled>
-                </CondenserPlant>
-              </CondenserPlants>
-            </Plants>
+            <HeatingAndCoolingSystems>
+              <CoolingSources>
+                <CoolingSource>
+                  <CoolingSourceType>
+                    <DX>
+                      <CondenserPlantIDs>
+                        <CondenserPlantID IDref="Condenser8"/>
+                      </CondenserPlantIDs>
+                    </DX>
+                  </CoolingSourceType>
+                </CoolingSource>
+              </CoolingSources>
+            </HeatingAndCoolingSystems>
             <Quantity>1</Quantity>
           </HVACSystem>
           <HVACSystem ID="RackCondenser2">
-            <Plants>
-              <CondenserPlants>
-                <CondenserPlant>
-                  <AirCooled>
-                    <CondenserFanSpeedOperation>Constant Volume</CondenserFanSpeedOperation>
-                  </AirCooled>
-                </CondenserPlant>
-              </CondenserPlants>
-            </Plants>
+            <HeatingAndCoolingSystems>
+              <CoolingSources>
+                <CoolingSource>
+                  <CoolingSourceType>
+                    <DX>
+                      <CondenserPlantIDs>
+                        <CondenserPlantID IDref="Condenser8"/>
+                      </CondenserPlantIDs>
+                    </DX>
+                  </CoolingSourceType>
+                </CoolingSource>
+              </CoolingSources>
+            </HeatingAndCoolingSystems>
             <Quantity>1</Quantity>
           </HVACSystem>
         </HVACSystems>
