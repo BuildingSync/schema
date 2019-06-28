@@ -7508,6 +7508,11 @@
       <xs:element name="HeatingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
+      <xs:element name="PrimaryFuel" type="auc:FuelTypes">
+        <xs:annotation>
+          <xs:documentation>Main fuel used by the heating plant.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
@@ -7792,6 +7797,11 @@
       <xs:element name="CoolingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
+      <xs:element name="PrimaryFuel" type="auc:FuelTypes">
+        <xs:annotation>
+          <xs:documentation>Main fuel used by the cooling plant.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
