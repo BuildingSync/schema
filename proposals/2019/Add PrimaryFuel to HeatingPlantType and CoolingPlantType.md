@@ -2,7 +2,7 @@
 
 ## Overview
 
-This proposal is to add the `<auc:PrimaryFuel>` element to the definitions of the `<auc:HeatingPlantType>` and `<auc:CoolingPlantType>` elements.
+This proposal is to add the `<auc:PrimaryFuel>` element to the definitions of the `<auc:HeatingPlantType>`, `<auc:CoolingPlantType>` and `<auc:CondenserPlantType>` elements.
 
 ## Justification
 
@@ -14,6 +14,7 @@ Add the `<auc:PrimaryFuel>` element to the following XPaths:
 
 * `BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant`
 * `BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/CoolingPlants/CoolingPlant`
+* `BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/CoolingPlants/CondenserPlantType`
 
 ## References
 
