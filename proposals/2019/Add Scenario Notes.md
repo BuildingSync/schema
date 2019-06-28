@@ -6,7 +6,7 @@ Add ScenarioNotes to the Scenario element.
 
 ## Justification
 
-Add ScenarioNotes to the Scenario element.
+There is no current way to store notes related to a scenario without using a user defined field.
 
 ## Implementation
 
