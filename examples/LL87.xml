@@ -104,6 +104,8 @@
                     <BurnerYearInstalled>2014</BurnerYearInstalled>
                     <DraftType>Mechanical forced</DraftType>
                   </Boiler>
+                  <HeatingPlantCondition>Excellent</HeatingPlantCondition>
+                  <Location>Mechanical Room</Location>
                   <YearInstalled>1999</YearInstalled>
                 </HeatingPlant>
               </HeatingPlants>
@@ -301,6 +303,7 @@
               <LinkedBuildingID IDref="Facility1"/>
             </Building>
           </LinkedPremises>
+          <CustomMeasureName>RemoveBuildingPV</CustomMeasureName>
         </Measure>
         <Measure ID="WholeSiteRemovePV">
           <TypeOfMeasure>
@@ -315,6 +318,7 @@
               <LinkedBuildingID IDref="SiteA"/>
             </Building>
           </LinkedPremises>
+          <CustomMeasureName>RemoveSitePV</CustomMeasureName>
         </Measure>
       </Measures>
       <Reports>
@@ -329,6 +333,12 @@
                   </MeasureIDs>
                 </PackageOfMeasures>
               </ScenarioType>
+              <ResourceUses>
+                <ResourceUse>
+                  <EnergyResource>Electricity</EnergyResource>
+                  <AnnualPeakNativeUnits>20</AnnualPeakNativeUnits>
+                </ResourceUse>
+              </ResourceUses>
             </Scenario>
             <Scenario ID="Scenario2">
               <ScenarioName>Remove all the PV from campus</ScenarioName>
@@ -337,6 +347,12 @@
                   <MeasureIDs>
                     <MeasureID IDref="WholeSiteRemovePV"/>
                   </MeasureIDs>
+                  <CalculationMethod>
+                    <Modeled>
+                      <WeatherDataType>TMY</WeatherDataType>
+                      <SimulationCompletionStatus>Finished</SimulationCompletionStatus>
+                    </Modeled>
+                  </CalculationMethod>
                   <UserDefinedFields>
                     <UserDefinedField>
                       <FieldName>TestUDF</FieldName>

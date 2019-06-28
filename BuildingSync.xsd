@@ -3918,6 +3918,41 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
+      <xs:element name="PeakResourceUnits" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Units for peak demand</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="kW"/>
+            <xs:enumeration value="MMBtu/day"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="AnnualPeakNativeUnits" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Largest 15-min peak (units)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AnnualPeakConsistentUnits" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Largest 15-min peak (kW)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="FuelUseIntensity" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Fuel use intensity is the energy associated with the selected fuel type divided by the gross floor area. (units/ft2/yr)</xs:documentation>
@@ -5288,6 +5323,11 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+      <xs:element name="CustomMeasureName" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Custom name of the measure, i.e. the name of the simulated measure</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="LongDescription" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Long description of measure.</xs:documentation>
@@ -6280,6 +6320,7 @@
                         </xs:element>
                         <xs:element name="HeatingSourceCondition" type="auc:EquipmentCondition" minOccurs="0"/>
                         <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+                        <xs:element ref="auc:Location" minOccurs="0"/>
                         <xs:element ref="auc:YearInstalled" minOccurs="0"/>
                         <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
                         <xs:element ref="auc:Manufacturer" minOccurs="0"/>
@@ -6499,6 +6540,7 @@
                         </xs:element>
                         <xs:element name="CoolingSourceCondition" type="auc:EquipmentCondition" minOccurs="0"/>
                         <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+                        <xs:element ref="auc:Location" minOccurs="0"/>
                         <xs:element ref="auc:YearInstalled" minOccurs="0"/>
                         <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
                         <xs:element ref="auc:Manufacturer" minOccurs="0"/>
@@ -7469,6 +7511,7 @@
         <xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
       </xs:choice>
       <xs:element name="HeatingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
@@ -7752,6 +7795,7 @@
         <xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
       </xs:choice>
       <xs:element name="CoolingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
@@ -8104,6 +8148,7 @@
         <xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
       </xs:choice>
       <xs:element name="CondenserPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
@@ -13413,6 +13458,39 @@
               <xs:annotation>
                 <xs:documentation>Version number of building energy modeling software</xs:documentation>
               </xs:annotation>
+            </xs:element>
+            <xs:element name="WeatherDataType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Type of weather data used for the simulation</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="CWEC"/>
+                  <xs:enumeration value="CZRV2"/>
+                  <xs:enumeration value="IWEC"/>
+                  <xs:enumeration value="Onsite Measurement"/>
+                  <xs:enumeration value="TMY"/>
+                  <xs:enumeration value="TMY2"/>
+                  <xs:enumeration value="TMY3"/>
+                  <xs:enumeration value="Weather Station"/>
+                  <xs:enumeration value="Other"/>
+                  <xs:enumeration value="Unknown"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="SimulationCompletionStatus" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Status of the simulation</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Not Started"/>
+                  <xs:enumeration value="Started"/>
+                  <xs:enumeration value="Finished"/>
+                  <xs:enumeration value="Failed"/>
+                  <xs:enumeration value="Unknown"/>
+                </xs:restriction>
+              </xs:simpleType>
             </xs:element>
           </xs:sequence>
         </xs:complexType>
