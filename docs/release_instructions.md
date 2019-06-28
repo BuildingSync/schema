@@ -27,7 +27,7 @@ Follow the steps below when releasing a new version
     * Schema Design -> Generate Documentation
     * Set to HTML
     * Check all the includes and details
-    * Make sure to output to a single file (uncheck "Split output in mulitple files")
+    * Make sure to output to a single file (uncheck "Split output in multiple files")
     * Embed CSS into HTML
     * Export as the default name, then go to the system and rename the html file as `index.html` in the website's `schema/vXXX/documentation` folder.
 
