@@ -4239,6 +4239,20 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
+      <xs:element name="ResourceUseIDs" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ResourceUseID" minOccurs="1" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>ID number of resource use that contributed to this all resource total.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
