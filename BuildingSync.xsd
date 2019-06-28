@@ -11417,18 +11417,24 @@
           <xs:documentation>The general description of the main structural construction method used for an opaque surface.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="SpecialRoofClassification" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Additional classifications for the roof construction.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Cool roof"/>
-            <xs:enumeration value="Blue roof"/>
-            <xs:enumeration value="Green roof"/>
-            <xs:enumeration value="Other"/>
-          </xs:restriction>
-        </xs:simpleType>
+      <xs:element name="SpecialRoofClassifications" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SpecialRoofClassification" minOccurs="1" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Additional classifications for the roof construction.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Cool roof"/>
+                  <xs:enumeration value="Blue roof"/>
+                  <xs:enumeration value="Green roof"/>
+                  <xs:enumeration value="Other"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
       <xs:element name="RoofFinish" minOccurs="0">
         <xs:annotation>
