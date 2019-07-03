@@ -1201,11 +1201,17 @@
                     </xs:annotation>
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
-                        <xs:enumeration value="Whole Building"/>
-                        <xs:enumeration value="Space Function"/>
+                        <xs:annotation>
+                          <xs:documentation>What is a space function</xs:documentation>
+                        </xs:annotation>
+                        <xs:enumeration value="Whole building"/>
+                        <xs:enumeration value="Space function"/>
                         <xs:enumeration value="Component"/>
+                        <xs:enumeration value="Tenant"/>
                         <xs:enumeration value="Virtual"/>
                         <xs:enumeration value="Other"/>
+                        <!--this is a comment-->
+                        <!-- Australian Dollar -->
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
