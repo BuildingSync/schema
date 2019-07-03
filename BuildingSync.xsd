@@ -11461,24 +11461,20 @@
           <xs:documentation>The general description of the main structural construction method used for an opaque surface.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="SpecialRoofClassifications" minOccurs="0">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="SpecialRoofClassification" minOccurs="1" maxOccurs="unbounded">
-              <xs:annotation>
-                <xs:documentation>Additional classifications for the roof construction.</xs:documentation>
-              </xs:annotation>
-              <xs:simpleType>
-                <xs:restriction base="xs:string">
-                  <xs:enumeration value="Cool roof"/>
-                  <xs:enumeration value="Blue roof"/>
-                  <xs:enumeration value="Green roof"/>
-                  <xs:enumeration value="Other"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
+      <xs:element name="BlueRoof" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>A blue roof is a roof design that is explicitly intended to store water, typically rainfall.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="CoofRoof" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>A cool roof reduces roof temperature with a high solar reflectance (or albedo) material that helps to reflect sunlight and heat away from a building.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="GreenRoof" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>A green roof or living roof is a roof of a building that is partially or completely covered with vegetation and a growing medium, planted over a waterproofing membrane.</xs:documentation>
+        </xs:annotation>
       </xs:element>
       <xs:element name="RoofFinish" minOccurs="0">
         <xs:annotation>
