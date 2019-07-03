@@ -713,7 +713,11 @@
   </xs:complexType>
   <xs:complexType name="BuildingType">
     <xs:sequence>
-      <xs:element ref="auc:PremisesName" minOccurs="0"/>
+      <xs:element ref="auc:PremisesName" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Name identifying the premises. This could be the name of the complex, the building, section, or the space within a building, such as a classroom number.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element ref="auc:PremisesNotes" minOccurs="0"/>
       <xs:element ref="auc:PremisesIdentifiers" minOccurs="0"/>
       <xs:element ref="auc:Address" minOccurs="0">
@@ -932,7 +936,11 @@
           <xs:documentation>Does the facility have historical landmark status (e.g. is the facility listed in the National Register of Historic Places)?</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element ref="auc:FloorAreas" minOccurs="0"/>
+      <xs:element ref="auc:FloorAreas" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of various floor areas of the building.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="AspectRatio" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The ratio of width to length, of a premises</xs:documentation>
@@ -1130,7 +1138,7 @@
       </xs:element>
       <xs:element name="YearOfLatestRetrofit" type="xs:gYear" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Year an energy retrofit of the facility or subsection was last completed. (CCYY)</xs:documentation>
+          <xs:documentation>Year an energy retrofit of the building was last completed. (CCYY)</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="YearOfLastMajorRemodel" type="xs:gYear" minOccurs="0">
@@ -1177,16 +1185,30 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="Subsections" minOccurs="0">
+      <xs:element name="Sections" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="Subsection" maxOccurs="unbounded">
+            <xs:element name="Section" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation>Physical subsection of building for which geometric features are defined. May be one or many.</xs:documentation>
+                <xs:documentation>Physical section of building for which features are defined. May be one or many.</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:sequence>
                   <xs:element ref="auc:PremisesName" minOccurs="0"/>
+                  <xs:element name="SectionType" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>The type of section such as Whole Building data, Space Function data, or other types.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Whole Building"/>
+                        <xs:enumeration value="Space Function"/>
+                        <xs:enumeration value="Component"/>
+                        <xs:enumeration value="Virtual"/>
+                        <xs:enumeration value="Other"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                   <xs:element ref="auc:PremisesNotes" minOccurs="0"/>
                   <xs:element ref="auc:PremisesIdentifiers" minOccurs="0"/>
                   <xs:element ref="auc:OccupancyClassification" minOccurs="0"/>
@@ -1201,7 +1223,7 @@
                   </xs:element>
                   <xs:element name="FootprintShape" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>General shape of subsection or building footprint as defined in the BuildingSync Geometry Reference Sheet.</xs:documentation>
+                      <xs:documentation>General shape of the section of the building as a footprint defined in the BuildingSync Geometry Reference Sheet.</xs:documentation>
                     </xs:annotation>
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
@@ -1218,10 +1240,14 @@
                   </xs:element>
                   <xs:element name="Story" type="xs:int" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>The story of the given subsection.</xs:documentation>
+                      <xs:documentation>The story of the given section.</xs:documentation>
                     </xs:annotation>
                   </xs:element>
-                  <xs:element ref="auc:FloorAreas" minOccurs="0"/>
+                  <xs:element ref="auc:FloorAreas" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>List of various floor areas of the section.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
                   <xs:element name="ThermalZoneLayout" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>Type of zoning used for space conditioning</xs:documentation>
@@ -1268,7 +1294,7 @@
                             <xs:sequence>
                               <xs:element name="SideNumber" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>Alphanumeric designation of the side of a subsection as defined in the BuildingSync Geometry Reference Sheet.</xs:documentation>
+                                  <xs:documentation>Alphanumeric designation of the side of the section as defined in the BuildingSync Geometry Reference Sheet.</xs:documentation>
                                 </xs:annotation>
                                 <xs:simpleType>
                                   <xs:restriction base="xs:string">
@@ -1291,7 +1317,7 @@
                               </xs:element>
                               <xs:element name="SideLength" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>Length of a particular side of subsection as defined in the BuildingSync Geometry Reference Sheet. (ft)</xs:documentation>
+                                  <xs:documentation>Length of a particular side of the section as defined in the BuildingSync Geometry Reference Sheet. (ft)</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:simpleContent>
@@ -1303,7 +1329,7 @@
                               </xs:element>
                               <xs:element name="WallID" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>ID number of the wall type associated with this side of the subsection</xs:documentation>
+                                  <xs:documentation>ID number of the wall type associated with this side of the section.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:sequence>
@@ -1325,7 +1351,7 @@
                               </xs:element>
                               <xs:element name="WindowID" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>ID number of the window type associated with this side of the subsection</xs:documentation>
+                                  <xs:documentation>ID number of the window type associated with this side of the section.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:sequence>
@@ -1371,7 +1397,7 @@
                               </xs:element>
                               <xs:element name="DoorID" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>ID number of the door type associated with this side of the subsection</xs:documentation>
+                                  <xs:documentation>ID number of the door type associated with this side of the section.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:sequence>
@@ -1392,11 +1418,14 @@
                                 </xs:complexType>
                               </xs:element>
                               <xs:element name="ThermalZoneIDs" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>List of thermal zone IDs.</xs:documentation>
+                                </xs:annotation>
                                 <xs:complexType>
                                   <xs:sequence>
                                     <xs:element name="ThermalZoneID" minOccurs="0">
                                       <xs:annotation>
-                                        <xs:documentation>ID number of the zone type associated with this space or side of the subsection</xs:documentation>
+                                        <xs:documentation>ID number of the zone type associated with this space or side of the section.</xs:documentation>
                                       </xs:annotation>
                                       <xs:complexType>
                                         <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -1413,7 +1442,7 @@
                   </xs:element>
                   <xs:element name="RoofID" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>ID number of the roof/ceiling type associated with this subsection</xs:documentation>
+                      <xs:documentation>ID number of the roof/ceiling type associated with this section.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -1446,7 +1475,7 @@
                             <xs:sequence>
                               <xs:element name="SkylightID" minOccurs="0" maxOccurs="unbounded">
                                 <xs:annotation>
-                                  <xs:documentation>ID number of the skylight type associated with this side of the subsection</xs:documentation>
+                                  <xs:documentation>ID number of the skylight type associated with this side of the section.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:sequence>
@@ -1475,7 +1504,7 @@
                   </xs:element>
                   <xs:element name="CeilingID" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>ID number of the roof/ceiling type associated with this subsection</xs:documentation>
+                      <xs:documentation>ID number of the roof/ceiling type associated with this section.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -1508,7 +1537,7 @@
                             <xs:sequence>
                               <xs:element name="ThermalZoneID" minOccurs="0" maxOccurs="unbounded">
                                 <xs:annotation>
-                                  <xs:documentation>ID number of the zone type associated with this space or side of the subsection</xs:documentation>
+                                  <xs:documentation>ID number of the zone type associated with this space or side of the section.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -1522,7 +1551,7 @@
                             <xs:sequence>
                               <xs:element name="SpaceID" minOccurs="0" maxOccurs="unbounded">
                                 <xs:annotation>
-                                  <xs:documentation>ID number of the space type associated with this side of the subsection</xs:documentation>
+                                  <xs:documentation>ID number of the space type associated with this side of the section.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -1537,7 +1566,7 @@
                   </xs:element>
                   <xs:element name="FoundationID" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>ID number of the foundation type associated with this subsection</xs:documentation>
+                      <xs:documentation>ID number of the foundation type associated with this section.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -1558,7 +1587,7 @@
                             <xs:sequence>
                               <xs:element name="ThermalZoneID" minOccurs="0" maxOccurs="unbounded">
                                 <xs:annotation>
-                                  <xs:documentation>ID number of the zone type associated with this space or side of the subsection</xs:documentation>
+                                  <xs:documentation>ID number of the zone type associated with this space or side of the section.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -1572,7 +1601,7 @@
                             <xs:sequence>
                               <xs:element name="SpaceID" minOccurs="0" maxOccurs="unbounded">
                                 <xs:annotation>
-                                  <xs:documentation>ID number of the space type associated with this side of the subsection</xs:documentation>
+                                  <xs:documentation>ID number of the space type associated with this side of the section.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -1587,7 +1616,7 @@
                   </xs:element>
                   <xs:element name="XOffset" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>X offset of the origin of the subsection,defined as the counter-clockwise vertex of the A1 side on the bottom floor, relative to an arbitrary fixed origin established for the facility. (See BuildingSync Geometry Reference Sheet). (ft)</xs:documentation>
+                      <xs:documentation>X offset of the origin of the section, defined as the counter-clockwise vertex of the A1 side on the bottom floor, relative to an arbitrary fixed origin established for the facility. (See BuildingSync Geometry Reference Sheet). (ft)</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:simpleContent>
@@ -1599,7 +1628,7 @@
                   </xs:element>
                   <xs:element name="YOffset" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Y offset of the origin of the subsection, defined as the counter-clockwise vertex of the A1 side on the bottom floor, relative to an arbitrary fixed origin established for the facility. (See BuildingSync Geometry Reference Sheet) (ft)</xs:documentation>
+                      <xs:documentation>Y offset of the origin of the section, defined as the counter-clockwise vertex of the A1 side on the bottom floor, relative to an arbitrary fixed origin established for the facility. (See BuildingSync Geometry Reference Sheet) (ft)</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:simpleContent>
@@ -1611,7 +1640,7 @@
                   </xs:element>
                   <xs:element name="ZOffset" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Z offset of the origin of the subsection, defined as the counter-clockwise vertex of the A1 side on the bottom floor, relative to an arbitrary fixed origin established for the facility. (See BuildingSync Geometry Reference Sheet) (ft)</xs:documentation>
+                      <xs:documentation>Z offset of the origin of the section, defined as the counter-clockwise vertex of the A1 side on the bottom floor, relative to an arbitrary fixed origin established for the facility. (See BuildingSync Geometry Reference Sheet) (ft)</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:simpleContent>
@@ -1684,7 +1713,7 @@
                   <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                   <xs:element name="ThermalZones" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Subsections of a building that share thermal control characteristics. May be one or many.</xs:documentation>
+                      <xs:documentation>Section of a building that share thermal control characteristics. May be one or many.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -3103,7 +3132,7 @@
       </xs:element>
       <xs:element ref="auc:LinkedPremises" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Establishes whether the system or scenario applies to one or more entire buildings, subsections, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
+          <xs:documentation>Establishes whether the system or scenario applies to one or more entire buildings, sections, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
@@ -9067,7 +9096,7 @@
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Establishes whether the system applies to one or more entire buildings, subsection, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
+          <xs:documentation>Establishes whether the system applies to one or more entire buildings, section, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
@@ -9581,7 +9610,7 @@
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Establishes whether the system applies to one or more entire buildings, subsections, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
+          <xs:documentation>Establishes whether the system applies to one or more entire buildings, sections, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
@@ -9690,7 +9719,7 @@
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Establishes whether the system applies to one or more entire buildings, subsections, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
+          <xs:documentation>Establishes whether the system applies to one or more entire buildings, sections, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
@@ -13745,7 +13774,7 @@
   </xs:element>
   <xs:element name="LinkedPremises">
     <xs:annotation>
-      <xs:documentation>Establishes whether the system applies to one or more entire buildings, subsections, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
+      <xs:documentation>Establishes whether the system applies to one or more entire buildings, sections, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -13842,12 +13871,12 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Subsection" minOccurs="0">
+        <xs:element name="Section" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="LinkedSubsectionID" maxOccurs="unbounded">
+              <xs:element name="LinkedSectionID" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>ID numbers of the subsections associated with the system.</xs:documentation>
+                  <xs:documentation>ID numbers of the sections associated with the system.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
@@ -13940,7 +13969,7 @@
   </xs:element>
   <xs:element name="LinkedPremisesOrSystem">
     <xs:annotation>
-      <xs:documentation>Establishes whether an item applies to one or more systems, entire buildings, subsections, spaces, or zones within buildings. Developer note: the XSD should be done as a union, but cannot due to limitations of automatic processors.</xs:documentation>
+      <xs:documentation>Establishes whether an item applies to one or more systems, entire buildings, sections, spaces, or zones within buildings. Developer note: the XSD should be done as a union, but cannot due to limitations of automatic processors.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -14037,12 +14066,12 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Subsection" minOccurs="0">
+        <xs:element name="Section" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="LinkedSubsectionID" maxOccurs="unbounded">
+              <xs:element name="LinkedSectionID" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>ID numbers of the associated subsections.</xs:documentation>
+                  <xs:documentation>ID numbers of the associated sections.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
@@ -14815,7 +14844,7 @@
   </xs:element>
   <xs:element name="OccupancyClassification">
     <xs:annotation>
-      <xs:documentation>Classification of the space (complex, whole building, or subsection) tasks by building occupants.</xs:documentation>
+      <xs:documentation>Classification of the space (complex, whole building, or section) tasks by building occupants.</xs:documentation>
     </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">
@@ -14962,7 +14991,7 @@
   </xs:element>
   <xs:element name="TypicalOccupantUsages">
     <xs:annotation>
-      <xs:documentation>Characterization of the usage of the space (complex, whole building, or subsection) by building occupants.</xs:documentation>
+      <xs:documentation>Characterization of the usage of the space (complex, whole building, or section) by building occupants.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -15128,7 +15157,7 @@
               </xs:element>
               <xs:element name="FloorAreaPercentage" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>The percentage of subsection floor area that belongs to a FloorAreaType. (0-100) (%)</xs:documentation>
+                  <xs:documentation>The percentage of floor area that belongs to a FloorAreaType. (0-100) (%)</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                   <xs:restriction base="xs:float">
