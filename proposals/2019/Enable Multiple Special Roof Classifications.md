@@ -2,7 +2,7 @@
 
 ## Overview
 
-This proposal is to allow multiple `<auc:SpecialRoofClassification>` for a given `<auc:RoofSystemType>`.
+This proposal is to allow multiple `<auc:SpecialRoofClassification>`.
 
 ## Justification
 
@@ -10,8 +10,10 @@ Special roof classifications are not mutually exclusive [1].
 
 ## Implementation
 
-This proposal is to add the following XPaths:
-* `//BuildingSync/Facilities/Facility/Systems/RoofSystems/RoofSystem/SpecialRoofClassifications/SpecialRoofClassification`
+This proposal is to add the following paths with annotations from BEDES:
+* `//BuildingSync/Facilities/Facility/Systems/RoofSystems/RoofSystem/BlueRoof`
+* `//BuildingSync/Facilities/Facility/Systems/RoofSystems/RoofSystem/CoolRoof`
+* `//BuildingSync/Facilities/Facility/Systems/RoofSystems/RoofSystem/GreenRoof`
 
 ## References
 
