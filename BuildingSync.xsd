@@ -1195,8 +1195,6 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element ref="auc:PremisesName" minOccurs="0"/>
-                  <xs:element ref="auc:PremisesNotes" minOccurs="0"/>
-                  <xs:element ref="auc:PremisesIdentifiers" minOccurs="0"/>
                   <xs:element name="SectionType" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>The type of section such as Whole Building data, Space Function data, or other types.</xs:documentation>
@@ -1211,6 +1209,8 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element ref="auc:PremisesNotes" minOccurs="0"/>
+                  <xs:element ref="auc:PremisesIdentifiers" minOccurs="0"/>
                   <xs:element ref="auc:OccupancyClassification" minOccurs="0"/>
                   <xs:element ref="auc:OccupancyLevels" minOccurs="0"/>
                   <xs:element ref="auc:TypicalOccupantUsages" minOccurs="0"/>
