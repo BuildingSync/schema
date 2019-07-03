@@ -1197,7 +1197,7 @@
                   <xs:element ref="auc:PremisesName" minOccurs="0"/>
                   <xs:element name="SectionType" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>The type of section such as Whole Building data, Space Function data, or other types.</xs:documentation>
+                      <xs:documentation>The type of section such as Whole building, Space function data, or other types. * Whole building - describes the whole building, Space function - describes a space function (see ASHRAE standard 211), Component - describes a subspace of a primary premises such as HVAC zone, retails shops in a mall, etc., Tenant - describes a section for a tenant, Virtual - desbribes a section loosely with potenially overlap with other sections and section types, Other - not well-described by other types.</xs:documentation>
                     </xs:annotation>
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
