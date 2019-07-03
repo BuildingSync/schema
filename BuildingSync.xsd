@@ -1485,6 +1485,11 @@
                                         </xs:simpleContent>
                                       </xs:complexType>
                                     </xs:element>
+                                    <xs:element name="RoofCondition" type="auc:EquipmentCondition" minOccurs="0">
+                                      <xs:annotation>
+                                        <xs:documentation>Description of the roof's condition.</xs:documentation>
+                                      </xs:annotation>
+                                    </xs:element>
                                     <xs:element name="SkylightIDs" minOccurs="0">
                                       <xs:annotation>
                                         <xs:documentation>List of Skylight IDs.</xs:documentation>

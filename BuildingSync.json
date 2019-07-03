@@ -58941,6 +58941,29 @@
 					},
 					"type": "object"
 				},
+				"auc:RoofCondition": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/auc:EquipmentCondition"
+						}
+					},
+					"type": "object"
+				},
 				"auc:RoofConstruction": {
 					"additionalProperties": false,
 					"description": "The general description of the main structural construction method used for an opaque surface.",
