@@ -16,7 +16,7 @@
             <PostalCode>80401</PostalCode>
           </Address>
           <Buildings>
-            <Building ID="Facility1">
+            <Building ID="Building1">
               <PremisesName>RSF</PremisesName>
               <OccupancyClassification>Office</OccupancyClassification>
               <OccupancyLevels>
@@ -33,6 +33,23 @@
                 </FloorArea>
               </FloorAreas>
               <YearOfConstruction>2011</YearOfConstruction>
+              <Sections>
+                <Section>
+                  <SectionType>Whole Building</SectionType>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="RoofID-1">
+                        <RoofArea>10000</RoofArea>
+                      </RoofID>
+                    </Roof>
+                    <Roof>
+                      <RoofID IDref="RoofID-2">
+                        <RoofArea>10000</RoofArea>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                </Section>
+              </Sections>
               <UserDefinedFields>
                 <UserDefinedField>
                   <FieldName>Note</FieldName>
@@ -40,7 +57,7 @@
                 </UserDefinedField>
               </UserDefinedFields>
             </Building>
-            <Building ID="Facility2">
+            <Building ID="Building2">
               <PremisesName>ESIF</PremisesName>
               <OccupancyClassification>Laboratory-Testing</OccupancyClassification>
               <OccupancyLevels>
@@ -65,12 +82,6 @@
                   <SectionType>Whole Building</SectionType>
                 </Section>
               </Sections>
-              <UserDefinedFields>
-                <UserDefinedField>
-                  <FieldName>Note</FieldName>
-                  <FieldValue>This is a note on the ESIF</FieldValue>
-                </UserDefinedField>
-              </UserDefinedFields>
             </Building>
           </Buildings>
           <UserDefinedFields>
@@ -107,7 +118,7 @@
             </HeatingAndCoolingSystems>
             <LinkedPremises>
               <Building>
-                <LinkedBuildingID IDref="Facility2"/>
+                <LinkedBuildingID IDref="Building2"/>
               </Building>
             </LinkedPremises>
           </HVACSystem>
@@ -144,12 +155,22 @@
             </HeatingAndCoolingSystems>
             <LinkedPremises>
               <Building>
-                <LinkedBuildingID IDref="Facility1"/>
-                <LinkedBuildingID IDref="Facility2"/>
+                <LinkedBuildingID IDref="Building1"/>
+                <LinkedBuildingID IDref="Building2"/>
               </Building>
             </LinkedPremises>
           </HVACSystem>
         </HVACSystems>
+        <RoofSystems>
+          <RoofSystem ID="RoofID-1">
+            <RoofConstruction>Built up</RoofConstruction>
+            <RoofRValue>38</RoofRValue>
+          </RoofSystem>
+          <RoofSystem ID="RoofID-2">
+            <RoofConstruction>Concrete solid</RoofConstruction>
+            <RoofRValue>12</RoofRValue>
+          </RoofSystem>
+        </RoofSystems>
         <OnsiteStorageTransmissionGenerationSystems>
           <OnsiteStorageTransmissionGenerationSystem ID="AllThePV">
             <EnergyConversionType>
@@ -161,8 +182,8 @@
             </EnergyConversionType>
             <LinkedPremises>
               <Building>
-                <LinkedBuildingID IDref="Facility1"/>
-                <LinkedBuildingID IDref="Facility2"/>
+                <LinkedBuildingID IDref="Building1"/>
+                <LinkedBuildingID IDref="Building2"/>
               </Building>
             </LinkedPremises>
           </OnsiteStorageTransmissionGenerationSystem>
@@ -179,7 +200,7 @@
           </TypeOfMeasure>
           <LinkedPremises>
             <Building>
-              <LinkedBuildingID IDref="Facility1"/>
+              <LinkedBuildingID IDref="Building1"/>
             </Building>
           </LinkedPremises>
         </Measure>
