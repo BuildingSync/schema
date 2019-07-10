@@ -241,6 +241,31 @@
             </LinkedPremises>
           </LightingSystem>
         </LightingSystems>
+        <DomesticHotWaterSystems>
+          <DomesticHotWaterSystem>
+            <DomesticHotWaterType>
+              <StorageTank>
+                <TankHeatingType>
+                  <Indirect>
+                    <IndirectTankHeatingSource>
+                      <SpaceHeatingSystem>
+                        <HeatingPlantID IDref="UnsharedHeating"/>
+                      </SpaceHeatingSystem>
+                    </IndirectTankHeatingSource>
+                  </Indirect>
+                </TankHeatingType>
+                <TankVolume>100</TankVolume>
+              </StorageTank>
+            </DomesticHotWaterType>
+            <ControlTechnology>Manual Analog Thermostat</ControlTechnology>
+            <Location>Mechanical Room</Location>
+            <LinkedPremises>
+              <Building>
+                <LinkedBuildingID IDref="Facility1"/>
+              </Building>
+            </LinkedPremises>
+          </DomesticHotWaterSystem>
+        </DomesticHotWaterSystems>
         <RoofSystems>
           <RoofSystem ID="RoofSystem-01">
             <BlueRoof>true</BlueRoof>
