@@ -49,8 +49,8 @@
               <YearOfLastEnergyAudit>2001</YearOfLastEnergyAudit>
               <RetrocommissioningDate>2010-07-01</RetrocommissioningDate>
               <YearOfLastMajorRemodel>2001</YearOfLastMajorRemodel>
-              <Subsections>
-                <Subsection ID="Wholebuilding">
+              <Sections>
+                <Section ID="Wholebuilding">
                   <PremisesName>Wholebuilding</PremisesName>
                   <YearOfConstruction>1888</YearOfConstruction>
                   <FootprintShape>U-Shape</FootprintShape>
@@ -64,12 +64,20 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>2000</RoofArea>
-                  </RoofID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>1000</FoundationArea>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>2000</RoofArea>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>1000</FoundationArea>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <FloorsAboveGrade>3</FloorsAboveGrade>
                   <FloorsBelowGrade>1</FloorsBelowGrade>
                   <ThermalZones>
@@ -354,8 +362,8 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-              </Subsections>
+                </Section>
+              </Sections>
               <UserDefinedFields>
                 <UserDefinedField>
                   <FieldName>Above grade wall common area with other conditioned buildings (ft2)</FieldName>
@@ -448,7 +456,7 @@
             <LampType>
               <CompactFluorescent/>
             </LampType>
-            <BallastType>Electronic</BallastType>
+            <BallastType>Standard Electronic</BallastType>
             <PercentPremisesServed>0.1</PercentPremisesServed>
             <ControlTechnology>Manual On/Off</ControlTechnology>
             <Location>Interior</Location>
@@ -487,7 +495,7 @@
             <LampType>
               <HighIntensityDischarge/>
             </LampType>
-            <BallastType>Electronic</BallastType>
+            <BallastType>Standard Electronic</BallastType>
             <PercentPremisesServed>0.9</PercentPremisesServed>
             <ControlTechnology>EMCS</ControlTechnology>
             <Location>Interior</Location>
@@ -505,7 +513,7 @@
             <LampType>
               <SolidStateLighting/>
             </LampType>
-            <BallastType>Electronic</BallastType>
+            <BallastType>Standard Electronic</BallastType>
             <PercentPremisesServed>1</PercentPremisesServed>
             <ControlTechnology>Other</ControlTechnology>
             <Location>Interior</Location>

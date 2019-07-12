@@ -71,12 +71,20 @@
                 </FloorArea>
               </FloorAreas>
               <YearOfConstruction>2013</YearOfConstruction>
-              <Subsections>
-                <Subsection ID="Wholebuilding2">
+              <Sections>
+                <Section ID="Wholebuilding2">
                   <PremisesName>Wholebuilding2</PremisesName>
-                  <RoofID IDref="RoofSystem-01"/>
-                </Subsection>
-              </Subsections>
+                  <SectionType>Whole building</SectionType>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="RoofSystem-01">
+                        <RoofArea>10000</RoofArea>
+                        <RoofCondition>Average</RoofCondition>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                </Section>
+              </Sections>
               <UserDefinedFields>
                 <UserDefinedField>
                   <FieldName>Note</FieldName>
@@ -233,9 +241,35 @@
             </LinkedPremises>
           </LightingSystem>
         </LightingSystems>
+        <DomesticHotWaterSystems>
+          <DomesticHotWaterSystem>
+            <DomesticHotWaterType>
+              <StorageTank>
+                <TankHeatingType>
+                  <Indirect>
+                    <IndirectTankHeatingSource>
+                      <SpaceHeatingSystem>
+                        <HeatingPlantID IDref="UnsharedHeating"/>
+                      </SpaceHeatingSystem>
+                    </IndirectTankHeatingSource>
+                  </Indirect>
+                </TankHeatingType>
+                <TankVolume>100</TankVolume>
+              </StorageTank>
+            </DomesticHotWaterType>
+            <ControlTechnology>Manual Analog Thermostat</ControlTechnology>
+            <Location>Mechanical Room</Location>
+            <LinkedPremises>
+              <Building>
+                <LinkedBuildingID IDref="Facility1"/>
+              </Building>
+            </LinkedPremises>
+          </DomesticHotWaterSystem>
+        </DomesticHotWaterSystems>
         <RoofSystems>
           <RoofSystem ID="RoofSystem-01">
-            <SpecialRoofClassification>Blue roof</SpecialRoofClassification>
+            <BlueRoof>true</BlueRoof>
+            <GreenRoof>true</GreenRoof>
             <YearInstalled>1999</YearInstalled>
           </RoofSystem>
         </RoofSystems>

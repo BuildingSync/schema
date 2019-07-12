@@ -8131,7 +8131,8 @@
 						"Always On",
 						"Timer",
 						"Other",
-						"Unknown"
+						"Unknown",
+						"None"
 					],
 					"type": "string"
 				}
@@ -15305,6 +15306,9 @@
 						}
 					},
 					"type": "object"
+				},
+				"auc:PrimaryFuel": {
+					"$ref": "#/definitions/.auc:PrimaryFuel"
 				}
 			},
 			"type": "object"
@@ -17271,6 +17275,9 @@
 				},
 				"auc:Unknown": {
 					"$ref": "#/definitions/auc:UnknownType"
+				},
+				"auc:PrimaryFuel": {
+					"$ref": "#/definitions/.auc:PrimaryFuel"
 				}
 			},
 			"type": "object"
@@ -42147,6 +42154,9 @@
 				},
 				"auc:Unknown": {
 					"$ref": "#/definitions/auc:UnknownType"
+				},
+				"auc:PrimaryFuel": {
+					"$ref": "#/definitions/.auc:PrimaryFuel"
 				}
 			},
 			"type": "object"
@@ -58927,6 +58937,29 @@
 								"Unknown"
 							],
 							"type": "string"
+						}
+					},
+					"type": "object"
+				},
+				"auc:RoofCondition": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/auc:EquipmentCondition"
 						}
 					},
 					"type": "object"
