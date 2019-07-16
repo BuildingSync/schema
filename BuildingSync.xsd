@@ -9661,7 +9661,7 @@
                                   </xs:sequence>
                                 </xs:complexType>
                               </xs:element>
-                              <xs:element name="Daylighting" minOccurs="0">
+                              <xs:element name="Photocell" minOccurs="0">
                                 <xs:annotation>
                                   <xs:documentation>Type of daylighting controls used to manage lighting.</xs:documentation>
                                 </xs:annotation>
@@ -9670,6 +9670,7 @@
                                     <xs:element name="ControlStrategy">
                                       <xs:simpleType>
                                         <xs:restriction base="xs:string">
+                                          <xs:enumeration value="On/Off"/>
                                           <xs:enumeration value="Continuous"/>
                                           <xs:enumeration value="Continuous Plus Off"/>
                                           <xs:enumeration value="Stepped Dimming"/>

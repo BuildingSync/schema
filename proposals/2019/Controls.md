@@ -78,8 +78,8 @@ Below are the mapping for option 2 to demonstrate how the new format may look.
 
 BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/CoolingSources/CoolingSource/ControlTechnology
 
-| AT Field - Value     |
-|----------------------|-------------------------------------
+| AT Field - Value     | XPath								  |
+|----------------------|------------------------------------- |
 | Zone Controls - None | BuildingSync/Facilities/Facility/Systems/LightingSystems/LightingSystem/Controls_2/HVACControl/Other/ControlTechnology/None |
 | Zone Controls - Manual Pneumatic Thermostat | BuildingSync/Facilities/Facility/Systems/LightingSystems/LightingSystem/Controls_2/HVACControl/Pneumatic/ControlTechnology/Thermostat/ControlStrategy - Manual |
 | Zone Controls - Programmable DDC Thermostat | BuildingSync/Facilities/Facility/Systems/LightingSystems/LightingSystem/Controls_2/HVACControl/DirectDigitalControl/ControlTechnology/Thermostat/ControlStrategy |
@@ -89,7 +89,7 @@ BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolin
 | Central Plant - Building Automation System | BuildingSync/Facilities/Facility/Systems/LightingSystems/LightingSystem/Controls_2/HVACControl/DirectDigitalControl/ControlTechnology/ECMS/ControlStrategy - Programmable |
 | Central Plant - Pneumatic Controls | BuildingSync/Facilities/Facility/Systems/LightingSystems/LightingSystem/Controls_2/HVACControl/Pneumatic/ControlTechnology/Other/ControlStrategy - Other |
 | Lighting Controls - Occupancy Sensor | BuildingSync/Facilities/Facility/Systems/LightingSystems/LightingSystem/Controls_2/LightingControl/Digital/ControlTechnology/Occupancy/ControlStrategy |
-| Lighting Controls - Photocell | 
+| Lighting Controls - Photocell | auc:BuildingSync/auc:Facilities/auc:Facility/auc:Systems/auc:LightingSystems/auc:LightingSystem/auc:Controls_2/auc:LightingControl/auc:Digital/auc:ControlTechnology/auc:Photocell/auc:ControlStrategy - Other |
 | Lighting Controls - Timer | BuildingSync/Facilities/Facility/Systems/LightingSystems/LightingSystem/Controls_2/LightingControl/Digital/ControlTechnology/Timer/ControlStrategy | 
 | Lighting Controls - Building Automation System | BuildingSync/Facilities/Facility/Systems/LightingSystems/LightingSystem/Controls_2/LightingControl/Digital/ControlTechnology/ECMS/ControlStrategy |
 | Lighting Controls - Advanced | BuildingSync/Facilities/Facility/Systems/LightingSystems/LightingSystem/Controls_2/LightingControl/Digital/ControlTechnology/Other/ControlStrategy - Advanced |
