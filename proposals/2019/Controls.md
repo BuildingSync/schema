@@ -100,6 +100,12 @@ BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolin
 
 Programmable and Scheduled are the same term in BEDES, see [programmable](https://bedes.lbl.gov/bedes-online/programmable) and [scheduled](https://bedes.lbl.gov/bedes-online/scheduled). There should only be a single term and recommend "Programmable" as it is more abstract. 
 
+## TODO
+
+* Determine if we should flip control technologies and control type
+* Plant controls
+* How to handle high-level ask if the building has analog, digital, or pneumatic
+* Do not put 0-10V as an enum (use voltage | current)
 ## References
 
 * ASHRAE Handbook of Fundamentals Section 2.3 - Controllers
