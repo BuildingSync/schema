@@ -6935,6 +6935,11 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+      <xs:element name="PrimaryHVACControls" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The main types of HVAC controls that are used for this system.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="PrimaryHVACControlStrategy" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Primary HVAC equipment control strategy.</xs:documentation>
@@ -6942,7 +6947,7 @@
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:enumeration value="Pneumatic"/>
-            <xs:enumeration value="Electric"/>
+            <xs:enumeration value="Electronic"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
@@ -8886,7 +8891,7 @@
       </xs:element>
       <xs:element name="LightingControlTypeOccupancy" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Type of occupancy controls used to manage lighting.</xs:documentation>
+          <xs:documentation>Type of occupancy controls used to manage lighting. - Will move to LightingControl</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -8900,7 +8905,7 @@
       </xs:element>
       <xs:element name="LightingControlTypeTimer" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Type of timer controls used to manage lighting.</xs:documentation>
+          <xs:documentation>Type of timer controls used to manage lighting.  - Will move to lighting control.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -8914,7 +8919,7 @@
       </xs:element>
       <xs:element name="LightingControlTypeDaylighting" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Type of daylighting controls used to manage lighting.</xs:documentation>
+          <xs:documentation>Type of daylighting controls used to manage lighting. - Will move to lighting control</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -8930,7 +8935,7 @@
       </xs:element>
       <xs:element name="LightingControlTypeManual" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Type of manual controls used to manage lighting.</xs:documentation>
+          <xs:documentation>Type of manual controls used to manage lighting. -Will move to lighting control.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -8975,18 +8980,6 @@
               </xs:complexType>
             </xs:element>
           </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="DaylightingControlSteps" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>For stepped dimming, the number of equally spaced control steps</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:integer">
-              <xs:attribute ref="auc:Source"/>
-            </xs:extension>
-          </xs:simpleContent>
         </xs:complexType>
       </xs:element>
       <xs:element name="PercentPremisesServed" minOccurs="0">
@@ -9150,6 +9143,680 @@
               <xs:attribute ref="auc:Source"/>
             </xs:extension>
           </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Controls_1" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of controls for system.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Control" type="auc:ControlOptionType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Type of control.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Controls_2">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="HVACControl" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Type of control.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Pneumatic" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ControlTechnology" minOccurs="0">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="Thermostat" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Always On"/>
+                                          <xs:enumeration value="Manual"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="Unknown"/>
+                                          <xs:enumeration value="None"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="Other" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Always On"/>
+                                          <xs:enumeration value="Manual"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="Unknown"/>
+                                          <xs:enumeration value="None"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Analog" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="CommunicationProtocol" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>Method of communicating data over a computer network.</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="0-10V"/>
+                              <xs:enumeration value="4-20mA"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="ControlTechnology" minOccurs="0">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="Thermostat" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Always On"/>
+                                          <xs:enumeration value="Aquastat"/>
+                                          <xs:enumeration value="Demand"/>
+                                          <xs:enumeration value="Manual"/>
+                                          <xs:enumeration value="Programmable"/>
+                                          <xs:enumeration value="Scheduled"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="Unknown"/>
+                                          <xs:enumeration value="None"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="Timer" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Astronomical"/>
+                                          <xs:enumeration value="Chronological"/>
+                                          <xs:enumeration value="Manual"/>
+                                          <xs:enumeration value="Programmable"/>
+                                          <xs:enumeration value="Scheduled"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="None"/>
+                                          <xs:enumeration value="Unknown"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="Other" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Always On"/>
+                                          <xs:enumeration value="Aquastat"/>
+                                          <xs:enumeration value="Demand"/>
+                                          <xs:enumeration value="Manual"/>
+                                          <xs:enumeration value="Programmable"/>
+                                          <xs:enumeration value="Scheduled"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="Unknown"/>
+                                          <xs:enumeration value="None"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="DirectDigitalControl" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="CommunicationProtocol" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>Method of communicating data over a computer network.</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="BACnet"/>
+                              <xs:enumeration value="Konnex"/>
+                              <xs:enumeration value="LonTalk"/>
+                              <xs:enumeration value="MODBUS"/>
+                              <xs:enumeration value="PROFIBUS FMS"/>
+                              <xs:enumeration value="ZibBee"/>
+                              <xs:enumeration value="Unknown"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="ControlTechnology" minOccurs="0">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ECMS" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Always On"/>
+                                          <xs:enumeration value="Aquastat"/>
+                                          <xs:enumeration value="Demand"/>
+                                          <xs:enumeration value="Manual"/>
+                                          <xs:enumeration value="Programmable"/>
+                                          <xs:enumeration value="Scheduled"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="Unknown"/>
+                                          <xs:enumeration value="None"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="Thermostat" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Always On"/>
+                                          <xs:enumeration value="Aquastat"/>
+                                          <xs:enumeration value="Demand"/>
+                                          <xs:enumeration value="Manual"/>
+                                          <xs:enumeration value="Programmable"/>
+                                          <xs:enumeration value="Scheduled"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="Unknown"/>
+                                          <xs:enumeration value="None"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="Timer" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Chronological"/>
+                                          <xs:enumeration value="Astronomical"/>
+                                          <xs:enumeration value="Manual"/>
+                                          <xs:enumeration value="Programmable"/>
+                                          <xs:enumeration value="Scheduled"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="None"/>
+                                          <xs:enumeration value="Unknown"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="Other" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Always On"/>
+                                          <xs:enumeration value="Aquastat"/>
+                                          <xs:enumeration value="Demand"/>
+                                          <xs:enumeration value="Manual"/>
+                                          <xs:enumeration value="Programmable"/>
+                                          <xs:enumeration value="Scheduled"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="Unknown"/>
+                                          <xs:enumeration value="None"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Other" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="OtherControlType" type="xs:string" minOccurs="0"/>
+                        <xs:element name="ControlTechnology" minOccurs="0">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="AdvancedPowerStrip" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Always On"/>
+                                          <xs:enumeration value="Aquastat"/>
+                                          <xs:enumeration value="Demand"/>
+                                          <xs:enumeration value="Manual"/>
+                                          <xs:enumeration value="Programmable"/>
+                                          <xs:enumeration value="Scheduled"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="Unknown"/>
+                                          <xs:enumeration value="None"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="ECMS" minOccurs="0"/>
+                              <xs:element name="None" minOccurs="0"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="LightingControl" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Analog" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="CommunicationProtocol" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>Method of communicating data over a computer network.</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="0-10V"/>
+                              <xs:enumeration value="AMX192"/>
+                              <xs:enumeration value="D54"/>
+                              <xs:enumeration value="Other"/>
+                              <xs:enumeration value="Unknown"/>
+                              <xs:enumeration value="None"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="ControlTechnology" minOccurs="0">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="Daylighting" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>Type of daylighting controls used to manage lighting.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Continuous"/>
+                                          <xs:enumeration value="Continuous Plus Off"/>
+                                          <xs:enumeration value="Stepped Dimming"/>
+                                          <xs:enumeration value="Stepped Switching"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="None"/>
+                                          <xs:enumeration value="Unknown"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="ControlSteps" minOccurs="0">
+                                      <xs:annotation>
+                                        <xs:documentation>For stepped dimming, the number of equally spaced control steps.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:complexType>
+                                        <xs:simpleContent>
+                                          <xs:extension base="xs:integer">
+                                            <xs:attribute ref="auc:Source"/>
+                                          </xs:extension>
+                                        </xs:simpleContent>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="Manual" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>Type of manual controls used to manage lighting.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStategy">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Manual On/Off"/>
+                                          <xs:enumeration value="Manual Dimming"/>
+                                          <xs:enumeration value="Bi-level Control"/>
+                                          <xs:enumeration value="Tri-level Control"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="None"/>
+                                          <xs:enumeration value="Unknown"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="Occupancy" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>Type of occupancy controls used to manage lighting.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Occupancy Sensors"/>
+                                          <xs:enumeration value="Vacancy Sensors"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="None"/>
+                                          <xs:enumeration value="Unknown"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="Other" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Advanced"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="Unknown"/>
+                                          <xs:enumeration value="None"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Digital" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="CommunicationProtocol" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>Method of communicating data over a computer network.</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="BACnet"/>
+                              <xs:enumeration value="Konnex"/>
+                              <xs:enumeration value="LonTalk"/>
+                              <xs:enumeration value="MODBUS"/>
+                              <xs:enumeration value="PROFIBUS FMS"/>
+                              <xs:enumeration value="ZibBee"/>
+                              <xs:enumeration value="Unknown"/>
+                              <xs:enumeration value="Other"/>
+                              <xs:enumeration value="DALI"/>
+                              <xs:enumeration value="DSI "/>
+                              <xs:enumeration value="DMX512"/>
+                              <xs:enumeration value="KMX"/>
+                              <xs:enumeration value="EnOcean"/>
+                              <xs:enumeration value="X10"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="ControlTechnology" minOccurs="0">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="AdvancedPowerStrip" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Always On"/>
+                                          <xs:enumeration value="Aquastat"/>
+                                          <xs:enumeration value="Demand"/>
+                                          <xs:enumeration value="Manual"/>
+                                          <xs:enumeration value="Programmable"/>
+                                          <xs:enumeration value="Scheduled"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="Unknown"/>
+                                          <xs:enumeration value="None"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="Daylighting" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>Type of daylighting controls used to manage lighting.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Continuous"/>
+                                          <xs:enumeration value="Continuous Plus Off"/>
+                                          <xs:enumeration value="Stepped Dimming"/>
+                                          <xs:enumeration value="Stepped Switching"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="None"/>
+                                          <xs:enumeration value="Unknown"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="ControlSteps" minOccurs="0">
+                                      <xs:annotation>
+                                        <xs:documentation>For stepped dimming, the number of equally spaced control steps.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:complexType>
+                                        <xs:simpleContent>
+                                          <xs:extension base="xs:integer">
+                                            <xs:attribute ref="auc:Source"/>
+                                          </xs:extension>
+                                        </xs:simpleContent>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="ECMS" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Always On"/>
+                                          <xs:enumeration value="Aquastat"/>
+                                          <xs:enumeration value="Demand"/>
+                                          <xs:enumeration value="Manual"/>
+                                          <xs:enumeration value="Programmable"/>
+                                          <xs:enumeration value="Scheduled"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="Unknown"/>
+                                          <xs:enumeration value="None"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="Manual" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>Type of manual controls used to manage lighting.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStategy">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Manual On/Off"/>
+                                          <xs:enumeration value="Manual Dimming"/>
+                                          <xs:enumeration value="Bi-level Control"/>
+                                          <xs:enumeration value="Tri-level Control"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="None"/>
+                                          <xs:enumeration value="Unknown"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="Occupancy" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>Type of occupancy controls used to manage lighting.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Occupancy Sensors"/>
+                                          <xs:enumeration value="Vacancy Sensors"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="None"/>
+                                          <xs:enumeration value="Unknown"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="Timer" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Chronological"/>
+                                          <xs:enumeration value="Astronomical"/>
+                                          <xs:enumeration value="Manual"/>
+                                          <xs:enumeration value="Programmable"/>
+                                          <xs:enumeration value="Scheduled"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="None"/>
+                                          <xs:enumeration value="Unknown"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="Other" minOccurs="0">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ControlStrategy">
+                                      <xs:annotation>
+                                        <xs:documentation>Controller strategy.</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Advanced"/>
+                                          <xs:enumeration value="Other"/>
+                                          <xs:enumeration value="Unknown"/>
+                                          <xs:enumeration value="None"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Other" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
@@ -16426,4 +17093,79 @@
       <xs:documentation>Year that the burner was installed</xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:complexType name="ControlOptionType">
+    <xs:sequence>
+      <xs:element name="ControllerType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The type of controller. E.g., electronic, pneumatic.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Analog"/>
+            <xs:enumeration value="Direct digital control"/>
+            <xs:enumeration value="Pneumatic"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Unknown"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CommunicationProtocol" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Method of communicating data over a computer network.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="0-10V"/>
+            <xs:enumeration value="BACnet"/>
+            <xs:enumeration value="Konnex"/>
+            <xs:enumeration value="LonTalk"/>
+            <xs:enumeration value="MODBUS"/>
+            <xs:enumeration value="PROFIBUS FMS"/>
+            <xs:enumeration value="ZibBee"/>
+            <xs:enumeration value="Unknown"/>
+            <xs:enumeration value="Other"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ControlTechnology" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Technological device that enables control of the system.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Advanced power strip"/>
+            <xs:enumeration value="EMCS"/>
+            <xs:enumeration value="Thermostat"/>
+            <xs:enumeration value="Thermostatic radiator valve"/>
+            <xs:enumeration value="Thermostatic zone valve"/>
+            <xs:enumeration value="Timer"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Unknown"/>
+            <xs:enumeration value="None"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ControlStrategy" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The strategy used to control the system.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Always On"/>
+            <xs:enumeration value="Astronomical"/>
+            <xs:enumeration value="Aquastat"/>
+            <xs:enumeration value="Chronological"/>
+            <xs:enumeration value="Demand"/>
+            <xs:enumeration value="Manual"/>
+            <xs:enumeration value="Programmable"/>
+            <xs:enumeration value="Scheduled"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Unknown"/>
+            <xs:enumeration value="None"/>
+            <xs:enumeration value=""/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>
