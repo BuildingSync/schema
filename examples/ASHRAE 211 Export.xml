@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by NREL (NREL) -->
 <BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../BuildingSync.xsd">
   <Facilities>
     <Facility>
@@ -449,7 +450,13 @@
             </LampType>
             <BallastType>Electromagnetic</BallastType>
             <PercentPremisesServed>0.05</PercentPremisesServed>
-            <ControlTechnology>Always On</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>Always On</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Location>Interior</Location>
           </LightingSystem>
           <LightingSystem>
@@ -458,7 +465,13 @@
             </LampType>
             <BallastType>Standard Electronic</BallastType>
             <PercentPremisesServed>0.1</PercentPremisesServed>
-            <ControlTechnology>Manual On/Off</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>Manual On/Off</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Location>Interior</Location>
           </LightingSystem>
           <LightingSystem>
@@ -466,10 +479,16 @@
               <LinearFluorescent/>
             </LampType>
             <BallastType>No Ballast</BallastType>
-            <LightingControlTypeOccupancy>Occupancy Sensors</LightingControlTypeOccupancy>
             <PercentPremisesServed>0.25</PercentPremisesServed>
             <OutsideLighting>true</OutsideLighting>
-            <ControlTechnology>Other</ControlTechnology>
+            <Controls>
+              <Control>
+                <Occupancy>
+                  <ControlSensor>Passive infrared</ControlSensor>
+                  <ControlStrategy>Occupancy Sensors</ControlStrategy>
+                </Occupancy>
+              </Control>
+            </Controls>
             <Location>Exterior</Location>
           </LightingSystem>
           <LightingSystem>
@@ -477,9 +496,15 @@
               <LinearFluorescent/>
             </LampType>
             <BallastType>Other</BallastType>
-            <LightingControlTypeDaylighting>Continuous</LightingControlTypeDaylighting>
             <PercentPremisesServed>0.5</PercentPremisesServed>
-            <ControlTechnology>Other</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlStrategy>Continuous</ControlStrategy>
+                </Daylighting>
+              </Control>
+            </Controls>
             <Location>Interior</Location>
           </LightingSystem>
           <LightingSystem>
@@ -488,7 +513,13 @@
             </LampType>
             <BallastType>Electromagnetic</BallastType>
             <PercentPremisesServed>0.75</PercentPremisesServed>
-            <ControlTechnology>Timer</ControlTechnology>
+            <Controls>
+              <Control>
+                <Timer>
+                  <ControlStrategy>Timer</ControlStrategy>
+                </Timer>
+              </Control>
+            </Controls>
             <Location>Other</Location>
           </LightingSystem>
           <LightingSystem>
@@ -497,7 +528,13 @@
             </LampType>
             <BallastType>Standard Electronic</BallastType>
             <PercentPremisesServed>0.9</PercentPremisesServed>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <Location>Interior</Location>
           </LightingSystem>
           <LightingSystem>
@@ -506,7 +543,13 @@
             </LampType>
             <BallastType>Electromagnetic</BallastType>
             <PercentPremisesServed>1</PercentPremisesServed>
-            <ControlTechnology>Other</ControlTechnology>
+            <Controls>
+              <Control>
+                <OtherControlTechnology>
+                  <ControlStrategy>Other</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <Location>Interior</Location>
           </LightingSystem>
           <LightingSystem>
@@ -515,7 +558,13 @@
             </LampType>
             <BallastType>Standard Electronic</BallastType>
             <PercentPremisesServed>1</PercentPremisesServed>
-            <ControlTechnology>Other</ControlTechnology>
+            <Controls>
+              <Control>
+                <OtherControlTechnology>
+                  <ControlStrategy>Other</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <Location>Interior</Location>
           </LightingSystem>
           <LightingSystem>
@@ -524,7 +573,13 @@
             </LampType>
             <BallastType>Other</BallastType>
             <PercentPremisesServed>1</PercentPremisesServed>
-            <ControlTechnology>Always On</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>Always On</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Location>Interior</Location>
           </LightingSystem>
           <LightingSystem>
@@ -533,7 +588,13 @@
             </LampType>
             <BallastType>Other</BallastType>
             <PercentPremisesServed>1</PercentPremisesServed>
-            <ControlTechnology>Always On</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>Always On</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Location>Interior</Location>
           </LightingSystem>
         </LightingSystems>

@@ -52,7 +52,7 @@ The Lighting System has the following updated controls section:
 			* Daylighting
 				* ControlType
 				* ControlSensor
-					* List
+					* List of multiple lighting-based control strategies
 				* ControlSteps
 				* ControlStrategy
 				* OtherControlStrategyName
@@ -67,61 +67,36 @@ The Lighting System has the following updated controls section:
 			* OtherControlTechnology
 				* ... same as above ...
 			 	* OtherControlTechnologyName
-
-The HVAC Systems, specifically the HeatingSource ... to be completed.
-
-	* Controls
-		* HVACControlType (unbounded)
-			* AdvancedPowerStrip
-				* CioAnalog
-					* CommunicationProtocol
-					* ControlStrategy
-						* 
-				* Digital
-				* Other
-			* Thermostat
-			* OtherControlTechnology
-
-
-
-
-				* ControlTechnology 
-					* Thermostat
-						* ControlStrategy
-							- Always On
-							- Manual
-					* Timer
-						* ControlStrategy
-							- Always On
-							- Aquastat
-							- Demand
-							- Manual
-							- Programmable
-							- Scheduled
-					* Other
-						* ControlStrategy
-							- Always On
-							- Aquastat
-							- Demand
-							- Manual
-							- Programmable
-							- Scheduled
-			* Analog (see schema)
-			* DirectDigitalControl (see schema)
-			* Other (see schema)
-		* LightingSystem
-							
-						* 
-
-		* OccupantBasedControl (unbounded)
-		* OtherControl (unbounded)
-
-Each functional area will be a complex type allowing for easy reuse. 
-
-All ControlStrategy elements will include the Other, Unknown, and None enumerations.
+			 	* OtherControlStrategyName
 
 Items under lighting controls will be moved under the new LightingControls section, these include: LightingControlTypeOccupancy, LightingControlTypeTimer, LightingControlTypeDaylighting, LightingControlTypeManual. 
 
+The remaining controls were lumped into a general control complex type with the following structure:
+
+	* AdvancedPowerStrip
+		* ControlType
+		* ControlStrategy
+			* List of multiple general control strategies
+		* OtherControlStrategyName
+	* Manual
+		* ... same as above ...
+	* Occupancy
+	 	* ... same as above ...
+	 	* ControlSensor
+	 		* IR, Ultrasonic, etc.
+	* Timer
+		* ... same as above ...
+	* Thermostat
+		* ... same as above ...
+	* OtherControlTechnology
+		* ... same as above ...
+	 	* OtherControlTechnologyName
+
+Their were several existing systems that had existing ControlTechnologies. These systems were updated with the ControlHVACType complex element. The systems included: HeatingSource, CoolingSource, Delivery, OtherHVACSystems, Solar, DomesticHotWater, DishwasherSystem, LaundrySystem, PumpSystem, FanSystems, MotorSystems, HeatRecoverySystem, Pool/Heated, WaterUse, ProcessLoads, PlugLoads, CriticalITSystems, ConveyanceSystems.
+
+The `PrimaryHVACControlStrategy` will be renamed to `PrimaryControlSystemType`.
+
+The BuildingAutomationSystem element was made global and repeated in the HeatingPlant, CoolingPlant, CondenserPlant to allow the user to specify that the system is connected to a BAS/EMCS.
 
 ## Mappings
 
@@ -129,44 +104,47 @@ Mapping of existing control technologies (old term) to newer terms.
 
 | Previous Field     | New XPath                 | Paired XPath             |
 |--------------------|---------------------------|------------------------- |
-| Programmable Thermostat | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlStrategy - Programmable | None |
-| Manual Analog Thermostat | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlStrategy - Manual | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlType/auc:Analog | 
-| Manual Digital Thermostat | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlStrategy - Manual | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlType/auc:Digital | 
-| Manual On/Off | //element(auc:ControlHVACType)/auc:Manual/auc:ControlStrategy - Manual | None |
-| EMCS | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlStrategy - EMCS | None |
-| Always On | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlStrategy - Always On | None |
-| Timer | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlStrategy - Timer | None |
-| Other | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlStrategy - Other | None |
-| Unknown | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlStrategy - Unknown | None |
-| None | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlStrategy - None | None |
+| Programmable Thermostat | //element(ControlHVACType)/Thermostat/ControlStrategy - Programmable | None |
+| Manual Analog Thermostat | //element(ControlHVACType)/Thermostat/ControlStrategy - Manual | //element(ControlHVACType)/Thermostat/ControlSystemType/Analog | 
+| Manual Digital Thermostat | //element(ControlHVACType)/Thermostat/ControlStrategy - Manual | //element(ControlHVACType)/Thermostat/ControlSystemType/Digital | 
+| Manual On/Off | //element(ControlHVACType)/Manual/ControlStrategy - Manual | None |
+| EMCS | //element(ControlHVACType)/Thermostat/ControlStrategy - EMCS | None |
+| Always On | //element(ControlHVACType)/Thermostat/ControlStrategy - Always On | None |
+| Timer | //element(ControlHVACType)/Thermostat/ControlStrategy - Timer | None |
+| Other | //element(ControlHVACType)/Thermostat/ControlStrategy - Other | None |
+| Unknown | //element(ControlHVACType)/Thermostat/ControlStrategy - Unknown | None |
+| None | //element(ControlHVACType)/Thermostat/ControlStrategy - None | None |
 
 
 | AT Field - Value     | XPath								  | Paired XPath            |
 |----------------------|--------------------------------------|------------------------ |
-| Zone Controls - None | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlStrategy - None | None |
-| Zone Controls - Manual Pneumatic Thermostat | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlStrategy - Manual | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlType/auc:Pneumatic | 
-| Zone Controls - Programmable DDC Thermostat | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlStrategy - Programmable | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlType/auc:Digital |
-| Zone Controls - Direct Digital Controls | Needs to be selected with the thermostat | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlType/auc:Digital | 
-| Zone Controls - Pneumatic Controls | Needs to be selected with the thermostat | //element(auc:ControlHVACType)/auc:Thermostat/auc:ControlType/auc:Pneumatic |
-| Central Plant - Direct Digital | | |
-| Central Plant - Building Automation | | |
-| Central Plant - Pneumatic Controls | | |
-| Lighting Controls - Manual | //element(auc:ControlLightingType)/auc:Manual | None |
-| Lighting Controls - Occupancy Sensor | //element(auc:ControlLightingType)/auc:Occupancy | None |
-| Lighting Controls - Photocell | //element(auc:ControlLightingType)/auc:Daylighting/auc:ControlSensor - Photocell | None | 
-| Lighting Controls - Timer | //element(auc:ControlLightingType)/auc:Timer | None |
-| Lighting Controls - Building Automation System | //element(auc:ControlLightingType)/auc:OtherControlTechnology/auc:ControlStrategy - Programmable | //element(auc:ControlLightingType)/auc:OtherControlTechnology/auc:ControlType/auc:Digital |
-| Lighting Controls - Advanced | //element(auc:ControlLightingType)/auc:OtherControlTechnology/auc:ControlStrategy - None | None |
-| Lighting Controls - Other | //element(auc:ControlLightingType)/auc:OtherControlTechnology/auc:ControlStrategy - Other | None |
+| Zone Controls - None | //element(ControlHVACType)/Thermostat/ControlStrategy - None | None |
+| Zone Controls - Manual Pneumatic Thermostat | //element(ControlHVACType)/Thermostat/ControlStrategy - Manual | //element(ControlHVACType)/Thermostat/ControlSystemType/Pneumatic | 
+| Zone Controls - Programmable DDC Thermostat | //element(ControlHVACType)/Thermostat/ControlStrategy - Programmable | //element(ControlHVACType)/Thermostat/ControlSystemType/Digital |
+| Zone Controls - Direct Digital Controls | Needs to be selected with the thermostat | //element(ControlHVACType)/Thermostat/ControlSystemType/Digital | 
+| Zone Controls - Pneumatic Controls | Needs to be selected with the thermostat | //element(ControlHVACType)/Thermostat/ControlSystemType/Pneumatic |
+| Heating Central Plant - Direct Digital | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant/ControlSystemType/Digital | |
+| Heating Central Plant - Building Automation | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant/BuildingAutomationSystem | |
+| Heating Central Plant - Pneumatic Controls | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant/ControlSystemType/Pneumatic | |
+| Cooling Central Plant - Direct Digital | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/CoolingPlants/CoolingPlant/ControlSystemType/Digital | |
+| Cooling Central Plant - Building Automation | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/CoolingPlants/CoolingPlant/BuildingAutomationSystem | |
+| Cooling Central Plant - Pneumatic Controls | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/CoolingPlants/CoolingPlant/ControlSystemType/Pneumatic | |
+| Condenser Central Plant - Direct Digital | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/CondenserPlants/CondenserPlant/ControlSystemType/Digital | |
+| Condenser Central Plant - Building Automation | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/CondenserPlants/CondenserPlant/BuildingAutomationSystem | |
+| Condenser Central Plant - Pneumatic Controls | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/CondenserPlants/CondenserPlant/ControlSystemType/Pneumatic  | |
+| Lighting Controls - Manual | //element(ControlLightingType)/Manual | None |
+| Lighting Controls - Occupancy Sensor | //element(ControlLightingType)/Occupancy | None |
+| Lighting Controls - Photocell | //element(ControlLightingType)/Daylighting/ControlSensor - Photocell | None | 
+| Lighting Controls - Timer | //element(ControlLightingType)/Timer | None |
+| Lighting Controls - Building Automation System | //element(ControlLightingType)/OtherControlTechnology/ControlStrategy - Programmable | //element(ControlLightingType)/OtherControlTechnology/ControlSystemType/Digital |
+| Lighting Controls - Advanced | //element(ControlLightingType)/OtherControlTechnology/ControlStrategy - None | None |
+| Lighting Controls - Other | //element(ControlLightingType)/OtherControlTechnology/ControlStrategy - Other | None |
 
 Programmable and Scheduled are the same term in BEDES, see [programmable](https://bedes.lbl.gov/bedes-online/programmable) and [scheduled](https://bedes.lbl.gov/bedes-online/scheduled). There should only be a single term and recommend "Programmable" as it is more abstract. This has been implemented.
 
 ## TODO
 
 * Plant controls
-* How to handle high-level ask if the building has analog, digital, or pneumatic
-* BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/CoolingSources/CoolingSource/ControlTechnology
-
 
 ## References
 

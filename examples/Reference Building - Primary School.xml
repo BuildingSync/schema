@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by NREL (NREL) -->
 <BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../BuildingSync.xsd">
   <Facilities>
     <Facility ID="Audit1">
@@ -4013,7 +4014,13 @@
                   <HeatingStaging>Variable</HeatingStaging>
                   <PrimaryFuel>Natural gas</PrimaryFuel>
                   <HeatingSourceCondition>Average</HeatingSourceCondition>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </HeatingSource>
               </HeatingSources>
@@ -4038,7 +4045,13 @@
                   <RatedCoolingSensibleHeatRatio>0.69</RatedCoolingSensibleHeatRatio>
                   <PrimaryFuel>Electricity</PrimaryFuel>
                   <CoolingSourceCondition>Good</CoolingSourceCondition>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </CoolingSource>
                 <CoolingSource ID="CoolsourcePod2">
@@ -4060,7 +4073,13 @@
                   <CoolingStageCapacity>0.5</CoolingStageCapacity>
                   <RatedCoolingSensibleHeatRatio>0.69</RatedCoolingSensibleHeatRatio>
                   <PrimaryFuel>Electricity</PrimaryFuel>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </CoolingSource>
                 <CoolingSource ID="CoolsourcePod3">
@@ -4083,7 +4102,13 @@
                   <RatedCoolingSensibleHeatRatio>0.69</RatedCoolingSensibleHeatRatio>
                   <PrimaryFuel>Electricity</PrimaryFuel>
                   <CoolingSourceCondition>Poor</CoolingSourceCondition>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </CoolingSource>
                 <CoolingSource ID="CoolsourceOther">
@@ -4106,7 +4131,13 @@
                   <RatedCoolingSensibleHeatRatio>0.69</RatedCoolingSensibleHeatRatio>
                   <PrimaryFuel>Electricity</PrimaryFuel>
                   <CoolingSourceCondition>Other</CoolingSourceCondition>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <UserDefinedFields>
                     <UserDefinedField>
                       <FieldName>Condition Description</FieldName>
@@ -4139,7 +4170,13 @@
                   </DeliveryType>
                   <HeatingSourceID IDref="Heatsource1"/>
                   <CoolingSourceID IDref="CoolsourcePod1"/>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </Delivery>
                 <Delivery ID="DeliveryPod2">
@@ -4164,7 +4201,13 @@
                   </DeliveryType>
                   <HeatingSourceID IDref="Heatsource1"/>
                   <CoolingSourceID IDref="CoolsourcePod2"/>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </Delivery>
                 <Delivery ID="DeliveryPod3">
@@ -4189,7 +4232,13 @@
                   </DeliveryType>
                   <HeatingSourceID IDref="Heatsource1"/>
                   <CoolingSourceID IDref="CoolsourcePod3"/>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </Delivery>
                 <Delivery ID="DeliveryOther">
@@ -4214,7 +4263,13 @@
                   </DeliveryType>
                   <HeatingSourceID IDref="Heatsource1"/>
                   <CoolingSourceID IDref="CoolsourceOther"/>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </Delivery>
               </Deliveries>
@@ -4293,7 +4348,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone1">
@@ -4316,7 +4377,13 @@
                   </MechanicalVentilation>
                 </OtherHVACType>
                 <OtherHVACSystemCondition>Unknown</OtherHVACSystemCondition>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone2">
@@ -4338,7 +4405,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone3">
@@ -4360,7 +4433,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone4">
@@ -4382,7 +4461,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone5">
@@ -4404,7 +4489,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone6">
@@ -4426,7 +4517,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone7">
@@ -4448,7 +4545,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone8">
@@ -4470,7 +4573,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone9">
@@ -4492,7 +4601,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone10">
@@ -4514,7 +4629,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone11">
@@ -4536,7 +4657,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone12">
@@ -4558,7 +4685,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone13">
@@ -4580,7 +4713,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone14">
@@ -4602,7 +4741,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone15">
@@ -4624,7 +4769,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone16">
@@ -4646,7 +4797,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone17">
@@ -4668,7 +4825,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone18">
@@ -4690,7 +4853,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone19">
@@ -4712,7 +4881,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone20">
@@ -4734,7 +4909,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone21">
@@ -4756,7 +4937,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone25">
@@ -4794,7 +4981,13 @@
                   <InputCapacity>55.04</InputCapacity>
                   <CapacityUnits>kW</CapacityUnits>
                   <PrimaryFuel>Natural gas</PrimaryFuel>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </HeatingSource>
               </HeatingSources>
@@ -4818,7 +5011,13 @@
                   <CoolingStageCapacity>0.5</CoolingStageCapacity>
                   <RatedCoolingSensibleHeatRatio>0.7657</RatedCoolingSensibleHeatRatio>
                   <PrimaryFuel>Electricity</PrimaryFuel>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </CoolingSource>
               </CoolingSources>
@@ -4838,7 +5037,13 @@
                   </DeliveryType>
                   <HeatingSourceID IDref="GymHeating"/>
                   <CoolingSourceID IDref="GymCooling"/>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </Delivery>
               </Deliveries>
@@ -4866,7 +5071,13 @@
                     <DemandControlVentilation>false</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone22">
@@ -4904,7 +5115,13 @@
                   <InputCapacity>30.61</InputCapacity>
                   <CapacityUnits>kW</CapacityUnits>
                   <PrimaryFuel>Natural gas</PrimaryFuel>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </HeatingSource>
               </HeatingSources>
@@ -4928,7 +5145,13 @@
                   <CoolingStageCapacity>0.5</CoolingStageCapacity>
                   <RatedCoolingSensibleHeatRatio>0.7979</RatedCoolingSensibleHeatRatio>
                   <PrimaryFuel>Electricity</PrimaryFuel>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </CoolingSource>
               </CoolingSources>
@@ -4948,7 +5171,13 @@
                   </DeliveryType>
                   <HeatingSourceID IDref="KitchenHeating"/>
                   <CoolingSourceID IDref="KitchenCooling"/>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </Delivery>
               </Deliveries>
@@ -4976,7 +5205,13 @@
                     <DemandControlVentilation>false</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone23">
@@ -5016,7 +5251,13 @@
                   <InputCapacity>110.51</InputCapacity>
                   <CapacityUnits>kW</CapacityUnits>
                   <PrimaryFuel>Natural gas</PrimaryFuel>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </HeatingSource>
               </HeatingSources>
@@ -5040,7 +5281,13 @@
                   <CoolingStageCapacity>0.5</CoolingStageCapacity>
                   <RatedCoolingSensibleHeatRatio>0.7373</RatedCoolingSensibleHeatRatio>
                   <PrimaryFuel>Electricity</PrimaryFuel>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </CoolingSource>
               </CoolingSources>
@@ -5060,7 +5307,13 @@
                   </DeliveryType>
                   <HeatingSourceID IDref="CafeteriaHeating"/>
                   <CoolingSourceID IDref="CafeteriaCooling"/>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </Delivery>
               </Deliveries>
@@ -5088,7 +5341,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone24">
@@ -5118,7 +5377,13 @@
                     </VentilationControlMethods>
                   </SpotExhaust>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone20">
@@ -5142,7 +5407,13 @@
                     <MakeupAirSourceID>Zone22</MakeupAirSourceID>
                   </SpotExhaust>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone23">
@@ -5187,16 +5458,25 @@
         </HVACSystems>
         <LightingSystems>
           <LightingSystem ID="ClassLighting1">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>1.492</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5248,16 +5528,25 @@
             <Quantity>6</Quantity>
           </LightingSystem>
           <LightingSystem ID="MultiLighting1">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>7.188</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5302,11 +5591,16 @@
             <Quantity>5</Quantity>
           </LightingSystem>
           <LightingSystem ID="CorridorPod1">
-            <LightingControlTypeDaylighting>None</LightingControlTypeDaylighting>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>1.033</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5337,16 +5631,25 @@
             <Quantity>3</Quantity>
           </LightingSystem>
           <LightingSystem ID="MultiLighting2">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>4.747</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5363,16 +5666,25 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="ComputerLighting1">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>2.441</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5389,11 +5701,16 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="CorridorMain1">
-            <LightingControlTypeDaylighting>None</LightingControlTypeDaylighting>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>2.939</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5410,16 +5727,25 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="LobbyLighting1">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>2.393</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5436,11 +5762,16 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="MechanicalLighting1">
-            <LightingControlTypeDaylighting>None</LightingControlTypeDaylighting>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>4.069</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5457,11 +5788,16 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="RestroomLighting1">
-            <LightingControlTypeDaylighting>None</LightingControlTypeDaylighting>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>1.841</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5478,16 +5814,25 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="OfficeLighting1">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>5.222</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5504,16 +5849,25 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="GymLighting1">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>5.380</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5530,11 +5884,16 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="KitchenLighting1">
-            <LightingControlTypeDaylighting>None</LightingControlTypeDaylighting>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>2.170</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5551,16 +5910,25 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="CafeteriaLighting1">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>4.747</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5577,16 +5945,25 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="LibraryLighting1">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>5.583</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5603,11 +5980,18 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="ExteriorLighting1">
-            <LightingControlTypeTimer>Astronomical</LightingControlTypeTimer>
-            <LightingControlTypeDaylighting>None</LightingControlTypeDaylighting>
             <InstalledPower>0.15048</InstalledPower>
             <OutsideLighting>true</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Timer>
+                  <ControlStrategy>Astronomical</ControlStrategy>
+                </Timer>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Exterior</Location>
             <LinkedPremises>
@@ -5622,11 +6006,18 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="ExteriorLighting2">
-            <LightingControlTypeTimer>Astronomical</LightingControlTypeTimer>
-            <LightingControlTypeDaylighting>None</LightingControlTypeDaylighting>
             <InstalledPower>3.340</InstalledPower>
             <OutsideLighting>true</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Timer>
+                  <ControlStrategy>Astronomical</ControlStrategy>
+                </Timer>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Exterior</Location>
             <LinkedPremises>
@@ -5934,7 +6325,13 @@
             <PumpOperation>On Demand</PumpOperation>
             <PumpingConfiguration>Primary</PumpingConfiguration>
             <PumpApplication>Boiler</PumpApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Thermostat>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Thermostat>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5948,7 +6345,13 @@
             <PumpOperation>On Demand</PumpOperation>
             <PumpingConfiguration>Primary</PumpingConfiguration>
             <PumpApplication>Domestic Hot Water</PumpApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Thermostat>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Thermostat>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5963,7 +6366,13 @@
             <FanApplication>Supply</FanApplication>
             <FanControlType>Variable Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5976,7 +6385,13 @@
             <FanApplication>Supply</FanApplication>
             <FanControlType>Variable Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5989,7 +6404,13 @@
             <FanApplication>Supply</FanApplication>
             <FanControlType>Variable Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -6002,7 +6423,13 @@
             <FanApplication>Supply</FanApplication>
             <FanControlType>Variable Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -6015,7 +6442,13 @@
             <FanApplication>Supply</FanApplication>
             <FanControlType>Constant Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -6028,7 +6461,13 @@
             <FanApplication>Supply</FanApplication>
             <FanControlType>Constant Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -6041,7 +6480,13 @@
             <FanApplication>Supply</FanApplication>
             <FanControlType>Constant Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -6055,6 +6500,13 @@
             <FanApplication>Exhaust</FanApplication>
             <FanControlType>Constant Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>Always On</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Exterior</Location>
@@ -6068,6 +6520,13 @@
             <FanApplication>Exhaust</FanApplication>
             <FanControlType>Constant Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>Always On</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Exterior</Location>
@@ -6081,7 +6540,13 @@
             <MotorEfficiency>0.924</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -6093,7 +6558,13 @@
             <MotorEfficiency>0.924</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -6105,7 +6576,13 @@
             <MotorEfficiency>0.924</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -6117,7 +6594,13 @@
             <MotorEfficiency>0.924</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -6129,7 +6612,13 @@
             <MotorEfficiency>0.865</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -6141,7 +6630,13 @@
             <MotorEfficiency>0.895</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -6153,7 +6648,13 @@
             <MotorEfficiency>0.895</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -6165,6 +6666,13 @@
             <MotorEfficiency>1.0</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>Manual</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -6176,6 +6684,13 @@
             <MotorEfficiency>1.0</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>Manual</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
