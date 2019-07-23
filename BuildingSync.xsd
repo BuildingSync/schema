@@ -991,7 +991,7 @@
       </xs:element>
       <xs:element name="OverallWindowToWallRatio" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Overall window to wall ratio of the facility.</xs:documentation>
+          <xs:documentation>Overall window to wall ratio of the facility. (0-1) (fraction)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -9227,7 +9227,7 @@
                                         <xs:sequence>
                                           <xs:element name="RatedHeatPumpSensibleHeatRatio" minOccurs="0">
                                             <xs:annotation>
-                                              <xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system.</xs:documentation>
+                                              <xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1) (fraction)</xs:documentation>
                                             </xs:annotation>
                                             <xs:complexType>
                                               <xs:simpleContent>
@@ -10927,7 +10927,7 @@
     <xs:sequence>
       <xs:element name="HeatRecoveryEfficiency" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Efficiency of sensible heat recovery. (0-1) (fraction)</xs:documentation>
+          <xs:documentation>Efficiency of sensible heat recovery as a percentage. (0-100) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -10939,7 +10939,7 @@
       </xs:element>
       <xs:element name="EnergyRecoveryEfficiency" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The net total energy (sensible plus latent, also called enthalpy) recovered by the supply airstream adjusted by electric consumption, case heat loss or heat gain, air leakage and airflow mass imbalance between the two airstreams, as a percent of the potential total energy that could be recovered plus associated fan energy. (0-1) (fraction)</xs:documentation>
+          <xs:documentation>The net total energy (sensible plus latent, also called enthalpy) recovered by the supply airstream adjusted by electric consumption, case heat loss or heat gain, air leakage and airflow mass imbalance between the two airstreams, as a percent of the potential total energy that could be recovered plus associated fan energy. (0-100) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
