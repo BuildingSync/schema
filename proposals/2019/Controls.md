@@ -144,10 +144,6 @@ For AT Zone Controls, the controls are specified at the zone level. It is recomm
 
 Programmable and Scheduled are the same term in BEDES, see [programmable](https://bedes.lbl.gov/bedes-online/programmable) and [scheduled](https://bedes.lbl.gov/bedes-online/scheduled). There should only be a single term and recommend "Programmable" as it is more abstract. This has been implemented.
 
-## TODO
-
-* Plant controls
-
 ## References
 
 * ASHRAE Handbook of Fundamentals Section 2.3 - Controllers
