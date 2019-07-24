@@ -92,7 +92,7 @@ The remaining controls were lumped into a general control complex type with the 
 		* ... same as above ...
 	 	* OtherControlTechnologyName
 
-Their were several existing systems that had existing ControlTechnologies. These systems were updated with the ControlHVACType complex element. The systems included: HeatingSource, CoolingSource, Delivery, OtherHVACSystems, Solar, DomesticHotWater, DishwasherSystem, LaundrySystem, PumpSystem, FanSystems, MotorSystems, HeatRecoverySystem, Pool/Heated, WaterUse, ProcessLoads, PlugLoads, CriticalITSystems, ConveyanceSystems.
+Their were several existing systems that had existing ControlTechnologies. These systems were updated with the ControlGeneralType complex element. The systems included: HeatingSource, CoolingSource, Delivery, OtherHVACSystems, Solar, DomesticHotWater, DishwasherSystem, LaundrySystem, PumpSystem, FanSystems, MotorSystems, HeatRecoverySystem, Pool/Heated, WaterUse, ProcessLoads, PlugLoads, CriticalITSystems, ConveyanceSystems.
 
 The `PrimaryHVACControlStrategy` will be renamed to `PrimaryControlSystemType`.
 
@@ -104,25 +104,25 @@ Mapping of existing control technologies (old term) to newer terms.
 
 | Previous Field     | New XPath                 | Paired XPath             |
 |--------------------|---------------------------|------------------------- |
-| Programmable Thermostat | //element(ControlHVACType)/Thermostat/ControlStrategy - Programmable | None |
-| Manual Analog Thermostat | //element(ControlHVACType)/Thermostat/ControlStrategy - Manual | //element(ControlHVACType)/Thermostat/ControlSystemType/Analog | 
-| Manual Digital Thermostat | //element(ControlHVACType)/Thermostat/ControlStrategy - Manual | //element(ControlHVACType)/Thermostat/ControlSystemType/Digital | 
-| Manual On/Off | //element(ControlHVACType)/Manual/ControlStrategy - Manual | None |
-| EMCS | //element(ControlHVACType)/Thermostat/ControlStrategy - EMCS | None |
-| Always On | //element(ControlHVACType)/Thermostat/ControlStrategy - Always On | None |
-| Timer | //element(ControlHVACType)/Thermostat/ControlStrategy - Timer | None |
-| Other | //element(ControlHVACType)/Thermostat/ControlStrategy - Other | None |
-| Unknown | //element(ControlHVACType)/Thermostat/ControlStrategy - Unknown | None |
-| None | //element(ControlHVACType)/Thermostat/ControlStrategy - None | None |
+| Programmable Thermostat | //element(ControlGeneralType)/Thermostat/ControlStrategy - Programmable | None |
+| Manual Analog Thermostat | //element(ControlGeneralType)/Thermostat/ControlStrategy - Manual | //element(ControlGeneralType)/Thermostat/ControlSystemType/Analog | 
+| Manual Digital Thermostat | //element(ControlGeneralType)/Thermostat/ControlStrategy - Manual | //element(ControlGeneralType)/Thermostat/ControlSystemType/Digital | 
+| Manual On/Off | //element(ControlGeneralType)/Manual/ControlStrategy - Manual | None |
+| EMCS | //element(ControlGeneralType)/Thermostat/ControlStrategy - EMCS | None |
+| Always On | //element(ControlGeneralType)/Thermostat/ControlStrategy - Always On | None |
+| Timer | //element(ControlGeneralType)/Thermostat/ControlStrategy - Timer | None |
+| Other | //element(ControlGeneralType)/Thermostat/ControlStrategy - Other | None |
+| Unknown | //element(ControlGeneralType)/Thermostat/ControlStrategy - Unknown | None |
+| None | //element(ControlGeneralType)/Thermostat/ControlStrategy - None | None |
 
 
 | AT Field - Value     | XPath								  | Paired XPath            |
 |----------------------|--------------------------------------|------------------------ |
-| Zone Controls - None | //element(ControlHVACType)/Thermostat/ControlStrategy - None | None |
-| Zone Controls - Manual Pneumatic Thermostat | //element(ControlHVACType)/Thermostat/ControlStrategy - Manual | //element(ControlHVACType)/Thermostat/ControlSystemType/Pneumatic | 
-| Zone Controls - Programmable DDC Thermostat | //element(ControlHVACType)/Thermostat/ControlStrategy - Programmable | //element(ControlHVACType)/Thermostat/ControlSystemType/Digital |
-| Zone Controls - Direct Digital Controls | Needs to be selected with the thermostat | //element(ControlHVACType)/Thermostat/ControlSystemType/Digital | 
-| Zone Controls - Pneumatic Controls | Needs to be selected with the thermostat | //element(ControlHVACType)/Thermostat/ControlSystemType/Pneumatic |
+| Zone Controls - None | //element(ControlGeneralType)/Thermostat/ControlStrategy - None | None |
+| Zone Controls - Manual Pneumatic Thermostat | //element(ControlGeneralType)/Thermostat/ControlStrategy - Manual | //element(ControlGeneralType)/Thermostat/ControlSystemType/Pneumatic | 
+| Zone Controls - Programmable DDC Thermostat | //element(ControlGeneralType)/Thermostat/ControlStrategy - Programmable | //element(ControlGeneralType)/Thermostat/ControlSystemType/Digital |
+| Zone Controls - Direct Digital Controls | Needs to be selected with the thermostat | //element(ControlGeneralType)/Thermostat/ControlSystemType/Digital | 
+| Zone Controls - Pneumatic Controls | Needs to be selected with the thermostat | //element(ControlGeneralType)/Thermostat/ControlSystemType/Pneumatic |
 | Heating Central Plant - Direct Digital | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant/ControlSystemType/Digital | |
 | Heating Central Plant - Building Automation | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant/BuildingAutomationSystem | |
 | Heating Central Plant - Pneumatic Controls | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant/ControlSystemType/Pneumatic | |
