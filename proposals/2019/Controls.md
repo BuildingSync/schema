@@ -116,13 +116,15 @@ Mapping of existing control technologies (old term) to newer terms.
 | None | //element(ControlGeneralType)/Thermostat/ControlStrategy - None | None |
 
 
+For AT Zone Controls, the controls are specified at the zone level. It is recommended to keep the HeatingSource/Controls and the CoolingSource/Controls in sync.
+
 | AT Field - Value     | XPath								  | Paired XPath            |
 |----------------------|--------------------------------------|------------------------ |
-| Zone Controls - None | //element(ControlGeneralType)/Thermostat/ControlStrategy - None | None |
-| Zone Controls - Manual Pneumatic Thermostat | //element(ControlGeneralType)/Thermostat/ControlStrategy - Manual | //element(ControlGeneralType)/Thermostat/ControlSystemType/Pneumatic | 
-| Zone Controls - Programmable DDC Thermostat | //element(ControlGeneralType)/Thermostat/ControlStrategy - Programmable | //element(ControlGeneralType)/Thermostat/ControlSystemType/Digital |
-| Zone Controls - Direct Digital Controls | Needs to be selected with the thermostat | //element(ControlGeneralType)/Thermostat/ControlSystemType/Digital | 
-| Zone Controls - Pneumatic Controls | Needs to be selected with the thermostat | //element(ControlGeneralType)/Thermostat/ControlSystemType/Pneumatic |
+| Zone Controls - None | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/HeatingSources/HeatingSource/Controls/Control/Thermostat/ControlStrategy - None | None |
+| Zone Controls - Manual Pneumatic Thermostat | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/HeatingSources/HeatingSource/Controls/Control/Thermostat/ControlStrategy - Manual | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/HeatingSources/HeatingSource/Controls/Control/Thermostat/ControlSystemType/Pneumatic | 
+| Zone Controls - Programmable DDC Thermostat |BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/HeatingSources/HeatingSource/Controls/Control/Thermostat/ControlStrategy - Programmable | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/HeatingSources/HeatingSource/Controls/Control/Thermostat/ControlSystemType/Digital |
+| Zone Controls - Direct Digital Controls | Needs to be selected with the thermostat |BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/HeatingSources/HeatingSource/Controls/Control/Thermostat/ControlSystemType/Digital | 
+| Zone Controls - Pneumatic Controls | Needs to be selected with the thermostat | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/HeatingSources/HeatingSource/Controls/Control/Thermostat/ControlSystemType/Pneumatic |
 | Heating Central Plant - Direct Digital | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant/ControlSystemType/Digital | |
 | Heating Central Plant - Building Automation | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant/BuildingAutomationSystem | |
 | Heating Central Plant - Pneumatic Controls | BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant/ControlSystemType/Pneumatic | |
