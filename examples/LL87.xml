@@ -257,7 +257,13 @@
                 <TankVolume>100</TankVolume>
               </StorageTank>
             </DomesticHotWaterType>
-            <ControlTechnology>Manual Analog Thermostat</ControlTechnology>
+            <Controls>
+              <Control>
+                <Thermostat>
+                  <ControlStrategy>Manual</ControlStrategy>
+                </Thermostat>
+              </Control>
+            </Controls>
             <Location>Mechanical Room</Location>
             <LinkedPremises>
               <Building>
