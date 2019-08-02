@@ -6357,7 +6357,7 @@
                             </xs:simpleContent>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+                        <xs:element ref="auc:AnnualHeatingEfficiencyUnits" minOccurs="0"/>
                         <xs:element name="InputCapacity" minOccurs="0">
                           <xs:annotation>
                             <xs:documentation>The rate of energy consumption of the heating equipment at full load.</xs:documentation>
@@ -7314,7 +7314,7 @@
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+              <xs:element ref="auc:AnnualHeatingEfficiencyUnits" minOccurs="0"/>
               <xs:element name="CombustionEfficiency" minOccurs="0">
                 <xs:annotation>
                   <xs:documentation>The measure of how much energy is extracted from the fuel and is the ratio of heat transferred to the combustion air divided by the heat input of the fuel. (0-1) (%)</xs:documentation>
@@ -7515,7 +7515,7 @@
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+              <xs:element ref="auc:AnnualHeatingEfficiencyUnits" minOccurs="0"/>
               <xs:element name="HotWaterBoilerMaximumFlowRate" minOccurs="0">
                 <xs:annotation>
                   <xs:documentation>The maximum flow rate of water that the boiler is designed to accept. [gpm]</xs:documentation>
@@ -7596,7 +7596,7 @@
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+              <xs:element ref="auc:AnnualHeatingEfficiencyUnits" minOccurs="0"/>
               <xs:element ref="auc:Quantity" minOccurs="0"/>
             </xs:sequence>
           </xs:complexType>
@@ -15671,7 +15671,7 @@
       </xs:restriction>
     </xs:simpleType>
   </xs:element>
-  <xs:element name="AnnualHeatingEfficiencyUnit">
+  <xs:element name="AnnualHeatingEfficiencyUnits">
     <xs:annotation>
       <xs:documentation>The measure used to quantify efficiency</xs:documentation>
     </xs:annotation>
