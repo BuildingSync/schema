@@ -195,7 +195,7 @@
                           <xs:element name="ProcessLoads" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="ProcessLoad" type="auc:ProcessGasElecLoadType" maxOccurs="unbounded"/>
+                                <xs:element name="ProcessLoad" type="auc:ProcessGasElectricLoadType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
@@ -12905,7 +12905,7 @@
     <xs:attribute ref="auc:Source"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
-  <xs:complexType name="ProcessGasElecLoadType">
+  <xs:complexType name="ProcessGasElectricLoadType">
     <xs:sequence>
       <xs:element name="ProcessLoadType" minOccurs="0">
         <xs:annotation>
