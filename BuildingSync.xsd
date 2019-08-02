@@ -926,11 +926,7 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="BuildingAutomationSystem" type="xs:boolean" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Does the building include a building automation or management system?</xs:documentation>
-        </xs:annotation>
-      </xs:element>
+      <xs:element ref="auc:BuildingAutomationSystem" minOccurs="0"/>
       <xs:element name="HistoricalLandmark" type="xs:boolean" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Does the facility have historical landmark status (e.g. is the facility listed in the National Register of Historic Places)?</xs:documentation>
@@ -5415,6 +5411,8 @@
             <xs:enumeration value="Entire facility"/>
             <xs:enumeration value="Entire site"/>
             <xs:enumeration value="Entire building"/>
+            <xs:enumeration value="Common areas"/>
+            <xs:enumeration value="Tenant areas"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -6414,7 +6412,20 @@
                           </xs:annotation>
                         </xs:element>
                         <xs:element name="HeatingSourceCondition" type="auc:EquipmentCondition" minOccurs="0"/>
-                        <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+                        <xs:element name="Controls" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>List of controls for heating source.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+                                <xs:annotation>
+                                  <xs:documentation>Control for heating source.</xs:documentation>
+                                </xs:annotation>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
                         <xs:element ref="auc:Location" minOccurs="0"/>
                         <xs:element ref="auc:YearInstalled" minOccurs="0"/>
                         <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
@@ -6634,7 +6645,20 @@
                           </xs:annotation>
                         </xs:element>
                         <xs:element name="CoolingSourceCondition" type="auc:EquipmentCondition" minOccurs="0"/>
-                        <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+                        <xs:element name="Controls" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>List of controls for cooling source.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+                                <xs:annotation>
+                                  <xs:documentation>Cooling source control.</xs:documentation>
+                                </xs:annotation>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
                         <xs:element ref="auc:Location" minOccurs="0"/>
                         <xs:element ref="auc:YearInstalled" minOccurs="0"/>
                         <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
@@ -6855,7 +6879,20 @@
                             <xs:documentation>Main fuel used by the system.</xs:documentation>
                           </xs:annotation>
                         </xs:element>
-                        <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+                        <xs:element name="Controls" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>List of controls for delivery system.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+                                <xs:annotation>
+                                  <xs:documentation>Delivery system control.</xs:documentation>
+                                </xs:annotation>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
                         <xs:element ref="auc:YearInstalled" minOccurs="0"/>
                         <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
                         <xs:element ref="auc:Manufacturer" minOccurs="0"/>
@@ -6935,14 +6972,15 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="PrimaryHVACControlStrategy" minOccurs="0">
+      <xs:element name="PrimaryHVACControlSystemType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Primary HVAC equipment control strategy.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
+            <xs:enumeration value="Analog"/>
+            <xs:enumeration value="Digital"/>
             <xs:enumeration value="Pneumatic"/>
-            <xs:enumeration value="Electric"/>
             <xs:enumeration value="Other"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
@@ -7613,6 +7651,12 @@
           <xs:documentation>Main fuel used by the heating plant.</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element ref="auc:BuildingAutomationSystem" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Does the building/system include or connect to a building automation or management system?</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
@@ -7902,6 +7946,12 @@
           <xs:documentation>Main fuel used by the cooling plant.</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element ref="auc:BuildingAutomationSystem" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Does the building/system include a building automation or management system?</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
@@ -8260,6 +8310,12 @@
           <xs:documentation>Main fuel used by the condenser plant.</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element ref="auc:BuildingAutomationSystem" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Does the building/system include a building automation or management system?</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
@@ -8575,7 +8631,20 @@
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:PrimaryFuel" minOccurs="0"/>
       <xs:element name="OtherHVACSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
-      <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+      <xs:element name="Controls" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of controls for other HVAC systems.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Other HVAC system control.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:Manufacturer" minOccurs="0"/>
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
@@ -8884,66 +8953,6 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="LightingControlTypeOccupancy" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Type of occupancy controls used to manage lighting.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Occupancy Sensors"/>
-            <xs:enumeration value="Vacancy Sensors"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="None"/>
-            <xs:enumeration value="Unknown"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="LightingControlTypeTimer" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Type of timer controls used to manage lighting.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Astronomical"/>
-            <xs:enumeration value="Chronological"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="None"/>
-            <xs:enumeration value="Unknown"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="LightingControlTypeDaylighting" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Type of daylighting controls used to manage lighting.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Continuous"/>
-            <xs:enumeration value="Continuous Plus Off"/>
-            <xs:enumeration value="Stepped Dimming"/>
-            <xs:enumeration value="Stepped Switching"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="None"/>
-            <xs:enumeration value="Unknown"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="LightingControlTypeManual" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Type of manual controls used to manage lighting.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Manual On/Off"/>
-            <xs:enumeration value="Manual Dimming"/>
-            <xs:enumeration value="Bi-level Control"/>
-            <xs:enumeration value="Tri-level Control"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="None"/>
-            <xs:enumeration value="Unknown"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
       <xs:element name="DimmingCapability" minOccurs="0">
         <xs:annotation>
           <xs:documentation>If exists then the lighting system can be dimmed across a range of outputs.</xs:documentation>
@@ -8975,18 +8984,6 @@
               </xs:complexType>
             </xs:element>
           </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="DaylightingControlSteps" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>For stepped dimming, the number of equally spaced control steps</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:integer">
-              <xs:attribute ref="auc:Source"/>
-            </xs:extension>
-          </xs:simpleContent>
         </xs:complexType>
       </xs:element>
       <xs:element name="PercentPremisesServed" minOccurs="0">
@@ -9152,7 +9149,20 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+      <xs:element name="Controls" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of system operation controls.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Control" type="auc:ControlLightingType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Type of system operation control.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:PrimaryFuel" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
@@ -9352,7 +9362,20 @@
                                               </xs:simpleContent>
                                             </xs:complexType>
                                           </xs:element>
-                                          <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+                                          <xs:element name="Controls" minOccurs="0">
+                                            <xs:annotation>
+                                              <xs:documentation>List of controls for solar hot water.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                              <xs:sequence>
+                                                <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+                                                  <xs:annotation>
+                                                    <xs:documentation>Solar hot water control.</xs:documentation>
+                                                  </xs:annotation>
+                                                </xs:element>
+                                              </xs:sequence>
+                                            </xs:complexType>
+                                          </xs:element>
                                           <xs:element ref="auc:Quantity" minOccurs="0"/>
                                           <xs:element ref="auc:YearInstalled" minOccurs="0"/>
                                           <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
@@ -9667,7 +9690,20 @@
       <xs:element ref="auc:Capacity" minOccurs="0"/>
       <xs:element ref="auc:CapacityUnits" minOccurs="0"/>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
-      <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+      <xs:element name="Controls" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of controls for domestic hot water.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Domestic hot water control.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
       <xs:element ref="auc:PrimaryFuel" minOccurs="0"/>
@@ -10182,7 +10218,20 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+      <xs:element name="Controls" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of controls for dishwasher.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Dishwasher control.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
@@ -10391,7 +10440,20 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+      <xs:element name="Controls" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of controls for laundry system.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Laundry system control.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
@@ -10537,7 +10599,20 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+      <xs:element name="Controls" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of controls for pump system.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Pump system control.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
@@ -10751,7 +10826,20 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+      <xs:element name="Controls" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of controls for fan system.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Fan system control.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
@@ -10895,7 +10983,20 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+      <xs:element name="Controls" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of controls for motor systems.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Motor system control.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
@@ -10984,7 +11085,20 @@
           <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
         </xs:complexType>
       </xs:element>
-      <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+      <xs:element name="Controls" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of controls for heat recovery system.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Heat recovery system control.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
@@ -12801,7 +12915,20 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+      <xs:element name="Controls" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of controls for critical IT system.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Critical IT system control.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
@@ -12889,7 +13016,20 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+      <xs:element name="Controls" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of plug load controls.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Plug load control.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
@@ -12977,7 +13117,20 @@
         </xs:complexType>
       </xs:element>
       <xs:element ref="auc:DutyCycle" minOccurs="0"/>
-      <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+      <xs:element name="Controls" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of process load controls.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Process load control.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
@@ -13048,7 +13201,20 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+      <xs:element name="Controls" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of conveyance system controls.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Conveyance system control.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
@@ -13330,7 +13496,20 @@
       </xs:element>
       <xs:element ref="auc:Capacity" minOccurs="0"/>
       <xs:element ref="auc:CapacityUnits" minOccurs="0"/>
-      <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+      <xs:element name="Controls" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of onsite storage transmission controls.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Onsite storage transmission control.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
@@ -13440,7 +13619,20 @@
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-            <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+            <xs:element name="Controls" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>List of controls for heated pool.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+                    <xs:annotation>
+                      <xs:documentation>Heated pool control.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -13544,7 +13736,20 @@
         </xs:complexType>
       </xs:element>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
-      <xs:element ref="auc:ControlTechnology" minOccurs="0"/>
+      <xs:element name="Controls" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of controls for water use system.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Control for water use.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:YearofManufacture" minOccurs="0"/>
       <xs:element ref="auc:Manufacturer" minOccurs="0"/>
@@ -16426,4 +16631,481 @@
       <xs:documentation>Year that the burner was installed</xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:complexType name="ControlGeneralType">
+    <xs:annotation>
+      <xs:documentation>An instance of a general control technology.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AdvancedPowerStrip" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Control by means of advanced power strip.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
+            <xs:element name="ControlStrategy" type="auc:ControlStrategyGeneralType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Control strategy for advanced power strip.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OtherControlStrategyName" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>If ControlStrategy is other, then the name of the strategy used.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Manual" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Manual operation of system.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
+            <xs:element name="ControlStrategy" type="auc:ControlStrategyGeneralType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Control strategy for manual control.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OtherControlStrategyName" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>If ControlStrategy is other, then the name of the strategy used.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Occupancy" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Occupancy-based controls.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
+            <xs:element name="ControlSensor" type="auc:ControlSensorOccupancyType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Type of sensor for detecting occupancy.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ControlStrategy" type="auc:ControlStrategyOccupancyType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Occupancy-based control strategy.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OtherControlStrategyName" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>If ControlStrategy is other, then the name of the strategy used.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Timer" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Timer-based controls for specified timed intervals.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
+            <xs:element name="ControlStrategy" type="auc:ControlStrategyGeneralType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Timer-based control strategy for lighting.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OtherControlStrategyName" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>If ControlStrategy is other, then the name of the strategy used.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Thermostat" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Thermostat-based control technology.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
+            <xs:element name="ControlStrategy" type="auc:ControlStrategyGeneralType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Thermostat controller strategy.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OtherControlStrategyName" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>If ControlStrategy is other, then the name of the strategy used.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OtherControlTechnology" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Other control technology.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
+            <xs:element name="OtherControlTechnologyName" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Custom defined name for the type of control technology used.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ControlStrategy" type="auc:ControlStrategyGeneralType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>HVAC control strategy for other control technology.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OtherControlStrategyName" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>If ControlStrategy is other, then the name of the strategy used.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ControlStrategyGeneralType">
+    <xs:annotation>
+      <xs:documentation>Enumerations for general control strategies.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Always On"/>
+      <xs:enumeration value="Aquastat"/>
+      <xs:enumeration value="Astronomical"/>
+      <xs:enumeration value="Chronological"/>
+      <xs:enumeration value="EMCS"/>
+      <xs:enumeration value="Demand"/>
+      <xs:enumeration value="Manual"/>
+      <xs:enumeration value="Programmable"/>
+      <xs:enumeration value="Timer"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="None"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ControlLightingType">
+    <xs:annotation>
+      <xs:documentation>An instance of a lighting control technology.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AdvancedPowerStrip" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
+            <xs:element name="ControlStrategy" type="auc:ControlStrategyLightingType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Controller strategy.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OtherControlStrategyName" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>If ControlStrategy is other, then the name of the strategy used.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Daylighting" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Type of daylighting controls used to manage lighting.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
+            <xs:element name="ControlSensor" type="auc:ControlSensorDaylightingType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Type of sensor for daylighting.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ControlSteps" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>For stepped dimming, the number of equally spaced control steps.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:integer">
+                    <xs:attribute ref="auc:Source"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="ControlStrategy" type="auc:ControlStrategyDaylightingType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Daylighting control strategy.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OtherControlStrategyName" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>If ControlStrategy is other, then the name of the strategy used.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Manual" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Type of manual controls used to manage lighting.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
+            <xs:element name="ControlStrategy" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Manual lighting control strategy.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Always On"/>
+                  <xs:enumeration value="Always Off"/>
+                  <xs:enumeration value="Manual On/Off"/>
+                  <xs:enumeration value="Manual Dimming"/>
+                  <xs:enumeration value="Bi-level Control"/>
+                  <xs:enumeration value="Tri-level Control"/>
+                  <xs:enumeration value="Other"/>
+                  <xs:enumeration value="None"/>
+                  <xs:enumeration value="Unknown"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="OtherControlStrategyName" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>If ControlStrategy is other, then the name of the strategy used.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Occupancy" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Type of occupancy controls used to manage lighting. </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
+            <xs:element name="ControlSensor" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Type of sensor for detecting occupancy.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Passive infrared"/>
+                  <xs:enumeration value="Ultrasonic"/>
+                  <xs:enumeration value="Passive infrared and ultrasonic"/>
+                  <xs:enumeration value="Microwave"/>
+                  <xs:enumeration value="Camera"/>
+                  <xs:enumeration value="Other"/>
+                  <xs:enumeration value="Unknown"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="ControlStrategy" type="auc:ControlStrategyOccupancyType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Occupancy-based control strategy.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OtherControlStrategyName" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>If ControlStrategy is other, then the name of the strategy used.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Timer" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Type of timer-based controls for managing lighting on specified timed intervals.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
+            <xs:element name="ControlStrategy" type="auc:ControlStrategyLightingType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Timer-based control strategy for lighting.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OtherControlStrategyName" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>If ControlStrategy is other, then the name of the strategy used.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OtherControlTechnology" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
+            <xs:element name="OtherControlTechnologyName" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Name of the other control technology used.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ControlStrategy" type="auc:ControlStrategyLightingType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Control strategy used for other control technology.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="OtherControlStrategyName" type="xs:string" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>If ControlStrategy is other, then the name of the strategy used.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ControlSystemType">
+    <xs:annotation>
+      <xs:documentation>Identifier for the type of control (e.g., Pneumatic, Analog, Digital).</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:element name="Analog">
+          <xs:annotation>
+            <xs:documentation>Analog control system.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CommunicationProtocol" type="auc:CommunicationProtocolAnalogType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Method of communicating data over an analog network.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Digital">
+          <xs:annotation>
+            <xs:documentation>Digital (or Direct Digital Control [DDC]) system.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CommunicationProtocol" type="auc:CommunicationProtocolDigitalType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Method of communicating data over a digital computer network.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Pneumatic">
+          <xs:annotation>
+            <xs:documentation>Pneumatic-based controls.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Other">
+          <xs:annotation>
+            <xs:documentation>Other type of control system.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OtherCommunicationProtocolName" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Name of the other communication protocal that is being used to communicate data over a computer network.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildingAutomationSystem" type="xs:boolean">
+    <xs:annotation>
+      <xs:documentation>Does the building include a building automation or management system?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:simpleType name="ControlStrategyLightingType">
+    <xs:annotation>
+      <xs:documentation>Enumerations for lighting control strategies.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Advanced"/>
+      <xs:enumeration value="Always On"/>
+      <xs:enumeration value="Astronomical"/>
+      <xs:enumeration value="Chronological"/>
+      <xs:enumeration value="Demand"/>
+      <xs:enumeration value="EMCS"/>
+      <xs:enumeration value="Manual"/>
+      <xs:enumeration value="Programmable"/>
+      <xs:enumeration value="Timer"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="None"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ControlSensorOccupancyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Passive infrared"/>
+      <xs:enumeration value="Ultrasonic"/>
+      <xs:enumeration value="Passive infrared and ultrasonic"/>
+      <xs:enumeration value="Microwave"/>
+      <xs:enumeration value="Camera"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ControlSensorDaylightingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Camera"/>
+      <xs:enumeration value="Photocell"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ControlStrategyDaylightingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Continuous"/>
+      <xs:enumeration value="Continuous Plus Off"/>
+      <xs:enumeration value="Stepped Dimming"/>
+      <xs:enumeration value="Stepped Switching"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ControlStrategyOccupancyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Occupancy Sensors"/>
+      <xs:enumeration value="Vacancy Sensors"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CommunicationProtocolAnalogType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AMX192"/>
+      <xs:enumeration value="Current"/>
+      <xs:enumeration value="D54"/>
+      <xs:enumeration value="Voltage"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="None"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CommunicationProtocolDigitalType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BACnet"/>
+      <xs:enumeration value="DALI"/>
+      <xs:enumeration value="DMX512"/>
+      <xs:enumeration value="DSI "/>
+      <xs:enumeration value="EnOcean"/>
+      <xs:enumeration value="KMX"/>
+      <xs:enumeration value="Konnex"/>
+      <xs:enumeration value="LonTalk"/>
+      <xs:enumeration value="MODBUS"/>
+      <xs:enumeration value="PROFIBUS FMS"/>
+      <xs:enumeration value="X10"/>
+      <xs:enumeration value="ZigBee"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="None"/>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>
