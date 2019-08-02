@@ -14787,6 +14787,8 @@
   <xs:simpleType name="FuelTypes">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Electricity"/>
+      <xs:enumeration value="Electricity-Exported"/>
+      <xs:enumeration value="Electricity-Onsite generated"/>
       <xs:enumeration value="Natural gas"/>
       <xs:enumeration value="Fuel oil"/>
       <xs:enumeration value="Fuel oil no 1"/>
