@@ -8669,14 +8669,16 @@
           <xs:documentation>List of connections to air distribution systems.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
-          <xs:element name="LinkedDeliveryID" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>Connect to an air distribution system</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-            </xs:complexType>
-          </xs:element>
+          <xs:sequence>
+            <xs:element name="LinkedDeliveryID" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Connect to an air distribution system</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
