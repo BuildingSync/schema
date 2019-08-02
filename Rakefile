@@ -22,6 +22,12 @@ task :remove_tabs do
       config.default_xml.noblanks
     end
 
+    doc.xpath('//comment()').each do |node|
+      if node.text =~ /XMLSpy/
+        node.remove
+      end
+    end
+
     File.open(file, 'w') { |f| f << doc.to_xml(:indent => 2) }
   end
 end
