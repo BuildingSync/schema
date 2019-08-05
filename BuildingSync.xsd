@@ -14993,6 +14993,8 @@
   <xs:simpleType name="FuelTypes">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Electricity"/>
+      <xs:enumeration value="Electricity-Exported"/>
+      <xs:enumeration value="Electricity-Onsite generated"/>
       <xs:enumeration value="Natural gas"/>
       <xs:enumeration value="Fuel oil"/>
       <xs:enumeration value="Fuel oil no 1"/>
@@ -15016,6 +15018,9 @@
       <xs:enumeration value="Wood pellets"/>
       <xs:enumeration value="Hydropower"/>
       <xs:enumeration value="Biofuel"/>
+      <xs:enumeration value="Biofuel B5"/>
+      <xs:enumeration value="Biofuel B10"/>
+      <xs:enumeration value="Biofuel B20"/>
       <xs:enumeration value="Wind"/>
       <xs:enumeration value="Geothermal"/>
       <xs:enumeration value="Solar"/>
@@ -15026,6 +15031,14 @@
       <xs:enumeration value="Ethanol"/>
       <xs:enumeration value="Biodiesel"/>
       <xs:enumeration value="Waste heat"/>
+      <xs:enumeration value="Duel fuel"/>
+      <xs:enumeration value="Gasoline"/>
+      <xs:enumeration value="Thermal-Exported"/>
+      <xs:enumeration value="Thermal-Onsite generated"/>
+      <xs:enumeration value="Other delivered-Exported"/>
+      <xs:enumeration value="Other delivered-Onsite generated"/>
+      <xs:enumeration value="Other metered-Exported"/>
+      <xs:enumeration value="Other metered-Onsite generated"/>
       <xs:enumeration value="Other"/>
       <xs:enumeration value="Unknown"/>
     </xs:restriction>
