@@ -8103,6 +8103,37 @@
 			},
 			"type": "object"
 		},
+		".auc:CondensingOperation": {
+			"additionalProperties": false,
+			"description": "The capability of the boiler or furnace to condense water vapor in the exhaust flue gas to obtain a higher efficiency.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"enum": [
+						"Condensing",
+						"Near-Condensing",
+						"Non-Condensing",
+						"Other",
+						"Unknown"
+					],
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
 		".auc:ControlTechnology": {
 			"additionalProperties": false,
 			"description": "Type of system operation control.",
@@ -38472,28 +38503,7 @@
 															"type": "object"
 														},
 														"auc:CondensingOperation": {
-															"additionalProperties": false,
-															"description": "True if the boiler or furnace is capable of condensing the water vapor in the exhaust flue gas to obtain a higher efficiency.",
-															"patternProperties": {
-																"^@xmlns(:\\w+)?$": {
-																	"type": "string"
-																},
-																"^@xsi:\\w+$": {
-																	"type": "string"
-																},
-																"^\\?\\w+$": {
-																	"type": "string"
-																}
-															},
-															"properties": {
-																"#": {
-																	"type": "string"
-																},
-																"$": {
-																	"$ref": "#/definitions/xs:boolean"
-																}
-															},
-															"type": "object"
+															"$ref": "#/definitions/.auc:CondensingOperation"
 														},
 														"auc:DraftType": {
 															"$ref": "#/definitions/.auc:DraftType"
@@ -39437,28 +39447,7 @@
 																"type": "object"
 															},
 															"auc:CondensingOperation": {
-																"additionalProperties": false,
-																"description": "True if the boiler or furnace is capable of condensing the water vapor in the exhaust flue gas to obtain a higher efficiency.",
-																"patternProperties": {
-																	"^@xmlns(:\\w+)?$": {
-																		"type": "string"
-																	},
-																	"^@xsi:\\w+$": {
-																		"type": "string"
-																	},
-																	"^\\?\\w+$": {
-																		"type": "string"
-																	}
-																},
-																"properties": {
-																	"#": {
-																		"type": "string"
-																	},
-																	"$": {
-																		"$ref": "#/definitions/xs:boolean"
-																	}
-																},
-																"type": "object"
+																"$ref": "#/definitions/.auc:CondensingOperation"
 															},
 															"auc:DraftType": {
 																"$ref": "#/definitions/.auc:DraftType"
