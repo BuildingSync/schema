@@ -4382,12 +4382,12 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="StartTimeStamp" type="xs:dateTime" minOccurs="0">
+      <xs:element name="StartTimestamp" type="xs:dateTime" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The timestamp that marks the beginning of the time series. (CCYY-MM-DDThh:mm:ss.zzz)</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="EndTimeStamp" type="xs:dateTime" minOccurs="0">
+      <xs:element name="EndTimestamp" type="xs:dateTime" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The timestamp that marks the end of the time series. (CCYY-MM-DDThh:mm:ss.zzz)</xs:documentation>
         </xs:annotation>
@@ -6223,11 +6223,7 @@
                                     </xs:element>
                                     <xs:element ref="auc:IgnitionType" minOccurs="0"/>
                                     <xs:element ref="auc:DraftType" minOccurs="0"/>
-                                    <xs:element name="CondensingOperation" type="xs:boolean" minOccurs="0">
-                                      <xs:annotation>
-                                        <xs:documentation>True if the boiler or furnace is capable of condensing the water vapor in the exhaust flue gas to obtain a higher efficiency.</xs:documentation>
-                                      </xs:annotation>
-                                    </xs:element>
+                                    <xs:element ref="auc:CondensingOperation" minOccurs="0"/>
                                     <xs:element name="CombustionEfficiency" minOccurs="0">
                                       <xs:annotation>
                                         <xs:documentation>The measure of how much energy is extracted from the fuel and is the ratio of heat transferred to the combustion air divided by the heat input of the fuel. (0-1) (%)</xs:documentation>
@@ -7285,11 +7281,7 @@
               </xs:element>
               <xs:element ref="auc:IgnitionType" minOccurs="0"/>
               <xs:element ref="auc:DraftType" minOccurs="0"/>
-              <xs:element name="CondensingOperation" type="xs:boolean" minOccurs="0">
-                <xs:annotation>
-                  <xs:documentation>True if the boiler or furnace is capable of condensing the water vapor in the exhaust flue gas to obtain a higher efficiency.</xs:documentation>
-                </xs:annotation>
-              </xs:element>
+              <xs:element ref="auc:CondensingOperation" minOccurs="0"/>
               <xs:element ref="auc:HeatingStaging" minOccurs="0"/>
               <xs:element name="InputCapacity" minOccurs="0">
                 <xs:annotation>
@@ -15976,6 +15968,20 @@
         <xs:enumeration value="Natural"/>
         <xs:enumeration value="Mechanical forced"/>
         <xs:enumeration value="Mechanical induced"/>
+        <xs:enumeration value="Other"/>
+        <xs:enumeration value="Unknown"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="CondensingOperation">
+    <xs:annotation>
+      <xs:documentation>The capability of the boiler or furnace to condense water vapor in the exhaust flue gas to obtain a higher efficiency.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Condensing"/>
+        <xs:enumeration value="Near-Condensing"/>
+        <xs:enumeration value="Non-Condensing"/>
         <xs:enumeration value="Other"/>
         <xs:enumeration value="Unknown"/>
       </xs:restriction>
