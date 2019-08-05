@@ -859,7 +859,7 @@
 			},
 			"type": "object"
 		},
-		".auc:AnnualHeatingEfficiencyUnit": {
+		".auc:AnnualHeatingEfficiencyUnits": {
 			"additionalProperties": false,
 			"description": "The measure used to quantify efficiency",
 			"patternProperties": {
@@ -10332,7 +10332,7 @@
 						"Food sales",
 						"Laboratory-Testing",
 						"Laboratory-Medical",
-						"Laboratory ",
+						"Laboratory",
 						"Vivarium",
 						"Zoo",
 						"Office-Financial",
@@ -33110,11 +33110,15 @@
 		"auc:FuelTypes": {
 			"enum": [
 				"Electricity",
+				"Electricity-Exported",
+				"Electricity-Onsite generated",
 				"Natural gas",
 				"Fuel oil",
 				"Fuel oil no 1",
 				"Fuel oil no 2",
 				"Fuel oil no 4",
+				"Fuel oil no 5",
+				"Fuel oil no 6",
 				"Fuel oil no 5 and no 6",
 				"District steam",
 				"District hot water",
@@ -33131,6 +33135,9 @@
 				"Wood pellets",
 				"Hydropower",
 				"Biofuel",
+				"Biofuel B5",
+				"Biofuel B10",
+				"Biofuel B20",
 				"Wind",
 				"Geothermal",
 				"Solar",
@@ -33141,6 +33148,14 @@
 				"Ethanol",
 				"Biodiesel",
 				"Waste heat",
+				"Duel fuel",
+				"Gasoline",
+				"Thermal-Exported",
+				"Thermal-Onsite generated",
+				"Other delivered-Exported",
+				"Other delivered-Onsite generated",
+				"Other metered-Exported",
+				"Other metered-Onsite generated",
 				"Other",
 				"Unknown"
 			],
@@ -38178,8 +38193,8 @@
 											],
 											"type": "string"
 										},
-										"auc:AnnualHeatingEfficiencyUnit": {
-											"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+										"auc:AnnualHeatingEfficiencyUnits": {
+											"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 										},
 										"auc:AnnualHeatingEfficiencyValue": {
 											"additionalProperties": false,
@@ -38311,6 +38326,9 @@
 											"properties": {
 												"#": {
 													"type": "string"
+												},
+												"auc:ElectricResistance": {
+													"$ref": "#/definitions/.auc:ElectricResistanceType"
 												},
 												"auc:Furnace": {
 													"additionalProperties": false,
@@ -39143,8 +39161,8 @@
 												],
 												"type": "string"
 											},
-											"auc:AnnualHeatingEfficiencyUnit": {
-												"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+											"auc:AnnualHeatingEfficiencyUnits": {
+												"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 											},
 											"auc:AnnualHeatingEfficiencyValue": {
 												"additionalProperties": false,
@@ -40602,8 +40620,8 @@
 						"#": {
 							"type": "string"
 						},
-						"auc:AnnualHeatingEfficiencyUnit": {
-							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+						"auc:AnnualHeatingEfficiencyUnits": {
+							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 						},
 						"auc:AnnualHeatingEfficiencyValue": {
 							"additionalProperties": false,
@@ -41660,8 +41678,8 @@
 						"#": {
 							"type": "string"
 						},
-						"auc:AnnualHeatingEfficiencyUnit": {
-							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+						"auc:AnnualHeatingEfficiencyUnits": {
+							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 						},
 						"auc:AnnualHeatingEfficiencyValue": {
 							"additionalProperties": false,
@@ -42055,8 +42073,8 @@
 						"#": {
 							"type": "string"
 						},
-						"auc:AnnualHeatingEfficiencyUnit": {
-							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+						"auc:AnnualHeatingEfficiencyUnits": {
+							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 						},
 						"auc:AnnualHeatingEfficiencyValue": {
 							"additionalProperties": false,
@@ -85369,8 +85387,8 @@
 		"auc:AnnualCoolingEfficiencyUnits": {
 			"$ref": "#/definitions/.auc:AnnualCoolingEfficiencyUnits"
 		},
-		"auc:AnnualHeatingEfficiencyUnit": {
-			"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+		"auc:AnnualHeatingEfficiencyUnits": {
+			"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 		},
 		"auc:AssetScore": {
 			"$ref": "#/definitions/.auc:AssetScore"

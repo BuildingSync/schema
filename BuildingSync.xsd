@@ -6174,6 +6174,7 @@
                                   <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                 </xs:complexType>
                               </xs:element>
+                              <xs:element name="ElectricResistance" type="auc:ElectricResistanceType" minOccurs="0"/>
                               <xs:element name="Furnace" minOccurs="0">
                                 <xs:complexType>
                                   <xs:sequence>
@@ -6355,7 +6356,7 @@
                             </xs:simpleContent>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+                        <xs:element ref="auc:AnnualHeatingEfficiencyUnits" minOccurs="0"/>
                         <xs:element name="InputCapacity" minOccurs="0">
                           <xs:annotation>
                             <xs:documentation>The rate of energy consumption of the heating equipment at full load.</xs:documentation>
@@ -7352,7 +7353,7 @@
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+              <xs:element ref="auc:AnnualHeatingEfficiencyUnits" minOccurs="0"/>
               <xs:element name="CombustionEfficiency" minOccurs="0">
                 <xs:annotation>
                   <xs:documentation>The measure of how much energy is extracted from the fuel and is the ratio of heat transferred to the combustion air divided by the heat input of the fuel. (0-1) (%)</xs:documentation>
@@ -7553,7 +7554,7 @@
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+              <xs:element ref="auc:AnnualHeatingEfficiencyUnits" minOccurs="0"/>
               <xs:element name="HotWaterBoilerMaximumFlowRate" minOccurs="0">
                 <xs:annotation>
                   <xs:documentation>The maximum flow rate of water that the boiler is designed to accept. [gpm]</xs:documentation>
@@ -7634,7 +7635,7 @@
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+              <xs:element ref="auc:AnnualHeatingEfficiencyUnits" minOccurs="0"/>
               <xs:element ref="auc:Quantity" minOccurs="0"/>
             </xs:sequence>
           </xs:complexType>
@@ -9635,6 +9636,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="Energy Factor"/>
             <xs:enumeration value="Thermal Efficiency"/>
+            <xs:enumeration value="AFUE"/>
             <xs:enumeration value="COP"/>
           </xs:restriction>
         </xs:simpleType>
@@ -14992,11 +14994,15 @@
   <xs:simpleType name="FuelTypes">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Electricity"/>
+      <xs:enumeration value="Electricity-Exported"/>
+      <xs:enumeration value="Electricity-Onsite generated"/>
       <xs:enumeration value="Natural gas"/>
       <xs:enumeration value="Fuel oil"/>
       <xs:enumeration value="Fuel oil no 1"/>
       <xs:enumeration value="Fuel oil no 2"/>
       <xs:enumeration value="Fuel oil no 4"/>
+      <xs:enumeration value="Fuel oil no 5"/>
+      <xs:enumeration value="Fuel oil no 6"/>
       <xs:enumeration value="Fuel oil no 5 and no 6"/>
       <xs:enumeration value="District steam"/>
       <xs:enumeration value="District hot water"/>
@@ -15013,6 +15019,9 @@
       <xs:enumeration value="Wood pellets"/>
       <xs:enumeration value="Hydropower"/>
       <xs:enumeration value="Biofuel"/>
+      <xs:enumeration value="Biofuel B5"/>
+      <xs:enumeration value="Biofuel B10"/>
+      <xs:enumeration value="Biofuel B20"/>
       <xs:enumeration value="Wind"/>
       <xs:enumeration value="Geothermal"/>
       <xs:enumeration value="Solar"/>
@@ -15023,6 +15032,14 @@
       <xs:enumeration value="Ethanol"/>
       <xs:enumeration value="Biodiesel"/>
       <xs:enumeration value="Waste heat"/>
+      <xs:enumeration value="Duel fuel"/>
+      <xs:enumeration value="Gasoline"/>
+      <xs:enumeration value="Thermal-Exported"/>
+      <xs:enumeration value="Thermal-Onsite generated"/>
+      <xs:enumeration value="Other delivered-Exported"/>
+      <xs:enumeration value="Other delivered-Onsite generated"/>
+      <xs:enumeration value="Other metered-Exported"/>
+      <xs:enumeration value="Other metered-Onsite generated"/>
       <xs:enumeration value="Other"/>
       <xs:enumeration value="Unknown"/>
     </xs:restriction>
@@ -15140,7 +15157,7 @@
         <xs:enumeration value="Food sales"/>
         <xs:enumeration value="Laboratory-Testing"/>
         <xs:enumeration value="Laboratory-Medical"/>
-        <xs:enumeration value="Laboratory "/>
+        <xs:enumeration value="Laboratory"/>
         <xs:enumeration value="Vivarium"/>
         <xs:enumeration value="Zoo"/>
         <xs:enumeration value="Office-Financial"/>
@@ -15892,7 +15909,7 @@
       </xs:restriction>
     </xs:simpleType>
   </xs:element>
-  <xs:element name="AnnualHeatingEfficiencyUnit">
+  <xs:element name="AnnualHeatingEfficiencyUnits">
     <xs:annotation>
       <xs:documentation>The measure used to quantify efficiency</xs:documentation>
     </xs:annotation>
@@ -15901,6 +15918,7 @@
         <xs:enumeration value="COP"/>
         <xs:enumeration value="AFUE"/>
         <xs:enumeration value="HSPF"/>
+        <xs:enumeration value="Thermal Efficiency"/>
         <xs:enumeration value="Other"/>
         <xs:enumeration value="Unknown"/>
       </xs:restriction>
