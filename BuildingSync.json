@@ -859,7 +859,7 @@
 			},
 			"type": "object"
 		},
-		".auc:AnnualHeatingEfficiencyUnit": {
+		".auc:AnnualHeatingEfficiencyUnits": {
 			"additionalProperties": false,
 			"description": "The measure used to quantify efficiency",
 			"patternProperties": {
@@ -10331,7 +10331,7 @@
 						"Food sales",
 						"Laboratory-Testing",
 						"Laboratory-Medical",
-						"Laboratory ",
+						"Laboratory",
 						"Vivarium",
 						"Office",
 						"Bank",
@@ -38163,8 +38163,8 @@
 											],
 											"type": "string"
 										},
-										"auc:AnnualHeatingEfficiencyUnit": {
-											"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+										"auc:AnnualHeatingEfficiencyUnits": {
+											"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 										},
 										"auc:AnnualHeatingEfficiencyValue": {
 											"additionalProperties": false,
@@ -39128,8 +39128,8 @@
 												],
 												"type": "string"
 											},
-											"auc:AnnualHeatingEfficiencyUnit": {
-												"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+											"auc:AnnualHeatingEfficiencyUnits": {
+												"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 											},
 											"auc:AnnualHeatingEfficiencyValue": {
 												"additionalProperties": false,
@@ -40587,8 +40587,8 @@
 						"#": {
 							"type": "string"
 						},
-						"auc:AnnualHeatingEfficiencyUnit": {
-							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+						"auc:AnnualHeatingEfficiencyUnits": {
+							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 						},
 						"auc:AnnualHeatingEfficiencyValue": {
 							"additionalProperties": false,
@@ -41645,8 +41645,8 @@
 						"#": {
 							"type": "string"
 						},
-						"auc:AnnualHeatingEfficiencyUnit": {
-							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+						"auc:AnnualHeatingEfficiencyUnits": {
+							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 						},
 						"auc:AnnualHeatingEfficiencyValue": {
 							"additionalProperties": false,
@@ -42040,8 +42040,8 @@
 						"#": {
 							"type": "string"
 						},
-						"auc:AnnualHeatingEfficiencyUnit": {
-							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+						"auc:AnnualHeatingEfficiencyUnits": {
+							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 						},
 						"auc:AnnualHeatingEfficiencyValue": {
 							"additionalProperties": false,
@@ -85354,8 +85354,8 @@
 		"auc:AnnualCoolingEfficiencyUnits": {
 			"$ref": "#/definitions/.auc:AnnualCoolingEfficiencyUnits"
 		},
-		"auc:AnnualHeatingEfficiencyUnit": {
-			"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+		"auc:AnnualHeatingEfficiencyUnits": {
+			"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 		},
 		"auc:AssetScore": {
 			"$ref": "#/definitions/.auc:AssetScore"

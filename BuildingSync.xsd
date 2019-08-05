@@ -6355,7 +6355,7 @@
                             </xs:simpleContent>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+                        <xs:element ref="auc:AnnualHeatingEfficiencyUnits" minOccurs="0"/>
                         <xs:element name="InputCapacity" minOccurs="0">
                           <xs:annotation>
                             <xs:documentation>The rate of energy consumption of the heating equipment at full load.</xs:documentation>
@@ -7352,7 +7352,7 @@
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+              <xs:element ref="auc:AnnualHeatingEfficiencyUnits" minOccurs="0"/>
               <xs:element name="CombustionEfficiency" minOccurs="0">
                 <xs:annotation>
                   <xs:documentation>The measure of how much energy is extracted from the fuel and is the ratio of heat transferred to the combustion air divided by the heat input of the fuel. (0-1) (%)</xs:documentation>
@@ -7553,7 +7553,7 @@
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+              <xs:element ref="auc:AnnualHeatingEfficiencyUnits" minOccurs="0"/>
               <xs:element name="HotWaterBoilerMaximumFlowRate" minOccurs="0">
                 <xs:annotation>
                   <xs:documentation>The maximum flow rate of water that the boiler is designed to accept. [gpm]</xs:documentation>
@@ -7634,7 +7634,7 @@
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+              <xs:element ref="auc:AnnualHeatingEfficiencyUnits" minOccurs="0"/>
               <xs:element ref="auc:Quantity" minOccurs="0"/>
             </xs:sequence>
           </xs:complexType>
@@ -9635,6 +9635,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="Energy Factor"/>
             <xs:enumeration value="Thermal Efficiency"/>
+            <xs:enumeration value="AFUE"/>
             <xs:enumeration value="COP"/>
           </xs:restriction>
         </xs:simpleType>
@@ -15141,7 +15142,7 @@
         <xs:enumeration value="Food sales"/>
         <xs:enumeration value="Laboratory-Testing"/>
         <xs:enumeration value="Laboratory-Medical"/>
-        <xs:enumeration value="Laboratory "/>
+        <xs:enumeration value="Laboratory"/>
         <xs:enumeration value="Vivarium"/>
         <xs:enumeration value="Office"/>
         <xs:enumeration value="Bank"/>
@@ -15877,7 +15878,7 @@
       </xs:restriction>
     </xs:simpleType>
   </xs:element>
-  <xs:element name="AnnualHeatingEfficiencyUnit">
+  <xs:element name="AnnualHeatingEfficiencyUnits">
     <xs:annotation>
       <xs:documentation>The measure used to quantify efficiency</xs:documentation>
     </xs:annotation>
@@ -15886,6 +15887,7 @@
         <xs:enumeration value="COP"/>
         <xs:enumeration value="AFUE"/>
         <xs:enumeration value="HSPF"/>
+        <xs:enumeration value="Thermal Efficiency"/>
         <xs:enumeration value="Other"/>
         <xs:enumeration value="Unknown"/>
       </xs:restriction>
