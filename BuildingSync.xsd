@@ -195,7 +195,7 @@
                           <xs:element name="ProcessLoads" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="ProcessLoad" type="auc:ProcessGasElecLoadType" maxOccurs="unbounded"/>
+                                <xs:element name="ProcessLoad" type="auc:ProcessGasElectricLoadType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
@@ -4382,12 +4382,12 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="StartTimeStamp" type="xs:dateTime" minOccurs="0">
+      <xs:element name="StartTimestamp" type="xs:dateTime" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The timestamp that marks the beginning of the time series. (CCYY-MM-DDThh:mm:ss.zzz)</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="EndTimeStamp" type="xs:dateTime" minOccurs="0">
+      <xs:element name="EndTimestamp" type="xs:dateTime" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The timestamp that marks the end of the time series. (CCYY-MM-DDThh:mm:ss.zzz)</xs:documentation>
         </xs:annotation>
@@ -6174,6 +6174,7 @@
                                   <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                 </xs:complexType>
                               </xs:element>
+                              <xs:element name="ElectricResistance" type="auc:ElectricResistanceType" minOccurs="0"/>
                               <xs:element name="Furnace" minOccurs="0">
                                 <xs:complexType>
                                   <xs:sequence>
@@ -6222,11 +6223,7 @@
                                     </xs:element>
                                     <xs:element ref="auc:IgnitionType" minOccurs="0"/>
                                     <xs:element ref="auc:DraftType" minOccurs="0"/>
-                                    <xs:element name="CondensingOperation" type="xs:boolean" minOccurs="0">
-                                      <xs:annotation>
-                                        <xs:documentation>True if the boiler or furnace is capable of condensing the water vapor in the exhaust flue gas to obtain a higher efficiency.</xs:documentation>
-                                      </xs:annotation>
-                                    </xs:element>
+                                    <xs:element ref="auc:CondensingOperation" minOccurs="0"/>
                                     <xs:element name="CombustionEfficiency" minOccurs="0">
                                       <xs:annotation>
                                         <xs:documentation>The measure of how much energy is extracted from the fuel and is the ratio of heat transferred to the combustion air divided by the heat input of the fuel. (0-1) (%)</xs:documentation>
@@ -6355,7 +6352,7 @@
                             </xs:simpleContent>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+                        <xs:element ref="auc:AnnualHeatingEfficiencyUnits" minOccurs="0"/>
                         <xs:element name="InputCapacity" minOccurs="0">
                           <xs:annotation>
                             <xs:documentation>The rate of energy consumption of the heating equipment at full load.</xs:documentation>
@@ -7284,11 +7281,7 @@
               </xs:element>
               <xs:element ref="auc:IgnitionType" minOccurs="0"/>
               <xs:element ref="auc:DraftType" minOccurs="0"/>
-              <xs:element name="CondensingOperation" type="xs:boolean" minOccurs="0">
-                <xs:annotation>
-                  <xs:documentation>True if the boiler or furnace is capable of condensing the water vapor in the exhaust flue gas to obtain a higher efficiency.</xs:documentation>
-                </xs:annotation>
-              </xs:element>
+              <xs:element ref="auc:CondensingOperation" minOccurs="0"/>
               <xs:element ref="auc:HeatingStaging" minOccurs="0"/>
               <xs:element name="InputCapacity" minOccurs="0">
                 <xs:annotation>
@@ -7352,7 +7345,7 @@
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+              <xs:element ref="auc:AnnualHeatingEfficiencyUnits" minOccurs="0"/>
               <xs:element name="CombustionEfficiency" minOccurs="0">
                 <xs:annotation>
                   <xs:documentation>The measure of how much energy is extracted from the fuel and is the ratio of heat transferred to the combustion air divided by the heat input of the fuel. (0-1) (%)</xs:documentation>
@@ -7553,7 +7546,7 @@
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+              <xs:element ref="auc:AnnualHeatingEfficiencyUnits" minOccurs="0"/>
               <xs:element name="HotWaterBoilerMaximumFlowRate" minOccurs="0">
                 <xs:annotation>
                   <xs:documentation>The maximum flow rate of water that the boiler is designed to accept. [gpm]</xs:documentation>
@@ -7634,7 +7627,7 @@
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element ref="auc:AnnualHeatingEfficiencyUnit" minOccurs="0"/>
+              <xs:element ref="auc:AnnualHeatingEfficiencyUnits" minOccurs="0"/>
               <xs:element ref="auc:Quantity" minOccurs="0"/>
             </xs:sequence>
           </xs:complexType>
@@ -9522,6 +9515,19 @@
                           <xs:complexType>
                             <xs:sequence>
                               <xs:element ref="auc:DraftType" minOccurs="0"/>
+                              <xs:element name="DraftBoundary" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>The boundary that encompasses the draft mechanism used for drawing air through the boiler or furnace.</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Direct"/>
+                                    <xs:enumeration value="Direct indirect"/>
+                                    <xs:enumeration value="Indirect"/>
+                                    <xs:enumeration value="Other"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
                             </xs:sequence>
                           </xs:complexType>
                         </xs:element>
@@ -9644,6 +9650,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="Energy Factor"/>
             <xs:enumeration value="Thermal Efficiency"/>
+            <xs:enumeration value="AFUE"/>
             <xs:enumeration value="COP"/>
           </xs:restriction>
         </xs:simpleType>
@@ -13054,7 +13061,7 @@
     <xs:attribute ref="auc:Source"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
-  <xs:complexType name="ProcessGasElecLoadType">
+  <xs:complexType name="ProcessGasElectricLoadType">
     <xs:sequence>
       <xs:element name="ProcessLoadType" minOccurs="0">
         <xs:annotation>
@@ -15001,11 +15008,15 @@
   <xs:simpleType name="FuelTypes">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Electricity"/>
+      <xs:enumeration value="Electricity-Exported"/>
+      <xs:enumeration value="Electricity-Onsite generated"/>
       <xs:enumeration value="Natural gas"/>
       <xs:enumeration value="Fuel oil"/>
       <xs:enumeration value="Fuel oil no 1"/>
       <xs:enumeration value="Fuel oil no 2"/>
       <xs:enumeration value="Fuel oil no 4"/>
+      <xs:enumeration value="Fuel oil no 5"/>
+      <xs:enumeration value="Fuel oil no 6"/>
       <xs:enumeration value="Fuel oil no 5 and no 6"/>
       <xs:enumeration value="District steam"/>
       <xs:enumeration value="District hot water"/>
@@ -15022,6 +15033,9 @@
       <xs:enumeration value="Wood pellets"/>
       <xs:enumeration value="Hydropower"/>
       <xs:enumeration value="Biofuel"/>
+      <xs:enumeration value="Biofuel B5"/>
+      <xs:enumeration value="Biofuel B10"/>
+      <xs:enumeration value="Biofuel B20"/>
       <xs:enumeration value="Wind"/>
       <xs:enumeration value="Geothermal"/>
       <xs:enumeration value="Solar"/>
@@ -15032,6 +15046,14 @@
       <xs:enumeration value="Ethanol"/>
       <xs:enumeration value="Biodiesel"/>
       <xs:enumeration value="Waste heat"/>
+      <xs:enumeration value="Duel fuel"/>
+      <xs:enumeration value="Gasoline"/>
+      <xs:enumeration value="Thermal-Exported"/>
+      <xs:enumeration value="Thermal-Onsite generated"/>
+      <xs:enumeration value="Other delivered-Exported"/>
+      <xs:enumeration value="Other delivered-Onsite generated"/>
+      <xs:enumeration value="Other metered-Exported"/>
+      <xs:enumeration value="Other metered-Onsite generated"/>
       <xs:enumeration value="Other"/>
       <xs:enumeration value="Unknown"/>
     </xs:restriction>
@@ -15137,6 +15159,7 @@
         <xs:enumeration value="Health care-Inpatient hospital"/>
         <xs:enumeration value="Health care-Outpatient rehabilitation"/>
         <xs:enumeration value="Health care-Diagnostic center"/>
+        <xs:enumeration value="Health care-Outpatient facility"/>
         <xs:enumeration value="Health care-Outpatient non-diagnostic"/>
         <xs:enumeration value="Health care-Outpatient surgical"/>
         <xs:enumeration value="Health care-Veterinary"/>
@@ -15148,11 +15171,15 @@
         <xs:enumeration value="Food sales"/>
         <xs:enumeration value="Laboratory-Testing"/>
         <xs:enumeration value="Laboratory-Medical"/>
-        <xs:enumeration value="Laboratory "/>
+        <xs:enumeration value="Laboratory"/>
         <xs:enumeration value="Vivarium"/>
+        <xs:enumeration value="Zoo"/>
+        <xs:enumeration value="Office-Financial"/>
         <xs:enumeration value="Office"/>
         <xs:enumeration value="Bank"/>
         <xs:enumeration value="Courthouse"/>
+        <xs:enumeration value="Public safety station-Fire"/>
+        <xs:enumeration value="Public safety station-Police"/>
         <xs:enumeration value="Public safety station"/>
         <xs:enumeration value="Public safety-Detention center"/>
         <xs:enumeration value="Public safety-Correctional facility"/>
@@ -15166,27 +15193,37 @@
         <xs:enumeration value="Assembly-Social entertainment"/>
         <xs:enumeration value="Assembly-Arcade or casino without lodging"/>
         <xs:enumeration value="Assembly-Convention center"/>
+        <xs:enumeration value="Assembly-Indoor arena"/>
+        <xs:enumeration value="Assembly-Race track"/>
         <xs:enumeration value="Assembly-Stadium"/>
+        <xs:enumeration value="Assembly-Stadium (closed)"/>
+        <xs:enumeration value="Assembly-Stadium (open)"/>
         <xs:enumeration value="Assembly-Public"/>
         <xs:enumeration value="Recreation-Pool"/>
+        <xs:enumeration value="Recreation-Bowling alley"/>
         <xs:enumeration value="Recreation-Fitness center"/>
         <xs:enumeration value="Recreation-Ice rink"/>
+        <xs:enumeration value="Recreation-Roller rink"/>
         <xs:enumeration value="Recreation-Indoor sport"/>
         <xs:enumeration value="Recreation"/>
+        <xs:enumeration value="Education-Adult"/>
         <xs:enumeration value="Education-Higher"/>
         <xs:enumeration value="Education-Secondary"/>
         <xs:enumeration value="Education-Primary"/>
         <xs:enumeration value="Education-Preschool or daycare"/>
+        <xs:enumeration value="Education-Vocational"/>
         <xs:enumeration value="Education"/>
         <xs:enumeration value="Food service-Fast"/>
         <xs:enumeration value="Food service-Full"/>
         <xs:enumeration value="Food service-Limited"/>
         <xs:enumeration value="Food service-Institutional"/>
         <xs:enumeration value="Food service"/>
+        <xs:enumeration value="Lodging-Barracks"/>
         <xs:enumeration value="Lodging-Institutional"/>
         <xs:enumeration value="Lodging with extended amenities"/>
         <xs:enumeration value="Lodging with limited amenities"/>
         <xs:enumeration value="Lodging"/>
+        <xs:enumeration value="Retail-Automobile dealership"/>
         <xs:enumeration value="Retail-Mall"/>
         <xs:enumeration value="Retail-Strip mall"/>
         <xs:enumeration value="Retail-Enclosed mall"/>
@@ -15245,6 +15282,7 @@
         <xs:enumeration value="Kitchen"/>
         <xs:enumeration value="Kitchenette"/>
         <xs:enumeration value="Refrigerated storage"/>
+        <xs:enumeration value="Bar-Nightclub"/>
         <xs:enumeration value="Bar"/>
         <xs:enumeration value="Dance floor"/>
         <xs:enumeration value="Trading floor"/>
@@ -15260,6 +15298,7 @@
         <xs:enumeration value="Deck"/>
         <xs:enumeration value="Courtyard"/>
         <xs:enumeration value="Atrium"/>
+        <xs:enumeration value="Science park"/>
         <xs:enumeration value="Other"/>
         <xs:enumeration value="Unknown"/>
       </xs:restriction>
@@ -15884,7 +15923,7 @@
       </xs:restriction>
     </xs:simpleType>
   </xs:element>
-  <xs:element name="AnnualHeatingEfficiencyUnit">
+  <xs:element name="AnnualHeatingEfficiencyUnits">
     <xs:annotation>
       <xs:documentation>The measure used to quantify efficiency</xs:documentation>
     </xs:annotation>
@@ -15893,6 +15932,7 @@
         <xs:enumeration value="COP"/>
         <xs:enumeration value="AFUE"/>
         <xs:enumeration value="HSPF"/>
+        <xs:enumeration value="Thermal Efficiency"/>
         <xs:enumeration value="Other"/>
         <xs:enumeration value="Unknown"/>
       </xs:restriction>
@@ -15950,6 +15990,20 @@
         <xs:enumeration value="Natural"/>
         <xs:enumeration value="Mechanical forced"/>
         <xs:enumeration value="Mechanical induced"/>
+        <xs:enumeration value="Other"/>
+        <xs:enumeration value="Unknown"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="CondensingOperation">
+    <xs:annotation>
+      <xs:documentation>The capability of the boiler or furnace to condense water vapor in the exhaust flue gas to obtain a higher efficiency.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Condensing"/>
+        <xs:enumeration value="Near-Condensing"/>
+        <xs:enumeration value="Non-Condensing"/>
         <xs:enumeration value="Other"/>
         <xs:enumeration value="Unknown"/>
       </xs:restriction>
@@ -16159,6 +16213,27 @@
   <xs:simpleType name="AuditorQualificationType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Professional Engineer (PE)"/>
+      <xs:enumeration value="Associated Air Balance Council (AABC) Certified Member Agency"/>
+      <xs:enumeration value="Associated Air Balance Council (AABC) Test and Balance Technician"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Carbon Reduction Manager (CRM)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Sustainable Development Professional (CSDP)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Power Quality Professional (CPQ)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Demand Side Manager (CDSM)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Energy Procurement Professional (CEP)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Lighting Efficiency Professional (CLEP)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Measurement &amp; Verification Professional (CMVP)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified GeoExchange Designer Program (CGD)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Business Energy Professional (BEP)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Industrial Energy Professional (CIEP)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Water Efficiency Professional (CWEP)"/>
+      <xs:enumeration value="Association of Energy Engineers Energy Efficiency Practitioner (EEP)"/>
+      <xs:enumeration value="Association of Energy Engineers Renewable Energy Professional (REP)"/>
+      <xs:enumeration value="Association of Energy Engineers Distributed Generation Certified Professional (DGCP)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Building Energy Simulation Analyst (BESA)"/>
+      <xs:enumeration value="Association of Energy Engineers Performance Contracting and Funding Professional (PCF)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Residential Energy Auditor (REA)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Building Commissioning Firm Program (CBCF)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Green Building Engineer (GBE)"/>
       <xs:enumeration value="Association of Energy Engineers Certified Energy Manager (CEM)"/>
       <xs:enumeration value="Association of Energy Engineers Certified Energy Auditor (CEA)"/>
       <xs:enumeration value="Association of Energy Engineers Certified Building Commissioning Professional (CBCP)"/>
@@ -16183,7 +16258,9 @@
       <xs:enumeration value="Commissioning Process Management Professional (CPMP)"/>
       <xs:enumeration value="Accredited Commissioning Process Authority Professional (CxAP)"/>
       <xs:enumeration value="NYSERDA FlexTech Consultant"/>
+      <xs:enumeration value="ASHRAE Building Commissioning Professional (BCxP)"/>
       <xs:enumeration value="ASHRAE Building Energy Assessment Professional (BEAP)"/>
+      <xs:enumeration value="ASHRAE Building Energy Modeling Professional (BEMP)"/>
       <xs:enumeration value="Department of Buildings (DOB) Approved Agent"/>
       <xs:enumeration value="High-Performance Building Design Professional (HBDP)"/>
       <xs:enumeration value="GreenPoint Rater Existing Home Multifamily Rater"/>
