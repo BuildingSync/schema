@@ -859,7 +859,7 @@
 			},
 			"type": "object"
 		},
-		".auc:AnnualHeatingEfficiencyUnit": {
+		".auc:AnnualHeatingEfficiencyUnits": {
 			"additionalProperties": false,
 			"description": "The measure used to quantify efficiency",
 			"patternProperties": {
@@ -10320,6 +10320,7 @@
 						"Health care-Inpatient hospital",
 						"Health care-Outpatient rehabilitation",
 						"Health care-Diagnostic center",
+						"Health care-Outpatient facility",
 						"Health care-Outpatient non-diagnostic",
 						"Health care-Outpatient surgical",
 						"Health care-Veterinary",
@@ -10333,9 +10334,13 @@
 						"Laboratory-Medical",
 						"Laboratory",
 						"Vivarium",
+						"Zoo",
+						"Office-Financial",
 						"Office",
 						"Bank",
 						"Courthouse",
+						"Public safety station-Fire",
+						"Public safety station-Police",
 						"Public safety station",
 						"Public safety-Detention center",
 						"Public safety-Correctional facility",
@@ -10349,27 +10354,37 @@
 						"Assembly-Social entertainment",
 						"Assembly-Arcade or casino without lodging",
 						"Assembly-Convention center",
+						"Assembly-Indoor arena",
+						"Assembly-Race track",
 						"Assembly-Stadium",
+						"Assembly-Stadium (closed)",
+						"Assembly-Stadium (open)",
 						"Assembly-Public",
 						"Recreation-Pool",
+						"Recreation-Bowling alley",
 						"Recreation-Fitness center",
 						"Recreation-Ice rink",
+						"Recreation-Roller rink",
 						"Recreation-Indoor sport",
 						"Recreation",
+						"Education-Adult",
 						"Education-Higher",
 						"Education-Secondary",
 						"Education-Primary",
 						"Education-Preschool or daycare",
+						"Education-Vocational",
 						"Education",
 						"Food service-Fast",
 						"Food service-Full",
 						"Food service-Limited",
 						"Food service-Institutional",
 						"Food service",
+						"Lodging-Barracks",
 						"Lodging-Institutional",
 						"Lodging with extended amenities",
 						"Lodging with limited amenities",
 						"Lodging",
+						"Retail-Automobile dealership",
 						"Retail-Mall",
 						"Retail-Strip mall",
 						"Retail-Enclosed mall",
@@ -10428,6 +10443,7 @@
 						"Kitchen",
 						"Kitchenette",
 						"Refrigerated storage",
+						"Bar-Nightclub",
 						"Bar",
 						"Dance floor",
 						"Security room",
@@ -10441,6 +10457,7 @@
 						"Deck",
 						"Courtyard",
 						"Atrium",
+						"Science park",
 						"Other",
 						"Unknown"
 					],
@@ -33093,11 +33110,15 @@
 		"auc:FuelTypes": {
 			"enum": [
 				"Electricity",
+				"Electricity-Exported",
+				"Electricity-Onsite generated",
 				"Natural gas",
 				"Fuel oil",
 				"Fuel oil no 1",
 				"Fuel oil no 2",
 				"Fuel oil no 4",
+				"Fuel oil no 5",
+				"Fuel oil no 6",
 				"Fuel oil no 5 and no 6",
 				"District steam",
 				"District hot water",
@@ -33114,6 +33135,9 @@
 				"Wood pellets",
 				"Hydropower",
 				"Biofuel",
+				"Biofuel B5",
+				"Biofuel B10",
+				"Biofuel B20",
 				"Wind",
 				"Geothermal",
 				"Solar",
@@ -33124,6 +33148,14 @@
 				"Ethanol",
 				"Biodiesel",
 				"Waste heat",
+				"Duel fuel",
+				"Gasoline",
+				"Thermal-Exported",
+				"Thermal-Onsite generated",
+				"Other delivered-Exported",
+				"Other delivered-Onsite generated",
+				"Other metered-Exported",
+				"Other metered-Onsite generated",
 				"Other",
 				"Unknown"
 			],
@@ -38161,8 +38193,8 @@
 											],
 											"type": "string"
 										},
-										"auc:AnnualHeatingEfficiencyUnit": {
-											"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+										"auc:AnnualHeatingEfficiencyUnits": {
+											"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 										},
 										"auc:AnnualHeatingEfficiencyValue": {
 											"additionalProperties": false,
@@ -38294,6 +38326,9 @@
 											"properties": {
 												"#": {
 													"type": "string"
+												},
+												"auc:ElectricResistance": {
+													"$ref": "#/definitions/.auc:ElectricResistanceType"
 												},
 												"auc:Furnace": {
 													"additionalProperties": false,
@@ -39126,8 +39161,8 @@
 												],
 												"type": "string"
 											},
-											"auc:AnnualHeatingEfficiencyUnit": {
-												"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+											"auc:AnnualHeatingEfficiencyUnits": {
+												"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 											},
 											"auc:AnnualHeatingEfficiencyValue": {
 												"additionalProperties": false,
@@ -40585,8 +40620,8 @@
 						"#": {
 							"type": "string"
 						},
-						"auc:AnnualHeatingEfficiencyUnit": {
-							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+						"auc:AnnualHeatingEfficiencyUnits": {
+							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 						},
 						"auc:AnnualHeatingEfficiencyValue": {
 							"additionalProperties": false,
@@ -41643,8 +41678,8 @@
 						"#": {
 							"type": "string"
 						},
-						"auc:AnnualHeatingEfficiencyUnit": {
-							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+						"auc:AnnualHeatingEfficiencyUnits": {
+							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 						},
 						"auc:AnnualHeatingEfficiencyValue": {
 							"additionalProperties": false,
@@ -42038,8 +42073,8 @@
 						"#": {
 							"type": "string"
 						},
-						"auc:AnnualHeatingEfficiencyUnit": {
-							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+						"auc:AnnualHeatingEfficiencyUnits": {
+							"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 						},
 						"auc:AnnualHeatingEfficiencyValue": {
 							"additionalProperties": false,
@@ -85352,8 +85387,8 @@
 		"auc:AnnualCoolingEfficiencyUnits": {
 			"$ref": "#/definitions/.auc:AnnualCoolingEfficiencyUnits"
 		},
-		"auc:AnnualHeatingEfficiencyUnit": {
-			"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnit"
+		"auc:AnnualHeatingEfficiencyUnits": {
+			"$ref": "#/definitions/.auc:AnnualHeatingEfficiencyUnits"
 		},
 		"auc:AssetScore": {
 			"$ref": "#/definitions/.auc:AssetScore"
