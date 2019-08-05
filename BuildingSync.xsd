@@ -9490,6 +9490,19 @@
                           <xs:complexType>
                             <xs:sequence>
                               <xs:element ref="auc:DraftType" minOccurs="0"/>
+                              <xs:element name="DraftBoundary" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>The boundary that encompasses the draft mechanism used for drawing air through the boiler or furnace.</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Direct"/>
+                                    <xs:enumeration value="Direct indirect"/>
+                                    <xs:enumeration value="Indirect"/>
+                                    <xs:enumeration value="Other"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
                             </xs:sequence>
                           </xs:complexType>
                         </xs:element>
