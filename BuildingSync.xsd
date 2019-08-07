@@ -6223,6 +6223,7 @@
                                     </xs:element>
                                     <xs:element ref="auc:IgnitionType" minOccurs="0"/>
                                     <xs:element ref="auc:DraftType" minOccurs="0"/>
+                                    <xs:element ref="auc:DraftBoundary" minOccurs="0"/>
                                     <xs:element ref="auc:CondensingOperation" minOccurs="0"/>
                                     <xs:element name="CombustionEfficiency" minOccurs="0">
                                       <xs:annotation>
@@ -7281,6 +7282,7 @@
               </xs:element>
               <xs:element ref="auc:IgnitionType" minOccurs="0"/>
               <xs:element ref="auc:DraftType" minOccurs="0"/>
+              <xs:element ref="auc:DraftBoundary" minOccurs="0"/>
               <xs:element ref="auc:CondensingOperation" minOccurs="0"/>
               <xs:element ref="auc:HeatingStaging" minOccurs="0"/>
               <xs:element name="InputCapacity" minOccurs="0">
@@ -9214,6 +9216,8 @@
                                       <xs:complexType>
                                         <xs:sequence>
                                           <xs:element ref="auc:DraftType" minOccurs="0"/>
+                                          <xs:element ref="auc:DraftBoundary" minOccurs="0"/>
+                                          <xs:element ref="auc:CondensingOperation" minOccurs="0"/>
                                         </xs:sequence>
                                       </xs:complexType>
                                     </xs:element>
@@ -9515,19 +9519,8 @@
                           <xs:complexType>
                             <xs:sequence>
                               <xs:element ref="auc:DraftType" minOccurs="0"/>
-                              <xs:element name="DraftBoundary" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>The boundary that encompasses the draft mechanism used for drawing air through the boiler or furnace.</xs:documentation>
-                                </xs:annotation>
-                                <xs:simpleType>
-                                  <xs:restriction base="xs:string">
-                                    <xs:enumeration value="Direct"/>
-                                    <xs:enumeration value="Direct indirect"/>
-                                    <xs:enumeration value="Indirect"/>
-                                    <xs:enumeration value="Other"/>
-                                  </xs:restriction>
-                                </xs:simpleType>
-                              </xs:element>
+                              <xs:element ref="auc:DraftBoundary" minOccurs="0"/>
+                              <xs:element ref="auc:CondensingOperation" minOccurs="0"/>
                             </xs:sequence>
                           </xs:complexType>
                         </xs:element>
@@ -17182,6 +17175,17 @@
       <xs:enumeration value="Other"/>
       <xs:enumeration value="Unknown"/>
       <xs:enumeration value="None"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DraftBoundary">
+    <xs:annotation>
+      <xs:documentation>The boundary that encompasses the draft mechanism used for drawing air through the boiler or furnace.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Direct"/>
+      <xs:enumeration value="Direct indirect"/>
+      <xs:enumeration value="Indirect"/>
+      <xs:enumeration value="Other"/>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
