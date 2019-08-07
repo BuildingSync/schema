@@ -17177,15 +17177,17 @@
       <xs:enumeration value="None"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="DraftBoundary">
+  <xs:element name="DraftBoundary">
     <xs:annotation>
       <xs:documentation>The boundary that encompasses the draft mechanism used for drawing air through the boiler or furnace.</xs:documentation>
     </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Direct"/>
-      <xs:enumeration value="Direct indirect"/>
-      <xs:enumeration value="Indirect"/>
-      <xs:enumeration value="Other"/>
-    </xs:restriction>
-  </xs:simpleType>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Direct"/>
+        <xs:enumeration value="Direct indirect"/>
+        <xs:enumeration value="Indirect"/>
+        <xs:enumeration value="Other"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
 </xs:schema>
