@@ -798,6 +798,16 @@
                       </xs:simpleContent>
                     </xs:complexType>
                   </xs:element>
+                  <xs:element name="SpatialUnitOccupiedPercentage" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Percentage of the spatial units that are occupied. (0-100) (%)</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:decimal"/>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
