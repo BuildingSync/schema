@@ -1154,6 +1154,18 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
+      <xs:element name="PercentLeasedByOwner" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The percentage of gross floor area that is leased by the owner of the premises and affiliates. (0-100) (%)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="NumberOfFacilitiesOnSite" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Number of facilities on the site.</xs:documentation>
