@@ -124,7 +124,10 @@ while results != 0
         closed_issues << issue
       end
     elsif closed >= options[:start_date] && closed <= options[:end_date]
-      accepted_pull_requests << issue
+      # check if the issue is to be ignored
+      if issue.labels.to_s !~ /ignore/
+        accepted_pull_requests << issue
+      end
     end
   end
 

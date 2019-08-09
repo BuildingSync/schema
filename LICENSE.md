@@ -1,4 +1,4 @@
-BuildingSync®, Copyright (c) 2015-2018, Alliance for Sustainable Energy, LLC. 
+BuildingSync®, Copyright (c) 2015-2019, Alliance for Sustainable Energy, LLC. 
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
