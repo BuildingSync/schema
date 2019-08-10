@@ -6992,19 +6992,28 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="PrimaryHVACControlSystemType" minOccurs="0">
+      <xs:element name="HVACControlSystemTypes" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Primary HVAC equipment control strategy.</xs:documentation>
+          <xs:documentation>HVAC equipment control strategies.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Analog"/>
-            <xs:enumeration value="Digital"/>
-            <xs:enumeration value="Pneumatic"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="Unknown"/>
-          </xs:restriction>
-        </xs:simpleType>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="HVACControlSystemType" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>HVAC equipment control strategy.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Analog"/>
+                  <xs:enumeration value="Digital"/>
+                  <xs:enumeration value="Pneumatic"/>
+                  <xs:enumeration value="Other"/>
+                  <xs:enumeration value="Unknown"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
