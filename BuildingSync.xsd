@@ -171,6 +171,13 @@
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
+                          <xs:element name="ExteriorFloors" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="ExteriorFloor" type="auc:ExteriorFloorSystemType" maxOccurs="unbounded"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
                           <xs:element name="FoundationSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
@@ -1583,6 +1590,74 @@
                                     <xs:element name="CeilingInsulatedArea" minOccurs="0">
                                       <xs:annotation>
                                         <xs:documentation>Insulated area of roof or ceiling. (ft2)</xs:documentation>
+                                      </xs:annotation>
+                                      <xs:complexType>
+                                        <xs:simpleContent>
+                                          <xs:extension base="xs:decimal">
+                                            <xs:attribute ref="auc:Source"/>
+                                          </xs:extension>
+                                        </xs:simpleContent>
+                                      </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="ThermalZoneIDs" minOccurs="0">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element name="ThermalZoneID" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:annotation>
+                                              <xs:documentation>ID number of the zone type associated with this space or side of the section.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                            </xs:complexType>
+                                          </xs:element>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="SpaceIDs" minOccurs="0">
+                                      <xs:complexType>
+                                        <xs:sequence>
+                                          <xs:element name="SpaceID" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:annotation>
+                                              <xs:documentation>ID number of the space type associated with this side of the section.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                            </xs:complexType>
+                                          </xs:element>
+                                        </xs:sequence>
+                                      </xs:complexType>
+                                    </xs:element>
+                                  </xs:sequence>
+                                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="ExteriorFloors" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>List of exterior floors.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ExteriorFloor" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>A raised floor exposed to air. For example, the top floor of a multistory parking structure.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ExteriorFloorID">
+                                <xs:annotation>
+                                  <xs:documentation>ID number of the exterior floor type associated with this section.</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ExteriorFloorArea" minOccurs="0">
+                                      <xs:annotation>
+                                        <xs:documentation>Area of slab-on-grade, basement slab, or other floor over unconditioned space. (ft2)</xs:documentation>
                                       </xs:annotation>
                                       <xs:complexType>
                                         <xs:simpleContent>
@@ -11150,56 +11225,15 @@
           <xs:documentation>The general description of the main structural construction method used for an opaque surface.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ExteriorWallFinish" minOccurs="0">
+      <xs:element name="ExteriorWallFinish" type="auc:Finish" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The final material applied to a surface, either interior or exterior. Some structural components don't have an exterior finish, such as unfinished poured concrete.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Wood"/>
-            <xs:enumeration value="Masonite"/>
-            <xs:enumeration value="Stone"/>
-            <xs:enumeration value="Tile"/>
-            <xs:enumeration value="Brick"/>
-            <xs:enumeration value="Masonry"/>
-            <xs:enumeration value="Concrete"/>
-            <xs:enumeration value="Fiber cement"/>
-            <xs:enumeration value="Metal"/>
-            <xs:enumeration value="Metal panel"/>
-            <xs:enumeration value="Metal panel standing seam"/>
-            <xs:enumeration value="Sheet metal"/>
-            <xs:enumeration value="EIFS"/>
-            <xs:enumeration value="Shingles asphalt"/>
-            <xs:enumeration value="Shingles composition"/>
-            <xs:enumeration value="Shingles wood"/>
-            <xs:enumeration value="Shingles asbestos"/>
-            <xs:enumeration value="Shingles slate or tile"/>
-            <xs:enumeration value="Shakes wood"/>
-            <xs:enumeration value="Carpet"/>
-            <xs:enumeration value="Linoleum"/>
-            <xs:enumeration value="Asphalt or fiberglass"/>
-            <xs:enumeration value="Plastic rubber synthetic sheeting"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="Unknown"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
-      <xs:element name="ExteriorWallColor" minOccurs="0">
+      <xs:element name="ExteriorWallColor" type="auc:Color" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Color of a material or component. Can be applied to opaque surfaces, materials, and so forth.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="White"/>
-            <xs:enumeration value="Light"/>
-            <xs:enumeration value="Medium"/>
-            <xs:enumeration value="Medium dark"/>
-            <xs:enumeration value="Dark"/>
-            <xs:enumeration value="Reflective"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="Unknown"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
       <xs:element name="WallInsulations" minOccurs="0">
         <xs:annotation>
@@ -11313,22 +11347,10 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="WallFramingMaterial" minOccurs="0">
+      <xs:element name="WallFramingMaterial" type="auc:FramingMaterial" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The material used to create the structural integrity in an opaque surface. In many cases the framing material is not continuous across the construction.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Wood"/>
-            <xs:enumeration value="Steel"/>
-            <xs:enumeration value="Concrete"/>
-            <xs:enumeration value="Brick"/>
-            <xs:enumeration value="Masonry"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="Unknown"/>
-            <xs:enumeration value="None"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
       <xs:element name="WallFramingSpacing" minOccurs="0">
         <xs:annotation>
@@ -11418,21 +11440,10 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="ExteriorRoughness" minOccurs="0">
+      <xs:element name="ExteriorRoughness" type="auc:ExteriorRoughness" minOccurs="0">
         <xs:annotation>
           <xs:documentation>A description of the roughness of the exposed surface of a material. This property is used to approximate the effect of the surface condition on the convection of air across the surface. In energy simulation models, it is used to help determine the convection coefficients for a surface.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Very rough"/>
-            <xs:enumeration value="Rough"/>
-            <xs:enumeration value="Medium rough"/>
-            <xs:enumeration value="Medium smooth"/>
-            <xs:enumeration value="Smooth"/>
-            <xs:enumeration value="Very smooth"/>
-            <xs:enumeration value="Unknown"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
@@ -11448,55 +11459,15 @@
           <xs:documentation>The general description of the main structural construction method used for an opaque surface.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="CeilingFinish" minOccurs="0">
+      <xs:element name="CeilingFinish" type="auc:Finish" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The final material applied to a surface, either interior or exterior. Some structural components don't have an exterior finish, such as unfinished poured concrete.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Wood"/>
-            <xs:enumeration value="Masonite"/>
-            <xs:enumeration value="Stone"/>
-            <xs:enumeration value="Tile"/>
-            <xs:enumeration value="Brick"/>
-            <xs:enumeration value="Masonry"/>
-            <xs:enumeration value="Concrete"/>
-            <xs:enumeration value="Fiber cement"/>
-            <xs:enumeration value="Metal"/>
-            <xs:enumeration value="Metal panel"/>
-            <xs:enumeration value="Metal panel standing seam"/>
-            <xs:enumeration value="Sheet metal"/>
-            <xs:enumeration value="EIFS"/>
-            <xs:enumeration value="Shingles asphalt"/>
-            <xs:enumeration value="Shingles composition"/>
-            <xs:enumeration value="Shingles wood"/>
-            <xs:enumeration value="Shingles asbestos"/>
-            <xs:enumeration value="Shingles slate or tile"/>
-            <xs:enumeration value="Shakes wood"/>
-            <xs:enumeration value="Carpet"/>
-            <xs:enumeration value="Linoleum"/>
-            <xs:enumeration value="Asphalt or fiberglass"/>
-            <xs:enumeration value="Plastic rubber synthetic sheeting"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="Unknown"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
-      <xs:element name="CeilingColor" minOccurs="0">
+      <xs:element name="CeilingColor" type="auc:Color" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Color of a material or component. Can be applied to opaque surfaces, materials, and so forth.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="White"/>
-            <xs:enumeration value="Light"/>
-            <xs:enumeration value="Medium"/>
-            <xs:enumeration value="Medium dark"/>
-            <xs:enumeration value="Dark"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="Unknown"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
       <xs:element name="CeilingInsulations" minOccurs="0">
         <xs:complexType>
@@ -11582,22 +11553,10 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="CeilingFramingMaterial" minOccurs="0">
+      <xs:element name="CeilingFramingMaterial" type="auc:FramingMaterial" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The material used to create the structural integrity in an opaque surface. In many cases the framing material is not continuous across the construction.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Wood"/>
-            <xs:enumeration value="Steel"/>
-            <xs:enumeration value="Concrete"/>
-            <xs:enumeration value="Brick"/>
-            <xs:enumeration value="Masonry"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="Unknown"/>
-            <xs:enumeration value="None"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
       <xs:element name="CeilingFramingSpacing" minOccurs="0">
         <xs:annotation>
@@ -11678,56 +11637,15 @@
           <xs:documentation>A green roof or living roof is a roof of a building that is partially or completely covered with vegetation and a growing medium, planted over a waterproofing membrane.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="RoofFinish" minOccurs="0">
+      <xs:element name="RoofFinish" type="auc:Finish" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The final material applied to a surface, either interior or exterior. Some structural components don't have an exterior finish, such as unfinished poured concrete.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Wood"/>
-            <xs:enumeration value="Masonite"/>
-            <xs:enumeration value="Stone"/>
-            <xs:enumeration value="Tile"/>
-            <xs:enumeration value="Brick"/>
-            <xs:enumeration value="Masonry"/>
-            <xs:enumeration value="Concrete"/>
-            <xs:enumeration value="Fiber cement"/>
-            <xs:enumeration value="Metal"/>
-            <xs:enumeration value="Metal panel"/>
-            <xs:enumeration value="Metal panel standing seam"/>
-            <xs:enumeration value="Sheet metal"/>
-            <xs:enumeration value="EIFS"/>
-            <xs:enumeration value="Shingles asphalt"/>
-            <xs:enumeration value="Shingles composition"/>
-            <xs:enumeration value="Shingles wood"/>
-            <xs:enumeration value="Shingles asbestos"/>
-            <xs:enumeration value="Shingles slate or tile"/>
-            <xs:enumeration value="Shakes wood"/>
-            <xs:enumeration value="Carpet"/>
-            <xs:enumeration value="Linoleum"/>
-            <xs:enumeration value="Asphalt or fiberglass"/>
-            <xs:enumeration value="Plastic rubber synthetic sheeting"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="Unknown"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
-      <xs:element name="RoofColor" minOccurs="0">
+      <xs:element name="RoofColor" type="auc:Color" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Color of a material or component. Can be applied to opaque surfaces, materials, and so forth.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="White"/>
-            <xs:enumeration value="Light"/>
-            <xs:enumeration value="Medium"/>
-            <xs:enumeration value="Medium dark"/>
-            <xs:enumeration value="Dark"/>
-            <xs:enumeration value="Reflective"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="Unknown"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
       <xs:element name="RoofInsulations" minOccurs="0">
         <xs:complexType>
@@ -11842,22 +11760,10 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="RoofFramingMaterial" minOccurs="0">
+      <xs:element name="RoofFramingMaterial" type="auc:FramingMaterial" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The material used to create the structural integrity in an opaque surface. In many cases the framing material is not continuous across the construction.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Wood"/>
-            <xs:enumeration value="Steel"/>
-            <xs:enumeration value="Concrete"/>
-            <xs:enumeration value="Brick"/>
-            <xs:enumeration value="Masonry"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="Unknown"/>
-            <xs:enumeration value="None"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
       <xs:element name="RoofFramingSpacing" minOccurs="0">
         <xs:annotation>
@@ -12456,6 +12362,136 @@
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:Manufacturer" minOccurs="0"/>
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
+      <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute ref="auc:Status"/>
+  </xs:complexType>
+  <xs:complexType name="ExteriorFloorSystemType">
+    <xs:sequence>
+      <xs:element name="ExteriorFloorConstruction" type="auc:EnvelopeConstructionType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The general description of the main structural construction method used for an opaque surface.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ExteriorFloorFinish" type="auc:Finish" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The final material applied to a surface, either interior or exterior. Some structural components don't have an exterior finish, such as unfinished poured concrete.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ExteriorFloorColor" type="auc:Color" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Color of a material or component. Can be applied to opaque surfaces, materials, and so forth.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ExteriorFloorRValue" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>R-value of exterior floor. (ft2-F-hr/Btu)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ExteriorFloorUFactor" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The thermal transmission in unit time through a unit area of a particular body or assembly, including its boundary films, divided by the difference between the environmental temperatures on either side of the body or assembly. Note that the U-factor for a construction assembly, including fenestration, includes the interior and exterior film coefficients (the boundary films referenced above). (Btu/hr·ft2·°F)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ExteriorFloorFramingMaterial" type="auc:FramingMaterial" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The material used to create the structural integrity in an opaque surface. In many cases the framing material is not continuous across the construction.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ExteriorFloorFramingSpacing" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Dimension of the distance between two components. Framing spacing: the dimension from centerline to centerline of a surface framing material. (in.)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ExteriorFloorFramingDepth" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Dimension of the distance from the front to the back, such as the depth of structural framing in a wall or floor. It can also be the distance from the top to the bottom, such as the depth of a tank or pool of a component or material, such as the depth of the structural framing. (in.)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ExteriorFloorFramingFactor" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Fraction of the surface that is composed of structural framing material. (0-1) (fraction)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ExteriorFloorExteriorSolarAbsorptance" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The fraction of incident radiation in the solar spectrum that is absorbed by the material or surface. (0-1) (fraction)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ExteriorFloorExteriorThermalAbsorptance" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The fraction of incident long wavelength infrared radiation that is absorbed by the material or surface. (0-1) (fraction)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="InteriorVisibleAbsorptance" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The fraction of incident visible wavelength radiation that is absorbed by the material or surface. (0-1) (fraction)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ExteriorRoughness" type="auc:ExteriorRoughness" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>A description of the roughness of the exposed surface of a material. This property is used to approximate the effect of the surface condition on the convection of air across the surface. In energy simulation models, it is used to help determine the convection coefficients for a surface.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="auc:Quantity" minOccurs="0"/>
+      <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
@@ -17216,4 +17252,68 @@
       </xs:restriction>
     </xs:simpleType>
   </xs:element>
+  <xs:simpleType name="Finish">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Wood"/>
+      <xs:enumeration value="Masonite"/>
+      <xs:enumeration value="Stone"/>
+      <xs:enumeration value="Tile"/>
+      <xs:enumeration value="Brick"/>
+      <xs:enumeration value="Masonry"/>
+      <xs:enumeration value="Concrete"/>
+      <xs:enumeration value="Fiber cement"/>
+      <xs:enumeration value="Metal"/>
+      <xs:enumeration value="Metal panel"/>
+      <xs:enumeration value="Metal panel standing seam"/>
+      <xs:enumeration value="Sheet metal"/>
+      <xs:enumeration value="EIFS"/>
+      <xs:enumeration value="Shingles asphalt"/>
+      <xs:enumeration value="Shingles composition"/>
+      <xs:enumeration value="Shingles wood"/>
+      <xs:enumeration value="Shingles asbestos"/>
+      <xs:enumeration value="Shingles slate or tile"/>
+      <xs:enumeration value="Shakes wood"/>
+      <xs:enumeration value="Carpet"/>
+      <xs:enumeration value="Linoleum"/>
+      <xs:enumeration value="Asphalt or fiberglass"/>
+      <xs:enumeration value="Plastic rubber synthetic sheeting"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Color">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="White"/>
+      <xs:enumeration value="Light"/>
+      <xs:enumeration value="Medium"/>
+      <xs:enumeration value="Medium dark"/>
+      <xs:enumeration value="Dark"/>
+      <xs:enumeration value="Reflective"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FramingMaterial">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Wood"/>
+      <xs:enumeration value="Steel"/>
+      <xs:enumeration value="Concrete"/>
+      <xs:enumeration value="Brick"/>
+      <xs:enumeration value="Masonry"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="None"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ExteriorRoughness">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Very rough"/>
+      <xs:enumeration value="Rough"/>
+      <xs:enumeration value="Medium rough"/>
+      <xs:enumeration value="Medium smooth"/>
+      <xs:enumeration value="Smooth"/>
+      <xs:enumeration value="Very smooth"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>
