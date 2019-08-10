@@ -38,7 +38,7 @@ This proposal is to:
    * `YearInstalled` &rarr; `auc:YearInstalled`
    * `UserDefinedFields` &rarr; `auc:UserDefinedFields`
 
-3. Add an `auc:ExteriorFloors` element to the `auc:Systems` element.
+3. Add an `auc:ExteriorFloorSystems` element to the `auc:Systems` element.
 
 4. Add an `auc:ExteriorFloors` element to the `auc:Roof` element.
 
