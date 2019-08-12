@@ -40,7 +40,7 @@ This proposal is to:
 
 3. Add an `auc:ExteriorFloorSystems` element to the `auc:Systems` element.
 
-4. Add an `auc:ExteriorFloors` element to the `auc:Roof` element.
+4. Add an `auc:ExteriorFloors` element to the `auc:Section` element.
 
 ## References
 
