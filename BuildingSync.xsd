@@ -432,269 +432,13 @@
           <xs:documentation>Characterization of the address</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ClimateZoneType" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>The climate zone type, based on the organization defining it. Many different organizations have implemented different climate zone definitions based on their needs. The list below represents the current list. This list can be added to over time based on the collaborative BEDES development process.</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="ASHRAE" minOccurs="0">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="ClimateZone" minOccurs="0">
-                    <xs:annotation>
-                      <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="1A"/>
-                        <xs:enumeration value="1B"/>
-                        <xs:enumeration value="2A"/>
-                        <xs:enumeration value="2B"/>
-                        <xs:enumeration value="3A"/>
-                        <xs:enumeration value="3B"/>
-                        <xs:enumeration value="3C"/>
-                        <xs:enumeration value="4A"/>
-                        <xs:enumeration value="4B"/>
-                        <xs:enumeration value="4C"/>
-                        <xs:enumeration value="5A"/>
-                        <xs:enumeration value="5B"/>
-                        <xs:enumeration value="5C"/>
-                        <xs:enumeration value="6A"/>
-                        <xs:enumeration value="6B"/>
-                        <xs:enumeration value="7"/>
-                        <xs:enumeration value="8"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="EnergyStar" minOccurs="0">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="ClimateZone" minOccurs="0">
-                    <xs:annotation>
-                      <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Northern"/>
-                        <xs:enumeration value="North-Central"/>
-                        <xs:enumeration value="South-Central"/>
-                        <xs:enumeration value="Southern"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="CaliforniaTitle24" minOccurs="0">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="ClimateZone" minOccurs="0">
-                    <xs:annotation>
-                      <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Climate Zone 1"/>
-                        <xs:enumeration value="Climate Zone 2"/>
-                        <xs:enumeration value="Climate Zone 3"/>
-                        <xs:enumeration value="Climate Zone 4"/>
-                        <xs:enumeration value="Climate Zone 5"/>
-                        <xs:enumeration value="Climate Zone 6"/>
-                        <xs:enumeration value="Climate Zone 7"/>
-                        <xs:enumeration value="Climate Zone 8"/>
-                        <xs:enumeration value="Climate Zone 9"/>
-                        <xs:enumeration value="Climate Zone 10"/>
-                        <xs:enumeration value="Climate Zone 11"/>
-                        <xs:enumeration value="Climate Zone 12"/>
-                        <xs:enumeration value="Climate Zone 13"/>
-                        <xs:enumeration value="Climate Zone 14"/>
-                        <xs:enumeration value="Climate Zone 15"/>
-                        <xs:enumeration value="Climate Zone 16"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="IECC" minOccurs="0">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="ClimateZone" minOccurs="0">
-                    <xs:annotation>
-                      <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="1"/>
-                        <xs:enumeration value="2"/>
-                        <xs:enumeration value="3"/>
-                        <xs:enumeration value="4 (Except Marine)"/>
-                        <xs:enumeration value="4 (Marine)"/>
-                        <xs:enumeration value="5"/>
-                        <xs:enumeration value="6"/>
-                        <xs:enumeration value="7"/>
-                        <xs:enumeration value="8"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="BuildingAmerica" minOccurs="0">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="ClimateZone" minOccurs="0">
-                    <xs:annotation>
-                      <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Subarctic"/>
-                        <xs:enumeration value="Marine"/>
-                        <xs:enumeration value="Hot-dry"/>
-                        <xs:enumeration value="Mixed-dry"/>
-                        <xs:enumeration value="Hot-humid"/>
-                        <xs:enumeration value="Mixed-humid"/>
-                        <xs:enumeration value="Cold"/>
-                        <xs:enumeration value="Very cold"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="CBECS" type="auc:CBECSType" minOccurs="0"/>
-            <xs:element name="DOE" minOccurs="0">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="ClimateZone" minOccurs="0">
-                    <xs:annotation>
-                      <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Subarctic"/>
-                        <xs:enumeration value="Marine"/>
-                        <xs:enumeration value="Hot-dry"/>
-                        <xs:enumeration value="Mixed-dry"/>
-                        <xs:enumeration value="Hot-humid"/>
-                        <xs:enumeration value="Mixed-humid"/>
-                        <xs:enumeration value="Cold"/>
-                        <xs:enumeration value="Very cold"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="Other" minOccurs="0">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="ClimateZone" type="xs:string" minOccurs="0">
-                    <xs:annotation>
-                      <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
-                    </xs:annotation>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eGRIDRegionCode" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The eGRID (Emissions and Generation Resource Database) region code associated with the data being described.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="AKGD"/>
-            <xs:enumeration value="AKMS"/>
-            <xs:enumeration value="AZNM"/>
-            <xs:enumeration value="CAMX"/>
-            <xs:enumeration value="ERCT"/>
-            <xs:enumeration value="FRCC"/>
-            <xs:enumeration value="HIMS"/>
-            <xs:enumeration value="HIOA"/>
-            <xs:enumeration value="MORE"/>
-            <xs:enumeration value="MROW"/>
-            <xs:enumeration value="NEWE"/>
-            <xs:enumeration value="NWPP"/>
-            <xs:enumeration value="NYCW"/>
-            <xs:enumeration value="NYLI"/>
-            <xs:enumeration value="NYUP"/>
-            <xs:enumeration value="RFCE"/>
-            <xs:enumeration value="RFCM"/>
-            <xs:enumeration value="RFCW"/>
-            <xs:enumeration value="RMPA"/>
-            <xs:enumeration value="SPNO"/>
-            <xs:enumeration value="SPSO"/>
-            <xs:enumeration value="SRMV"/>
-            <xs:enumeration value="SRMW"/>
-            <xs:enumeration value="SRSO"/>
-            <xs:enumeration value="SRTV"/>
-            <xs:enumeration value="SRVC"/>
-            <xs:enumeration value="Other"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="WeatherDataStationID" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>For an actual weather station, this is the ID assigned by NOAA. For hourly energy simulations, this is the six digit code associated with the hourly weather data, generally found in the name of the weather data file, as well as in the header of the data file. (NNNNNN)</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string"/>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="WeatherStationName" type="xs:string" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The name of the weather station associated with this premises, which could be used for simulations, weather normalization, anomaly resolution, etc. For simulations, this is usually the name of the weather file, but the name is also in the header of the data file (TMY, IWEC), such as USA_CO_Denver.Intl.AP.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="WeatherStationCategory" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Describes the type of weather station used to specify the site's weather.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="FAA"/>
-            <xs:enumeration value="ICAO"/>
-            <xs:enumeration value="NWS"/>
-            <xs:enumeration value="WBAN"/>
-            <xs:enumeration value="WMO"/>
-            <xs:enumeration value="Other"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="Longitude" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Distance measured in degrees east or west from an imaginary line (called the prime meridian) that goes from the North Pole to the South Pole and that passes through Greenwich, England. (degrees)</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:decimal">
-              <xs:attribute ref="auc:Source"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="Latitude" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Distance north or south of the equator measured in degrees up to 90 degrees. (degrees)</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:decimal">
-              <xs:attribute ref="auc:Source"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element ref="auc:ClimateZoneType" minOccurs="0" maxOccurs="1"/>
+      <xs:element ref="auc:eGRIDRegionCode" minOccurs="0"/>
+      <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
+      <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
+      <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+      <xs:element ref="auc:Longitude" minOccurs="0"/>
+      <xs:element ref="auc:Latitude" minOccurs="0"/>
       <xs:element ref="auc:FloorAreas" minOccurs="0"/>
       <xs:element ref="auc:Ownership" minOccurs="0"/>
       <xs:element ref="auc:OwnershipStatus" minOccurs="0">
@@ -732,6 +476,13 @@
           <xs:documentation>Characterization of the address.</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element ref="auc:ClimateZoneType" minOccurs="0" maxOccurs="1"/>
+      <xs:element ref="auc:eGRIDRegionCode" minOccurs="0"/>
+      <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
+      <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
+      <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+      <xs:element ref="auc:Longitude" minOccurs="0"/>
+      <xs:element ref="auc:Latitude" minOccurs="0"/>
       <xs:element name="BuildingClassification" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Specify the type of building.</xs:documentation>
@@ -17260,6 +17011,274 @@
         <xs:enumeration value="Other"/>
       </xs:restriction>
     </xs:simpleType>
+  </xs:element>
+  <xs:element name="ClimateZoneType">
+    <xs:annotation>
+      <xs:documentation>The climate zone type, based on the organization defining it. Many different organizations have implemented different climate zone definitions based on their needs. The list below represents the current list. This list can be added to over time based on the collaborative BEDES development process.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ASHRAE" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ClimateZone" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="1A"/>
+                    <xs:enumeration value="1B"/>
+                    <xs:enumeration value="2A"/>
+                    <xs:enumeration value="2B"/>
+                    <xs:enumeration value="3A"/>
+                    <xs:enumeration value="3B"/>
+                    <xs:enumeration value="3C"/>
+                    <xs:enumeration value="4A"/>
+                    <xs:enumeration value="4B"/>
+                    <xs:enumeration value="4C"/>
+                    <xs:enumeration value="5A"/>
+                    <xs:enumeration value="5B"/>
+                    <xs:enumeration value="5C"/>
+                    <xs:enumeration value="6A"/>
+                    <xs:enumeration value="6B"/>
+                    <xs:enumeration value="7"/>
+                    <xs:enumeration value="8"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EnergyStar" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ClimateZone" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Northern"/>
+                    <xs:enumeration value="North-Central"/>
+                    <xs:enumeration value="South-Central"/>
+                    <xs:enumeration value="Southern"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CaliforniaTitle24" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ClimateZone" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Climate Zone 1"/>
+                    <xs:enumeration value="Climate Zone 2"/>
+                    <xs:enumeration value="Climate Zone 3"/>
+                    <xs:enumeration value="Climate Zone 4"/>
+                    <xs:enumeration value="Climate Zone 5"/>
+                    <xs:enumeration value="Climate Zone 6"/>
+                    <xs:enumeration value="Climate Zone 7"/>
+                    <xs:enumeration value="Climate Zone 8"/>
+                    <xs:enumeration value="Climate Zone 9"/>
+                    <xs:enumeration value="Climate Zone 10"/>
+                    <xs:enumeration value="Climate Zone 11"/>
+                    <xs:enumeration value="Climate Zone 12"/>
+                    <xs:enumeration value="Climate Zone 13"/>
+                    <xs:enumeration value="Climate Zone 14"/>
+                    <xs:enumeration value="Climate Zone 15"/>
+                    <xs:enumeration value="Climate Zone 16"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="IECC" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ClimateZone" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="1"/>
+                    <xs:enumeration value="2"/>
+                    <xs:enumeration value="3"/>
+                    <xs:enumeration value="4 (Except Marine)"/>
+                    <xs:enumeration value="4 (Marine)"/>
+                    <xs:enumeration value="5"/>
+                    <xs:enumeration value="6"/>
+                    <xs:enumeration value="7"/>
+                    <xs:enumeration value="8"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BuildingAmerica" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ClimateZone" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Subarctic"/>
+                    <xs:enumeration value="Marine"/>
+                    <xs:enumeration value="Hot-dry"/>
+                    <xs:enumeration value="Mixed-dry"/>
+                    <xs:enumeration value="Hot-humid"/>
+                    <xs:enumeration value="Mixed-humid"/>
+                    <xs:enumeration value="Cold"/>
+                    <xs:enumeration value="Very cold"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CBECS" type="auc:CBECSType" minOccurs="0"/>
+        <xs:element name="DOE" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ClimateZone" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Subarctic"/>
+                    <xs:enumeration value="Marine"/>
+                    <xs:enumeration value="Hot-dry"/>
+                    <xs:enumeration value="Mixed-dry"/>
+                    <xs:enumeration value="Hot-humid"/>
+                    <xs:enumeration value="Mixed-humid"/>
+                    <xs:enumeration value="Cold"/>
+                    <xs:enumeration value="Very cold"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Other" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ClimateZone" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="eGRIDRegionCode">
+    <xs:annotation>
+      <xs:documentation>The eGRID (Emissions and Generation Resource Database) region code associated with the data being described.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="AKGD"/>
+        <xs:enumeration value="AKMS"/>
+        <xs:enumeration value="AZNM"/>
+        <xs:enumeration value="CAMX"/>
+        <xs:enumeration value="ERCT"/>
+        <xs:enumeration value="FRCC"/>
+        <xs:enumeration value="HIMS"/>
+        <xs:enumeration value="HIOA"/>
+        <xs:enumeration value="MORE"/>
+        <xs:enumeration value="MROW"/>
+        <xs:enumeration value="NEWE"/>
+        <xs:enumeration value="NWPP"/>
+        <xs:enumeration value="NYCW"/>
+        <xs:enumeration value="NYLI"/>
+        <xs:enumeration value="NYUP"/>
+        <xs:enumeration value="RFCE"/>
+        <xs:enumeration value="RFCM"/>
+        <xs:enumeration value="RFCW"/>
+        <xs:enumeration value="RMPA"/>
+        <xs:enumeration value="SPNO"/>
+        <xs:enumeration value="SPSO"/>
+        <xs:enumeration value="SRMV"/>
+        <xs:enumeration value="SRMW"/>
+        <xs:enumeration value="SRSO"/>
+        <xs:enumeration value="SRTV"/>
+        <xs:enumeration value="SRVC"/>
+        <xs:enumeration value="Other"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="WeatherDataStationID">
+    <xs:annotation>
+      <xs:documentation>For an actual weather station, this is the ID assigned by NOAA. For hourly energy simulations, this is the six digit code associated with the hourly weather data, generally found in the name of the weather data file, as well as in the header of the data file. (NNNNNN)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string"/>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WeatherStationName">
+    <xs:annotation>
+      <xs:documentation>The name of the weather station associated with this premises, which could be used for simulations, weather normalization, anomaly resolution, etc. For simulations, this is usually the name of the weather file, but the name is also in the header of the data file (TMY, IWEC), such as USA_CO_Denver.Intl.AP.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string"/>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WeatherStationCategory">
+    <xs:annotation>
+      <xs:documentation>Describes the type of weather station used to specify the site's weather.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="FAA"/>
+        <xs:enumeration value="ICAO"/>
+        <xs:enumeration value="NWS"/>
+        <xs:enumeration value="WBAN"/>
+        <xs:enumeration value="WMO"/>
+        <xs:enumeration value="Other"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="Longitude">
+    <xs:annotation>
+      <xs:documentation>Distance measured in degrees east or west from an imaginary line (called the prime meridian) that goes from the North Pole to the South Pole and that passes through Greenwich, England. (degrees)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute ref="auc:Source"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Latitude">
+    <xs:annotation>
+      <xs:documentation>Distance north or south of the equator measured in degrees up to 90 degrees. (degrees)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute ref="auc:Source"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
   </xs:element>
   <xs:simpleType name="Finish">
     <xs:restriction base="xs:string">
