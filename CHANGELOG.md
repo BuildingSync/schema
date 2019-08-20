@@ -2,24 +2,15 @@
 
 ## Version 2.0-prerelease
 
-Date Range: 02/01/19 - 08/09/19:
+Date Range: 02/01/19 - 08/19/19:
 
-New Issues: 8 (#73, #74, #75, #76, #77, #89, #117, #135)
-
-Closed Issues: 5
-- Merged [#73]( https://github.com/BuildingSync/schema/issues/73 ), Fractions and percentages appear to be unevenly implemented
-- Merged [#75]( https://github.com/BuildingSync/schema/issues/75 ), Add priorities to missing ll87/buildingsync mappings
-- Merged [#76]( https://github.com/BuildingSync/schema/issues/76 ), Assign level of effort to missing elements
-- Merged [#77]( https://github.com/BuildingSync/schema/issues/77 ), Review LL87 / BuildingSync mappings to ensure they are consistent with prior mappings
-- Merged [#117]( https://github.com/BuildingSync/schema/issues/117 ), Typo in definition of "CoolRoof" element
-
-Accepted Pull Requests: 56
+Accepted Pull Requests: 58
 - Merged [#79]( https://github.com/BuildingSync/schema/pull/79 ), Add Address to Building Element
 - Merged [#80]( https://github.com/BuildingSync/schema/pull/80 ), Add ID to Report and Qualification
 - Merged [#81]( https://github.com/BuildingSync/schema/pull/81 ), Update Ownership Enumerations
 - Merged [#82]( https://github.com/BuildingSync/schema/pull/82 ), Update Linear Fluorescent Enumerations
 - Merged [#83]( https://github.com/BuildingSync/schema/pull/83 ), Enable Multiple Reports
-- Merged [#84]( https://github.com/BuildingSync/schema/pull/84 ), Auditor Qualification Enums
+- Merged [#84]( https://github.com/BuildingSync/schema/pull/84 ), Add AuditorQualificationType Enumerations
 - Merged [#85]( https://github.com/BuildingSync/schema/pull/85 ), Add Blue Roof
 - Merged [#86]( https://github.com/BuildingSync/schema/pull/86 ), Consolidate MELs and Plug Loads
 - Merged [#87]( https://github.com/BuildingSync/schema/pull/87 ), Allow None for FenestrationGasFill Enumeration
@@ -40,16 +31,13 @@ Accepted Pull Requests: 56
 - Merged [#104]( https://github.com/BuildingSync/schema/pull/104 ), Add FootprintShape to BuildingType
 - Merged [#105]( https://github.com/BuildingSync/schema/pull/105 ), Ballast type enumeration values
 - Merged [#106]( https://github.com/BuildingSync/schema/pull/106 ), Scenario notes
-- Merged [#107]( https://github.com/BuildingSync/schema/pull/107 ), Fix enums for SimulationCompletionStatus
 - Merged [#109]( https://github.com/BuildingSync/schema/pull/109 ), Add <auc:RoofCondition> element to <auc:RoofID> element
 - Merged [#110]( https://github.com/BuildingSync/schema/pull/110 ), Add "None" value to <auc:ControlTechnology> enumeration
 - Merged [#111]( https://github.com/BuildingSync/schema/pull/111 ), Add <auc:PrimaryFuel> Element to Plants
-- Merged [#113]( https://github.com/BuildingSync/schema/pull/113 ), Add <auc:ResourceUseID> to <auc:AllResourceTotal>
 - Merged [#114]( https://github.com/BuildingSync/schema/pull/114 ), Enable Multiple Special Roof Classifications
 - Merged [#115]( https://github.com/BuildingSync/schema/pull/115 ), Rename Subsection to Section
 - Merged [#116]( https://github.com/BuildingSync/schema/pull/116 ), Enable multiple roofs, ceilings, and foundations
 - Merged [#118]( https://github.com/BuildingSync/schema/pull/118 ), Fix coolroof name
-- Merged [#119]( https://github.com/BuildingSync/schema/pull/119 ), Indirect Water Heater Example
 - Merged [#120]( https://github.com/BuildingSync/schema/pull/120 ), Refactor Controls
 - Merged [#121]( https://github.com/BuildingSync/schema/pull/121 ), General: Annotations and Version Tag
 - Merged [#122]( https://github.com/BuildingSync/schema/pull/122 ), MeasureScaleOfApplication - Add Enumerations
@@ -70,6 +58,11 @@ Accepted Pull Requests: 56
 - Merged [#138]( https://github.com/BuildingSync/schema/pull/138 ), Add CondensingOperation and DraftBoundary elements wherever DraftType
 - Merged [#139]( https://github.com/BuildingSync/schema/pull/139 ), Add Gas Engine Enumeration to Chiller Compressor Driver
 - Merged [#140]( https://github.com/BuildingSync/schema/pull/140 ), Add Percent Leased by Owner to Building
+- Merged [#141]( https://github.com/BuildingSync/schema/pull/141 ), Add Spatial Unit Occupied Percentage
+- Merged [#142]( https://github.com/BuildingSync/schema/pull/142 ), Fix "Dual fuel" typo
+- Merged [#144]( https://github.com/BuildingSync/schema/pull/144 ), Pluralize and rename PrimaryHVACControlSystemType Element to HVACControlSystemType
+- Merged [#145]( https://github.com/BuildingSync/schema/pull/145 ), Replicate Site Elements in Building Element
+- Merged [#146]( https://github.com/BuildingSync/schema/pull/146 ), Add ExteriorFloorSystemType Element
 
 
 ## Version 1.0
