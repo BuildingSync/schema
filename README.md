@@ -28,7 +28,7 @@ These are very basic mockups of BuildingSync files with GBXML geometry data adde
 
 <pre><code>
 &lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
-    &lt;xsl:template match="@***name of attribute to remove***" /&gt;
+    &lt;xsl:template match="@nameOfAttributeToRemove" /&gt;
     &lt;xsl:template match="@*|node()"&gt;
         &lt;xsl:copy&gt;
             &lt;xsl:apply-templates select="@*|node()"/&gt;
