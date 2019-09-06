@@ -2988,7 +2988,7 @@
       <xs:element name="AllResourceTotals" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="AllResourceTotal" type="auc:AllResourceTotalType" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="AllResourceTotal" type="auc:AllResourceTotalType" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
