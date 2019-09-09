@@ -2,9 +2,9 @@
 
 ## Version 2.0-prerelease
 
-Date Range: 02/01/19 - 08/19/19:
+Date Range: 02/01/19 - 09/09/19:
 
-Accepted Pull Requests: 58
+Accepted Pull Requests: 60
 - Merged [#79]( https://github.com/BuildingSync/schema/pull/79 ), Add Address to Building Element
 - Merged [#80]( https://github.com/BuildingSync/schema/pull/80 ), Add ID to Report and Qualification
 - Merged [#81]( https://github.com/BuildingSync/schema/pull/81 ), Update Ownership Enumerations
@@ -63,6 +63,8 @@ Accepted Pull Requests: 58
 - Merged [#144]( https://github.com/BuildingSync/schema/pull/144 ), Pluralize and rename PrimaryHVACControlSystemType Element to HVACControlSystemType
 - Merged [#145]( https://github.com/BuildingSync/schema/pull/145 ), Replicate Site Elements in Building Element
 - Merged [#146]( https://github.com/BuildingSync/schema/pull/146 ), Add ExteriorFloorSystemType Element
+- Merged [#147]( https://github.com/BuildingSync/schema/pull/147 ), Harmonize Tightness and TightnessFitCondition elements
+- Merged [#148]( https://github.com/BuildingSync/schema/pull/148 ), Remove minOccurs="1" constraint for auc:AllResourceTotal element
 
 
 ## Version 1.0
