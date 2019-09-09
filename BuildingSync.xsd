@@ -243,20 +243,10 @@
                                   </xs:annotation>
                                   <xs:complexType>
                                     <xs:sequence>
-                                      <xs:element name="Tightness" minOccurs="0">
+                                      <xs:element name="Tightness" type="auc:Tightness" minOccurs="0">
                                         <xs:annotation>
                                           <xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
                                         </xs:annotation>
-                                        <xs:simpleType>
-                                          <xs:restriction base="xs:string">
-                                            <xs:enumeration value="Very Tight"/>
-                                            <xs:enumeration value="Tight"/>
-                                            <xs:enumeration value="Average"/>
-                                            <xs:enumeration value="Leaky"/>
-                                            <xs:enumeration value="Very Leaky"/>
-                                            <xs:enumeration value="Unknown"/>
-                                          </xs:restriction>
-                                        </xs:simpleType>
                                       </xs:element>
                                       <xs:element name="AirInfiltrationValue" minOccurs="0">
                                         <xs:annotation>
@@ -12006,18 +11996,10 @@
           <xs:documentation>True if fenestration is weatherstripped, false otherwise.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="TightnessFitCondition" minOccurs="0">
+      <xs:element name="TightnessFitCondition" type="auc:Tightness" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Indicator of expected air leakage through fenestration.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Tight"/>
-            <xs:enumeration value="Average"/>
-            <xs:enumeration value="Loose"/>
-            <xs:enumeration value="Unknown"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
       <xs:element name="GlassType" minOccurs="0">
         <xs:annotation>
@@ -17341,6 +17323,16 @@
       <xs:enumeration value="Medium smooth"/>
       <xs:enumeration value="Smooth"/>
       <xs:enumeration value="Very smooth"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Tightness">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Very Tight"/>
+      <xs:enumeration value="Tight"/>
+      <xs:enumeration value="Average"/>
+      <xs:enumeration value="Leaky"/>
+      <xs:enumeration value="Very Leaky"/>
       <xs:enumeration value="Unknown"/>
     </xs:restriction>
   </xs:simpleType>
