@@ -37,6 +37,13 @@
                   <OccupantQuantity>1325</OccupantQuantity>
                 </OccupancyLevel>
               </OccupancyLevels>
+              <SpatialUnits>
+                <SpatialUnit>
+                  <SpatialUnitType>Rooms</SpatialUnitType>
+                  <NumberOfUnits>25</NumberOfUnits>
+                  <SpatialUnitOccupiedPercentage>90</SpatialUnitOccupiedPercentage>
+                </SpatialUnit>
+              </SpatialUnits>
               <OwnershipStatus>Owned</OwnershipStatus>
               <FloorAreas>
                 <FloorArea>
@@ -45,6 +52,7 @@
                 </FloorArea>
               </FloorAreas>
               <YearOfConstruction>2011</YearOfConstruction>
+              <PercentLeasedByOwner>15</PercentLeasedByOwner>
               <UserDefinedFields>
                 <UserDefinedField>
                   <FieldName>Note</FieldName>
@@ -71,12 +79,20 @@
                 </FloorArea>
               </FloorAreas>
               <YearOfConstruction>2013</YearOfConstruction>
-              <Subsections>
-                <Subsection ID="Wholebuilding2">
+              <Sections>
+                <Section ID="Wholebuilding2">
                   <PremisesName>Wholebuilding2</PremisesName>
-                  <RoofID IDref="RoofSystem-01"/>
-                </Subsection>
-              </Subsections>
+                  <SectionType>Whole building</SectionType>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="RoofSystem-01">
+                        <RoofArea>10000</RoofArea>
+                        <RoofCondition>Average</RoofCondition>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                </Section>
+              </Sections>
               <UserDefinedFields>
                 <UserDefinedField>
                   <FieldName>Note</FieldName>
@@ -104,13 +120,15 @@
                     <BurnerYearInstalled>2014</BurnerYearInstalled>
                     <DraftType>Mechanical forced</DraftType>
                   </Boiler>
+                  <HeatingPlantCondition>Excellent</HeatingPlantCondition>
+                  <Location>Mechanical Room</Location>
                   <YearInstalled>1999</YearInstalled>
                 </HeatingPlant>
               </HeatingPlants>
             </Plants>
             <HeatingAndCoolingSystems>
               <HeatingSources>
-                <HeatingSource>
+                <HeatingSource ID="HeatingSource1">
                   <HeatingSourceType>
                     <SourceHeatingPlantID IDref="HeatingPlant1"/>
                   </HeatingSourceType>
@@ -121,13 +139,38 @@
               <Deliveries>
                 <Delivery>
                   <DeliveryType>
-                    <CentralAirDistribution>
-                      <TerminalUnit>Powered induction unit</TerminalUnit>
-                    </CentralAirDistribution>
+                    <ZoneEquipment>
+                      <Radiant>
+                        <RadiantType>Radiator</RadiantType>
+                      </Radiant>
+                    </ZoneEquipment>
                   </DeliveryType>
+                  <PrimaryFuel>Electricity</PrimaryFuel>
+                </Delivery>
+                <Delivery>
+                  <DeliveryType>
+                    <ZoneEquipment>
+                      <Radiant>
+                        <RadiantType>Radiator</RadiantType>
+                      </Radiant>
+                    </ZoneEquipment>
+                  </DeliveryType>
+                  <HeatingSourceID IDref="HeatingSource1"/>
                 </Delivery>
               </Deliveries>
             </HeatingAndCoolingSystems>
+            <OtherHVACSystems>
+              <OtherHVACSystem>
+                <OtherHVACType>
+                  <MechanicalVentilation>
+                    <VentilationControlMethods>
+                      <VentilationControlMethod>CO2 Sensors</VentilationControlMethod>
+                      <VentilationControlMethod>Scheduled</VentilationControlMethod>
+                    </VentilationControlMethods>
+                  </MechanicalVentilation>
+                </OtherHVACType>
+              </OtherHVACSystem>
+            </OtherHVACSystems>
             <LinkedPremises>
               <Building>
                 <LinkedBuildingID IDref="Facility2"/>
@@ -164,7 +207,7 @@
             </Plants>
             <HeatingAndCoolingSystems>
               <CoolingSources>
-                <CoolingSource>
+                <CoolingSource ID="CoolingSource1">
                   <CoolingSourceType>
                     <CoolingPlantID IDref="CoolingPlant1"/>
                   </CoolingSourceType>
@@ -172,6 +215,16 @@
                   <PrimaryFuel>Fuel oil no 2</PrimaryFuel>
                 </CoolingSource>
               </CoolingSources>
+              <Deliveries>
+                <Delivery>
+                  <DeliveryType>
+                    <CentralAirDistribution>
+                      <TerminalUnit>Powered induction unit</TerminalUnit>
+                    </CentralAirDistribution>
+                  </DeliveryType>
+                  <CoolingSourceID IDref="CoolingSource1"/>
+                </Delivery>
+              </Deliveries>
             </HeatingAndCoolingSystems>
             <LinkedPremises>
               <Building>
@@ -196,19 +249,74 @@
             </LinkedPremises>
           </LightingSystem>
         </LightingSystems>
+        <DomesticHotWaterSystems>
+          <DomesticHotWaterSystem>
+            <DomesticHotWaterType>
+              <StorageTank>
+                <TankHeatingType>
+                  <Indirect>
+                    <IndirectTankHeatingSource>
+                      <SpaceHeatingSystem>
+                        <HeatingPlantID IDref="UnsharedHeating"/>
+                      </SpaceHeatingSystem>
+                    </IndirectTankHeatingSource>
+                  </Indirect>
+                </TankHeatingType>
+                <TankVolume>100</TankVolume>
+              </StorageTank>
+            </DomesticHotWaterType>
+            <Controls>
+              <Control>
+                <Thermostat>
+                  <ControlStrategy>Manual</ControlStrategy>
+                </Thermostat>
+              </Control>
+            </Controls>
+            <Location>Mechanical Room</Location>
+            <LinkedPremises>
+              <Building>
+                <LinkedBuildingID IDref="Facility1"/>
+              </Building>
+            </LinkedPremises>
+          </DomesticHotWaterSystem>
+        </DomesticHotWaterSystems>
         <RoofSystems>
           <RoofSystem ID="RoofSystem-01">
-            <SpecialRoofClassification>Blue roof</SpecialRoofClassification>
+            <BlueRoof>true</BlueRoof>
+            <GreenRoof>true</GreenRoof>
             <YearInstalled>1999</YearInstalled>
           </RoofSystem>
         </RoofSystems>
-        <OnSiteStorageTransmissionGenerationSystems>
-          <OnSiteStorageTransmissionGenerationSystem ID="AllThePV">
+        <PlugLoads>
+          <PlugLoad>
+            <PlugLoadType>Signage Display</PlugLoadType>
+            <LinkedPremises>
+              <Facility>
+                <LinkedFacilityID IDref="Facility1"/>
+              </Facility>
+            </LinkedPremises>
+          </PlugLoad>
+        </PlugLoads>
+        <ProcessLoads>
+          <ProcessLoad>
+            <ProcessLoadType>Miscellaneous Gas Load</ProcessLoadType>
+            <WeightedAverageLoad>1000</WeightedAverageLoad>
+            <LinkedPremises>
+              <Facility>
+                <LinkedFacilityID IDref="Facility1"/>
+              </Facility>
+            </LinkedPremises>
+          </ProcessLoad>
+        </ProcessLoads>
+        <OnsiteStorageTransmissionGenerationSystems>
+          <OnsiteStorageTransmissionGenerationSystem ID="AllThePV">
             <EnergyConversionType>
               <Generation>
-                <OnSiteGenerationType>
-                  <PV/>
-                </OnSiteGenerationType>
+                <OnsiteGenerationType>
+                  <Other>
+                    <OtherEnergyGenerationTechnology>Reciprocating engine</OtherEnergyGenerationTechnology>
+                  </Other>
+                </OnsiteGenerationType>
               </Generation>
             </EnergyConversionType>
             <LinkedPremises>
@@ -217,8 +325,17 @@
                 <LinkedBuildingID IDref="Facility2"/>
               </Building>
             </LinkedPremises>
-          </OnSiteStorageTransmissionGenerationSystem>
-        </OnSiteStorageTransmissionGenerationSystems>
+          </OnsiteStorageTransmissionGenerationSystem>
+        </OnsiteStorageTransmissionGenerationSystems>
+        <AirInfiltrationSystems>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem1">
+            <LinkedPremises>
+              <Facility>
+                <LinkedFacilityID IDref="Facility1"/>
+              </Facility>
+            </LinkedPremises>
+          </AirInfiltrationSystem>
+        </AirInfiltrationSystems>
       </Systems>
       <Measures>
         <Measure ID="Building1RemovePV">
@@ -234,6 +351,7 @@
               <LinkedBuildingID IDref="Facility1"/>
             </Building>
           </LinkedPremises>
+          <CustomMeasureName>RemoveBuildingPV</CustomMeasureName>
         </Measure>
         <Measure ID="WholeSiteRemovePV">
           <TypeOfMeasure>
@@ -248,6 +366,7 @@
               <LinkedBuildingID IDref="SiteA"/>
             </Building>
           </LinkedPremises>
+          <CustomMeasureName>RemoveSitePV</CustomMeasureName>
         </Measure>
       </Measures>
       <Reports>
@@ -255,21 +374,41 @@
           <Scenarios>
             <Scenario ID="Scenario1">
               <ScenarioName>Remove all the PV from the RSF</ScenarioName>
+              <ScenarioNotes>These are details for scenario 1.</ScenarioNotes>
               <ScenarioType>
-                <PackageOfMeasures>
+                <PackageOfMeasures ID="Package01">
                   <MeasureIDs>
                     <MeasureID IDref="Building1RemovePV"/>
                   </MeasureIDs>
                 </PackageOfMeasures>
               </ScenarioType>
+              <ResourceUses>
+                <ResourceUse>
+                  <EnergyResource>Electricity</EnergyResource>
+                  <AnnualPeakNativeUnits>20</AnnualPeakNativeUnits>
+                </ResourceUse>
+              </ResourceUses>
             </Scenario>
             <Scenario ID="Scenario2">
               <ScenarioName>Remove all the PV from campus</ScenarioName>
+              <ScenarioNotes>Details for scenario 2.</ScenarioNotes>
               <ScenarioType>
                 <PackageOfMeasures>
                   <MeasureIDs>
                     <MeasureID IDref="WholeSiteRemovePV"/>
                   </MeasureIDs>
+                  <CalculationMethod>
+                    <Modeled>
+                      <WeatherDataType>TMY</WeatherDataType>
+                      <SimulationCompletionStatus>Finished</SimulationCompletionStatus>
+                    </Modeled>
+                  </CalculationMethod>
+                  <UserDefinedFields>
+                    <UserDefinedField>
+                      <FieldName>TestUDF</FieldName>
+                      <FieldValue>tested</FieldValue>
+                    </UserDefinedField>
+                  </UserDefinedFields>
                 </PackageOfMeasures>
               </ScenarioType>
             </Scenario>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v1.0-patch/BuildingSync.xsd">
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../BuildingSync.xsd">
   <auc:Facilities>
     <auc:Facility ID="Facility-1">
       <auc:PremisesName>Example Building</auc:PremisesName>
@@ -120,7 +120,7 @@
               <auc:OutputCapacity>120.0</auc:OutputCapacity>
               <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
               <auc:AnnualHeatingEfficiencyValue>82.0</auc:AnnualHeatingEfficiencyValue>
-              <auc:AnnualHeatingEfficiencyUnit>AFUE</auc:AnnualHeatingEfficiencyUnit>
+              <auc:AnnualHeatingEfficiencyUnits>AFUE</auc:AnnualHeatingEfficiencyUnits>
               <auc:Quantity>2</auc:Quantity>
             </auc:Boiler>
           </auc:HeatingPlant>
@@ -181,7 +181,9 @@
                 <auc:DemandControlVentilation>true</auc:DemandControlVentilation>
               </auc:MechanicalVentilation>
             </auc:OtherHVACType>
-            <auc:LinkedDeliveryID>Delivery-70234392832520</auc:LinkedDeliveryID>
+            <auc:LinkedDeliveryIDs>
+              <auc:LinkedDeliveryID>Delivery-70234392832520</auc:LinkedDeliveryID>
+            </auc:LinkedDeliveryIDs>
             <auc:UserDefinedFields>
               <auc:UserDefinedField>
                 <auc:FieldName>Type</auc:FieldName>
@@ -254,7 +256,9 @@
                 <auc:DemandControlVentilation>false</auc:DemandControlVentilation>
               </auc:MechanicalVentilation>
             </auc:OtherHVACType>
-            <auc:LinkedDeliveryID>Delivery-70234392685980</auc:LinkedDeliveryID>
+            <auc:LinkedDeliveryIDs>
+              <auc:LinkedDeliveryID>Delivery-70234392685980</auc:LinkedDeliveryID>
+            </auc:LinkedDeliveryIDs>
             <auc:UserDefinedFields>
               <auc:UserDefinedField>
                 <auc:FieldName>Type</auc:FieldName>
@@ -299,7 +303,7 @@
             <auc:LampLabel>LED</auc:LampLabel>
           </auc:SolidStateLighting>
         </auc:LampType>
-        <auc:BallastType>Electronic</auc:BallastType>
+        <auc:BallastType>Standard Electronic</auc:BallastType>
         <auc:InstallationType>Plug-in</auc:InstallationType>
         <auc:LampPower>15</auc:LampPower>
         <auc:NumberOfLampsPerLuminaire>1</auc:NumberOfLampsPerLuminaire>
@@ -326,7 +330,7 @@
             <auc:LampLength>Unknown</auc:LampLength>
           </auc:LinearFluorescent>
         </auc:LampType>
-        <auc:BallastType>Electronic</auc:BallastType>
+        <auc:BallastType>Standard Electronic</auc:BallastType>
         <auc:InstallationType>Recessed</auc:InstallationType>
         <auc:LampPower>32</auc:LampPower>
         <auc:NumberOfLampsPerLuminaire>4</auc:NumberOfLampsPerLuminaire>
