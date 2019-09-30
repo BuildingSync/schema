@@ -1,8 +1,12 @@
 # BuildingSync
 
-## Version 2.0-prerelease
+## Version 2.0 Prerelease 1
 
-Date Range: 02/01/19 - 09/09/19:
+Date Range: 02/01/19 - 09/30/19:
+
+Closed Issues: 2
+- Merged [#73]( https://github.com/BuildingSync/schema/issues/73 ), Fractions and percentages appear to be unevenly implemented
+- Merged [#117]( https://github.com/BuildingSync/schema/issues/117 ), Typo in definition of "CoolRoof" element
 
 Accepted Pull Requests: 60
 - Merged [#79]( https://github.com/BuildingSync/schema/pull/79 ), Add Address to Building Element
