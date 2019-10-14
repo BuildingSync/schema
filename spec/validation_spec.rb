@@ -11,21 +11,20 @@ RSpec.describe 'Validate Examples' do
     total_errors = 0
     Dir['examples/*.xml'].each do |xml|
       puts "Validating file: #{xml}"
+      # skip the invalid schema file
+      next if xml =~ /Invalid Schema/
 
       doc = Nokogiri::XML(File.read(xml))
 
       errors = []
       @xsd.validate(doc).each do |error|
-        errors << { file: xml, error: error }
+        errors << {file: xml, error: error}
       end
-
       unless errors.size.zero?
         puts "  There were #{errors.size} errors!"
         pp errors
       end
-
       total_errors += errors.size
-
       puts "\n"
     end
 
@@ -58,3 +57,35 @@ RSpec.describe 'No Tabs in Examples' do
     expect(total_errors).to eq 0
   end
 end
+
+RSpec.describe 'No XMLSpy content' do
+  it 'should not have any XMLSpy comments' do
+    total_errors = 0
+    Dir['examples/*.xml', 'BuildingSync.xsd'].each do |xml|
+      puts "Checking for XMLSpy in file: #{xml}"
+
+      errors = []
+      if File.read(xml).include? "XMLSpy"
+        errors << "File #{xml} includes XMLSpy, please remove the offending lines (run 'rake remove_tabs')"
+      end
+
+      unless errors.size.zero?
+        puts "  There were #{errors.size} errors!"
+        pp errors
+      end
+
+      total_errors += errors.size
+
+      puts "\n"
+    end
+
+    expect(total_errors).to eq 0
+  end
+end
+
+RSpec.describe 'No complexContent in XSD' do
+  it 'should not have any complexContent' do
+    expect(File.read('BuildingSync.xsd').include? "complexContent").to eq false
+  end
+end
+

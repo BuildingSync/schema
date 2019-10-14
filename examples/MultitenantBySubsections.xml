@@ -1,180 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- "High-level" approach separating out floor areas by tenant -->
 <!-- Missing Data That We Still Want: Ownership of building -->
-<Audits xmlns="http://nrel.gov/schemas/bedes-auc/2014">
-  <Audit>
-    <Sites>
-      <Site>
-        <Address>
-          <StreetAddressDetail>
-            <Simplified>
-              <StreetAddress>15013 Denver W Pkwy</StreetAddress>
-            </Simplified>
-          </StreetAddressDetail>
-          <City>Golden</City>
-          <State>CO</State>
-          <PostalCode>80401</PostalCode>
-        </Address>
-        <Ownership>Property management company</Ownership>
-        <Facilities>
-          <Facility ID="BuildingLII">
-            <PremisesName>Office Building LII</PremisesName>
-            <FacilityClassification>Commercial</FacilityClassification>
-            <NumberOfBusinesses>5</NumberOfBusinesses>
-            <FloorsAboveGrade>3</FloorsAboveGrade>
-            <FloorAreas>
-              <FloorArea>
-                <FloorAreaType>Custom</FloorAreaType>
-                <FloorAreaCustomName>Total rentable</FloorAreaCustomName>
-                <FloorAreaValue>71017</FloorAreaValue>
-              </FloorArea>
-            </FloorAreas>
-            <Subsections>
-              <Subsection ID="Suite180">
-                <PremisesName>Suite 180</PremisesName>
-                <TenantID IDref="Tenant1"/>
-                <FootprintShape>Rectangular</FootprintShape>
-                <Story>1</Story>
-                <FloorAreas>
-                  <FloorArea>
-                    <FloorAreaType>Rentable</FloorAreaType>
-                    <FloorAreaValue>5000</FloorAreaValue>
-                  </FloorArea>
-                </FloorAreas>
-              </Subsection>
-              <Subsection ID="Suite120">
-                <PremisesName>Suite 120</PremisesName>
-                <TenantID IDref="Tenant2"/>
-                <FootprintShape>Rectangular</FootprintShape>
-                <Story>1</Story>
-                <FloorAreas>
-                  <FloorArea>
-                    <FloorAreaType>Rentable</FloorAreaType>
-                    <FloorAreaValue>5000</FloorAreaValue>
-                  </FloorArea>
-                </FloorAreas>
-              </Subsection>
-              <Subsection ID="Suite150">
-                <PremisesName>Suite 150</PremisesName>
-                <TenantID IDref="Tenant3"/>
-                <FootprintShape>Rectangular</FootprintShape>
-                <Story>1</Story>
-                <FloorAreas>
-                  <FloorArea>
-                    <FloorAreaType>Rentable</FloorAreaType>
-                    <FloorAreaValue>5000</FloorAreaValue>
-                  </FloorArea>
-                </FloorAreas>
-              </Subsection>
-              <Subsection ID="Suite155">
-                <PremisesName>Suite 155</PremisesName>
-                <FootprintShape>Rectangular</FootprintShape>
-                <Story>1</Story>
-                <FloorAreas>
-                  <FloorArea>
-                    <FloorAreaType>Rentable</FloorAreaType>
-                    <FloorAreaValue>2526</FloorAreaValue>
-                  </FloorArea>
-                </FloorAreas>
-              </Subsection>
-              <Subsection ID="Suite110">
-                <PremisesName>Suite 110</PremisesName>
-                <TenantID IDref="Tenant4"/>
-                <FootprintShape>Rectangular</FootprintShape>
-                <Story>1</Story>
-                <FloorAreas>
-                  <FloorArea>
-                    <FloorAreaType>Rentable</FloorAreaType>
-                    <FloorAreaValue>5000</FloorAreaValue>
-                  </FloorArea>
-                </FloorAreas>
-              </Subsection>
-              <Subsection ID="Suite200">
-                <PremisesName>Suite 200</PremisesName>
-                <FootprintShape>Rectangular</FootprintShape>
-                <Story>2</Story>
-                <FloorAreas>
-                  <FloorArea>
-                    <FloorAreaType>Rentable</FloorAreaType>
-                    <FloorAreaValue>25757</FloorAreaValue>
-                  </FloorArea>
-                </FloorAreas>
-              </Subsection>
-              <Subsection ID="Suite300">
-                <PremisesName>Suite 300</PremisesName>
-                <TenantID IDref="Tenant5"/>
-                <FootprintShape>Rectangular</FootprintShape>
-                <Story>3</Story>
-                <FloorAreas>
-                  <FloorArea>
-                    <FloorAreaType>Rentable</FloorAreaType>
-                    <FloorAreaValue>25000</FloorAreaValue>
-                  </FloorArea>
-                </FloorAreas>
-              </Subsection>
-            </Subsections>
-          </Facility>
-        </Facilities>
-      </Site>
-    </Sites>
-    <Contacts>
-      <Contact ID="Contact1">
-        <ContactRole>Occupant</ContactRole>
-        <ContactName>Arthur Dent</ContactName>
-        <ContactCompany>Colorado Phone Sanitizers Association</ContactCompany>
-        <ContactTelephoneNumbers>
-          <ContactTelephoneNumber>
-            <ContactTelephoneNumberLabel>Cell</ContactTelephoneNumberLabel>
-            <TelephoneNumber>720-555-5555</TelephoneNumber>
-          </ContactTelephoneNumber>
-          <ContactTelephoneNumber>
-            <ContactTelephoneNumberLabel>Days</ContactTelephoneNumberLabel>
-            <TelephoneNumber>303-555-5555</TelephoneNumber>
-          </ContactTelephoneNumber>
-        </ContactTelephoneNumbers>
-        <ContactEmailAddresses>
-          <ContactEmailAddress>
-            <ContactEmailAddressLabel>Work</ContactEmailAddressLabel>
-            <EmailAddress>arthur@work.email</EmailAddress>
-          </ContactEmailAddress>
-          <ContactEmailAddress>
-            <ContactEmailAddressLabel>Personal</ContactEmailAddressLabel>
-            <EmailAddress>dent.arthur.dent@personal.email</EmailAddress>
-          </ContactEmailAddress>
-        </ContactEmailAddresses>
-      </Contact>
-    </Contacts>
-    <Tenants>
-      <Tenant ID="Tenant1">
-        <TenantName>Benchmark Imagination, LLC.</TenantName>
-      </Tenant>
-      <Tenant ID="Tenant2">
-        <TenantName>Gruppo Dentale Ovest</TenantName>
-      </Tenant>
-      <Tenant ID="Tenant3">
-        <TenantName>Foggy River Associates</TenantName>
-      </Tenant>
-      <Tenant ID="Tenant4">
-        <TenantName>R11 and Sons Construction</TenantName>
-        <TenantTelephoneNumbers>
-          <TenantTelephoneNumber>
-            <TenantTelephoneNumberLabel>Days</TenantTelephoneNumberLabel>
-            <TelephoneNumber>555-555-5555</TelephoneNumber>
-          </TenantTelephoneNumber>
-        </TenantTelephoneNumbers>
-        <TenantEmailAddresses>
-          <TenantEmailAddress>
-            <TenantEmailAddressLabel>Work</TenantEmailAddressLabel>
-            <EmailAddress>freon@relevenco.com</EmailAddress>
-          </TenantEmailAddress>
-          <TenantEmailAddress>
-            <EmailAddress>info@relevenco.com</EmailAddress>
-          </TenantEmailAddress>
-        </TenantEmailAddresses>
-      </Tenant>
-      <Tenant ID="Tenant5">
-        <TenantName>Colorado Phone Sanitizers Association</TenantName>
-      </Tenant>
-    </Tenants>
-  </Audit>
-</Audits>
+<BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../BuildingSync.xsd">
+  <Facilities>
+    <Facility>
+      <Sites>
+        <Site>
+          <Address>
+            <StreetAddressDetail>
+              <Simplified>
+                <StreetAddress>15013 Denver W Pkwy</StreetAddress>
+              </Simplified>
+            </StreetAddressDetail>
+            <City>Golden</City>
+            <State>CO</State>
+            <PostalCode>80401</PostalCode>
+          </Address>
+          <Ownership>Property management company</Ownership>
+          <Buildings>
+            <Building ID="BuildingLII">
+              <PremisesName>Office Building LII</PremisesName>
+              <BuildingClassification>Commercial</BuildingClassification>
+              <NumberOfBusinesses>5</NumberOfBusinesses>
+              <FloorsAboveGrade>3</FloorsAboveGrade>
+              <FloorAreas>
+                <FloorArea>
+                  <FloorAreaType>Custom</FloorAreaType>
+                  <FloorAreaCustomName>Total rentable</FloorAreaCustomName>
+                  <FloorAreaValue>71017</FloorAreaValue>
+                </FloorArea>
+              </FloorAreas>
+              <Sections>
+                <Section ID="Suite180">
+                  <PremisesName>Suite 180</PremisesName>
+                  <SectionType>Component</SectionType>
+                  <TenantIDs>
+                    <TenantID IDref="Tenant1"/>
+                  </TenantIDs>
+                  <FootprintShape>Rectangular</FootprintShape>
+                  <Story>1</Story>
+                  <FloorAreas>
+                    <FloorArea>
+                      <FloorAreaType>Rentable</FloorAreaType>
+                      <FloorAreaValue>5000</FloorAreaValue>
+                    </FloorArea>
+                  </FloorAreas>
+                </Section>
+                <Section ID="Suite120">
+                  <PremisesName>Suite 120</PremisesName>
+                  <SectionType>Component</SectionType>
+                  <TenantIDs>
+                    <TenantID IDref="Tenant2"/>
+                  </TenantIDs>
+                  <FootprintShape>Rectangular</FootprintShape>
+                  <Story>1</Story>
+                  <FloorAreas>
+                    <FloorArea>
+                      <FloorAreaType>Rentable</FloorAreaType>
+                      <FloorAreaValue>5000</FloorAreaValue>
+                    </FloorArea>
+                  </FloorAreas>
+                </Section>
+                <Section ID="Suite150">
+                  <PremisesName>Suite 150</PremisesName>
+                  <SectionType>Component</SectionType>
+                  <TenantIDs>
+                    <TenantID IDref="Tenant3"/>
+                  </TenantIDs>
+                  <FootprintShape>Rectangular</FootprintShape>
+                  <Story>1</Story>
+                  <FloorAreas>
+                    <FloorArea>
+                      <FloorAreaType>Rentable</FloorAreaType>
+                      <FloorAreaValue>5000</FloorAreaValue>
+                    </FloorArea>
+                  </FloorAreas>
+                </Section>
+                <Section ID="Suite155">
+                  <PremisesName>Suite 155</PremisesName>
+                  <SectionType>Component</SectionType>
+                  <FootprintShape>Rectangular</FootprintShape>
+                  <Story>1</Story>
+                  <FloorAreas>
+                    <FloorArea>
+                      <FloorAreaType>Rentable</FloorAreaType>
+                      <FloorAreaValue>2526</FloorAreaValue>
+                    </FloorArea>
+                  </FloorAreas>
+                </Section>
+                <Section ID="Suite110">
+                  <PremisesName>Suite 110</PremisesName>
+                  <SectionType>Component</SectionType>
+                  <TenantIDs>
+                    <TenantID IDref="Tenant4"/>
+                  </TenantIDs>
+                  <FootprintShape>Rectangular</FootprintShape>
+                  <Story>1</Story>
+                  <FloorAreas>
+                    <FloorArea>
+                      <FloorAreaType>Rentable</FloorAreaType>
+                      <FloorAreaValue>5000</FloorAreaValue>
+                    </FloorArea>
+                  </FloorAreas>
+                </Section>
+                <Section ID="Suite200">
+                  <PremisesName>Suite 200</PremisesName>
+                  <SectionType>Component</SectionType>
+                  <FootprintShape>Rectangular</FootprintShape>
+                  <Story>2</Story>
+                  <FloorAreas>
+                    <FloorArea>
+                      <FloorAreaType>Rentable</FloorAreaType>
+                      <FloorAreaValue>25757</FloorAreaValue>
+                    </FloorArea>
+                  </FloorAreas>
+                </Section>
+                <Section ID="Suite300">
+                  <PremisesName>Suite 300</PremisesName>
+                  <SectionType>Component</SectionType>
+                  <TenantIDs>
+                    <TenantID IDref="Tenant5"/>
+                  </TenantIDs>
+                  <FootprintShape>Rectangular</FootprintShape>
+                  <Story>3</Story>
+                  <FloorAreas>
+                    <FloorArea>
+                      <FloorAreaType>Rentable</FloorAreaType>
+                      <FloorAreaValue>25000</FloorAreaValue>
+                    </FloorArea>
+                  </FloorAreas>
+                </Section>
+              </Sections>
+            </Building>
+          </Buildings>
+        </Site>
+      </Sites>
+      <Contacts>
+        <Contact ID="Contact1">
+          <ContactRoles>
+            <ContactRole>Occupant</ContactRole>
+          </ContactRoles>
+          <ContactName>Arthur Dent</ContactName>
+          <ContactCompany>Colorado Phone Sanitizers Association</ContactCompany>
+          <ContactTelephoneNumbers>
+            <ContactTelephoneNumber>
+              <ContactTelephoneNumberLabel>Cell</ContactTelephoneNumberLabel>
+              <TelephoneNumber>720-555-5555</TelephoneNumber>
+            </ContactTelephoneNumber>
+            <ContactTelephoneNumber>
+              <ContactTelephoneNumberLabel>Days</ContactTelephoneNumberLabel>
+              <TelephoneNumber>303-555-5555</TelephoneNumber>
+            </ContactTelephoneNumber>
+          </ContactTelephoneNumbers>
+          <ContactEmailAddresses>
+            <ContactEmailAddress>
+              <ContactEmailAddressLabel>Work</ContactEmailAddressLabel>
+              <EmailAddress>arthur@work.email</EmailAddress>
+            </ContactEmailAddress>
+            <ContactEmailAddress>
+              <ContactEmailAddressLabel>Personal</ContactEmailAddressLabel>
+              <EmailAddress>dent.arthur.dent@personal.email</EmailAddress>
+            </ContactEmailAddress>
+          </ContactEmailAddresses>
+        </Contact>
+      </Contacts>
+      <Tenants>
+        <Tenant ID="Tenant1">
+          <TenantName>Benchmark Imagination, LLC.</TenantName>
+        </Tenant>
+        <Tenant ID="Tenant2">
+          <TenantName>Gruppo Dentale Ovest</TenantName>
+        </Tenant>
+        <Tenant ID="Tenant3">
+          <TenantName>Foggy River Associates</TenantName>
+        </Tenant>
+        <Tenant ID="Tenant4">
+          <TenantName>R11 and Sons Construction</TenantName>
+          <TenantTelephoneNumbers>
+            <TenantTelephoneNumber>
+              <TenantTelephoneNumberLabel>Days</TenantTelephoneNumberLabel>
+              <TelephoneNumber>555-555-5555</TelephoneNumber>
+            </TenantTelephoneNumber>
+          </TenantTelephoneNumbers>
+          <TenantEmailAddresses>
+            <TenantEmailAddress>
+              <TenantEmailAddressLabel>Work</TenantEmailAddressLabel>
+              <EmailAddress>freon@relevenco.com</EmailAddress>
+            </TenantEmailAddress>
+            <TenantEmailAddress>
+              <EmailAddress>info@relevenco.com</EmailAddress>
+            </TenantEmailAddress>
+          </TenantEmailAddresses>
+        </Tenant>
+        <Tenant ID="Tenant5">
+          <TenantName>Colorado Phone Sanitizers Association</TenantName>
+        </Tenant>
+      </Tenants>
+    </Facility>
+  </Facilities>
+</BuildingSync>
