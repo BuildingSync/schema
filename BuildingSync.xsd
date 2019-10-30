@@ -7504,20 +7504,7 @@
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="ControlSystemType" minOccurs="0" maxOccurs="unbounded">
-              <xs:annotation>
-                <xs:documentation>Heating plant equipment control strategy.</xs:documentation>
-              </xs:annotation>
-              <xs:simpleType>
-                <xs:restriction base="xs:string">
-                  <xs:enumeration value="Analog"/>
-                  <xs:enumeration value="Digital"/>
-                  <xs:enumeration value="Pneumatic"/>
-                  <xs:enumeration value="Other"/>
-                  <xs:enumeration value="Unknown"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -7822,20 +7809,7 @@
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="ControlSystemType" minOccurs="0" maxOccurs="unbounded">
-              <xs:annotation>
-                <xs:documentation>Cooling plant equipment control strategy.</xs:documentation>
-              </xs:annotation>
-              <xs:simpleType>
-                <xs:restriction base="xs:string">
-                  <xs:enumeration value="Analog"/>
-                  <xs:enumeration value="Digital"/>
-                  <xs:enumeration value="Pneumatic"/>
-                  <xs:enumeration value="Other"/>
-                  <xs:enumeration value="Unknown"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -8208,20 +8182,7 @@
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="ControlSystemType" minOccurs="0" maxOccurs="unbounded">
-              <xs:annotation>
-                <xs:documentation>Condenser plant equipment control strategy.</xs:documentation>
-              </xs:annotation>
-              <xs:simpleType>
-                <xs:restriction base="xs:string">
-                  <xs:enumeration value="Analog"/>
-                  <xs:enumeration value="Digital"/>
-                  <xs:enumeration value="Pneumatic"/>
-                  <xs:enumeration value="Other"/>
-                  <xs:enumeration value="Unknown"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
