@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019">
   <auc:Facilities>
     <auc:Facility ID="Facility-55925200">
@@ -7,7 +7,7 @@
           <auc:Buildings>
             <auc:Building ID="BuildingType-55083280">
               <auc:PremisesName>San Francisco Example building</auc:PremisesName>
-              <auc:PremisesNotes></auc:PremisesNotes>
+              <auc:PremisesNotes/>
               <auc:PremisesIdentifiers>
                 <auc:PremisesIdentifier>
                   <auc:IdentifierLabel>Custom</auc:IdentifierLabel>
@@ -68,13 +68,13 @@
                   <auc:FootprintShape>L-Shape</auc:FootprintShape>
                   <auc:Sides>
                     <auc:Side>
-                      <auc:DoorID IDref="FenestrationSystemType-26694700"></auc:DoorID>
+                      <auc:DoorID IDref="FenestrationSystemType-26694700"/>
                     </auc:Side>
                     <auc:Side>
-                      <auc:WallID IDref="WallSystemType-70169278875680"></auc:WallID>
+                      <auc:WallID IDref="WallSystemType-70169278875680"/>
                     </auc:Side>
                     <auc:Side>
-                      <auc:WindowID IDref="FenestrationSystemType-70169277534700"></auc:WindowID>
+                      <auc:WindowID IDref="FenestrationSystemType-70169277534700"/>
                     </auc:Side>
                   </auc:Sides>
                   <auc:Roofs>
@@ -86,22 +86,22 @@
                     <auc:Roof>
                       <auc:RoofID IDref="RoofSystemType-70169279189200">
                         <auc:SkylightIDs>
-                          <auc:SkylightID IDref="FenestrationSystemType-70169279552160"></auc:SkylightID>
+                          <auc:SkylightID IDref="FenestrationSystemType-70169279552160"/>
                         </auc:SkylightIDs>
                       </auc:RoofID>
                     </auc:Roof>
                   </auc:Roofs>
                   <auc:ExteriorFloors>
                     <auc:ExteriorFloor>
-                      <auc:ExteriorFloorID IDref="ExteriorFloorSystemType-18701860"></auc:ExteriorFloorID>
+                      <auc:ExteriorFloorID IDref="ExteriorFloorSystemType-18701860"/>
                     </auc:ExteriorFloor>
                   </auc:ExteriorFloors>
                   <auc:Foundations>
                     <auc:Foundation>
-                      <auc:FoundationID IDref="FoundationSystemType-70169284470860"></auc:FoundationID>
+                      <auc:FoundationID IDref="FoundationSystemType-70169284470860"/>
                     </auc:Foundation>
                     <auc:Foundation>
-                      <auc:FoundationID IDref="FoundationSystemType-70169278443140"></auc:FoundationID>
+                      <auc:FoundationID IDref="FoundationSystemType-70169278443140"/>
                     </auc:Foundation>
                   </auc:Foundations>
                 </auc:Section>
@@ -163,7 +163,7 @@
                   <auc:ThermalZones>
                     <auc:ThermalZone ID="ThermalZoneType-70169283007440">
                       <auc:HVACScheduleIDs>
-                        <auc:HVACScheduleID IDref="ScheduleType-70169283050040"></auc:HVACScheduleID>
+                        <auc:HVACScheduleID IDref="ScheduleType-70169283050040"/>
                       </auc:HVACScheduleIDs>
                       <auc:SetpointTemperatureHeating>72</auc:SetpointTemperatureHeating>
                       <auc:SetpointTemperatureCooling>78</auc:SetpointTemperatureCooling>
@@ -228,7 +228,7 @@
                   <auc:ThermalZones>
                     <auc:ThermalZone ID="ThermalZoneType-70169282530960">
                       <auc:HVACScheduleIDs>
-                        <auc:HVACScheduleID IDref="ScheduleType-70169282614360"></auc:HVACScheduleID>
+                        <auc:HVACScheduleID IDref="ScheduleType-70169282614360"/>
                       </auc:HVACScheduleIDs>
                       <auc:SetpointTemperatureHeating>70</auc:SetpointTemperatureHeating>
                       <auc:SetpointTemperatureCooling>75</auc:SetpointTemperatureCooling>
@@ -251,7 +251,7 @@
                 </auc:UserDefinedField>
                 <auc:UserDefinedField>
                   <auc:FieldName>Metering Year Start Dates</auc:FieldName>
-                  <auc:FieldValue>[&quot;2016-01-01&quot;]</auc:FieldValue>
+                  <auc:FieldValue>["2016-01-01"]</auc:FieldValue>
                 </auc:UserDefinedField>
                 <auc:UserDefinedField>
                   <auc:FieldName>Percentage Skylight Area</auc:FieldName>
@@ -263,7 +263,7 @@
                 </auc:UserDefinedField>
                 <auc:UserDefinedField>
                   <auc:FieldName>Spaces Excluded From Gross Floor Area</auc:FieldName>
-                  <auc:FieldValue></auc:FieldValue>
+                  <auc:FieldValue/>
                 </auc:UserDefinedField>
                 <auc:UserDefinedField>
                   <auc:FieldName>Validate 100% Lighting Status</auc:FieldName>
@@ -297,7 +297,7 @@
                   <auc:BuildingAutomationSystem>true</auc:BuildingAutomationSystem>
                   <auc:ControlSystemTypes>
                     <auc:ControlSystemType>
-                      <auc:Digital></auc:Digital>
+                      <auc:Digital/>
                     </auc:ControlSystemType>
                   </auc:ControlSystemTypes>
                   <auc:UserDefinedFields>
@@ -314,7 +314,7 @@
                     <auc:ChillerType>Absorption</auc:ChillerType>
                     <auc:NumberOfDiscreteCoolingStages>1</auc:NumberOfDiscreteCoolingStages>
                     <auc:CondenserPlantIDs>
-                      <auc:CondenserPlantID IDref="CondenserPlantType-70169285494880"></auc:CondenserPlantID>
+                      <auc:CondenserPlantID IDref="CondenserPlantType-70169285494880"/>
                     </auc:CondenserPlantIDs>
                     <auc:AbsorptionStages>Single effect</auc:AbsorptionStages>
                     <auc:AnnualCoolingEfficiencyValue>2.5</auc:AnnualCoolingEfficiencyValue>
@@ -331,7 +331,7 @@
                   <auc:BuildingAutomationSystem>true</auc:BuildingAutomationSystem>
                   <auc:ControlSystemTypes>
                     <auc:ControlSystemType>
-                      <auc:Digital></auc:Digital>
+                      <auc:Digital/>
                     </auc:ControlSystemType>
                   </auc:ControlSystemTypes>
                   <auc:UserDefinedFields>
@@ -358,7 +358,7 @@
             </auc:Plants>
             <auc:LinkedPremises>
               <auc:Building>
-                <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
               </auc:Building>
             </auc:LinkedPremises>
           </auc:HVACSystem>
@@ -368,13 +368,13 @@
               <auc:HeatingSources>
                 <auc:HeatingSource ID="HeatingSource-70169276625140">
                   <auc:HeatingSourceType>
-                    <auc:SourceHeatingPlantID IDref="HeatingPlantType-70169277651840"></auc:SourceHeatingPlantID>
+                    <auc:SourceHeatingPlantID IDref="HeatingPlantType-70169277651840"/>
                   </auc:HeatingSourceType>
                   <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
                   <auc:UserDefinedFields>
                     <auc:UserDefinedField>
                       <auc:FieldName>Heating Source Notes</auc:FieldName>
-                      <auc:FieldValue></auc:FieldValue>
+                      <auc:FieldValue/>
                     </auc:UserDefinedField>
                   </auc:UserDefinedFields>
                 </auc:HeatingSource>
@@ -382,13 +382,13 @@
               <auc:CoolingSources>
                 <auc:CoolingSource ID="CoolingSource-70169281356380">
                   <auc:CoolingSourceType>
-                    <auc:CoolingPlantID IDref="CoolingPlantType-70169282045660"></auc:CoolingPlantID>
+                    <auc:CoolingPlantID IDref="CoolingPlantType-70169282045660"/>
                   </auc:CoolingSourceType>
                   <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
                   <auc:UserDefinedFields>
                     <auc:UserDefinedField>
                       <auc:FieldName>Cooling Source Notes</auc:FieldName>
-                      <auc:FieldValue></auc:FieldValue>
+                      <auc:FieldValue/>
                     </auc:UserDefinedField>
                   </auc:UserDefinedFields>
                 </auc:CoolingSource>
@@ -400,11 +400,11 @@
                       <auc:AirDeliveryType>Central fan</auc:AirDeliveryType>
                       <auc:TerminalUnit>VAV terminal box not fan powered with reheat</auc:TerminalUnit>
                       <auc:ReheatSource>Heating plant</auc:ReheatSource>
-                      <auc:ReheatPlantID IDref="HeatingPlantType-70169277651840"></auc:ReheatPlantID>
+                      <auc:ReheatPlantID IDref="HeatingPlantType-70169277651840"/>
                     </auc:CentralAirDistribution>
                   </auc:DeliveryType>
-                  <auc:HeatingSourceID IDref="HeatingSource-70169276625140"></auc:HeatingSourceID>
-                  <auc:CoolingSourceID IDref="CoolingSource-70169281356380"></auc:CoolingSourceID>
+                  <auc:HeatingSourceID IDref="HeatingSource-70169276625140"/>
+                  <auc:CoolingSourceID IDref="CoolingSource-70169281356380"/>
                 </auc:Delivery>
                 <auc:Delivery ID="Delivery-26363040">
                   <auc:DeliveryType>
@@ -417,8 +417,8 @@
                       </auc:FanBased>
                     </auc:ZoneEquipment>
                   </auc:DeliveryType>
-                  <auc:HeatingSourceID IDref="HeatingSource-70169276625140"></auc:HeatingSourceID>
-                  <auc:CoolingSourceID IDref="CoolingSource-70169281356380"></auc:CoolingSourceID>
+                  <auc:HeatingSourceID IDref="HeatingSource-70169276625140"/>
+                  <auc:CoolingSourceID IDref="CoolingSource-70169281356380"/>
                 </auc:Delivery>
               </auc:Deliveries>
             </auc:HeatingAndCoolingSystems>
@@ -431,8 +431,8 @@
                   </auc:MechanicalVentilation>
                 </auc:OtherHVACType>
                 <auc:LinkedDeliveryIDs>
-                  <auc:LinkedDeliveryID IDref="Delivery-37416420"></auc:LinkedDeliveryID>
-                  <auc:LinkedDeliveryID IDref="Delivery-26363040"></auc:LinkedDeliveryID>
+                  <auc:LinkedDeliveryID IDref="Delivery-37416420"/>
+                  <auc:LinkedDeliveryID IDref="Delivery-26363040"/>
                 </auc:LinkedDeliveryIDs>
               </auc:OtherHVACSystem>
             </auc:OtherHVACSystems>
@@ -442,7 +442,7 @@
             </auc:HVACControlSystemTypes>
             <auc:LinkedPremises>
               <auc:Building>
-                <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
               </auc:Building>
               <auc:Section>
                 <auc:LinkedSectionID IDref="Section-49015020">
@@ -466,11 +466,11 @@
               </auc:UserDefinedField>
               <auc:UserDefinedField>
                 <auc:FieldName>Other Central Distribution Type</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
               <auc:UserDefinedField>
                 <auc:FieldName>Other Distribution Equipment Type</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
             </auc:UserDefinedFields>
           </auc:HVACSystem>
@@ -479,7 +479,7 @@
               <auc:HeatingSources>
                 <auc:HeatingSource ID="HeatingSource-69173000">
                   <auc:HeatingSourceType>
-                    <auc:ElectricResistance></auc:ElectricResistance>
+                    <auc:ElectricResistance/>
                   </auc:HeatingSourceType>
                   <auc:AnnualHeatingEfficiencyValue>15.0</auc:AnnualHeatingEfficiencyValue>
                   <auc:AnnualHeatingEfficiencyUnits>HSPF</auc:AnnualHeatingEfficiencyUnits>
@@ -505,13 +505,13 @@
               <auc:CoolingSources>
                 <auc:CoolingSource ID="CoolingSource-30683520">
                   <auc:CoolingSourceType>
-                    <auc:NoCooling></auc:NoCooling>
+                    <auc:NoCooling/>
                   </auc:CoolingSourceType>
                   <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
                   <auc:UserDefinedFields>
                     <auc:UserDefinedField>
                       <auc:FieldName>Cooling Source Notes</auc:FieldName>
-                      <auc:FieldValue></auc:FieldValue>
+                      <auc:FieldValue/>
                     </auc:UserDefinedField>
                   </auc:UserDefinedFields>
                 </auc:CoolingSource>
@@ -525,8 +525,8 @@
                       </auc:Convection>
                     </auc:ZoneEquipment>
                   </auc:DeliveryType>
-                  <auc:HeatingSourceID IDref="HeatingSource-69173000"></auc:HeatingSourceID>
-                  <auc:CoolingSourceID IDref="CoolingSource-30683520"></auc:CoolingSourceID>
+                  <auc:HeatingSourceID IDref="HeatingSource-69173000"/>
+                  <auc:CoolingSourceID IDref="CoolingSource-30683520"/>
                   <auc:PrimaryFuel>Electricity</auc:PrimaryFuel>
                 </auc:Delivery>
               </auc:Deliveries>
@@ -534,16 +534,16 @@
             <auc:OtherHVACSystems>
               <auc:OtherHVACSystem ID="OtherHVACSystemType-55092860">
                 <auc:OtherHVACType>
-                  <auc:Unknown></auc:Unknown>
+                  <auc:Unknown/>
                 </auc:OtherHVACType>
                 <auc:LinkedDeliveryIDs>
-                  <auc:LinkedDeliveryID IDref="Delivery-78000320"></auc:LinkedDeliveryID>
+                  <auc:LinkedDeliveryID IDref="Delivery-78000320"/>
                 </auc:LinkedDeliveryIDs>
               </auc:OtherHVACSystem>
             </auc:OtherHVACSystems>
             <auc:LinkedPremises>
               <auc:Building>
-                <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
               </auc:Building>
               <auc:Section>
                 <auc:LinkedSectionID IDref="Section-36833480">
@@ -567,11 +567,11 @@
               </auc:UserDefinedField>
               <auc:UserDefinedField>
                 <auc:FieldName>Other Central Distribution Type</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
               <auc:UserDefinedField>
                 <auc:FieldName>Other Distribution Equipment Type</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
             </auc:UserDefinedFields>
           </auc:HVACSystem>
@@ -622,10 +622,10 @@
             </auc:Controls>
             <auc:LinkedPremises>
               <auc:Building>
-                <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
               </auc:Building>
               <auc:Section>
-                <auc:LinkedSectionID IDref="Section-49015020"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-49015020"/>
               </auc:Section>
             </auc:LinkedPremises>
             <auc:UserDefinedFields>
@@ -635,27 +635,27 @@
               </auc:UserDefinedField>
               <auc:UserDefinedField>
                 <auc:FieldName>Lighting Power Density For Section-49015020</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
               <auc:UserDefinedField>
                 <auc:FieldName>Common Areas Lighting Power Density For Section-49015020</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
               <auc:UserDefinedField>
                 <auc:FieldName>Tenant Areas Lighting Power Density For Section-49015020</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
               <auc:UserDefinedField>
                 <auc:FieldName>Quantity Of Luminaires For Section-49015020</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
               <auc:UserDefinedField>
                 <auc:FieldName>Common Areas Quantity Of Luminaires For Section-49015020</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
               <auc:UserDefinedField>
                 <auc:FieldName>Tenant Areas Quantity Of Luminaires For Section-49015020</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
             </auc:UserDefinedFields>
           </auc:LightingSystem>
@@ -698,10 +698,10 @@
             </auc:Controls>
             <auc:LinkedPremises>
               <auc:Building>
-                <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
               </auc:Building>
               <auc:Section>
-                <auc:LinkedSectionID IDref="Section-36833480"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-36833480"/>
               </auc:Section>
             </auc:LinkedPremises>
             <auc:UserDefinedFields>
@@ -715,27 +715,27 @@
               </auc:UserDefinedField>
               <auc:UserDefinedField>
                 <auc:FieldName>Lighting Power Density For Section-36833480</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
               <auc:UserDefinedField>
                 <auc:FieldName>Common Areas Lighting Power Density For Section-36833480</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
               <auc:UserDefinedField>
                 <auc:FieldName>Tenant Areas Lighting Power Density For Section-36833480</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
               <auc:UserDefinedField>
                 <auc:FieldName>Quantity Of Luminaires For Section-36833480</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
               <auc:UserDefinedField>
                 <auc:FieldName>Common Areas Quantity Of Luminaires For Section-36833480</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
               <auc:UserDefinedField>
                 <auc:FieldName>Tenant Areas Quantity Of Luminaires For Section-36833480</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
             </auc:UserDefinedFields>
           </auc:LightingSystem>
@@ -758,7 +758,7 @@
             <auc:Location>Mechanical Room</auc:Location>
             <auc:LinkedPremises>
               <auc:Building>
-                <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
               </auc:Building>
               <auc:Section>
                 <auc:LinkedSectionID IDref="Section-49015020">
@@ -782,7 +782,7 @@
                 <auc:TankHeatingType>
                   <auc:Direct>
                     <auc:DirectTankHeatingSource>
-                      <auc:Combustion></auc:Combustion>
+                      <auc:Combustion/>
                     </auc:DirectTankHeatingSource>
                   </auc:Direct>
                 </auc:TankHeatingType>
@@ -797,7 +797,7 @@
             <auc:Location>Closet</auc:Location>
             <auc:LinkedPremises>
               <auc:Building>
-                <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
               </auc:Building>
               <auc:Section>
                 <auc:LinkedSectionID IDref="Section-36833480">
@@ -820,13 +820,13 @@
           <auc:PumpSystem ID="PumpSystemType-70169284053360">
             <auc:PumpControlType>Constant Volume</auc:PumpControlType>
             <auc:LinkedSystemIDs>
-              <auc:LinkedSystemID IDref="CondenserPlantType-70169285494880"></auc:LinkedSystemID>
+              <auc:LinkedSystemID IDref="CondenserPlantType-70169285494880"/>
             </auc:LinkedSystemIDs>
           </auc:PumpSystem>
           <auc:PumpSystem ID="PumpSystemType-70169280727240">
             <auc:PumpControlType>Constant Volume</auc:PumpControlType>
             <auc:LinkedSystemIDs>
-              <auc:LinkedSystemID IDref="CoolingPlantType-70169282045660"></auc:LinkedSystemID>
+              <auc:LinkedSystemID IDref="CoolingPlantType-70169282045660"/>
             </auc:LinkedSystemIDs>
           </auc:PumpSystem>
         </auc:PumpSystems>
@@ -835,13 +835,13 @@
             <auc:FanEfficiency>60.0</auc:FanEfficiency>
             <auc:FanControlType>Variable Volume</auc:FanControlType>
             <auc:LinkedSystemIDs>
-              <auc:LinkedSystemID IDref="HVACSystemType-49361040"></auc:LinkedSystemID>
+              <auc:LinkedSystemID IDref="HVACSystemType-49361040"/>
             </auc:LinkedSystemIDs>
           </auc:FanSystem>
           <auc:FanSystem ID="FanSystemType-73764460">
             <auc:FanControlType>Constant Volume</auc:FanControlType>
             <auc:LinkedSystemIDs>
-              <auc:LinkedSystemID IDref="HVACSystemType-70169268665280"></auc:LinkedSystemID>
+              <auc:LinkedSystemID IDref="HVACSystemType-70169268665280"/>
             </auc:LinkedSystemIDs>
           </auc:FanSystem>
         </auc:FanSystems>
@@ -849,7 +849,7 @@
           <auc:MotorSystem ID="MotorSystemType-70169284015060">
             <auc:MotorEfficiency>65.0</auc:MotorEfficiency>
             <auc:LinkedSystemIDs>
-              <auc:LinkedSystemID IDref="HVACSystemType-49361040"></auc:LinkedSystemID>
+              <auc:LinkedSystemID IDref="HVACSystemType-49361040"/>
             </auc:LinkedSystemIDs>
           </auc:MotorSystem>
         </auc:MotorSystems>
@@ -877,20 +877,20 @@
             </auc:RoofInsulations>
             <auc:DeckType>Concrete</auc:DeckType>
           </auc:RoofSystem>
-          <auc:RoofSystem ID="RoofSystemType-70169279189200"></auc:RoofSystem>
+          <auc:RoofSystem ID="RoofSystemType-70169279189200"/>
         </auc:RoofSystems>
         <auc:FenestrationSystems>
           <auc:FenestrationSystem ID="FenestrationSystemType-26694700">
             <auc:UserDefinedFields>
               <auc:UserDefinedField>
                 <auc:FieldName>Other Exterior Door Type</auc:FieldName>
-                <auc:FieldValue></auc:FieldValue>
+                <auc:FieldValue/>
               </auc:UserDefinedField>
             </auc:UserDefinedFields>
           </auc:FenestrationSystem>
           <auc:FenestrationSystem ID="FenestrationSystemType-70169279552160">
             <auc:FenestrationType>
-              <auc:Skylight></auc:Skylight>
+              <auc:Skylight/>
             </auc:FenestrationType>
             <auc:GlassType>Plastic</auc:GlassType>
             <auc:FenestrationUFactor>1.0</auc:FenestrationUFactor>
@@ -899,7 +899,7 @@
           </auc:FenestrationSystem>
           <auc:FenestrationSystem ID="FenestrationSystemType-70169277534700">
             <auc:FenestrationType>
-              <auc:Window></auc:Window>
+              <auc:Window/>
             </auc:FenestrationType>
             <auc:FenestrationFrameMaterial>Vinyl</auc:FenestrationFrameMaterial>
             <auc:FenestrationOperation>true</auc:FenestrationOperation>
@@ -954,7 +954,7 @@
             <auc:WeightedAverageLoad>1.5</auc:WeightedAverageLoad>
             <auc:LinkedPremises>
               <auc:Section>
-                <auc:LinkedSectionID IDref="Section-49015020"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-49015020"/>
               </auc:Section>
             </auc:LinkedPremises>
           </auc:ProcessLoad>
@@ -963,7 +963,7 @@
             <auc:WeightedAverageLoad>205.0</auc:WeightedAverageLoad>
             <auc:LinkedPremises>
               <auc:Section>
-                <auc:LinkedSectionID IDref="Section-36833480"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-36833480"/>
               </auc:Section>
             </auc:LinkedPremises>
           </auc:ProcessLoad>
@@ -975,10 +975,10 @@
             <auc:YearOfManufacture>2009</auc:YearOfManufacture>
             <auc:LinkedPremises>
               <auc:Building>
-                <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
               </auc:Building>
               <auc:Section>
-                <auc:LinkedSectionID IDref="Section-49015020"></auc:LinkedSectionID>
+                <auc:LinkedSectionID IDref="Section-49015020"/>
               </auc:Section>
             </auc:LinkedPremises>
             <auc:UserDefinedFields>
@@ -994,7 +994,7 @@
             <auc:Tightness>Very Leaky</auc:Tightness>
             <auc:LinkedPremises>
               <auc:Building>
-                <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
               </auc:Building>
             </auc:LinkedPremises>
           </auc:AirInfiltrationSystem>
@@ -1030,7 +1030,7 @@
           <auc:SystemCategoryAffected>Heating System</auc:SystemCategoryAffected>
           <auc:LinkedPremises>
             <auc:Building>
-              <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+              <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
             </auc:Building>
           </auc:LinkedPremises>
           <auc:TechnologyCategories>
@@ -1059,7 +1059,7 @@
           <auc:SystemCategoryAffected>Lighting</auc:SystemCategoryAffected>
           <auc:LinkedPremises>
             <auc:Building>
-              <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+              <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
             </auc:Building>
           </auc:LinkedPremises>
           <auc:TechnologyCategories>
@@ -1093,12 +1093,12 @@
         <auc:Report ID="ReportType-70169273980220">
           <auc:Scenarios>
             <auc:Scenario ID="ScenarioType-74657640">
-              <auc:ScenarioNotes></auc:ScenarioNotes>
+              <auc:ScenarioNotes/>
               <auc:TemporalStatus>Current</auc:TemporalStatus>
               <auc:ScenarioType>
                 <auc:Benchmark>
                   <auc:BenchmarkType>
-                    <auc:PortfolioManager></auc:PortfolioManager>
+                    <auc:PortfolioManager/>
                   </auc:BenchmarkType>
                   <auc:BenchmarkYear>2015</auc:BenchmarkYear>
                 </auc:Benchmark>
@@ -1113,7 +1113,7 @@
               </auc:AllResourceTotals>
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
                 </auc:Building>
               </auc:LinkedPremises>
               <auc:UserDefinedFields>
@@ -1127,14 +1127,14 @@
                 </auc:UserDefinedField>
                 <auc:UserDefinedField>
                   <auc:FieldName>San Francisco Affidavit Benchmark Not Verified Reason</auc:FieldName>
-                  <auc:FieldValue></auc:FieldValue>
+                  <auc:FieldValue/>
                 </auc:UserDefinedField>
               </auc:UserDefinedFields>
             </auc:Scenario>
             <auc:Scenario ID="ScenarioType-64441000">
               <auc:TemporalStatus>Target</auc:TemporalStatus>
               <auc:ScenarioType>
-                <auc:Target></auc:Target>
+                <auc:Target/>
               </auc:ScenarioType>
               <auc:AllResourceTotals>
                 <auc:AllResourceTotal ID="AllResourceTotalType-64474100">
@@ -1146,14 +1146,14 @@
               </auc:AllResourceTotals>
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
                 </auc:Building>
               </auc:LinkedPremises>
             </auc:Scenario>
             <auc:Scenario ID="ScenarioType-55109060">
               <auc:TemporalStatus>Current</auc:TemporalStatus>
               <auc:ScenarioType>
-                <auc:Other></auc:Other>
+                <auc:Other/>
               </auc:ScenarioType>
               <auc:ResourceUses>
                 <auc:ResourceUse ID="ResourceUseType-56761080">
@@ -1165,7 +1165,7 @@
               </auc:ResourceUses>
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
                 </auc:Building>
               </auc:LinkedPremises>
               <auc:UserDefinedFields>
@@ -1178,7 +1178,7 @@
             <auc:Scenario ID="ScenarioType-55093720">
               <auc:TemporalStatus>Current</auc:TemporalStatus>
               <auc:ScenarioType>
-                <auc:Other></auc:Other>
+                <auc:Other/>
               </auc:ScenarioType>
               <auc:ResourceUses>
                 <auc:ResourceUse ID="ResourceUseType-55406460">
@@ -1190,7 +1190,7 @@
               </auc:ResourceUses>
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
                 </auc:Building>
               </auc:LinkedPremises>
               <auc:UserDefinedFields>
@@ -1203,7 +1203,7 @@
             <auc:Scenario ID="ScenarioType-50671660">
               <auc:TemporalStatus>Current</auc:TemporalStatus>
               <auc:ScenarioType>
-                <auc:Other></auc:Other>
+                <auc:Other/>
               </auc:ScenarioType>
               <auc:ResourceUses>
                 <auc:ResourceUse ID="ResourceUseType-51200080">
@@ -1221,7 +1221,7 @@
                   <auc:EndTimestamp>2016-09-02T00:00:00+00:00</auc:EndTimestamp>
                   <auc:IntervalFrequency>Day</auc:IntervalFrequency>
                   <auc:IntervalReading>500.0</auc:IntervalReading>
-                  <auc:ResourceUseID IDref="ResourceUseType-51200080"></auc:ResourceUseID>
+                  <auc:ResourceUseID IDref="ResourceUseType-51200080"/>
                 </auc:TimeSeries>
               </auc:TimeSeriesData>
               <auc:AllResourceTotals>
@@ -1239,7 +1239,7 @@
               </auc:AllResourceTotals>
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
                 </auc:Building>
               </auc:LinkedPremises>
               <auc:UserDefinedFields>
@@ -1252,7 +1252,7 @@
             <auc:Scenario ID="ScenarioType-39552500">
               <auc:TemporalStatus>Current</auc:TemporalStatus>
               <auc:ScenarioType>
-                <auc:Other></auc:Other>
+                <auc:Other/>
               </auc:ScenarioType>
               <auc:ResourceUses>
                 <auc:ResourceUse ID="ResourceUseType-49498260">
@@ -1270,7 +1270,7 @@
                   <auc:EndTimestamp>2016-02-01T00:00:00+00:00</auc:EndTimestamp>
                   <auc:IntervalFrequency>Other</auc:IntervalFrequency>
                   <auc:IntervalReading>0.0</auc:IntervalReading>
-                  <auc:ResourceUseID IDref="ResourceUseType-49498260"></auc:ResourceUseID>
+                  <auc:ResourceUseID IDref="ResourceUseType-49498260"/>
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="TimeSeriesType-49308780">
                   <auc:ReadingType>Peak</auc:ReadingType>
@@ -1279,7 +1279,7 @@
                   <auc:EndTimestamp>2016-03-01T00:00:00+00:00</auc:EndTimestamp>
                   <auc:IntervalFrequency>Other</auc:IntervalFrequency>
                   <auc:IntervalReading>0.0</auc:IntervalReading>
-                  <auc:ResourceUseID IDref="ResourceUseType-49498260"></auc:ResourceUseID>
+                  <auc:ResourceUseID IDref="ResourceUseType-49498260"/>
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="TimeSeriesType-49231260">
                   <auc:ReadingType>Peak</auc:ReadingType>
@@ -1288,7 +1288,7 @@
                   <auc:EndTimestamp>2016-04-01T00:00:00+00:00</auc:EndTimestamp>
                   <auc:IntervalFrequency>Other</auc:IntervalFrequency>
                   <auc:IntervalReading>0.0</auc:IntervalReading>
-                  <auc:ResourceUseID IDref="ResourceUseType-49498260"></auc:ResourceUseID>
+                  <auc:ResourceUseID IDref="ResourceUseType-49498260"/>
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="TimeSeriesType-49157100">
                   <auc:ReadingType>Peak</auc:ReadingType>
@@ -1297,7 +1297,7 @@
                   <auc:EndTimestamp>2016-05-01T00:00:00+00:00</auc:EndTimestamp>
                   <auc:IntervalFrequency>Other</auc:IntervalFrequency>
                   <auc:IntervalReading>0.0</auc:IntervalReading>
-                  <auc:ResourceUseID IDref="ResourceUseType-49498260"></auc:ResourceUseID>
+                  <auc:ResourceUseID IDref="ResourceUseType-49498260"/>
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="TimeSeriesType-49082520">
                   <auc:ReadingType>Peak</auc:ReadingType>
@@ -1306,7 +1306,7 @@
                   <auc:EndTimestamp>2016-06-01T00:00:00+00:00</auc:EndTimestamp>
                   <auc:IntervalFrequency>Other</auc:IntervalFrequency>
                   <auc:IntervalReading>0.0</auc:IntervalReading>
-                  <auc:ResourceUseID IDref="ResourceUseType-49498260"></auc:ResourceUseID>
+                  <auc:ResourceUseID IDref="ResourceUseType-49498260"/>
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="TimeSeriesType-49029840">
                   <auc:ReadingType>Peak</auc:ReadingType>
@@ -1315,7 +1315,7 @@
                   <auc:EndTimestamp>2016-07-01T00:00:00+00:00</auc:EndTimestamp>
                   <auc:IntervalFrequency>Other</auc:IntervalFrequency>
                   <auc:IntervalReading>0.0</auc:IntervalReading>
-                  <auc:ResourceUseID IDref="ResourceUseType-49498260"></auc:ResourceUseID>
+                  <auc:ResourceUseID IDref="ResourceUseType-49498260"/>
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="TimeSeriesType-48940380">
                   <auc:ReadingType>Peak</auc:ReadingType>
@@ -1324,7 +1324,7 @@
                   <auc:EndTimestamp>2016-08-01T00:00:00+00:00</auc:EndTimestamp>
                   <auc:IntervalFrequency>Other</auc:IntervalFrequency>
                   <auc:IntervalReading>0.0</auc:IntervalReading>
-                  <auc:ResourceUseID IDref="ResourceUseType-49498260"></auc:ResourceUseID>
+                  <auc:ResourceUseID IDref="ResourceUseType-49498260"/>
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="TimeSeriesType-48827780">
                   <auc:ReadingType>Peak</auc:ReadingType>
@@ -1333,7 +1333,7 @@
                   <auc:EndTimestamp>2016-09-01T00:00:00+00:00</auc:EndTimestamp>
                   <auc:IntervalFrequency>Other</auc:IntervalFrequency>
                   <auc:IntervalReading>0.0</auc:IntervalReading>
-                  <auc:ResourceUseID IDref="ResourceUseType-49498260"></auc:ResourceUseID>
+                  <auc:ResourceUseID IDref="ResourceUseType-49498260"/>
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="TimeSeriesType-41097080">
                   <auc:ReadingType>Peak</auc:ReadingType>
@@ -1342,7 +1342,7 @@
                   <auc:EndTimestamp>2016-10-01T00:00:00+00:00</auc:EndTimestamp>
                   <auc:IntervalFrequency>Other</auc:IntervalFrequency>
                   <auc:IntervalReading>0.0</auc:IntervalReading>
-                  <auc:ResourceUseID IDref="ResourceUseType-49498260"></auc:ResourceUseID>
+                  <auc:ResourceUseID IDref="ResourceUseType-49498260"/>
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="TimeSeriesType-40779640">
                   <auc:ReadingType>Peak</auc:ReadingType>
@@ -1351,7 +1351,7 @@
                   <auc:EndTimestamp>2016-11-01T00:00:00+00:00</auc:EndTimestamp>
                   <auc:IntervalFrequency>Other</auc:IntervalFrequency>
                   <auc:IntervalReading>0.0</auc:IntervalReading>
-                  <auc:ResourceUseID IDref="ResourceUseType-49498260"></auc:ResourceUseID>
+                  <auc:ResourceUseID IDref="ResourceUseType-49498260"/>
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="TimeSeriesType-40433160">
                   <auc:ReadingType>Peak</auc:ReadingType>
@@ -1360,7 +1360,7 @@
                   <auc:EndTimestamp>2016-12-01T00:00:00+00:00</auc:EndTimestamp>
                   <auc:IntervalFrequency>Other</auc:IntervalFrequency>
                   <auc:IntervalReading>0.0</auc:IntervalReading>
-                  <auc:ResourceUseID IDref="ResourceUseType-49498260"></auc:ResourceUseID>
+                  <auc:ResourceUseID IDref="ResourceUseType-49498260"/>
                 </auc:TimeSeries>
                 <auc:TimeSeries ID="TimeSeriesType-40207820">
                   <auc:ReadingType>Peak</auc:ReadingType>
@@ -1369,7 +1369,7 @@
                   <auc:EndTimestamp>2017-01-01T00:00:00+00:00</auc:EndTimestamp>
                   <auc:IntervalFrequency>Other</auc:IntervalFrequency>
                   <auc:IntervalReading>0.0</auc:IntervalReading>
-                  <auc:ResourceUseID IDref="ResourceUseType-49498260"></auc:ResourceUseID>
+                  <auc:ResourceUseID IDref="ResourceUseType-49498260"/>
                 </auc:TimeSeries>
               </auc:TimeSeriesData>
               <auc:AllResourceTotals>
@@ -1520,7 +1520,7 @@
               </auc:AllResourceTotals>
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
                 </auc:Building>
               </auc:LinkedPremises>
               <auc:UserDefinedFields>
@@ -1533,7 +1533,7 @@
             <auc:Scenario ID="ScenarioType-38908700">
               <auc:TemporalStatus>Current</auc:TemporalStatus>
               <auc:ScenarioType>
-                <auc:Other></auc:Other>
+                <auc:Other/>
               </auc:ScenarioType>
               <auc:ResourceUses>
                 <auc:ResourceUse ID="ResourceUseType-25971520">
@@ -1542,13 +1542,13 @@
                   <auc:ResourceUnits>kWh</auc:ResourceUnits>
                   <auc:SharedResourceSystem>Not shared</auc:SharedResourceSystem>
                   <auc:UtilityIDs>
-                    <auc:UtilityID IDref="UtilityType-36605280"></auc:UtilityID>
+                    <auc:UtilityID IDref="UtilityType-36605280"/>
                   </auc:UtilityIDs>
                 </auc:ResourceUse>
               </auc:ResourceUses>
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
                 </auc:Building>
               </auc:LinkedPremises>
               <auc:UserDefinedFields>
@@ -1561,7 +1561,7 @@
             <auc:Scenario ID="ScenarioType-25372720">
               <auc:TemporalStatus>Current</auc:TemporalStatus>
               <auc:ScenarioType>
-                <auc:Other></auc:Other>
+                <auc:Other/>
               </auc:ScenarioType>
               <auc:ResourceUses>
                 <auc:ResourceUse ID="ResourceUseType-24478080">
@@ -1607,7 +1607,7 @@
               </auc:ResourceUses>
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
                 </auc:Building>
               </auc:LinkedPremises>
               <auc:UserDefinedFields>
@@ -1620,7 +1620,7 @@
             <auc:Scenario ID="ScenarioType-70169287372160">
               <auc:TemporalStatus>Current</auc:TemporalStatus>
               <auc:ScenarioType>
-                <auc:Other></auc:Other>
+                <auc:Other/>
               </auc:ScenarioType>
               <auc:ResourceUses>
                 <auc:ResourceUse ID="ResourceUseType-70169287216880">
@@ -1638,7 +1638,7 @@
               </auc:ResourceUses>
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
                 </auc:Building>
               </auc:LinkedPremises>
               <auc:UserDefinedFields>
@@ -1654,7 +1654,7 @@
               <auc:ScenarioType>
                 <auc:PackageOfMeasures ID="PackageOfMeasures-49511560">
                   <auc:MeasureIDs>
-                    <auc:MeasureID IDref="MeasureType-70169279246360"></auc:MeasureID>
+                    <auc:MeasureID IDref="MeasureType-70169279246360"/>
                   </auc:MeasureIDs>
                   <auc:AnnualSavingsCost>20000</auc:AnnualSavingsCost>
                   <auc:AnnualSavingsByFuels>
@@ -1786,7 +1786,7 @@
               </auc:ScenarioType>
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
                 </auc:Building>
               </auc:LinkedPremises>
               <auc:UserDefinedFields>
@@ -1802,7 +1802,7 @@
               <auc:ScenarioType>
                 <auc:PackageOfMeasures ID="PackageOfMeasures-70169286652120">
                   <auc:MeasureIDs>
-                    <auc:MeasureID IDref="MeasureType-70169285016120"></auc:MeasureID>
+                    <auc:MeasureID IDref="MeasureType-70169285016120"/>
                   </auc:MeasureIDs>
                   <auc:AnnualSavingsCost>10000</auc:AnnualSavingsCost>
                   <auc:AnnualSavingsByFuels>
@@ -1934,7 +1934,7 @@
               </auc:ScenarioType>
               <auc:LinkedPremises>
                 <auc:Building>
-                  <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+                  <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
                 </auc:Building>
               </auc:LinkedPremises>
               <auc:UserDefinedFields>
@@ -1969,7 +1969,7 @@
               <auc:AuditorQualification>Association of Energy Engineers Certified Energy Auditor (CEA)</auc:AuditorQualification>
               <auc:AuditorQualificationNumber>123456</auc:AuditorQualificationNumber>
               <auc:CertificationExpirationDate>2020-09-01</auc:CertificationExpirationDate>
-              <auc:CertifiedAuditTeamMemberContactID IDref="ContactType-70169271582000"></auc:CertifiedAuditTeamMemberContactID>
+              <auc:CertifiedAuditTeamMemberContactID IDref="ContactType-70169271582000"/>
             </auc:Qualification>
           </auc:Qualifications>
           <auc:Utilities>
@@ -1983,10 +1983,10 @@
               <auc:UtilityAccountNumber>123456</auc:UtilityAccountNumber>
             </auc:Utility>
           </auc:Utilities>
-          <auc:AuditorContactID IDref="ContactType-70169271582000"></auc:AuditorContactID>
+          <auc:AuditorContactID IDref="ContactType-70169271582000"/>
           <auc:LinkedPremisesOrSystem>
             <auc:Building>
-              <auc:LinkedBuildingID IDref="BuildingType-55083280"></auc:LinkedBuildingID>
+              <auc:LinkedBuildingID IDref="BuildingType-55083280"/>
             </auc:Building>
           </auc:LinkedPremisesOrSystem>
           <auc:UserDefinedFields>
@@ -2063,7 +2063,7 @@
             </auc:UserDefinedField>
             <auc:UserDefinedField>
               <auc:FieldName>Other Qualification Type For Qualification-70169269857820</auc:FieldName>
-              <auc:FieldValue></auc:FieldValue>
+              <auc:FieldValue/>
             </auc:UserDefinedField>
           </auc:UserDefinedFields>
         </auc:Contact>
