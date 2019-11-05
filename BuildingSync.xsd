@@ -7498,7 +7498,16 @@
           <xs:documentation>Does the building/system include or connect to a building automation or management system?</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
+      <xs:element name="ControlSystemTypes" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Heating plant equipment control strategies.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
@@ -7794,7 +7803,16 @@
           <xs:documentation>Does the building/system include a building automation or management system?</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
+      <xs:element name="ControlSystemTypes" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Cooling plant equipment control strategies.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
@@ -8158,7 +8176,16 @@
           <xs:documentation>Does the building/system include a building automation or management system?</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element ref="auc:ControlSystemType" minOccurs="0"/>
+      <xs:element name="ControlSystemTypes" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Condenser plant equipment control strategies.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="auc:ControlSystemType" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
