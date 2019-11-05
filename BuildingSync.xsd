@@ -11980,7 +11980,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:decimal">
+                        <xs:extension base="auc:BoundedDecimalZeroToOne">
                           <xs:attribute ref="auc:Source"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -17361,6 +17361,12 @@
       <xs:enumeration value="Leaky"/>
       <xs:enumeration value="Very Leaky"/>
       <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BoundedDecimalZeroToOne">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="1"/>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
