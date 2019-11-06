@@ -2271,6 +2271,18 @@
                     </xs:simpleType>
                   </xs:element>
                   <xs:element name="BenchmarkYear" type="xs:gYear" minOccurs="0"/>
+                  <xs:element name="BenchmarkValue" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>The calculated score or rating for the benchmark scenario.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:decimal">
+                          <xs:attribute ref="auc:Source"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
