@@ -695,10 +695,17 @@
           <xs:documentation>List of various floor areas of the building.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="AspectRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+      <xs:element name="AspectRatio" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The ratio of width to length, of a premises.</xs:documentation>
         </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
       </xs:element>
       <xs:element name="Perimeter" minOccurs="0">
         <xs:annotation>
