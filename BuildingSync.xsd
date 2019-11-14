@@ -15319,10 +15319,17 @@
       </xs:simpleContent>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SystemPerformanceRatio" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+  <xs:element name="SystemPerformanceRatio">
     <xs:annotation>
       <xs:documentation>Ratio of annual system load to the annual system energy consumption (similar to a whole system COP). A higher value indicates less heating and/or cooling energy use to meet the loads, and therefore represents a more efficient HVAC system. SPR can be used to describe the heating, cooling, and overall HVAC systems.</xs:documentation>
     </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute ref="auc:Source"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
   </xs:element>
   <xs:element name="EnergyUseByFuelTypes">
     <xs:complexType>
