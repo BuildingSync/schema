@@ -2257,6 +2257,19 @@
                     </xs:simpleType>
                   </xs:element>
                   <xs:element name="BenchmarkYear" type="xs:gYear" minOccurs="0"/>
+                  <xs:element name="BenchmarkValue" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>The calculated score or rating for the benchmark scenario.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:decimal">
+                          <xs:attribute ref="auc:Source"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -4762,6 +4775,7 @@
                               <xs:enumeration value="Increase floor insulation"/>
                               <xs:enumeration value="Insulate foundation"/>
                               <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Close elevator and/or stairwell shaft vents"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
