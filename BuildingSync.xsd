@@ -744,17 +744,10 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="OverallWindowToWallRatio" minOccurs="0">
+      <xs:element name="OverallWindowToWallRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
         <xs:annotation>
           <xs:documentation>Overall window to wall ratio of the facility. (0-1) (fraction)</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:decimal">
-              <xs:attribute ref="auc:Source"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
       </xs:element>
       <xs:element name="HeightDistribution" minOccurs="0">
         <xs:annotation>
@@ -1138,17 +1131,10 @@
                                         </xs:simpleContent>
                                       </xs:complexType>
                                     </xs:element>
-                                    <xs:element name="WindowToWallRatio" minOccurs="0">
+                                    <xs:element name="WindowToWallRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                                       <xs:annotation>
                                         <xs:documentation>Ratio of total window area to total wall area. (0-1) (fraction)</xs:documentation>
                                       </xs:annotation>
-                                      <xs:complexType>
-                                        <xs:simpleContent>
-                                          <xs:extension base="xs:decimal">
-                                            <xs:attribute ref="auc:Source"/>
-                                          </xs:extension>
-                                        </xs:simpleContent>
-                                      </xs:complexType>
                                     </xs:element>
                                     <xs:element name="PercentOfWindowAreaShaded" minOccurs="0">
                                       <xs:annotation>
@@ -2297,6 +2283,7 @@
                       </xs:simpleContent>
                     </xs:complexType>
                   </xs:element>
+                  <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -6257,17 +6244,10 @@
                             </xs:simpleContent>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="HeatingStageCapacityFraction" minOccurs="0">
+                        <xs:element name="HeatingStageCapacityFraction" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                           <xs:annotation>
                             <xs:documentation>Average capacity of each heating stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) (fraction)</xs:documentation>
                           </xs:annotation>
-                          <xs:complexType>
-                            <xs:simpleContent>
-                              <xs:extension base="xs:decimal">
-                                <xs:attribute ref="auc:Source"/>
-                              </xs:extension>
-                            </xs:simpleContent>
-                          </xs:complexType>
                         </xs:element>
                         <xs:element ref="auc:PrimaryFuel" minOccurs="0">
                           <xs:annotation>
@@ -6477,29 +6457,15 @@
                             </xs:simpleContent>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="MinimumPartLoadRatio" minOccurs="0">
+                        <xs:element name="MinimumPartLoadRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                           <xs:annotation>
                             <xs:documentation>The minimum part load ratio at which the system is able to operate. (0-1) (fraction)</xs:documentation>
                           </xs:annotation>
-                          <xs:complexType>
-                            <xs:simpleContent>
-                              <xs:extension base="xs:decimal">
-                                <xs:attribute ref="auc:Source"/>
-                              </xs:extension>
-                            </xs:simpleContent>
-                          </xs:complexType>
                         </xs:element>
-                        <xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0">
+                        <xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                           <xs:annotation>
                             <xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1) (fraction)</xs:documentation>
                           </xs:annotation>
-                          <xs:complexType>
-                            <xs:simpleContent>
-                              <xs:extension base="xs:decimal">
-                                <xs:attribute ref="auc:Source"/>
-                              </xs:extension>
-                            </xs:simpleContent>
-                          </xs:complexType>
                         </xs:element>
                         <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
                         <xs:element ref="auc:PrimaryFuel" minOccurs="0">
@@ -7028,17 +6994,10 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="SupplyFractionOfDuctLeakage" minOccurs="0">
+      <xs:element name="SupplyFractionOfDuctLeakage" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
         <xs:annotation>
           <xs:documentation>Fraction of total duct leakage that is on the supply side. Remainder is assumed to be on the return side. (0-1) (fraction)</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:decimal">
-              <xs:attribute ref="auc:Source"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
       </xs:element>
       <xs:element name="DuctPressureTestLeakagePercentage" minOccurs="0">
         <xs:annotation>
@@ -7196,17 +7155,10 @@
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="HeatingStageCapacityFraction" minOccurs="0">
+              <xs:element name="HeatingStageCapacityFraction" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                 <xs:annotation>
                   <xs:documentation>Average capacity of each heating stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) (fraction)</xs:documentation>
                 </xs:annotation>
-                <xs:complexType>
-                  <xs:simpleContent>
-                    <xs:extension base="xs:decimal">
-                      <xs:attribute ref="auc:Source"/>
-                    </xs:extension>
-                  </xs:simpleContent>
-                </xs:complexType>
               </xs:element>
               <xs:element ref="auc:Priority" minOccurs="0"/>
               <xs:element name="AnnualHeatingEfficiencyValue" minOccurs="0">
@@ -7688,41 +7640,20 @@
                 </xs:annotation>
               </xs:element>
               <xs:element ref="auc:CapacityUnits" minOccurs="0"/>
-              <xs:element name="MinimumPartLoadRatio" minOccurs="0">
+              <xs:element name="MinimumPartLoadRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                 <xs:annotation>
                   <xs:documentation>The minimum part load ratio at which the system is able to operate. (0-1) (fraction)</xs:documentation>
                 </xs:annotation>
-                <xs:complexType>
-                  <xs:simpleContent>
-                    <xs:extension base="xs:decimal">
-                      <xs:attribute ref="auc:Source"/>
-                    </xs:extension>
-                  </xs:simpleContent>
-                </xs:complexType>
               </xs:element>
-              <xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0">
+              <xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                 <xs:annotation>
                   <xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1) (fraction)</xs:documentation>
                 </xs:annotation>
-                <xs:complexType>
-                  <xs:simpleContent>
-                    <xs:extension base="xs:decimal">
-                      <xs:attribute ref="auc:Source"/>
-                    </xs:extension>
-                  </xs:simpleContent>
-                </xs:complexType>
               </xs:element>
-              <xs:element name="PartLoadRatioBelowWhichHotGasBypassOperates" minOccurs="0">
+              <xs:element name="PartLoadRatioBelowWhichHotGasBypassOperates" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                 <xs:annotation>
                   <xs:documentation>The part load ratio of the chiller below which hot gas bypass (HGBP) operates. (0-1) (fraction)</xs:documentation>
                 </xs:annotation>
-                <xs:complexType>
-                  <xs:simpleContent>
-                    <xs:extension base="xs:decimal">
-                      <xs:attribute ref="auc:Source"/>
-                    </xs:extension>
-                  </xs:simpleContent>
-                </xs:complexType>
               </xs:element>
               <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
               <xs:element name="ChilledWaterResetControl" minOccurs="0">
@@ -7781,17 +7712,10 @@
               <xs:element ref="auc:AnnualCoolingEfficiencyUnits" minOccurs="0"/>
               <xs:element ref="auc:Capacity" minOccurs="0"/>
               <xs:element ref="auc:CapacityUnits" minOccurs="0"/>
-              <xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0">
+              <xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                 <xs:annotation>
                   <xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1) (fraction)</xs:documentation>
                 </xs:annotation>
-                <xs:complexType>
-                  <xs:simpleContent>
-                    <xs:extension base="xs:decimal">
-                      <xs:attribute ref="auc:Source"/>
-                    </xs:extension>
-                  </xs:simpleContent>
-                </xs:complexType>
               </xs:element>
               <xs:element name="ChilledWaterSupplyTemperature" minOccurs="0">
                 <xs:annotation>
@@ -8865,29 +8789,15 @@
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="MinimumDimmingLightFraction" minOccurs="0">
+            <xs:element name="MinimumDimmingLightFraction" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
               <xs:annotation>
                 <xs:documentation>Minimum light output of controlled lighting when fully dimmed. Minimum light fraction = (Minimum light output) / (Rated light output). (0-1) (fraction)</xs:documentation>
               </xs:annotation>
-              <xs:complexType>
-                <xs:simpleContent>
-                  <xs:extension base="xs:decimal">
-                    <xs:attribute ref="auc:Source"/>
-                  </xs:extension>
-                </xs:simpleContent>
-              </xs:complexType>
             </xs:element>
-            <xs:element name="MinimumDimmingPowerFraction" minOccurs="0">
+            <xs:element name="MinimumDimmingPowerFraction" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
               <xs:annotation>
                 <xs:documentation>The minimum power fraction when controlled lighting is fully dimmed. Minimum power fraction = (Minimum power) / (Full rated power). (0-1) (fraction)</xs:documentation>
               </xs:annotation>
-              <xs:complexType>
-                <xs:simpleContent>
-                  <xs:extension base="xs:decimal">
-                    <xs:attribute ref="auc:Source"/>
-                  </xs:extension>
-                </xs:simpleContent>
-              </xs:complexType>
             </xs:element>
           </xs:sequence>
         </xs:complexType>
@@ -9143,17 +9053,10 @@
                                     <xs:element name="HeatPump" minOccurs="0">
                                       <xs:complexType>
                                         <xs:sequence>
-                                          <xs:element name="RatedHeatPumpSensibleHeatRatio" minOccurs="0">
+                                          <xs:element name="RatedHeatPumpSensibleHeatRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                                             <xs:annotation>
                                               <xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1) (fraction)</xs:documentation>
                                             </xs:annotation>
-                                            <xs:complexType>
-                                              <xs:simpleContent>
-                                                <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                </xs:extension>
-                                              </xs:simpleContent>
-                                            </xs:complexType>
                                           </xs:element>
                                           <xs:element name="HPWHMinimumAirTemperature" minOccurs="0">
                                             <xs:annotation>
@@ -10613,17 +10516,10 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="FanPowerMinimumRatio" minOccurs="0">
+      <xs:element name="FanPowerMinimumRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
         <xs:annotation>
           <xs:documentation>The minimum power draw of the fan, expressed as a ratio of the full load fan power. (0-1) (fraction)</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:decimal">
-              <xs:attribute ref="auc:Source"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
       </xs:element>
       <xs:element name="FanType" minOccurs="0">
         <xs:annotation>
@@ -12001,17 +11897,10 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="DoorGlazedAreaFraction" minOccurs="0">
+                  <xs:element name="DoorGlazedAreaFraction" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                     <xs:annotation>
                       <xs:documentation>Fraction of door area that is glazed. (0-1) (fraction)</xs:documentation>
                     </xs:annotation>
-                    <xs:complexType>
-                      <xs:simpleContent>
-                        <xs:extension base="xs:decimal">
-                          <xs:attribute ref="auc:Source"/>
-                        </xs:extension>
-                      </xs:simpleContent>
-                    </xs:complexType>
                   </xs:element>
                 </xs:sequence>
               </xs:complexType>
@@ -12958,17 +12847,10 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="HeatGainFraction" minOccurs="0">
+      <xs:element name="HeatGainFraction" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
         <xs:annotation>
           <xs:documentation>Fraction of installed power that results in heat gain to the space. (0-1) (fraction)</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:decimal">
-              <xs:attribute ref="auc:Source"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
       </xs:element>
       <xs:element ref="auc:DutyCycle" minOccurs="0"/>
       <xs:element name="Controls" minOccurs="0">
@@ -13577,17 +13459,10 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="WaterFixtureFractionHotWater" minOccurs="0">
+      <xs:element name="WaterFixtureFractionHotWater" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
         <xs:annotation>
           <xs:documentation>Average fraction of water use for this application that is drawn from the hot water system. (0-1) (fraction)</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:decimal">
-              <xs:attribute ref="auc:Source"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
       </xs:element>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element name="Controls" minOccurs="0">
@@ -17390,4 +17265,17 @@
       <xs:enumeration value="Unknown"/>
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="BoundedDecimalZeroToOne">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="BoundedDecimalZeroToOneWithSourceAttribute">
+    <xs:simpleContent>
+      <xs:extension base="auc:BoundedDecimalZeroToOne">
+        <xs:attribute ref="auc:Source"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
 </xs:schema>
