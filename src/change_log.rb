@@ -6,6 +6,7 @@ require 'optparse/date'
 require 'pp'
 
 # Instructions:
+#   Install github_api gem, `gem install github_api`
 #   Get a token from github's settings (https://github.com/settings/tokens)
 #
 # Example:

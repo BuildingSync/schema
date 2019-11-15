@@ -1,5 +1,22 @@
 # BuildingSync
 
+## Version 2.0 Prerelease 2
+
+Date Range: 09/30/19 - 11/15/19:
+
+Closed Issues: 2
+- Merged [#135]( https://github.com/BuildingSync/schema/issues/135 ), Bound 0-100 Percentages
+- Merged [#152]( https://github.com/BuildingSync/schema/issues/152 ), Support arbitrary scores and ratings
+
+Accepted Pull Requests: 7
+- Merged [#155]( https://github.com/BuildingSync/schema/pull/155 ), Fix capitalization - Prefix 'Yearof' should be 'YearOf'
+- Merged [#157]( https://github.com/BuildingSync/schema/pull/157 ), Add missing @type attribute to 'Other' element in schema for 'DeliveryType' element.
+- Merged [#158]( https://github.com/BuildingSync/schema/pull/158 ), Pluralize `auc:ControlSystemType` element for plants
+- Merged [#161]( https://github.com/BuildingSync/schema/pull/161 ), Add <auc:MeasureName> enumeration to <auc:TechnologyCategory> element for 'BuildingEnvelopeModifications'.
+- Merged [#162]( https://github.com/BuildingSync/schema/pull/162 ), Bound percentages
+- Merged [#163]( https://github.com/BuildingSync/schema/pull/163 ), Add BenchmarkValue element
+- Merged [#164]( https://github.com/BuildingSync/schema/pull/164 ), Add LinkedPremises child element to Benchmark element.
+
 ## Version 2.0 Prerelease 1
 
 Date Range: 02/01/19 - 09/30/19:
