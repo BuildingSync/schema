@@ -6,6 +6,7 @@ require 'optparse/date'
 require 'pp'
 
 # Instructions:
+#   Install github_api gem, `gem install github_api`
 #   Get a token from github's settings (https://github.com/settings/tokens)
 #
 # Example:
@@ -71,7 +72,7 @@ end
 
 def print_issue(issue)
   is_feature = false
-  issue.labels.each { |label| is_feature = true if label.name == 'Feature Request' }
+  issue.labels.each {|label| is_feature = true if label.name == 'Feature Request'}
 
   if is_feature
     "- Improved [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}"
@@ -111,9 +112,11 @@ while results != 0
                             state: 'closed', per_page: 100, page: page
   results = resp.length
   resp.env[:body].each do |issue, _index|
-    require 'pp'
+    # check if the issue is to be ignored
 
-    pp issue
+
+    next if issue.labels.to_s =~ /ignore/
+
     created = Time.parse(issue.created_at)
     closed = Time.parse(issue.closed_at)
     if !issue.key?(:pull_request)
@@ -131,21 +134,21 @@ while results != 0
   page += 1
 end
 
-closed_issues.sort! { |x, y| get_num(x) <=> get_num(y) }
-new_issues.sort! { |x, y| get_num(x) <=> get_num(y) }
-accepted_pull_requests.sort! { |x, y| get_num(x) <=> get_num(y) }
-total_open_pull_requests.sort! { |x, y| get_num(x) <=> get_num(y) }
+closed_issues.sort! {|x, y| get_num(x) <=> get_num(y)}
+new_issues.sort! {|x, y| get_num(x) <=> get_num(y)}
+accepted_pull_requests.sort! {|x, y| get_num(x) <=> get_num(y)}
+total_open_pull_requests.sort! {|x, y| get_num(x) <=> get_num(y)}
 
 puts "Total Open Issues: #{total_open_issues.length}"
 puts "Total Open Pull Requests: #{total_open_pull_requests.length}"
 puts "\nDate Range: #{options[:start_date].strftime('%m/%d/%y')} - #{options[:end_date].strftime('%m/%d/%y')}:"
-puts "\nNew Issues: #{new_issues.length} (" + new_issues.map { |issue| get_issue_num(issue) }.join(', ') + ')'
+puts "\nNew Issues: #{new_issues.length} (" + new_issues.map {|issue| get_issue_num(issue)}.join(', ') + ')'
 
 puts "\nClosed Issues: #{closed_issues.length}"
-closed_issues.each { |issue| puts print_issue(issue) }
+closed_issues.each {|issue| puts print_issue(issue)}
 
 puts "\nAccepted Pull Requests: #{accepted_pull_requests.length}"
-accepted_pull_requests.each { |issue| puts print_issue(issue) }
+accepted_pull_requests.each {|issue| puts print_issue(issue)}
 
-puts "\nAll Open Issues: #{total_open_issues.length} (" + total_open_issues.map { |issue| get_issue_num(issue) }.join(', ') + ')'
+puts "\nAll Open Issues: #{total_open_issues.length} (" + total_open_issues.map {|issue| get_issue_num(issue)}.join(', ') + ')'
 

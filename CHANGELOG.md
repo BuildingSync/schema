@@ -1,5 +1,93 @@
 # BuildingSync
 
+## Version 2.0 Prerelease 2
+
+Date Range: 09/30/19 - 11/15/19:
+
+Closed Issues: 2
+- Merged [#135]( https://github.com/BuildingSync/schema/issues/135 ), Bound 0-100 Percentages
+- Merged [#152]( https://github.com/BuildingSync/schema/issues/152 ), Support arbitrary scores and ratings
+
+Accepted Pull Requests: 7
+- Merged [#155]( https://github.com/BuildingSync/schema/pull/155 ), Fix capitalization - Prefix 'Yearof' should be 'YearOf'
+- Merged [#157]( https://github.com/BuildingSync/schema/pull/157 ), Add missing @type attribute to 'Other' element in schema for 'DeliveryType' element.
+- Merged [#158]( https://github.com/BuildingSync/schema/pull/158 ), Pluralize `auc:ControlSystemType` element for plants
+- Merged [#161]( https://github.com/BuildingSync/schema/pull/161 ), Add <auc:MeasureName> enumeration to <auc:TechnologyCategory> element for 'BuildingEnvelopeModifications'.
+- Merged [#162]( https://github.com/BuildingSync/schema/pull/162 ), Bound percentages
+- Merged [#163]( https://github.com/BuildingSync/schema/pull/163 ), Add BenchmarkValue element
+- Merged [#164]( https://github.com/BuildingSync/schema/pull/164 ), Add LinkedPremises child element to Benchmark element.
+
+## Version 2.0 Prerelease 1
+
+Date Range: 02/01/19 - 09/30/19:
+
+Closed Issues: 2
+- Merged [#73]( https://github.com/BuildingSync/schema/issues/73 ), Fractions and percentages appear to be unevenly implemented
+- Merged [#117]( https://github.com/BuildingSync/schema/issues/117 ), Typo in definition of "CoolRoof" element
+
+Accepted Pull Requests: 60
+- Merged [#79]( https://github.com/BuildingSync/schema/pull/79 ), Add Address to Building Element
+- Merged [#80]( https://github.com/BuildingSync/schema/pull/80 ), Add ID to Report and Qualification
+- Merged [#81]( https://github.com/BuildingSync/schema/pull/81 ), Update Ownership Enumerations
+- Merged [#82]( https://github.com/BuildingSync/schema/pull/82 ), Update Linear Fluorescent Enumerations
+- Merged [#83]( https://github.com/BuildingSync/schema/pull/83 ), Enable Multiple Reports
+- Merged [#84]( https://github.com/BuildingSync/schema/pull/84 ), Add AuditorQualificationType Enumerations
+- Merged [#85]( https://github.com/BuildingSync/schema/pull/85 ), Add Blue Roof
+- Merged [#86]( https://github.com/BuildingSync/schema/pull/86 ), Consolidate MELs and Plug Loads
+- Merged [#87]( https://github.com/BuildingSync/schema/pull/87 ), Allow None for FenestrationGasFill Enumeration
+- Merged [#88]( https://github.com/BuildingSync/schema/pull/88 ), Add ContactRoles Container and Submitter Enum
+- Merged [#90]( https://github.com/BuildingSync/schema/pull/90 ), Add UDF to CondenserPlant
+- Merged [#91]( https://github.com/BuildingSync/schema/pull/91 ), Add YearInstalled to Plant Elements
+- Merged [#92]( https://github.com/BuildingSync/schema/pull/92 ), Add YearBurnerInstalled
+- Merged [#93]( https://github.com/BuildingSync/schema/pull/93 ), New TerminalUnit Enumerations
+- Merged [#94]( https://github.com/BuildingSync/schema/pull/94 ), Multiple Audit Dates in Report
+- Merged [#95]( https://github.com/BuildingSync/schema/pull/95 ), AirInfiltrationSystem ID, UDF on Package of Measures, enums on GenerationTechnology, OccupancyClassification, and PlugLoadType
+- Merged [#96]( https://github.com/BuildingSync/schema/pull/96 ), Move Miscellaneous Gas Loads under ProcessLoad
+- Merged [#97]( https://github.com/BuildingSync/schema/pull/97 ), Update casing of OnSite to Onsite
+- Merged [#98]( https://github.com/BuildingSync/schema/pull/98 ), Package of Measures ID
+- Merged [#99]( https://github.com/BuildingSync/schema/pull/99 ), VentilationType Enum and VentilationControlMethods
+- Merged [#101]( https://github.com/BuildingSync/schema/pull/101 ), FanBased Optional
+- Merged [#102]( https://github.com/BuildingSync/schema/pull/102 ), Add WeatherDataType, SimulationCompletionStatus, CalculationMethod, CustomMeasureName, AnnualPeakNativeUnits, and AnnualPeakConsistentUnits
+- Merged [#103]( https://github.com/BuildingSync/schema/pull/103 ), Location Elements on Plants/Sources
+- Merged [#104]( https://github.com/BuildingSync/schema/pull/104 ), Add FootprintShape to BuildingType
+- Merged [#105]( https://github.com/BuildingSync/schema/pull/105 ), Ballast type enumeration values
+- Merged [#106]( https://github.com/BuildingSync/schema/pull/106 ), Scenario notes
+- Merged [#109]( https://github.com/BuildingSync/schema/pull/109 ), Add <auc:RoofCondition> element to <auc:RoofID> element
+- Merged [#110]( https://github.com/BuildingSync/schema/pull/110 ), Add "None" value to <auc:ControlTechnology> enumeration
+- Merged [#111]( https://github.com/BuildingSync/schema/pull/111 ), Add <auc:PrimaryFuel> Element to Plants
+- Merged [#114]( https://github.com/BuildingSync/schema/pull/114 ), Enable Multiple Special Roof Classifications
+- Merged [#115]( https://github.com/BuildingSync/schema/pull/115 ), Rename Subsection to Section
+- Merged [#116]( https://github.com/BuildingSync/schema/pull/116 ), Enable multiple roofs, ceilings, and foundations
+- Merged [#118]( https://github.com/BuildingSync/schema/pull/118 ), Fix coolroof name
+- Merged [#120]( https://github.com/BuildingSync/schema/pull/120 ), Refactor Controls
+- Merged [#121]( https://github.com/BuildingSync/schema/pull/121 ), General: Annotations and Version Tag
+- Merged [#122]( https://github.com/BuildingSync/schema/pull/122 ), MeasureScaleOfApplication - Add Enumerations
+- Merged [#123]( https://github.com/BuildingSync/schema/pull/123 ), Add AuditorQualificationType enumerations
+- Merged [#124]( https://github.com/BuildingSync/schema/pull/124 ), Add EfficiencyUnits enumerations
+- Merged [#125]( https://github.com/BuildingSync/schema/pull/125 ), Add FuelTypes enumerations for "Fuel oil no 5 and 6"
+- Merged [#126]( https://github.com/BuildingSync/schema/pull/126 ), Add FuelTypes enumerations
+- Merged [#127]( https://github.com/BuildingSync/schema/pull/127 ), Add ElectricResistance to HeatingSourceType
+- Merged [#128]( https://github.com/BuildingSync/schema/pull/128 ), Pluralize LinkedDeliveryID
+- Merged [#129]( https://github.com/BuildingSync/schema/pull/129 ), Add OccupancyClassification enumerations
+- Merged [#130]( https://github.com/BuildingSync/schema/pull/130 ), Rename ProcessGasElecLoadType element
+- Merged [#131]( https://github.com/BuildingSync/schema/pull/131 ), Remove Trailing Whitespace from Laboratory
+- Merged [#132]( https://github.com/BuildingSync/schema/pull/132 ), CondensingOperation - Add Enumerations
+- Merged [#133]( https://github.com/BuildingSync/schema/pull/133 ), Modify capitalization of term "Timestamp"
+- Merged [#134]( https://github.com/BuildingSync/schema/pull/134 ), DraftBoundary - Add Enumerations
+- Merged [#136]( https://github.com/BuildingSync/schema/pull/136 ), Add <xs:complexType> child element to definition of "Pneumatic" element
+- Merged [#137]( https://github.com/BuildingSync/schema/pull/137 ), Add FuelType enumerations
+- Merged [#138]( https://github.com/BuildingSync/schema/pull/138 ), Add CondensingOperation and DraftBoundary elements wherever DraftType
+- Merged [#139]( https://github.com/BuildingSync/schema/pull/139 ), Add Gas Engine Enumeration to Chiller Compressor Driver
+- Merged [#140]( https://github.com/BuildingSync/schema/pull/140 ), Add Percent Leased by Owner to Building
+- Merged [#141]( https://github.com/BuildingSync/schema/pull/141 ), Add Spatial Unit Occupied Percentage
+- Merged [#142]( https://github.com/BuildingSync/schema/pull/142 ), Fix "Dual fuel" typo
+- Merged [#144]( https://github.com/BuildingSync/schema/pull/144 ), Pluralize and rename PrimaryHVACControlSystemType Element to HVACControlSystemType
+- Merged [#145]( https://github.com/BuildingSync/schema/pull/145 ), Replicate Site Elements in Building Element
+- Merged [#146]( https://github.com/BuildingSync/schema/pull/146 ), Add ExteriorFloorSystemType Element
+- Merged [#147]( https://github.com/BuildingSync/schema/pull/147 ), Harmonize Tightness and TightnessFitCondition elements
+- Merged [#148]( https://github.com/BuildingSync/schema/pull/148 ), Remove minOccurs="1" constraint for auc:AllResourceTotal element
+
+
 ## Version 1.0
 
 Date Range: 05/31/18 - 01/31/19:

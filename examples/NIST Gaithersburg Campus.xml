@@ -165,7 +165,7 @@
           <LongDescription>Building Envelope Modification #3</LongDescription>
         </Measure>
         <Measure ID="Measure11001">
-          <SystemCategoryAffected>On-Site Storage, Transmission, Generation</SystemCategoryAffected>
+          <SystemCategoryAffected>Onsite Storage, Transmission, Generation</SystemCategoryAffected>
           <TechnologyCategories>
             <TechnologyCategory>
               <RenewableEnergySystems>
@@ -407,7 +407,7 @@
           <LongDescription>Building Envelope Modifications: Window replacement #1</LongDescription>
         </Measure>
         <Measure ID="Measure111001">
-          <SystemCategoryAffected>On-Site Storage, Transmission, Generation</SystemCategoryAffected>
+          <SystemCategoryAffected>Onsite Storage, Transmission, Generation</SystemCategoryAffected>
           <TechnologyCategories>
             <TechnologyCategory>
               <RenewableEnergySystems>
@@ -506,84 +506,91 @@
           <LongDescription>Appliance/Plug-load reductions: Process/Plug Equipment - Cleaning and/or Repair #5</LongDescription>
         </Measure>
       </Measures>
-      <Report>
-        <Scenarios>
-          <Scenario>
-            <ScenarioName>Energy Efficiency, Water Efficiency, and Renewable Energy Site Assessment of the NIST Gaithersburg Campus</ScenarioName>
-            <ScenarioType>
-              <PackageOfMeasures>
-                <MeasureIDs>
-                  <MeasureID IDref="Measure1001"/>
-                  <MeasureID IDref="Measure2001"/>
-                  <MeasureID IDref="Measure4001"/>
-                  <MeasureID IDref="Measure5001"/>
-                  <MeasureID IDref="Measure5002"/>
-                  <MeasureID IDref="Measure5003"/>
-                  <MeasureID IDref="Measure5004"/>
-                  <MeasureID IDref="Measure5005"/>
-                  <MeasureID IDref="Measure5006"/>
-                  <MeasureID IDref="Measure5007"/>
-                  <MeasureID IDref="Measure6001"/>
-                  <MeasureID IDref="Measure6002"/>
-                  <MeasureID IDref="Measure6003"/>
-                  <MeasureID IDref="Measure11001"/>
-                  <MeasureID IDref="Measure13001"/>
-                  <MeasureID IDref="Measure13002"/>
-                  <MeasureID IDref="Measure18001"/>
-                  <MeasureID IDref="Measure18002"/>
-                  <MeasureID IDref="Measure18003"/>
-                  <MeasureID IDref="Measure18004"/>
-                  <MeasureID IDref="Measure18005"/>
-                  <MeasureID IDref="Measure18006"/>
-                  <MeasureID IDref="Measure21001"/>
-                  <MeasureID IDref="Measure30001"/>
-                  <MeasureID IDref="Measure45001"/>
-                  <MeasureID IDref="Measure65001"/>
-                  <MeasureID IDref="Measure66001"/>
-                  <MeasureID IDref="Measure66002"/>
-                  <MeasureID IDref="Measure66003"/>
-                  <MeasureID IDref="Measure68001"/>
-                  <MeasureID IDref="Measure72001"/>
-                  <MeasureID IDref="Measure73001"/>
-                  <MeasureID IDref="Measure79001"/>
-                  <MeasureID IDref="Measure85001"/>
-                  <MeasureID IDref="Measure91001"/>
-                  <MeasureID IDref="Measure111001"/>
-                  <MeasureID IDref="Measure122001"/>
-                  <MeasureID IDref="Measure122002"/>
-                  <MeasureID IDref="Measure135001"/>
-                  <MeasureID IDref="Measure136001"/>
-                  <MeasureID IDref="Measure136002"/>
-                  <MeasureID IDref="Measure136003"/>
-                  <MeasureID IDref="Measure136004"/>
-                  <MeasureID IDref="Measure136005"/>
-                </MeasureIDs>
-                <AnnualSavingsSiteEnergy>65212.958014880001</AnnualSavingsSiteEnergy>
-                <AnnualSavingsCost>1532096</AnnualSavingsCost>
-                <AnnualWaterSavings>377000</AnnualWaterSavings>
-                <AnnualWaterCostSavings>5994</AnnualWaterCostSavings>
-                <PackageFirstCost>1532096</PackageFirstCost>
-              </PackageOfMeasures>
-            </ScenarioType>
-            <LinkedPremises>
-              <Building>
-                <LinkedBuildingID IDref="Facility69"/>
-              </Building>
-            </LinkedPremises>
-          </Scenario>
-        </Scenarios>
-        <AuditDate>2013-02-01</AuditDate>
-        <RetrocommissioningAudit>false</RetrocommissioningAudit>
-        <UserDefinedFields>
-          <UserDefinedField>
-            <FieldName>Comments/Explanations</FieldName>
-            <FieldValue>No comments</FieldValue>
-          </UserDefinedField>
-          <UserDefinedField>
-            <FieldName>Comment For Public Disclosure</FieldName>
-          </UserDefinedField>
-        </UserDefinedFields>
-      </Report>
+      <Reports>
+        <Report>
+          <Scenarios>
+            <Scenario>
+              <ScenarioName>Energy Efficiency, Water Efficiency, and Renewable Energy Site Assessment of the NIST Gaithersburg Campus</ScenarioName>
+              <ScenarioType>
+                <PackageOfMeasures>
+                  <MeasureIDs>
+                    <MeasureID IDref="Measure1001"/>
+                    <MeasureID IDref="Measure2001"/>
+                    <MeasureID IDref="Measure4001"/>
+                    <MeasureID IDref="Measure5001"/>
+                    <MeasureID IDref="Measure5002"/>
+                    <MeasureID IDref="Measure5003"/>
+                    <MeasureID IDref="Measure5004"/>
+                    <MeasureID IDref="Measure5005"/>
+                    <MeasureID IDref="Measure5006"/>
+                    <MeasureID IDref="Measure5007"/>
+                    <MeasureID IDref="Measure6001"/>
+                    <MeasureID IDref="Measure6002"/>
+                    <MeasureID IDref="Measure6003"/>
+                    <MeasureID IDref="Measure11001"/>
+                    <MeasureID IDref="Measure13001"/>
+                    <MeasureID IDref="Measure13002"/>
+                    <MeasureID IDref="Measure18001"/>
+                    <MeasureID IDref="Measure18002"/>
+                    <MeasureID IDref="Measure18003"/>
+                    <MeasureID IDref="Measure18004"/>
+                    <MeasureID IDref="Measure18005"/>
+                    <MeasureID IDref="Measure18006"/>
+                    <MeasureID IDref="Measure21001"/>
+                    <MeasureID IDref="Measure30001"/>
+                    <MeasureID IDref="Measure45001"/>
+                    <MeasureID IDref="Measure65001"/>
+                    <MeasureID IDref="Measure66001"/>
+                    <MeasureID IDref="Measure66002"/>
+                    <MeasureID IDref="Measure66003"/>
+                    <MeasureID IDref="Measure68001"/>
+                    <MeasureID IDref="Measure72001"/>
+                    <MeasureID IDref="Measure73001"/>
+                    <MeasureID IDref="Measure79001"/>
+                    <MeasureID IDref="Measure85001"/>
+                    <MeasureID IDref="Measure91001"/>
+                    <MeasureID IDref="Measure111001"/>
+                    <MeasureID IDref="Measure122001"/>
+                    <MeasureID IDref="Measure122002"/>
+                    <MeasureID IDref="Measure135001"/>
+                    <MeasureID IDref="Measure136001"/>
+                    <MeasureID IDref="Measure136002"/>
+                    <MeasureID IDref="Measure136003"/>
+                    <MeasureID IDref="Measure136004"/>
+                    <MeasureID IDref="Measure136005"/>
+                  </MeasureIDs>
+                  <AnnualSavingsSiteEnergy>65212.958014880001</AnnualSavingsSiteEnergy>
+                  <AnnualSavingsCost>1532096</AnnualSavingsCost>
+                  <AnnualWaterSavings>377000</AnnualWaterSavings>
+                  <AnnualWaterCostSavings>5994</AnnualWaterCostSavings>
+                  <PackageFirstCost>1532096</PackageFirstCost>
+                </PackageOfMeasures>
+              </ScenarioType>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Facility69"/>
+                </Building>
+              </LinkedPremises>
+            </Scenario>
+          </Scenarios>
+          <AuditDates>
+            <AuditDate>
+              <Date>2013-02-01</Date>
+              <DateType>Completion</DateType>
+            </AuditDate>
+          </AuditDates>
+          <RetrocommissioningAudit>false</RetrocommissioningAudit>
+          <UserDefinedFields>
+            <UserDefinedField>
+              <FieldName>Comments/Explanations</FieldName>
+              <FieldValue>No comments</FieldValue>
+            </UserDefinedField>
+            <UserDefinedField>
+              <FieldName>Comment For Public Disclosure</FieldName>
+            </UserDefinedField>
+          </UserDefinedFields>
+        </Report>
+      </Reports>
       <UserDefinedFields>
         <UserDefinedField>
           <FieldName>Error Messages</FieldName>

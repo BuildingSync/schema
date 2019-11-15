@@ -38,9 +38,10 @@
               <VerticalSurroundings>Stand-alone</VerticalSurroundings>
               <YearOfConstruction>2015</YearOfConstruction>
               <OperatorType>Owner</OperatorType>
-              <Subsections>
-                <Subsection ID="Block1">
+              <Sections>
+                <Section ID="Block1">
                   <PremisesName>CORNER_CLASS_1_POD_1_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Classroom</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -105,26 +106,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>1066</RoofArea>
-                    <RoofInsulatedArea>1066</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space1"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>1066</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space1"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>1066</RoofArea>
+                        <RoofInsulatedArea>1066</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space1"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>1066</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space1"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>-209.97</XOffset>
                   <YOffset>0</YOffset>
                   <ZOffset>0</ZOffset>
@@ -182,9 +195,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block2">
+                </Section>
+                <Section ID="Block2">
                   <PremisesName>MULT_CLASS_1_POD_1_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Classroom</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -249,26 +263,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>5135</RoofArea>
-                    <RoofInsulatedArea>5135</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space2"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>5135</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space2"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>5135</RoofArea>
+                        <RoofInsulatedArea>5135</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space2"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>5135</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space2"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>-173.88</XOffset>
                   <YOffset>0</YOffset>
                   <ZOffset>0</ZOffset>
@@ -326,9 +352,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block3">
+                </Section>
+                <Section ID="Block3">
                   <PremisesName>CORRIDOR_POD_1_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Corridor</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -397,26 +424,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>2067</RoofArea>
-                    <RoofInsulatedArea>2067</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space3"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>2067</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space3"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>2067</RoofArea>
+                        <RoofInsulatedArea>2067</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space3"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>2067</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space3"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>-209.97</XOffset>
                   <YOffset>29.53</YOffset>
                   <ZOffset>0</ZOffset>
@@ -473,9 +512,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block4">
+                </Section>
+                <Section ID="Block4">
                   <PremisesName>CORNER_CLASS_2_POD_1_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Classroom</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -540,26 +580,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>1066</RoofArea>
-                    <RoofInsulatedArea>1066</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space4"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>1066</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space4"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>1066</RoofArea>
+                        <RoofInsulatedArea>1066</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space4"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>1066</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space4"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>-209.97</XOffset>
                   <YOffset>39.37</YOffset>
                   <ZOffset>0</ZOffset>
@@ -617,9 +669,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block5">
+                </Section>
+                <Section ID="Block5">
                   <PremisesName>MULT_CLASS_2_POD_1_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Classroom</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -684,26 +737,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>5135</RoofArea>
-                    <RoofInsulatedArea>5135</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space5"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>5135</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space5"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>5135</RoofArea>
+                        <RoofInsulatedArea>5135</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space5"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>5135</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space5"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>-173.88</XOffset>
                   <YOffset>39.37</YOffset>
                   <ZOffset>0</ZOffset>
@@ -761,9 +826,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block6">
+                </Section>
+                <Section ID="Block6">
                   <PremisesName>CORNER_CLASS_1_POD_2_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Classroom</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -828,26 +894,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>1066</RoofArea>
-                    <RoofInsulatedArea>1066</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space6"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>1066</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space6"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>1066</RoofArea>
+                        <RoofInsulatedArea>1066</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space6"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>1066</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space6"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>-209.97</XOffset>
                   <YOffset>98.43</YOffset>
                   <ZOffset>0</ZOffset>
@@ -905,9 +983,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block7">
+                </Section>
+                <Section ID="Block7">
                   <PremisesName>MULT_CLASS_1_POD_2_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Classroom</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -972,26 +1051,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>5135</RoofArea>
-                    <RoofInsulatedArea>5135</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space7"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>5135</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space7"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>5135</RoofArea>
+                        <RoofInsulatedArea>5135</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space7"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>5135</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space7"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>-173.88</XOffset>
                   <YOffset>98.43</YOffset>
                   <ZOffset>0</ZOffset>
@@ -1049,9 +1140,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block8">
+                </Section>
+                <Section ID="Block8">
                   <PremisesName>CORRIDOR_POD_2_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Corridor</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -1116,26 +1208,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>2067</RoofArea>
-                    <RoofInsulatedArea>2067</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space8"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>2067</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space8"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>2067</RoofArea>
+                        <RoofInsulatedArea>2067</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space8"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>2067</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space8"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>-209.97</XOffset>
                   <YOffset>127.95</YOffset>
                   <ZOffset>0</ZOffset>
@@ -1192,9 +1296,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block9">
+                </Section>
+                <Section ID="Block9">
                   <PremisesName>CORNER_CLASS_2_POD_2_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Classroom</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -1259,26 +1364,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>1066</RoofArea>
-                    <RoofInsulatedArea>1066</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space9"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>1066</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space9"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>1066</RoofArea>
+                        <RoofInsulatedArea>1066</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space9"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>1066</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space9"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>-209.97</XOffset>
                   <YOffset>137.8</YOffset>
                   <ZOffset>0</ZOffset>
@@ -1336,9 +1453,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block10">
+                </Section>
+                <Section ID="Block10">
                   <PremisesName>MULT_CLASS_2_POD_2_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Classroom</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -1403,26 +1521,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>5135</RoofArea>
-                    <RoofInsulatedArea>5135</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space10"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>5135</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space10"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>5135</RoofArea>
+                        <RoofInsulatedArea>5135</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space10"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>5135</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space10"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>-173.88</XOffset>
                   <YOffset>137.8</YOffset>
                   <ZOffset>0</ZOffset>
@@ -1480,9 +1610,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block11">
+                </Section>
+                <Section ID="Block11">
                   <PremisesName>CORNER_CLASS_1_POD_3_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Classroom</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -1547,26 +1678,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>1066</RoofArea>
-                    <RoofInsulatedArea>1066</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space11"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>1066</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space11"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>1066</RoofArea>
+                        <RoofInsulatedArea>1066</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space11"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>1066</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space11"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>-209.97</XOffset>
                   <YOffset>200.13</YOffset>
                   <ZOffset>0</ZOffset>
@@ -1624,9 +1767,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block12">
+                </Section>
+                <Section ID="Block12">
                   <PremisesName>MULT_CLASS_1_POD_3_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Classroom</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -1691,26 +1835,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>5135</RoofArea>
-                    <RoofInsulatedArea>5135</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space12"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>5135</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space12"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>5135</RoofArea>
+                        <RoofInsulatedArea>5135</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space12"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>5135</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space12"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>-173.88</XOffset>
                   <YOffset>200.13</YOffset>
                   <ZOffset>0</ZOffset>
@@ -1768,9 +1924,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block13">
+                </Section>
+                <Section ID="Block13">
                   <PremisesName>CORRIDOR_POD_3_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Corridor</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -1835,26 +1992,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>2067</RoofArea>
-                    <RoofInsulatedArea>2067</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space13"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>2067</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space13"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>2067</RoofArea>
+                        <RoofInsulatedArea>2067</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space13"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>2067</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space13"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>-209.97</XOffset>
                   <YOffset>229.66</YOffset>
                   <ZOffset>0</ZOffset>
@@ -1911,9 +2080,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block14">
+                </Section>
+                <Section ID="Block14">
                   <PremisesName>CORNER_CLASS_2_POD_3_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Classroom</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -1978,26 +2148,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>1066</RoofArea>
-                    <RoofInsulatedArea>1066</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space14"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>1066</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space14"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>1066</RoofArea>
+                        <RoofInsulatedArea>1066</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space14"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>1066</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space14"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>-209.97</XOffset>
                   <YOffset>239.5</YOffset>
                   <ZOffset>0</ZOffset>
@@ -2055,9 +2237,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block15">
+                </Section>
+                <Section ID="Block15">
                   <PremisesName>MULT_CLASS_2_POD_3_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Classroom</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -2122,26 +2305,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>3391</RoofArea>
-                    <RoofInsulatedArea>3391</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space15"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>3391</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space15"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>3391</RoofArea>
+                        <RoofInsulatedArea>3391</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space15"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>3391</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space15"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>-173.88</XOffset>
                   <YOffset>239.5</YOffset>
                   <ZOffset>0</ZOffset>
@@ -2199,9 +2394,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block16">
+                </Section>
+                <Section ID="Block16">
                   <PremisesName>COMPUTER_CLASS_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Computer lab</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -2266,26 +2462,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>1744</RoofArea>
-                    <RoofInsulatedArea>1744</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space16"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>1744</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space16"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>1744</RoofArea>
+                        <RoofInsulatedArea>1744</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space16"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>1744</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space16"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>-59.06</XOffset>
                   <YOffset>239.5</YOffset>
                   <ZOffset>0</ZOffset>
@@ -2343,9 +2551,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block17">
+                </Section>
+                <Section ID="Block17">
                   <PremisesName>MAIN_CORRIDOR_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Corridor</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -2410,26 +2619,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>5878</RoofArea>
-                    <RoofInsulatedArea>5878</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space17"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>5878</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space17"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>5878</RoofArea>
+                        <RoofInsulatedArea>5878</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space17"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>5878</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space17"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>0</XOffset>
                   <YOffset>29.53</YOffset>
                   <ZOffset>0</ZOffset>
@@ -2486,9 +2707,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block18">
+                </Section>
+                <Section ID="Block18">
                   <PremisesName>LOBBY_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Lobby</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -2553,26 +2775,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>1841</RoofArea>
-                    <RoofInsulatedArea>1841</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space18"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>1841</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space18"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>1841</RoofArea>
+                        <RoofInsulatedArea>1841</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space18"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>1841</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space18"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>0</XOffset>
                   <YOffset>0</YOffset>
                   <ZOffset>0</ZOffset>
@@ -2630,9 +2864,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block19">
+                </Section>
+                <Section ID="Block19">
                   <PremisesName>MECH_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Mechanical room</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -2697,26 +2932,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>2713</RoofArea>
-                    <RoofInsulatedArea>2713</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space19"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>2713</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space19"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>2713</RoofArea>
+                        <RoofInsulatedArea>2713</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space19"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>2713</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space19"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>42.65</XOffset>
                   <YOffset>29.53</YOffset>
                   <ZOffset>0</ZOffset>
@@ -2773,9 +3020,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block20">
+                </Section>
+                <Section ID="Block20">
                   <PremisesName>BATH_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Restroom</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -2840,26 +3088,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>2045</RoofArea>
-                    <RoofInsulatedArea>2045</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space20"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>2045</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space20"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>2045</RoofArea>
+                        <RoofInsulatedArea>2045</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space20"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>2045</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space20"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>0</XOffset>
                   <YOffset>167.32</YOffset>
                   <ZOffset>0</ZOffset>
@@ -2916,9 +3176,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block21">
+                </Section>
+                <Section ID="Block21">
                   <PremisesName>OFFICES_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Office</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -2983,26 +3244,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>4747</RoofArea>
-                    <RoofInsulatedArea>4747</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space21"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>4747</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space21"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>4747</RoofArea>
+                        <RoofInsulatedArea>4747</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space21"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>4747</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space21"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>62.34</XOffset>
                   <YOffset>0</YOffset>
                   <ZOffset>0</ZOffset>
@@ -3060,9 +3333,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block22">
+                </Section>
+                <Section ID="Block22">
                   <PremisesName>GYM_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Sport play area</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -3127,26 +3401,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>3843</RoofArea>
-                    <RoofInsulatedArea>3843</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>.0375</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space22"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>3843</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space22"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>3843</RoofArea>
+                        <RoofInsulatedArea>3843</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>.0375</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space22"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>3843</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space22"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>62.34</XOffset>
                   <YOffset>68.90</YOffset>
                   <ZOffset>0</ZOffset>
@@ -3204,9 +3490,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block23">
+                </Section>
+                <Section ID="Block23">
                   <PremisesName>KITCHEN_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Kitchen</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -3271,26 +3558,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>1809</RoofArea>
-                    <RoofInsulatedArea>1809</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space23"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>1809</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space23"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>1809</RoofArea>
+                        <RoofInsulatedArea>1809</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space23"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>1809</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space23"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>62.34</XOffset>
                   <YOffset>124.67</YOffset>
                   <ZOffset>0</ZOffset>
@@ -3347,9 +3646,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block24">
+                </Section>
+                <Section ID="Block24">
                   <PremisesName>CAFETERIA_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Dining area</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -3414,26 +3714,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>3391</RoofArea>
-                    <RoofInsulatedArea>3391</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space24"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>3391</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space24"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>3391</RoofArea>
+                        <RoofInsulatedArea>3391</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space24"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>3391</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space24"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>62.34</XOffset>
                   <YOffset>150.92</YOffset>
                   <ZOffset>0</ZOffset>
@@ -3491,9 +3803,10 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-                <Subsection ID="Block25">
+                </Section>
+                <Section ID="Block25">
                   <PremisesName>LIBRARY_MEDIA_CENTER_ZN_1_FLR_1 Block</PremisesName>
+                  <SectionType>Component</SectionType>
                   <OccupancyClassification>Media center</OccupancyClassification>
                   <FootprintShape>Rectangular</FootprintShape>
                   <FloorAreas>
@@ -3558,26 +3871,38 @@
                       </WindowID>
                     </Side>
                   </Sides>
-                  <RoofID IDref="Roof1">
-                    <RoofArea>4295</RoofArea>
-                    <RoofInsulatedArea>4295</RoofInsulatedArea>
-                    <SkylightIDs>
-                      <SkylightID IDref="Skylight1">
-                        <PercentSkylightArea>0</PercentSkylightArea>
-                      </SkylightID>
-                    </SkylightIDs>
-                  </RoofID>
-                  <CeilingID IDref="Ceiling1">
-                    <SpaceIDs>
-                      <SpaceID IDref="Space25"/>
-                    </SpaceIDs>
-                  </CeilingID>
-                  <FoundationID IDref="Foundation1">
-                    <FoundationArea>4295</FoundationArea>
-                    <SpaceIDs>
-                      <SpaceID IDref="Space25"/>
-                    </SpaceIDs>
-                  </FoundationID>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof1">
+                        <RoofArea>4295</RoofArea>
+                        <RoofInsulatedArea>4295</RoofInsulatedArea>
+                        <SkylightIDs>
+                          <SkylightID IDref="Skylight1">
+                            <PercentSkylightArea>0</PercentSkylightArea>
+                          </SkylightID>
+                        </SkylightIDs>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Ceilings>
+                    <Ceiling>
+                      <CeilingID IDref="Ceiling1">
+                        <SpaceIDs>
+                          <SpaceID IDref="Space25"/>
+                        </SpaceIDs>
+                      </CeilingID>
+                    </Ceiling>
+                  </Ceilings>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation1">
+                        <FoundationArea>4295</FoundationArea>
+                        <SpaceIDs>
+                          <SpaceID IDref="Space25"/>
+                        </SpaceIDs>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
                   <XOffset>0</XOffset>
                   <YOffset>200.13</YOffset>
                   <ZOffset>0</ZOffset>
@@ -3635,8 +3960,8 @@
                       </Spaces>
                     </ThermalZone>
                   </ThermalZones>
-                </Subsection>
-              </Subsections>
+                </Section>
+              </Sections>
             </Building>
           </Buildings>
         </Site>
@@ -3654,7 +3979,7 @@
                     <OutputCapacity>314</OutputCapacity>
                     <CapacityUnits>kW</CapacityUnits>
                     <AnnualHeatingEfficiencyValue>0.75</AnnualHeatingEfficiencyValue>
-                    <AnnualHeatingEfficiencyUnit>COP</AnnualHeatingEfficiencyUnit>
+                    <AnnualHeatingEfficiencyUnits>COP</AnnualHeatingEfficiencyUnits>
                     <ThermalEfficiency>0.8</ThermalEfficiency>
                     <BoilerLWT>177.8</BoilerLWT>
                     <Quantity>1</Quantity>
@@ -3688,7 +4013,13 @@
                   <HeatingStaging>Variable</HeatingStaging>
                   <PrimaryFuel>Natural gas</PrimaryFuel>
                   <HeatingSourceCondition>Average</HeatingSourceCondition>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </HeatingSource>
               </HeatingSources>
@@ -3713,7 +4044,13 @@
                   <RatedCoolingSensibleHeatRatio>0.69</RatedCoolingSensibleHeatRatio>
                   <PrimaryFuel>Electricity</PrimaryFuel>
                   <CoolingSourceCondition>Good</CoolingSourceCondition>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </CoolingSource>
                 <CoolingSource ID="CoolsourcePod2">
@@ -3735,7 +4072,13 @@
                   <CoolingStageCapacity>0.5</CoolingStageCapacity>
                   <RatedCoolingSensibleHeatRatio>0.69</RatedCoolingSensibleHeatRatio>
                   <PrimaryFuel>Electricity</PrimaryFuel>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </CoolingSource>
                 <CoolingSource ID="CoolsourcePod3">
@@ -3758,7 +4101,13 @@
                   <RatedCoolingSensibleHeatRatio>0.69</RatedCoolingSensibleHeatRatio>
                   <PrimaryFuel>Electricity</PrimaryFuel>
                   <CoolingSourceCondition>Poor</CoolingSourceCondition>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </CoolingSource>
                 <CoolingSource ID="CoolsourceOther">
@@ -3781,7 +4130,13 @@
                   <RatedCoolingSensibleHeatRatio>0.69</RatedCoolingSensibleHeatRatio>
                   <PrimaryFuel>Electricity</PrimaryFuel>
                   <CoolingSourceCondition>Other</CoolingSourceCondition>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <UserDefinedFields>
                     <UserDefinedField>
                       <FieldName>Condition Description</FieldName>
@@ -3814,7 +4169,13 @@
                   </DeliveryType>
                   <HeatingSourceID IDref="Heatsource1"/>
                   <CoolingSourceID IDref="CoolsourcePod1"/>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </Delivery>
                 <Delivery ID="DeliveryPod2">
@@ -3839,7 +4200,13 @@
                   </DeliveryType>
                   <HeatingSourceID IDref="Heatsource1"/>
                   <CoolingSourceID IDref="CoolsourcePod2"/>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </Delivery>
                 <Delivery ID="DeliveryPod3">
@@ -3864,7 +4231,13 @@
                   </DeliveryType>
                   <HeatingSourceID IDref="Heatsource1"/>
                   <CoolingSourceID IDref="CoolsourcePod3"/>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </Delivery>
                 <Delivery ID="DeliveryOther">
@@ -3889,7 +4262,13 @@
                   </DeliveryType>
                   <HeatingSourceID IDref="Heatsource1"/>
                   <CoolingSourceID IDref="CoolsourceOther"/>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </Delivery>
               </Deliveries>
@@ -3968,7 +4347,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone1">
@@ -3979,7 +4364,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryPod1"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryPod1"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone2">
                 <OtherHVACType>
@@ -3991,7 +4378,13 @@
                   </MechanicalVentilation>
                 </OtherHVACType>
                 <OtherHVACSystemCondition>Unknown</OtherHVACSystemCondition>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone2">
@@ -4002,7 +4395,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryPod1"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryPod1"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone3">
                 <OtherHVACType>
@@ -4013,7 +4408,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone3">
@@ -4024,7 +4425,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryPod1"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryPod1"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone4">
                 <OtherHVACType>
@@ -4035,7 +4438,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone4">
@@ -4046,7 +4455,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryPod1"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryPod1"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone5">
                 <OtherHVACType>
@@ -4057,7 +4468,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone5">
@@ -4068,7 +4485,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryPod1"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryPod1"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone6">
                 <OtherHVACType>
@@ -4079,7 +4498,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone6">
@@ -4090,7 +4515,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryPod2"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryPod2"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone7">
                 <OtherHVACType>
@@ -4101,7 +4528,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone7">
@@ -4112,7 +4545,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryPod2"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryPod2"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone8">
                 <OtherHVACType>
@@ -4123,7 +4558,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone8">
@@ -4134,7 +4575,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryPod2"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryPod2"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone9">
                 <OtherHVACType>
@@ -4145,7 +4588,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone9">
@@ -4156,7 +4605,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryPod2"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryPod2"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone10">
                 <OtherHVACType>
@@ -4167,7 +4618,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone10">
@@ -4178,7 +4635,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryPod2"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryPod2"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone11">
                 <OtherHVACType>
@@ -4189,7 +4648,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone11">
@@ -4200,7 +4665,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryPod3"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryPod3"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone12">
                 <OtherHVACType>
@@ -4211,7 +4678,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone12">
@@ -4222,7 +4695,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryPod3"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryPod3"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone13">
                 <OtherHVACType>
@@ -4233,7 +4708,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone13">
@@ -4244,7 +4725,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryPod3"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryPod3"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone14">
                 <OtherHVACType>
@@ -4255,7 +4738,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone14">
@@ -4266,7 +4755,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryPod3"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryPod3"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone15">
                 <OtherHVACType>
@@ -4277,7 +4768,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone15">
@@ -4288,7 +4785,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryPod3"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryPod3"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone16">
                 <OtherHVACType>
@@ -4299,7 +4798,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone16">
@@ -4310,7 +4815,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryPod3"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryPod3"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone17">
                 <OtherHVACType>
@@ -4321,7 +4828,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone17">
@@ -4332,7 +4845,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryOther"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryOther"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone18">
                 <OtherHVACType>
@@ -4343,7 +4858,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone18">
@@ -4354,7 +4875,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryOther"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryOther"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone19">
                 <OtherHVACType>
@@ -4365,7 +4888,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone19">
@@ -4376,7 +4905,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryOther"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryOther"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone20">
                 <OtherHVACType>
@@ -4387,7 +4918,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone20">
@@ -4398,7 +4935,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryOther"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryOther"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone21">
                 <OtherHVACType>
@@ -4409,7 +4948,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone21">
@@ -4420,7 +4965,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryOther"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryOther"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
               <OtherHVACSystem ID="VentZone25">
                 <OtherHVACType>
@@ -4431,7 +4978,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone25">
@@ -4442,7 +4995,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with central air distribution</Integration>
-                <LinkedDeliveryID IDref="DeliveryOther"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="DeliveryOther"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
             </OtherHVACSystems>
             <Priority>Primary</Priority>
@@ -4465,11 +5020,17 @@
                   </HeatingSourceType>
                   <HeatingMedium>Air</HeatingMedium>
                   <AnnualHeatingEfficiencyValue>.8</AnnualHeatingEfficiencyValue>
-                  <AnnualHeatingEfficiencyUnit>COP</AnnualHeatingEfficiencyUnit>
+                  <AnnualHeatingEfficiencyUnits>COP</AnnualHeatingEfficiencyUnits>
                   <InputCapacity>55.04</InputCapacity>
                   <CapacityUnits>kW</CapacityUnits>
                   <PrimaryFuel>Natural gas</PrimaryFuel>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </HeatingSource>
               </HeatingSources>
@@ -4493,7 +5054,13 @@
                   <CoolingStageCapacity>0.5</CoolingStageCapacity>
                   <RatedCoolingSensibleHeatRatio>0.7657</RatedCoolingSensibleHeatRatio>
                   <PrimaryFuel>Electricity</PrimaryFuel>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </CoolingSource>
               </CoolingSources>
@@ -4513,7 +5080,13 @@
                   </DeliveryType>
                   <HeatingSourceID IDref="GymHeating"/>
                   <CoolingSourceID IDref="GymCooling"/>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </Delivery>
               </Deliveries>
@@ -4541,7 +5114,13 @@
                     <DemandControlVentilation>false</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone22">
@@ -4552,7 +5131,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with local air distribution</Integration>
-                <LinkedDeliveryID IDref="GymDelivery"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="GymDelivery"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
             </OtherHVACSystems>
             <Priority>Primary</Priority>
@@ -4575,11 +5156,17 @@
                   </HeatingSourceType>
                   <HeatingMedium>Air</HeatingMedium>
                   <AnnualHeatingEfficiencyValue>.8</AnnualHeatingEfficiencyValue>
-                  <AnnualHeatingEfficiencyUnit>COP</AnnualHeatingEfficiencyUnit>
+                  <AnnualHeatingEfficiencyUnits>COP</AnnualHeatingEfficiencyUnits>
                   <InputCapacity>30.61</InputCapacity>
                   <CapacityUnits>kW</CapacityUnits>
                   <PrimaryFuel>Natural gas</PrimaryFuel>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </HeatingSource>
               </HeatingSources>
@@ -4603,7 +5190,13 @@
                   <CoolingStageCapacity>0.5</CoolingStageCapacity>
                   <RatedCoolingSensibleHeatRatio>0.7979</RatedCoolingSensibleHeatRatio>
                   <PrimaryFuel>Electricity</PrimaryFuel>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </CoolingSource>
               </CoolingSources>
@@ -4623,7 +5216,13 @@
                   </DeliveryType>
                   <HeatingSourceID IDref="KitchenHeating"/>
                   <CoolingSourceID IDref="KitchenCooling"/>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </Delivery>
               </Deliveries>
@@ -4651,7 +5250,13 @@
                     <DemandControlVentilation>false</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone23">
@@ -4664,7 +5269,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with local air distribution</Integration>
-                <LinkedDeliveryID IDref="KitchenDelivery"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="KitchenDelivery"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
             </OtherHVACSystems>
             <Priority>Primary</Priority>
@@ -4687,11 +5294,17 @@
                   </HeatingSourceType>
                   <HeatingMedium>Air</HeatingMedium>
                   <AnnualHeatingEfficiencyValue>0.78</AnnualHeatingEfficiencyValue>
-                  <AnnualHeatingEfficiencyUnit>COP</AnnualHeatingEfficiencyUnit>
+                  <AnnualHeatingEfficiencyUnits>COP</AnnualHeatingEfficiencyUnits>
                   <InputCapacity>110.51</InputCapacity>
                   <CapacityUnits>kW</CapacityUnits>
                   <PrimaryFuel>Natural gas</PrimaryFuel>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </HeatingSource>
               </HeatingSources>
@@ -4715,7 +5328,13 @@
                   <CoolingStageCapacity>0.5</CoolingStageCapacity>
                   <RatedCoolingSensibleHeatRatio>0.7373</RatedCoolingSensibleHeatRatio>
                   <PrimaryFuel>Electricity</PrimaryFuel>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </CoolingSource>
               </CoolingSources>
@@ -4735,7 +5354,13 @@
                   </DeliveryType>
                   <HeatingSourceID IDref="CafeteriaHeating"/>
                   <CoolingSourceID IDref="CafeteriaCooling"/>
-                  <ControlTechnology>EMCS</ControlTechnology>
+                  <Controls>
+                    <Control>
+                      <Thermostat>
+                        <ControlStrategy>EMCS</ControlStrategy>
+                      </Thermostat>
+                    </Control>
+                  </Controls>
                   <Quantity>1</Quantity>
                 </Delivery>
               </Deliveries>
@@ -4763,7 +5388,13 @@
                     <DemandControlVentilation>true</DemandControlVentilation>
                   </MechanicalVentilation>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone24">
@@ -4774,7 +5405,9 @@
                   </ThermalZone>
                 </LinkedPremises>
                 <Integration>Integrated with local air distribution</Integration>
-                <LinkedDeliveryID IDref="CafeteriaDelivery"/>
+                <LinkedDeliveryIDs>
+                  <LinkedDeliveryID IDref="CafeteriaDelivery"/>
+                </LinkedDeliveryIDs>
               </OtherHVACSystem>
             </OtherHVACSystems>
             <Priority>Primary</Priority>
@@ -4788,10 +5421,18 @@
                     <ExhaustLocation>Bathroom</ExhaustLocation>
                     <VentilationRate>600</VentilationRate>
                     <RequiredVentilationRate>600</RequiredVentilationRate>
-                    <VentilationControlMethod>Scheduled</VentilationControlMethod>
+                    <VentilationControlMethods>
+                      <VentilationControlMethod>Scheduled</VentilationControlMethod>
+                    </VentilationControlMethods>
                   </SpotExhaust>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone20">
@@ -4809,11 +5450,19 @@
                     <ExhaustLocation>Kitchen hood</ExhaustLocation>
                     <VentilationRate>3302</VentilationRate>
                     <RequiredVentilationRate>3302</RequiredVentilationRate>
-                    <VentilationControlMethod>Scheduled</VentilationControlMethod>
+                    <VentilationControlMethods>
+                      <VentilationControlMethod>Scheduled</VentilationControlMethod>
+                    </VentilationControlMethods>
                     <MakeupAirSourceID>Zone22</MakeupAirSourceID>
                   </SpotExhaust>
                 </OtherHVACType>
-                <ControlTechnology>EMCS</ControlTechnology>
+                <Controls>
+                  <Control>
+                    <Thermostat>
+                      <ControlStrategy>EMCS</ControlStrategy>
+                    </Thermostat>
+                  </Control>
+                </Controls>
                 <LinkedPremises>
                   <ThermalZone>
                     <LinkedThermalZoneID IDref="Zone23">
@@ -4858,16 +5507,25 @@
         </HVACSystems>
         <LightingSystems>
           <LightingSystem ID="ClassLighting1">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>1.492</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -4919,16 +5577,25 @@
             <Quantity>6</Quantity>
           </LightingSystem>
           <LightingSystem ID="MultiLighting1">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>7.188</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -4973,11 +5640,16 @@
             <Quantity>5</Quantity>
           </LightingSystem>
           <LightingSystem ID="CorridorPod1">
-            <LightingControlTypeDaylighting>None</LightingControlTypeDaylighting>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>1.033</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5008,16 +5680,25 @@
             <Quantity>3</Quantity>
           </LightingSystem>
           <LightingSystem ID="MultiLighting2">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>4.747</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5034,16 +5715,25 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="ComputerLighting1">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>2.441</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5060,11 +5750,16 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="CorridorMain1">
-            <LightingControlTypeDaylighting>None</LightingControlTypeDaylighting>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>2.939</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5081,16 +5776,25 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="LobbyLighting1">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>2.393</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5107,11 +5811,16 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="MechanicalLighting1">
-            <LightingControlTypeDaylighting>None</LightingControlTypeDaylighting>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>4.069</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5128,11 +5837,16 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="RestroomLighting1">
-            <LightingControlTypeDaylighting>None</LightingControlTypeDaylighting>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>1.841</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5149,16 +5863,25 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="OfficeLighting1">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>5.222</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5175,16 +5898,25 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="GymLighting1">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>5.380</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5201,11 +5933,16 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="KitchenLighting1">
-            <LightingControlTypeDaylighting>None</LightingControlTypeDaylighting>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>2.170</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5222,16 +5959,25 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="CafeteriaLighting1">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>4.747</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5248,16 +5994,25 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="LibraryLighting1">
-            <LightingControlTypeDaylighting>Stepped Dimming</LightingControlTypeDaylighting>
             <DimmingCapability>
               <MinimumDimmingLightFraction>0.2</MinimumDimmingLightFraction>
               <MinimumDimmingPowerFraction>0.3</MinimumDimmingPowerFraction>
             </DimmingCapability>
-            <DaylightingControlSteps>3</DaylightingControlSteps>
             <PercentPremisesServed>1</PercentPremisesServed>
             <InstalledPower>5.583</InstalledPower>
             <OutsideLighting>false</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlSteps>3</ControlSteps>
+                  <ControlStrategy>Stepped Dimming</ControlStrategy>
+                </Daylighting>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
             <LinkedPremises>
@@ -5274,11 +6029,18 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="ExteriorLighting1">
-            <LightingControlTypeTimer>Astronomical</LightingControlTypeTimer>
-            <LightingControlTypeDaylighting>None</LightingControlTypeDaylighting>
             <InstalledPower>0.15048</InstalledPower>
             <OutsideLighting>true</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Timer>
+                  <ControlStrategy>Astronomical</ControlStrategy>
+                </Timer>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Exterior</Location>
             <LinkedPremises>
@@ -5293,11 +6055,18 @@
             <Quantity>1</Quantity>
           </LightingSystem>
           <LightingSystem ID="ExteriorLighting2">
-            <LightingControlTypeTimer>Astronomical</LightingControlTypeTimer>
-            <LightingControlTypeDaylighting>None</LightingControlTypeDaylighting>
             <InstalledPower>3.340</InstalledPower>
             <OutsideLighting>true</OutsideLighting>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Timer>
+                  <ControlStrategy>Astronomical</ControlStrategy>
+                </Timer>
+                <OtherControlTechnology>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Exterior</Location>
             <LinkedPremises>
@@ -5605,7 +6374,13 @@
             <PumpOperation>On Demand</PumpOperation>
             <PumpingConfiguration>Primary</PumpingConfiguration>
             <PumpApplication>Boiler</PumpApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Thermostat>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Thermostat>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5619,7 +6394,13 @@
             <PumpOperation>On Demand</PumpOperation>
             <PumpingConfiguration>Primary</PumpingConfiguration>
             <PumpApplication>Domestic Hot Water</PumpApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Thermostat>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Thermostat>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5634,7 +6415,13 @@
             <FanApplication>Supply</FanApplication>
             <FanControlType>Variable Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5647,7 +6434,13 @@
             <FanApplication>Supply</FanApplication>
             <FanControlType>Variable Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5660,7 +6453,13 @@
             <FanApplication>Supply</FanApplication>
             <FanControlType>Variable Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5673,7 +6472,13 @@
             <FanApplication>Supply</FanApplication>
             <FanControlType>Variable Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5686,7 +6491,13 @@
             <FanApplication>Supply</FanApplication>
             <FanControlType>Constant Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5699,7 +6510,13 @@
             <FanApplication>Supply</FanApplication>
             <FanControlType>Constant Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5712,7 +6529,13 @@
             <FanApplication>Supply</FanApplication>
             <FanControlType>Constant Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5726,6 +6549,13 @@
             <FanApplication>Exhaust</FanApplication>
             <FanControlType>Constant Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>Always On</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Exterior</Location>
@@ -5739,6 +6569,13 @@
             <FanApplication>Exhaust</FanApplication>
             <FanControlType>Constant Volume</FanControlType>
             <MotorLocationRelativeToAirStream>true</MotorLocationRelativeToAirStream>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>Always On</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Exterior</Location>
@@ -5752,7 +6589,13 @@
             <MotorEfficiency>0.924</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5764,7 +6607,13 @@
             <MotorEfficiency>0.924</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5776,7 +6625,13 @@
             <MotorEfficiency>0.924</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5788,7 +6643,13 @@
             <MotorEfficiency>0.924</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5800,7 +6661,13 @@
             <MotorEfficiency>0.865</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5812,7 +6679,13 @@
             <MotorEfficiency>0.895</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5824,7 +6697,13 @@
             <MotorEfficiency>0.895</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
-            <ControlTechnology>EMCS</ControlTechnology>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>EMCS</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5836,6 +6715,13 @@
             <MotorEfficiency>1.0</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>Manual</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -5847,6 +6733,13 @@
             <MotorEfficiency>1.0</MotorEfficiency>
             <DriveEfficiency>1</DriveEfficiency>
             <MotorApplication>Fan</MotorApplication>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlStrategy>Manual</ControlStrategy>
+                </Manual>
+              </Control>
+            </Controls>
             <Quantity>1</Quantity>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <Location>Interior</Location>
@@ -6269,8 +7162,8 @@
             <Quantity>1</Quantity>
           </PlugLoad>
         </PlugLoads>
-        <OnSiteStorageTransmissionGenerationSystems>
-          <OnSiteStorageTransmissionGenerationSystem>
+        <OnsiteStorageTransmissionGenerationSystems>
+          <OnsiteStorageTransmissionGenerationSystem>
             <EnergyConversionType>
               <Generation>
                 <ExternalPowerSupply>AC to AC</ExternalPowerSupply>
@@ -6289,257 +7182,257 @@
                 <FieldValue>0.982</FieldValue>
               </UserDefinedField>
             </UserDefinedFields>
-          </OnSiteStorageTransmissionGenerationSystem>
-        </OnSiteStorageTransmissionGenerationSystems>
+          </OnsiteStorageTransmissionGenerationSystem>
+        </OnsiteStorageTransmissionGenerationSystems>
         <AirInfiltrationSystems>
           <AirInfiltrationSystem>
             <AirInfiltrationValue>112.9</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
-              <Subsection>
-                <LinkedSubsectionID IDref="Block1">
+              <Section>
+                <LinkedSectionID IDref="Block1">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-                <LinkedSubsectionID IDref="Block4">
+                </LinkedSectionID>
+                <LinkedSectionID IDref="Block4">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-                <LinkedSubsectionID IDref="Block6">
+                </LinkedSectionID>
+                <LinkedSectionID IDref="Block6">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-                <LinkedSubsectionID IDref="Block9">
+                </LinkedSectionID>
+                <LinkedSectionID IDref="Block9">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-                <LinkedSubsectionID IDref="Block11">
+                </LinkedSectionID>
+                <LinkedSectionID IDref="Block11">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-                <LinkedSubsectionID IDref="Block14">
+                </LinkedSectionID>
+                <LinkedSectionID IDref="Block14">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-              </Subsection>
+                </LinkedSectionID>
+              </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
           <AirInfiltrationSystem>
             <AirInfiltrationValue>299.1</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
-              <Subsection>
-                <LinkedSubsectionID IDref="Block2">
+              <Section>
+                <LinkedSectionID IDref="Block2">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-                <LinkedSubsectionID IDref="Block5">
+                </LinkedSectionID>
+                <LinkedSectionID IDref="Block5">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-                <LinkedSubsectionID IDref="Block7">
+                </LinkedSectionID>
+                <LinkedSectionID IDref="Block7">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-                <LinkedSubsectionID IDref="Block10">
+                </LinkedSectionID>
+                <LinkedSectionID IDref="Block10">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-                <LinkedSubsectionID IDref="Block12">
+                </LinkedSectionID>
+                <LinkedSectionID IDref="Block12">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-              </Subsection>
+                </LinkedSectionID>
+              </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
           <AirInfiltrationSystem>
             <AirInfiltrationValue>16.9</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
-              <Subsection>
-                <LinkedSubsectionID IDref="Block3">
+              <Section>
+                <LinkedSectionID IDref="Block3">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-                <LinkedSubsectionID IDref="Block8">
+                </LinkedSectionID>
+                <LinkedSectionID IDref="Block8">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-                <LinkedSubsectionID IDref="Block13">
+                </LinkedSectionID>
+                <LinkedSectionID IDref="Block13">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-              </Subsection>
+                </LinkedSectionID>
+              </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
           <AirInfiltrationSystem>
             <AirInfiltrationValue>197.5</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
-              <Subsection>
-                <LinkedSubsectionID IDref="Block15">
+              <Section>
+                <LinkedSectionID IDref="Block15">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-              </Subsection>
+                </LinkedSectionID>
+              </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
           <AirInfiltrationSystem>
             <AirInfiltrationValue>101.6</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
-              <Subsection>
-                <LinkedSubsectionID IDref="Block16">
+              <Section>
+                <LinkedSectionID IDref="Block16">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-              </Subsection>
+                </LinkedSectionID>
+              </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
           <AirInfiltrationSystem>
             <AirInfiltrationValue>50.8</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
-              <Subsection>
-                <LinkedSubsectionID IDref="Block17">
+              <Section>
+                <LinkedSectionID IDref="Block17">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-              </Subsection>
+                </LinkedSectionID>
+              </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
           <AirInfiltrationSystem>
             <AirInfiltrationValue>107.2</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
-              <Subsection>
-                <LinkedSubsectionID IDref="Block18">
+              <Section>
+                <LinkedSectionID IDref="Block18">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-              </Subsection>
+                </LinkedSectionID>
+              </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
           <AirInfiltrationSystem>
             <AirInfiltrationValue>0.0</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
-              <Subsection>
-                <LinkedSubsectionID IDref="Block19">
+              <Section>
+                <LinkedSectionID IDref="Block19">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-              </Subsection>
+                </LinkedSectionID>
+              </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
           <AirInfiltrationSystem>
             <AirInfiltrationValue>56.4</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
-              <Subsection>
-                <LinkedSubsectionID IDref="Block20">
+              <Section>
+                <LinkedSectionID IDref="Block20">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-              </Subsection>
+                </LinkedSectionID>
+              </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
           <AirInfiltrationSystem>
             <AirInfiltrationValue>237.0</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
-              <Subsection>
-                <LinkedSubsectionID IDref="Block21">
+              <Section>
+                <LinkedSectionID IDref="Block21">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-              </Subsection>
+                </LinkedSectionID>
+              </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
           <AirInfiltrationSystem>
             <AirInfiltrationValue>66.9</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
-              <Subsection>
-                <LinkedSubsectionID IDref="Block22">
+              <Section>
+                <LinkedSectionID IDref="Block22">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-              </Subsection>
+                </LinkedSectionID>
+              </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
           <AirInfiltrationSystem>
             <AirInfiltrationValue>45.1</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
-              <Subsection>
-                <LinkedSubsectionID IDref="Block23">
+              <Section>
+                <LinkedSectionID IDref="Block23">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-              </Subsection>
+                </LinkedSectionID>
+              </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
           <AirInfiltrationSystem>
             <AirInfiltrationValue>203.1</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
-              <Subsection>
-                <LinkedSubsectionID IDref="Block24">
+              <Section>
+                <LinkedSectionID IDref="Block24">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-              </Subsection>
+                </LinkedSectionID>
+              </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
           <AirInfiltrationSystem>
             <AirInfiltrationValue>225.7</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
-              <Subsection>
-                <LinkedSubsectionID IDref="Block25">
+              <Section>
+                <LinkedSectionID IDref="Block25">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="InfiltSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-              </Subsection>
+                </LinkedSectionID>
+              </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
           <AirInfiltrationSystem>
             <AirInfiltrationValue>6422</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
-              <Subsection>
-                <LinkedSubsectionID IDref="Block18">
+              <Section>
+                <LinkedSectionID IDref="Block18">
                   <LinkedScheduleIDs>
                     <LinkedScheduleID IDref="DoorSchedule"/>
                   </LinkedScheduleIDs>
-                </LinkedSubsectionID>
-              </Subsection>
+                </LinkedSectionID>
+              </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
         </AirInfiltrationSystems>
@@ -10312,307 +11205,314 @@
           <ImplementationStatus>Selected</ImplementationStatus>
         </Measure>
       </Measures>
-      <Report>
-        <Scenarios>
-          <Scenario ID="Baseline1">
-            <ScenarioName>Baseline</ScenarioName>
-            <TemporalStatus>Pre retrofit</TemporalStatus>
-            <Normalization>Weather normalized</Normalization>
-            <ScenarioType>
-              <CurrentBuilding>
-                <CalculationMethod>
-                  <Modeled>
-                    <SoftwareProgramUsed>EnergyPlus</SoftwareProgramUsed>
-                    <SoftwareProgramVersion>6.0</SoftwareProgramVersion>
-                  </Modeled>
-                </CalculationMethod>
-              </CurrentBuilding>
-            </ScenarioType>
-            <WeatherType>
-              <Normalized>
-                <WeatherDataSource>TMY3</WeatherDataSource>
-              </Normalized>
-            </WeatherType>
-            <ResourceUses>
-              <ResourceUse ID="BaseElec1">
-                <EnergyResource>Electricity</EnergyResource>
-                <ResourceBoundary>Site</ResourceBoundary>
-                <ResourceUnits>kWh</ResourceUnits>
-                <PercentResource>1</PercentResource>
-                <EndUse>All end uses</EndUse>
-                <PercentEndUse>1</PercentEndUse>
-                <AnnualFuelUseNativeUnits>2000000</AnnualFuelUseNativeUnits>
-                <AnnualFuelUseConsistentUnits>6829</AnnualFuelUseConsistentUnits>
-                <FuelUseIntensity>9.49</FuelUseIntensity>
-                <UtilityIDs>
-                  <UtilityID IDref="ElectricUtility1"/>
-                </UtilityIDs>
-              </ResourceUse>
-              <ResourceUse ID="BaseNatGas1">
-                <EnergyResource>Natural gas</EnergyResource>
-                <ResourceBoundary>Site</ResourceBoundary>
-                <ResourceUnits>therms</ResourceUnits>
-                <PercentResource>1</PercentResource>
-                <EndUse>All end uses</EndUse>
-                <PercentEndUse>1</PercentEndUse>
-                <AnnualFuelUseNativeUnits>120000</AnnualFuelUseNativeUnits>
-                <AnnualFuelUseConsistentUnits>12000</AnnualFuelUseConsistentUnits>
-                <FuelUseIntensity>0.569</FuelUseIntensity>
-                <UtilityIDs>
-                  <UtilityID IDref="GasUtility1"/>
-                </UtilityIDs>
-              </ResourceUse>
-            </ResourceUses>
-            <TimeSeriesData>
-              <TimeSeries ID="ElectricityTimeSeries1">
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2014-01-01T01:00:00</StartTimeStamp>
-                <EndTimeStamp>2015-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Annual</IntervalFrequency>
-                <IntervalReading>2000000</IntervalReading>
-                <HeatingDegreeDays>6311</HeatingDegreeDays>
-                <CoolingDegreeDays>842</CoolingDegreeDays>
-                <ResourceUseID IDref="BaseElec1"/>
-              </TimeSeries>
-              <TimeSeries ID="NatGasTimeSeries1">
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2014-01-01T01:00:00</StartTimeStamp>
-                <EndTimeStamp>2015-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Annual</IntervalFrequency>
-                <IntervalReading>120000</IntervalReading>
-                <HeatingDegreeDays>6311</HeatingDegreeDays>
-                <CoolingDegreeDays>842</CoolingDegreeDays>
-                <ResourceUseID IDref="BaseNatGas1"/>
-              </TimeSeries>
-            </TimeSeriesData>
-            <AllResourceTotals>
-              <AllResourceTotal ID="BaseEnergy1">
-                <EndUse>All end uses</EndUse>
-                <TemporalStatus>Baseline</TemporalStatus>
-                <SiteEnergyUse>21713000</SiteEnergyUse>
-                <SiteEnergyUseIntensity>103</SiteEnergyUseIntensity>
-                <SourceEnergyUse>43426000</SourceEnergyUse>
-                <SourceEnergyUseIntensity>206</SourceEnergyUseIntensity>
-                <EnergyCost>900000</EnergyCost>
-                <SummerPeak>1000</SummerPeak>
-                <WinterPeak>500</WinterPeak>
-                <WaterUse>100</WaterUse>
-                <WaterIntensity>0.000474</WaterIntensity>
-                <WaterCost>10000</WaterCost>
-              </AllResourceTotal>
-            </AllResourceTotals>
-            <AnnualHeatingDegreeDays>6311</AnnualHeatingDegreeDays>
-            <AnnualCoolingDegreeDays>842</AnnualCoolingDegreeDays>
-            <HDDBaseTemperature>65</HDDBaseTemperature>
-            <CDDBaseTemperature>65</CDDBaseTemperature>
-            <LinkedPremises>
-              <Building>
-                <LinkedBuildingID IDref="Building1"/>
-              </Building>
-            </LinkedPremises>
-          </Scenario>
-          <Scenario ID="Package1">
-            <ScenarioName>AERG Package</ScenarioName>
-            <TemporalStatus>Post retrofit</TemporalStatus>
-            <Normalization>Weather normalized</Normalization>
-            <ScenarioType>
-              <PackageOfMeasures>
-                <ReferenceCase IDref="Baseline1"/>
-                <MeasureIDs>
-                  <MeasureID IDref="Measure1"/>
-                  <MeasureID IDref="Measure2"/>
-                  <MeasureID IDref="Measure3"/>
-                  <MeasureID IDref="Measure4"/>
-                  <MeasureID IDref="Measure6"/>
-                  <MeasureID IDref="Measure8"/>
-                  <MeasureID IDref="Measure9"/>
-                  <MeasureID IDref="Measure16"/>
-                  <MeasureID IDref="Measure19"/>
-                  <MeasureID IDref="Measure20"/>
-                  <MeasureID IDref="Measure21"/>
-                </MeasureIDs>
-                <CalculationMethod>
-                  <Modeled>
-                    <SoftwareProgramUsed>EnergyPlus</SoftwareProgramUsed>
-                    <SoftwareProgramVersion>6.0</SoftwareProgramVersion>
-                  </Modeled>
-                </CalculationMethod>
-                <AnnualSavingsSiteEnergy>6830</AnnualSavingsSiteEnergy>
-                <AnnualSavingsSourceEnergy>12000</AnnualSavingsSourceEnergy>
-                <AnnualSavingsCost>285400</AnnualSavingsCost>
-                <AnnualSavingsByFuels>
-                  <AnnualSavingsByFuel>
-                    <EnergyResource>Electricity</EnergyResource>
-                    <ResourceUnits>kWh</ResourceUnits>
-                    <AnnualSavingsNativeUnits>764357</AnnualSavingsNativeUnits>
-                  </AnnualSavingsByFuel>
-                  <AnnualSavingsByFuel>
-                    <EnergyResource>Natural gas</EnergyResource>
-                    <ResourceUnits>therms</ResourceUnits>
-                    <AnnualSavingsNativeUnits>42134</AnnualSavingsNativeUnits>
-                  </AnnualSavingsByFuel>
-                </AnnualSavingsByFuels>
-                <SummerPeakElectricityReduction>385</SummerPeakElectricityReduction>
-                <WinterPeakElectricityReduction>100</WinterPeakElectricityReduction>
-                <AnnualPeakElectricityReduction>385</AnnualPeakElectricityReduction>
-                <AnnualWaterSavings>5000</AnnualWaterSavings>
-                <AnnualWaterCostSavings>500</AnnualWaterCostSavings>
-                <PackageFirstCost>1089271</PackageFirstCost>
-                <MVCost>15000</MVCost>
-                <OMCostAnnualSavings>3544</OMCostAnnualSavings>
-                <EquipmentDisposalAndSalvageCosts>0</EquipmentDisposalAndSalvageCosts>
-                <ImplementationPeriodCostSavings>0</ImplementationPeriodCostSavings>
-                <FundingFromIncentives>0</FundingFromIncentives>
-                <FundingFromTaxCredits>0</FundingFromTaxCredits>
-                <OtherFinancialIncentives>0</OtherFinancialIncentives>
-                <RecurringIncentives>0</RecurringIncentives>
-                <NPVofTaxImplications>0</NPVofTaxImplications>
-                <CostEffectivenessScreeningMethod>Net present value</CostEffectivenessScreeningMethod>
-                <SimplePayback>3.8</SimplePayback>
-                <NetPresentValue>3577302</NetPresentValue>
-              </PackageOfMeasures>
-            </ScenarioType>
-            <WeatherType>
-              <Normalized>
-                <WeatherDataSource>TMY3</WeatherDataSource>
-              </Normalized>
-            </WeatherType>
-            <ResourceUses>
-              <ResourceUse ID="PackageElec1">
-                <EnergyResource>Electricity</EnergyResource>
-                <ResourceBoundary>Site</ResourceBoundary>
-                <ResourceUnits>kWh</ResourceUnits>
-                <PercentResource>1</PercentResource>
-                <EndUse>All end uses</EndUse>
-                <PercentEndUse>1</PercentEndUse>
-                <AnnualFuelUseNativeUnits>1235643</AnnualFuelUseNativeUnits>
-                <AnnualFuelUseConsistentUnits>4219</AnnualFuelUseConsistentUnits>
-                <FuelUseIntensity>5.86</FuelUseIntensity>
-                <UtilityIDs>
-                  <UtilityID IDref="ElectricUtility1"/>
-                </UtilityIDs>
-              </ResourceUse>
-              <ResourceUse ID="PackageNatGas1">
-                <EnergyResource>Natural gas</EnergyResource>
-                <ResourceBoundary>Site</ResourceBoundary>
-                <ResourceUnits>therms</ResourceUnits>
-                <PercentResource>1</PercentResource>
-                <EndUse>All end uses</EndUse>
-                <PercentEndUse>1</PercentEndUse>
-                <AnnualFuelUseNativeUnits>77866</AnnualFuelUseNativeUnits>
-                <AnnualFuelUseConsistentUnits>7787</AnnualFuelUseConsistentUnits>
-                <FuelUseIntensity>0.369</FuelUseIntensity>
-                <UtilityIDs>
-                  <UtilityID IDref="GasUtility1"/>
-                </UtilityIDs>
-              </ResourceUse>
-            </ResourceUses>
-            <TimeSeriesData>
-              <TimeSeries ID="ElectricityTimeSeriesPackage1">
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2014-01-01T01:00:00</StartTimeStamp>
-                <EndTimeStamp>2015-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Annual</IntervalFrequency>
-                <IntervalReading>1235643</IntervalReading>
-                <HeatingDegreeDays>6311</HeatingDegreeDays>
-                <CoolingDegreeDays>842</CoolingDegreeDays>
-                <ResourceUseID IDref="PackageElec1"/>
-              </TimeSeries>
-              <TimeSeries ID="NatGasTimeSeriesPackage1">
-                <ReadingType>Total</ReadingType>
-                <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-                <StartTimeStamp>2014-01-01T01:00:00</StartTimeStamp>
-                <EndTimeStamp>2015-01-01T00:00:00</EndTimeStamp>
-                <IntervalFrequency>Annual</IntervalFrequency>
-                <IntervalReading>77866</IntervalReading>
-                <HeatingDegreeDays>6311</HeatingDegreeDays>
-                <CoolingDegreeDays>842</CoolingDegreeDays>
-                <ResourceUseID IDref="PackageNatGas1"/>
-              </TimeSeries>
-            </TimeSeriesData>
-            <AllResourceTotals>
-              <AllResourceTotal ID="PackageEnergy1">
-                <EndUse>All end uses</EndUse>
-                <TemporalStatus>Baseline</TemporalStatus>
-                <SiteEnergyUse>14883000</SiteEnergyUse>
-                <SiteEnergyUseIntensity>71</SiteEnergyUseIntensity>
-                <SourceEnergyUse>29766000</SourceEnergyUse>
-                <SourceEnergyUseIntensity>142</SourceEnergyUseIntensity>
-                <EnergyCost>614600</EnergyCost>
-                <SummerPeak>615</SummerPeak>
-                <WinterPeak>400</WinterPeak>
-                <WaterUse>95</WaterUse>
-                <WaterIntensity>0.000451</WaterIntensity>
-                <WaterCost>9500</WaterCost>
-              </AllResourceTotal>
-            </AllResourceTotals>
-            <AnnualHeatingDegreeDays>6311</AnnualHeatingDegreeDays>
-            <AnnualCoolingDegreeDays>842</AnnualCoolingDegreeDays>
-            <HDDBaseTemperature>65</HDDBaseTemperature>
-            <CDDBaseTemperature>65</CDDBaseTemperature>
-            <LinkedPremises>
-              <Building>
-                <LinkedBuildingID IDref="Building1"/>
-              </Building>
-            </LinkedPremises>
-          </Scenario>
-        </Scenarios>
-        <AuditDate>2015-10-07</AuditDate>
-        <ASHRAEAuditLevel>Level 2: Energy Survey and Analysis</ASHRAEAuditLevel>
-        <RetrocommissioningAudit>true</RetrocommissioningAudit>
-        <AuditCost>1000</AuditCost>
-        <DiscountFactor>0.15</DiscountFactor>
-        <AnalysisPeriod>20</AnalysisPeriod>
-        <GasPriceEscalationRate>0.05</GasPriceEscalationRate>
-        <ElectricityPriceEscalationRate>0.05</ElectricityPriceEscalationRate>
-        <WaterPriceEscalationRate>0.05</WaterPriceEscalationRate>
-        <InflationRate>0.03</InflationRate>
-        <Utilities>
-          <Utility ID="ElectricUtility1">
-            <RateSchedules>
-              <RateSchedule>
-                <TypeOfRateStructure>
-                  <FlatRate>
-                    <RatePeriods>
-                      <RatePeriod>
-                        <EnergyCostRate>0.084</EnergyCostRate>
-                        <EnergyRateAdjustment>0.0067</EnergyRateAdjustment>
-                        <ElectricDemandRate>5.75</ElectricDemandRate>
-                        <DemandRateAdjustment>0.46</DemandRateAdjustment>
-                      </RatePeriod>
-                    </RatePeriods>
-                  </FlatRate>
-                </TypeOfRateStructure>
-                <RateStructureSector>Commercial</RateStructureSector>
-                <AverageMarginalCostRate>0.091</AverageMarginalCostRate>
-              </RateSchedule>
-            </RateSchedules>
-            <SourceSiteRatio>3</SourceSiteRatio>
-          </Utility>
-          <Utility ID="GasUtility1">
-            <RateSchedules>
-              <RateSchedule>
-                <TypeOfRateStructure>
-                  <FlatRate>
-                    <RatePeriods>
-                      <RatePeriod>
-                        <EnergyCostRate>0.865</EnergyCostRate>
-                        <EnergyRateAdjustment>0.069</EnergyRateAdjustment>
-                      </RatePeriod>
-                    </RatePeriods>
-                  </FlatRate>
-                </TypeOfRateStructure>
-                <RateStructureSector>Commercial</RateStructureSector>
-                <AverageMarginalCostRate>0.934</AverageMarginalCostRate>
-              </RateSchedule>
-            </RateSchedules>
-            <SourceSiteRatio>1</SourceSiteRatio>
-          </Utility>
-        </Utilities>
-      </Report>
+      <Reports>
+        <Report>
+          <Scenarios>
+            <Scenario ID="Baseline1">
+              <ScenarioName>Baseline</ScenarioName>
+              <TemporalStatus>Pre retrofit</TemporalStatus>
+              <Normalization>Weather normalized</Normalization>
+              <ScenarioType>
+                <CurrentBuilding>
+                  <CalculationMethod>
+                    <Modeled>
+                      <SoftwareProgramUsed>EnergyPlus</SoftwareProgramUsed>
+                      <SoftwareProgramVersion>6.0</SoftwareProgramVersion>
+                    </Modeled>
+                  </CalculationMethod>
+                </CurrentBuilding>
+              </ScenarioType>
+              <WeatherType>
+                <Normalized>
+                  <WeatherDataSource>TMY3</WeatherDataSource>
+                </Normalized>
+              </WeatherType>
+              <ResourceUses>
+                <ResourceUse ID="BaseElec1">
+                  <EnergyResource>Electricity</EnergyResource>
+                  <ResourceBoundary>Site</ResourceBoundary>
+                  <ResourceUnits>kWh</ResourceUnits>
+                  <PercentResource>1</PercentResource>
+                  <EndUse>All end uses</EndUse>
+                  <PercentEndUse>1</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>2000000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>6829</AnnualFuelUseConsistentUnits>
+                  <FuelUseIntensity>9.49</FuelUseIntensity>
+                  <UtilityIDs>
+                    <UtilityID IDref="ElectricUtility1"/>
+                  </UtilityIDs>
+                </ResourceUse>
+                <ResourceUse ID="BaseNatGas1">
+                  <EnergyResource>Natural gas</EnergyResource>
+                  <ResourceBoundary>Site</ResourceBoundary>
+                  <ResourceUnits>therms</ResourceUnits>
+                  <PercentResource>1</PercentResource>
+                  <EndUse>All end uses</EndUse>
+                  <PercentEndUse>1</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>120000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>12000</AnnualFuelUseConsistentUnits>
+                  <FuelUseIntensity>0.569</FuelUseIntensity>
+                  <UtilityIDs>
+                    <UtilityID IDref="GasUtility1"/>
+                  </UtilityIDs>
+                </ResourceUse>
+              </ResourceUses>
+              <TimeSeriesData>
+                <TimeSeries ID="ElectricityTimeSeries1">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2014-01-01T01:00:00</StartTimestamp>
+                  <EndTimestamp>2015-01-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Annual</IntervalFrequency>
+                  <IntervalReading>2000000</IntervalReading>
+                  <HeatingDegreeDays>6311</HeatingDegreeDays>
+                  <CoolingDegreeDays>842</CoolingDegreeDays>
+                  <ResourceUseID IDref="BaseElec1"/>
+                </TimeSeries>
+                <TimeSeries ID="NatGasTimeSeries1">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2014-01-01T01:00:00</StartTimestamp>
+                  <EndTimestamp>2015-01-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Annual</IntervalFrequency>
+                  <IntervalReading>120000</IntervalReading>
+                  <HeatingDegreeDays>6311</HeatingDegreeDays>
+                  <CoolingDegreeDays>842</CoolingDegreeDays>
+                  <ResourceUseID IDref="BaseNatGas1"/>
+                </TimeSeries>
+              </TimeSeriesData>
+              <AllResourceTotals>
+                <AllResourceTotal ID="BaseEnergy1">
+                  <EndUse>All end uses</EndUse>
+                  <TemporalStatus>Baseline</TemporalStatus>
+                  <SiteEnergyUse>21713000</SiteEnergyUse>
+                  <SiteEnergyUseIntensity>103</SiteEnergyUseIntensity>
+                  <SourceEnergyUse>43426000</SourceEnergyUse>
+                  <SourceEnergyUseIntensity>206</SourceEnergyUseIntensity>
+                  <EnergyCost>900000</EnergyCost>
+                  <SummerPeak>1000</SummerPeak>
+                  <WinterPeak>500</WinterPeak>
+                  <WaterUse>100</WaterUse>
+                  <WaterIntensity>0.000474</WaterIntensity>
+                  <WaterCost>10000</WaterCost>
+                </AllResourceTotal>
+              </AllResourceTotals>
+              <AnnualHeatingDegreeDays>6311</AnnualHeatingDegreeDays>
+              <AnnualCoolingDegreeDays>842</AnnualCoolingDegreeDays>
+              <HDDBaseTemperature>65</HDDBaseTemperature>
+              <CDDBaseTemperature>65</CDDBaseTemperature>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building1"/>
+                </Building>
+              </LinkedPremises>
+            </Scenario>
+            <Scenario ID="Package1">
+              <ScenarioName>AERG Package</ScenarioName>
+              <TemporalStatus>Post retrofit</TemporalStatus>
+              <Normalization>Weather normalized</Normalization>
+              <ScenarioType>
+                <PackageOfMeasures>
+                  <ReferenceCase IDref="Baseline1"/>
+                  <MeasureIDs>
+                    <MeasureID IDref="Measure1"/>
+                    <MeasureID IDref="Measure2"/>
+                    <MeasureID IDref="Measure3"/>
+                    <MeasureID IDref="Measure4"/>
+                    <MeasureID IDref="Measure6"/>
+                    <MeasureID IDref="Measure8"/>
+                    <MeasureID IDref="Measure9"/>
+                    <MeasureID IDref="Measure16"/>
+                    <MeasureID IDref="Measure19"/>
+                    <MeasureID IDref="Measure20"/>
+                    <MeasureID IDref="Measure21"/>
+                  </MeasureIDs>
+                  <CalculationMethod>
+                    <Modeled>
+                      <SoftwareProgramUsed>EnergyPlus</SoftwareProgramUsed>
+                      <SoftwareProgramVersion>6.0</SoftwareProgramVersion>
+                    </Modeled>
+                  </CalculationMethod>
+                  <AnnualSavingsSiteEnergy>6830</AnnualSavingsSiteEnergy>
+                  <AnnualSavingsSourceEnergy>12000</AnnualSavingsSourceEnergy>
+                  <AnnualSavingsCost>285400</AnnualSavingsCost>
+                  <AnnualSavingsByFuels>
+                    <AnnualSavingsByFuel>
+                      <EnergyResource>Electricity</EnergyResource>
+                      <ResourceUnits>kWh</ResourceUnits>
+                      <AnnualSavingsNativeUnits>764357</AnnualSavingsNativeUnits>
+                    </AnnualSavingsByFuel>
+                    <AnnualSavingsByFuel>
+                      <EnergyResource>Natural gas</EnergyResource>
+                      <ResourceUnits>therms</ResourceUnits>
+                      <AnnualSavingsNativeUnits>42134</AnnualSavingsNativeUnits>
+                    </AnnualSavingsByFuel>
+                  </AnnualSavingsByFuels>
+                  <SummerPeakElectricityReduction>385</SummerPeakElectricityReduction>
+                  <WinterPeakElectricityReduction>100</WinterPeakElectricityReduction>
+                  <AnnualPeakElectricityReduction>385</AnnualPeakElectricityReduction>
+                  <AnnualWaterSavings>5000</AnnualWaterSavings>
+                  <AnnualWaterCostSavings>500</AnnualWaterCostSavings>
+                  <PackageFirstCost>1089271</PackageFirstCost>
+                  <MVCost>15000</MVCost>
+                  <OMCostAnnualSavings>3544</OMCostAnnualSavings>
+                  <EquipmentDisposalAndSalvageCosts>0</EquipmentDisposalAndSalvageCosts>
+                  <ImplementationPeriodCostSavings>0</ImplementationPeriodCostSavings>
+                  <FundingFromIncentives>0</FundingFromIncentives>
+                  <FundingFromTaxCredits>0</FundingFromTaxCredits>
+                  <OtherFinancialIncentives>0</OtherFinancialIncentives>
+                  <RecurringIncentives>0</RecurringIncentives>
+                  <NPVofTaxImplications>0</NPVofTaxImplications>
+                  <CostEffectivenessScreeningMethod>Net present value</CostEffectivenessScreeningMethod>
+                  <SimplePayback>3.8</SimplePayback>
+                  <NetPresentValue>3577302</NetPresentValue>
+                </PackageOfMeasures>
+              </ScenarioType>
+              <WeatherType>
+                <Normalized>
+                  <WeatherDataSource>TMY3</WeatherDataSource>
+                </Normalized>
+              </WeatherType>
+              <ResourceUses>
+                <ResourceUse ID="PackageElec1">
+                  <EnergyResource>Electricity</EnergyResource>
+                  <ResourceBoundary>Site</ResourceBoundary>
+                  <ResourceUnits>kWh</ResourceUnits>
+                  <PercentResource>1</PercentResource>
+                  <EndUse>All end uses</EndUse>
+                  <PercentEndUse>1</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>1235643</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>4219</AnnualFuelUseConsistentUnits>
+                  <FuelUseIntensity>5.86</FuelUseIntensity>
+                  <UtilityIDs>
+                    <UtilityID IDref="ElectricUtility1"/>
+                  </UtilityIDs>
+                </ResourceUse>
+                <ResourceUse ID="PackageNatGas1">
+                  <EnergyResource>Natural gas</EnergyResource>
+                  <ResourceBoundary>Site</ResourceBoundary>
+                  <ResourceUnits>therms</ResourceUnits>
+                  <PercentResource>1</PercentResource>
+                  <EndUse>All end uses</EndUse>
+                  <PercentEndUse>1</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>77866</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>7787</AnnualFuelUseConsistentUnits>
+                  <FuelUseIntensity>0.369</FuelUseIntensity>
+                  <UtilityIDs>
+                    <UtilityID IDref="GasUtility1"/>
+                  </UtilityIDs>
+                </ResourceUse>
+              </ResourceUses>
+              <TimeSeriesData>
+                <TimeSeries ID="ElectricityTimeSeriesPackage1">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2014-01-01T01:00:00</StartTimestamp>
+                  <EndTimestamp>2015-01-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Annual</IntervalFrequency>
+                  <IntervalReading>1235643</IntervalReading>
+                  <HeatingDegreeDays>6311</HeatingDegreeDays>
+                  <CoolingDegreeDays>842</CoolingDegreeDays>
+                  <ResourceUseID IDref="PackageElec1"/>
+                </TimeSeries>
+                <TimeSeries ID="NatGasTimeSeriesPackage1">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2014-01-01T01:00:00</StartTimestamp>
+                  <EndTimestamp>2015-01-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Annual</IntervalFrequency>
+                  <IntervalReading>77866</IntervalReading>
+                  <HeatingDegreeDays>6311</HeatingDegreeDays>
+                  <CoolingDegreeDays>842</CoolingDegreeDays>
+                  <ResourceUseID IDref="PackageNatGas1"/>
+                </TimeSeries>
+              </TimeSeriesData>
+              <AllResourceTotals>
+                <AllResourceTotal ID="PackageEnergy1">
+                  <EndUse>All end uses</EndUse>
+                  <TemporalStatus>Baseline</TemporalStatus>
+                  <SiteEnergyUse>14883000</SiteEnergyUse>
+                  <SiteEnergyUseIntensity>71</SiteEnergyUseIntensity>
+                  <SourceEnergyUse>29766000</SourceEnergyUse>
+                  <SourceEnergyUseIntensity>142</SourceEnergyUseIntensity>
+                  <EnergyCost>614600</EnergyCost>
+                  <SummerPeak>615</SummerPeak>
+                  <WinterPeak>400</WinterPeak>
+                  <WaterUse>95</WaterUse>
+                  <WaterIntensity>0.000451</WaterIntensity>
+                  <WaterCost>9500</WaterCost>
+                </AllResourceTotal>
+              </AllResourceTotals>
+              <AnnualHeatingDegreeDays>6311</AnnualHeatingDegreeDays>
+              <AnnualCoolingDegreeDays>842</AnnualCoolingDegreeDays>
+              <HDDBaseTemperature>65</HDDBaseTemperature>
+              <CDDBaseTemperature>65</CDDBaseTemperature>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building1"/>
+                </Building>
+              </LinkedPremises>
+            </Scenario>
+          </Scenarios>
+          <AuditDates>
+            <AuditDate>
+              <Date>2015-10-07</Date>
+              <DateType>Completion</DateType>
+            </AuditDate>
+          </AuditDates>
+          <ASHRAEAuditLevel>Level 2: Energy Survey and Analysis</ASHRAEAuditLevel>
+          <RetrocommissioningAudit>true</RetrocommissioningAudit>
+          <AuditCost>1000</AuditCost>
+          <DiscountFactor>0.15</DiscountFactor>
+          <AnalysisPeriod>20</AnalysisPeriod>
+          <GasPriceEscalationRate>0.05</GasPriceEscalationRate>
+          <ElectricityPriceEscalationRate>0.05</ElectricityPriceEscalationRate>
+          <WaterPriceEscalationRate>0.05</WaterPriceEscalationRate>
+          <InflationRate>0.03</InflationRate>
+          <Utilities>
+            <Utility ID="ElectricUtility1">
+              <RateSchedules>
+                <RateSchedule>
+                  <TypeOfRateStructure>
+                    <FlatRate>
+                      <RatePeriods>
+                        <RatePeriod>
+                          <EnergyCostRate>0.084</EnergyCostRate>
+                          <EnergyRateAdjustment>0.0067</EnergyRateAdjustment>
+                          <ElectricDemandRate>5.75</ElectricDemandRate>
+                          <DemandRateAdjustment>0.46</DemandRateAdjustment>
+                        </RatePeriod>
+                      </RatePeriods>
+                    </FlatRate>
+                  </TypeOfRateStructure>
+                  <RateStructureSector>Commercial</RateStructureSector>
+                  <AverageMarginalCostRate>0.091</AverageMarginalCostRate>
+                </RateSchedule>
+              </RateSchedules>
+              <SourceSiteRatio>3</SourceSiteRatio>
+            </Utility>
+            <Utility ID="GasUtility1">
+              <RateSchedules>
+                <RateSchedule>
+                  <TypeOfRateStructure>
+                    <FlatRate>
+                      <RatePeriods>
+                        <RatePeriod>
+                          <EnergyCostRate>0.865</EnergyCostRate>
+                          <EnergyRateAdjustment>0.069</EnergyRateAdjustment>
+                        </RatePeriod>
+                      </RatePeriods>
+                    </FlatRate>
+                  </TypeOfRateStructure>
+                  <RateStructureSector>Commercial</RateStructureSector>
+                  <AverageMarginalCostRate>0.934</AverageMarginalCostRate>
+                </RateSchedule>
+              </RateSchedules>
+              <SourceSiteRatio>1</SourceSiteRatio>
+            </Utility>
+          </Utilities>
+        </Report>
+      </Reports>
     </Facility>
   </Facilities>
 </BuildingSync>

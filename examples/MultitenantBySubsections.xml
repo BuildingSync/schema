@@ -30,9 +30,10 @@
                   <FloorAreaValue>71017</FloorAreaValue>
                 </FloorArea>
               </FloorAreas>
-              <Subsections>
-                <Subsection ID="Suite180">
+              <Sections>
+                <Section ID="Suite180">
                   <PremisesName>Suite 180</PremisesName>
+                  <SectionType>Component</SectionType>
                   <TenantIDs>
                     <TenantID IDref="Tenant1"/>
                   </TenantIDs>
@@ -44,9 +45,10 @@
                       <FloorAreaValue>5000</FloorAreaValue>
                     </FloorArea>
                   </FloorAreas>
-                </Subsection>
-                <Subsection ID="Suite120">
+                </Section>
+                <Section ID="Suite120">
                   <PremisesName>Suite 120</PremisesName>
+                  <SectionType>Component</SectionType>
                   <TenantIDs>
                     <TenantID IDref="Tenant2"/>
                   </TenantIDs>
@@ -58,9 +60,10 @@
                       <FloorAreaValue>5000</FloorAreaValue>
                     </FloorArea>
                   </FloorAreas>
-                </Subsection>
-                <Subsection ID="Suite150">
+                </Section>
+                <Section ID="Suite150">
                   <PremisesName>Suite 150</PremisesName>
+                  <SectionType>Component</SectionType>
                   <TenantIDs>
                     <TenantID IDref="Tenant3"/>
                   </TenantIDs>
@@ -72,9 +75,10 @@
                       <FloorAreaValue>5000</FloorAreaValue>
                     </FloorArea>
                   </FloorAreas>
-                </Subsection>
-                <Subsection ID="Suite155">
+                </Section>
+                <Section ID="Suite155">
                   <PremisesName>Suite 155</PremisesName>
+                  <SectionType>Component</SectionType>
                   <FootprintShape>Rectangular</FootprintShape>
                   <Story>1</Story>
                   <FloorAreas>
@@ -83,9 +87,10 @@
                       <FloorAreaValue>2526</FloorAreaValue>
                     </FloorArea>
                   </FloorAreas>
-                </Subsection>
-                <Subsection ID="Suite110">
+                </Section>
+                <Section ID="Suite110">
                   <PremisesName>Suite 110</PremisesName>
+                  <SectionType>Component</SectionType>
                   <TenantIDs>
                     <TenantID IDref="Tenant4"/>
                   </TenantIDs>
@@ -97,9 +102,10 @@
                       <FloorAreaValue>5000</FloorAreaValue>
                     </FloorArea>
                   </FloorAreas>
-                </Subsection>
-                <Subsection ID="Suite200">
+                </Section>
+                <Section ID="Suite200">
                   <PremisesName>Suite 200</PremisesName>
+                  <SectionType>Component</SectionType>
                   <FootprintShape>Rectangular</FootprintShape>
                   <Story>2</Story>
                   <FloorAreas>
@@ -108,9 +114,10 @@
                       <FloorAreaValue>25757</FloorAreaValue>
                     </FloorArea>
                   </FloorAreas>
-                </Subsection>
-                <Subsection ID="Suite300">
+                </Section>
+                <Section ID="Suite300">
                   <PremisesName>Suite 300</PremisesName>
+                  <SectionType>Component</SectionType>
                   <TenantIDs>
                     <TenantID IDref="Tenant5"/>
                   </TenantIDs>
@@ -122,15 +129,17 @@
                       <FloorAreaValue>25000</FloorAreaValue>
                     </FloorArea>
                   </FloorAreas>
-                </Subsection>
-              </Subsections>
+                </Section>
+              </Sections>
             </Building>
           </Buildings>
         </Site>
       </Sites>
       <Contacts>
         <Contact ID="Contact1">
-          <ContactRole>Occupant</ContactRole>
+          <ContactRoles>
+            <ContactRole>Occupant</ContactRole>
+          </ContactRoles>
           <ContactName>Arthur Dent</ContactName>
           <ContactCompany>Colorado Phone Sanitizers Association</ContactCompany>
           <ContactTelephoneNumbers>

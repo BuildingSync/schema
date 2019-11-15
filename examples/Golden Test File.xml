@@ -16,7 +16,7 @@
             <PostalCode>80401</PostalCode>
           </Address>
           <Buildings>
-            <Building ID="Facility1">
+            <Building ID="Building1">
               <PremisesName>RSF</PremisesName>
               <OccupancyClassification>Office</OccupancyClassification>
               <OccupancyLevels>
@@ -33,6 +33,23 @@
                 </FloorArea>
               </FloorAreas>
               <YearOfConstruction>2011</YearOfConstruction>
+              <Sections>
+                <Section>
+                  <SectionType>Whole building</SectionType>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="RoofID-1">
+                        <RoofArea>10000</RoofArea>
+                      </RoofID>
+                    </Roof>
+                    <Roof>
+                      <RoofID IDref="RoofID-2">
+                        <RoofArea>10000</RoofArea>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                </Section>
+              </Sections>
               <UserDefinedFields>
                 <UserDefinedField>
                   <FieldName>Note</FieldName>
@@ -40,7 +57,7 @@
                 </UserDefinedField>
               </UserDefinedFields>
             </Building>
-            <Building ID="Facility2">
+            <Building ID="Building2">
               <PremisesName>ESIF</PremisesName>
               <OccupancyClassification>Laboratory-Testing</OccupancyClassification>
               <OccupancyLevels>
@@ -59,17 +76,12 @@
                 </FloorArea>
               </FloorAreas>
               <YearOfConstruction>2013</YearOfConstruction>
-              <Subsections>
-                <Subsection ID="Wholebuilding2">
+              <Sections>
+                <Section ID="Wholebuilding2">
                   <PremisesName>Wholebuilding2</PremisesName>
-                </Subsection>
-              </Subsections>
-              <UserDefinedFields>
-                <UserDefinedField>
-                  <FieldName>Note</FieldName>
-                  <FieldValue>This is a note on the ESIF</FieldValue>
-                </UserDefinedField>
-              </UserDefinedFields>
+                  <SectionType>Whole building</SectionType>
+                </Section>
+              </Sections>
             </Building>
           </Buildings>
           <UserDefinedFields>
@@ -106,7 +118,7 @@
             </HeatingAndCoolingSystems>
             <LinkedPremises>
               <Building>
-                <LinkedBuildingID IDref="Facility2"/>
+                <LinkedBuildingID IDref="Building2"/>
               </Building>
             </LinkedPremises>
           </HVACSystem>
@@ -143,29 +155,39 @@
             </HeatingAndCoolingSystems>
             <LinkedPremises>
               <Building>
-                <LinkedBuildingID IDref="Facility1"/>
-                <LinkedBuildingID IDref="Facility2"/>
+                <LinkedBuildingID IDref="Building1"/>
+                <LinkedBuildingID IDref="Building2"/>
               </Building>
             </LinkedPremises>
           </HVACSystem>
         </HVACSystems>
-        <OnSiteStorageTransmissionGenerationSystems>
-          <OnSiteStorageTransmissionGenerationSystem ID="AllThePV">
+        <RoofSystems>
+          <RoofSystem ID="RoofID-1">
+            <RoofConstruction>Built up</RoofConstruction>
+            <RoofRValue>38</RoofRValue>
+          </RoofSystem>
+          <RoofSystem ID="RoofID-2">
+            <RoofConstruction>Concrete solid</RoofConstruction>
+            <RoofRValue>12</RoofRValue>
+          </RoofSystem>
+        </RoofSystems>
+        <OnsiteStorageTransmissionGenerationSystems>
+          <OnsiteStorageTransmissionGenerationSystem ID="AllThePV">
             <EnergyConversionType>
               <Generation>
-                <OnSiteGenerationType>
+                <OnsiteGenerationType>
                   <PV/>
-                </OnSiteGenerationType>
+                </OnsiteGenerationType>
               </Generation>
             </EnergyConversionType>
             <LinkedPremises>
               <Building>
-                <LinkedBuildingID IDref="Facility1"/>
-                <LinkedBuildingID IDref="Facility2"/>
+                <LinkedBuildingID IDref="Building1"/>
+                <LinkedBuildingID IDref="Building2"/>
               </Building>
             </LinkedPremises>
-          </OnSiteStorageTransmissionGenerationSystem>
-        </OnSiteStorageTransmissionGenerationSystems>
+          </OnsiteStorageTransmissionGenerationSystem>
+        </OnsiteStorageTransmissionGenerationSystems>
       </Systems>
       <Measures>
         <Measure ID="Building1RemovePV">
@@ -178,7 +200,7 @@
           </TypeOfMeasure>
           <LinkedPremises>
             <Building>
-              <LinkedBuildingID IDref="Facility1"/>
+              <LinkedBuildingID IDref="Building1"/>
             </Building>
           </LinkedPremises>
         </Measure>
@@ -197,30 +219,32 @@
           </LinkedPremises>
         </Measure>
       </Measures>
-      <Report>
-        <Scenarios>
-          <Scenario ID="Scenario1">
-            <ScenarioName>Remove all the PV from the RSF</ScenarioName>
-            <ScenarioType>
-              <PackageOfMeasures>
-                <MeasureIDs>
-                  <MeasureID IDref="Building1RemovePV"/>
-                </MeasureIDs>
-              </PackageOfMeasures>
-            </ScenarioType>
-          </Scenario>
-          <Scenario ID="Scenario2">
-            <ScenarioName>Remove all the PV from campus</ScenarioName>
-            <ScenarioType>
-              <PackageOfMeasures>
-                <MeasureIDs>
-                  <MeasureID IDref="WholeSiteRemovePV"/>
-                </MeasureIDs>
-              </PackageOfMeasures>
-            </ScenarioType>
-          </Scenario>
-        </Scenarios>
-      </Report>
+      <Reports>
+        <Report>
+          <Scenarios>
+            <Scenario ID="Scenario1">
+              <ScenarioName>Remove all the PV from the RSF</ScenarioName>
+              <ScenarioType>
+                <PackageOfMeasures>
+                  <MeasureIDs>
+                    <MeasureID IDref="Building1RemovePV"/>
+                  </MeasureIDs>
+                </PackageOfMeasures>
+              </ScenarioType>
+            </Scenario>
+            <Scenario ID="Scenario2">
+              <ScenarioName>Remove all the PV from campus</ScenarioName>
+              <ScenarioType>
+                <PackageOfMeasures>
+                  <MeasureIDs>
+                    <MeasureID IDref="WholeSiteRemovePV"/>
+                  </MeasureIDs>
+                </PackageOfMeasures>
+              </ScenarioType>
+            </Scenario>
+          </Scenarios>
+        </Report>
+      </Reports>
     </Facility>
   </Facilities>
 </BuildingSync>
