@@ -6,7 +6,9 @@ Follow the steps below when releasing a new version
     * Update in the <xs:schema ...> element.
     * Update in the first <xs:annotation> element. 
 
-* Convert XSD to JSON schema. This is still in prototype. Use XMLSpy to Generate JSON Schema (use default options).
+* Convert XSD to JSON schema. This is still in prototype. 
+    * Use XMLSpy to Generate JSON Schema (Convert->Convert XML Schema to/from JSON Schema...)
+    * Use the default options
 
 * Ensure that the XSD and JSON Schema have spaces, and not tabs.
 
