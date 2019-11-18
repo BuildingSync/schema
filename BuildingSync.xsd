@@ -1783,7 +1783,7 @@
       </xs:element>
       <xs:element name="DaylightingIlluminanceSetpoint" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Lighting level used for controlling electric lights when daylighting is available. (lux)</xs:documentation>
+          <xs:documentation>Lighting level used for controlling electric lights when daylighting is available.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -1792,6 +1792,20 @@
             </xs:extension>
           </xs:simpleContent>
         </xs:complexType>
+      </xs:element>
+      <xs:element name="DaylightingIlluminanceSetpointUnits" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The units of measure for lighting level used for controlling electric lights when daylighting is available.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="fc"/>
+            <xs:enumeration value="lux"/>
+            <xs:enumeration value="phot"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Unknown"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
       <xs:element ref="auc:TenantIDs" minOccurs="0" maxOccurs="unbounded"/>
