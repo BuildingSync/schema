@@ -15,7 +15,7 @@ Closed Issues: 6
 - Merged [#117]( https://github.com/BuildingSync/schema/issues/117 ), Typo in definition of "CoolRoof" element
 
 
-Accepted Pull Requests: 73
+Accepted Pull Requests: 70
 - Merged [#169]( https://github.com/BuildingSync/schema/pull/169 ), Modify DaylightingIlluminanceSetpoint units
 - Merged [#174]( https://github.com/BuildingSync/schema/pull/174 ), PrimaryHVACSystemType and PrimaryLightingSystemType
 - Merged [#175]( https://github.com/BuildingSync/schema/pull/175 ), Fix spelling errors in documentation for SectionType element
