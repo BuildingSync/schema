@@ -29,7 +29,7 @@
   {
     "name": "AbsorptionHeatSource",
     "sub_name": null,
-    "documentation": "Source of heating energy for regeneration",
+    "documentation": "Source of heating energy for regeneration.",
     "enumerations": [
       "Steam",
       "Solar energy",
@@ -43,7 +43,7 @@
   {
     "name": "AbsorptionStages",
     "sub_name": null,
-    "documentation": "Number of stages in regeneration process",
+    "documentation": "Number of stages in regeneration process.",
     "enumerations": [
       "Single effect",
       "Double effect",
@@ -69,7 +69,7 @@
   {
     "name": "AirInfiltrationTest",
     "sub_name": null,
-    "documentation": "Type of air infiltration test performed on the building",
+    "documentation": "Type of air infiltration test performed on the building.",
     "enumerations": [
       "Blower door",
       "Tracer gas",
@@ -81,7 +81,7 @@
   {
     "name": "AirInfiltrationValueUnits",
     "sub_name": null,
-    "documentation": "Units associated with Air Infiltration Value",
+    "documentation": "Units associated with Air Infiltration Value.",
     "enumerations": [
       "CFM25",
       "CFM50",
@@ -111,7 +111,7 @@
   {
     "name": "AnnualCoolingEfficiencyUnits",
     "sub_name": null,
-    "documentation": "The measure used to quantify efficiency",
+    "documentation": "The measure used to quantify efficiency.",
     "enumerations": [
       "COP",
       "EER",
@@ -122,17 +122,18 @@
     "enumerations_html": "<ul><li>COP</li><li>EER</li><li>SEER</li><li>kW/ton</li><li>Other</li></ul>"
   },
   {
-    "name": "AnnualHeatingEfficiencyUnit",
+    "name": "AnnualHeatingEfficiencyUnits",
     "sub_name": null,
-    "documentation": "The measure used to quantify efficiency",
+    "documentation": "The measure used to quantify efficiency.",
     "enumerations": [
       "COP",
       "AFUE",
       "HSPF",
+      "Thermal Efficiency",
       "Other",
       "Unknown"
     ],
-    "enumerations_html": "<ul><li>COP</li><li>AFUE</li><li>HSPF</li><li>Other</li><li>Unknown</li></ul>"
+    "enumerations_html": "<ul><li>COP</li><li>AFUE</li><li>HSPF</li><li>Thermal Efficiency</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "AssemblyType",
@@ -155,7 +156,7 @@
   {
     "name": "AssessmentLevel",
     "sub_name": null,
-    "documentation": "Value from assessment program, such as LEED \"Platinum\"",
+    "documentation": "Value from assessment program, such as LEED \"Platinum\".",
     "enumerations": [
       "Bronze",
       "Silver",
@@ -241,11 +242,33 @@
   {
     "name": "AuditorQualificationType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
+    "documentation": "BuildingSync Schema - Version 2.0",
     "enumerations": [
       "Professional Engineer (PE)",
+      "Associated Air Balance Council (AABC) Certified Member Agency",
+      "Associated Air Balance Council (AABC) Test and Balance Technician",
+      "Association of Energy Engineers Certified Carbon Reduction Manager (CRM)",
+      "Association of Energy Engineers Certified Sustainable Development Professional (CSDP)",
+      "Association of Energy Engineers Certified Power Quality Professional (CPQ)",
+      "Association of Energy Engineers Certified Demand Side Manager (CDSM)",
+      "Association of Energy Engineers Certified Energy Procurement Professional (CEP)",
+      "Association of Energy Engineers Certified Lighting Efficiency Professional (CLEP)",
+      "Association of Energy Engineers Certified Measurement & Verification Professional (CMVP)",
+      "Association of Energy Engineers Certified GeoExchange Designer Program (CGD)",
+      "Association of Energy Engineers Certified Business Energy Professional (BEP)",
+      "Association of Energy Engineers Certified Industrial Energy Professional (CIEP)",
+      "Association of Energy Engineers Certified Water Efficiency Professional (CWEP)",
+      "Association of Energy Engineers Energy Efficiency Practitioner (EEP)",
+      "Association of Energy Engineers Renewable Energy Professional (REP)",
+      "Association of Energy Engineers Distributed Generation Certified Professional (DGCP)",
+      "Association of Energy Engineers Certified Building Energy Simulation Analyst (BESA)",
+      "Association of Energy Engineers Performance Contracting and Funding Professional (PCF)",
+      "Association of Energy Engineers Certified Residential Energy Auditor (REA)",
+      "Association of Energy Engineers Certified Building Commissioning Firm Program (CBCF)",
+      "Association of Energy Engineers Certified Green Building Engineer (GBE)",
       "Association of Energy Engineers Certified Energy Manager (CEM)",
       "Association of Energy Engineers Certified Energy Auditor (CEA)",
+      "Association of Energy Engineers Certified Building Commissioning Professional (CBCP)",
       "Building Operator Certification (BOC): Level 1",
       "Building Operator Certification (BOC): Level 2",
       "Building Performance Institute (BPI) Certification",
@@ -267,13 +290,20 @@
       "Commissioning Process Management Professional (CPMP)",
       "Accredited Commissioning Process Authority Professional (CxAP)",
       "NYSERDA FlexTech Consultant",
+      "ASHRAE Building Commissioning Professional (BCxP)",
       "ASHRAE Building Energy Assessment Professional (BEAP)",
+      "ASHRAE Building Energy Modeling Professional (BEMP)",
       "Department of Buildings (DOB) Approved Agent",
       "High-Performance Building Design Professional (HBDP)",
+      "GreenPoint Rater Existing Home Multifamily Rater",
+      "HERS Whole House (HERS II) Rater",
+      "International Union of Operating Engineers Certified Energy Specialist",
+      "Northwest Energy Education Institute Energy Management Certification",
+      "PhD in Mechanical Engineering",
       "Other",
       "None"
     ],
-    "enumerations_html": "<ul><li>Professional Engineer (PE)</li><li>Association of Energy Engineers Certified Energy Manager (CEM)</li><li>Association of Energy Engineers Certified Energy Auditor (CEA)</li><li>Building Operator Certification (BOC): Level 1</li><li>Building Operator Certification (BOC): Level 2</li><li>Building Performance Institute (BPI) Certification</li><li>Building Performance Institute (BPI): Building Analyst (BA)</li><li>Building Performance Institute (BPI): Advanced Home Energy Professional (HEP)</li><li>Building Performance Institute (BPI): Advanced Home Energy Professional - Energy Auditor (HEP-EA)</li><li>Building Performance Institute (BPI): Advanced Home Energy Professional - Quality Control Inspector (HEP-QCI)</li><li>Building Performance Institute (BPI): Advanced Home Energy Professional - Retrofit Installer (HEP-RI)</li><li>Building Performance Institute (BPI): Advanced Home Energy Professional - Crew Leader (HEP-CL)</li><li>Building Performance Institute (BPI): Multifamily Building Analyst</li><li>Residential Energy Services Network (RESNET) Certification</li><li>Residential Energy Services Network (RESNET) - Home Partner</li><li>Registered Architect (RA)</li><li>Refrigerating System Operating Engineer</li><li>High Pressure Boiler Operating Engineer</li><li>Certified Commissioning Professional (CCP)</li><li>Associate Commissioning Professional (ACP)</li><li>Existing Building Commissioning Professional (EBCP)</li><li>Commissioning Process Management Professional (CPMP)</li><li>Accredited Commissioning Process Authority Professional (CxAP)</li><li>NYSERDA FlexTech Consultant</li><li>ASHRAE Building Energy Assessment Professional (BEAP)</li><li>Department of Buildings (DOB) Approved Agent</li><li>High-Performance Building Design Professional (HBDP)</li><li>Other</li><li>None</li></ul>"
+    "enumerations_html": "<ul><li>Professional Engineer (PE)</li><li>Associated Air Balance Council (AABC) Certified Member Agency</li><li>Associated Air Balance Council (AABC) Test and Balance Technician</li><li>Association of Energy Engineers Certified Carbon Reduction Manager (CRM)</li><li>Association of Energy Engineers Certified Sustainable Development Professional (CSDP)</li><li>Association of Energy Engineers Certified Power Quality Professional (CPQ)</li><li>Association of Energy Engineers Certified Demand Side Manager (CDSM)</li><li>Association of Energy Engineers Certified Energy Procurement Professional (CEP)</li><li>Association of Energy Engineers Certified Lighting Efficiency Professional (CLEP)</li><li>Association of Energy Engineers Certified Measurement & Verification Professional (CMVP)</li><li>Association of Energy Engineers Certified GeoExchange Designer Program (CGD)</li><li>Association of Energy Engineers Certified Business Energy Professional (BEP)</li><li>Association of Energy Engineers Certified Industrial Energy Professional (CIEP)</li><li>Association of Energy Engineers Certified Water Efficiency Professional (CWEP)</li><li>Association of Energy Engineers Energy Efficiency Practitioner (EEP)</li><li>Association of Energy Engineers Renewable Energy Professional (REP)</li><li>Association of Energy Engineers Distributed Generation Certified Professional (DGCP)</li><li>Association of Energy Engineers Certified Building Energy Simulation Analyst (BESA)</li><li>Association of Energy Engineers Performance Contracting and Funding Professional (PCF)</li><li>Association of Energy Engineers Certified Residential Energy Auditor (REA)</li><li>Association of Energy Engineers Certified Building Commissioning Firm Program (CBCF)</li><li>Association of Energy Engineers Certified Green Building Engineer (GBE)</li><li>Association of Energy Engineers Certified Energy Manager (CEM)</li><li>Association of Energy Engineers Certified Energy Auditor (CEA)</li><li>Association of Energy Engineers Certified Building Commissioning Professional (CBCP)</li><li>Building Operator Certification (BOC): Level 1</li><li>Building Operator Certification (BOC): Level 2</li><li>Building Performance Institute (BPI) Certification</li><li>Building Performance Institute (BPI): Building Analyst (BA)</li><li>Building Performance Institute (BPI): Advanced Home Energy Professional (HEP)</li><li>Building Performance Institute (BPI): Advanced Home Energy Professional - Energy Auditor (HEP-EA)</li><li>Building Performance Institute (BPI): Advanced Home Energy Professional - Quality Control Inspector (HEP-QCI)</li><li>Building Performance Institute (BPI): Advanced Home Energy Professional - Retrofit Installer (HEP-RI)</li><li>Building Performance Institute (BPI): Advanced Home Energy Professional - Crew Leader (HEP-CL)</li><li>Building Performance Institute (BPI): Multifamily Building Analyst</li><li>Residential Energy Services Network (RESNET) Certification</li><li>Residential Energy Services Network (RESNET) - Home Partner</li><li>Registered Architect (RA)</li><li>Refrigerating System Operating Engineer</li><li>High Pressure Boiler Operating Engineer</li><li>Certified Commissioning Professional (CCP)</li><li>Associate Commissioning Professional (ACP)</li><li>Existing Building Commissioning Professional (EBCP)</li><li>Commissioning Process Management Professional (CPMP)</li><li>Accredited Commissioning Process Authority Professional (CxAP)</li><li>NYSERDA FlexTech Consultant</li><li>ASHRAE Building Commissioning Professional (BCxP)</li><li>ASHRAE Building Energy Assessment Professional (BEAP)</li><li>ASHRAE Building Energy Modeling Professional (BEMP)</li><li>Department of Buildings (DOB) Approved Agent</li><li>High-Performance Building Design Professional (HBDP)</li><li>GreenPoint Rater Existing Home Multifamily Rater</li><li>HERS Whole House (HERS II) Rater</li><li>International Union of Operating Engineers Certified Energy Specialist</li><li>Northwest Energy Education Institute Energy Management Certification</li><li>PhD in Mechanical Engineering</li><li>Other</li><li>None</li></ul>"
   },
   {
     "name": "BallastType",
@@ -281,14 +311,15 @@
     "documentation": "A ballast is a piece of equipment required to control the starting and operating voltages of electrical gas discharge lights.",
     "enumerations": [
       "Electromagnetic",
-      "Electronic",
+      "Standard Electronic",
+      "Premium Electronic",
       "Integrated",
       "Core and Coil",
       "F-Can",
       "Other",
       "No Ballast"
     ],
-    "enumerations_html": "<ul><li>Electromagnetic</li><li>Electronic</li><li>Integrated</li><li>Core and Coil</li><li>F-Can</li><li>Other</li><li>No Ballast</li></ul>"
+    "enumerations_html": "<ul><li>Electromagnetic</li><li>Standard Electronic</li><li>Premium Electronic</li><li>Integrated</li><li>Core and Coil</li><li>F-Can</li><li>Other</li><li>No Ballast</li></ul>"
   },
   {
     "name": "BasementConditioning",
@@ -334,7 +365,7 @@
   {
     "name": "BoilerType",
     "sub_name": null,
-    "documentation": "General type of boiler used for space or water heating",
+    "documentation": "General type of boiler used for space or water heating.",
     "enumerations": [
       "Steam",
       "Hot water",
@@ -342,6 +373,16 @@
       "Unknown"
     ],
     "enumerations_html": "<ul><li>Steam</li><li>Hot water</li><li>Other</li><li>Unknown</li></ul>"
+  },
+  {
+    "name": "BoundedDecimalZeroToOne",
+    "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 2.0",
+    "enumerations": [
+      "0",
+      "1"
+    ],
+    "enumerations_html": "<ul><li>0</li><li>1</li></ul>"
   },
   {
     "name": "BuildingClassification",
@@ -400,7 +441,7 @@
   {
     "name": "CMUFill",
     "sub_name": null,
-    "documentation": "The fill condition of hollow unit masonry walls. The definitions correspond to the following conditions:\n\nSolid: Where every cell is grouted\n\nEmpty: Where the cells are partially grouted and the remaining cells are left empty\n\nInsulated: Where the cells are partially grouted and the remaining cells are filled with insulating material.",
+    "documentation": "\n            The fill condition of hollow unit masonry walls. The definitions correspond to the following conditions -- Solid: Where every cell is grouted, Empty: Where the cells are partially grouted and the remaining cells are left empty, Insulated: Where the cells are partially grouted and the remaining cells are filled with insulating material.\n          ",
     "enumerations": [
       "Empty",
       "Insulated",
@@ -453,70 +494,6 @@
     "enumerations_html": "<ul><li>Horizontal</li><li>Vertical</li><li>Combination</li><li>Unknown</li></ul>"
   },
   {
-    "name": "CeilingColor",
-    "sub_name": null,
-    "documentation": "Color of a material or component. Can be applied to opaque surfaces, materials, and so forth.",
-    "enumerations": [
-      "White",
-      "Light",
-      "Medium",
-      "Medium dark",
-      "Dark",
-      "Other",
-      "Unknown"
-    ],
-    "enumerations_html": "<ul><li>White</li><li>Light</li><li>Medium</li><li>Medium dark</li><li>Dark</li><li>Other</li><li>Unknown</li></ul>"
-  },
-  {
-    "name": "CeilingFinish",
-    "sub_name": null,
-    "documentation": "The final material applied to a surface, either interior or exterior. Some structural components don't have an exterior finish, such as unfinished poured concrete.",
-    "enumerations": [
-      "Wood",
-      "Masonite",
-      "Stone",
-      "Tile",
-      "Brick",
-      "Masonry",
-      "Concrete",
-      "Fiber cement",
-      "Metal",
-      "Metal panel",
-      "Metal panel standing seam",
-      "Sheet metal",
-      "EIFS",
-      "Shingles asphalt",
-      "Shingles composition",
-      "Shingles wood",
-      "Shingles asbestos",
-      "Shingles slate or tile",
-      "Shakes wood",
-      "Carpet",
-      "Linoleum",
-      "Asphalt or fiberglass",
-      "Plastic rubber synthetic sheeting",
-      "Other",
-      "Unknown"
-    ],
-    "enumerations_html": "<ul><li>Wood</li><li>Masonite</li><li>Stone</li><li>Tile</li><li>Brick</li><li>Masonry</li><li>Concrete</li><li>Fiber cement</li><li>Metal</li><li>Metal panel</li><li>Metal panel standing seam</li><li>Sheet metal</li><li>EIFS</li><li>Shingles asphalt</li><li>Shingles composition</li><li>Shingles wood</li><li>Shingles asbestos</li><li>Shingles slate or tile</li><li>Shakes wood</li><li>Carpet</li><li>Linoleum</li><li>Asphalt or fiberglass</li><li>Plastic rubber synthetic sheeting</li><li>Other</li><li>Unknown</li></ul>"
-  },
-  {
-    "name": "CeilingFramingMaterial",
-    "sub_name": null,
-    "documentation": "The material used to create the structural integrity in an opaque surface. In many cases the framing material is not continuous across the construction.",
-    "enumerations": [
-      "Wood",
-      "Steel",
-      "Concrete",
-      "Brick",
-      "Masonry",
-      "Other",
-      "Unknown",
-      "None"
-    ],
-    "enumerations_html": "<ul><li>Wood</li><li>Steel</li><li>Concrete</li><li>Brick</li><li>Masonry</li><li>Other</li><li>Unknown</li><li>None</li></ul>"
-  },
-  {
     "name": "CeilingInsulationApplication",
     "sub_name": null,
     "documentation": "A description of the type of insulation and how it is applied.",
@@ -563,15 +540,16 @@
   {
     "name": "ChillerCompressorDriver",
     "sub_name": null,
-    "documentation": "Vehicle for driving the compressor used in a chiller",
+    "documentation": "Vehicle for driving the compressor used in a chiller.",
     "enumerations": [
       "Electric Motor",
       "Steam",
       "Gas Turbine",
+      "Gas Engine",
       "Other",
       "Unknown"
     ],
-    "enumerations_html": "<ul><li>Electric Motor</li><li>Steam</li><li>Gas Turbine</li><li>Other</li><li>Unknown</li></ul>"
+    "enumerations_html": "<ul><li>Electric Motor</li><li>Steam</li><li>Gas Turbine</li><li>Gas Engine</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "ChillerCompressorType",
@@ -590,7 +568,7 @@
   {
     "name": "ChillerType",
     "sub_name": null,
-    "documentation": "Type of chiller",
+    "documentation": "Type of chiller.",
     "enumerations": [
       "Vapor compression",
       "Absorption",
@@ -761,6 +739,60 @@
     "enumerations_html": "<ul><li>ASHRAE</li><li>IECC</li><li>California Title 24</li><li>IgCC</li><li>Other</li></ul>"
   },
   {
+    "name": "Color",
+    "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 2.0",
+    "enumerations": [
+      "White",
+      "Light",
+      "Medium",
+      "Medium dark",
+      "Dark",
+      "Reflective",
+      "Other",
+      "Unknown"
+    ],
+    "enumerations_html": "<ul><li>White</li><li>Light</li><li>Medium</li><li>Medium dark</li><li>Dark</li><li>Reflective</li><li>Other</li><li>Unknown</li></ul>"
+  },
+  {
+    "name": "CommunicationProtocolAnalogType",
+    "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 2.0",
+    "enumerations": [
+      "AMX192",
+      "Current",
+      "D54",
+      "Voltage",
+      "Other",
+      "Unknown",
+      "None"
+    ],
+    "enumerations_html": "<ul><li>AMX192</li><li>Current</li><li>D54</li><li>Voltage</li><li>Other</li><li>Unknown</li><li>None</li></ul>"
+  },
+  {
+    "name": "CommunicationProtocolDigitalType",
+    "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 2.0",
+    "enumerations": [
+      "BACnet",
+      "DALI",
+      "DMX512",
+      "DSI ",
+      "EnOcean",
+      "KMX",
+      "Konnex",
+      "LonTalk",
+      "MODBUS",
+      "PROFIBUS FMS",
+      "X10",
+      "ZigBee",
+      "Other",
+      "Unknown",
+      "None"
+    ],
+    "enumerations_html": "<ul><li>BACnet</li><li>DALI</li><li>DMX512</li><li>DSI </li><li>EnOcean</li><li>KMX</li><li>Konnex</li><li>LonTalk</li><li>MODBUS</li><li>PROFIBUS FMS</li><li>X10</li><li>ZigBee</li><li>Other</li><li>Unknown</li><li>None</li></ul>"
+  },
+  {
     "name": "CompressorStaging",
     "sub_name": null,
     "documentation": "The compressor staging for the unit. Select \"Single Stage\" for units with single stage (on/off) control. Select \"Multiple, Discrete Stages\" for units with multiple compressors, discrete unloading stages, or compressors with stepped speed motors that are controlled to operate at discrete stages. Select \"Variable\" for compressors that operate at variable speeds or with modulating unloading.",
@@ -800,6 +832,19 @@
       "Unknown"
     ],
     "enumerations_html": "<ul><li>Variable Volume</li><li>Stepped Speed</li><li>Constant Volume</li><li>Other</li><li>Unknown</li></ul>"
+  },
+  {
+    "name": "CondensingOperation",
+    "sub_name": null,
+    "documentation": "The capability of the boiler or furnace to condense water vapor in the exhaust flue gas to obtain a higher efficiency.",
+    "enumerations": [
+      "Condensing",
+      "Near-Condensing",
+      "Non-Condensing",
+      "Other",
+      "Unknown"
+    ],
+    "enumerations_html": "<ul><li>Condensing</li><li>Near-Condensing</li><li>Non-Condensing</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "ContactEmailAddressLabel",
@@ -856,9 +901,10 @@
       "Lender",
       "Servicer",
       "Originator",
+      "Submitter",
       "Other"
     ],
-    "enumerations_html": "<ul><li>Premises</li><li>Occupant</li><li>Agency</li><li>Owner</li><li>Customer</li><li>Customer agreement</li><li>Administrator</li><li>Qualified Assessor</li><li>Contributor</li><li>Property Management Company</li><li>Operator</li><li>Energy Auditor</li><li>Energy Modeler</li><li>Contractor</li><li>Implementer</li><li>Financier</li><li>Commissioning Agent</li><li>MV Agent</li><li>Evaluator</li><li>Builder</li><li>Service</li><li>Billing</li><li>Architect</li><li>Mechanical Engineer</li><li>Energy Consultant</li><li>Service and Product Provider</li><li>Authority Having Jurisdiction</li><li>Utility</li><li>Power plant</li><li>Electric Distribution Utility (EDU)</li><li>ESCO</li><li>Facilitator</li><li>Facility Manager</li><li>Trainer</li><li>Electrical Engineer</li><li>Controls Engineer</li><li>Lender</li><li>Servicer</li><li>Originator</li><li>Other</li></ul>"
+    "enumerations_html": "<ul><li>Premises</li><li>Occupant</li><li>Agency</li><li>Owner</li><li>Customer</li><li>Customer agreement</li><li>Administrator</li><li>Qualified Assessor</li><li>Contributor</li><li>Property Management Company</li><li>Operator</li><li>Energy Auditor</li><li>Energy Modeler</li><li>Contractor</li><li>Implementer</li><li>Financier</li><li>Commissioning Agent</li><li>MV Agent</li><li>Evaluator</li><li>Builder</li><li>Service</li><li>Billing</li><li>Architect</li><li>Mechanical Engineer</li><li>Energy Consultant</li><li>Service and Product Provider</li><li>Authority Having Jurisdiction</li><li>Utility</li><li>Power plant</li><li>Electric Distribution Utility (EDU)</li><li>ESCO</li><li>Facilitator</li><li>Facility Manager</li><li>Trainer</li><li>Electrical Engineer</li><li>Controls Engineer</li><li>Lender</li><li>Servicer</li><li>Originator</li><li>Submitter</li><li>Other</li></ul>"
   },
   {
     "name": "ContactTelephoneNumberLabel",
@@ -873,6 +919,133 @@
     "enumerations_html": "<ul><li>Days</li><li>Evenings</li><li>Cell</li><li>Other</li></ul>"
   },
   {
+    "name": "ControlSensor",
+    "sub_name": null,
+    "documentation": "Type of sensor for detecting occupancy.",
+    "enumerations": [
+      "Passive infrared",
+      "Ultrasonic",
+      "Passive infrared and ultrasonic",
+      "Microwave",
+      "Camera",
+      "Other",
+      "Unknown"
+    ],
+    "enumerations_html": "<ul><li>Passive infrared</li><li>Ultrasonic</li><li>Passive infrared and ultrasonic</li><li>Microwave</li><li>Camera</li><li>Other</li><li>Unknown</li></ul>"
+  },
+  {
+    "name": "ControlSensorDaylightingType",
+    "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 2.0",
+    "enumerations": [
+      "Camera",
+      "Photocell",
+      "Other",
+      "Unknown"
+    ],
+    "enumerations_html": "<ul><li>Camera</li><li>Photocell</li><li>Other</li><li>Unknown</li></ul>"
+  },
+  {
+    "name": "ControlSensorOccupancyType",
+    "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 2.0",
+    "enumerations": [
+      "Passive infrared",
+      "Ultrasonic",
+      "Passive infrared and ultrasonic",
+      "Microwave",
+      "Camera",
+      "Other",
+      "Unknown"
+    ],
+    "enumerations_html": "<ul><li>Passive infrared</li><li>Ultrasonic</li><li>Passive infrared and ultrasonic</li><li>Microwave</li><li>Camera</li><li>Other</li><li>Unknown</li></ul>"
+  },
+  {
+    "name": "ControlStrategy",
+    "sub_name": null,
+    "documentation": "Manual lighting control strategy.",
+    "enumerations": [
+      "Always On",
+      "Always Off",
+      "Manual On/Off",
+      "Manual Dimming",
+      "Bi-level Control",
+      "Tri-level Control",
+      "Other",
+      "None",
+      "Unknown"
+    ],
+    "enumerations_html": "<ul><li>Always On</li><li>Always Off</li><li>Manual On/Off</li><li>Manual Dimming</li><li>Bi-level Control</li><li>Tri-level Control</li><li>Other</li><li>None</li><li>Unknown</li></ul>"
+  },
+  {
+    "name": "ControlStrategyDaylightingType",
+    "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 2.0",
+    "enumerations": [
+      "Continuous",
+      "Continuous Plus Off",
+      "Stepped Dimming",
+      "Stepped Switching",
+      "Other",
+      "None",
+      "Unknown"
+    ],
+    "enumerations_html": "<ul><li>Continuous</li><li>Continuous Plus Off</li><li>Stepped Dimming</li><li>Stepped Switching</li><li>Other</li><li>None</li><li>Unknown</li></ul>"
+  },
+  {
+    "name": "ControlStrategyGeneralType",
+    "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 2.0",
+    "enumerations": [
+      "Always On",
+      "Aquastat",
+      "Astronomical",
+      "Chronological",
+      "EMCS",
+      "Demand",
+      "Manual",
+      "Programmable",
+      "Timer",
+      "Other",
+      "Unknown",
+      "None"
+    ],
+    "enumerations_html": "<ul><li>Always On</li><li>Aquastat</li><li>Astronomical</li><li>Chronological</li><li>EMCS</li><li>Demand</li><li>Manual</li><li>Programmable</li><li>Timer</li><li>Other</li><li>Unknown</li><li>None</li></ul>"
+  },
+  {
+    "name": "ControlStrategyLightingType",
+    "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 2.0",
+    "enumerations": [
+      "Advanced",
+      "Always On",
+      "Astronomical",
+      "Chronological",
+      "Demand",
+      "EMCS",
+      "Manual",
+      "Programmable",
+      "Timer",
+      "Other",
+      "Unknown",
+      "None"
+    ],
+    "enumerations_html": "<ul><li>Advanced</li><li>Always On</li><li>Astronomical</li><li>Chronological</li><li>Demand</li><li>EMCS</li><li>Manual</li><li>Programmable</li><li>Timer</li><li>Other</li><li>Unknown</li><li>None</li></ul>"
+  },
+  {
+    "name": "ControlStrategyOccupancyType",
+    "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 2.0",
+    "enumerations": [
+      "Occupancy Sensors",
+      "Vacancy Sensors",
+      "Other",
+      "None",
+      "Unknown"
+    ],
+    "enumerations_html": "<ul><li>Occupancy Sensors</li><li>Vacancy Sensors</li><li>Other</li><li>None</li><li>Unknown</li></ul>"
+  },
+  {
     "name": "ControlTechnology",
     "sub_name": null,
     "documentation": "Type of system operation control.",
@@ -885,9 +1058,10 @@
       "Always On",
       "Timer",
       "Other",
-      "Unknown"
+      "Unknown",
+      "None"
     ],
-    "enumerations_html": "<ul><li>Programmable Thermostat</li><li>Manual Analog Thermostat</li><li>Manual Digital Thermostat</li><li>Manual On/Off</li><li>EMCS</li><li>Always On</li><li>Timer</li><li>Other</li><li>Unknown</li></ul>"
+    "enumerations_html": "<ul><li>Programmable Thermostat</li><li>Manual Analog Thermostat</li><li>Manual Digital Thermostat</li><li>Manual On/Off</li><li>EMCS</li><li>Always On</li><li>Timer</li><li>Other</li><li>Unknown</li><li>None</li></ul>"
   },
   {
     "name": "ConvectionType",
@@ -959,7 +1133,7 @@
   {
     "name": "CoolingTowerCellControl",
     "sub_name": null,
-    "documentation": "Type of system operation control.",
+    "documentation": "Cooling tower cell control type.",
     "enumerations": [
       "Max Cells",
       "Min Cells",
@@ -971,7 +1145,7 @@
   {
     "name": "CoolingTowerFanControl",
     "sub_name": null,
-    "documentation": "Type of system operation control.",
+    "documentation": "Cooling tower fan control type.",
     "enumerations": [
       "Single Speed",
       "Two Speed",
@@ -984,7 +1158,7 @@
   {
     "name": "CoolingTowerTemperatureControl",
     "sub_name": null,
-    "documentation": "Type of system operation control.",
+    "documentation": "Cooling tower temperature control type.",
     "enumerations": [
       "Wet Bulb Reset",
       "Other",
@@ -1029,9 +1203,22 @@
     "enumerations_html": "<ul><li>Split DX air conditioner</li><li>Packaged terminal air conditioner (PTAC)</li><li>Split heat pump</li><li>Packaged terminal heat pump (PTHP)</li><li>Variable refrigerant flow</li><li>Packaged/unitary direct expansion/RTU</li><li>Packaged/unitary heat pump</li><li>Single package vertical air conditioner</li><li>Single package vertical heat pump</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
+    "name": "DateType",
+    "sub_name": null,
+    "documentation": "Type of AuditDate.",
+    "enumerations": [
+      "Site Visit",
+      "Conducted",
+      "Completion",
+      "Custom",
+      "Other"
+    ],
+    "enumerations_html": "<ul><li>Site Visit</li><li>Conducted</li><li>Completion</li><li>Custom</li><li>Other</li></ul>"
+  },
+  {
     "name": "DayType",
     "sub_name": null,
-    "documentation": "Type of day for which the schedule will be specified",
+    "documentation": "Type of day for which the schedule will be specified.",
     "enumerations": [
       "All week",
       "Weekday",
@@ -1151,7 +1338,7 @@
   {
     "name": "DistrictHeatingType",
     "sub_name": null,
-    "documentation": "General type of district heating used for space or water heating",
+    "documentation": "General type of district heating used for space or water heating.",
     "enumerations": [
       "Hot water",
       "Direct steam",
@@ -1184,6 +1371,18 @@
       "Unknown"
     ],
     "enumerations_html": "<ul><li>NonSwinging</li><li>Swinging</li><li>Unknown</li></ul>"
+  },
+  {
+    "name": "DraftBoundary",
+    "sub_name": null,
+    "documentation": "The boundary that encompasses the draft mechanism used for drawing air through the boiler or furnace.",
+    "enumerations": [
+      "Direct",
+      "Direct indirect",
+      "Indirect",
+      "Other"
+    ],
+    "enumerations_html": "<ul><li>Direct</li><li>Direct indirect</li><li>Indirect</li><li>Other</li></ul>"
   },
   {
     "name": "DraftType",
@@ -1228,7 +1427,7 @@
   {
     "name": "DuctLeakageTestMethod",
     "sub_name": null,
-    "documentation": "Method used to estimate duct leakage",
+    "documentation": "Method used to estimate duct leakage.",
     "enumerations": [
       "Duct leakage tester",
       "Blower door subtract",
@@ -1241,7 +1440,7 @@
   {
     "name": "DuctSealing",
     "sub_name": null,
-    "documentation": "Condition of duct sealing",
+    "documentation": "Condition of duct sealing.",
     "enumerations": [
       "Connections sealed with mastic",
       "No observable leaks",
@@ -1325,7 +1524,7 @@
   {
     "name": "EndUse",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
+    "documentation": "BuildingSync Schema - Version 2.0",
     "enumerations": [
       "All end uses",
       "Total lighting",
@@ -1378,7 +1577,7 @@
   {
     "name": "EnvelopeConstructionType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
+    "documentation": "BuildingSync Schema - Version 2.0",
     "enumerations": [
       "Masonry",
       "Structural brick",
@@ -1420,7 +1619,7 @@
   {
     "name": "EquipmentCondition",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
+    "documentation": "BuildingSync Schema - Version 2.0",
     "enumerations": [
       "Excellent",
       "Good",
@@ -1434,7 +1633,7 @@
   {
     "name": "EvaporativeCoolingType",
     "sub_name": null,
-    "documentation": "Defines the type of evaporative cooler operation",
+    "documentation": "Defines the type of evaporative cooler operation.",
     "enumerations": [
       "Direct",
       "Direct indirect",
@@ -1474,7 +1673,7 @@
   {
     "name": "ExteriorRoughness",
     "sub_name": null,
-    "documentation": "A description of the roughness of the exposed surface of a material. This property is used to approximate the effect of the surface condition on the convection of air across the surface. In energy simulation models, it is used to help determine the convection coefficients for a surface.",
+    "documentation": "BuildingSync Schema - Version 2.0",
     "enumerations": [
       "Very rough",
       "Rough",
@@ -1508,55 +1707,6 @@
     "enumerations_html": "<ul><li>Overhang</li><li>Fin</li><li>Awning</li><li>Solar screen</li><li>Solar film</li><li>Louver</li><li>Screen</li><li>Deciduous foliage</li><li>Evergreen foliage</li><li>Neighboring building</li><li>None</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
-    "name": "ExteriorWallColor",
-    "sub_name": null,
-    "documentation": "Color of a material or component. Can be applied to opaque surfaces, materials, and so forth.",
-    "enumerations": [
-      "White",
-      "Light",
-      "Medium",
-      "Medium dark",
-      "Dark",
-      "Reflective",
-      "Other",
-      "Unknown"
-    ],
-    "enumerations_html": "<ul><li>White</li><li>Light</li><li>Medium</li><li>Medium dark</li><li>Dark</li><li>Reflective</li><li>Other</li><li>Unknown</li></ul>"
-  },
-  {
-    "name": "ExteriorWallFinish",
-    "sub_name": null,
-    "documentation": "The final material applied to a surface, either interior or exterior. Some structural components don't have an exterior finish, such as unfinished poured concrete.",
-    "enumerations": [
-      "Wood",
-      "Masonite",
-      "Stone",
-      "Tile",
-      "Brick",
-      "Masonry",
-      "Concrete",
-      "Fiber cement",
-      "Metal",
-      "Metal panel",
-      "Metal panel standing seam",
-      "Sheet metal",
-      "EIFS",
-      "Shingles asphalt",
-      "Shingles composition",
-      "Shingles wood",
-      "Shingles asbestos",
-      "Shingles slate or tile",
-      "Shakes wood",
-      "Carpet",
-      "Linoleum",
-      "Asphalt or fiberglass",
-      "Plastic rubber synthetic sheeting",
-      "Other",
-      "Unknown"
-    ],
-    "enumerations_html": "<ul><li>Wood</li><li>Masonite</li><li>Stone</li><li>Tile</li><li>Brick</li><li>Masonry</li><li>Concrete</li><li>Fiber cement</li><li>Metal</li><li>Metal panel</li><li>Metal panel standing seam</li><li>Sheet metal</li><li>EIFS</li><li>Shingles asphalt</li><li>Shingles composition</li><li>Shingles wood</li><li>Shingles asbestos</li><li>Shingles slate or tile</li><li>Shakes wood</li><li>Carpet</li><li>Linoleum</li><li>Asphalt or fiberglass</li><li>Plastic rubber synthetic sheeting</li><li>Other</li><li>Unknown</li></ul>"
-  },
-  {
     "name": "ExternalPowerSupply",
     "sub_name": null,
     "documentation": "Designed to convert line voltage ac input into lower voltage ac or dc output, convert to only one output voltage at a time, contained in a separate physical enclosure from the end-use product, and does not have batteries or battery packs that physically attach directly (including those that are removable) to the power supply unit.",
@@ -1573,7 +1723,7 @@
   {
     "name": "FanApplication",
     "sub_name": null,
-    "documentation": "Application of fan (supply, return, or exhaust)",
+    "documentation": "Application of fan (supply, return, or exhaust).",
     "enumerations": [
       "Supply",
       "Return",
@@ -1641,7 +1791,7 @@
   {
     "name": "FenestrationFrameMaterial",
     "sub_name": null,
-    "documentation": "The construction and material used in the frame of the fenestration product. Some frames are made of combinations of materials. This characterization also include whether an aluminum frame has a thermal break as part of the construction",
+    "documentation": "The construction and material used in the frame of the fenestration product. Some frames are made of combinations of materials. This characterization also include whether an aluminum frame has a thermal break as part of the construction.",
     "enumerations": [
       "Aluminum uncategorized",
       "Aluminum no thermal break",
@@ -1685,9 +1835,42 @@
     "enumerations_html": "<ul><li>Single pane</li><li>Double pane</li><li>Triple pane</li><li>Single paned with storm panel</li><li>Unknown</li></ul>"
   },
   {
+    "name": "Finish",
+    "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 2.0",
+    "enumerations": [
+      "Wood",
+      "Masonite",
+      "Stone",
+      "Tile",
+      "Brick",
+      "Masonry",
+      "Concrete",
+      "Fiber cement",
+      "Metal",
+      "Metal panel",
+      "Metal panel standing seam",
+      "Sheet metal",
+      "EIFS",
+      "Shingles asphalt",
+      "Shingles composition",
+      "Shingles wood",
+      "Shingles asbestos",
+      "Shingles slate or tile",
+      "Shakes wood",
+      "Carpet",
+      "Linoleum",
+      "Asphalt or fiberglass",
+      "Plastic rubber synthetic sheeting",
+      "Other",
+      "Unknown"
+    ],
+    "enumerations_html": "<ul><li>Wood</li><li>Masonite</li><li>Stone</li><li>Tile</li><li>Brick</li><li>Masonry</li><li>Concrete</li><li>Fiber cement</li><li>Metal</li><li>Metal panel</li><li>Metal panel standing seam</li><li>Sheet metal</li><li>EIFS</li><li>Shingles asphalt</li><li>Shingles composition</li><li>Shingles wood</li><li>Shingles asbestos</li><li>Shingles slate or tile</li><li>Shakes wood</li><li>Carpet</li><li>Linoleum</li><li>Asphalt or fiberglass</li><li>Plastic rubber synthetic sheeting</li><li>Other</li><li>Unknown</li></ul>"
+  },
+  {
     "name": "FloorAreaPercentage",
     "sub_name": null,
-    "documentation": "The percentage of subsection floor area that belongs to a FloorAreaType. (0-100) (%)",
+    "documentation": "The percentage of floor area that belongs to a FloorAreaType. (0-100) (%)",
     "enumerations": [
       "0.0",
       "100.0"
@@ -1744,7 +1927,7 @@
   {
     "name": "FluorescentStartType",
     "sub_name": null,
-    "documentation": "Start technology used with fluorescent ballasts",
+    "documentation": "Start technology used with fluorescent ballasts.",
     "enumerations": [
       "Instant start",
       "Rapid start",
@@ -1757,7 +1940,7 @@
   {
     "name": "FootprintShape",
     "sub_name": null,
-    "documentation": "General shape of subsection or building footprint as defined in the BuildingSync Geometry Reference Sheet.",
+    "documentation": "General shape of the section of the building as a footprint defined in the BuildingSync Geometry Reference Sheet.",
     "enumerations": [
       "Rectangular",
       "L-Shape",
@@ -1782,6 +1965,22 @@
       "None"
     ],
     "enumerations_html": "<ul><li>Cavity</li><li>Continuous</li><li>Other</li><li>Unknown</li><li>None</li></ul>"
+  },
+  {
+    "name": "FramingMaterial",
+    "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 2.0",
+    "enumerations": [
+      "Wood",
+      "Steel",
+      "Concrete",
+      "Brick",
+      "Masonry",
+      "Other",
+      "Unknown",
+      "None"
+    ],
+    "enumerations_html": "<ul><li>Wood</li><li>Steel</li><li>Concrete</li><li>Brick</li><li>Masonry</li><li>Other</li><li>Unknown</li><li>None</li></ul>"
   },
   {
     "name": "FrequencyOfMaintenance",
@@ -1816,14 +2015,20 @@
   {
     "name": "FuelTypes",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
+    "documentation": "BuildingSync Schema - Version 2.0",
     "enumerations": [
       "Electricity",
+      "Electricity-Exported",
+      "Electricity-Onsite generated",
       "Natural gas",
       "Fuel oil",
       "Fuel oil no 1",
       "Fuel oil no 2",
       "Fuel oil no 4",
+      "Fuel oil no 5",
+      "Fuel oil no 5 (light)",
+      "Fuel oil no 5 (heavy)",
+      "Fuel oil no 6",
       "Fuel oil no 5 and no 6",
       "District steam",
       "District hot water",
@@ -1840,6 +2045,9 @@
       "Wood pellets",
       "Hydropower",
       "Biofuel",
+      "Biofuel B5",
+      "Biofuel B10",
+      "Biofuel B20",
       "Wind",
       "Geothermal",
       "Solar",
@@ -1850,10 +2058,18 @@
       "Ethanol",
       "Biodiesel",
       "Waste heat",
+      "Dual fuel",
+      "Gasoline",
+      "Thermal-Exported",
+      "Thermal-Onsite generated",
+      "Other delivered-Exported",
+      "Other delivered-Onsite generated",
+      "Other metered-Exported",
+      "Other metered-Onsite generated",
       "Other",
       "Unknown"
     ],
-    "enumerations_html": "<ul><li>Electricity</li><li>Natural gas</li><li>Fuel oil</li><li>Fuel oil no 1</li><li>Fuel oil no 2</li><li>Fuel oil no 4</li><li>Fuel oil no 5 and no 6</li><li>District steam</li><li>District hot water</li><li>District chilled water</li><li>Propane</li><li>Liquid propane</li><li>Kerosene</li><li>Diesel</li><li>Coal</li><li>Coal anthracite</li><li>Coal bituminous</li><li>Coke</li><li>Wood</li><li>Wood pellets</li><li>Hydropower</li><li>Biofuel</li><li>Wind</li><li>Geothermal</li><li>Solar</li><li>Biomass</li><li>Hydrothermal</li><li>Dry steam</li><li>Flash steam</li><li>Ethanol</li><li>Biodiesel</li><li>Waste heat</li><li>Other</li><li>Unknown</li></ul>"
+    "enumerations_html": "<ul><li>Electricity</li><li>Electricity-Exported</li><li>Electricity-Onsite generated</li><li>Natural gas</li><li>Fuel oil</li><li>Fuel oil no 1</li><li>Fuel oil no 2</li><li>Fuel oil no 4</li><li>Fuel oil no 5</li><li>Fuel oil no 5 (light)</li><li>Fuel oil no 5 (heavy)</li><li>Fuel oil no 6</li><li>Fuel oil no 5 and no 6</li><li>District steam</li><li>District hot water</li><li>District chilled water</li><li>Propane</li><li>Liquid propane</li><li>Kerosene</li><li>Diesel</li><li>Coal</li><li>Coal anthracite</li><li>Coal bituminous</li><li>Coke</li><li>Wood</li><li>Wood pellets</li><li>Hydropower</li><li>Biofuel</li><li>Biofuel B5</li><li>Biofuel B10</li><li>Biofuel B20</li><li>Wind</li><li>Geothermal</li><li>Solar</li><li>Biomass</li><li>Hydrothermal</li><li>Dry steam</li><li>Flash steam</li><li>Ethanol</li><li>Biodiesel</li><li>Waste heat</li><li>Dual fuel</li><li>Gasoline</li><li>Thermal-Exported</li><li>Thermal-Onsite generated</li><li>Other delivered-Exported</li><li>Other delivered-Onsite generated</li><li>Other metered-Exported</li><li>Other metered-Onsite generated</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "FurnaceType",
@@ -1901,6 +2117,19 @@
       "Unknown"
     ],
     "enumerations_html": "<ul><li>Open loop ground water</li><li>Closed loop ground source</li><li>Other</li><li>Unknown</li></ul>"
+  },
+  {
+    "name": "HVACControlSystemType",
+    "sub_name": null,
+    "documentation": "HVAC equipment control strategy.",
+    "enumerations": [
+      "Analog",
+      "Digital",
+      "Pneumatic",
+      "Other",
+      "Unknown"
+    ],
+    "enumerations_html": "<ul><li>Analog</li><li>Digital</li><li>Pneumatic</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "HVACPipeConfiguration",
@@ -2108,7 +2337,7 @@
   {
     "name": "IgnitionType",
     "sub_name": null,
-    "documentation": "Ignition mechanism in gas heating equipment. Either pilot light or an intermittent ignition device (IID)",
+    "documentation": "Ignition mechanism in gas heating equipment. Either pilot light or an intermittent ignition device (IID).",
     "enumerations": [
       "Intermittent ignition device",
       "Pilot light",
@@ -2159,7 +2388,7 @@
   {
     "name": "InstallationType",
     "sub_name": null,
-    "documentation": "Installation of lamp relative to mounting surface",
+    "documentation": "Installation of lamp relative to mounting surface.",
     "enumerations": [
       "Plug-in",
       "Recessed",
@@ -2173,7 +2402,7 @@
   {
     "name": "InsulationCondition",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
+    "documentation": "BuildingSync Schema - Version 2.0",
     "enumerations": [
       "Excellent",
       "Good",
@@ -2188,7 +2417,7 @@
   {
     "name": "InsulationMaterialType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
+    "documentation": "BuildingSync Schema - Version 2.0",
     "enumerations": [
       "Fiberglass",
       "Cellulose",
@@ -2257,7 +2486,7 @@
   {
     "name": "LampLabel",
     "sub_name": "CompactFluorescent",
-    "documentation": "Specific lamp subtype used in the luminaire",
+    "documentation": "Specific lamp subtype used in the luminaire.",
     "enumerations": [
       "2D",
       "A-series",
@@ -2271,7 +2500,7 @@
   {
     "name": "LampLabel",
     "sub_name": "Halogen",
-    "documentation": "Specific lamp subtype used in the luminaire",
+    "documentation": "Specific lamp subtype used in the luminaire.",
     "enumerations": [
       "A-shape",
       "BR30",
@@ -2292,7 +2521,7 @@
   {
     "name": "LampLabel",
     "sub_name": "HighIntensityDischarge",
-    "documentation": "Specific lamp subtype used in the luminaire",
+    "documentation": "Specific lamp subtype used in the luminaire.",
     "enumerations": [
       "Sodium Vapor High Pressure",
       "Sodium Vapor Low Pressure",
@@ -2306,7 +2535,7 @@
   {
     "name": "LampLabel",
     "sub_name": "Incandescent",
-    "documentation": "Specific lamp subtype used in the luminaire",
+    "documentation": "Specific lamp subtype used in the luminaire.",
     "enumerations": [
       "A19",
       "A21",
@@ -2332,10 +2561,11 @@
   {
     "name": "LampLabel",
     "sub_name": "LinearFluorescent",
-    "documentation": "Specific lamp subtype used in the luminaire",
+    "documentation": "Specific lamp subtype used in the luminaire.",
     "enumerations": [
       "Super T8",
       "T12",
+      "T12HO",
       "T5",
       "T5HO",
       "T8",
@@ -2344,12 +2574,12 @@
       "Other",
       "Unknown"
     ],
-    "enumerations_html": "<ul><li>Super T8</li><li>T12</li><li>T5</li><li>T5HO</li><li>T8</li><li>T12U</li><li>T8U</li><li>Other</li><li>Unknown</li></ul>"
+    "enumerations_html": "<ul><li>Super T8</li><li>T12</li><li>T12HO</li><li>T5</li><li>T5HO</li><li>T8</li><li>T12U</li><li>T8U</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "LampLabel",
     "sub_name": "SolidStateLighting",
-    "documentation": "Specific lamp subtype used in the luminaire",
+    "documentation": "Specific lamp subtype used in the luminaire.",
     "enumerations": [
       "LED",
       "Other"
@@ -2367,62 +2597,6 @@
       "Unknown"
     ],
     "enumerations_html": "<ul><li>2 ft</li><li>4 ft</li><li>Other</li><li>Unknown</li></ul>"
-  },
-  {
-    "name": "LightingControlTypeDaylighting",
-    "sub_name": null,
-    "documentation": "Type of daylighting controls used to manage lighting.",
-    "enumerations": [
-      "Continuous",
-      "Continuous Plus Off",
-      "Stepped Dimming",
-      "Stepped Switching",
-      "Other",
-      "None",
-      "Unknown"
-    ],
-    "enumerations_html": "<ul><li>Continuous</li><li>Continuous Plus Off</li><li>Stepped Dimming</li><li>Stepped Switching</li><li>Other</li><li>None</li><li>Unknown</li></ul>"
-  },
-  {
-    "name": "LightingControlTypeManual",
-    "sub_name": null,
-    "documentation": "Type of manual controls used to manage lighting.",
-    "enumerations": [
-      "Manual On/Off",
-      "Manual Dimming",
-      "Bi-level Control",
-      "Tri-level Control",
-      "Other",
-      "None",
-      "Unknown"
-    ],
-    "enumerations_html": "<ul><li>Manual On/Off</li><li>Manual Dimming</li><li>Bi-level Control</li><li>Tri-level Control</li><li>Other</li><li>None</li><li>Unknown</li></ul>"
-  },
-  {
-    "name": "LightingControlTypeOccupancy",
-    "sub_name": null,
-    "documentation": "Type of occupancy controls used to manage lighting.",
-    "enumerations": [
-      "Occupancy Sensors",
-      "Vacancy Sensors",
-      "Other",
-      "None",
-      "Unknown"
-    ],
-    "enumerations_html": "<ul><li>Occupancy Sensors</li><li>Vacancy Sensors</li><li>Other</li><li>None</li><li>Unknown</li></ul>"
-  },
-  {
-    "name": "LightingControlTypeTimer",
-    "sub_name": null,
-    "documentation": "Type of timer controls used to manage lighting.",
-    "enumerations": [
-      "Astronomical",
-      "Chronological",
-      "Other",
-      "None",
-      "Unknown"
-    ],
-    "enumerations_html": "<ul><li>Astronomical</li><li>Chronological</li><li>Other</li><li>None</li><li>Unknown</li></ul>"
   },
   {
     "name": "LightingDirection",
@@ -2462,7 +2636,7 @@
   {
     "name": "LocationsOfExteriorWaterIntrusionDamage",
     "sub_name": null,
-    "documentation": "Location of observed moisture problems on the outside of the building",
+    "documentation": "Location of observed moisture problems on the outside of the building.",
     "enumerations": [
       "Roof",
       "Interior ceiling",
@@ -2478,7 +2652,7 @@
   {
     "name": "LocationsOfInteriorWaterIntrusionDamage",
     "sub_name": null,
-    "documentation": "Location of observed moisture problems on the inside of the building",
+    "documentation": "Location of observed moisture problems on the inside of the building.",
     "enumerations": [
       "Kitchen",
       "Bathroom",
@@ -2490,7 +2664,7 @@
   {
     "name": "MVOption",
     "sub_name": null,
-    "documentation": "Recommended approach for verification of energy savings for this measure, based on IPMVP",
+    "documentation": "Recommended approach for verification of energy savings for this measure, based on IPMVP.",
     "enumerations": [
       "Option A: Retrofit Isolation With Partial Measurement",
       "Option B: Retrofit Isolation With Full Measurement",
@@ -2504,7 +2678,7 @@
   {
     "name": "MeasureName",
     "sub_name": "AdvancedMeteringSystems",
-    "documentation": "Advanced Metering Systems",
+    "documentation": "Advanced Metering Systems.",
     "enumerations": [
       "Install advanced metering systems",
       "Clean and/or repair",
@@ -2517,7 +2691,7 @@
   {
     "name": "MeasureName",
     "sub_name": "BoilerPlantImprovements",
-    "documentation": "Boiler Plant Improvements",
+    "documentation": "Boiler Plant Improvements.",
     "enumerations": [
       "Replace boiler",
       "Replace burner",
@@ -2537,7 +2711,7 @@
   {
     "name": "MeasureName",
     "sub_name": "BuildingAutomationSystems",
-    "documentation": "Building Automation Systems/Energy Management Control Systems (EMCS)",
+    "documentation": "Building Automation Systems/Energy Management Control Systems (EMCS).",
     "enumerations": [
       "Add heat recovery",
       "Add or upgrade BAS/EMS/EMCS",
@@ -2551,7 +2725,7 @@
   {
     "name": "MeasureName",
     "sub_name": "BuildingEnvelopeModifications",
-    "documentation": "Building Envelope Modifications",
+    "documentation": "Building Envelope Modifications.",
     "enumerations": [
       "Air seal envelope",
       "Increase wall insulation",
@@ -2569,14 +2743,15 @@
       "Increase floor insulation",
       "Insulate foundation",
       "Clean and/or repair",
+      "Close elevator and/or stairwell shaft vents",
       "Other"
     ],
-    "enumerations_html": "<ul><li>Air seal envelope</li><li>Increase wall insulation</li><li>Insulate thermal bypasses</li><li>Increase ceiling insulation</li><li>Increase roof insulation</li><li>Insulate attic hatch / stair box</li><li>Add attic/knee wall insulation</li><li>Install cool/green roof</li><li>Add shading devices</li><li>Add window films</li><li>Install or replace solar screens</li><li>Replace glazing</li><li>Replace windows</li><li>Increase floor insulation</li><li>Insulate foundation</li><li>Clean and/or repair</li><li>Other</li></ul>"
+    "enumerations_html": "<ul><li>Air seal envelope</li><li>Increase wall insulation</li><li>Insulate thermal bypasses</li><li>Increase ceiling insulation</li><li>Increase roof insulation</li><li>Insulate attic hatch / stair box</li><li>Add attic/knee wall insulation</li><li>Install cool/green roof</li><li>Add shading devices</li><li>Add window films</li><li>Install or replace solar screens</li><li>Replace glazing</li><li>Replace windows</li><li>Increase floor insulation</li><li>Insulate foundation</li><li>Clean and/or repair</li><li>Close elevator and/or stairwell shaft vents</li><li>Other</li></ul>"
   },
   {
     "name": "MeasureName",
     "sub_name": "ChilledWaterHotWaterAndSteamDistributionSystems",
-    "documentation": "Chilled Water, Hot Water, and Steam Distribution Systems",
+    "documentation": "Chilled Water, Hot Water, and Steam Distribution Systems.",
     "enumerations": [
       "Add pipe insulation",
       "Repair and/or replace steam traps",
@@ -2602,7 +2777,7 @@
   {
     "name": "MeasureName",
     "sub_name": "ChillerPlantImprovements",
-    "documentation": "Chiller Plant Improvements",
+    "documentation": "Chiller Plant Improvements.",
     "enumerations": [
       "Add energy recovery",
       "Install VSD on electric centrifugal chillers",
@@ -2620,7 +2795,7 @@
   {
     "name": "MeasureName",
     "sub_name": "ConveyanceSystems",
-    "documentation": "Conveyance Systems (e.g., Elevators)",
+    "documentation": "Conveyance Systems (e.g., Elevators).",
     "enumerations": [
       "Add elevator regenerative drives",
       "Upgrade controls",
@@ -2635,7 +2810,7 @@
   {
     "name": "MeasureName",
     "sub_name": "DataCenterImprovements",
-    "documentation": "Data center energy conservation improvements",
+    "documentation": "Data center energy conservation improvements.",
     "enumerations": [
       "Improve data center efficiency",
       "Implement hot aisle hold aisle design",
@@ -2651,7 +2826,7 @@
   {
     "name": "MeasureName",
     "sub_name": "DistributedGeneration",
-    "documentation": "Distributed Generation",
+    "documentation": "Distributed Generation.",
     "enumerations": [
       "Install CHP/cogeneration systems",
       "Install fuel cells",
@@ -2667,7 +2842,7 @@
   {
     "name": "MeasureName",
     "sub_name": "ElectricalPeakShavingLoadShifting",
-    "documentation": "Electrical Peak Shaving/Load Shifting",
+    "documentation": "Electrical Peak Shaving/Load Shifting.",
     "enumerations": [
       "Install thermal energy storage",
       "Implement training and/or documentation",
@@ -2679,7 +2854,7 @@
   {
     "name": "MeasureName",
     "sub_name": "EnergyCostReductionThroughRateAdjustments",
-    "documentation": "Energy Cost Reduction Through Rate Adjustments",
+    "documentation": "Energy Cost Reduction Through Rate Adjustments.",
     "enumerations": [
       "Change to more favorable rate schedule",
       "Energy cost reduction through rate adjustments - uncategorized",
@@ -2692,7 +2867,7 @@
   {
     "name": "MeasureName",
     "sub_name": "EnergyDistributionSystems",
-    "documentation": "Energy/Utility Distribution Systems",
+    "documentation": "Energy/Utility Distribution Systems.",
     "enumerations": [
       "Implement power factor corrections",
       "Implement power quality upgrades",
@@ -2708,7 +2883,7 @@
   {
     "name": "MeasureName",
     "sub_name": "EnergyRelatedProcessImprovements",
-    "documentation": "Energy Related Process Improvements",
+    "documentation": "Energy Related Process Improvements.",
     "enumerations": [
       "Implement industrial process improvements",
       "Implement production and/or manufacturing improvements",
@@ -2722,7 +2897,7 @@
   {
     "name": "MeasureName",
     "sub_name": "FutureOtherECMs",
-    "documentation": "Future/Other ECMs",
+    "documentation": "Future/Other ECMs.",
     "enumerations": [
       "Other"
     ],
@@ -2731,7 +2906,7 @@
   {
     "name": "MeasureName",
     "sub_name": "LightingImprovements",
-    "documentation": "Lighting Improvements",
+    "documentation": "Lighting Improvements.",
     "enumerations": [
       "Retrofit with CFLs",
       "Retrofit with T-5",
@@ -2756,7 +2931,7 @@
   {
     "name": "MeasureName",
     "sub_name": "OtherElectricMotorsAndDrives",
-    "documentation": "Electric Motors and Drives Other than Those for Conveyance Systems",
+    "documentation": "Electric Motors and Drives Other than Those for Conveyance Systems.",
     "enumerations": [
       "Add drive controls",
       "Replace with higher efficiency",
@@ -2771,7 +2946,7 @@
   {
     "name": "MeasureName",
     "sub_name": "OtherHVAC",
-    "documentation": "Heating, Ventilating, and Air Conditioning",
+    "documentation": "Heating, Ventilating, and Air Conditioning.",
     "enumerations": [
       "Replace or modify AHU",
       "Improve distribution fans",
@@ -2812,7 +2987,7 @@
   {
     "name": "MeasureName",
     "sub_name": "PlugLoadReductions",
-    "documentation": "Appliance and plug-load reductions",
+    "documentation": "Appliance and plug-load reductions.",
     "enumerations": [
       "Replace with ENERGY STAR rated",
       "Install plug load controls",
@@ -2830,7 +3005,7 @@
   {
     "name": "MeasureName",
     "sub_name": "Refrigeration",
-    "documentation": "Refrigeration",
+    "documentation": "Refrigeration.",
     "enumerations": [
       "Replace ice/refrigeration equipment with high efficiency units",
       "Replace air-cooled ice/refrigeration equipment",
@@ -2845,7 +3020,7 @@
   {
     "name": "MeasureName",
     "sub_name": "RenewableEnergySystems",
-    "documentation": "Renewable Energy Systems",
+    "documentation": "Renewable Energy Systems.",
     "enumerations": [
       "Install landfill gas, wastewater treatment plant digester gas, or coal bed methane power plant",
       "Install photovoltaic system",
@@ -2861,7 +3036,7 @@
   {
     "name": "MeasureName",
     "sub_name": "ServiceHotWaterSystems",
-    "documentation": "Service hot water (SHW) and domestic hot water (DHW) systems",
+    "documentation": "Service hot water (SHW) and domestic hot water (DHW) systems.",
     "enumerations": [
       "Decrease SHW temperature",
       "Install SHW controls",
@@ -2885,7 +3060,7 @@
   {
     "name": "MeasureName",
     "sub_name": "Uncategorized",
-    "documentation": "Category heading for measures that don't fit into another category",
+    "documentation": "Category heading for measures that don't fit into another category.",
     "enumerations": [
       "Other"
     ],
@@ -2894,37 +3069,40 @@
   {
     "name": "MeasureName",
     "sub_name": "WaterAndSewerConservationSystems",
-    "documentation": "Water and Sewer Conservation Systems",
+    "documentation": "Water and Sewer Conservation Systems.",
     "enumerations": [
       "Install low-flow faucets and showerheads",
       "Install low-flow plumbing equipment",
-      "Install on-site sewer treatment systems",
+      "Install onsite sewer treatment systems",
       "Implement water efficient irrigation",
       "Clean and/or repair",
       "Implement training and/or documentation",
       "Upgrade operating protocols, calibration, and/or sequencing",
       "Other"
     ],
-    "enumerations_html": "<ul><li>Install low-flow faucets and showerheads</li><li>Install low-flow plumbing equipment</li><li>Install on-site sewer treatment systems</li><li>Implement water efficient irrigation</li><li>Clean and/or repair</li><li>Implement training and/or documentation</li><li>Upgrade operating protocols, calibration, and/or sequencing</li><li>Other</li></ul>"
+    "enumerations_html": "<ul><li>Install low-flow faucets and showerheads</li><li>Install low-flow plumbing equipment</li><li>Install onsite sewer treatment systems</li><li>Implement water efficient irrigation</li><li>Clean and/or repair</li><li>Implement training and/or documentation</li><li>Upgrade operating protocols, calibration, and/or sequencing</li><li>Other</li></ul>"
   },
   {
     "name": "MeasureScaleOfApplication",
     "sub_name": null,
-    "documentation": "Scale at which the measure is applied, such as an individual system, multiple systems, or entire facility",
+    "documentation": "Scale at which the measure is applied, such as an individual system, multiple systems, or entire facility.",
     "enumerations": [
       "Individual system",
       "Multiple systems",
       "Individual premise",
       "Multiple premises",
       "Entire facility",
-      "Entire site"
+      "Entire site",
+      "Entire building",
+      "Common areas",
+      "Tenant areas"
     ],
-    "enumerations_html": "<ul><li>Individual system</li><li>Multiple systems</li><li>Individual premise</li><li>Multiple premises</li><li>Entire facility</li><li>Entire site</li></ul>"
+    "enumerations_html": "<ul><li>Individual system</li><li>Multiple systems</li><li>Individual premise</li><li>Multiple premises</li><li>Entire facility</li><li>Entire site</li><li>Entire building</li><li>Common areas</li><li>Tenant areas</li></ul>"
   },
   {
     "name": "MetalHalideStartType",
     "sub_name": null,
-    "documentation": "Start technology used with metal halide ballasts",
+    "documentation": "Start technology used with metal halide ballasts.",
     "enumerations": [
       "Probe start",
       "Pulse start",
@@ -2936,7 +3114,7 @@
   {
     "name": "MeteringConfiguration",
     "sub_name": null,
-    "documentation": "The structure of how the various meters are arranged",
+    "documentation": "The structure of how the various meters are arranged.",
     "enumerations": [
       "Direct metering",
       "Master meter without sub metering",
@@ -2965,7 +3143,7 @@
   {
     "name": "MotorEnclosureType",
     "sub_name": null,
-    "documentation": "Defines if the motor is open or enclosed",
+    "documentation": "Defines if the motor is open or enclosed.",
     "enumerations": [
       "Open",
       "Enclosed",
@@ -3005,7 +3183,7 @@
   {
     "name": "OccupancyClassification",
     "sub_name": null,
-    "documentation": "Classification of the space (complex, whole building, or subsection) tasks by building occupants.",
+    "documentation": "Classification of the space (complex, whole building, or section) tasks by building occupants.",
     "enumerations": [
       "Manufactured home",
       "Single family",
@@ -3020,6 +3198,7 @@
       "Health care-Inpatient hospital",
       "Health care-Outpatient rehabilitation",
       "Health care-Diagnostic center",
+      "Health care-Outpatient facility",
       "Health care-Outpatient non-diagnostic",
       "Health care-Outpatient surgical",
       "Health care-Veterinary",
@@ -3031,11 +3210,15 @@
       "Food sales",
       "Laboratory-Testing",
       "Laboratory-Medical",
-      "Laboratory ",
+      "Laboratory",
       "Vivarium",
+      "Zoo",
+      "Office-Financial",
       "Office",
       "Bank",
       "Courthouse",
+      "Public safety station-Fire",
+      "Public safety station-Police",
       "Public safety station",
       "Public safety-Detention center",
       "Public safety-Correctional facility",
@@ -3049,27 +3232,37 @@
       "Assembly-Social entertainment",
       "Assembly-Arcade or casino without lodging",
       "Assembly-Convention center",
+      "Assembly-Indoor arena",
+      "Assembly-Race track",
       "Assembly-Stadium",
+      "Assembly-Stadium (closed)",
+      "Assembly-Stadium (open)",
       "Assembly-Public",
       "Recreation-Pool",
+      "Recreation-Bowling alley",
       "Recreation-Fitness center",
       "Recreation-Ice rink",
+      "Recreation-Roller rink",
       "Recreation-Indoor sport",
       "Recreation",
+      "Education-Adult",
       "Education-Higher",
       "Education-Secondary",
       "Education-Primary",
       "Education-Preschool or daycare",
+      "Education-Vocational",
       "Education",
       "Food service-Fast",
       "Food service-Full",
       "Food service-Limited",
       "Food service-Institutional",
       "Food service",
+      "Lodging-Barracks",
       "Lodging-Institutional",
       "Lodging with extended amenities",
       "Lodging with limited amenities",
       "Lodging",
+      "Retail-Automobile dealership",
       "Retail-Mall",
       "Retail-Strip mall",
       "Retail-Enclosed mall",
@@ -3128,8 +3321,11 @@
       "Kitchen",
       "Kitchenette",
       "Refrigerated storage",
+      "Bar-Nightclub",
       "Bar",
       "Dance floor",
+      "Trading floor",
+      "TV studio",
       "Security room",
       "Shipping and receiving",
       "Mechanical room",
@@ -3141,10 +3337,11 @@
       "Deck",
       "Courtyard",
       "Atrium",
+      "Science park",
       "Other",
       "Unknown"
     ],
-    "enumerations_html": "<ul><li>Manufactured home</li><li>Single family</li><li>Multifamily</li><li>Multifamily with commercial</li><li>Multifamily individual unit</li><li>Public housing</li><li>Residential</li><li>Health care-Pharmacy</li><li>Health care-Skilled nursing facility</li><li>Health care-Residential treatment center</li><li>Health care-Inpatient hospital</li><li>Health care-Outpatient rehabilitation</li><li>Health care-Diagnostic center</li><li>Health care-Outpatient non-diagnostic</li><li>Health care-Outpatient surgical</li><li>Health care-Veterinary</li><li>Health care-Morgue or mortuary</li><li>Health care</li><li>Gas station</li><li>Convenience store</li><li>Food sales-Grocery store</li><li>Food sales</li><li>Laboratory-Testing</li><li>Laboratory-Medical</li><li>Laboratory </li><li>Vivarium</li><li>Office</li><li>Bank</li><li>Courthouse</li><li>Public safety station</li><li>Public safety-Detention center</li><li>Public safety-Correctional facility</li><li>Public safety</li><li>Warehouse-Refrigerated</li><li>Warehouse-Unrefrigerated</li><li>Warehouse-Self-storage</li><li>Warehouse</li><li>Assembly-Religious</li><li>Assembly-Cultural entertainment</li><li>Assembly-Social entertainment</li><li>Assembly-Arcade or casino without lodging</li><li>Assembly-Convention center</li><li>Assembly-Stadium</li><li>Assembly-Public</li><li>Recreation-Pool</li><li>Recreation-Fitness center</li><li>Recreation-Ice rink</li><li>Recreation-Indoor sport</li><li>Recreation</li><li>Education-Higher</li><li>Education-Secondary</li><li>Education-Primary</li><li>Education-Preschool or daycare</li><li>Education</li><li>Food service-Fast</li><li>Food service-Full</li><li>Food service-Limited</li><li>Food service-Institutional</li><li>Food service</li><li>Lodging-Institutional</li><li>Lodging with extended amenities</li><li>Lodging with limited amenities</li><li>Lodging</li><li>Retail-Mall</li><li>Retail-Strip mall</li><li>Retail-Enclosed mall</li><li>Retail-Dry goods retail</li><li>Retail-Hypermarket</li><li>Retail</li><li>Service-Postal</li><li>Service-Repair</li><li>Service-Laundry or dry cleaning</li><li>Service-Studio</li><li>Service-Beauty and health</li><li>Service-Production and assembly</li><li>Service</li><li>Transportation terminal</li><li>Central Plant</li><li>Water treatment-Wastewater</li><li>Water treatment-Drinking water and distribution</li><li>Water treatment</li><li>Energy generation plant</li><li>Industrial manufacturing plant</li><li>Utility</li><li>Industrial</li><li>Agricultural estate</li><li>Mixed-use commercial</li><li>Parking</li><li>Attic</li><li>Basement</li><li>Dining area</li><li>Living area</li><li>Sleeping area</li><li>Laundry area</li><li>Lodging area</li><li>Dressing area</li><li>Restroom</li><li>Auditorium</li><li>Classroom</li><li>Day room</li><li>Sport play area</li><li>Stage</li><li>Spectator area</li><li>Office work area</li><li>Non-office work area</li><li>Common area</li><li>Reception area</li><li>Waiting area</li><li>Transportation waiting area</li><li>Lobby</li><li>Conference room</li><li>Computer lab</li><li>Data center</li><li>Printing room</li><li>Media center</li><li>Telephone data entry</li><li>Darkroom</li><li>Courtroom</li><li>Kitchen</li><li>Kitchenette</li><li>Refrigerated storage</li><li>Bar</li><li>Dance floor</li><li>Security room</li><li>Shipping and receiving</li><li>Mechanical room</li><li>Chemical storage room</li><li>Non-chemical storage room</li><li>Janitorial closet</li><li>Vault</li><li>Corridor</li><li>Deck</li><li>Courtyard</li><li>Atrium</li><li>Other</li><li>Unknown</li></ul>"
+    "enumerations_html": "<ul><li>Manufactured home</li><li>Single family</li><li>Multifamily</li><li>Multifamily with commercial</li><li>Multifamily individual unit</li><li>Public housing</li><li>Residential</li><li>Health care-Pharmacy</li><li>Health care-Skilled nursing facility</li><li>Health care-Residential treatment center</li><li>Health care-Inpatient hospital</li><li>Health care-Outpatient rehabilitation</li><li>Health care-Diagnostic center</li><li>Health care-Outpatient facility</li><li>Health care-Outpatient non-diagnostic</li><li>Health care-Outpatient surgical</li><li>Health care-Veterinary</li><li>Health care-Morgue or mortuary</li><li>Health care</li><li>Gas station</li><li>Convenience store</li><li>Food sales-Grocery store</li><li>Food sales</li><li>Laboratory-Testing</li><li>Laboratory-Medical</li><li>Laboratory</li><li>Vivarium</li><li>Zoo</li><li>Office-Financial</li><li>Office</li><li>Bank</li><li>Courthouse</li><li>Public safety station-Fire</li><li>Public safety station-Police</li><li>Public safety station</li><li>Public safety-Detention center</li><li>Public safety-Correctional facility</li><li>Public safety</li><li>Warehouse-Refrigerated</li><li>Warehouse-Unrefrigerated</li><li>Warehouse-Self-storage</li><li>Warehouse</li><li>Assembly-Religious</li><li>Assembly-Cultural entertainment</li><li>Assembly-Social entertainment</li><li>Assembly-Arcade or casino without lodging</li><li>Assembly-Convention center</li><li>Assembly-Indoor arena</li><li>Assembly-Race track</li><li>Assembly-Stadium</li><li>Assembly-Stadium (closed)</li><li>Assembly-Stadium (open)</li><li>Assembly-Public</li><li>Recreation-Pool</li><li>Recreation-Bowling alley</li><li>Recreation-Fitness center</li><li>Recreation-Ice rink</li><li>Recreation-Roller rink</li><li>Recreation-Indoor sport</li><li>Recreation</li><li>Education-Adult</li><li>Education-Higher</li><li>Education-Secondary</li><li>Education-Primary</li><li>Education-Preschool or daycare</li><li>Education-Vocational</li><li>Education</li><li>Food service-Fast</li><li>Food service-Full</li><li>Food service-Limited</li><li>Food service-Institutional</li><li>Food service</li><li>Lodging-Barracks</li><li>Lodging-Institutional</li><li>Lodging with extended amenities</li><li>Lodging with limited amenities</li><li>Lodging</li><li>Retail-Automobile dealership</li><li>Retail-Mall</li><li>Retail-Strip mall</li><li>Retail-Enclosed mall</li><li>Retail-Dry goods retail</li><li>Retail-Hypermarket</li><li>Retail</li><li>Service-Postal</li><li>Service-Repair</li><li>Service-Laundry or dry cleaning</li><li>Service-Studio</li><li>Service-Beauty and health</li><li>Service-Production and assembly</li><li>Service</li><li>Transportation terminal</li><li>Central Plant</li><li>Water treatment-Wastewater</li><li>Water treatment-Drinking water and distribution</li><li>Water treatment</li><li>Energy generation plant</li><li>Industrial manufacturing plant</li><li>Utility</li><li>Industrial</li><li>Agricultural estate</li><li>Mixed-use commercial</li><li>Parking</li><li>Attic</li><li>Basement</li><li>Dining area</li><li>Living area</li><li>Sleeping area</li><li>Laundry area</li><li>Lodging area</li><li>Dressing area</li><li>Restroom</li><li>Auditorium</li><li>Classroom</li><li>Day room</li><li>Sport play area</li><li>Stage</li><li>Spectator area</li><li>Office work area</li><li>Non-office work area</li><li>Common area</li><li>Reception area</li><li>Waiting area</li><li>Transportation waiting area</li><li>Lobby</li><li>Conference room</li><li>Computer lab</li><li>Data center</li><li>Printing room</li><li>Media center</li><li>Telephone data entry</li><li>Darkroom</li><li>Courtroom</li><li>Kitchen</li><li>Kitchenette</li><li>Refrigerated storage</li><li>Bar-Nightclub</li><li>Bar</li><li>Dance floor</li><li>Trading floor</li><li>TV studio</li><li>Security room</li><li>Shipping and receiving</li><li>Mechanical room</li><li>Chemical storage room</li><li>Non-chemical storage room</li><li>Janitorial closet</li><li>Vault</li><li>Corridor</li><li>Deck</li><li>Courtyard</li><li>Atrium</li><li>Science park</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "OccupantQuantityType",
@@ -3204,7 +3401,7 @@
   {
     "name": "OccupantsActivityLevel",
     "sub_name": null,
-    "documentation": "The activity level that drives the amount of internal gains due to occupants. \"Low\" corresponds to typical office/retail work (Sensible load 250 Btu/hr, Latent load 200 Btu/hr), \"High\" corresponds to heavier factory work or gymnasiums (Sensible load 580 Btu/hr, Latent load 870 Btu/hr)",
+    "documentation": "The activity level that drives the amount of internal gains due to occupants. \"Low\" corresponds to typical office/retail work (Sensible load 250 Btu/hr, Latent load 200 Btu/hr), \"High\" corresponds to heavier factory work or gymnasiums (Sensible load 580 Btu/hr, Latent load 870 Btu/hr).",
     "enumerations": [
       "Low",
       "High",
@@ -3234,6 +3431,7 @@
       "Standby generator",
       "Turbine",
       "Microturbine",
+      "Reciprocating engine",
       "Fuel cell",
       "Gasification",
       "Binary Cycle",
@@ -3245,18 +3443,20 @@
       "Other",
       "Unknown"
     ],
-    "enumerations_html": "<ul><li>Standby generator</li><li>Turbine</li><li>Microturbine</li><li>Fuel cell</li><li>Gasification</li><li>Binary Cycle</li><li>Anaerobic biodigester</li><li>Hydrokinetic</li><li>Solar parabolic trough</li><li>Solar power tower</li><li>Wind</li><li>Other</li><li>Unknown</li></ul>"
+    "enumerations_html": "<ul><li>Standby generator</li><li>Turbine</li><li>Microturbine</li><li>Reciprocating engine</li><li>Fuel cell</li><li>Gasification</li><li>Binary Cycle</li><li>Anaerobic biodigester</li><li>Hydrokinetic</li><li>Solar parabolic trough</li><li>Solar power tower</li><li>Wind</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "Ownership",
     "sub_name": null,
-    "documentation": "The type of organization, association, business, etc. that owns the premises",
+    "documentation": "The type of organization, association, business, etc. that owns the premises.",
     "enumerations": [
       "Property management company",
       "Corporation/partnership/LLC",
-      "Religious organization",
+      "Privately owned",
       "Individual",
       "Franchise",
+      "Religious organization",
+      "Non-profit organization",
       "Other non-government",
       "Government",
       "Federal government",
@@ -3265,12 +3465,12 @@
       "Other",
       "Unknown"
     ],
-    "enumerations_html": "<ul><li>Property management company</li><li>Corporation/partnership/LLC</li><li>Religious organization</li><li>Individual</li><li>Franchise</li><li>Other non-government</li><li>Government</li><li>Federal government</li><li>State government</li><li>Local government</li><li>Other</li><li>Unknown</li></ul>"
+    "enumerations_html": "<ul><li>Property management company</li><li>Corporation/partnership/LLC</li><li>Privately owned</li><li>Individual</li><li>Franchise</li><li>Religious organization</li><li>Non-profit organization</li><li>Other non-government</li><li>Government</li><li>Federal government</li><li>State government</li><li>Local government</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "OwnershipStatus",
     "sub_name": null,
-    "documentation": "Ownership status of the premises with respect to the occupant",
+    "documentation": "Ownership status of the premises with respect to the occupant.",
     "enumerations": [
       "Owned",
       "Mortgaged",
@@ -3283,9 +3483,19 @@
     "enumerations_html": "<ul><li>Owned</li><li>Mortgaged</li><li>Leased</li><li>Rented</li><li>Occupied without payment of rent</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
+    "name": "PeakResourceUnits",
+    "sub_name": null,
+    "documentation": "Units for peak demand.",
+    "enumerations": [
+      "kW",
+      "MMBtu/day"
+    ],
+    "enumerations_html": "<ul><li>kW</li><li>MMBtu/day</li></ul>"
+  },
+  {
     "name": "Phase",
     "sub_name": null,
-    "documentation": "Phase information associated with electricity readings",
+    "documentation": "Phase information associated with electricity readings.",
     "enumerations": [
       "Phase AN",
       "Phase A",
@@ -3334,10 +3544,14 @@
       "Display",
       "Set Top Box",
       "Business Equipment",
+      "Broadcast Antenna",
+      "Kitchen Equipment",
+      "Signage Display",
+      "Miscellaneous Electric Load",
       "Other",
       "Unknown"
     ],
-    "enumerations_html": "<ul><li>Personal Computer</li><li>Task Lighting</li><li>Printing</li><li>Cash Register</li><li>Audio</li><li>Display</li><li>Set Top Box</li><li>Business Equipment</li><li>Other</li><li>Unknown</li></ul>"
+    "enumerations_html": "<ul><li>Personal Computer</li><li>Task Lighting</li><li>Printing</li><li>Cash Register</li><li>Audio</li><li>Display</li><li>Set Top Box</li><li>Business Equipment</li><li>Broadcast Antenna</li><li>Kitchen Equipment</li><li>Signage Display</li><li>Miscellaneous Electric Load</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "PlumbingPenetrationSealing",
@@ -3375,18 +3589,6 @@
       "Unknown"
     ],
     "enumerations_html": "<ul><li>Hot Tub</li><li>Pool</li><li>Other</li><li>Unknown</li></ul>"
-  },
-  {
-    "name": "PrimaryHVACControlStrategy",
-    "sub_name": null,
-    "documentation": "Primary HVAC equipment control strategy.",
-    "enumerations": [
-      "Pneumatic",
-      "Electric",
-      "Other",
-      "Unknown"
-    ],
-    "enumerations_html": "<ul><li>Pneumatic</li><li>Electric</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "PrimaryHVACSystemType",
@@ -3437,10 +3639,11 @@
       "Gaming/Hobby/Leisure",
       "Infrastructure",
       "Electric Vehicle Charging",
+      "Miscellaneous Gas Load",
       "Other",
       "Unknown"
     ],
-    "enumerations_html": "<ul><li>Medical Equipment</li><li>Laboratory Equipment</li><li>Machinery</li><li>Air Compressor</li><li>Fume Hood</li><li>Appliance</li><li>Gaming/Hobby/Leisure</li><li>Infrastructure</li><li>Electric Vehicle Charging</li><li>Other</li><li>Unknown</li></ul>"
+    "enumerations_html": "<ul><li>Medical Equipment</li><li>Laboratory Equipment</li><li>Machinery</li><li>Air Compressor</li><li>Fume Hood</li><li>Appliance</li><li>Gaming/Hobby/Leisure</li><li>Infrastructure</li><li>Electric Vehicle Charging</li><li>Miscellaneous Gas Load</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "ProgramClassification",
@@ -3484,7 +3687,7 @@
   {
     "name": "PumpControlType",
     "sub_name": null,
-    "documentation": "Type of pump speed control",
+    "documentation": "Type of pump speed control.",
     "enumerations": [
       "Constant Volume",
       "Variable Volume",
@@ -3537,7 +3740,7 @@
   {
     "name": "RankType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
+    "documentation": "BuildingSync Schema - Version 2.0",
     "enumerations": [
       "Fair",
       "Good",
@@ -3575,7 +3778,7 @@
   {
     "name": "RecirculationControlType",
     "sub_name": null,
-    "documentation": "Type of control for recirculation loop",
+    "documentation": "Type of control for recirculation loop.",
     "enumerations": [
       "Continuous",
       "Temperature",
@@ -3696,7 +3899,7 @@
   {
     "name": "ResourceUnits",
     "sub_name": null,
-    "documentation": "Units for resource consumption or generation",
+    "documentation": "Units for resource consumption or generation.",
     "enumerations": [
       "Cubic Meters",
       "kcf",
@@ -3719,71 +3922,6 @@
       "None"
     ],
     "enumerations_html": "<ul><li>Cubic Meters</li><li>kcf</li><li>MCF</li><li>Gallons</li><li>Wh</li><li>kWh</li><li>MWh</li><li>Btu</li><li>kBtu</li><li>MMBtu</li><li>therms</li><li>lbs</li><li>Klbs</li><li>Mlbs</li><li>Mass ton</li><li>Ton-hour</li><li>Other</li><li>Unknown</li><li>None</li></ul>"
-  },
-  {
-    "name": "RoofColor",
-    "sub_name": null,
-    "documentation": "Color of a material or component. Can be applied to opaque surfaces, materials, and so forth.",
-    "enumerations": [
-      "White",
-      "Light",
-      "Medium",
-      "Medium dark",
-      "Dark",
-      "Reflective",
-      "Other",
-      "Unknown"
-    ],
-    "enumerations_html": "<ul><li>White</li><li>Light</li><li>Medium</li><li>Medium dark</li><li>Dark</li><li>Reflective</li><li>Other</li><li>Unknown</li></ul>"
-  },
-  {
-    "name": "RoofFinish",
-    "sub_name": null,
-    "documentation": "The final material applied to a surface, either interior or exterior. Some structural components don't have an exterior finish, such as unfinished poured concrete.",
-    "enumerations": [
-      "Wood",
-      "Masonite",
-      "Stone",
-      "Tile",
-      "Brick",
-      "Masonry",
-      "Concrete",
-      "Fiber cement",
-      "Metal",
-      "Metal panel",
-      "Metal panel standing seam",
-      "Sheet metal",
-      "EIFS",
-      "Shingles asphalt",
-      "Shingles composition",
-      "Shingles wood",
-      "Shingles asbestos",
-      "Shingles slate or tile",
-      "Shakes wood",
-      "Carpet",
-      "Linoleum",
-      "Asphalt or fiberglass",
-      "Plastic rubber synthetic sheeting",
-      "Other",
-      "Unknown"
-    ],
-    "enumerations_html": "<ul><li>Wood</li><li>Masonite</li><li>Stone</li><li>Tile</li><li>Brick</li><li>Masonry</li><li>Concrete</li><li>Fiber cement</li><li>Metal</li><li>Metal panel</li><li>Metal panel standing seam</li><li>Sheet metal</li><li>EIFS</li><li>Shingles asphalt</li><li>Shingles composition</li><li>Shingles wood</li><li>Shingles asbestos</li><li>Shingles slate or tile</li><li>Shakes wood</li><li>Carpet</li><li>Linoleum</li><li>Asphalt or fiberglass</li><li>Plastic rubber synthetic sheeting</li><li>Other</li><li>Unknown</li></ul>"
-  },
-  {
-    "name": "RoofFramingMaterial",
-    "sub_name": null,
-    "documentation": "The material used to create the structural integrity in an opaque surface. In many cases the framing material is not continuous across the construction.",
-    "enumerations": [
-      "Wood",
-      "Steel",
-      "Concrete",
-      "Brick",
-      "Masonry",
-      "Other",
-      "Unknown",
-      "None"
-    ],
-    "enumerations_html": "<ul><li>Wood</li><li>Steel</li><li>Concrete</li><li>Brick</li><li>Masonry</li><li>Other</li><li>Unknown</li><li>None</li></ul>"
   },
   {
     "name": "RoofInsulationApplication",
@@ -3830,7 +3968,7 @@
   {
     "name": "ScheduleCategory",
     "sub_name": null,
-    "documentation": "Type of schedule (such as occupancy, lighting, heating, etc.) that will be specified",
+    "documentation": "Type of schedule (e.g., occupancy, lighting, heating, etc.) that will be specified.",
     "enumerations": [
       "Business",
       "Occupied",
@@ -3853,6 +3991,20 @@
     "enumerations_html": "<ul><li>Business</li><li>Occupied</li><li>Unoccupied</li><li>Sleeping</li><li>Public access</li><li>Setback</li><li>Operating</li><li>HVAC equipment</li><li>Cooling equipment</li><li>Heating equipment</li><li>Lighting</li><li>Cooking equipment</li><li>Miscellaneous equipment</li><li>On-peak</li><li>Off-peak</li><li>Super off-peak</li><li>Other</li></ul>"
   },
   {
+    "name": "SectionType",
+    "sub_name": null,
+    "documentation": "The type of section such as Whole building, Space function data, or other types. * Whole building - describes the whole building, Space function - describes a space function (see ASHRAE standard 211), Component - describes a subspace of a primary premises such as HVAC zone, retails shops in a mall, etc., Tenant - describes a section for a tenant, Virtual - describes a section loosely with potentially overlap with other sections and section types, Other - not well-described by other types.",
+    "enumerations": [
+      "Whole building",
+      "Space function",
+      "Component",
+      "Tenant",
+      "Virtual",
+      "Other"
+    ],
+    "enumerations_html": "<ul><li>Whole building</li><li>Space function</li><li>Component</li><li>Tenant</li><li>Virtual</li><li>Other</li></ul>"
+  },
+  {
     "name": "SharedResourceSystem",
     "sub_name": null,
     "documentation": "Situation that applies if a resource is shared with multiple premises, such as shared chilled water among buildings.",
@@ -3868,7 +4020,7 @@
   {
     "name": "SideNumber",
     "sub_name": null,
-    "documentation": "Alphanumeric designation of the side of a subsection as defined in the BuildingSync Geometry Reference Sheet.",
+    "documentation": "Alphanumeric designation of the side of the section as defined in the BuildingSync Geometry Reference Sheet.",
     "enumerations": [
       "A1",
       "A2",
@@ -3886,6 +4038,19 @@
       "BO1"
     ],
     "enumerations_html": "<ul><li>A1</li><li>A2</li><li>A3</li><li>B1</li><li>B2</li><li>B3</li><li>C1</li><li>C2</li><li>C3</li><li>D1</li><li>D2</li><li>D3</li><li>AO1</li><li>BO1</li></ul>"
+  },
+  {
+    "name": "SimulationCompletionStatus",
+    "sub_name": null,
+    "documentation": "Status of the simulation.",
+    "enumerations": [
+      "Not Started",
+      "Started",
+      "Finished",
+      "Failed",
+      "Unknown"
+    ],
+    "enumerations_html": "<ul><li>Not Started</li><li>Started</li><li>Finished</li><li>Failed</li><li>Unknown</li></ul>"
   },
   {
     "name": "SkylightLayout",
@@ -3927,7 +4092,7 @@
   {
     "name": "SlabInsulationOrientation",
     "sub_name": null,
-    "documentation": "The location and extent of slab-on-grade floor insulation",
+    "documentation": "The location and extent of slab-on-grade floor insulation.",
     "enumerations": [
       "12 in Horizontal",
       "12 in Vertical",
@@ -3977,7 +4142,7 @@
   {
     "name": "SolarThermalSystemType",
     "sub_name": null,
-    "documentation": "Basic function of solar thermal system",
+    "documentation": "Basic function of solar thermal system.",
     "enumerations": [
       "Hot water",
       "Hot water and space heating",
@@ -4041,20 +4206,9 @@
     "enumerations_html": "<ul><li>Lots</li><li>Parking spaces</li><li>Apartment units</li><li>Businesses</li><li>Guest rooms</li><li>Stations</li><li>Buildings</li><li>Areas</li><li>Thermal Zones</li><li>Floors</li><li>Rooms</li><li>Bedrooms</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
-    "name": "SpecialRoofClassification",
-    "sub_name": null,
-    "documentation": "Additional classifications for the roof construction.",
-    "enumerations": [
-      "Cool roof",
-      "Green roof",
-      "Other"
-    ],
-    "enumerations_html": "<ul><li>Cool roof</li><li>Green roof</li><li>Other</li></ul>"
-  },
-  {
     "name": "State",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
+    "documentation": "BuildingSync Schema - Version 2.0",
     "enumerations": [
       "AA",
       "AE",
@@ -4449,12 +4603,12 @@
       "Plug Load",
       "Process Load",
       "Conveyance",
-      "On-Site Storage, Transmission, Generation",
+      "Onsite Storage, Transmission, Generation",
       "Pool",
       "Water Use",
       "Other"
     ],
-    "enumerations_html": "<ul><li>Air Distribution</li><li>Heating System</li><li>Cooling System</li><li>Other HVAC</li><li>Lighting</li><li>Domestic Hot Water</li><li>Cooking</li><li>Refrigeration</li><li>Dishwasher</li><li>Laundry</li><li>Pump</li><li>Fan</li><li>Motor</li><li>Heat Recovery</li><li>Wall</li><li>Roof</li><li>Ceiling</li><li>Fenestration</li><li>Foundation</li><li>General Controls and Operations</li><li>Critical IT System</li><li>Plug Load</li><li>Process Load</li><li>Conveyance</li><li>On-Site Storage, Transmission, Generation</li><li>Pool</li><li>Water Use</li><li>Other</li></ul>"
+    "enumerations_html": "<ul><li>Air Distribution</li><li>Heating System</li><li>Cooling System</li><li>Other HVAC</li><li>Lighting</li><li>Domestic Hot Water</li><li>Cooking</li><li>Refrigeration</li><li>Dishwasher</li><li>Laundry</li><li>Pump</li><li>Fan</li><li>Motor</li><li>Heat Recovery</li><li>Wall</li><li>Roof</li><li>Ceiling</li><li>Fenestration</li><li>Foundation</li><li>General Controls and Operations</li><li>Critical IT System</li><li>Plug Load</li><li>Process Load</li><li>Conveyance</li><li>Onsite Storage, Transmission, Generation</li><li>Pool</li><li>Water Use</li><li>Other</li></ul>"
   },
   {
     "name": "SystemsType",
@@ -4472,7 +4626,7 @@
   {
     "name": "TelephoneNumber",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
+    "documentation": "BuildingSync Schema - Version 2.0",
     "enumerations": [
 
     ],
@@ -4529,18 +4683,20 @@
     "sub_name": null,
     "documentation": "Type of terminal unit serving each zone of a central air distribution system.",
     "enumerations": [
+      "CAV terminal box no reheat",
       "CAV terminal box with reheat",
       "VAV terminal box fan powered no reheat",
       "VAV terminal box fan powered with reheat",
       "VAV terminal box not fan powered no reheat",
       "VAV terminal box not fan powered with reheat",
+      "Powered induction unit",
       "Automatically controlled register",
       "Manually controlled register",
       "Uncontrolled register",
       "Other",
       "Unknown"
     ],
-    "enumerations_html": "<ul><li>CAV terminal box with reheat</li><li>VAV terminal box fan powered no reheat</li><li>VAV terminal box fan powered with reheat</li><li>VAV terminal box not fan powered no reheat</li><li>VAV terminal box not fan powered with reheat</li><li>Automatically controlled register</li><li>Manually controlled register</li><li>Uncontrolled register</li><li>Other</li><li>Unknown</li></ul>"
+    "enumerations_html": "<ul><li>CAV terminal box no reheat</li><li>CAV terminal box with reheat</li><li>VAV terminal box fan powered no reheat</li><li>VAV terminal box fan powered with reheat</li><li>VAV terminal box not fan powered no reheat</li><li>VAV terminal box not fan powered with reheat</li><li>Powered induction unit</li><li>Automatically controlled register</li><li>Manually controlled register</li><li>Uncontrolled register</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "ThermalMedium",
@@ -4563,7 +4719,7 @@
   {
     "name": "ThermalZoneLayout",
     "sub_name": null,
-    "documentation": "Type of zoning used for space conditioning",
+    "documentation": "Type of zoning used for space conditioning.",
     "enumerations": [
       "Perimeter",
       "Perimeter and core",
@@ -4604,7 +4760,7 @@
   {
     "name": "Tightness",
     "sub_name": null,
-    "documentation": "Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.",
+    "documentation": "BuildingSync Schema - Version 2.0",
     "enumerations": [
       "Very Tight",
       "Tight",
@@ -4616,21 +4772,9 @@
     "enumerations_html": "<ul><li>Very Tight</li><li>Tight</li><li>Average</li><li>Leaky</li><li>Very Leaky</li><li>Unknown</li></ul>"
   },
   {
-    "name": "TightnessFitCondition",
-    "sub_name": null,
-    "documentation": "Indicator of expected air leakage through fenestration",
-    "enumerations": [
-      "Tight",
-      "Average",
-      "Loose",
-      "Unknown"
-    ],
-    "enumerations_html": "<ul><li>Tight</li><li>Average</li><li>Loose</li><li>Unknown</li></ul>"
-  },
-  {
     "name": "TimeSeriesReadingQuantity",
     "sub_name": null,
-    "documentation": "Type of energy, water, power, weather metric included in the time series",
+    "documentation": "Type of energy, water, power, weather metric included in the time series.",
     "enumerations": [
       "Currency",
       "Current",
@@ -4659,7 +4803,7 @@
   {
     "name": "TypeOfCookingEquipment",
     "sub_name": null,
-    "documentation": "Short description of the type and purpose of cooking equipment",
+    "documentation": "Short description of the type and purpose of cooking equipment.",
     "enumerations": [
       "Hot top range",
       "Open burner range",
@@ -4709,7 +4853,7 @@
   {
     "name": "TypeOfResourceMeter",
     "sub_name": null,
-    "documentation": "Meters can be divided into several categories based on their capabilities",
+    "documentation": "Meters can be divided into several categories based on their capabilities.",
     "enumerations": [
       "Revenue grade meter",
       "Advanced resource meter",
@@ -4761,17 +4905,18 @@
   {
     "name": "VentilationType",
     "sub_name": null,
-    "documentation": "Type of ventilation, and use of heat recovery",
+    "documentation": "Type of ventilation, and use of heat recovery.",
     "enumerations": [
       "Exhaust only",
       "Supply only",
       "Dedicated outdoor air system",
       "Heat recovery ventilator",
       "Energy recovery ventilator",
+      "None",
       "Other",
       "Unknown"
     ],
-    "enumerations_html": "<ul><li>Exhaust only</li><li>Supply only</li><li>Dedicated outdoor air system</li><li>Heat recovery ventilator</li><li>Energy recovery ventilator</li><li>Other</li><li>Unknown</li></ul>"
+    "enumerations_html": "<ul><li>Exhaust only</li><li>Supply only</li><li>Dedicated outdoor air system</li><li>Heat recovery ventilator</li><li>Energy recovery ventilator</li><li>None</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "VentilationZoneControl",
@@ -4798,22 +4943,6 @@
       "Unknown"
     ],
     "enumerations_html": "<ul><li>Stand-alone</li><li>Attached on one side</li><li>Attached on two sides</li><li>Attached on three sides</li><li>Within a building</li><li>Unknown</li></ul>"
-  },
-  {
-    "name": "WallFramingMaterial",
-    "sub_name": null,
-    "documentation": "The material used to create the structural integrity in an opaque surface. In many cases the framing material is not continuous across the construction.",
-    "enumerations": [
-      "Wood",
-      "Steel",
-      "Concrete",
-      "Brick",
-      "Masonry",
-      "Other",
-      "Unknown",
-      "None"
-    ],
-    "enumerations_html": "<ul><li>Wood</li><li>Steel</li><li>Concrete</li><li>Brick</li><li>Masonry</li><li>Other</li><li>Unknown</li><li>None</li></ul>"
   },
   {
     "name": "WallInsulationApplication",
@@ -4883,7 +5012,7 @@
   {
     "name": "WaterCooledCondenserType",
     "sub_name": null,
-    "documentation": "Type of system operation control.",
+    "documentation": "Type of water cooled condenser.",
     "enumerations": [
       "Cooling tower",
       "Other",
@@ -4898,9 +5027,10 @@
     "enumerations": [
       "Energy Factor",
       "Thermal Efficiency",
+      "AFUE",
       "COP"
     ],
-    "enumerations_html": "<ul><li>Energy Factor</li><li>Thermal Efficiency</li><li>COP</li></ul>"
+    "enumerations_html": "<ul><li>Energy Factor</li><li>Thermal Efficiency</li><li>AFUE</li><li>COP</li></ul>"
   },
   {
     "name": "WaterResource",
@@ -4964,7 +5094,7 @@
   {
     "name": "WeatherDataSource",
     "sub_name": null,
-    "documentation": "Method for determining weather data associated with the time series",
+    "documentation": "Method for determining weather data associated with the time series.",
     "enumerations": [
       "On Site Measurement",
       "Weather Station",
@@ -4977,6 +5107,24 @@
       "Other"
     ],
     "enumerations_html": "<ul><li>On Site Measurement</li><li>Weather Station</li><li>TMY</li><li>TMY2</li><li>TMY3</li><li>IWEC</li><li>CWEC</li><li>CZRV2</li><li>Other</li></ul>"
+  },
+  {
+    "name": "WeatherDataType",
+    "sub_name": null,
+    "documentation": "Type of weather data used for the simulation.",
+    "enumerations": [
+      "CWEC",
+      "CZRV2",
+      "IWEC",
+      "Onsite Measurement",
+      "TMY",
+      "TMY2",
+      "TMY3",
+      "Weather Station",
+      "Other",
+      "Unknown"
+    ],
+    "enumerations_html": "<ul><li>CWEC</li><li>CZRV2</li><li>IWEC</li><li>Onsite Measurement</li><li>TMY</li><li>TMY2</li><li>TMY3</li><li>Weather Station</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "WeatherStationCategory",
@@ -5006,7 +5154,7 @@
   {
     "name": "WindowOrientation",
     "sub_name": null,
-    "documentation": "Orientation of a surface or premises in terms of the attributes of North, South, East and West. Can be applied to the orientation of the front of the building, of a specific surface (wall, roof), window or skylight, or on-site generation technology, such as photovoltaic panels.",
+    "documentation": "Orientation of a surface or premises in terms of the attributes of North, South, East and West. Can be applied to the orientation of the front of the building, of a specific surface (wall, roof), window or skylight, or onsite generation technology, such as photovoltaic panels.",
     "enumerations": [
       "North",
       "Northeast",
@@ -5023,7 +5171,7 @@
   {
     "name": "ZipCode",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 1.0 (January 31, 2019)",
+    "documentation": "BuildingSync Schema - Version 2.0",
     "enumerations": [
 
     ],

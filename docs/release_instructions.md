@@ -20,7 +20,7 @@ Follow the steps below when releasing a new version
 
 * Update the CHANGELOG.md to include the latest changes, and the most recent version.
 
-	* Run the change_log.rb script (e.g. ruby src/change_log.rb -t abcdefghijklmnopqrstuvwxyz -s <last-release-data>).
+	* Run the change_log.rb script (e.g. ruby src/change_log.rb -t abcdefghijklmnopqrstuvwxyz -s 2019-11-15).
 	* Copy the results of this into the CHANGELOG. Remove items that are not useful to an end user such as version bumps, formatting, etc.
 
 * After merging down the release into the main branch, draft a release in GitHub. *Upload the XSD and JSON file as part of the release.*
@@ -32,7 +32,7 @@ Follow the steps below when releasing a new version
     * Check all the includes and details
     * Make sure to output to a single file (uncheck "Split output in multiple files")
     * Embed CSS into HTML
-    * Export as the default name, then go to the system and rename the html file as `index.html` in the website's `schema/vXXX/documentation` folder.
+    * Export as `index.html` in the website's `schema/vX.Y/documentation` folder.
 
 * Edit the BuildingSync Website GitHub repo on a new branch (https://github.com/BuildingSync/website):
 
