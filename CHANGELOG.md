@@ -1,14 +1,24 @@
 # BuildingSync
 
-## Version 2.0 Prerelease 2
+## Version 2.0
 
-Date Range: 09/30/19 - 11/15/19:
+Official release of BuildingSync Version 2.0.
+ 
+Date Range: 02/01/19 - 12/20/19:
 
-Closed Issues: 2
+Closed Issues: 6
+- Merged [#153]( https://github.com/BuildingSync/schema/issues/153 ), Daylighting setpoint needs to be footcandles (IP units)
+- Merged [#171]( https://github.com/BuildingSync/schema/issues/171 ), 2x Typos in 'Virtual' definition
 - Merged [#135]( https://github.com/BuildingSync/schema/issues/135 ), Bound 0-100 Percentages
 - Merged [#152]( https://github.com/BuildingSync/schema/issues/152 ), Support arbitrary scores and ratings
+- Merged [#73]( https://github.com/BuildingSync/schema/issues/73 ), Fractions and percentages appear to be unevenly implemented
+- Merged [#117]( https://github.com/BuildingSync/schema/issues/117 ), Typo in definition of "CoolRoof" element
 
-Accepted Pull Requests: 7
+
+Accepted Pull Requests: 70
+- Merged [#169]( https://github.com/BuildingSync/schema/pull/169 ), Modify DaylightingIlluminanceSetpoint units
+- Merged [#174]( https://github.com/BuildingSync/schema/pull/174 ), PrimaryHVACSystemType and PrimaryLightingSystemType
+- Merged [#175]( https://github.com/BuildingSync/schema/pull/175 ), Fix spelling errors in documentation for SectionType element
 - Merged [#155]( https://github.com/BuildingSync/schema/pull/155 ), Fix capitalization - Prefix 'Yearof' should be 'YearOf'
 - Merged [#157]( https://github.com/BuildingSync/schema/pull/157 ), Add missing @type attribute to 'Other' element in schema for 'DeliveryType' element.
 - Merged [#158]( https://github.com/BuildingSync/schema/pull/158 ), Pluralize `auc:ControlSystemType` element for plants
@@ -16,16 +26,6 @@ Accepted Pull Requests: 7
 - Merged [#162]( https://github.com/BuildingSync/schema/pull/162 ), Bound percentages
 - Merged [#163]( https://github.com/BuildingSync/schema/pull/163 ), Add BenchmarkValue element
 - Merged [#164]( https://github.com/BuildingSync/schema/pull/164 ), Add LinkedPremises child element to Benchmark element.
-
-## Version 2.0 Prerelease 1
-
-Date Range: 02/01/19 - 09/30/19:
-
-Closed Issues: 2
-- Merged [#73]( https://github.com/BuildingSync/schema/issues/73 ), Fractions and percentages appear to be unevenly implemented
-- Merged [#117]( https://github.com/BuildingSync/schema/issues/117 ), Typo in definition of "CoolRoof" element
-
-Accepted Pull Requests: 60
 - Merged [#79]( https://github.com/BuildingSync/schema/pull/79 ), Add Address to Building Element
 - Merged [#80]( https://github.com/BuildingSync/schema/pull/80 ), Add ID to Report and Qualification
 - Merged [#81]( https://github.com/BuildingSync/schema/pull/81 ), Update Ownership Enumerations
