@@ -16,7 +16,6 @@ Closed Issues: 6
 
 
 Accepted Pull Requests: 73
-- Merged [#168]( https://github.com/BuildingSync/schema/pull/168 ), Add DaylightingIlluminanceSetpointUnits element
 - Merged [#169]( https://github.com/BuildingSync/schema/pull/169 ), Modify DaylightingIlluminanceSetpoint units
 - Merged [#174]( https://github.com/BuildingSync/schema/pull/174 ), PrimaryHVACSystemType and PrimaryLightingSystemType
 - Merged [#175]( https://github.com/BuildingSync/schema/pull/175 ), Fix spelling errors in documentation for SectionType element
