@@ -136,6 +136,9 @@ class DataDictionary
     new_enums = []
     names = []
     @schema.xpath('//xs:simpleType/xs:restriction').map do |node|
+      # Skip if current node has no enumerations (e.g., <auc:TelephoneNumber> is a pattern).
+      next if node.xpath('.//xs:enumeration').none?
+
       data = {}
 
       name = node.parent.attribute('name')
