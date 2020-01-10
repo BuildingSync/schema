@@ -14562,10 +14562,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="TelephoneNumber" type="xs:string">
+  <xs:element name="TelephoneNumber">
     <xs:annotation>
       <xs:documentation>Telephone number may be specified for customer, contractors, and other contacts or businesses. Format: NNN-NNN-NNNN</xs:documentation>
     </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
+      </xs:restriction>
+    </xs:simpleType>
   </xs:element>
   <xs:element name="EmailAddress" type="xs:string">
     <xs:annotation>
