@@ -14539,15 +14539,25 @@
             <xs:documentation>The state for the address type, following the ISO 3166-2 Region code for US states.</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element name="PostalCode" type="xs:string" minOccurs="0">
+        <xs:element name="PostalCode" minOccurs="0">
           <xs:annotation>
-            <xs:documentation>The 5 digit postal code for the Address Type. NNNNN</xs:documentation>
+            <xs:documentation>The 5 digit postal code for the Address Type. Format: NNNNN</xs:documentation>
           </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]{5}"/>
+            </xs:restriction>
+          </xs:simpleType>
         </xs:element>
-        <xs:element name="PostalCodePlus4" type="xs:string" minOccurs="0">
+        <xs:element name="PostalCodePlus4" minOccurs="0">
           <xs:annotation>
-            <xs:documentation>The 4-digit add-on to the postal code in which the state is located. NNNN</xs:documentation>
+            <xs:documentation>The 4 digit add-on to the postal code in which the state is located. Format: NNNN</xs:documentation>
           </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]{4}"/>
+            </xs:restriction>
+          </xs:simpleType>
         </xs:element>
         <xs:element name="County" type="xs:string" minOccurs="0">
           <xs:annotation>
