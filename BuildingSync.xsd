@@ -6785,6 +6785,7 @@
             <xs:enumeration value="Dedicated Outdoor Air System"/>
             <xs:enumeration value="Water Loop Heat Pump"/>
             <xs:enumeration value="Ground Source Heat Pump"/>
+            <xs:enumeration value="Other"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -6814,6 +6815,109 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
+      <xs:element name="PrimaryCoolingType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The primary cooling type utilized by the HVAC system.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Air Cooled Chiller"/>
+            <xs:enumeration value="Water Cooled Chiller with Cooling Towers"/>
+            <xs:enumeration value="Cooling Towers"/>
+            <xs:enumeration value="Direct Expansion"/>
+            <xs:enumeration value="District Chilled Water"/>
+            <xs:enumeration value="Evaporative Coolers"/>
+            <xs:enumeration value="Heat Pump"/>
+            <xs:enumeration value="Ambient Loop"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="None"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PrimaryHeatingType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The primary heating type utilized by the HVAC system.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Fossil Fuel Furnace"/>
+            <xs:enumeration value="Fossil Fuel Hot Water Boiler"/>
+            <xs:enumeration value="Fossil Fuel Steam Boiler"/>
+            <xs:enumeration value="Electric Resistance"/>
+            <xs:enumeration value="District Steam"/>
+            <xs:enumeration value="District Hot Water"/>
+            <xs:enumeration value="Heat Pump"/>
+            <xs:enumeration value="Ambient Loop"/>
+            <xs:enumeration value="Solar Thermal"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="None"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PrimaryVentilationType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The primary ventilation type utilized by the HVAC system.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Exhaust Only"/>
+            <xs:enumeration value="Supply Only"/>
+            <xs:enumeration value="Infiltration Only"/>
+            <xs:enumeration value="Exhaust and Supply"/>
+            <xs:enumeration value="Exhaust and Infiltration"/>
+            <xs:enumeration value="Supply, Exhaust, and Infiltration"/>
+            <xs:enumeration value="Local Heat Recovery Ventilator"/>
+            <xs:enumeration value="Local Energy Recovery Ventilator"/>
+            <xs:enumeration value="Centralized Heat Recovery Ventilator"/>
+            <xs:enumeration value="Centralized Energy Recovery Ventilator"/>
+            <xs:enumeration value="Dedicated Outdoor Air System"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="None"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PrimaryFanControlType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The primary fan control type used for air distribution</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Constant Volume"/>
+            <xs:enumeration value="Stepped"/>
+            <xs:enumeration value="Variable Volume"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="None"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PrimaryTerminalUnitType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The primary terminal unit used for local heating, cooling, and air distribution</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Four Pipe Fan Coil Unit"/>
+            <xs:enumeration value="Heating Two Pipe Fan Coil Unit"/>
+            <xs:enumeration value="Cooling Two Pipe Fan Coil Unit"/>
+            <xs:enumeration value="VAV Boxes"/>
+            <xs:enumeration value="VAV Boxes with Hot Water Reheat"/>
+            <xs:enumeration value="VAV Boxes with Electric Reheat"/>
+            <xs:enumeration value="VAV with Parallel Fan-Powered Boxes"/>
+            <xs:enumeration value="VAV with Parallel Fan-Powered Boxes and Electric Reheat"/>
+            <xs:enumeration value="VAV with Parallel Fan-Powered Boxes and Hot Water Reheat"/>
+            <xs:enumeration value="Cooling Only Active Chilled Beams"/>
+            <xs:enumeration value="Cooling Only Passive Chilled Beams"/>
+            <xs:enumeration value="Heating Only Active Chilled Beams"/>
+            <xs:enumeration value="Heating Only Passive Chilled Beams"/>
+            <xs:enumeration value="Heating and Cooling Active Chilled Beams"/>
+            <xs:enumeration value="Heating and Cooling Passive Chilled Beams"/>
+            <xs:enumeration value="Packaged Terminal Air Conditioner"/>
+            <xs:enumeration value="Packaged Terminal Heat Pump"/>
+            <xs:enumeration value="Electric Unitary Heater"/>
+            <xs:enumeration value="Natural Gas Unitary Heater"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
     <xs:attribute ref="auc:Status"/>
@@ -8980,6 +9084,29 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
+      <xs:element name="PrimaryLightingSystemType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The primary lighting system type is a generic, simple lighting type definition to accompany a Level 1 audit.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Compact Fluorescent"/>
+            <xs:enumeration value="Fluorescent T5"/>
+            <xs:enumeration value="Fluorescent T5 - High Output"/>
+            <xs:enumeration value="Fluorescent T8"/>
+            <xs:enumeration value="Fluorescent T8 - Super T8"/>
+            <xs:enumeration value="Fluorescent T12"/>
+            <xs:enumeration value="Fluorescent T12 - High Output"/>
+            <xs:enumeration value="High Pressure Sodium"/>
+            <xs:enumeration value="Incandescent"/>
+            <xs:enumeration value="Halogen"/>
+            <xs:enumeration value="LED"/>
+            <xs:enumeration value="Mercury Vapor"/>
+            <xs:enumeration value="Metal Halide"/>
+            <xs:enumeration value="Other"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID"/>
     <xs:attribute ref="auc:Status"/>
