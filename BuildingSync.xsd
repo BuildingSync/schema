@@ -14984,17 +14984,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="OriginalOccupancyClassification" type="auc:OccupancyClassifications">
+  <xs:element name="OriginalOccupancyClassification" type="auc:OccupancyClassificationType">
     <xs:annotation>
       <xs:documentation>Original classification of the space (complex, whole building, or section) tasks by building occupants.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="OccupancyClassification" type="auc:OccupancyClassifications">
+  <xs:element name="OccupancyClassification" type="auc:OccupancyClassificationType">
     <xs:annotation>
       <xs:documentation>Classification of the space (complex, whole building, or section) tasks by building occupants.</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:simpleType name="OccupancyClassifications">
+  <xs:simpleType name="OccupancyClassificationType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Manufactured home"/>
       <xs:enumeration value="Single family"/>
