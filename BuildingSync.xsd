@@ -4070,6 +4070,18 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
+      <xs:element name="EnergyCostIndex" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The Energy Cost divided by the premises gross floor area. ($/ft2)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="OnsiteRenewableSystemElectricityExported" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The portion of energy produced from the onsite renewable energy system(s) that is exported (not used onsite). (kWh)</xs:documentation>
