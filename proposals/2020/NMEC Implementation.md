@@ -106,11 +106,22 @@ Potentially?
 
 ### Approach
 - Two `auc:Scenario`s will be used, one to represent the baseline period and one to represent the reporting period.  For situations where multiple reporting periods are considered (i.e. in the case where an energy simulation is used to produce synthetic data for different potential retrofit scenarios), additional reporting period scenarios can be defined.
-- The concept of an `auc:DerivedModel` is introduced.  It represents the generic concept of either a baseline or reporting model (referred to as an adjustment model in [3]).  It will be a complex type that would look something like as follows:
+- The concept of an `auc:DerivedModel` is introduced.  It represents the generic concept of either a baseline or reporting model (referred to as an adjustment model in [3]).
+- The `auc:DerivedModel` complex type will be able to be instantiated as a child of the following elements:
+    - `auc:Scenario/auc:ScenarioType/auc:CurrentBuilding`
+        - It is expected that models for baseline periods would be embedded here (regardless if modeled or measured)
+        - `auc:DerivedModelPerformance` and child elements should be captured here
+        - All elements starting with `auc:BaselinePeriod` should be captured here
+    - `auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures`
+        - It is expected that models for reporting periods would be embedded here (regardless if modeled or measured)
+        - All elements starting with `auc:ReportingPeriod` should be captured here
+- Multiple `auc:DerivdeModels` should be able to be captured, as users may want to test different `auc:ModelType`s
+- The `auc:DerivedModel` will be a complex type that would look something like:
 ```xml
   <auc:DerivedModels>
     <auc:DerivedModel ID="Model1">
       <auc:DerivedModelPeriod>[Baseline, Reporting]</auc:DerivedModelPeriod>
+      <auc:DerivedModelBaselineID/>
       <auc:DerivedModelInputs>
         <auc:ModelType>[2P SLR, 3P heating CPM, 3P cooling CPM, 4P CPM, 5P CPM]</auc:ModelType>
         <auc:NormalizationMethod>[Forecast, Backcast, Standard Conditions]</auc:NormalizationMethod>
@@ -164,8 +175,16 @@ Potentially?
           <auc:SavingsPercentage/>
           <auc:SavingsUncertainty/>
         </auc:UncertaintyOutputs>
+        <auc:CalTrackOutputs>
+          <auc:Status>[Qualified, Unqualified, ...]</auc:Status>
+          <auc:Warnings>
+            <auc:Warning>This a warning</auc:Warning>
+            <auc:Warning>This another warning</auc:Warning>
+          </auc:Warnings>
+        </auc:CalTrackOutputs>
       </auc:DerivedModelOutputs>
     </auc:DerivedModel>
+  </auc:DerivedModels>
 ```
 
 ## References
