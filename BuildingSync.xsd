@@ -17735,7 +17735,7 @@
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="RSquared">
+            <xs:element name="RSquared" minOccurs="0" maxOccurs="1">
               <xs:simpleType>
                 <xs:restriction base="xs:decimal">
                   <xs:minInclusive value="0"/>
@@ -17743,7 +17743,7 @@
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element name="AdjustedRSquared">
+            <xs:element name="AdjustedRSquared" minOccurs="0" maxOccurs="1">
               <xs:simpleType>
                 <xs:restriction base="xs:decimal">
                   <xs:minInclusive value="0"/>
@@ -17751,31 +17751,31 @@
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element name="RMSE">
+            <xs:element name="RMSE" minOccurs="0" maxOccurs="1">
               <xs:simpleType>
                 <xs:restriction base="xs:decimal">
                   <xs:minInclusive value="0"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element name="CVRMSE">
+            <xs:element name="CVRMSE" minOccurs="0" maxOccurs="1">
               <xs:simpleType>
                 <xs:restriction base="xs:decimal">
                   <xs:minInclusive value="0"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element name="NDBE" type="xs:decimal">
+            <xs:element name="NDBE" type="xs:decimal" minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>The Net Determination Bias Error.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="MBE" type="xs:decimal">
+            <xs:element name="MBE" type="xs:decimal" minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>The Mean Bias Error.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="NMBE" type="xs:decimal">
+            <xs:element name="NMBE" type="xs:decimal" minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>The Normalized Mean Bias Error.</xs:documentation>
               </xs:annotation>
@@ -17786,36 +17786,36 @@
       <xs:element name="DerivedModelOutputs">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="BaselinePeriodActualEnergyUse" type="xs:decimal"/>
-            <xs:element name="BaselinePeriodCalculatedEnergyUse" type="xs:decimal"/>
-            <xs:element name="ReportingPeriodActualEnergyUse" type="xs:decimal"/>
-            <xs:element name="ReportingPeriodCalculatedEnergyUse" type="xs:decimal"/>
-            <xs:element name="BaselinePeriodCalculatedEnergyUseStandardConditions" type="xs:decimal"/>
-            <xs:element name="ReportingPeriodCalculatedEnergyUseStandardConditions" type="xs:decimal"/>
-            <xs:element name="AvoidedEnergyUse" type="xs:decimal"/>
-            <xs:element name="NormalizedEnergySavings" type="xs:decimal"/>
-            <xs:element name="NumberOfParameters" type="xs:decimal"/>
-            <xs:element name="NumberOfBaselinePeriodDataPoints" type="xs:decimal"/>
-            <xs:element name="NumberOfReportingPeriodDataPoints" type="xs:decimal"/>
-            <xs:element name="DegreesOfFreedom" type="xs:decimal"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="CalTrackOutputs">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="Status">
-              <xs:simpleType>
-                <xs:restriction base="xs:string">
-                  <xs:enumeration value="Qualified"/>
-                  <xs:enumeration value="Unqualified"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-            <xs:element name="Warnings">
+            <xs:element name="BaselinePeriodActualEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="BaselinePeriodCalculatedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="ReportingPeriodActualEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="ReportingPeriodCalculatedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="BaselinePeriodCalculatedEnergyUseStandardConditions" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="ReportingPeriodCalculatedEnergyUseStandardConditions" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="AvoidedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="NormalizedEnergySavings" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="NumberOfParameters" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="NumberOfBaselinePeriodDataPoints" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="NumberOfReportingPeriodDataPoints" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="DegreesOfFreedom" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="CalTrackOutputs" minOccurs="0" maxOccurs="1">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="Warning" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                  <xs:element name="Status">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Qualified"/>
+                        <xs:enumeration value="Unqualified"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Warnings">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="Warning" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
