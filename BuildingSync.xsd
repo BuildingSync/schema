@@ -17759,26 +17759,42 @@
               </xs:simpleType>
             </xs:element>
             <xs:element name="CVRMSE" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>The Coefficient of Variation of the Root Mean Square Error expressed as a percentage.</xs:documentation>
+              </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:decimal">
                   <xs:minInclusive value="0"/>
+                  <xs:maxInclusive value="100"/>
                 </xs:restriction>
               </xs:simpleType>
             </xs:element>
-            <xs:element name="NDBE" type="xs:decimal" minOccurs="0" maxOccurs="1">
+            <xs:element name="NDBE" minOccurs="0" maxOccurs="1">
               <xs:annotation>
-                <xs:documentation>The Net Determination Bias Error.</xs:documentation>
+                <xs:documentation>The Net Determination Bias Error expressed as a percentage.</xs:documentation>
               </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:decimal">
+                  <xs:minInclusive value="0"/>
+                  <xs:maxInclusive value="100"/>
+                </xs:restriction>
+              </xs:simpleType>
             </xs:element>
             <xs:element name="MBE" type="xs:decimal" minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>The Mean Bias Error.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="NMBE" type="xs:decimal" minOccurs="0" maxOccurs="1">
+            <xs:element name="NMBE" minOccurs="0" maxOccurs="1">
               <xs:annotation>
-                <xs:documentation>The Normalized Mean Bias Error.</xs:documentation>
+                <xs:documentation>The Normalized Mean Bias Error expressed as a percentage.</xs:documentation>
               </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:decimal">
+                  <xs:minInclusive value="0"/>
+                  <xs:maxInclusive value="100"/>
+                </xs:restriction>
+              </xs:simpleType>
             </xs:element>
           </xs:sequence>
         </xs:complexType>
