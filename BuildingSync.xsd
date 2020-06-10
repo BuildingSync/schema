@@ -17701,27 +17701,27 @@
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="Intercept" type="xs:decimal">
+            <xs:element name="Intercept" type="xs:decimal" minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>The 'y-intercept' value.  In Figure D-1 (a), this is Eb.  In Figure D-1 (a)-(g), this is C.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="Beta1" type="xs:decimal">
+            <xs:element name="Beta1" type="xs:decimal" minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>In a two and three parameter model, this is the slope of the line (Figure D-1 (a)-(d)).  If the model type is a 3p heating model, this is referred to as beta_hdd, whereas for a 3p cooling model, this is referred to as beta_cdd (per CalTRACK terminology).  In the 4p and 5p models, this is beta_hdd.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="Beta2" type="xs:decimal">
+            <xs:element name="Beta2" type="xs:decimal" minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>In both three parameter models, this is the change point.  In the 4p and 5p models, this is beta_cdd.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="Beta3" type="xs:decimal">
+            <xs:element name="Beta3" type="xs:decimal" minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>In the 4p models, this is the change point (as there is only one change point).  In the 5p models, this is the lower value change point, which in CalTRACK terms is referred to as the heating change point.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="Beta4" type="xs:decimal">
+            <xs:element name="Beta4" type="xs:decimal" minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>In the 5p model, this is the upper value change point, which in CalTRACK terms is referred to as the cooling change point.</xs:documentation>
               </xs:annotation>
