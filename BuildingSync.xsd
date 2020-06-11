@@ -17802,18 +17802,66 @@
       <xs:element name="DerivedModelOutputs">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="BaselinePeriodActualEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="BaselinePeriodCalculatedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="ReportingPeriodActualEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="ReportingPeriodCalculatedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="BaselinePeriodCalculatedEnergyUseStandardConditions" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="ReportingPeriodCalculatedEnergyUseStandardConditions" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="AvoidedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="NormalizedEnergySavings" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="NumberOfParameters" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="NumberOfBaselinePeriodDataPoints" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="NumberOfReportingPeriodDataPoints" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="DegreesOfFreedom" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="BaselinePeriodActualEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>As used in the Retrofit Isolation Approach (G-14 4.1.1) and Whole Facility Approach (G-14 4.1.2) of ASRHAE Guideline 14-2018.  This value represents the summation of the actual energy use for the auc:ResponseVariable over the entire Baseline period.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="BaselinePeriodCalculatedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>This is used when the auc:NormalizationMethod = "Backcast".  It represents the summation of the predicted energy use over the baseline period when the values are calculated with a model developed using data from the Reporting period.  Refer to the California Industrial SEM M\&amp;V guide v1.0</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ReportingPeriodActualEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>As documented in Annex B4.1f of ASRHAE Guideline 14-2018 (E_meas,m), this represents the summation of the measured energy use over the postretrofit (Reporting) period.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ReportingPeriodCalculatedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>As documented in Annex B4.1e of ASRHAE Guideline 14-2018 (Ehat_base,m), this represents the summation of the predicted total normalized baseline energy use.  It is referred to herein as the calculated or predicted energy use during the Reporting period.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="BaselinePeriodCalculatedEnergyUseStandardConditions" type="xs:decimal" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>As documented in Annex B4.5 of ASRHAE Guideline 14-2018: "In many cases, it is necessary to normalize the savings to a typical or average period (usually a year) at the site. It was shown in Section B4.3 that when measurement errors are negligible, the uncertainty in calculating actual savings using a weather-based regression is due to the error in normalizing the baseline energy use to the postretrofit period. Normalized savings requires two regression equations: one that correlates baseline energy use with baseline weather conditions and one that correlates postretrofit energy use with postretrofit weather conditions.  This value represents the "normalized baseline energy use", or the predicted energy consumption using the Baseline model when data from a standard year (or typical year) is supplied to it.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ReportingPeriodCalculatedEnergyUseStandardConditions" type="xs:decimal" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>As documented in Annex B4.5 of ASRHAE Guideline 14-2018: "In many cases, it is necessary to normalize the savings to a typical or average period (usually a year) at the site. It was shown in Section B4.3 that when measurement errors are negligible, the uncertainty in calculating actual savings using a weather-based regression is due to the error in normalizing the baseline energy use to the postretrofit period. Normalized savings requires two regression equations: one that correlates baseline energy use with baseline weather conditions and one that correlates postretrofit energy use with postretrofit weather conditions.  This value represents the "normalized postretrofit energy use", or the predicted energy consumption using the Reporting (or postretrofit) model when data from a standard year (or typical year) is supplied to it.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="AvoidedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>As documented in Annex B4.1g and the result of Equation B-14 of ASHRAE Guideline 14-2018 (E_save,m), this value represents the 'actual savings'.  It is calculated via the following: E_save,m = Ehat_base,m - E_meas,m.  In BuildingSync terms, auc:AvoidedEnergyUse = auc:ReportingPeriodCalculatedEnergyUse - auc:ReportingPeriodActualEnergyUse.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="NormalizedEnergySavings" type="xs:decimal" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>As documented in Annex B4.5 of ASRHAE Guideline 14-2018: "normalized savings is then defined as the normalized baseline energy use minus the normalized postretrofit energy use".  The "normalized baseline energy use" referred to in G-14 is captured by the auc:BaselinePeriodCalculatedEnergyUseStandardConditions element, while the "normalized postretrofit energy use" is captured by the auc:ReportingPeriodCalculatedEnergyUseStandardConditions element.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="NumberOfParameters" type="xs:decimal" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>As documented in Annex B4 of ASRHAE Guideline 14-2018, this refers to the total number of parameters in the model.  It is denoted as "p" throughout B4.  The number of parameters is not necessarily equal to the number of auc:ExplanatoryVariable elements.  For example, a 5 parameter change point model has 5 parameters, even though there is only a single ExplanatoryVariable (likely Drybulb Temperature).  In certain cases, this is used in the calculation of the degrees of freedom for the t-statistic.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="NumberOfBaselinePeriodDataPoints" type="xs:decimal" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>As documented in Annex B4 of ASRHAE Guideline 14-2018, this refers to the total number of periods in the Baseline period data.  It is denoted as "n" throughout B4.  A "period" refers to a measurement of the ResponseVariable.  For example, 24 hours worth of data collected at hourly intervals would have 24 "periods".</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="NumberOfReportingPeriodDataPoints" type="xs:decimal" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>As documented in Annex B4 of ASRHAE Guideline 14-2018, this refers to the total number of periods in the Reporting period data.  It is denoted as "m" throughout B4.  A "period" refers to a measurement of the ResponseVariable.  For example, 24 hours worth of data collected at hourly intervals would have 24 "periods".</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="DegreesOfFreedom" type="xs:decimal" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>Degrees of Freedom as used in the context of a t-distribution.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
             <xs:element name="CalTrackOutputs" minOccurs="0" maxOccurs="1">
               <xs:complexType>
                 <xs:sequence>
