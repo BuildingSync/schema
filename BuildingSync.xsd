@@ -17865,6 +17865,13 @@
                 maxOccurs="1"/>
               <xs:element name="ReportingPeriodEndTimestamp" type="xs:dateTime" minOccurs="0"
                 maxOccurs="1"/>
+              <xs:element name="TimeSeriesPredictions">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="TimeSeries" type="auc:TimeSeriesType" maxOccurs="unbounded"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
               <xs:element name="SummaryInformation">
                 <xs:complexType>
                   <xs:sequence>
@@ -17910,13 +17917,6 @@
                         <xs:documentation>Degrees of Freedom as used in the context of a t-distribution.</xs:documentation>
                       </xs:annotation>
                     </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="TimeSeriesPredictions">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="TimeSeries" type="auc:TimeSeriesType" maxOccurs="unbounded"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
