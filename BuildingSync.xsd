@@ -2546,7 +2546,8 @@
                           <xs:complexType>
                             <xs:sequence>
                               <xs:element ref="auc:EnergyResource" minOccurs="0"/>
-                              <xs:element name="ResourceUnits" type="auc:ResourceUnitsType" minOccurs="0"/>
+                              <xs:element name="ResourceUnits" type="auc:ResourceUnitsType"
+                                minOccurs="0"/>
                               <xs:element name="AnnualSavingsNativeUnits" minOccurs="0">
                                 <xs:annotation>
                                   <xs:documentation>Site energy savings per year for this resource type, in the original units. (units/yr)</xs:documentation>
@@ -15505,7 +15506,7 @@
       <xs:documentation>Type of energy resource fuel. This can be applied at the premises or individual system or equipment level.</xs:documentation>
     </xs:annotation>
   </xs:element>
-<!--  <xs:simpleType name="ResourceUnitsType">
+  <!--  <xs:simpleType name="ResourceUnitsType">
     <xs:annotation>
       <xs:documentation>Units for resource consumption or generation.</xs:documentation>
     </xs:annotation>
@@ -17539,353 +17540,391 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="DerivedModelName" type="xs:string" minOccurs="0"/>
-      <xs:element name="DerivedModelPeriod" minOccurs="1">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Baseline"/>
-            <xs:enumeration value="Reporting"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="DerivedModelBaselineID" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>ID number for the baseline model that serves as the reference case for the reporting model.  Only required where auc:DerivedModelPeriod='Reporting'</xs:documentation>
-        </xs:annotation>
+      <xs:element name="MeasuredScenarioID">
         <xs:complexType>
-          <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+          <xs:attribute name="IDref" type="xs:IDREF"/>
         </xs:complexType>
       </xs:element>
-      <xs:element name="DerivedModelInputs">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="ModelType" minOccurs="1">
-              <xs:simpleType>
-                <xs:restriction base="xs:string">
-                  <xs:enumeration value="2 parameter simple linear regression"/>
-                  <xs:enumeration value="3 parameter heating change point model"/>
-                  <xs:enumeration value="3 parameter cooling change point model"/>
-                  <xs:enumeration value="4 parameter change point model"/>
-                  <xs:enumeration value="5 parameter change point model"/>
-                  <xs:enumeration value="Other"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-            <xs:element name="NormalizationMethod" minOccurs="1">
-              <xs:simpleType>
-                <xs:restriction base="xs:string">
-                  <xs:enumeration value="Forecast">
-                    <xs:annotation>
-                      <xs:documentation>This normalization method is likely most common. It implies creation of a single DerivedModel using data from the Baseline Period.  ExplanatoryVariable data from the Reporting Period is then used to calculate the ReportingPeriodCalculatedEnergyUse for comparison.</xs:documentation>
-                    </xs:annotation>
-                  </xs:enumeration>
-                  <xs:enumeration value="Backcast">
-                    <xs:annotation>
-                      <xs:documentation>This normalization method should be applied to create DerivedModels when the Forecast method does not yield satisfactory results.  It implies creation of a single DerivedModel using data from the Reporting Period. ExplanatoryVariable data from the Baseline Period is then used to calculate the BaselinePeriodCalculatedEnergyUse for comparison.</xs:documentation>
-                    </xs:annotation>
-                  </xs:enumeration>
-                  <xs:enumeration value="Standard Conditions">
-                    <xs:annotation>
-                      <xs:documentation>This normalization method should be applied to create DerivedModels when neither the Forecast or Backcast methods can create valid DerivedModels.  It is also valuable when working with premises where consumption is largely driven by a single relevant ExplanatoryVariable (i.e. clean rooms or data centers).  It implies creation of two DerivedModels, one for each of the Baseline Period and Reporting Period.  ExplanatoryVariable data from a standard set of conditions is then plugged into each of the models and used to calculate the BaselinePeriodCalculatedEnergyUseStandardConditions and ReportingPeriodCalculatedEnergyUseStandardConditions.</xs:documentation>
-                    </xs:annotation>
-                  </xs:enumeration>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-            <xs:element name="BaselinePeriodStartTimestamp" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="BaselinePeriodEndTimestamp" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="ReportingPeriodStartTimestamp" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="ReportingPeriodEndTimestamp" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="IntervalFrequency" type="auc:IntervalFrequencyType" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="ResponseVariable" minOccurs="1" maxOccurs="1">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="ResponseVariableName" type="auc:FuelTypes" minOccurs="1" maxOccurs="1"/>
-                  <xs:element name="ResponseVariableUnits" type="auc:ResourceUnitsType" minOccurs="1" maxOccurs="1"/>
-                  <xs:element name="ResponseVariableEndUse" type="auc:EndUse" minOccurs="1" maxOccurs="1"/>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="ExplanatoryVariables">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="ExplanatoryVariable" minOccurs="1" maxOccurs="unbounded">
-                    <xs:complexType>
-                      <xs:sequence>
-                        <xs:element name="ExplanatoryVariableName" minOccurs="1" maxOccurs="1">
-                          <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                              <xs:enumeration value="Drybulb Temperature"/>
-                              <xs:enumeration value="Wetbulb Temperature"/>
-                              <xs:enumeration value="Relative Humidity"/>
-                              <xs:enumeration value="Global Horizontal Irradiance (GHI)"/>
-                              <xs:enumeration value="Diffuse Horizontal Irradiance (DHI)"/>
-                              <xs:enumeration value="Direct Normal Irradiance (DNI)"/>
-                              <xs:enumeration value="Hour of week">
-                                <xs:annotation>
-                                  <xs:documentation>Hour of the week used as an indicator variable.  A total of 168 indicator variables should exist.</xs:documentation>
-                                </xs:annotation>
-                              </xs:enumeration>
-                              <xs:enumeration value="Hour of day">
-                                <xs:annotation>
-                                  <xs:documentation>Hour of the day used as an indicator variable.  A total of 24 indicator variables should exist.</xs:documentation>
-                                </xs:annotation>
-                              </xs:enumeration>
-                              <xs:enumeration value="Day of week">
-                                <xs:annotation>
-                                  <xs:documentation>Day of the week used as an indicator variable.  A total of 7 indicator variables should exist.</xs:documentation>
-                                </xs:annotation>
-                              </xs:enumeration>
-                              <xs:enumeration value="Day of month">
-                                <xs:annotation>
-                                  <xs:documentation>Day of the month used as an indicator variable.  Between 28 - 31 indicator variables should exist.</xs:documentation>
-                                </xs:annotation>
-                              </xs:enumeration>
-                              <xs:enumeration value="Day of year">
-                                <xs:annotation>
-                                  <xs:documentation>Day of the year used as an indicator variable.  Either 365 or 366 indicator variables should exist.</xs:documentation>
-                                </xs:annotation>
-                              </xs:enumeration>
-                              <xs:enumeration value="Week of year">
-                                <xs:annotation>
-                                  <xs:documentation>Week of the year used as an indicator variable.  A total of 52 indicator variables should exist.</xs:documentation>
-                                </xs:annotation>
-                              </xs:enumeration>
-                              <xs:enumeration value="Month of year">
-                                <xs:annotation>
-                                  <xs:documentation>Month of the year used as an indicator variable.  A total of 12 indicator variables should exist.</xs:documentation>
-                                </xs:annotation>
-                              </xs:enumeration>
-                              <xs:enumeration value="Fifteen minute interval of week">
-                                <xs:annotation>
-                                  <xs:documentation>A fifteen minute interval during the week used as an indicator variable.  A total of 12 indicator variables should exist.</xs:documentation>
-                                </xs:annotation>
-                              </xs:enumeration>
-                              <xs:enumeration value="Fifteen minute interval of day">
-                                <xs:annotation>
-                                  <xs:documentation>A fifteen minute interval during the day used as an indicator variable.  A total of 12 indicator variables should exist.</xs:documentation>
-                                </xs:annotation>
-                              </xs:enumeration>
-                              <xs:enumeration value="Season">
-                                <xs:annotation>
-                                  <xs:documentation>A season during the year.  Typically this would be 4 indicator variables.</xs:documentation>
-                                </xs:annotation>
-                              </xs:enumeration>
-                              <xs:enumeration value="Weekday / Weekend">
-                                <xs:annotation>
-                                  <xs:documentation>Two indicator variables are used to represent the weekends vs. weekdays.</xs:documentation>
-                                </xs:annotation>
-                              </xs:enumeration>
-                              <xs:enumeration value="Holiday">
-                                <xs:annotation>
-                                  <xs:documentation>Two indicator variables are used to represent holidays vs. non-holidays.</xs:documentation>
-                                </xs:annotation>
-                              </xs:enumeration>
-                              <xs:enumeration value="Other"/>
-                            </xs:restriction>
-                          </xs:simpleType>
-                        </xs:element>
-                        <xs:element name="ExplanatoryVariableUnits" type="auc:UnitsType">
-                        </xs:element>
-                      </xs:sequence>
-                    </xs:complexType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="DerivedModelParameters">
-        <xs:annotation>
-          <xs:documentation>Defined parameters are based on those available in ASHRAE Guideline 14-2014 Table D-1 and Figure D-1.  Concepts and nomenclature is also adopted from the CalTRACK methodology.  Attempts to generalize these parameters are made.</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="Intercept" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>The 'y-intercept' value.  In Figure D-1 (a), this is Eb.  In Figure D-1 (a)-(g), this is C.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="Beta1" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>In a two and three parameter model, this is the slope of the line (Figure D-1 (a)-(d)).  If the model type is a 3p heating model, this is referred to as beta_hdd, whereas for a 3p cooling model, this is referred to as beta_cdd (per CalTRACK terminology).  In the 4p and 5p models, this is beta_hdd.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="Beta2" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>In both three parameter models, this is the change point.  In the 4p and 5p models, this is beta_cdd.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="Beta3" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>In the 4p models, this is the change point (as there is only one change point).  In the 5p models, this is the lower value change point, which in CalTRACK terms is referred to as the heating change point.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="Beta4" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>In the 5p model, this is the upper value change point, which in CalTRACK terms is referred to as the cooling change point.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="DerivedModelPerformance">
-        <xs:annotation>
-          <xs:documentation>Characterization of the performance of the model.</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="RSquared" minOccurs="0" maxOccurs="1">
-              <xs:simpleType>
-                <xs:restriction base="xs:decimal">
-                  <xs:minInclusive value="0"/>
-                  <xs:maxInclusive value="1"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-            <xs:element name="AdjustedRSquared" minOccurs="0" maxOccurs="1">
-              <xs:simpleType>
-                <xs:restriction base="xs:decimal">
-                  <xs:minInclusive value="0"/>
-                  <xs:maxInclusive value="1"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-            <xs:element name="RMSE" minOccurs="0" maxOccurs="1">
-              <xs:simpleType>
-                <xs:restriction base="xs:decimal">
-                  <xs:minInclusive value="0"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-            <xs:element name="CVRMSE" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>The Coefficient of Variation of the Root Mean Square Error expressed as a percentage.</xs:documentation>
-              </xs:annotation>
-              <xs:simpleType>
-                <xs:restriction base="xs:decimal">
-                  <xs:minInclusive value="0"/>
-                  <xs:maxInclusive value="100"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-            <xs:element name="NDBE" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>The Net Determination Bias Error expressed as a percentage.</xs:documentation>
-              </xs:annotation>
-              <xs:simpleType>
-                <xs:restriction base="xs:decimal">
-                  <xs:minInclusive value="0"/>
-                  <xs:maxInclusive value="100"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-            <xs:element name="MBE" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>The Mean Bias Error.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="NMBE" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>The Normalized Mean Bias Error expressed as a percentage.</xs:documentation>
-              </xs:annotation>
-              <xs:simpleType>
-                <xs:restriction base="xs:decimal">
-                  <xs:minInclusive value="0"/>
-                  <xs:maxInclusive value="100"/>
-                </xs:restriction>
-              </xs:simpleType>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="DerivedModelOutputs">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="BaselinePeriodActualEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>As used in the Retrofit Isolation Approach (G-14 4.1.1) and Whole Facility Approach (G-14 4.1.2) of ASRHAE Guideline 14-2018.  This value represents the summation of the actual energy use for the auc:ResponseVariable over the entire Baseline period.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="BaselinePeriodCalculatedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>This is used when the auc:NormalizationMethod = "Backcast".  It represents the summation of the predicted energy use over the baseline period when the values are calculated with a model developed using data from the Reporting period.  Refer to the California Industrial SEM M\&amp;V guide v1.0</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="ReportingPeriodActualEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>As documented in Annex B4.1f of ASRHAE Guideline 14-2018 (E_meas,m), this represents the summation of the measured energy use over the postretrofit (Reporting) period.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="ReportingPeriodCalculatedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>As documented in Annex B4.1e of ASRHAE Guideline 14-2018 (Ehat_base,m), this represents the summation of the predicted total normalized baseline energy use.  It is referred to herein as the calculated or predicted energy use during the Reporting period.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="BaselinePeriodCalculatedEnergyUseStandardConditions" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>This is used when the auc:NormalizationMethod = "Standard Conditions".  As documented in Annex B4.5 of ASRHAE Guideline 14-2018: "In many cases, it is necessary to normalize the savings to a typical or average period (usually a year) at the site. It was shown in Section B4.3 that when measurement errors are negligible, the uncertainty in calculating actual savings using a weather-based regression is due to the error in normalizing the baseline energy use to the postretrofit period. Normalized savings requires two regression equations: one that correlates baseline energy use with baseline weather conditions and one that correlates postretrofit energy use with postretrofit weather conditions.  This value represents the "normalized baseline energy use", or the predicted energy consumption using the Baseline model when data from a standard year (or typical year) is supplied to it.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="ReportingPeriodCalculatedEnergyUseStandardConditions" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>This is used when the auc:NormalizationMethod = "Standard Conditions".  As documented in Annex B4.5 of ASRHAE Guideline 14-2018: "In many cases, it is necessary to normalize the savings to a typical or average period (usually a year) at the site. It was shown in Section B4.3 that when measurement errors are negligible, the uncertainty in calculating actual savings using a weather-based regression is due to the error in normalizing the baseline energy use to the postretrofit period. Normalized savings requires two regression equations: one that correlates baseline energy use with baseline weather conditions and one that correlates postretrofit energy use with postretrofit weather conditions.  This value represents the "normalized postretrofit energy use", or the predicted energy consumption using the Reporting (or postretrofit) model when data from a standard year (or typical year) is supplied to it.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="AvoidedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>As documented in Annex B4.1g and the result of Equation B-14 of ASHRAE Guideline 14-2018 (E_save,m), this value represents the 'actual savings'.  It is calculated via the following: E_save,m = Ehat_base,m - E_meas,m.  In BuildingSync terms, auc:AvoidedEnergyUse = auc:ReportingPeriodCalculatedEnergyUse - auc:ReportingPeriodActualEnergyUse.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="NormalizedEnergySavings" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>This is used when the auc:NormalizationMethod = "Standard Conditions".  As documented in Annex B4.5 of ASRHAE Guideline 14-2018: "normalized savings is then defined as the normalized baseline energy use minus the normalized postretrofit energy use".  The "normalized baseline energy use" referred to in G-14 is captured by the auc:BaselinePeriodCalculatedEnergyUseStandardConditions element, while the "normalized postretrofit energy use" is captured by the auc:ReportingPeriodCalculatedEnergyUseStandardConditions element.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="NumberOfParameters" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>As documented in Annex B4 of ASRHAE Guideline 14-2018, this refers to the total number of parameters in the model.  It is denoted as "p" throughout B4.  The number of parameters is not necessarily equal to the number of auc:ExplanatoryVariable elements.  For example, a 5 parameter change point model has 5 parameters, even though there is only a single ExplanatoryVariable (likely Drybulb Temperature).  In certain cases, this is used in the calculation of the degrees of freedom for the t-statistic.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="NumberOfBaselinePeriodDataPoints" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>As documented in Annex B4 of ASRHAE Guideline 14-2018, this refers to the total number of periods in the Baseline period data.  It is denoted as "n" throughout B4.  A "period" refers to a measurement of the ResponseVariable.  For example, 24 hours worth of data collected at hourly intervals would have 24 "periods".</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="NumberOfReportingPeriodDataPoints" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>As documented in Annex B4 of ASRHAE Guideline 14-2018, this refers to the total number of periods in the Reporting period data.  It is denoted as "m" throughout B4.  A "period" refers to a measurement of the ResponseVariable.  For example, 24 hours worth of data collected at hourly intervals would have 24 "periods".</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="DegreesOfFreedom" type="xs:decimal" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>Degrees of Freedom as used in the context of a t-distribution.</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="CalTrackOutputs" minOccurs="0" maxOccurs="1">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="Status">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Qualified"/>
-                        <xs:enumeration value="Unqualified"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                  <xs:element name="Warnings">
-                    <xs:complexType>
-                      <xs:sequence>
-                        <xs:element name="Warning" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-                      </xs:sequence>
-                    </xs:complexType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
+      <xs:choice>
+
+        <xs:element name="BaselineModel" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NormalizationMethod" minOccurs="1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Forecast">
+                      <xs:annotation>
+                        <xs:documentation>This normalization method is likely most common. It implies creation of a single DerivedModel using data from the Baseline Period.  ExplanatoryVariable data from the Reporting Period is then used to calculate the ReportingPeriodCalculatedEnergyUse for comparison.</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Backcast">
+                      <xs:annotation>
+                        <xs:documentation>This normalization method should be applied to create DerivedModels when the Forecast method does not yield satisfactory results.  It implies creation of a single DerivedModel using data from the Reporting Period. ExplanatoryVariable data from the Baseline Period is then used to calculate the BaselinePeriodCalculatedEnergyUse for comparison.</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Standard Conditions">
+                      <xs:annotation>
+                        <xs:documentation>This normalization method should be applied to create DerivedModels when neither the Forecast or Backcast methods can create valid DerivedModels.  It is also valuable when working with premises where consumption is largely driven by a single relevant ExplanatoryVariable (i.e. clean rooms or data centers).  It implies creation of two DerivedModels, one for each of the Baseline Period and Reporting Period.  ExplanatoryVariable data from a standard set of conditions is then plugged into each of the models and used to calculate the BaselinePeriodCalculatedEnergyUseStandardConditions and ReportingPeriodCalculatedEnergyUseStandardConditions.</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BaselinePeriodStartTimestamp" type="xs:dateTime" minOccurs="1"
+                maxOccurs="1"/>
+              <xs:element name="BaselinePeriodEndTimestamp" type="xs:dateTime" minOccurs="1"
+                maxOccurs="1"/>
+              <xs:element name="DerivedModelInputs">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="IntervalFrequency" type="auc:IntervalFrequencyType"
+                      minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="ResponseVariable" minOccurs="1" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ResponseVariableName" type="auc:FuelTypes" minOccurs="1"
+                            maxOccurs="1"/>
+                          <xs:element name="ResponseVariableUnits" type="auc:ResourceUnitsType"
+                            minOccurs="1" maxOccurs="1"/>
+                          <xs:element name="ResponseVariableEndUse" type="auc:EndUse" minOccurs="1"
+                            maxOccurs="1"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ExplanatoryVariables">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ExplanatoryVariable" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="ExplanatoryVariableName" minOccurs="1"
+                                  maxOccurs="1">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:enumeration value="Drybulb Temperature"/>
+                                      <xs:enumeration value="Wetbulb Temperature"/>
+                                      <xs:enumeration value="Relative Humidity"/>
+                                      <xs:enumeration value="Global Horizontal Irradiance (GHI)"/>
+                                      <xs:enumeration value="Diffuse Horizontal Irradiance (DHI)"/>
+                                      <xs:enumeration value="Direct Normal Irradiance (DNI)"/>
+                                      <xs:enumeration value="Hour of week">
+                                        <xs:annotation>
+                                          <xs:documentation>Hour of the week used as an indicator variable.  A total of 168 indicator variables should exist.</xs:documentation>
+                                        </xs:annotation>
+                                      </xs:enumeration>
+                                      <xs:enumeration value="Hour of day">
+                                        <xs:annotation>
+                                          <xs:documentation>Hour of the day used as an indicator variable.  A total of 24 indicator variables should exist.</xs:documentation>
+                                        </xs:annotation>
+                                      </xs:enumeration>
+                                      <xs:enumeration value="Day of week">
+                                        <xs:annotation>
+                                          <xs:documentation>Day of the week used as an indicator variable.  A total of 7 indicator variables should exist.</xs:documentation>
+                                        </xs:annotation>
+                                      </xs:enumeration>
+                                      <xs:enumeration value="Day of month">
+                                        <xs:annotation>
+                                          <xs:documentation>Day of the month used as an indicator variable.  Between 28 - 31 indicator variables should exist.</xs:documentation>
+                                        </xs:annotation>
+                                      </xs:enumeration>
+                                      <xs:enumeration value="Day of year">
+                                        <xs:annotation>
+                                          <xs:documentation>Day of the year used as an indicator variable.  Either 365 or 366 indicator variables should exist.</xs:documentation>
+                                        </xs:annotation>
+                                      </xs:enumeration>
+                                      <xs:enumeration value="Week of year">
+                                        <xs:annotation>
+                                          <xs:documentation>Week of the year used as an indicator variable.  A total of 52 indicator variables should exist.</xs:documentation>
+                                        </xs:annotation>
+                                      </xs:enumeration>
+                                      <xs:enumeration value="Month of year">
+                                        <xs:annotation>
+                                          <xs:documentation>Month of the year used as an indicator variable.  A total of 12 indicator variables should exist.</xs:documentation>
+                                        </xs:annotation>
+                                      </xs:enumeration>
+                                      <xs:enumeration value="Fifteen minute interval of week">
+                                        <xs:annotation>
+                                          <xs:documentation>A fifteen minute interval during the week used as an indicator variable.  A total of 12 indicator variables should exist.</xs:documentation>
+                                        </xs:annotation>
+                                      </xs:enumeration>
+                                      <xs:enumeration value="Fifteen minute interval of day">
+                                        <xs:annotation>
+                                          <xs:documentation>A fifteen minute interval during the day used as an indicator variable.  A total of 12 indicator variables should exist.</xs:documentation>
+                                        </xs:annotation>
+                                      </xs:enumeration>
+                                      <xs:enumeration value="Season">
+                                        <xs:annotation>
+                                          <xs:documentation>A season during the year.  Typically this would be 4 indicator variables.</xs:documentation>
+                                        </xs:annotation>
+                                      </xs:enumeration>
+                                      <xs:enumeration value="Weekday / Weekend">
+                                        <xs:annotation>
+                                          <xs:documentation>Two indicator variables are used to represent the weekends vs. weekdays.</xs:documentation>
+                                        </xs:annotation>
+                                      </xs:enumeration>
+                                      <xs:enumeration value="Holiday">
+                                        <xs:annotation>
+                                          <xs:documentation>Two indicator variables are used to represent holidays vs. non-holidays.</xs:documentation>
+                                        </xs:annotation>
+                                      </xs:enumeration>
+                                      <xs:enumeration value="Other"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="ExplanatoryVariableUnits" type="auc:UnitsType">
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="DerivedModelParameters">
+                <xs:complexType>
+                  <xs:choice>
+                    <xs:element name="Guideline14Model">
+                      <xs:annotation>
+                        <xs:documentation>Defined parameters are based on those available in ASHRAE Guideline 14-2014 Table D-1 and Figure D-1.  Concepts and nomenclature is also adopted from the CalTRACK methodology.  Attempts to generalize these parameters are made.</xs:documentation>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ModelType" minOccurs="1">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:enumeration value="2 parameter simple linear regression"/>
+                                <xs:enumeration value="3 parameter heating change point model"/>
+                                <xs:enumeration value="3 parameter cooling change point model"/>
+                                <xs:enumeration value="4 parameter change point model"/>
+                                <xs:enumeration value="5 parameter change point model"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Intercept" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                            <xs:annotation>
+                              <xs:documentation>The 'y-intercept' value.  In Figure D-1 (a), this is Eb.  In Figure D-1 (a)-(g), this is C.</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element name="Beta1" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                            <xs:annotation>
+                              <xs:documentation>In a two and three parameter model, this is the slope of the line (Figure D-1 (a)-(d)).  If the model type is a 3p heating model, this is referred to as beta_hdd, whereas for a 3p cooling model, this is referred to as beta_cdd (per CalTRACK terminology).  In the 4p and 5p models, this is beta_hdd.</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element name="Beta2" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                            <xs:annotation>
+                              <xs:documentation>In both three parameter models, this is the change point.  In the 4p and 5p models, this is beta_cdd.</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element name="Beta3" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                            <xs:annotation>
+                              <xs:documentation>In the 4p models, this is the change point (as there is only one change point).  In the 5p models, this is the lower value change point, which in CalTRACK terms is referred to as the heating change point.</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element name="Beta4" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                            <xs:annotation>
+                              <xs:documentation>In the 5p model, this is the upper value change point, which in CalTRACK terms is referred to as the cooling change point.</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="TimeOfWeekTemperatureModel">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="DUMMY"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="DerivedModelPerformance">
+                <xs:annotation>
+                  <xs:documentation>Characterization of the performance of the model.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="RSquared" minOccurs="0" maxOccurs="1">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:decimal">
+                          <xs:minInclusive value="0"/>
+                          <xs:maxInclusive value="1"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="AdjustedRSquared" minOccurs="0" maxOccurs="1">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:decimal">
+                          <xs:minInclusive value="0"/>
+                          <xs:maxInclusive value="1"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="RMSE" minOccurs="0" maxOccurs="1">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:decimal">
+                          <xs:minInclusive value="0"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="CVRMSE" minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>The Coefficient of Variation of the Root Mean Square Error expressed as a percentage.</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:decimal">
+                          <xs:minInclusive value="0"/>
+                          <xs:maxInclusive value="100"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="NDBE" minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>The Net Determination Bias Error expressed as a percentage.</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:decimal">
+                          <xs:minInclusive value="0"/>
+                          <xs:maxInclusive value="100"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="MBE" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>The Mean Bias Error.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="NMBE" minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>The Normalized Mean Bias Error expressed as a percentage.</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:decimal">
+                          <xs:minInclusive value="0"/>
+                          <xs:maxInclusive value="100"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="SummaryInformation">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="NumberOfBaselinePeriodDataPoints" type="xs:decimal"
+                      minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>As documented in Annex B4 of ASRHAE Guideline 14-2018, this refers to the total number of periods in the Baseline period data.  It is denoted as "n" throughout B4.  A "period" refers to a measurement of the ResponseVariable.  For example, 24 hours worth of data collected at hourly intervals would have 24 "periods".</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="NumberOfParameters" type="xs:decimal" minOccurs="0"
+                      maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>As documented in Annex B4 of ASRHAE Guideline 14-2018, this refers to the total number of parameters in the model.  It is denoted as "p" throughout B4.  The number of parameters is not necessarily equal to the number of auc:ExplanatoryVariable elements.  For example, a 5 parameter change point model has 5 parameters, even though there is only a single ExplanatoryVariable (likely Drybulb Temperature).  In certain cases, this is used in the calculation of the degrees of freedom for the t-statistic.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="BaselinePeriodActualEnergyUse" type="xs:decimal" minOccurs="0"
+                      maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>As used in the Retrofit Isolation Approach (G-14 4.1.1) and Whole Facility Approach (G-14 4.1.2) of ASRHAE Guideline 14-2018.  This value represents the summation of the actual energy use for the auc:ResponseVariable over the entire Baseline period.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="BaselinePeriodCalculatedEnergyUse" type="xs:decimal"
+                      minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>This is used when the auc:NormalizationMethod = "Backcast".  It represents the summation of the predicted energy use over the baseline period when the values are calculated with a model developed using data from the Reporting period.  Refer to the California Industrial SEM M\&amp;V guide v1.0</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="BaselinePeriodCalculatedEnergyUseStandardConditions"
+                      type="xs:decimal" minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>This is used when the auc:NormalizationMethod = "Standard Conditions".  As documented in Annex B4.5 of ASRHAE Guideline 14-2018: "In many cases, it is necessary to normalize the savings to a typical or average period (usually a year) at the site. It was shown in Section B4.3 that when measurement errors are negligible, the uncertainty in calculating actual savings using a weather-based regression is due to the error in normalizing the baseline energy use to the postretrofit period. Normalized savings requires two regression equations: one that correlates baseline energy use with baseline weather conditions and one that correlates postretrofit energy use with postretrofit weather conditions.  This value represents the "normalized baseline energy use", or the predicted energy consumption using the Baseline model when data from a standard year (or typical year) is supplied to it.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ReportingModel">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DerivedModelBaselineID" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                  <xs:documentation>ID number for the baseline model that serves as the reference case for the reporting model.  Only required where auc:DerivedModelPeriod='Reporting'</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="ReportingPeriodStartTimestamp" type="xs:dateTime" minOccurs="0"
+                maxOccurs="1"/>
+              <xs:element name="ReportingPeriodEndTimestamp" type="xs:dateTime" minOccurs="0"
+                maxOccurs="1"/>
+              <xs:element name="SummaryInformation">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ReportingPeriodActualEnergyUse" type="xs:decimal"
+                      minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>As documented in Annex B4.1f of ASRHAE Guideline 14-2018 (E_meas,m), this represents the summation of the measured energy use over the postretrofit (Reporting) period.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ReportingPeriodCalculatedEnergyUse" type="xs:decimal"
+                      minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>As documented in Annex B4.1e of ASRHAE Guideline 14-2018 (Ehat_base,m), this represents the summation of the predicted total normalized baseline energy use.  It is referred to herein as the calculated or predicted energy use during the Reporting period.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ReportingPeriodCalculatedEnergyUseStandardConditions"
+                      type="xs:decimal" minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>This is used when the auc:NormalizationMethod = "Standard Conditions".  As documented in Annex B4.5 of ASRHAE Guideline 14-2018: "In many cases, it is necessary to normalize the savings to a typical or average period (usually a year) at the site. It was shown in Section B4.3 that when measurement errors are negligible, the uncertainty in calculating actual savings using a weather-based regression is due to the error in normalizing the baseline energy use to the postretrofit period. Normalized savings requires two regression equations: one that correlates baseline energy use with baseline weather conditions and one that correlates postretrofit energy use with postretrofit weather conditions.  This value represents the "normalized postretrofit energy use", or the predicted energy consumption using the Reporting (or postretrofit) model when data from a standard year (or typical year) is supplied to it.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="AvoidedEnergyUse" type="xs:decimal" minOccurs="0"
+                      maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>As documented in Annex B4.1g and the result of Equation B-14 of ASHRAE Guideline 14-2018 (E_save,m), this value represents the 'actual savings'.  It is calculated via the following: E_save,m = Ehat_base,m - E_meas,m.  In BuildingSync terms, auc:AvoidedEnergyUse = auc:ReportingPeriodCalculatedEnergyUse - auc:ReportingPeriodActualEnergyUse.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="NormalizedEnergySavings" type="xs:decimal" minOccurs="0"
+                      maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>This is used when the auc:NormalizationMethod = "Standard Conditions".  As documented in Annex B4.5 of ASRHAE Guideline 14-2018: "normalized savings is then defined as the normalized baseline energy use minus the normalized postretrofit energy use".  The "normalized baseline energy use" referred to in G-14 is captured by the auc:BaselinePeriodCalculatedEnergyUseStandardConditions element, while the "normalized postretrofit energy use" is captured by the auc:ReportingPeriodCalculatedEnergyUseStandardConditions element.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="NumberOfReportingPeriodDataPoints" type="xs:decimal"
+                      minOccurs="0" maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>As documented in Annex B4 of ASRHAE Guideline 14-2018, this refers to the total number of periods in the Reporting period data.  It is denoted as "m" throughout B4.  A "period" refers to a measurement of the ResponseVariable.  For example, 24 hours worth of data collected at hourly intervals would have 24 "periods".</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="DegreesOfFreedom" type="xs:decimal" minOccurs="0"
+                      maxOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>Degrees of Freedom as used in the context of a t-distribution.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="TimeSeriesPredictions">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="TimeSeries" type="auc:TimeSeriesType" maxOccurs="unbounded"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+      <xs:element ref="auc:UserDefinedFields"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
@@ -17893,7 +17932,9 @@
     <xs:annotation>
       <xs:documentation>Enumeration for different potential units.</xs:documentation>
     </xs:annotation>
-    <xs:union memberTypes="auc:ResourceUnitsType auc:PressureUnitsType auc:PeakResourceUnitsType auc:TemperatureUnitsType"/>
+    <xs:union
+      memberTypes="auc:ResourceUnitsType auc:PressureUnitsType auc:PeakResourceUnitsType auc:TemperatureUnitsType"
+    />
   </xs:simpleType>
   <xs:simpleType name="DimensionlessUnitsType">
     <xs:union memberTypes="auc:OtherUnitsType auc:DimensionlessUnitsBaseType"/>
