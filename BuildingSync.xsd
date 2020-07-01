@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019"
-  targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified"
-  attributeFormDefault="unqualified" version="2.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0">
   <xs:annotation>
     <xs:documentation>BuildingSync Schema - Version 2.0</xs:documentation>
   </xs:annotation>
@@ -72,178 +69,154 @@
                           <xs:element name="HVACSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="HVACSystem" type="auc:HVACSystemType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="HVACSystem" type="auc:HVACSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="LightingSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="LightingSystem" type="auc:LightingSystemType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="LightingSystem" type="auc:LightingSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="DomesticHotWaterSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="DomesticHotWaterSystem"
-                                  type="auc:DomesticHotWaterSystemType" maxOccurs="unbounded"/>
+                                <xs:element name="DomesticHotWaterSystem" type="auc:DomesticHotWaterSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="CookingSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="CookingSystem" type="auc:CookingSystemType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="CookingSystem" type="auc:CookingSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="RefrigerationSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="RefrigerationSystem"
-                                  type="auc:RefrigerationSystemType" maxOccurs="unbounded"/>
+                                <xs:element name="RefrigerationSystem" type="auc:RefrigerationSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="DishwasherSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="DishwasherSystem" type="auc:DishwasherSystemType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="DishwasherSystem" type="auc:DishwasherSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="LaundrySystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="LaundrySystem" type="auc:LaundrySystemType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="LaundrySystem" type="auc:LaundrySystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="PumpSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="PumpSystem" type="auc:PumpSystemType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="PumpSystem" type="auc:PumpSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="FanSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="FanSystem" type="auc:FanSystemType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="FanSystem" type="auc:FanSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="MotorSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="MotorSystem" type="auc:MotorSystemType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="MotorSystem" type="auc:MotorSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="HeatRecoverySystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="HeatRecoverySystem"
-                                  type="auc:HeatRecoverySystemType" maxOccurs="unbounded"/>
+                                <xs:element name="HeatRecoverySystem" type="auc:HeatRecoverySystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="WallSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="WallSystem" type="auc:WallSystemType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="WallSystem" type="auc:WallSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="RoofSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="RoofSystem" type="auc:RoofSystemType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="RoofSystem" type="auc:RoofSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="CeilingSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="CeilingSystem" type="auc:CeilingSystemType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="CeilingSystem" type="auc:CeilingSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="FenestrationSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="FenestrationSystem"
-                                  type="auc:FenestrationSystemType" maxOccurs="unbounded"/>
+                                <xs:element name="FenestrationSystem" type="auc:FenestrationSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="ExteriorFloorSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="ExteriorFloorSystem"
-                                  type="auc:ExteriorFloorSystemType" maxOccurs="unbounded"/>
+                                <xs:element name="ExteriorFloorSystem" type="auc:ExteriorFloorSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="FoundationSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="FoundationSystem" type="auc:FoundationSystemType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="FoundationSystem" type="auc:FoundationSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="CriticalITSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="CriticalITSystem" type="auc:CriticalITSystemType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="CriticalITSystem" type="auc:CriticalITSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="PlugLoads" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="PlugLoad" type="auc:PlugElectricLoadType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="PlugLoad" type="auc:PlugElectricLoadType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="ProcessLoads" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="ProcessLoad" type="auc:ProcessGasElectricLoadType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="ProcessLoad" type="auc:ProcessGasElectricLoadType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                           <xs:element name="ConveyanceSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="ConveyanceSystem" type="auc:ConveyanceSystemType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="ConveyanceSystem" type="auc:ConveyanceSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
-                          <xs:element name="OnsiteStorageTransmissionGenerationSystems"
-                            minOccurs="0">
+                          <xs:element name="OnsiteStorageTransmissionGenerationSystems" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="OnsiteStorageTransmissionGenerationSystem"
-                                  type="auc:OnsiteStorageTransmissionGenerationSystemType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="OnsiteStorageTransmissionGenerationSystem" type="auc:OnsiteStorageTransmissionGenerationSystemType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
@@ -257,8 +230,7 @@
                           <xs:element name="WaterUses" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="WaterUse" type="auc:WaterUseType"
-                                  maxOccurs="unbounded"/>
+                                <xs:element name="WaterUse" type="auc:WaterUseType" maxOccurs="unbounded"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
@@ -271,8 +243,7 @@
                                   </xs:annotation>
                                   <xs:complexType>
                                     <xs:sequence>
-                                      <xs:element name="Tightness" type="auc:Tightness"
-                                        minOccurs="0">
+                                      <xs:element name="Tightness" type="auc:Tightness" minOccurs="0">
                                         <xs:annotation>
                                           <xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
                                         </xs:annotation>
@@ -337,13 +308,10 @@
                                   </xs:annotation>
                                   <xs:complexType>
                                     <xs:sequence>
-                                      <xs:element name="LocationsOfExteriorWaterIntrusionDamages"
-                                        minOccurs="0">
+                                      <xs:element name="LocationsOfExteriorWaterIntrusionDamages" minOccurs="0">
                                         <xs:complexType>
                                           <xs:sequence>
-                                            <xs:element
-                                              name="LocationsOfExteriorWaterIntrusionDamage"
-                                              minOccurs="0" maxOccurs="unbounded">
+                                            <xs:element name="LocationsOfExteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
                                               <xs:annotation>
                                                 <xs:documentation>Location of observed moisture problems on the outside of the building.</xs:documentation>
                                               </xs:annotation>
@@ -363,13 +331,10 @@
                                           </xs:sequence>
                                         </xs:complexType>
                                       </xs:element>
-                                      <xs:element name="LocationsOfInteriorWaterIntrusionDamages"
-                                        minOccurs="0">
+                                      <xs:element name="LocationsOfInteriorWaterIntrusionDamages" minOccurs="0">
                                         <xs:complexType>
                                           <xs:sequence>
-                                            <xs:element
-                                              name="LocationsOfInteriorWaterIntrusionDamage"
-                                              minOccurs="0" maxOccurs="unbounded">
+                                            <xs:element name="LocationsOfInteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded">
                                               <xs:annotation>
                                                 <xs:documentation>Location of observed moisture problems on the inside of the building.</xs:documentation>
                                               </xs:annotation>
@@ -399,8 +364,7 @@
                     <xs:element name="Schedules" minOccurs="0">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="Schedule" type="auc:ScheduleType" maxOccurs="unbounded"
-                          />
+                          <xs:element name="Schedule" type="auc:ScheduleType" maxOccurs="unbounded"/>
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
@@ -779,8 +743,7 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="OverallWindowToWallRatio" minOccurs="0"
-        type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+      <xs:element name="OverallWindowToWallRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
         <xs:annotation>
           <xs:documentation>Overall window to wall ratio of the facility. (0-1) (fraction)</xs:documentation>
         </xs:annotation>
@@ -840,10 +803,8 @@
                         <xs:enumeration value="ENERGY STAR"/>
                         <xs:enumeration value="ENERGY STAR Certified Homes"/>
                         <xs:enumeration value="LEED"/>
-                        <xs:enumeration
-                          value="Home Energy Upgrade Certificate of Energy Efficiency Performance"/>
-                        <xs:enumeration
-                          value="Home Energy Upgrade Certificate of Energy Efficiency Improvements"/>
+                        <xs:enumeration value="Home Energy Upgrade Certificate of Energy Efficiency Performance"/>
+                        <xs:enumeration value="Home Energy Upgrade Certificate of Energy Efficiency Improvements"/>
                         <xs:enumeration value="Passive House"/>
                         <xs:enumeration value="Living Building Challenge"/>
                         <xs:enumeration value="Green Globes"/>
@@ -1169,8 +1130,7 @@
                                         </xs:simpleContent>
                                       </xs:complexType>
                                     </xs:element>
-                                    <xs:element name="WindowToWallRatio" minOccurs="0"
-                                      type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+                                    <xs:element name="WindowToWallRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                                       <xs:annotation>
                                         <xs:documentation>Ratio of total window area to total wall area. (0-1) (fraction)</xs:documentation>
                                       </xs:annotation>
@@ -1278,8 +1238,7 @@
                                         </xs:simpleContent>
                                       </xs:complexType>
                                     </xs:element>
-                                    <xs:element name="RoofCondition" type="auc:EquipmentCondition"
-                                      minOccurs="0">
+                                    <xs:element name="RoofCondition" type="auc:EquipmentCondition" minOccurs="0">
                                       <xs:annotation>
                                         <xs:documentation>Description of the roof's condition.</xs:documentation>
                                       </xs:annotation>
@@ -1290,8 +1249,7 @@
                                       </xs:annotation>
                                       <xs:complexType>
                                         <xs:sequence>
-                                          <xs:element name="SkylightID" minOccurs="0"
-                                            maxOccurs="unbounded">
+                                          <xs:element name="SkylightID" minOccurs="0" maxOccurs="unbounded">
                                             <xs:annotation>
                                               <xs:documentation>ID number of the skylight type associated with this side of the section.</xs:documentation>
                                             </xs:annotation>
@@ -1299,19 +1257,18 @@
                                               <xs:sequence>
                                                 <xs:element name="PercentSkylightArea" minOccurs="0">
                                                   <xs:annotation>
-                                                  <xs:documentation>The percentage of the skylight area relative to the roof area. (0-100) (%)</xs:documentation>
+                                                    <xs:documentation>The percentage of the skylight area relative to the roof area. (0-100) (%)</xs:documentation>
                                                   </xs:annotation>
                                                   <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
+                                                    <xs:simpleContent>
+                                                      <xs:extension base="xs:decimal">
+                                                        <xs:attribute ref="auc:Source"/>
+                                                      </xs:extension>
+                                                    </xs:simpleContent>
                                                   </xs:complexType>
                                                 </xs:element>
                                               </xs:sequence>
-                                              <xs:attribute name="IDref" type="xs:IDREF"
-                                                use="required"/>
+                                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                             </xs:complexType>
                                           </xs:element>
                                         </xs:sequence>
@@ -1372,14 +1329,12 @@
                                     <xs:element name="ThermalZoneIDs" minOccurs="0">
                                       <xs:complexType>
                                         <xs:sequence>
-                                          <xs:element name="ThermalZoneID" minOccurs="0"
-                                            maxOccurs="unbounded">
+                                          <xs:element name="ThermalZoneID" minOccurs="0" maxOccurs="unbounded">
                                             <xs:annotation>
                                               <xs:documentation>ID number of the zone type associated with this space or side of the section.</xs:documentation>
                                             </xs:annotation>
                                             <xs:complexType>
-                                              <xs:attribute name="IDref" type="xs:IDREF"
-                                                use="required"/>
+                                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                             </xs:complexType>
                                           </xs:element>
                                         </xs:sequence>
@@ -1388,14 +1343,12 @@
                                     <xs:element name="SpaceIDs" minOccurs="0">
                                       <xs:complexType>
                                         <xs:sequence>
-                                          <xs:element name="SpaceID" minOccurs="0"
-                                            maxOccurs="unbounded">
+                                          <xs:element name="SpaceID" minOccurs="0" maxOccurs="unbounded">
                                             <xs:annotation>
                                               <xs:documentation>ID number of the space type associated with this side of the section.</xs:documentation>
                                             </xs:annotation>
                                             <xs:complexType>
-                                              <xs:attribute name="IDref" type="xs:IDREF"
-                                                use="required"/>
+                                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                             </xs:complexType>
                                           </xs:element>
                                         </xs:sequence>
@@ -1444,14 +1397,12 @@
                                     <xs:element name="ThermalZoneIDs" minOccurs="0">
                                       <xs:complexType>
                                         <xs:sequence>
-                                          <xs:element name="ThermalZoneID" minOccurs="0"
-                                            maxOccurs="unbounded">
+                                          <xs:element name="ThermalZoneID" minOccurs="0" maxOccurs="unbounded">
                                             <xs:annotation>
                                               <xs:documentation>ID number of the zone type associated with this space or side of the section.</xs:documentation>
                                             </xs:annotation>
                                             <xs:complexType>
-                                              <xs:attribute name="IDref" type="xs:IDREF"
-                                                use="required"/>
+                                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                             </xs:complexType>
                                           </xs:element>
                                         </xs:sequence>
@@ -1460,14 +1411,12 @@
                                     <xs:element name="SpaceIDs" minOccurs="0">
                                       <xs:complexType>
                                         <xs:sequence>
-                                          <xs:element name="SpaceID" minOccurs="0"
-                                            maxOccurs="unbounded">
+                                          <xs:element name="SpaceID" minOccurs="0" maxOccurs="unbounded">
                                             <xs:annotation>
                                               <xs:documentation>ID number of the space type associated with this side of the section.</xs:documentation>
                                             </xs:annotation>
                                             <xs:complexType>
-                                              <xs:attribute name="IDref" type="xs:IDREF"
-                                                use="required"/>
+                                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                             </xs:complexType>
                                           </xs:element>
                                         </xs:sequence>
@@ -1516,14 +1465,12 @@
                                     <xs:element name="ThermalZoneIDs" minOccurs="0">
                                       <xs:complexType>
                                         <xs:sequence>
-                                          <xs:element name="ThermalZoneID" minOccurs="0"
-                                            maxOccurs="unbounded">
+                                          <xs:element name="ThermalZoneID" minOccurs="0" maxOccurs="unbounded">
                                             <xs:annotation>
                                               <xs:documentation>ID number of the zone type associated with this space or side of the section.</xs:documentation>
                                             </xs:annotation>
                                             <xs:complexType>
-                                              <xs:attribute name="IDref" type="xs:IDREF"
-                                                use="required"/>
+                                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                             </xs:complexType>
                                           </xs:element>
                                         </xs:sequence>
@@ -1532,14 +1479,12 @@
                                     <xs:element name="SpaceIDs" minOccurs="0">
                                       <xs:complexType>
                                         <xs:sequence>
-                                          <xs:element name="SpaceID" minOccurs="0"
-                                            maxOccurs="unbounded">
+                                          <xs:element name="SpaceID" minOccurs="0" maxOccurs="unbounded">
                                             <xs:annotation>
                                               <xs:documentation>ID number of the space type associated with this side of the section.</xs:documentation>
                                             </xs:annotation>
                                             <xs:complexType>
-                                              <xs:attribute name="IDref" type="xs:IDREF"
-                                                use="required"/>
+                                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                             </xs:complexType>
                                           </xs:element>
                                         </xs:sequence>
@@ -1658,8 +1603,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="ThermalZone" type="auc:ThermalZoneType"
-                          maxOccurs="unbounded"/>
+                        <xs:element name="ThermalZone" type="auc:ThermalZoneType" maxOccurs="unbounded"/>
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
@@ -2237,8 +2181,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:choice>
-                        <xs:element name="PortfolioManager" type="auc:PortfolioManagerType"
-                          minOccurs="0"/>
+                        <xs:element name="PortfolioManager" type="auc:PortfolioManagerType" minOccurs="0"/>
                         <xs:element name="CBECS" type="auc:CBECSType" minOccurs="0"/>
                         <xs:element name="CodeMinimum" minOccurs="0">
                           <xs:complexType>
@@ -2274,8 +2217,7 @@
                         <xs:element name="StandardPractice" minOccurs="0">
                           <xs:complexType>
                             <xs:sequence>
-                              <xs:element name="StandardPracticeDescription" type="xs:string"
-                                minOccurs="0">
+                              <xs:element name="StandardPracticeDescription" type="xs:string" minOccurs="0">
                                 <xs:annotation>
                                   <xs:documentation>General description of the standard practice represented by this scenario (e.g., builder standard practice, portfolio average, local practice).</xs:documentation>
                                 </xs:annotation>
@@ -2287,8 +2229,7 @@
                         <xs:element name="Other" minOccurs="0">
                           <xs:complexType>
                             <xs:sequence>
-                              <xs:element name="OtherBenchmarkDescription" type="xs:string"
-                                minOccurs="0">
+                              <xs:element name="OtherBenchmarkDescription" type="xs:string" minOccurs="0">
                                 <xs:annotation>
                                   <xs:documentation>General description of the benchmark scenario (e.g., original design, building next door).</xs:documentation>
                                 </xs:annotation>
@@ -3036,8 +2977,7 @@
       <xs:element name="AllResourceTotals" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="AllResourceTotal" type="auc:AllResourceTotalType"
-              maxOccurs="unbounded"/>
+            <xs:element name="AllResourceTotal" type="auc:AllResourceTotalType" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -3129,36 +3069,30 @@
                               <xs:element name="RatePeriods" minOccurs="0">
                                 <xs:complexType>
                                   <xs:sequence>
-                                    <xs:element name="RatePeriod" minOccurs="0"
-                                      maxOccurs="unbounded">
+                                    <xs:element name="RatePeriod" minOccurs="0" maxOccurs="unbounded">
                                       <xs:complexType>
                                         <xs:sequence>
-                                          <xs:element name="RatePeriodName" type="xs:string"
-                                            minOccurs="0">
+                                          <xs:element name="RatePeriodName" type="xs:string" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The name or title of rate period.This is intended to capture the seasonal changes in rates.</xs:documentation>
                                             </xs:annotation>
                                           </xs:element>
-                                          <xs:element name="ApplicableStartDateForEnergyRate"
-                                            type="xs:gMonthDay" minOccurs="0">
+                                          <xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
                                             </xs:annotation>
                                           </xs:element>
-                                          <xs:element name="ApplicableEndDateForEnergyRate"
-                                            type="xs:gMonthDay" minOccurs="0">
+                                          <xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
                                             </xs:annotation>
                                           </xs:element>
-                                          <xs:element name="ApplicableStartDateForDemandRate"
-                                            type="xs:gMonthDay" minOccurs="0">
+                                          <xs:element name="ApplicableStartDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
                                             </xs:annotation>
                                           </xs:element>
-                                          <xs:element name="ApplicableEndDateForDemandRate"
-                                            type="xs:gMonthDay" minOccurs="0">
+                                          <xs:element name="ApplicableEndDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
                                             </xs:annotation>
@@ -3265,36 +3199,30 @@
                               <xs:element name="RatePeriods" minOccurs="0">
                                 <xs:complexType>
                                   <xs:sequence>
-                                    <xs:element name="RatePeriod" minOccurs="0"
-                                      maxOccurs="unbounded">
+                                    <xs:element name="RatePeriod" minOccurs="0" maxOccurs="unbounded">
                                       <xs:complexType>
                                         <xs:sequence>
-                                          <xs:element name="RatePeriodName" type="xs:string"
-                                            minOccurs="0">
+                                          <xs:element name="RatePeriodName" type="xs:string" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The name or title of rate period.This is intended to capture the seasonal changes in rates.</xs:documentation>
                                             </xs:annotation>
                                           </xs:element>
-                                          <xs:element name="ApplicableStartDateForEnergyRate"
-                                            type="xs:gMonthDay" minOccurs="0">
+                                          <xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
                                             </xs:annotation>
                                           </xs:element>
-                                          <xs:element name="ApplicableEndDateForEnergyRate"
-                                            type="xs:gMonthDay" minOccurs="0">
+                                          <xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
                                             </xs:annotation>
                                           </xs:element>
-                                          <xs:element name="ApplicableStartDateForDemandRate"
-                                            type="xs:gMonthDay" minOccurs="0">
+                                          <xs:element name="ApplicableStartDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
                                             </xs:annotation>
                                           </xs:element>
-                                          <xs:element name="ApplicableEndDateForDemandRate"
-                                            type="xs:gMonthDay" minOccurs="0">
+                                          <xs:element name="ApplicableEndDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
                                             </xs:annotation>
@@ -3302,119 +3230,107 @@
                                           <xs:element name="TimeOfUsePeriods" minOccurs="0">
                                             <xs:complexType>
                                               <xs:sequence>
-                                                <xs:element name="TimeOfUsePeriod" minOccurs="0"
-                                                  maxOccurs="unbounded">
+                                                <xs:element name="TimeOfUsePeriod" minOccurs="0" maxOccurs="unbounded">
                                                   <xs:complexType>
-                                                  <xs:sequence>
-                                                  <xs:element name="TOUNumberForRateStructure"
-                                                  type="xs:int" minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>The number associated with the TOU period.</xs:documentation>
-                                                  </xs:annotation>
-                                                  </xs:element>
-                                                  <xs:element
-                                                  name="ApplicableStartTimeForEnergyRate"
-                                                  type="xs:time" minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>The time of day from which the rate is applicable. (hh:mm:ss)</xs:documentation>
-                                                  </xs:annotation>
-                                                  </xs:element>
-                                                  <xs:element name="ApplicableEndTimeForEnergyRate"
-                                                  type="xs:time" minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>The time of day after which the rate is not applicable. (hh:mm:ss)</xs:documentation>
-                                                  </xs:annotation>
-                                                  </xs:element>
-                                                  <xs:element
-                                                  name="ApplicableStartTimeForDemandRate"
-                                                  type="xs:time" minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>The time of day from which the rate is applicable. (hh:mm:ss)</xs:documentation>
-                                                  </xs:annotation>
-                                                  </xs:element>
-                                                  <xs:element name="ApplicableEndTimeForDemandRate"
-                                                  type="xs:time" minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>The time of day after which the rate is not applicable. (hh:mm:ss)</xs:documentation>
-                                                  </xs:annotation>
-                                                  </xs:element>
-                                                  <xs:element name="EnergyCostRate" minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>Energy rate to buy a unit of energy consumption. ($/unit)</xs:documentation>
-                                                  </xs:annotation>
-                                                  <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  <xs:element name="ElectricDemandRate"
-                                                  minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>The rate to buy electric demand from the utility. ($/kW)</xs:documentation>
-                                                  </xs:annotation>
-                                                  <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  <xs:element name="EnergyRateAdjustment"
-                                                  minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>Energy rate adjustment for any fees, riders, fuel adjustments. ($/unit)</xs:documentation>
-                                                  </xs:annotation>
-                                                  <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  <xs:element name="DemandRateAdjustment"
-                                                  minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>The rate for any fees, riders, fuel adjustments. ($/kW)</xs:documentation>
-                                                  </xs:annotation>
-                                                  <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  <xs:element name="DemandWindow" minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>The time period of measurement through which the demand is established. (min)</xs:documentation>
-                                                  </xs:annotation>
-                                                  <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:integer">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  <xs:element name="DemandRatchetPercentage"
-                                                  minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>Certain rate schedules incorporate demand ratchet percentage to ensure minimum billing demands based on historical peak demands. Billing demand in these cases is based comparing the month's demand and maximum of previous 11 month's demand times the demand ratchet percentage. (0-100) (%)</xs:documentation>
-                                                  </xs:annotation>
-                                                  <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  </xs:sequence>
+                                                    <xs:sequence>
+                                                      <xs:element name="TOUNumberForRateStructure" type="xs:int" minOccurs="0">
+                                                        <xs:annotation>
+                                                          <xs:documentation>The number associated with the TOU period.</xs:documentation>
+                                                        </xs:annotation>
+                                                      </xs:element>
+                                                      <xs:element name="ApplicableStartTimeForEnergyRate" type="xs:time" minOccurs="0">
+                                                        <xs:annotation>
+                                                          <xs:documentation>The time of day from which the rate is applicable. (hh:mm:ss)</xs:documentation>
+                                                        </xs:annotation>
+                                                      </xs:element>
+                                                      <xs:element name="ApplicableEndTimeForEnergyRate" type="xs:time" minOccurs="0">
+                                                        <xs:annotation>
+                                                          <xs:documentation>The time of day after which the rate is not applicable. (hh:mm:ss)</xs:documentation>
+                                                        </xs:annotation>
+                                                      </xs:element>
+                                                      <xs:element name="ApplicableStartTimeForDemandRate" type="xs:time" minOccurs="0">
+                                                        <xs:annotation>
+                                                          <xs:documentation>The time of day from which the rate is applicable. (hh:mm:ss)</xs:documentation>
+                                                        </xs:annotation>
+                                                      </xs:element>
+                                                      <xs:element name="ApplicableEndTimeForDemandRate" type="xs:time" minOccurs="0">
+                                                        <xs:annotation>
+                                                          <xs:documentation>The time of day after which the rate is not applicable. (hh:mm:ss)</xs:documentation>
+                                                        </xs:annotation>
+                                                      </xs:element>
+                                                      <xs:element name="EnergyCostRate" minOccurs="0">
+                                                        <xs:annotation>
+                                                          <xs:documentation>Energy rate to buy a unit of energy consumption. ($/unit)</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                          <xs:simpleContent>
+                                                            <xs:extension base="xs:decimal">
+                                                            <xs:attribute ref="auc:Source"/>
+                                                            </xs:extension>
+                                                          </xs:simpleContent>
+                                                        </xs:complexType>
+                                                      </xs:element>
+                                                      <xs:element name="ElectricDemandRate" minOccurs="0">
+                                                        <xs:annotation>
+                                                          <xs:documentation>The rate to buy electric demand from the utility. ($/kW)</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                          <xs:simpleContent>
+                                                            <xs:extension base="xs:decimal">
+                                                            <xs:attribute ref="auc:Source"/>
+                                                            </xs:extension>
+                                                          </xs:simpleContent>
+                                                        </xs:complexType>
+                                                      </xs:element>
+                                                      <xs:element name="EnergyRateAdjustment" minOccurs="0">
+                                                        <xs:annotation>
+                                                          <xs:documentation>Energy rate adjustment for any fees, riders, fuel adjustments. ($/unit)</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                          <xs:simpleContent>
+                                                            <xs:extension base="xs:decimal">
+                                                            <xs:attribute ref="auc:Source"/>
+                                                            </xs:extension>
+                                                          </xs:simpleContent>
+                                                        </xs:complexType>
+                                                      </xs:element>
+                                                      <xs:element name="DemandRateAdjustment" minOccurs="0">
+                                                        <xs:annotation>
+                                                          <xs:documentation>The rate for any fees, riders, fuel adjustments. ($/kW)</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                          <xs:simpleContent>
+                                                            <xs:extension base="xs:decimal">
+                                                            <xs:attribute ref="auc:Source"/>
+                                                            </xs:extension>
+                                                          </xs:simpleContent>
+                                                        </xs:complexType>
+                                                      </xs:element>
+                                                      <xs:element name="DemandWindow" minOccurs="0">
+                                                        <xs:annotation>
+                                                          <xs:documentation>The time period of measurement through which the demand is established. (min)</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                          <xs:simpleContent>
+                                                            <xs:extension base="xs:integer">
+                                                            <xs:attribute ref="auc:Source"/>
+                                                            </xs:extension>
+                                                          </xs:simpleContent>
+                                                        </xs:complexType>
+                                                      </xs:element>
+                                                      <xs:element name="DemandRatchetPercentage" minOccurs="0">
+                                                        <xs:annotation>
+                                                          <xs:documentation>Certain rate schedules incorporate demand ratchet percentage to ensure minimum billing demands based on historical peak demands. Billing demand in these cases is based comparing the month's demand and maximum of previous 11 month's demand times the demand ratchet percentage. (0-100) (%)</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                          <xs:simpleContent>
+                                                            <xs:extension base="xs:decimal">
+                                                            <xs:attribute ref="auc:Source"/>
+                                                            </xs:extension>
+                                                          </xs:simpleContent>
+                                                        </xs:complexType>
+                                                      </xs:element>
+                                                    </xs:sequence>
                                                   </xs:complexType>
                                                 </xs:element>
                                               </xs:sequence>
@@ -3453,165 +3369,154 @@
                                     <xs:element name="RatePeriods" minOccurs="0">
                                       <xs:complexType>
                                         <xs:sequence>
-                                          <xs:element name="RatePeriod" minOccurs="0"
-                                            maxOccurs="unbounded">
+                                          <xs:element name="RatePeriod" minOccurs="0" maxOccurs="unbounded">
                                             <xs:complexType>
                                               <xs:sequence>
-                                                <xs:element name="RatePeriodName" type="xs:string"
-                                                  minOccurs="0">
+                                                <xs:element name="RatePeriodName" type="xs:string" minOccurs="0">
                                                   <xs:annotation>
-                                                  <xs:documentation>The name or title of rate period.This is intended to capture the seasonal changes in rates.</xs:documentation>
+                                                    <xs:documentation>The name or title of rate period.This is intended to capture the seasonal changes in rates.</xs:documentation>
                                                   </xs:annotation>
                                                 </xs:element>
-                                                <xs:element name="ApplicableStartDateForEnergyRate"
-                                                  type="xs:gMonthDay" minOccurs="0">
+                                                <xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
                                                   <xs:annotation>
-                                                  <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
+                                                    <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
                                                   </xs:annotation>
                                                 </xs:element>
-                                                <xs:element name="ApplicableEndDateForEnergyRate"
-                                                  type="xs:gMonthDay" minOccurs="0">
+                                                <xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
                                                   <xs:annotation>
-                                                  <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
+                                                    <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
                                                   </xs:annotation>
                                                 </xs:element>
                                                 <xs:element name="RateTiers" minOccurs="0">
                                                   <xs:complexType>
-                                                  <xs:sequence>
-                                                  <xs:element name="RateTier" minOccurs="0"
-                                                  maxOccurs="unbounded">
-                                                  <xs:complexType>
-                                                  <xs:sequence>
-                                                  <xs:element
-                                                  name="ConsumptionEnergyTierDesignation"
-                                                  minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>For electricity pricing that is based on tiered pricing, each tier is allotted a certain maximum (kWh), above which the user is moved to the next tier that has a different unit pricing.</xs:documentation>
-                                                  </xs:annotation>
-                                                  <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:integer">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  <xs:element name="MaxkWhUsage" minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>The maximum amount of kWh used at which a kWh rate is applied. (kWh)</xs:documentation>
-                                                  </xs:annotation>
-                                                  <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  <xs:element name="MaxkWUsage" minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>The maximum amount of kW used at which a kW rate is applied. (kW)</xs:documentation>
-                                                  </xs:annotation>
-                                                  <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  <xs:element name="EnergyCostRate" minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>Energy rate to buy a unit of energy consumption. ($/unit)</xs:documentation>
-                                                  </xs:annotation>
-                                                  <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  <xs:element name="ElectricDemandRate"
-                                                  minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>The rate to buy electric demand from the utility. ($/kW)</xs:documentation>
-                                                  </xs:annotation>
-                                                  <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  <xs:element name="EnergyRateAdjustment"
-                                                  minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>Energy rate adjustment for any fees, riders, fuel adjustments. ($/unit)</xs:documentation>
-                                                  </xs:annotation>
-                                                  <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  <xs:element name="DemandRateAdjustment"
-                                                  minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>The rate for any fees, riders, fuel adjustments. ($/kW)</xs:documentation>
-                                                  </xs:annotation>
-                                                  <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  <xs:element name="DemandWindow" minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>The time period of measurement through which the demand is established. (min)</xs:documentation>
-                                                  </xs:annotation>
-                                                  <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:integer">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  <xs:element name="DemandRatchetPercentage"
-                                                  minOccurs="0">
-                                                  <xs:annotation>
-                                                  <xs:documentation>Certain rate schedules incorporate demand ratchet percentage to ensure minimum billing demands based on historical peak demands. Billing demand in these cases is based comparing the month's demand and maximum of previous 11 month's demand times the demand ratchet percentage. (0-100) (%)</xs:documentation>
-                                                  </xs:annotation>
-                                                  <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  </xs:sequence>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  </xs:sequence>
+                                                    <xs:sequence>
+                                                      <xs:element name="RateTier" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                          <xs:sequence>
+                                                            <xs:element name="ConsumptionEnergyTierDesignation" minOccurs="0">
+                                                            <xs:annotation>
+                                                            <xs:documentation>For electricity pricing that is based on tiered pricing, each tier is allotted a certain maximum (kWh), above which the user is moved to the next tier that has a different unit pricing.</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:complexType>
+                                                            <xs:simpleContent>
+                                                            <xs:extension base="xs:integer">
+                                                            <xs:attribute ref="auc:Source"/>
+                                                            </xs:extension>
+                                                            </xs:simpleContent>
+                                                            </xs:complexType>
+                                                            </xs:element>
+                                                            <xs:element name="MaxkWhUsage" minOccurs="0">
+                                                            <xs:annotation>
+                                                            <xs:documentation>The maximum amount of kWh used at which a kWh rate is applied. (kWh)</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:complexType>
+                                                            <xs:simpleContent>
+                                                            <xs:extension base="xs:decimal">
+                                                            <xs:attribute ref="auc:Source"/>
+                                                            </xs:extension>
+                                                            </xs:simpleContent>
+                                                            </xs:complexType>
+                                                            </xs:element>
+                                                            <xs:element name="MaxkWUsage" minOccurs="0">
+                                                            <xs:annotation>
+                                                            <xs:documentation>The maximum amount of kW used at which a kW rate is applied. (kW)</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:complexType>
+                                                            <xs:simpleContent>
+                                                            <xs:extension base="xs:decimal">
+                                                            <xs:attribute ref="auc:Source"/>
+                                                            </xs:extension>
+                                                            </xs:simpleContent>
+                                                            </xs:complexType>
+                                                            </xs:element>
+                                                            <xs:element name="EnergyCostRate" minOccurs="0">
+                                                            <xs:annotation>
+                                                            <xs:documentation>Energy rate to buy a unit of energy consumption. ($/unit)</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:complexType>
+                                                            <xs:simpleContent>
+                                                            <xs:extension base="xs:decimal">
+                                                            <xs:attribute ref="auc:Source"/>
+                                                            </xs:extension>
+                                                            </xs:simpleContent>
+                                                            </xs:complexType>
+                                                            </xs:element>
+                                                            <xs:element name="ElectricDemandRate" minOccurs="0">
+                                                            <xs:annotation>
+                                                            <xs:documentation>The rate to buy electric demand from the utility. ($/kW)</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:complexType>
+                                                            <xs:simpleContent>
+                                                            <xs:extension base="xs:decimal">
+                                                            <xs:attribute ref="auc:Source"/>
+                                                            </xs:extension>
+                                                            </xs:simpleContent>
+                                                            </xs:complexType>
+                                                            </xs:element>
+                                                            <xs:element name="EnergyRateAdjustment" minOccurs="0">
+                                                            <xs:annotation>
+                                                            <xs:documentation>Energy rate adjustment for any fees, riders, fuel adjustments. ($/unit)</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:complexType>
+                                                            <xs:simpleContent>
+                                                            <xs:extension base="xs:decimal">
+                                                            <xs:attribute ref="auc:Source"/>
+                                                            </xs:extension>
+                                                            </xs:simpleContent>
+                                                            </xs:complexType>
+                                                            </xs:element>
+                                                            <xs:element name="DemandRateAdjustment" minOccurs="0">
+                                                            <xs:annotation>
+                                                            <xs:documentation>The rate for any fees, riders, fuel adjustments. ($/kW)</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:complexType>
+                                                            <xs:simpleContent>
+                                                            <xs:extension base="xs:decimal">
+                                                            <xs:attribute ref="auc:Source"/>
+                                                            </xs:extension>
+                                                            </xs:simpleContent>
+                                                            </xs:complexType>
+                                                            </xs:element>
+                                                            <xs:element name="DemandWindow" minOccurs="0">
+                                                            <xs:annotation>
+                                                            <xs:documentation>The time period of measurement through which the demand is established. (min)</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:complexType>
+                                                            <xs:simpleContent>
+                                                            <xs:extension base="xs:integer">
+                                                            <xs:attribute ref="auc:Source"/>
+                                                            </xs:extension>
+                                                            </xs:simpleContent>
+                                                            </xs:complexType>
+                                                            </xs:element>
+                                                            <xs:element name="DemandRatchetPercentage" minOccurs="0">
+                                                            <xs:annotation>
+                                                            <xs:documentation>Certain rate schedules incorporate demand ratchet percentage to ensure minimum billing demands based on historical peak demands. Billing demand in these cases is based comparing the month's demand and maximum of previous 11 month's demand times the demand ratchet percentage. (0-100) (%)</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:complexType>
+                                                            <xs:simpleContent>
+                                                            <xs:extension base="xs:decimal">
+                                                            <xs:attribute ref="auc:Source"/>
+                                                            </xs:extension>
+                                                            </xs:simpleContent>
+                                                            </xs:complexType>
+                                                            </xs:element>
+                                                          </xs:sequence>
+                                                        </xs:complexType>
+                                                      </xs:element>
+                                                    </xs:sequence>
                                                   </xs:complexType>
                                                 </xs:element>
                                                 <xs:element name="EnergySellRate" minOccurs="0">
                                                   <xs:annotation>
-                                                  <xs:documentation>Energy rate to sell a unit of electricity back to the utility from customer site generation through PV, wind etc. ($/kWh)</xs:documentation>
+                                                    <xs:documentation>Energy rate to sell a unit of electricity back to the utility from customer site generation through PV, wind etc. ($/kWh)</xs:documentation>
                                                   </xs:annotation>
                                                   <xs:complexType>
-                                                  <xs:simpleContent>
-                                                  <xs:extension base="xs:decimal">
-                                                  <xs:attribute ref="auc:Source"/>
-                                                  </xs:extension>
-                                                  </xs:simpleContent>
+                                                    <xs:simpleContent>
+                                                      <xs:extension base="xs:decimal">
+                                                        <xs:attribute ref="auc:Source"/>
+                                                      </xs:extension>
+                                                    </xs:simpleContent>
                                                   </xs:complexType>
                                                 </xs:element>
                                               </xs:sequence>
@@ -3836,8 +3741,7 @@
       <xs:element name="UtilityMeterNumbers" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="UtilityMeterNumber" type="xs:string" minOccurs="0"
-              maxOccurs="unbounded">
+            <xs:element name="UtilityMeterNumber" type="xs:string" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
                 <xs:documentation>Unique identification number for the meter.</xs:documentation>
               </xs:annotation>
@@ -4483,8 +4387,7 @@
                   <xs:element name="Replacement" minOccurs="0">
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="ExistingSystemReplaced" minOccurs="0"
-                          maxOccurs="unbounded">
+                        <xs:element name="ExistingSystemReplaced" minOccurs="0" maxOccurs="unbounded">
                           <xs:annotation>
                             <xs:documentation>ID numbers of any existing systems replaced by the measure.</xs:documentation>
                           </xs:annotation>
@@ -4492,8 +4395,7 @@
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="AlternativeSystemReplacement" minOccurs="0"
-                          maxOccurs="unbounded">
+                        <xs:element name="AlternativeSystemReplacement" minOccurs="0" maxOccurs="unbounded">
                           <xs:annotation>
                             <xs:documentation>ID numbers of alternative systems that would replace the existing systems.</xs:documentation>
                           </xs:annotation>
@@ -4501,8 +4403,7 @@
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="ExistingScheduleAffected" minOccurs="0"
-                          maxOccurs="unbounded">
+                        <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded">
                           <xs:annotation>
                             <xs:documentation>ID numbers of schedules replaced by the measure.</xs:documentation>
                           </xs:annotation>
@@ -4530,8 +4431,7 @@
                   <xs:element name="ModificationRetrocommissioning" minOccurs="0">
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="ExistingSystemAffected" minOccurs="0"
-                          maxOccurs="unbounded">
+                        <xs:element name="ExistingSystemAffected" minOccurs="0" maxOccurs="unbounded">
                           <xs:annotation>
                             <xs:documentation>ID numbers of any existing systems affected by the measure.</xs:documentation>
                           </xs:annotation>
@@ -4547,8 +4447,7 @@
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="ExistingScheduleAffected" minOccurs="0"
-                          maxOccurs="unbounded">
+                        <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded">
                           <xs:annotation>
                             <xs:documentation>ID numbers of schedules replaced by the measure.</xs:documentation>
                           </xs:annotation>
@@ -4576,8 +4475,7 @@
                   <xs:element name="Addition" minOccurs="0">
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="AlternativeSystemAdded" minOccurs="0"
-                          maxOccurs="unbounded">
+                        <xs:element name="AlternativeSystemAdded" minOccurs="0" maxOccurs="unbounded">
                           <xs:annotation>
                             <xs:documentation>ID numbers of alternative systems that would be added as part of the measure.</xs:documentation>
                           </xs:annotation>
@@ -4585,8 +4483,7 @@
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="ExistingScheduleAffected" minOccurs="0"
-                          maxOccurs="unbounded">
+                        <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded">
                           <xs:annotation>
                             <xs:documentation>ID numbers of schedules replaced by the measure.</xs:documentation>
                           </xs:annotation>
@@ -4622,8 +4519,7 @@
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="ExistingScheduleAffected" minOccurs="0"
-                          maxOccurs="unbounded">
+                        <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded">
                           <xs:annotation>
                             <xs:documentation>ID numbers of schedules replaced by the measure.</xs:documentation>
                           </xs:annotation>
@@ -4716,8 +4612,7 @@
                               <xs:enumeration value="Convert system from steam to hot water"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Convert to Cleaner Fuels"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
@@ -4746,8 +4641,7 @@
                               <xs:enumeration value="Add or replace cooling tower"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -4771,8 +4665,7 @@
                               <xs:enumeration value="Add or upgrade BAS/EMS/EMCS"/>
                               <xs:enumeration value="Add or upgrade controls"/>
                               <xs:enumeration value="Convert pneumatic controls to DDC"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -4804,8 +4697,7 @@
                               <xs:enumeration value="Replace package units"/>
                               <xs:enumeration value="Replace packaged terminal units"/>
                               <xs:enumeration value="Install passive solar heating"/>
-                              <xs:enumeration
-                                value="Replace AC and heating units with ground coupled heat pump systems"/>
+                              <xs:enumeration value="Replace AC and heating units with ground coupled heat pump systems"/>
                               <xs:enumeration value="Add enhanced dehumidification"/>
                               <xs:enumeration value="Install solar ventilation preheating system"/>
                               <xs:enumeration value="Add or repair economizer"/>
@@ -4820,8 +4712,7 @@
                               <xs:enumeration value="Install or Upgrade Master Venting"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other heating"/>
                               <xs:enumeration value="Other cooling"/>
                               <xs:enumeration value="Other ventilation"/>
@@ -4849,10 +4740,8 @@
                               <xs:enumeration value="Retrofit with T-5"/>
                               <xs:enumeration value="Retrofit with T-8"/>
                               <xs:enumeration value="Install spectrally enhanced lighting"/>
-                              <xs:enumeration
-                                value="Retrofit with fiber optic lighting technologies"/>
-                              <xs:enumeration
-                                value="Retrofit with light emitting diode technologies"/>
+                              <xs:enumeration value="Retrofit with fiber optic lighting technologies"/>
+                              <xs:enumeration value="Retrofit with light emitting diode technologies"/>
                               <xs:enumeration value="Add daylight controls"/>
                               <xs:enumeration value="Add occupancy sensors"/>
                               <xs:enumeration value="Install photocell control"/>
@@ -4862,8 +4751,7 @@
                               <xs:enumeration value="Upgrade exterior lighting"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -4921,10 +4809,8 @@
                             <xs:restriction base="xs:string">
                               <xs:enumeration value="Add pipe insulation"/>
                               <xs:enumeration value="Repair and/or replace steam traps"/>
-                              <xs:enumeration
-                                value="Retrofit and replace chiller plant pumping, piping, and controls"/>
-                              <xs:enumeration
-                                value="Repair or replace existing condensate return systems or install new condensate return systems"/>
+                              <xs:enumeration value="Retrofit and replace chiller plant pumping, piping, and controls"/>
+                              <xs:enumeration value="Repair or replace existing condensate return systems or install new condensate return systems"/>
                               <xs:enumeration value="Add recirculating pumps"/>
                               <xs:enumeration value="Replace or upgrade water heater"/>
                               <xs:enumeration value="Add energy recovery"/>
@@ -4937,8 +4823,7 @@
                               <xs:enumeration value="Install steam condensate heat recovery"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -4963,8 +4848,7 @@
                               <xs:enumeration value="Upgrade motors"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -4989,8 +4873,7 @@
                               <xs:enumeration value="Add VSD motor controller"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -5010,14 +4893,12 @@
                           </xs:annotation>
                           <xs:simpleType>
                             <xs:restriction base="xs:string">
-                              <xs:enumeration
-                                value="Replace ice/refrigeration equipment with high efficiency units"/>
+                              <xs:enumeration value="Replace ice/refrigeration equipment with high efficiency units"/>
                               <xs:enumeration value="Replace air-cooled ice/refrigeration equipment"/>
                               <xs:enumeration value="Replace refrigerators"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -5043,8 +4924,7 @@
                               <xs:enumeration value="Convert fuels"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -5064,16 +4944,13 @@
                           </xs:annotation>
                           <xs:simpleType>
                             <xs:restriction base="xs:string">
-                              <xs:enumeration
-                                value="Install landfill gas, wastewater treatment plant digester gas, or coal bed methane power plant"/>
+                              <xs:enumeration value="Install landfill gas, wastewater treatment plant digester gas, or coal bed methane power plant"/>
                               <xs:enumeration value="Install photovoltaic system"/>
                               <xs:enumeration value="Install wind energy system"/>
-                              <xs:enumeration
-                                value="Install wood waste or other organic waste stream heating or power plant"/>
+                              <xs:enumeration value="Install wood waste or other organic waste stream heating or power plant"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -5099,8 +4976,7 @@
                               <xs:enumeration value="Install gas distribution systems"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -5134,8 +5010,7 @@
                               <xs:enumeration value="Install tankless water heaters"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -5161,8 +5036,7 @@
                               <xs:enumeration value="Implement water efficient irrigation"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -5184,8 +5058,7 @@
                             <xs:restriction base="xs:string">
                               <xs:enumeration value="Install thermal energy storage"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -5206,10 +5079,8 @@
                           <xs:simpleType>
                             <xs:restriction base="xs:string">
                               <xs:enumeration value="Change to more favorable rate schedule"/>
-                              <xs:enumeration
-                                value="Energy cost reduction through rate adjustments - uncategorized"/>
-                              <xs:enumeration
-                                value="Energy service billing and meter auditing recommendations"/>
+                              <xs:enumeration value="Energy cost reduction through rate adjustments - uncategorized"/>
+                              <xs:enumeration value="Energy service billing and meter auditing recommendations"/>
                               <xs:enumeration value="Change to lower energy cost supplier(s)"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
@@ -5231,12 +5102,10 @@
                           <xs:simpleType>
                             <xs:restriction base="xs:string">
                               <xs:enumeration value="Implement industrial process improvements"/>
-                              <xs:enumeration
-                                value="Implement production and/or manufacturing improvements"/>
+                              <xs:enumeration value="Implement production and/or manufacturing improvements"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -5259,8 +5128,7 @@
                               <xs:enumeration value="Install advanced metering systems"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -5288,8 +5156,7 @@
                               <xs:enumeration value="Replace washing machines"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -5315,8 +5182,7 @@
                               <xs:enumeration value="Upgrade servers"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
-                              <xs:enumeration
-                                value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -6003,8 +5869,7 @@
               </xs:annotation>
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="AuditorQualification" type="auc:AuditorQualificationType"
-                    minOccurs="0">
+                  <xs:element name="AuditorQualification" type="auc:AuditorQualificationType" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>Qualification of auditor responsible for the audit report.</xs:documentation>
                     </xs:annotation>
@@ -6032,8 +5897,7 @@
                       <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                     </xs:complexType>
                   </xs:element>
-                  <xs:element name="AuditTeamMemberCertificationType"
-                    type="auc:AuditorQualificationType" minOccurs="0">
+                  <xs:element name="AuditTeamMemberCertificationType" type="auc:AuditorQualificationType" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>Type of certification held by an auditor team member.</xs:documentation>
                     </xs:annotation>
@@ -6092,8 +5956,7 @@
             <xs:element name="HeatingPlants" minOccurs="0">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="HeatingPlant" type="auc:HeatingPlantType" minOccurs="0"
-                    maxOccurs="unbounded">
+                  <xs:element name="HeatingPlant" type="auc:HeatingPlantType" minOccurs="0" maxOccurs="unbounded">
                     <xs:annotation>
                       <xs:documentation>Type of central heating system, defined as any source of heating energy separate from the zone being heated. Local heating systems (such as packaged systems and fan-coils) are recorded in a separate data field.</xs:documentation>
                     </xs:annotation>
@@ -6104,8 +5967,7 @@
             <xs:element name="CoolingPlants" minOccurs="0">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="CoolingPlant" type="auc:CoolingPlantType" minOccurs="0"
-                    maxOccurs="unbounded">
+                  <xs:element name="CoolingPlant" type="auc:CoolingPlantType" minOccurs="0" maxOccurs="unbounded">
                     <xs:annotation>
                       <xs:documentation>Type of cooling plant. Zonal cooling is recorded in a separate data field. Use of fans or blowers by themselves without chilled air or water is not included in this definition of cooling. Stand-alone dehumidifiers are also not included.</xs:documentation>
                     </xs:annotation>
@@ -6116,8 +5978,7 @@
             <xs:element name="CondenserPlants" minOccurs="0">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="CondenserPlant" type="auc:CondenserPlantType" minOccurs="0"
-                    maxOccurs="unbounded">
+                  <xs:element name="CondenserPlant" type="auc:CondenserPlantType" minOccurs="0" maxOccurs="unbounded">
                     <xs:annotation>
                       <xs:documentation>Type of condenser used for refrigerant-based systems.</xs:documentation>
                     </xs:annotation>
@@ -6163,8 +6024,7 @@
                                   <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                 </xs:complexType>
                               </xs:element>
-                              <xs:element name="ElectricResistance"
-                                type="auc:ElectricResistanceType" minOccurs="0"/>
+                              <xs:element name="ElectricResistance" type="auc:ElectricResistanceType" minOccurs="0"/>
                               <xs:element name="Furnace" minOccurs="0">
                                 <xs:complexType>
                                   <xs:sequence>
@@ -6260,8 +6120,7 @@
                                         </xs:restriction>
                                       </xs:simpleType>
                                     </xs:element>
-                                    <xs:element name="HeatPumpBackupHeatingSwitchoverTemperature"
-                                      minOccurs="0">
+                                    <xs:element name="HeatPumpBackupHeatingSwitchoverTemperature" minOccurs="0">
                                       <xs:annotation>
                                         <xs:documentation>Minimum outside temperature at which the heat pump can operate. (°F)</xs:documentation>
                                       </xs:annotation>
@@ -6273,8 +6132,7 @@
                                         </xs:simpleContent>
                                       </xs:complexType>
                                     </xs:element>
-                                    <xs:element name="HeatPumpBackupSystemFuel" type="auc:FuelTypes"
-                                      minOccurs="0">
+                                    <xs:element name="HeatPumpBackupSystemFuel" type="auc:FuelTypes" minOccurs="0">
                                       <xs:annotation>
                                         <xs:documentation>Backup fuel used by the heat pump.</xs:documentation>
                                       </xs:annotation>
@@ -6311,8 +6169,7 @@
                                   </xs:sequence>
                                 </xs:complexType>
                               </xs:element>
-                              <xs:element name="OtherCombination" type="auc:OtherCombinationType"
-                                minOccurs="0"/>
+                              <xs:element name="OtherCombination" type="auc:OtherCombinationType" minOccurs="0"/>
                               <xs:element name="NoHeating" type="auc:NoHeatingType" minOccurs="0"/>
                               <xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
                             </xs:choice>
@@ -6385,8 +6242,7 @@
                             </xs:simpleContent>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="HeatingStageCapacityFraction" minOccurs="0"
-                          type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+                        <xs:element name="HeatingStageCapacityFraction" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                           <xs:annotation>
                             <xs:documentation>Average capacity of each heating stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) (fraction)</xs:documentation>
                           </xs:annotation>
@@ -6396,16 +6252,14 @@
                             <xs:documentation>Main fuel used by the system.</xs:documentation>
                           </xs:annotation>
                         </xs:element>
-                        <xs:element name="HeatingSourceCondition" type="auc:EquipmentCondition"
-                          minOccurs="0"/>
+                        <xs:element name="HeatingSourceCondition" type="auc:EquipmentCondition" minOccurs="0"/>
                         <xs:element name="Controls" minOccurs="0">
                           <xs:annotation>
                             <xs:documentation>List of controls for heating source.</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:sequence>
-                              <xs:element name="Control" type="auc:ControlGeneralType"
-                                maxOccurs="unbounded">
+                              <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
                                 <xs:annotation>
                                   <xs:documentation>Control for heating source.</xs:documentation>
                                 </xs:annotation>
@@ -6458,16 +6312,13 @@
                                       <xs:simpleType>
                                         <xs:restriction base="xs:string">
                                           <xs:enumeration value="Split DX air conditioner"/>
-                                          <xs:enumeration
-                                            value="Packaged terminal air conditioner (PTAC)"/>
+                                          <xs:enumeration value="Packaged terminal air conditioner (PTAC)"/>
                                           <xs:enumeration value="Split heat pump"/>
                                           <xs:enumeration value="Packaged terminal heat pump (PTHP)"/>
                                           <xs:enumeration value="Variable refrigerant flow"/>
-                                          <xs:enumeration
-                                            value="Packaged/unitary direct expansion/RTU"/>
+                                          <xs:enumeration value="Packaged/unitary direct expansion/RTU"/>
                                           <xs:enumeration value="Packaged/unitary heat pump"/>
-                                          <xs:enumeration
-                                            value="Single package vertical air conditioner"/>
+                                          <xs:enumeration value="Single package vertical air conditioner"/>
                                           <xs:enumeration value="Single package vertical heat pump"/>
                                           <xs:enumeration value="Other"/>
                                           <xs:enumeration value="Unknown"/>
@@ -6493,14 +6344,12 @@
                                     <xs:element name="CondenserPlantIDs" minOccurs="0">
                                       <xs:complexType>
                                         <xs:sequence>
-                                          <xs:element name="CondenserPlantID" minOccurs="0"
-                                            maxOccurs="unbounded">
+                                          <xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded">
                                             <xs:annotation>
                                               <xs:documentation>ID numbers of the central condenser plants serving as the source for this cooling system.</xs:documentation>
                                             </xs:annotation>
                                             <xs:complexType>
-                                              <xs:attribute name="IDref" type="xs:IDREF"
-                                                use="required"/>
+                                              <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                             </xs:complexType>
                                           </xs:element>
                                         </xs:sequence>
@@ -6519,8 +6368,7 @@
                                         </xs:simpleContent>
                                       </xs:complexType>
                                     </xs:element>
-                                    <xs:element name="ActiveDehumidification" type="xs:boolean"
-                                      minOccurs="0">
+                                    <xs:element name="ActiveDehumidification" type="xs:boolean" minOccurs="0">
                                       <xs:annotation>
                                         <xs:documentation>True if an active dehumidification system is available (in addition to the dehumidification that takes place during normal DX cooling operation).</xs:documentation>
                                       </xs:annotation>
@@ -6547,8 +6395,7 @@
                                   </xs:sequence>
                                 </xs:complexType>
                               </xs:element>
-                              <xs:element name="OtherCombination" type="auc:OtherCombinationType"
-                                minOccurs="0"/>
+                              <xs:element name="OtherCombination" type="auc:OtherCombinationType" minOccurs="0"/>
                               <xs:element name="NoCooling" type="auc:NoCoolingType" minOccurs="0"/>
                               <xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
                             </xs:choice>
@@ -6608,14 +6455,12 @@
                             </xs:simpleContent>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="MinimumPartLoadRatio" minOccurs="0"
-                          type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+                        <xs:element name="MinimumPartLoadRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                           <xs:annotation>
                             <xs:documentation>The minimum part load ratio at which the system is able to operate. (0-1) (fraction)</xs:documentation>
                           </xs:annotation>
                         </xs:element>
-                        <xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0"
-                          type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+                        <xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                           <xs:annotation>
                             <xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1) (fraction)</xs:documentation>
                           </xs:annotation>
@@ -6626,16 +6471,14 @@
                             <xs:documentation>Main fuel used by the system.</xs:documentation>
                           </xs:annotation>
                         </xs:element>
-                        <xs:element name="CoolingSourceCondition" type="auc:EquipmentCondition"
-                          minOccurs="0"/>
+                        <xs:element name="CoolingSourceCondition" type="auc:EquipmentCondition" minOccurs="0"/>
                         <xs:element name="Controls" minOccurs="0">
                           <xs:annotation>
                             <xs:documentation>List of controls for cooling source.</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:sequence>
-                              <xs:element name="Control" type="auc:ControlGeneralType"
-                                maxOccurs="unbounded">
+                              <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
                                 <xs:annotation>
                                   <xs:documentation>Cooling source control.</xs:documentation>
                                 </xs:annotation>
@@ -6673,8 +6516,7 @@
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:sequence>
-                                    <xs:element name="FanBased" type="auc:FanBasedType"
-                                      minOccurs="0"/>
+                                    <xs:element name="FanBased" type="auc:FanBasedType" minOccurs="0"/>
                                     <xs:element name="Convection" minOccurs="0">
                                       <xs:complexType>
                                         <xs:sequence>
@@ -6788,14 +6630,10 @@
                                         <xs:restriction base="xs:string">
                                           <xs:enumeration value="CAV terminal box no reheat"/>
                                           <xs:enumeration value="CAV terminal box with reheat"/>
-                                          <xs:enumeration
-                                            value="VAV terminal box fan powered no reheat"/>
-                                          <xs:enumeration
-                                            value="VAV terminal box fan powered with reheat"/>
-                                          <xs:enumeration
-                                            value="VAV terminal box not fan powered no reheat"/>
-                                          <xs:enumeration
-                                            value="VAV terminal box not fan powered with reheat"/>
+                                          <xs:enumeration value="VAV terminal box fan powered no reheat"/>
+                                          <xs:enumeration value="VAV terminal box fan powered with reheat"/>
+                                          <xs:enumeration value="VAV terminal box not fan powered no reheat"/>
+                                          <xs:enumeration value="VAV terminal box not fan powered with reheat"/>
                                           <xs:enumeration value="Powered induction unit"/>
                                           <xs:enumeration value="Automatically controlled register"/>
                                           <xs:enumeration value="Manually controlled register"/>
@@ -6837,8 +6675,7 @@
                                         <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                       </xs:complexType>
                                     </xs:element>
-                                    <xs:element name="FanBased" type="auc:FanBasedType"
-                                      minOccurs="0"/>
+                                    <xs:element name="FanBased" type="auc:FanBasedType" minOccurs="0"/>
                                   </xs:sequence>
                                 </xs:complexType>
                               </xs:element>
@@ -6875,8 +6712,7 @@
                           </xs:annotation>
                           <xs:complexType>
                             <xs:sequence>
-                              <xs:element name="Control" type="auc:ControlGeneralType"
-                                maxOccurs="unbounded">
+                              <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
                                 <xs:annotation>
                                   <xs:documentation>Delivery system control.</xs:documentation>
                                 </xs:annotation>
@@ -6915,8 +6751,7 @@
       <xs:element name="OtherHVACSystems" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="OtherHVACSystem" type="auc:OtherHVACSystemType" maxOccurs="unbounded"
-            />
+            <xs:element name="OtherHVACSystem" type="auc:OtherHVACSystemType" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -7157,8 +6992,7 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="SupplyFractionOfDuctLeakage" minOccurs="0"
-        type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+      <xs:element name="SupplyFractionOfDuctLeakage" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
         <xs:annotation>
           <xs:documentation>Fraction of total duct leakage that is on the supply side. Remainder is assumed to be on the return side. (0-1) (fraction)</xs:documentation>
         </xs:annotation>
@@ -7319,8 +7153,7 @@
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="HeatingStageCapacityFraction" minOccurs="0"
-                type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+              <xs:element name="HeatingStageCapacityFraction" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                 <xs:annotation>
                   <xs:documentation>Average capacity of each heating stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) (fraction)</xs:documentation>
                 </xs:annotation>
@@ -7805,20 +7638,17 @@
                 </xs:annotation>
               </xs:element>
               <xs:element ref="auc:CapacityUnits" minOccurs="0"/>
-              <xs:element name="MinimumPartLoadRatio" minOccurs="0"
-                type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+              <xs:element name="MinimumPartLoadRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                 <xs:annotation>
                   <xs:documentation>The minimum part load ratio at which the system is able to operate. (0-1) (fraction)</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0"
-                type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+              <xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                 <xs:annotation>
                   <xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1) (fraction)</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="PartLoadRatioBelowWhichHotGasBypassOperates" minOccurs="0"
-                type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+              <xs:element name="PartLoadRatioBelowWhichHotGasBypassOperates" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                 <xs:annotation>
                   <xs:documentation>The part load ratio of the chiller below which hot gas bypass (HGBP) operates. (0-1) (fraction)</xs:documentation>
                 </xs:annotation>
@@ -7880,8 +7710,7 @@
               <xs:element ref="auc:AnnualCoolingEfficiencyUnits" minOccurs="0"/>
               <xs:element ref="auc:Capacity" minOccurs="0"/>
               <xs:element ref="auc:CapacityUnits" minOccurs="0"/>
-              <xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0"
-                type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+              <xs:element name="RatedCoolingSensibleHeatRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                 <xs:annotation>
                   <xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1) (fraction)</xs:documentation>
                 </xs:annotation>
@@ -8458,8 +8287,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element ref="auc:VentilationControlMethod" minOccurs="0"
-                          maxOccurs="unbounded"/>
+                        <xs:element ref="auc:VentilationControlMethod" minOccurs="0" maxOccurs="unbounded"/>
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
@@ -8543,8 +8371,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element ref="auc:VentilationControlMethod" minOccurs="0"
-                          maxOccurs="unbounded"/>
+                        <xs:element ref="auc:VentilationControlMethod" minOccurs="0" maxOccurs="unbounded"/>
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
@@ -8605,8 +8432,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element ref="auc:VentilationControlMethod" minOccurs="0"
-                          maxOccurs="unbounded"/>
+                        <xs:element ref="auc:VentilationControlMethod" minOccurs="0" maxOccurs="unbounded"/>
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
@@ -8961,14 +8787,12 @@
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="MinimumDimmingLightFraction" minOccurs="0"
-              type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+            <xs:element name="MinimumDimmingLightFraction" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
               <xs:annotation>
                 <xs:documentation>Minimum light output of controlled lighting when fully dimmed. Minimum light fraction = (Minimum light output) / (Rated light output). (0-1) (fraction)</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="MinimumDimmingPowerFraction" minOccurs="0"
-              type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+            <xs:element name="MinimumDimmingPowerFraction" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
               <xs:annotation>
                 <xs:documentation>The minimum power fraction when controlled lighting is fully dimmed. Minimum power fraction = (Minimum power) / (Full rated power). (0-1) (fraction)</xs:documentation>
               </xs:annotation>
@@ -9197,8 +9021,7 @@
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:choice>
-                                    <xs:element name="ElectricResistance"
-                                      type="auc:ElectricResistanceType" minOccurs="0"/>
+                                    <xs:element name="ElectricResistance" type="auc:ElectricResistanceType" minOccurs="0"/>
                                     <xs:element name="Combustion" minOccurs="0">
                                       <xs:complexType>
                                         <xs:sequence>
@@ -9209,8 +9032,7 @@
                                       </xs:complexType>
                                     </xs:element>
                                     <xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
-                                    <xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"
-                                    />
+                                    <xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
                                   </xs:choice>
                                 </xs:complexType>
                               </xs:element>
@@ -9229,9 +9051,7 @@
                                     <xs:element name="HeatPump" minOccurs="0">
                                       <xs:complexType>
                                         <xs:sequence>
-                                          <xs:element name="RatedHeatPumpSensibleHeatRatio"
-                                            minOccurs="0"
-                                            type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+                                          <xs:element name="RatedHeatPumpSensibleHeatRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                                             <xs:annotation>
                                               <xs:documentation>The fraction of total energy transfer between the evaporator coil and air that is associated with sensible capacity (change in air temperature) expressed as a dimensionless value, and at the rated conditions prescribed for this system. (0-1) (fraction)</xs:documentation>
                                             </xs:annotation>
@@ -9270,8 +9090,7 @@
                                               </xs:restriction>
                                             </xs:simpleType>
                                           </xs:element>
-                                          <xs:element name="SolarThermalSystemCollectorArea"
-                                            minOccurs="0">
+                                          <xs:element name="SolarThermalSystemCollectorArea" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>Area of solar collector exposed to solar radiation. (ft2)</xs:documentation>
                                             </xs:annotation>
@@ -9283,8 +9102,7 @@
                                               </xs:simpleContent>
                                             </xs:complexType>
                                           </xs:element>
-                                          <xs:element name="SolarThermalSystemCollectorLoopType"
-                                            minOccurs="0">
+                                          <xs:element name="SolarThermalSystemCollectorLoopType" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>Heat transfer medium and controls used for the solar collector loop.</xs:documentation>
                                             </xs:annotation>
@@ -9300,8 +9118,7 @@
                                               </xs:restriction>
                                             </xs:simpleType>
                                           </xs:element>
-                                          <xs:element name="SolarThermalSystemCollectorType"
-                                            minOccurs="0">
+                                          <xs:element name="SolarThermalSystemCollectorType" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>Type of solar energy collector used in a solar hot water or space heating system.</xs:documentation>
                                             </xs:annotation>
@@ -9318,8 +9135,7 @@
                                               </xs:restriction>
                                             </xs:simpleType>
                                           </xs:element>
-                                          <xs:element name="SolarThermalSystemCollectorAzimuth"
-                                            minOccurs="0">
+                                          <xs:element name="SolarThermalSystemCollectorAzimuth" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>Degrees clockwise from North. For a premises, it is the azimuth of the front facing element. It can also be applied to envelope components, such as walls, windows (fenestration), as well as onsite generation technologies, such as photovoltaic panels. Legal Values: 0 - 360. (degrees)</xs:documentation>
                                             </xs:annotation>
@@ -9331,8 +9147,7 @@
                                               </xs:simpleContent>
                                             </xs:complexType>
                                           </xs:element>
-                                          <xs:element name="SolarThermalSystemCollectorTilt"
-                                            minOccurs="0">
+                                          <xs:element name="SolarThermalSystemCollectorTilt" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The angle from a horizontal surface; can be applied to an opaque surface, a fenestration unit, a solar panel, etc. (degrees)</xs:documentation>
                                             </xs:annotation>
@@ -9344,8 +9159,7 @@
                                               </xs:simpleContent>
                                             </xs:complexType>
                                           </xs:element>
-                                          <xs:element name="SolarThermalSystemStorageVolume"
-                                            minOccurs="0">
+                                          <xs:element name="SolarThermalSystemStorageVolume" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>Volume of any separate solar energy storage tank, not the primary service hot water tank. (gal)</xs:documentation>
                                             </xs:annotation>
@@ -9363,11 +9177,9 @@
                                             </xs:annotation>
                                             <xs:complexType>
                                               <xs:sequence>
-                                                <xs:element name="Control"
-                                                  type="auc:ControlGeneralType"
-                                                  maxOccurs="unbounded">
+                                                <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
                                                   <xs:annotation>
-                                                  <xs:documentation>Solar hot water control.</xs:documentation>
+                                                    <xs:documentation>Solar hot water control.</xs:documentation>
                                                   </xs:annotation>
                                                 </xs:element>
                                               </xs:sequence>
@@ -9397,8 +9209,7 @@
                                       </xs:complexType>
                                     </xs:element>
                                     <xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
-                                    <xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"
-                                    />
+                                    <xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
                                   </xs:choice>
                                 </xs:complexType>
                               </xs:element>
@@ -9506,8 +9317,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:choice>
-                        <xs:element name="ElectricResistance" type="auc:ElectricResistanceType"
-                          minOccurs="0"/>
+                        <xs:element name="ElectricResistance" type="auc:ElectricResistanceType" minOccurs="0"/>
                         <xs:element name="Combustion" minOccurs="0">
                           <xs:complexType>
                             <xs:sequence>
@@ -10704,8 +10514,7 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="FanPowerMinimumRatio" minOccurs="0"
-        type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+      <xs:element name="FanPowerMinimumRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
         <xs:annotation>
           <xs:documentation>The minimum power draw of the fan, expressed as a ratio of the full load fan power. (0-1) (fraction)</xs:documentation>
         </xs:annotation>
@@ -11151,8 +10960,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="WallInsulationMaterial" type="auc:InsulationMaterialType"
-                    minOccurs="0">
+                  <xs:element name="WallInsulationMaterial" type="auc:InsulationMaterialType" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>Material used for the structural component of the surface.</xs:documentation>
                     </xs:annotation>
@@ -11183,8 +10991,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="WallInsulationCondition" type="auc:InsulationCondition"
-                    minOccurs="0"/>
+                  <xs:element name="WallInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
                   <xs:element name="WallInsulationLocation" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>Whether wall insulation is on the inside or outside of the wall.</xs:documentation>
@@ -11384,8 +11191,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="CeilingInsulationMaterial" type="auc:InsulationMaterialType"
-                    minOccurs="0">
+                  <xs:element name="CeilingInsulationMaterial" type="auc:InsulationMaterialType" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>Material used for the structural component of the surface.</xs:documentation>
                     </xs:annotation>
@@ -11416,8 +11222,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="CeilingInsulationCondition" type="auc:InsulationCondition"
-                    minOccurs="0"/>
+                  <xs:element name="CeilingInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -11564,8 +11369,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="RoofInsulationMaterial" type="auc:InsulationMaterialType"
-                    minOccurs="0">
+                  <xs:element name="RoofInsulationMaterial" type="auc:InsulationMaterialType" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>Material used for the structural component of the surface.</xs:documentation>
                     </xs:annotation>
@@ -11596,8 +11400,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="RoofInsulationCondition" type="auc:InsulationCondition"
-                    minOccurs="0"/>
+                  <xs:element name="RoofInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
                   <xs:element name="RoofInsulationRValue" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>Insulation R Value of the layer. (hr-ft2-F/Btu)</xs:documentation>
@@ -12094,8 +11897,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="DoorGlazedAreaFraction" minOccurs="0"
-                    type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+                  <xs:element name="DoorGlazedAreaFraction" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                     <xs:annotation>
                       <xs:documentation>Fraction of door area that is glazed. (0-1) (fraction)</xs:documentation>
                     </xs:annotation>
@@ -12467,8 +12269,7 @@
                             </xs:simpleContent>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="SlabInsulationCondition" type="auc:InsulationCondition"
-                          minOccurs="0"/>
+                        <xs:element name="SlabInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
                         <xs:element ref="auc:SlabHeating" minOccurs="0"/>
                       </xs:sequence>
                     </xs:complexType>
@@ -12494,8 +12295,7 @@
                                         </xs:simpleContent>
                                       </xs:complexType>
                                     </xs:element>
-                                    <xs:element name="FloorInsulationCondition"
-                                      type="auc:InsulationCondition" minOccurs="0"/>
+                                    <xs:element name="FloorInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
                                     <xs:element name="FloorRValue" minOccurs="0">
                                       <xs:annotation>
                                         <xs:documentation>(Also known as thermal resistance), quantity determined by the temperature difference, at steady state, between two defined surfaces of a material or construction that induces a unit heat flow rate through unit area (R = ΔT/q). R-value is the reciprocal of thermal conductance. A unit of thermal resistance used for comparing insulating values of different materials, for the specific thickness of the material. The higher the R-value number, a material, the greater its insulating properties and the slower the heat flow through it. This R-value does not include the interior and exterior air film coefficients. (hr-ft2-F/Btu)</xs:documentation>
@@ -12562,8 +12362,7 @@
                               <xs:element name="Unventilated" minOccurs="0">
                                 <xs:complexType>
                                   <xs:sequence>
-                                    <xs:element name="FoundationWallConstruction"
-                                      type="auc:EnvelopeConstructionType" minOccurs="0">
+                                    <xs:element name="FoundationWallConstruction" type="auc:EnvelopeConstructionType" minOccurs="0">
                                       <xs:annotation>
                                         <xs:documentation>Basement or crawlspace wall construction.</xs:documentation>
                                       </xs:annotation>
@@ -12580,8 +12379,7 @@
                                         </xs:simpleContent>
                                       </xs:complexType>
                                     </xs:element>
-                                    <xs:element name="FoundationWallInsulationThickness"
-                                      minOccurs="0">
+                                    <xs:element name="FoundationWallInsulationThickness" minOccurs="0">
                                       <xs:annotation>
                                         <xs:documentation>Thickness of insulation at basement or crawlspace wall. (in.)</xs:documentation>
                                       </xs:annotation>
@@ -12617,10 +12415,8 @@
                                         </xs:simpleContent>
                                       </xs:complexType>
                                     </xs:element>
-                                    <xs:element ref="auc:FoundationWallInsulationContinuity"
-                                      minOccurs="0"/>
-                                    <xs:element name="FoundationWallInsulationCondition"
-                                      type="auc:InsulationCondition" minOccurs="0"/>
+                                    <xs:element ref="auc:FoundationWallInsulationContinuity" minOccurs="0"/>
+                                    <xs:element name="FoundationWallInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
                                   </xs:sequence>
                                 </xs:complexType>
                               </xs:element>
@@ -12649,8 +12445,7 @@
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:element>
-                        <xs:element name="FoundationWallConstruction"
-                          type="auc:EnvelopeConstructionType" minOccurs="0">
+                        <xs:element name="FoundationWallConstruction" type="auc:EnvelopeConstructionType" minOccurs="0">
                           <xs:annotation>
                             <xs:documentation>Basement or crawlspace wall construction.</xs:documentation>
                           </xs:annotation>
@@ -12704,8 +12499,7 @@
                           </xs:complexType>
                         </xs:element>
                         <xs:element ref="auc:FoundationWallInsulationContinuity" minOccurs="0"/>
-                        <xs:element name="FoundationWallInsulationCondition"
-                          type="auc:InsulationCondition" minOccurs="0"/>
+                        <xs:element name="FoundationWallInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
                         <xs:element ref="auc:SlabInsulationOrientation" minOccurs="0"/>
                         <xs:element name="SlabArea" minOccurs="0">
                           <xs:annotation>
@@ -12755,8 +12549,7 @@
                             </xs:simpleContent>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="SlabInsulationCondition" type="auc:InsulationCondition"
-                          minOccurs="0"/>
+                        <xs:element name="SlabInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
                         <xs:element ref="auc:SlabHeating" minOccurs="0"/>
                       </xs:sequence>
                     </xs:complexType>
@@ -13054,8 +12847,7 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="HeatGainFraction" minOccurs="0"
-        type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+      <xs:element name="HeatGainFraction" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
         <xs:annotation>
           <xs:documentation>Fraction of installed power that results in heat gain to the space. (0-1) (fraction)</xs:documentation>
         </xs:annotation>
@@ -13233,8 +13025,7 @@
                         <xs:element name="PV" minOccurs="0">
                           <xs:complexType>
                             <xs:sequence>
-                              <xs:element name="PhotovoltaicSystemNumberOfModulesPerArray"
-                                minOccurs="0">
+                              <xs:element name="PhotovoltaicSystemNumberOfModulesPerArray" minOccurs="0">
                                 <xs:annotation>
                                   <xs:documentation>Number of modules in each array of a photovoltaic system.</xs:documentation>
                                 </xs:annotation>
@@ -13294,8 +13085,7 @@
                                   </xs:simpleContent>
                                 </xs:complexType>
                               </xs:element>
-                              <xs:element name="PhotovoltaicSystemRackingSystemTiltAngleMin"
-                                minOccurs="0">
+                              <xs:element name="PhotovoltaicSystemRackingSystemTiltAngleMin" minOccurs="0">
                                 <xs:annotation>
                                   <xs:documentation>Minimum PV mounting angle relative to horizontal. Minimum and maximum tilt angles are the same for fixed systems. (degrees)</xs:documentation>
                                 </xs:annotation>
@@ -13307,8 +13097,7 @@
                                   </xs:simpleContent>
                                 </xs:complexType>
                               </xs:element>
-                              <xs:element name="PhotovoltaicSystemRackingSystemTiltAngleMax"
-                                minOccurs="0">
+                              <xs:element name="PhotovoltaicSystemRackingSystemTiltAngleMax" minOccurs="0">
                                 <xs:annotation>
                                   <xs:documentation>Maximum PV mounting angle relative to horizontal. Minimum and maximum tilt angles are the same for fixed systems. (degrees)</xs:documentation>
                                 </xs:annotation>
@@ -13399,8 +13188,7 @@
                                   </xs:restriction>
                                 </xs:simpleType>
                               </xs:element>
-                              <xs:element name="OutputResourceType" type="auc:FuelTypes"
-                                minOccurs="0">
+                              <xs:element name="OutputResourceType" type="auc:FuelTypes" minOccurs="0">
                                 <xs:annotation>
                                   <xs:documentation>Resource or fuel produced by the generation system and used as energy on the premises.</xs:documentation>
                                 </xs:annotation>
@@ -13671,8 +13459,7 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="WaterFixtureFractionHotWater" minOccurs="0"
-        type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+      <xs:element name="WaterFixtureFractionHotWater" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
         <xs:annotation>
           <xs:documentation>Average fraction of water use for this application that is drawn from the hot water system. (0-1) (fraction)</xs:documentation>
         </xs:annotation>
@@ -16171,59 +15958,37 @@
       <xs:enumeration value="Professional Engineer (PE)"/>
       <xs:enumeration value="Associated Air Balance Council (AABC) Certified Member Agency"/>
       <xs:enumeration value="Associated Air Balance Council (AABC) Test and Balance Technician"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Certified Carbon Reduction Manager (CRM)"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Certified Sustainable Development Professional (CSDP)"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Certified Power Quality Professional (CPQ)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Carbon Reduction Manager (CRM)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Sustainable Development Professional (CSDP)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Power Quality Professional (CPQ)"/>
       <xs:enumeration value="Association of Energy Engineers Certified Demand Side Manager (CDSM)"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Certified Energy Procurement Professional (CEP)"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Certified Lighting Efficiency Professional (CLEP)"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Certified Measurement &amp; Verification Professional (CMVP)"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Certified GeoExchange Designer Program (CGD)"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Certified Business Energy Professional (BEP)"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Certified Industrial Energy Professional (CIEP)"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Certified Water Efficiency Professional (CWEP)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Energy Procurement Professional (CEP)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Lighting Efficiency Professional (CLEP)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Measurement &amp; Verification Professional (CMVP)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified GeoExchange Designer Program (CGD)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Business Energy Professional (BEP)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Industrial Energy Professional (CIEP)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Water Efficiency Professional (CWEP)"/>
       <xs:enumeration value="Association of Energy Engineers Energy Efficiency Practitioner (EEP)"/>
       <xs:enumeration value="Association of Energy Engineers Renewable Energy Professional (REP)"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Distributed Generation Certified Professional (DGCP)"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Certified Building Energy Simulation Analyst (BESA)"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Performance Contracting and Funding Professional (PCF)"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Certified Residential Energy Auditor (REA)"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Certified Building Commissioning Firm Program (CBCF)"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Certified Green Building Engineer (GBE)"/>
+      <xs:enumeration value="Association of Energy Engineers Distributed Generation Certified Professional (DGCP)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Building Energy Simulation Analyst (BESA)"/>
+      <xs:enumeration value="Association of Energy Engineers Performance Contracting and Funding Professional (PCF)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Residential Energy Auditor (REA)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Building Commissioning Firm Program (CBCF)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Green Building Engineer (GBE)"/>
       <xs:enumeration value="Association of Energy Engineers Certified Energy Manager (CEM)"/>
       <xs:enumeration value="Association of Energy Engineers Certified Energy Auditor (CEA)"/>
-      <xs:enumeration
-        value="Association of Energy Engineers Certified Building Commissioning Professional (CBCP)"/>
+      <xs:enumeration value="Association of Energy Engineers Certified Building Commissioning Professional (CBCP)"/>
       <xs:enumeration value="Building Operator Certification (BOC): Level 1"/>
       <xs:enumeration value="Building Operator Certification (BOC): Level 2"/>
       <xs:enumeration value="Building Performance Institute (BPI) Certification"/>
       <xs:enumeration value="Building Performance Institute (BPI): Building Analyst (BA)"/>
-      <xs:enumeration
-        value="Building Performance Institute (BPI): Advanced Home Energy Professional (HEP)"/>
-      <xs:enumeration
-        value="Building Performance Institute (BPI): Advanced Home Energy Professional - Energy Auditor (HEP-EA)"/>
-      <xs:enumeration
-        value="Building Performance Institute (BPI): Advanced Home Energy Professional - Quality Control Inspector (HEP-QCI)"/>
-      <xs:enumeration
-        value="Building Performance Institute (BPI): Advanced Home Energy Professional - Retrofit Installer (HEP-RI)"/>
-      <xs:enumeration
-        value="Building Performance Institute (BPI): Advanced Home Energy Professional - Crew Leader (HEP-CL)"/>
+      <xs:enumeration value="Building Performance Institute (BPI): Advanced Home Energy Professional (HEP)"/>
+      <xs:enumeration value="Building Performance Institute (BPI): Advanced Home Energy Professional - Energy Auditor (HEP-EA)"/>
+      <xs:enumeration value="Building Performance Institute (BPI): Advanced Home Energy Professional - Quality Control Inspector (HEP-QCI)"/>
+      <xs:enumeration value="Building Performance Institute (BPI): Advanced Home Energy Professional - Retrofit Installer (HEP-RI)"/>
+      <xs:enumeration value="Building Performance Institute (BPI): Advanced Home Energy Professional - Crew Leader (HEP-CL)"/>
       <xs:enumeration value="Building Performance Institute (BPI): Multifamily Building Analyst"/>
       <xs:enumeration value="Residential Energy Services Network (RESNET) Certification"/>
       <xs:enumeration value="Residential Energy Services Network (RESNET) - Home Partner"/>
@@ -16454,8 +16219,7 @@
   </xs:complexType>
   <xs:complexType name="FanBasedType">
     <xs:sequence>
-      <xs:element name="FanBasedDistributionType" type="auc:FanBasedDistributionTypeType"
-        minOccurs="0"/>
+      <xs:element name="FanBasedDistributionType" type="auc:FanBasedDistributionTypeType" minOccurs="0"/>
       <xs:element name="AirSideEconomizer" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
@@ -16898,8 +16662,7 @@
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-            <xs:element name="ControlStrategy" type="auc:ControlStrategyDaylightingType"
-              minOccurs="0">
+            <xs:element name="ControlStrategy" type="auc:ControlStrategyDaylightingType" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Daylighting control strategy.</xs:documentation>
               </xs:annotation>
@@ -17037,8 +16800,7 @@
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CommunicationProtocol" type="auc:CommunicationProtocolAnalogType"
-                minOccurs="0">
+              <xs:element name="CommunicationProtocol" type="auc:CommunicationProtocolAnalogType" minOccurs="0">
                 <xs:annotation>
                   <xs:documentation>Method of communicating data over an analog network.</xs:documentation>
                 </xs:annotation>
@@ -17052,8 +16814,7 @@
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CommunicationProtocol" type="auc:CommunicationProtocolDigitalType"
-                minOccurs="0">
+              <xs:element name="CommunicationProtocol" type="auc:CommunicationProtocolDigitalType" minOccurs="0">
                 <xs:annotation>
                   <xs:documentation>Method of communicating data over a digital computer network.</xs:documentation>
                 </xs:annotation>
