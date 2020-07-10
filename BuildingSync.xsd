@@ -405,6 +405,13 @@
           </xs:complexType>
         </xs:element>
       </xs:sequence>
+      <xs:attribute name="version" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(\-[a-zA-Z0-9\.]+)?(\+[a-zA-Z0-9\.]+)?"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:complexType name="SiteType">
