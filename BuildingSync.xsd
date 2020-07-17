@@ -972,7 +972,7 @@
                   <xs:element ref="auc:PremisesName" minOccurs="0"/>
                   <xs:element name="SectionType" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>The type of section such as Whole building, Space function data, or other types. * Whole building - describes the whole building, Space function - describes a space function (see ASHRAE standard 211), Component - describes a subspace of a primary premises such as HVAC zone, retails shops in a mall, etc., Tenant - describes a section for a tenant, Virtual - describes a section loosely with potentially overlap with other sections and section types, Other - not well-described by other types.</xs:documentation>
+                      <xs:documentation>The type of section such as Whole building, Space function data, or other types. * Whole building - describes the whole building, Space function - describes a space function (refer to SPC 211 Standard for Commercial Building Energy Audits), Component - describes a subspace of a primary premises such as HVAC zone, retails shops in a mall, etc., Tenant - describes a section for a tenant, Virtual - describes a section loosely with potentially overlap with other sections and section types, Other - not well-described by other types.</xs:documentation>
                     </xs:annotation>
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
@@ -5757,7 +5757,7 @@
       </xs:element>
       <xs:element name="ASHRAEAuditLevel" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Energy audit level as defined in ASHRAE Procedures for Commercial Building Energy Audits.</xs:documentation>
+          <xs:documentation>Energy audit level as defined in SPC 211 Standard for Commercial Building Energy Audits.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -6812,6 +6812,9 @@
             <xs:enumeration value="Dedicated Outdoor Air System"/>
             <xs:enumeration value="Water Loop Heat Pump"/>
             <xs:enumeration value="Ground Source Heat Pump"/>
+            <xs:enumeration value="VRF Terminal Unit"/>
+            <xs:enumeration value="Chilled Beam"/>
+            <xs:enumeration value="Other"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
