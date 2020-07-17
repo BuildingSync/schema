@@ -293,7 +293,7 @@
                                       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
                                       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                                     </xs:sequence>
-                                    <xs:attribute name="ID" type="xs:ID"/>
+                                    <xs:attribute name="ID" type="xs:ID" use="required"/>
                                   </xs:complexType>
                                 </xs:element>
                               </xs:sequence>
@@ -398,7 +398,7 @@
                     </xs:element>
                     <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                   </xs:sequence>
-                  <xs:attribute name="ID" type="xs:ID"/>
+                  <xs:attribute name="ID" type="xs:ID" use="required"/>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
@@ -466,7 +466,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="BuildingType">
     <xs:sequence>
@@ -1624,7 +1624,7 @@
                     </xs:complexType>
                   </xs:element>
                 </xs:sequence>
-                <xs:attribute name="ID" type="xs:ID"/>
+                <xs:attribute name="ID" type="xs:ID" use="required"/>
               </xs:complexType>
             </xs:element>
           </xs:sequence>
@@ -1632,7 +1632,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="ThermalZoneType">
     <xs:sequence>
@@ -1756,7 +1756,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="SpaceType">
     <xs:sequence>
@@ -1838,7 +1838,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="ScheduleType">
     <xs:sequence>
@@ -1937,7 +1937,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="ContactType">
@@ -2070,7 +2070,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="TenantType">
     <xs:sequence>
@@ -2144,7 +2144,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="ScenarioType">
     <xs:sequence>
@@ -2776,7 +2776,7 @@
                   <xs:element ref="auc:ENERGYSTARScore" minOccurs="0"/>
                   <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                 </xs:sequence>
-                <xs:attribute name="ID" type="xs:ID"/>
+                <xs:attribute name="ID" type="xs:ID" use="required"/>
               </xs:complexType>
             </xs:element>
             <xs:element name="Other" minOccurs="0">
@@ -3052,7 +3052,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="UtilityType">
     <xs:sequence>
@@ -3690,7 +3690,7 @@
                     </xs:complexType>
                   </xs:element>
                 </xs:sequence>
-                <xs:attribute name="ID" type="xs:ID"/>
+                <xs:attribute name="ID" type="xs:ID" use="required"/>
               </xs:complexType>
             </xs:element>
           </xs:sequence>
@@ -3793,7 +3793,7 @@
         </xs:complexType>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="ResourceUseType">
     <xs:sequence>
@@ -4015,7 +4015,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="AllResourceTotalType">
     <xs:sequence>
@@ -4197,7 +4197,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="TimeSeriesType">
     <xs:sequence>
@@ -4387,7 +4387,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="MeasureType">
     <xs:sequence>
@@ -5708,7 +5708,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="ReportType">
     <xs:sequence>
@@ -5919,7 +5919,7 @@
                     </xs:annotation>
                   </xs:element>
                 </xs:sequence>
-                <xs:attribute name="ID" type="xs:ID"/>
+                <xs:attribute name="ID" type="xs:ID" use="required"/>
               </xs:complexType>
             </xs:element>
           </xs:sequence>
@@ -5962,7 +5962,7 @@
       <xs:element ref="auc:LinkedPremisesOrSystem" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="HVACSystemType">
     <xs:sequence>
@@ -6291,7 +6291,7 @@
                         <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                         <xs:element ref="auc:Quantity" minOccurs="0"/>
                       </xs:sequence>
-                      <xs:attribute name="ID" type="xs:ID"/>
+                      <xs:attribute name="ID" type="xs:ID" use="required"/>
                       <xs:attribute ref="auc:Status"/>
                     </xs:complexType>
                   </xs:element>
@@ -6510,7 +6510,7 @@
                         <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                         <xs:element ref="auc:Quantity" minOccurs="0"/>
                       </xs:sequence>
-                      <xs:attribute name="ID" type="xs:ID"/>
+                      <xs:attribute name="ID" type="xs:ID" use="required"/>
                       <xs:attribute ref="auc:Status"/>
                     </xs:complexType>
                   </xs:element>
@@ -6743,7 +6743,7 @@
                         <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
                         <xs:element ref="auc:Quantity" minOccurs="0"/>
                       </xs:sequence>
-                      <xs:attribute name="ID" type="xs:ID"/>
+                      <xs:attribute name="ID" type="xs:ID" use="required"/>
                       <xs:attribute ref="auc:Status">
                         <xs:annotation>
                           <xs:documentation>Defines whether a system is currently present in the building, or if it is a proposed alternative or past system.</xs:documentation>
@@ -6845,7 +6845,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="DuctSystemType">
@@ -7077,7 +7077,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="HeatingPlantType">
@@ -7506,7 +7506,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="CoolingPlantType">
@@ -7783,7 +7783,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="CondenserPlantType">
@@ -7823,7 +7823,7 @@
                       </xs:complexType>
                     </xs:element>
                   </xs:sequence>
-                  <xs:attribute name="ID" type="xs:ID"/>
+                  <xs:attribute name="ID" type="xs:ID" use="required"/>
                 </xs:complexType>
               </xs:element>
               <xs:element name="CondenserFanSpeedOperation" minOccurs="0">
@@ -7956,7 +7956,7 @@
                       </xs:complexType>
                     </xs:element>
                   </xs:sequence>
-                  <xs:attribute name="ID" type="xs:ID"/>
+                  <xs:attribute name="ID" type="xs:ID" use="required"/>
                 </xs:complexType>
               </xs:element>
               <xs:element name="CoolingTowerFanControl" minOccurs="0">
@@ -8095,7 +8095,7 @@
                       </xs:complexType>
                     </xs:element>
                   </xs:sequence>
-                  <xs:attribute name="ID" type="xs:ID"/>
+                  <xs:attribute name="ID" type="xs:ID" use="required"/>
                 </xs:complexType>
               </xs:element>
               <xs:element name="WellCount" minOccurs="0">
@@ -8156,7 +8156,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="OtherHVACSystemType">
     <xs:sequence>
@@ -8522,7 +8522,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="LightingSystemType">
@@ -9011,7 +9011,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="DomesticHotWaterSystemType">
@@ -9549,7 +9549,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="CookingSystemType">
@@ -9658,7 +9658,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="RefrigerationSystemType">
@@ -9793,7 +9793,7 @@
                           </xs:annotation>
                         </xs:element>
                       </xs:sequence>
-                      <xs:attribute name="ID" type="xs:ID"/>
+                      <xs:attribute name="ID" type="xs:ID" use="required"/>
                     </xs:complexType>
                   </xs:element>
                   <xs:element name="CondenserPlantIDs" minOccurs="0">
@@ -9961,7 +9961,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="DishwasherSystemType">
@@ -10074,7 +10074,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="LaundrySystemType">
@@ -10296,7 +10296,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="PumpSystemType">
@@ -10468,7 +10468,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="FanSystemType">
@@ -10689,7 +10689,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="MotorSystemType">
@@ -10847,7 +10847,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="HeatRecoverySystemType">
@@ -10934,7 +10934,7 @@
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="WallSystemType">
@@ -11168,7 +11168,7 @@
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="CeilingSystemType">
@@ -11331,7 +11331,7 @@
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="RoofSystemType">
@@ -11580,7 +11580,7 @@
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="FenestrationSystemType">
@@ -12068,7 +12068,7 @@
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="ExteriorFloorSystemType">
@@ -12198,7 +12198,7 @@
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="FoundationSystemType">
@@ -12619,7 +12619,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="CriticalITSystemType">
@@ -12702,7 +12702,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="PlugElectricLoadType">
@@ -12803,7 +12803,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Source"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
@@ -12897,7 +12897,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Source"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
@@ -12981,7 +12981,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="OnsiteStorageTransmissionGenerationSystemType">
@@ -13275,7 +13275,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="PoolType">
@@ -13400,7 +13400,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="WaterUseType">
@@ -13507,7 +13507,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="CalculationMethodType">
@@ -16316,7 +16316,7 @@
               </xs:complexType>
             </xs:element>
           </xs:sequence>
-          <xs:attribute name="ID" type="xs:ID"/>
+          <xs:attribute name="ID" type="xs:ID" use="required"/>
           <xs:attribute ref="auc:Status"/>
         </xs:complexType>
       </xs:element>
