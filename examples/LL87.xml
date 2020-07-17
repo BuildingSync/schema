@@ -2,7 +2,7 @@
 <!--This example file is meant to cover the majority of the functionality of New York Local Law 87-->
 <BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../BuildingSync.xsd" version="2.0.0">
   <Facilities>
-    <Facility>
+    <Facility ID="Facility-32bf1bba-967a-4a98-8843-5761d0ebd971">
       <Sites>
         <Site ID="SiteA">
           <PremisesName>NREL Campus</PremisesName>
@@ -137,7 +137,7 @@
                 </HeatingSource>
               </HeatingSources>
               <Deliveries>
-                <Delivery>
+                <Delivery ID="Delivery-24b6c8dc-87b0-4ddc-bd3f-f7622b149653">
                   <DeliveryType>
                     <ZoneEquipment>
                       <Radiant>
@@ -147,7 +147,7 @@
                   </DeliveryType>
                   <PrimaryFuel>Electricity</PrimaryFuel>
                 </Delivery>
-                <Delivery>
+                <Delivery ID="Delivery-7a6d736d-121a-4dcf-9032-ebf5fc706d62">
                   <DeliveryType>
                     <ZoneEquipment>
                       <Radiant>
@@ -160,7 +160,7 @@
               </Deliveries>
             </HeatingAndCoolingSystems>
             <OtherHVACSystems>
-              <OtherHVACSystem>
+              <OtherHVACSystem ID="OtherHVACSystem-92894a7a-90c5-4b91-b3fb-69195087eb65">
                 <OtherHVACType>
                   <MechanicalVentilation>
                     <VentilationControlMethods>
@@ -193,7 +193,7 @@
               <CondenserPlants>
                 <CondenserPlant ID="CondenserPlant1">
                   <AirCooled>
-                    <EvaporativelyCooledCondenser/>
+                    <EvaporativelyCooledCondenser ID="EvaporativelyCooledCondenser-35db132f-5ec8-4c11-812c-d9ddb41ce071"/>
                   </AirCooled>
                   <YearInstalled>2005</YearInstalled>
                   <UserDefinedFields>
@@ -216,7 +216,7 @@
                 </CoolingSource>
               </CoolingSources>
               <Deliveries>
-                <Delivery>
+                <Delivery ID="Delivery-a98cb1dc-aa34-401c-aa03-57db3ce0246d">
                   <DeliveryType>
                     <CentralAirDistribution>
                       <TerminalUnit>Powered induction unit</TerminalUnit>
@@ -250,7 +250,7 @@
           </LightingSystem>
         </LightingSystems>
         <DomesticHotWaterSystems>
-          <DomesticHotWaterSystem>
+          <DomesticHotWaterSystem ID="DomesticHotWaterSystem-ac00123d-f5e5-4d70-8152-c6c793f33e69">
             <DomesticHotWaterType>
               <StorageTank>
                 <TankHeatingType>
@@ -288,7 +288,7 @@
           </RoofSystem>
         </RoofSystems>
         <PlugLoads>
-          <PlugLoad>
+          <PlugLoad ID="PlugLoad-51a1660c-2751-4f34-8efc-3a8bf6869d19">
             <PlugLoadType>Signage Display</PlugLoadType>
             <LinkedPremises>
               <Facility>
@@ -298,7 +298,7 @@
           </PlugLoad>
         </PlugLoads>
         <ProcessLoads>
-          <ProcessLoad>
+          <ProcessLoad ID="ProcessLoad-131752f3-c85a-411e-9ca6-dc9e9352c725">
             <ProcessLoadType>Miscellaneous Gas Load</ProcessLoadType>
             <WeightedAverageLoad>1000</WeightedAverageLoad>
             <LinkedPremises>
@@ -383,7 +383,7 @@
                 </PackageOfMeasures>
               </ScenarioType>
               <ResourceUses>
-                <ResourceUse>
+                <ResourceUse ID="ResourceUse-1d67d33f-9fa7-4fb1-9739-c043667d3787">
                   <EnergyResource>Electricity</EnergyResource>
                   <AnnualPeakNativeUnits>20</AnnualPeakNativeUnits>
                 </ResourceUse>
@@ -393,7 +393,7 @@
               <ScenarioName>Remove all the PV from campus</ScenarioName>
               <ScenarioNotes>Details for scenario 2.</ScenarioNotes>
               <ScenarioType>
-                <PackageOfMeasures>
+                <PackageOfMeasures ID="PackageOfMeasures-2242f75f-a465-4c00-82a4-9a5acb6a9f4e">
                   <MeasureIDs>
                     <MeasureID IDref="WholeSiteRemovePV"/>
                   </MeasureIDs>
@@ -433,7 +433,7 @@
             </AuditDate>
           </AuditDates>
           <Qualifications>
-            <Qualification>
+            <Qualification ID="Qualification-1ca306be-e3b3-4e35-9c40-01fab32731c6">
               <AuditorQualification>Association of Energy Engineers Certified Building Commissioning Professional (CBCP)</AuditorQualification>
               <AuditorQualificationNumber>4-8-15-16-23-42</AuditorQualificationNumber>
             </Qualification>
@@ -444,7 +444,7 @@
         </Report>
       </Reports>
       <Contacts>
-        <Contact>
+        <Contact ID="Contact-d8959c0a-e143-4d23-a4f2-cfb72f53e865">
           <ContactRoles>
             <ContactRole>Submitter</ContactRole>
           </ContactRoles>

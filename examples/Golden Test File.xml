@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../BuildingSync.xsd" version="2.0.0">
   <Facilities>
-    <Facility>
+    <Facility ID="Facility-be7020ff-fbdb-4901-86a8-0f868bbca12f">
       <Sites>
         <Site ID="SiteA">
           <PremisesName>NREL Campus</PremisesName>
@@ -34,7 +34,7 @@
               </FloorAreas>
               <YearOfConstruction>2011</YearOfConstruction>
               <Sections>
-                <Section>
+                <Section ID="Section-043028db-bad9-43cb-b859-8b3b43a47c77">
                   <SectionType>Whole building</SectionType>
                   <Roofs>
                     <Roof>
@@ -107,7 +107,7 @@
             </Plants>
             <HeatingAndCoolingSystems>
               <HeatingSources>
-                <HeatingSource>
+                <HeatingSource ID="HeatingSource-1820d23d-b8d4-44de-b600-320973cf3fc2">
                   <HeatingSourceType>
                     <SourceHeatingPlantID IDref="HeatingPlant1"/>
                   </HeatingSourceType>
@@ -137,14 +137,14 @@
               <CondenserPlants>
                 <CondenserPlant ID="CondenserPlant1">
                   <AirCooled>
-                    <EvaporativelyCooledCondenser/>
+                    <EvaporativelyCooledCondenser ID="EvaporativelyCooledCondenser-e1a12289-f5df-4292-beb3-4085b68d4513"/>
                   </AirCooled>
                 </CondenserPlant>
               </CondenserPlants>
             </Plants>
             <HeatingAndCoolingSystems>
               <CoolingSources>
-                <CoolingSource>
+                <CoolingSource ID="CoolingSource-18065e01-0aa2-4c9d-9034-9f4041626628">
                   <CoolingSourceType>
                     <CoolingPlantID IDref="CoolingPlant1"/>
                   </CoolingSourceType>
@@ -220,12 +220,12 @@
         </Measure>
       </Measures>
       <Reports>
-        <Report>
+        <Report ID="Report-c1857e54-836b-4674-95f4-2e6e9c8510b4">
           <Scenarios>
             <Scenario ID="Scenario1">
               <ScenarioName>Remove all the PV from the RSF</ScenarioName>
               <ScenarioType>
-                <PackageOfMeasures>
+                <PackageOfMeasures ID="PackageOfMeasures-b9ca1b63-acd6-4d8a-9d8f-f39a96fd8dac">
                   <MeasureIDs>
                     <MeasureID IDref="Building1RemovePV"/>
                   </MeasureIDs>
@@ -235,7 +235,7 @@
             <Scenario ID="Scenario2">
               <ScenarioName>Remove all the PV from campus</ScenarioName>
               <ScenarioType>
-                <PackageOfMeasures>
+                <PackageOfMeasures ID="PackageOfMeasures-9cb66289-2415-4dd1-a734-b760ff32a0e3">
                   <MeasureIDs>
                     <MeasureID IDref="WholeSiteRemovePV"/>
                   </MeasureIDs>
