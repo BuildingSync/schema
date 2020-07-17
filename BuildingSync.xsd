@@ -15302,7 +15302,11 @@
                 </xs:annotation>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:enumeration value="Peak total occupants"/>
+                    <xs:enumeration value="Peak total occupants">
+                      <xs:annotation>
+                        <xs:documentation>This is the design occupancy of the premise (per SPC 211 Standard for Commercial Building Energy Audits section 5.3.4.d).</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
                     <xs:enumeration value="Adults"/>
                     <xs:enumeration value="Children"/>
                     <xs:enumeration value="Average residents"/>
@@ -15314,6 +15318,11 @@
                     <xs:enumeration value="Licensed beds"/>
                     <xs:enumeration value="Capacity"/>
                     <xs:enumeration value="Capacity percentage"/>
+                    <xs:enumeration value="Normal occupancy">
+                      <xs:annotation>
+                        <xs:documentation>This is the normal occupancy of the premise (per SPC 211 Standard for Commercial Building Energy Audits section 5.3.4.d).  It can also be thought of as the average occupancy, i.e. the average number of people in the premise at any singular point in time.</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
