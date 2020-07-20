@@ -56,7 +56,7 @@ Define a new enum for `auc:ReadingType`, `Cost`, in `auc:TimeSeries`.
 1. Ensure start and end timestamps align across different auc:TimeSeries elements (i.e. the cost and the reading are referring to the same period of time).
 
 ### Option 2
-Define a new element `auc:AssociatedCost`, in `auc:TimeSeries`.
+Define a new element `auc:Cost`, in `auc:TimeSeries`.
 ```xml
 <auc:Scenario>
     <auc:TimeSeriesData>
@@ -68,7 +68,7 @@ Define a new element `auc:AssociatedCost`, in `auc:TimeSeries`.
             <auc:IntervalReading>123</auc:IntervalReading>
             <auc:ResourceUseID IDref="ResourceUse-Electricity" />
             <!-- Add this element -->
-            <auc:AssociatedCost>1000</auc:AssociatedCost>
+            <auc:Cost>1000</auc:Cost>
         </auc:TimeSeries>
         <auc:TimeSeries>
             <auc:ReadingType>Peak</auc:ReadingType>
@@ -78,7 +78,7 @@ Define a new element `auc:AssociatedCost`, in `auc:TimeSeries`.
             <auc:IntervalReading>123</auc:IntervalReading>
             <auc:ResourceUseID IDref="ResourceUse-Electricity" />
             <!-- Add this element -->
-            <auc:AssociatedCost>2000</auc:AssociatedCost>
+            <auc:Cost>2000</auc:Cost>
         </auc:TimeSeries>
     </auc:TimeSeriesData>
 </auc:Scenario>
