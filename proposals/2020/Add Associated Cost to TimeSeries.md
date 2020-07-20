@@ -56,88 +56,17 @@ Define a new enum for `auc:ReadingType`, `Cost`, in `auc:TimeSeries`.
 1. Ensure start and end timestamps align across different auc:TimeSeries elements (i.e. the cost and the reading are referring to the same period of time).
 
 ### Option 2
-Define a new element `auc:Cost`, in `auc:TimeSeries`.
-```xml
-<auc:Scenario>
-    <auc:TimeSeriesData>
-        <auc:TimeSeries>
-            <auc:ReadingType>Total</auc:ReadingType>
-            <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
-            <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
-            <auc:IntervalFrequency>Month</auc:IntervalFrequency>
-            <auc:IntervalReading>123</auc:IntervalReading>
-            <auc:ResourceUseID IDref="ResourceUse-Electricity" />
-            <!-- Add this element -->
-            <auc:Cost>1000</auc:Cost>
-        </auc:TimeSeries>
-        <auc:TimeSeries>
-            <auc:ReadingType>Peak</auc:ReadingType>
-            <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
-            <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
-            <auc:IntervalFrequency>Month</auc:IntervalFrequency>
-            <auc:IntervalReading>123</auc:IntervalReading>
-            <auc:ResourceUseID IDref="ResourceUse-Electricity" />
-            <!-- Add this element -->
-            <auc:Cost>2000</auc:Cost>
-        </auc:TimeSeries>
-    </auc:TimeSeriesData>
-</auc:Scenario>
-```
-#### Pros
-- non-breaking change
-- easy to get cost associated with a reading
-#### Cons
-- a cost might be dependent upon multiple reading types, e.g. the cost is associated with both the total use and peak use (that might not be true in the real utility world but it's just an example), and this model is unable to represent that relationship.
-
-### Option 3
-Create a new element (maybe in `auc:AllResourceTotals`) that can contain cost and can reference `auc:TimeSeries` IDs.
-
-```xml
-<auc:Scenario>
-    <auc:AllResourceTotals>
-        <auc:Costs>
-            <auc:Cost IDref="TimeSeries-Total-January">1000</auc:Cost>
-            <auc:Cost IDref="TimeSeries-Peak-January">1000</auc:Cost>
-        </auc:Costs>
-    </auc:AllResourceTotals>
-    <auc:TimeSeriesData>
-        <auc:TimeSeries ID="TimeSeries-Total-January">
-            <auc:ReadingType>Total</auc:ReadingType>
-            <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
-            <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
-            <auc:IntervalFrequency>Month</auc:IntervalFrequency>
-            <auc:IntervalReading>123</auc:IntervalReading>
-            <auc:ResourceUseID IDref="ResourceUse-Electricity" />
-        </auc:TimeSeries>
-        <auc:TimeSeries ID="TimeSeries-Peak-January">
-            <auc:ReadingType>Peak</auc:ReadingType>
-            <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
-            <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
-            <auc:IntervalFrequency>Month</auc:IntervalFrequency>
-            <auc:IntervalReading>123</auc:IntervalReading>
-            <auc:ResourceUseID IDref="ResourceUse-Electricity" />
-        </auc:TimeSeries>
-    </auc:TimeSeriesData>
-</auc:Scenario>
-```
-#### Pros
-- non-breaking change
-#### Cons
-- finding the cost for a reading is less trivial, and must use IDrefs (ie xpaths a bit of a pain)
-- a cost might be dependent upon multiple reading types, e.g. the cost is associated with both the total use and peak use (that might not be true in the real utility world but it's just an example), and this model is unable to represent that relationship.
-
-### Option 4
 Change `auc:TimeSeries` to include `auc:IntervalReadings` which could contain multiple reading types.
 ```xml
 <auc:Scenario>
     <auc:TimeSeriesData>
         <auc:TimeSeries>
             <!-- Add this element -->
-            <auc:IntervalReadings>
+            <auc:IntervalReading>
                 <auc:Total>123</auc:Total>
                 <auc:Peak>123</auc:Peak>
                 <auc:Cost>1000</auc:Cost>
-            </auc:IntervalReadings>
+            </auc:IntervalReading>
             <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
             <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
             <auc:IntervalFrequency>Month</auc:IntervalFrequency>
@@ -153,45 +82,3 @@ Change `auc:TimeSeries` to include `auc:IntervalReadings` which could contain mu
 - breaking change
 - another layer of nesting, which is unnecessary if most people just use it for reporting only one reading type
 
-### Option 5
-Kind a hybrid of options 2 and 4, get rid of `auc:ReadingType` and use elements to indicate different readings types.
-```xml
-<auc:Scenario>
-    <auc:TimeSeriesData>
-        <auc:TimeSeries>
-            <!-- Add these elements -->
-            <auc:IntervalTotal>123</auc:IntervalTotal>
-            <auc:IntervalPeak>123</auc:IntervalPeak>
-            <auc:IntervalCost>1000</auc:IntervalCost>
-            <auc:StartTimestamp>2019-01-01T00:00:00</auc:StartTimestamp>
-            <auc:EndTimestamp>2019-02-01T00:00:00</auc:EndTimestamp>
-            <auc:IntervalFrequency>Month</auc:IntervalFrequency>
-            <auc:ResourceUseID IDref="ResourceUse-Electricity" />
-        </auc:TimeSeries>
-    </auc:TimeSeriesData>
-</auc:Scenario>
-```
-Pros and cons are the same as option 4, this approach just uses less nesting which is nice.
-
-### Option 6
-A variation on Option 3
-```xml
-<auc:AllResourceTotals>
-  <auc:Costs>
-    <auc:Cost>
-      <auc:CostValue>1000</auc:CostValue>
-      <auc:ResourceUseID IDref="ResourceUse-Electricity"/>
-      <auc:TimeSeriesIDs>
-        <auc:TimeSeriesID IDref="TimeSeries-Total-January"/>
-        <auc:TimeSeriesID IDref="TimeSeries-Peak-January"/>
-      </auc:TimeSeriesIDs>
-    </auc:Cost>
-  <auc:Costs>
-</auc:AllResourceTotals>
-```
-#### Pros
-- non-breaking change
-- can handle associating a cost with multiple readings
-
-#### Cons
-- finding the cost for a reading is less trivial, and must use IDrefs (ie xpaths a bit of a pain)
