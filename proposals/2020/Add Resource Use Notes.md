@@ -26,6 +26,8 @@ This proposal suggests that having an element freeform text notes within `auc:Re
     </xs:sequence>
 ```
 
+This is similar to the approach taken for freeform text necessary to be defined at the `auc:Building` level, where the `auc:PremisesNotes` field is used to capture freeform text.
+
 ## References
 
 Standard 211 6.1.2.1.d and 6.1.2.1.j
