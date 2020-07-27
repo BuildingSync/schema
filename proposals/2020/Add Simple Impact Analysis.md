@@ -6,12 +6,14 @@ This proposal is to add the `auc:SimpleImpactAnalysis` child element to the `auc
 
 ## Justification
 
-Standard 211 6.1.5.c-6.1.5.g requires a summary of the impact of each recommended measure. Specifically, it states:
+Standard 211 6.1.5.c-6.1.5.g as well as 6.1.6.d-6.1.6.g requires a summary of the impact of each recommended measure. Specifically, it states:
 > c. Impact on occupant comfort (improved thermal comfort, indoor air quality [IAQ], lighting quality, acoustics)
 > d. Estimated cost (high, medium, low)
 > e. Estimated level (high, medium, low) of annual savings
 > f. Estimated level (high, medium, low) of return on investment (ROI)
 > g. Priority (high, medium, low)
+
+Additionally, Standard 211 is explicit in discriminating the "Low-Cost and No-Cost" recommendations (section 6.1.5) from the "Capital" recommendations (section 6.1.6), so it might not be a bad idea to add a category to specify this.
 
 ## Implementation
 
@@ -21,6 +23,14 @@ Standard 211 6.1.5.c-6.1.5.g requires a summary of the impact of each recommende
         <xs:sequence>
             ...
             <xs:element name="SimpleImpactAnalysis">
+                <xs:element name="CostCategory">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Low-Cost or No-Cost">
+                                <xs:enumeration value="Capital">
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
                 <xs:element name="ImpactOnOccupantComfort" type="xs:string"></xs:element>
                 <xs:element name="EstimatedCost" type="LowMedHighType"></xs:element>
                 <xs:element name="EstimatedAnnualEnergySavings" type="LowMedHighType"></xs:element>
