@@ -141,7 +141,7 @@ total_open_pull_requests.sort! {|x, y| get_num(x) <=> get_num(y)}
 
 puts "Total Open Issues: #{total_open_issues.length}"
 puts "Total Open Pull Requests: #{total_open_pull_requests.length}"
-puts "\nDate Range: #{options[:start_date].strftime('%m/%d/%y')} - #{options[:end_date].strftime('%m/%d/%y')}:"
+puts "\nDate Range: #{options[:start_date].strftime('%m/%d/%y')} - #{options[:end_date].strftime('%m/%d/%y')}"
 puts "\nNew Issues: #{new_issues.length} (" + new_issues.map {|issue| get_issue_num(issue)}.join(', ') + ')'
 
 puts "\nClosed Issues: #{closed_issues.length}"
