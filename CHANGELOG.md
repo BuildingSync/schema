@@ -2,8 +2,8 @@
 
 ## Version 2.1.0
 
-BuildingSync Version 2.1.0 does not introduce any breaking changes; however, a new required element
-to specify the version is now required. Version 2.1.0 includes many validation updates and additions
+BuildingSync Version 2.1.0 does not introduce any breaking changes; however, the `version` attribute is now required 
+as part of the root `BuildingSync` element. Version 2.1.0 includes many validation updates and additions
 to support reporting auditing data. Also, the release versions now include the patch version (e.g., 
 major.minor.patch).
 
