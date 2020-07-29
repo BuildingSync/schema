@@ -69,7 +69,7 @@ task :update_documentation do
   CSV.foreach(csv_filename, :headers => :first_row) do |row|
     csv_row_number += 1
     updated_documentation = row.field("updated_documentation")
-    if updated_documentation.length == 0
+    if updated_documentation == nil || updated_documentation.length == 0
       next
     end
 
