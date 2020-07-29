@@ -17,7 +17,7 @@
   {
     "name": "ASHRAEAuditLevel",
     "sub_name": null,
-    "documentation": "Energy audit level as defined in ASHRAE Procedures for Commercial Building Energy Audits.",
+    "documentation": "Energy audit level as defined in SPC 211 Standard for Commercial Building Energy Audits.",
     "enumerations": [
       "Preliminary Energy-Use Analysis",
       "Level 1: Walk-through",
@@ -242,7 +242,7 @@
   {
     "name": "AuditorQualificationType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Professional Engineer (PE)",
       "Associated Air Balance Council (AABC) Certified Member Agency",
@@ -373,16 +373,6 @@
       "Unknown"
     ],
     "enumerations_html": "<ul><li>Steam</li><li>Hot water</li><li>Other</li><li>Unknown</li></ul>"
-  },
-  {
-    "name": "BoundedDecimalZeroToOne",
-    "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
-    "enumerations": [
-      "0",
-      "1"
-    ],
-    "enumerations_html": "<ul><li>0</li><li>1</li></ul>"
   },
   {
     "name": "BuildingClassification",
@@ -741,7 +731,7 @@
   {
     "name": "Color",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "White",
       "Light",
@@ -757,7 +747,7 @@
   {
     "name": "CommunicationProtocolAnalogType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "AMX192",
       "Current",
@@ -772,7 +762,7 @@
   {
     "name": "CommunicationProtocolDigitalType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "BACnet",
       "DALI",
@@ -936,7 +926,7 @@
   {
     "name": "ControlSensorDaylightingType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Camera",
       "Photocell",
@@ -948,7 +938,7 @@
   {
     "name": "ControlSensorOccupancyType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Passive infrared",
       "Ultrasonic",
@@ -980,7 +970,7 @@
   {
     "name": "ControlStrategyDaylightingType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Continuous",
       "Continuous Plus Off",
@@ -995,7 +985,7 @@
   {
     "name": "ControlStrategyGeneralType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Always On",
       "Aquastat",
@@ -1015,7 +1005,7 @@
   {
     "name": "ControlStrategyLightingType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Advanced",
       "Always On",
@@ -1035,7 +1025,7 @@
   {
     "name": "ControlStrategyOccupancyType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Occupancy Sensors",
       "Vacancy Sensors",
@@ -1524,7 +1514,7 @@
   {
     "name": "EndUse",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "All end uses",
       "Total lighting",
@@ -1577,7 +1567,7 @@
   {
     "name": "EnvelopeConstructionType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Masonry",
       "Structural brick",
@@ -1619,7 +1609,7 @@
   {
     "name": "EquipmentCondition",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Excellent",
       "Good",
@@ -1673,7 +1663,7 @@
   {
     "name": "ExteriorRoughness",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Very rough",
       "Rough",
@@ -1837,7 +1827,7 @@
   {
     "name": "Finish",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Wood",
       "Masonite",
@@ -1866,16 +1856,6 @@
       "Unknown"
     ],
     "enumerations_html": "<ul><li>Wood</li><li>Masonite</li><li>Stone</li><li>Tile</li><li>Brick</li><li>Masonry</li><li>Concrete</li><li>Fiber cement</li><li>Metal</li><li>Metal panel</li><li>Metal panel standing seam</li><li>Sheet metal</li><li>EIFS</li><li>Shingles asphalt</li><li>Shingles composition</li><li>Shingles wood</li><li>Shingles asbestos</li><li>Shingles slate or tile</li><li>Shakes wood</li><li>Carpet</li><li>Linoleum</li><li>Asphalt or fiberglass</li><li>Plastic rubber synthetic sheeting</li><li>Other</li><li>Unknown</li></ul>"
-  },
-  {
-    "name": "FloorAreaPercentage",
-    "sub_name": null,
-    "documentation": "The percentage of floor area that belongs to a FloorAreaType. (0-100) (%)",
-    "enumerations": [
-      "0.0",
-      "100.0"
-    ],
-    "enumerations_html": "<ul><li>0.0</li><li>100.0</li></ul>"
   },
   {
     "name": "FloorAreaType",
@@ -1969,7 +1949,7 @@
   {
     "name": "FramingMaterial",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Wood",
       "Steel",
@@ -2015,7 +1995,7 @@
   {
     "name": "FuelTypes",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Electricity",
       "Electricity-Exported",
@@ -2402,7 +2382,7 @@
   {
     "name": "InsulationCondition",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Excellent",
       "Good",
@@ -2417,7 +2397,7 @@
   {
     "name": "InsulationMaterialType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Fiberglass",
       "Cellulose",
@@ -3181,9 +3161,9 @@
     "enumerations_html": "<ul><li>National Median</li><li>Regional Median</li><li>Adjusted to specific year</li><li>Weather normalized</li><li>Other</li></ul>"
   },
   {
-    "name": "OccupancyClassification",
+    "name": "OccupancyClassificationType",
     "sub_name": null,
-    "documentation": "Classification of the space (complex, whole building, or section) tasks by building occupants.",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Manufactured home",
       "Single family",
@@ -3359,9 +3339,10 @@
       "Staffed beds",
       "Licensed beds",
       "Capacity",
-      "Capacity percentage"
+      "Capacity percentage",
+      "Normal occupancy"
     ],
-    "enumerations_html": "<ul><li>Peak total occupants</li><li>Adults</li><li>Children</li><li>Average residents</li><li>Workers on main shift</li><li>Full-time equivalent workers</li><li>Average daily salaried labor hours</li><li>Registered students</li><li>Staffed beds</li><li>Licensed beds</li><li>Capacity</li><li>Capacity percentage</li></ul>"
+    "enumerations_html": "<ul><li>Peak total occupants</li><li>Adults</li><li>Children</li><li>Average residents</li><li>Workers on main shift</li><li>Full-time equivalent workers</li><li>Average daily salaried labor hours</li><li>Registered students</li><li>Staffed beds</li><li>Licensed beds</li><li>Capacity</li><li>Capacity percentage</li><li>Normal occupancy</li></ul>"
   },
   {
     "name": "OccupantType",
@@ -3608,9 +3589,12 @@
       "Ventilation Only",
       "Dedicated Outdoor Air System",
       "Water Loop Heat Pump",
-      "Ground Source Heat Pump"
+      "Ground Source Heat Pump",
+      "VRF Terminal Unit",
+      "Chilled Beam",
+      "Other"
     ],
-    "enumerations_html": "<ul><li>Packaged Terminal Air Conditioner</li><li>Four Pipe Fan Coil Unit</li><li>Packaged Terminal Heat Pump</li><li>Packaged Rooftop Air Conditioner</li><li>Packaged Rooftop Heat Pump</li><li>Packaged Rooftop VAV with Hot Water Reheat</li><li>Packaged Rooftop VAV with Electric Reheat</li><li>VAV with Hot Water Reheat</li><li>VAV with Electric Reheat</li><li>Warm Air Furnace</li><li>Ventilation Only</li><li>Dedicated Outdoor Air System</li><li>Water Loop Heat Pump</li><li>Ground Source Heat Pump</li></ul>"
+    "enumerations_html": "<ul><li>Packaged Terminal Air Conditioner</li><li>Four Pipe Fan Coil Unit</li><li>Packaged Terminal Heat Pump</li><li>Packaged Rooftop Air Conditioner</li><li>Packaged Rooftop Heat Pump</li><li>Packaged Rooftop VAV with Hot Water Reheat</li><li>Packaged Rooftop VAV with Electric Reheat</li><li>VAV with Hot Water Reheat</li><li>VAV with Electric Reheat</li><li>Warm Air Furnace</li><li>Ventilation Only</li><li>Dedicated Outdoor Air System</li><li>Water Loop Heat Pump</li><li>Ground Source Heat Pump</li><li>VRF Terminal Unit</li><li>Chilled Beam</li><li>Other</li></ul>"
   },
   {
     "name": "Priority",
@@ -3740,7 +3724,7 @@
   {
     "name": "RankType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Fair",
       "Good",
@@ -3993,7 +3977,7 @@
   {
     "name": "SectionType",
     "sub_name": null,
-    "documentation": "The type of section such as Whole building, Space function data, or other types. * Whole building - describes the whole building, Space function - describes a space function (see ASHRAE standard 211), Component - describes a subspace of a primary premises such as HVAC zone, retails shops in a mall, etc., Tenant - describes a section for a tenant, Virtual - describes a section loosely with potentially overlap with other sections and section types, Other - not well-described by other types.",
+    "documentation": "The type of section such as Whole building, Space function data, or other types. * Whole building - describes the whole building, Space function - describes a space function (refer to SPC 211 Standard for Commercial Building Energy Audits), Component - describes a subspace of a primary premises such as HVAC zone, retails shops in a mall, etc., Tenant - describes a section for a tenant, Virtual - describes a section loosely with potentially overlap with other sections and section types, Other - not well-described by other types.",
     "enumerations": [
       "Whole building",
       "Space function",
@@ -4208,7 +4192,7 @@
   {
     "name": "State",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "AA",
       "AE",
@@ -4271,9 +4255,22 @@
       "WA",
       "WV",
       "WI",
-      "WY"
+      "WY",
+      "AB",
+      "BC",
+      "MB",
+      "NB",
+      "NL",
+      "NS",
+      "ON",
+      "PE",
+      "QC",
+      "SK",
+      "NT",
+      "NU",
+      "YT"
     ],
-    "enumerations_html": "<ul><li>AA</li><li>AE</li><li>AL</li><li>AK</li><li>AP</li><li>AS</li><li>AZ</li><li>AR</li><li>CA</li><li>CO</li><li>CT</li><li>DE</li><li>DC</li><li>FM</li><li>FL</li><li>GA</li><li>GU</li><li>HI</li><li>ID</li><li>IL</li><li>IN</li><li>IA</li><li>KS</li><li>KY</li><li>LA</li><li>ME</li><li>MH</li><li>MD</li><li>MA</li><li>MI</li><li>MN</li><li>MS</li><li>MO</li><li>MT</li><li>NE</li><li>NV</li><li>NH</li><li>NJ</li><li>NM</li><li>NY</li><li>NC</li><li>ND</li><li>MP</li><li>OH</li><li>OK</li><li>OR</li><li>PW</li><li>PA</li><li>PR</li><li>RI</li><li>SC</li><li>SD</li><li>TN</li><li>TX</li><li>UT</li><li>VT</li><li>VI</li><li>VA</li><li>WA</li><li>WV</li><li>WI</li><li>WY</li></ul>"
+    "enumerations_html": "<ul><li>AA</li><li>AE</li><li>AL</li><li>AK</li><li>AP</li><li>AS</li><li>AZ</li><li>AR</li><li>CA</li><li>CO</li><li>CT</li><li>DE</li><li>DC</li><li>FM</li><li>FL</li><li>GA</li><li>GU</li><li>HI</li><li>ID</li><li>IL</li><li>IN</li><li>IA</li><li>KS</li><li>KY</li><li>LA</li><li>ME</li><li>MH</li><li>MD</li><li>MA</li><li>MI</li><li>MN</li><li>MS</li><li>MO</li><li>MT</li><li>NE</li><li>NV</li><li>NH</li><li>NJ</li><li>NM</li><li>NY</li><li>NC</li><li>ND</li><li>MP</li><li>OH</li><li>OK</li><li>OR</li><li>PW</li><li>PA</li><li>PR</li><li>RI</li><li>SC</li><li>SD</li><li>TN</li><li>TX</li><li>UT</li><li>VT</li><li>VI</li><li>VA</li><li>WA</li><li>WV</li><li>WI</li><li>WY</li><li>AB</li><li>BC</li><li>MB</li><li>NB</li><li>NL</li><li>NS</li><li>ON</li><li>PE</li><li>QC</li><li>SK</li><li>NT</li><li>NU</li><li>YT</li></ul>"
   },
   {
     "name": "Status",
@@ -4624,15 +4621,6 @@
     "enumerations_html": "<ul><li>Cooling</li><li>Heating</li><li>Hot Water</li><li>Interior Lighting</li><li>Overall HVAC Systems</li></ul>"
   },
   {
-    "name": "TelephoneNumber",
-    "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
-    "enumerations": [
-
-    ],
-    "enumerations_html": "<ul><li></li></ul>"
-  },
-  {
     "name": "TemporalStatus",
     "sub_name": null,
     "documentation": "Temporal characteristic of this measurement.",
@@ -4760,7 +4748,7 @@
   {
     "name": "Tightness",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
+    "documentation": "BuildingSync Schema - Version 2.1.0",
     "enumerations": [
       "Very Tight",
       "Tight",
@@ -5169,15 +5157,6 @@
     "enumerations_html": "<ul><li>North</li><li>Northeast</li><li>East</li><li>Southeast</li><li>South</li><li>Southwest</li><li>West</li><li>Northwest</li><li>Unknown</li></ul>"
   },
   {
-    "name": "ZipCode",
-    "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.0",
-    "enumerations": [
-
-    ],
-    "enumerations_html": "<ul><li></li></ul>"
-  },
-  {
     "name": "ZoningSystemType",
     "sub_name": null,
     "documentation": "Identifies whether a system is single or multi-zone.",
@@ -5222,5 +5201,21 @@
       "Other"
     ],
     "enumerations_html": "<ul><li>AKGD</li><li>AKMS</li><li>AZNM</li><li>CAMX</li><li>ERCT</li><li>FRCC</li><li>HIMS</li><li>HIOA</li><li>MORE</li><li>MROW</li><li>NEWE</li><li>NWPP</li><li>NYCW</li><li>NYLI</li><li>NYUP</li><li>RFCE</li><li>RFCM</li><li>RFCW</li><li>RMPA</li><li>SPNO</li><li>SPSO</li><li>SRMV</li><li>SRMW</li><li>SRSO</li><li>SRTV</li><li>SRVC</li><li>Other</li></ul>"
+  },
+  {
+    "name": "version",
+    "sub_name": null,
+    "documentation": "The versions are sorted by official release date (reverse order).  Note that semantic versioning for BuildingSync was reset in 2016.  v2.0.0-legacy is the last official release of the schema before the version reset and is available in the schema repository: https://github.com/BuildingSync/schema/releases/tag/v2.0.0-legacy.  Since then, semantic versioning started at the v0.2.0 release and progresses as expected.",
+    "enumerations": [
+      "2.0.0-legacy",
+      "0.2.0",
+      "0.3.0",
+      "1.0.0",
+      "2.0.0-pr1",
+      "2.0.0-pr2",
+      "2.0.0",
+      "2.1.0"
+    ],
+    "enumerations_html": "<ul><li>2.0.0-legacy</li><li>0.2.0</li><li>0.3.0</li><li>1.0.0</li><li>2.0.0-pr1</li><li>2.0.0-pr2</li><li>2.0.0</li><li>2.1.0</li></ul>"
   }
 ]
