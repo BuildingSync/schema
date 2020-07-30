@@ -19,7 +19,7 @@ OptionParser.new do |opts|
 
   # defaults, go back 90 days
   options[:start_date] = Date.today - 90
-  options[:end_date] = Date.today
+  options[:end_date] = Date.today + 1
 
   opts.on('-s', '--start-date [DATE]', Date, 'Start of data (e.g. 2017-09-06)') do |v|
     options[:start_date] = v
@@ -106,6 +106,23 @@ end
 # Process Closed Issues
 results = -1
 page = 1
+
+# container for storing category of changes
+categories = {
+  "Controls" => 0,
+  "General" => 0,
+  "Measures" => 0,
+  "Reports" => 0,
+  "Systems" => 0,
+  "Validation" => 0,
+  "Other" => 0
+}
+
+change_type = {
+    "Breaking Change" => 0,
+    "Non-breaking Change" => 0
+}
+
 while results != 0
   # TODO: this needs to be a pull_request. For now have to manually check if the PR was closed, or merged.
   resp = github.issues.list user: repo_owner, repo: repo, sort: 'created', direction: 'asc',
@@ -113,7 +130,6 @@ while results != 0
   results = resp.length
   resp.env[:body].each do |issue, _index|
     # check if the issue is to be ignored
-
 
     next if issue.labels.to_s =~ /ignore/
 
@@ -128,11 +144,24 @@ while results != 0
       end
     elsif closed >= options[:start_date] && closed <= options[:end_date]
       accepted_pull_requests << issue
+
+      # log the information about the PR
+      issue.labels.each do |lbl|
+        categories[lbl.name] += 1 if categories.key? lbl.name
+        change_type[lbl.name] += 1 if change_type.key? lbl.name
+      end
     end
   end
 
   page += 1
 end
+
+# postprocess the category
+total_count = 0
+categories.each_value do |v|
+  total_count += v
+end
+categories["Other"] = accepted_pull_requests.size - total_count
 
 closed_issues.sort! {|x, y| get_num(x) <=> get_num(y)}
 new_issues.sort! {|x, y| get_num(x) <=> get_num(y)}
@@ -141,7 +170,19 @@ total_open_pull_requests.sort! {|x, y| get_num(x) <=> get_num(y)}
 
 puts "Total Open Issues: #{total_open_issues.length}"
 puts "Total Open Pull Requests: #{total_open_pull_requests.length}"
-puts "\nDate Range: #{options[:start_date].strftime('%m/%d/%y')} - #{options[:end_date].strftime('%m/%d/%y')}:"
+puts "\nDate Range: #{options[:start_date].strftime('%m/%d/%y')} - #{options[:end_date].strftime('%m/%d/%y')}"
+puts "\n| Category       | Count |"
+puts "|----------------|-------|"
+categories.each do |k,v|
+  puts "| #{k}         | #{v}  |"
+end
+puts "| **Total**      | #{accepted_pull_requests.size} |"
+puts "\n| Change Type    | Count |"
+puts "|----------------|-------|"
+change_type.each do |k,v|
+  puts "| #{k}         | #{v}  |"
+end
+
 puts "\nNew Issues: #{new_issues.length} (" + new_issues.map {|issue| get_issue_num(issue)}.join(', ') + ')'
 
 puts "\nClosed Issues: #{closed_issues.length}"
