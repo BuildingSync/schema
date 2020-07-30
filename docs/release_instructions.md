@@ -2,9 +2,10 @@
 
 Follow the steps below when releasing a new version
 
-* Update the Version in the header of the XSD in two places:
+* Update the Version in the header of the XSD in three places:
     * Update in the <xs:schema ...> element.
-    * Update in the first <xs:annotation> element. 
+    * Update in the first <xs:annotation> element.
+    * Add enumeration to /version with the latest version 
 
 * Convert XSD to JSON schema. This is still in prototype. 
     * Use XMLSpy to Generate JSON Schema (Convert->Convert XML Schema to/from JSON Schema...)
@@ -20,7 +21,7 @@ Follow the steps below when releasing a new version
 
 * Update the CHANGELOG.md to include the latest changes, and the most recent version.
 
-	* Run the change_log.rb script (e.g. ruby src/change_log.rb -t abcdefghijklmnopqrstuvwxyz -s 2019-11-15).
+	* Run the change_log.rb script (e.g. ruby src/change_log.rb -t abcdefghijklmnopqrstuvwxyz -s 2019-12-21).
 	* Copy the results of this into the CHANGELOG. Remove items that are not useful to an end user such as version bumps, formatting, etc.
 
 * Create a Pull Request into `master`
@@ -28,7 +29,7 @@ Follow the steps below when releasing a new version
     * After merging the Pull Request, draft a release in GitHub. 
     * *Upload the XSD and JSON file as part of the release.*
     
-* Use XMLSpy to generate documentation.
+* Use XMLSpy to generate documentation (files will be saved to this (repo)[https://github.com/BuildingSync/website]).
 
     * Schema Design -> Generate Documentation
     * Set to HTML

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../BuildingSync.xsd">
+<BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../BuildingSync.xsd" version="2.0.0">
   <Facilities>
-    <Facility>
+    <Facility ID="Facility-08f45ff8-3c5b-4169-8f27-678102e85e6b">
       <Sites>
-        <Site>
+        <Site ID="Site-286f2dd9-bce7-46fe-a80b-5cab58c1d50b">
           <Address>
             <StreetAddressDetail>
               <Simplified>
@@ -64,7 +64,7 @@
       </Sites>
       <Systems>
         <HVACSystems>
-          <HVACSystem>
+          <HVACSystem ID="HVACSystem-b6e54165-1c54-4dd4-94d7-09869f283e75">
             <Plants>
               <HeatingPlants>
                 <HeatingPlant ID="HeatingPlant1">
@@ -77,7 +77,7 @@
             </Plants>
             <HeatingAndCoolingSystems>
               <HeatingSources>
-                <HeatingSource>
+                <HeatingSource ID="HeatingSource-ea766cb7-eb38-4fd4-bbaf-eb94106fc0d7">
                   <HeatingSourceType>
                     <SourceHeatingPlantID IDref="HeatingPlant1"/>
                   </HeatingSourceType>
@@ -92,7 +92,7 @@
               </Building>
             </LinkedPremises>
           </HVACSystem>
-          <HVACSystem>
+          <HVACSystem ID="HVACSystem-c0874219-f8aa-4189-b45f-e8c845f2740c">
             <Plants>
               <CoolingPlants>
                 <CoolingPlant ID="CoolingPlant1">
@@ -107,14 +107,14 @@
               <CondenserPlants>
                 <CondenserPlant ID="CondenserPlant1">
                   <AirCooled>
-                    <EvaporativelyCooledCondenser/>
+                    <EvaporativelyCooledCondenser ID="EvaporativelyCooledCondenser-f944f3b8-0cc4-46ae-b1a6-43df46a53916"/>
                   </AirCooled>
                 </CondenserPlant>
               </CondenserPlants>
             </Plants>
             <HeatingAndCoolingSystems>
               <CoolingSources>
-                <CoolingSource>
+                <CoolingSource ID="CoolingSource-2375d399-4af7-4893-8de7-d145c6027fde">
                   <CoolingSourceType>
                     <CoolingPlantID IDref="CoolingPlant1"/>
                   </CoolingSourceType>
@@ -132,7 +132,7 @@
           </HVACSystem>
         </HVACSystems>
         <OnsiteStorageTransmissionGenerationSystems>
-          <OnsiteStorageTransmissionGenerationSystem>
+          <OnsiteStorageTransmissionGenerationSystem ID="OnsiteStorageTransmissionGenerationSystem-b6938623-eb10-4911-b8b4-117958ce3711">
             <EnergyConversionType>
               <Generation>
                 <OnsiteGenerationType>
