@@ -7,7 +7,7 @@ as part of the root `BuildingSync` element. Version 2.1.0 includes many validati
 to support reporting auditing data. Also, the release versions now include the patch version (e.g., 
 major.minor.patch).
 
-Date Range: 12/21/19 - 07/31/20
+Date Range: 12/21/19 - 07/30/20
 
 
 | Category       | Count |
