@@ -27,7 +27,7 @@ Date Range: 12/21/19 - 07/31/20
 | Non-breaking Change         | 16  |
 
 
-New Issues: 8 (#177, #183, #184, #187, #189, #195, #197, #198)
+New Issues: 9 (#177, #183, #184, #187, #189, #195, #197, #198, #210))
 
 Closed Issues: 7
 - Closed [#159]( https://github.com/BuildingSync/schema/issues/159 ), Key / Keyref instead of ID / IDRef for limiting scope using Xpaths
