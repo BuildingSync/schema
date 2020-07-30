@@ -7,7 +7,25 @@ as part of the root `BuildingSync` element. Version 2.1.0 includes many validati
 to support reporting auditing data. Also, the release versions now include the patch version (e.g., 
 major.minor.patch).
 
-Date Range: 12/21/19 - 07/29/20
+Date Range: 12/21/19 - 07/31/20
+
+
+| Category       | Count |
+|----------------|-------|
+| Controls         | 0  |
+| General         | 7  |
+| Measures         | 0  |
+| Reports         | 0  |
+| Systems         | 2  |
+| Validation         | 2  |
+| Other         | 5  |
+| **Total**      | 16 |
+
+| Change Type    | Count |
+|----------------|-------|
+| Breaking Change         | 0  |
+| Non-breaking Change         | 16  |
+
 
 New Issues: 8 (#177, #183, #184, #187, #189, #195, #197, #198)
 
@@ -34,6 +52,7 @@ Accepted Pull Requests: 17
 - Merged [#199]( https://github.com/BuildingSync/schema/pull/199 ), update PrimaryHVACSystemType enumerations in line with AT tool
 - Merged [#201]( https://github.com/BuildingSync/schema/pull/201 ), use BEDES term for referring to ASHRAE 211
 - Merged [#202]( https://github.com/BuildingSync/schema/pull/202 ), feat/add OriginalOccupancyClassification element to Section
+- Merged [#209]( https://github.com/BuildingSync/schema/pull/209 ), Update annotations for consistency
 
 ## Version 2.0
 
