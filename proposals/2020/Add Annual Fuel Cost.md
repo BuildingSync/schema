@@ -19,7 +19,7 @@ This proposal suggests that having an element `auc:AnnualFuelCost` in `auc:Resou
 <xs:complexType name="ResourceUseType">
     <xs:sequence>
         ...
-        <xs:element name="AnnualFuelCost" type="xs:string">
+        <xs:element name="AnnualFuelCost" minOccurs="0" type="xs:string">
             <xs:annotation>
                 <xs:documentation>Annual cost of the resource ($)</xs:documentation>
             </xs:annotation>
