@@ -6,11 +6,11 @@ This proposal is to formalize BuildingSync's approach to versioning and releases
 
 ## Justification
 
-Having consistent meanings of versions is helpful to users. By the version alone, a user could determine whether or not an implementation of BuildingSync supports their existing documents or not, as these are the use cases of XML documents.
+Having consistent meanings of versions is helpful to users. By the version alone, a user could determine whether or not an implementation of BuildingSync supports their existing documents or not.
 
 ## Implementation
 
-The versioning of BuildingSync schema should follow [semantic versioning](https://semver.org/). Since semantic versioning (semver) is more directed towards APIs, it can be helpful to translate the meaning of breaking changes, non-breaking features, and patches. When thinking about the API of an xml schema, consider XPaths, when and how they break, as well as document validation, when and how historical documents are no longer valid.
+The versioning of BuildingSync schema should follow [semantic versioning](https://semver.org/). Since semantic versioning (semver) is more directed towards APIs, it can be helpful to translate the meaning of breaking changes, non-breaking features, and patches. When thinking about the API of an xml schema, consider XPaths, when and how they break, as well as document validation, when and how historical documents are no longer valid, as these are the use cases of XML documents.
 
 ### Breaking changes
 These are the changes that require a new MAJOR version. Generally this would be any time where there _could_ exist a historical document that would not validate against the new schema. This would include:
