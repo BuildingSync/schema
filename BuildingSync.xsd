@@ -2452,6 +2452,17 @@
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
+                  <xs:element name="CostCategory" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Classification of the cost of the package (per SPC 211 Standard for Commercial Building Energy Audits sections 5.3.5 and 5.3.6)</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Low-Cost or No-Cost"/>
+                        <xs:enumeration value="Capital"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                   <xs:element ref="auc:CalculationMethod" minOccurs="0"/>
                   <xs:element name="AnnualSavingsSiteEnergy" minOccurs="0">
                     <xs:annotation>
