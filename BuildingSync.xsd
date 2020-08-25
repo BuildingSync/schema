@@ -3898,6 +3898,18 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
+      <xs:element name="AnnualFuelCost" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Annual cost of the resource ($)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="FuelUseIntensity" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Fuel use intensity is the energy associated with the selected fuel type divided by the gross floor area. (units/ft2/yr)</xs:documentation>
