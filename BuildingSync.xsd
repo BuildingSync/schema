@@ -4030,7 +4030,7 @@
       <xs:element ref="auc:ResourceBoundary" minOccurs="0"/>
       <xs:element name="SiteEnergyUse" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The annual amount of all the energy the premises consumes onsite, as reported on the utility bills. (kBtu)</xs:documentation>
+          <xs:documentation>The annual amount of all the energy the premises consumes onsite, as reported on the utility bills. Calculated as imported energy (Eimp) - exported energy (Eexp) - net increase in stored imported energy (Es) (per ASHRAE 105-2014 Figure 5.6). (kBtu)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -4067,6 +4067,78 @@
       <xs:element name="SourceEnergyUseIntensity" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The Source Energy Use divided by the premises gross floor area. (kBtu/ft2)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BuildingEnergyUse" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The annual amount of all the energy the building consumes onsite. Calculated as imported energy (Eimp) + onsite renewable energy (Eg) - exported energy (Eexp) - net increase in stored imported energy (Es) (per ASHRAE 105-2014 Figure 5.6). (kBtu)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BuildingEnergyUseIntensity" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The Building Energy Use divided by the premises gross floor area. (kBtu/ft2)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ImportedEnergyConsistentUnits" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Energy imported annually (per ASHRAE 105-2014 Figure 5.6). (MMbtu/ft2)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OnsiteEnergyProductionConsistentUnits" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Energy produced onsite annually (per ASHRAE 105-2014 Figure 5.6). (MMbtu/ft2)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ExportedEnergyConsistentUnits" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Energy exported annually (per ASHRAE 105-2014 Figure 5.6). (MMbtu/ft2)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NetIncreaseInStoredEnergyConsistentUnits" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Net increase in stored energy annually (per ASHRAE 105-2014 Figure 5.6). (MMbtu/ft2)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
