@@ -45,5 +45,29 @@ Add new attributes to `auc:AnnualFuelUseNativeUnits`, `auc:StartDate` and `auc:E
 #### Cons
 - more complexity
 
-## References
+## Option 3
 
+Add `AnnualFuelUseIncludedTimeSeries` to `auc:ResourceUse`, which contains a list of linked `auc:TimeSeries` IDs.
+
+```xml
+      <xs:element name="AnnualFuelUseIncludedTimeSeries" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Links to all time series data used to calculate the AnnualFuelUse values.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LinkedTimeSeriesID" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+```
+
+## Decision
+
+Option 1 is not compatible with the way Audit Template Tool calculates AnnualFuelUse, so we ruled it out. Option 2 is less desirable because it's valid to define even when TimeSeries data isn't included in the document, which isn't ideal.
+
+We are moving forward with Option 3 because it follows the general pattern of linking in BuildingSync and is very explicit.
