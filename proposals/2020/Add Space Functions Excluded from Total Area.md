@@ -139,6 +139,9 @@ There are multiple ways to implement this.
 #### Variations
 - add a type for every floor area type, e.g. `Space function - excluded from building gross floor area`, etc
 
+## Decision
+We decided to implement Option 1.
+
 ## References
 
 Standard 211 6.2.1.1.a.4
