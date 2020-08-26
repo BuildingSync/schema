@@ -2,7 +2,7 @@
 
 ## Overview
 
-This proposal is to add the `auc:SimpleImpactAnalysis` child element to the `auc:PackageOfMeasures` element. It also includes the suggestion that we move some of the direct children of `auc:PackageOfMeasures` into a new element `auc:ComplexImpactAnalysis`.
+This proposal is to add the `auc:SimpleImpactAnalysis` and `auc:CostCategory` child elements to the `auc:PackageOfMeasures` element.
 
 ## Justification
 
@@ -17,30 +17,35 @@ Additionally, Standard 211 is explicit in discriminating the "Low-Cost and No-Co
 
 ## Implementation
 
+In `auc:SimpleImpactAnalysis` add these elements which can have the values of `Low` `Medium` or `High`
+- EstimatedCost
+- EstimatedAnnualEnergySavings
+- EstimatedROI
+- Priority
+
+Also add `ImpactOnOccupantComfort`, but it should be a freeform text field b/c per 211 it captures and describes multiple things.
+
 ```xml
 <xs:element name="PackageOfMeasures" minOccurs="0">
     <xs:complexType>
         <xs:sequence>
             ...
+            <xs:element name="CostCategory">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Low-Cost or No-Cost">
+                        <xs:enumeration value="Capital">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xs:element name="SimpleImpactAnalysis">
-                <xs:element name="CostCategory">
-                    <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                            <xs:enumeration value="Low-Cost or No-Cost">
-                                <xs:enumeration value="Capital">
-                        </xs:restriction>
-                    </xs:simpleType>
-                </xs:element>
                 <xs:element name="ImpactOnOccupantComfort" type="xs:string"></xs:element>
                 <xs:element name="EstimatedCost" type="LowMedHighType"></xs:element>
                 <xs:element name="EstimatedAnnualEnergySavings" type="LowMedHighType"></xs:element>
                 <xs:element name="EstimatedROI" type="LowMedHighType"></xs:element>
                 <xs:element name="Priority" type="LowMedHighType"></xs:element>
             </xs:element>
-            <xs:element name="ComplexImpactAnalysis">
-                <!-- elements to be moved here -->
-                ...
-            </xs:element>
+            ...
         </xs:sequence>
     </xs:complexType>
 </xs:element>
@@ -53,38 +58,6 @@ Additionally, Standard 211 is explicit in discriminating the "Low-Cost and No-Co
     </xs:restriction>
 </xs:simpleType>
 ```
-
-### elements moved
-These elements would be moved from `auc:PackageOfMeasures` into ` auc:ComplexImpactAnalysis`
-- `auc:AnnualSavingsSiteEnergy`
-- `auc:AnnualSavingsSourceEnergy`
-- `auc:AnnualSavingsCost`
-- `auc:AnnualSavingsByFuels`
-- `auc:SummerPeakElectricityReduction`
-- `auc:WinterPeakElectricityReduction`
-- `auc:AnnualPeakElectricityReduction`
-- `auc:AnnualDemandSavingsCost`
-- `auc:AnnualWaterSavings`
-- `auc:AnnualWaterCostSavings`
-- `auc:ImplementationPeriod`
-- `auc:PackageFirstCost`
-- `auc:MVCost`
-- `auc:OMCostAnnualSavings`
-- `auc:EquipmentDisposalAndSalvageCosts`
-- `auc:ImplementationPeriodCostSavings`
-- `auc:PercentGuaranteedSavings`
-- `auc:ProjectMarkup`
-- `auc:FundingFromIncentives`
-- `auc:FundingFromTaxCredits`
-- `auc:OtherFinancialIncentives`
-- `auc:RecurringIncentives`
-- `auc:NPVofTaxImplications`
-- `auc:CostEffectivenessScreeningMethod`
-- `auc:SimplePayback`
-- `auc:NetPresentValue`
-- `auc:InternalRateOfReturn`
-- `auc:AssetScore`
-- `auc:ENERGYSTARScore`
 
 ## References
 
