@@ -25,6 +25,8 @@ In `auc:SimpleImpactAnalysis` add these elements which can have the values of `L
 
 Note that we tried to determine what _type_ of savings `EstimatedAnnualSavings` should represent (cost or energy) however neither STD 211 nor the normative spreadsheet specify this information, which is why we decided to just use the same wording.
 
+Also add `CostCategory` to `PackageOfMeasures` to specify if it's a low/no-cost or capital package.
+
 Also add `ImpactOnOccupantComfort`, but it should be a freeform text field b/c per 211 it captures and describes multiple things.
 
 ```xml
