@@ -15254,6 +15254,20 @@
                   <xs:documentation>The story of the given floor area type.</xs:documentation>
                 </xs:annotation>
               </xs:element>
+              <xs:element name="ExcludedSectionIDs" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Links to Sections not included in the floor area calculation.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ExcludedSectionID" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
