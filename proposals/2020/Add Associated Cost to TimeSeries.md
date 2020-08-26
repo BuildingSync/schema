@@ -82,3 +82,5 @@ Change `auc:TimeSeries` to include `auc:IntervalReadings` which could contain mu
 - breaking change
 - another layer of nesting, which is unnecessary if most people just use it for reporting only one reading type
 
+## Decision
+We will implement Option 1 for now since it is non-breaking, and will move to Option 2 at a later time.
