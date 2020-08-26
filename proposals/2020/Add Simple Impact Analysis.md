@@ -19,9 +19,11 @@ Additionally, Standard 211 is explicit in discriminating the "Low-Cost and No-Co
 
 In `auc:SimpleImpactAnalysis` add these elements which can have the values of `Low` `Medium` or `High`
 - EstimatedCost
-- EstimatedAnnualEnergySavings
+- EstimatedAnnualSavings
 - EstimatedROI
 - Priority
+
+Note that we tried to determine what _type_ of savings `EstimatedAnnualSavings` should represent (cost or energy) however neither STD 211 nor the normative spreadsheet specify this information, which is why we decided to just use the same wording.
 
 Also add `ImpactOnOccupantComfort`, but it should be a freeform text field b/c per 211 it captures and describes multiple things.
 
@@ -41,7 +43,7 @@ Also add `ImpactOnOccupantComfort`, but it should be a freeform text field b/c p
             <xs:element name="SimpleImpactAnalysis">
                 <xs:element name="ImpactOnOccupantComfort" type="xs:string"></xs:element>
                 <xs:element name="EstimatedCost" type="LowMedHighType"></xs:element>
-                <xs:element name="EstimatedAnnualEnergySavings" type="LowMedHighType"></xs:element>
+                <xs:element name="EstimatedAnnualSavings" type="LowMedHighType"></xs:element>
                 <xs:element name="EstimatedROI" type="LowMedHighType"></xs:element>
                 <xs:element name="Priority" type="LowMedHighType"></xs:element>
             </xs:element>
