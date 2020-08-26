@@ -122,6 +122,9 @@ Add `auc:LinkedPremises` to `auc:Schedule`
 #### Variations
 - don't use LinkedPremises, but come up with a new linking element which is basically the same but doesn't allow linking to schedules
 
+## Decision
+We are moving forward with Option 2.
+
 ## References
 
 Standard 211 6.2.1.1.e
