@@ -1937,6 +1937,7 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -2449,6 +2450,48 @@
                           <xs:complexType>
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                           </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="CostCategory" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Classification of the cost of the package (per SPC 211 Standard for Commercial Building Energy Audits sections 5.3.5 and 5.3.6)</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Low-Cost or No-Cost"/>
+                        <xs:enumeration value="Capital"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SimpleImpactAnalysis" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ImpactOnOccupantComfort" type="xs:string" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>See SPC 211 Standard for Commercial Building Energy Audits section 6.1.5(c)</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="EstimatedCost" type="auc:LowMedHigh" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>See SPC 211 Standard for Commercial Building Energy Audits section 6.1.5(d)</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="EstimatedAnnualSavings" type="auc:LowMedHigh" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>See SPC 211 Standard for Commercial Building Energy Audits section 6.1.5(e)</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="EstimatedROI" type="auc:LowMedHigh" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>See SPC 211 Standard for Commercial Building Energy Audits section 6.1.5(f)</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Priority" type="auc:LowMedHigh" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>See SPC 211 Standard for Commercial Building Energy Audits section 6.1.5(g)</xs:documentation>
+                          </xs:annotation>
                         </xs:element>
                       </xs:sequence>
                     </xs:complexType>
@@ -3800,6 +3843,11 @@
   <xs:complexType name="ResourceUseType">
     <xs:sequence>
       <xs:element ref="auc:EnergyResource" minOccurs="0"/>
+      <xs:element name="ResourceUseNotes" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Details about the resource use. For Level 1 Audits, this should include notes on meter sampling methodology (if sampling was used) and identification of irregularities in monthly energy use (SPC 211 Standard for Commercial Building Energy Audits sections 6.1.2.1.d and 6.1.2.1.j).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element ref="auc:ResourceBoundary" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The boundary that encompasses the measured resource.</xs:documentation>
@@ -3890,6 +3938,18 @@
       <xs:element name="AnnualPeakConsistentUnits" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Largest 15-min peak. (kW)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AnnualFuelCost" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Annual cost of the resource ($)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -4215,6 +4275,7 @@
             <xs:enumeration value="Total"/>
             <xs:enumeration value="Peak"/>
             <xs:enumeration value="Minimum"/>
+            <xs:enumeration value="Cost"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
         </xs:simpleType>
@@ -15283,6 +15344,20 @@
                   <xs:documentation>The story of the given floor area type.</xs:documentation>
                 </xs:annotation>
               </xs:element>
+              <xs:element name="ExcludedSectionIDs" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Links to Sections not included in the floor area calculation.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ExcludedSectionID" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -17369,4 +17444,11 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+  <xs:simpleType name="LowMedHigh">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Low"/>
+      <xs:enumeration value="Medium"/>
+      <xs:enumeration value="High"/>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>
