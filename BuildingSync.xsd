@@ -2453,6 +2453,48 @@
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
+                  <xs:element name="CostCategory" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Classification of the cost of the package (per SPC 211 Standard for Commercial Building Energy Audits sections 5.3.5 and 5.3.6)</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Low-Cost or No-Cost"/>
+                        <xs:enumeration value="Capital"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SimpleImpactAnalysis" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ImpactOnOccupantComfort" type="xs:string" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>See SPC 211 Standard for Commercial Building Energy Audits section 6.1.5(c)</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="EstimatedCost" type="auc:LowMedHigh" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>See SPC 211 Standard for Commercial Building Energy Audits section 6.1.5(d)</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="EstimatedAnnualSavings" type="auc:LowMedHigh" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>See SPC 211 Standard for Commercial Building Energy Audits section 6.1.5(e)</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="EstimatedROI" type="auc:LowMedHigh" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>See SPC 211 Standard for Commercial Building Energy Audits section 6.1.5(f)</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Priority" type="auc:LowMedHigh" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>See SPC 211 Standard for Commercial Building Energy Audits section 6.1.5(g)</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element ref="auc:CalculationMethod" minOccurs="0"/>
                   <xs:element name="AnnualSavingsSiteEnergy" minOccurs="0">
                     <xs:annotation>
@@ -17359,4 +17401,11 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+  <xs:simpleType name="LowMedHigh">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Low"/>
+      <xs:enumeration value="Medium"/>
+      <xs:enumeration value="High"/>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>
