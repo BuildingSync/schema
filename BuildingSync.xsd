@@ -3800,6 +3800,11 @@
   <xs:complexType name="ResourceUseType">
     <xs:sequence>
       <xs:element ref="auc:EnergyResource" minOccurs="0"/>
+      <xs:element name="ResourceUseNotes" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Details about the resource use. For Level 1 Audits, this should include notes on meter sampling methodology (if sampling was used) and identification of irregularities in monthly energy use (SPC 211 Standard for Commercial Building Energy Audits sections 6.1.2.1.d and 6.1.2.1.j).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element ref="auc:ResourceBoundary" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The boundary that encompasses the measured resource.</xs:documentation>
