@@ -3874,6 +3874,20 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
+      <xs:element name="AnnualFuelUseLinkedTimeSeriesIDs" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Links to all time series data used to calculate the AnnualFuelUse values.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LinkedTimeSeriesID" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="PeakResourceUnits" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Units for peak demand.</xs:documentation>
