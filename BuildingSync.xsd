@@ -3138,26 +3138,10 @@
                                               <xs:documentation>The name or title of rate period.This is intended to capture the seasonal changes in rates.</xs:documentation>
                                             </xs:annotation>
                                           </xs:element>
-                                          <xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
-                                            </xs:annotation>
-                                          </xs:element>
-                                          <xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
-                                            </xs:annotation>
-                                          </xs:element>
-                                          <xs:element name="ApplicableStartDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
-                                            </xs:annotation>
-                                          </xs:element>
-                                          <xs:element name="ApplicableEndDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
-                                            </xs:annotation>
-                                          </xs:element>
+                                          <xs:element ref="auc:ApplicableStartDateForEnergyRate" minOccurs="0"/>
+                                          <xs:element ref="auc:ApplicableEndDateForEnergyRate" minOccurs="0"/>
+                                          <xs:element ref="auc:ApplicableStartDateForDemandRate" minOccurs="0"/>
+                                          <xs:element ref="auc:ApplicableEndDateForDemandRate" minOccurs="0"/>
                                           <xs:element name="DemandWindow" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The time period of measurement through which the demand is established. (min)</xs:documentation>
@@ -3268,26 +3252,10 @@
                                               <xs:documentation>The name or title of rate period.This is intended to capture the seasonal changes in rates.</xs:documentation>
                                             </xs:annotation>
                                           </xs:element>
-                                          <xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
-                                            </xs:annotation>
-                                          </xs:element>
-                                          <xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
-                                            </xs:annotation>
-                                          </xs:element>
-                                          <xs:element name="ApplicableStartDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
-                                            </xs:annotation>
-                                          </xs:element>
-                                          <xs:element name="ApplicableEndDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
-                                            </xs:annotation>
-                                          </xs:element>
+                                          <xs:element ref="auc:ApplicableStartDateForEnergyRate" minOccurs="0"/>
+                                          <xs:element ref="auc:ApplicableEndDateForEnergyRate" minOccurs="0"/>
+                                          <xs:element ref="auc:ApplicableStartDateForDemandRate" minOccurs="0"/>
+                                          <xs:element ref="auc:ApplicableEndDateForDemandRate" minOccurs="0"/>
                                           <xs:element name="TimeOfUsePeriods" minOccurs="0">
                                             <xs:complexType>
                                               <xs:sequence>
@@ -3438,16 +3406,10 @@
                                                     <xs:documentation>The name or title of rate period.This is intended to capture the seasonal changes in rates.</xs:documentation>
                                                   </xs:annotation>
                                                 </xs:element>
-                                                <xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-                                                  <xs:annotation>
-                                                    <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
-                                                  </xs:annotation>
-                                                </xs:element>
-                                                <xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-                                                  <xs:annotation>
-                                                    <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
-                                                  </xs:annotation>
-                                                </xs:element>
+                                                <xs:element ref="auc:ApplicableStartDateForEnergyRate" minOccurs="0"/>
+                                                <xs:element ref="auc:ApplicableEndDateForEnergyRate" minOccurs="0"/>
+                                                <xs:element ref="auc:ApplicableStartDateForDemandRate" minOccurs="0"/>
+                                                <xs:element ref="auc:ApplicableEndDateForDemandRate" minOccurs="0"/>
                                                 <xs:element name="RateTiers" minOccurs="0">
                                                   <xs:complexType>
                                                     <xs:sequence>
@@ -15818,6 +15780,26 @@
         <xs:enumeration value="Unknown"/>
       </xs:restriction>
     </xs:simpleType>
+  </xs:element>
+  <xs:element name="ApplicableEndDateForDemandRate" type="xs:gMonthDay">
+    <xs:annotation>
+      <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay">
+    <xs:annotation>
+      <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ApplicableStartDateForDemandRate" type="xs:gMonthDay">
+    <xs:annotation>
+      <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay">
+    <xs:annotation>
+      <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
+    </xs:annotation>
   </xs:element>
   <xs:element name="BurnerType">
     <xs:annotation>
