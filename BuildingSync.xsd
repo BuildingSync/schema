@@ -6855,32 +6855,60 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="PrimaryHVACSystemType" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Primary HVAC type.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Packaged Terminal Air Conditioner"/>
-            <xs:enumeration value="Four Pipe Fan Coil Unit"/>
-            <xs:enumeration value="Packaged Terminal Heat Pump"/>
-            <xs:enumeration value="Packaged Rooftop Air Conditioner"/>
-            <xs:enumeration value="Packaged Rooftop Heat Pump"/>
-            <xs:enumeration value="Packaged Rooftop VAV with Hot Water Reheat"/>
-            <xs:enumeration value="Packaged Rooftop VAV with Electric Reheat"/>
-            <xs:enumeration value="VAV with Hot Water Reheat"/>
-            <xs:enumeration value="VAV with Electric Reheat"/>
-            <xs:enumeration value="Warm Air Furnace"/>
-            <xs:enumeration value="Ventilation Only"/>
-            <xs:enumeration value="Dedicated Outdoor Air System"/>
-            <xs:enumeration value="Water Loop Heat Pump"/>
-            <xs:enumeration value="Ground Source Heat Pump"/>
-            <xs:enumeration value="VRF Terminal Unit"/>
-            <xs:enumeration value="Chilled Beam"/>
-            <xs:enumeration value="Other"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
+      <xs:choice>
+        <xs:element name="PrimaryHVACSystemType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Primary HVAC type. WARNING: This element is being deprecated, use PrincipalHVACSystemType instead.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="Packaged Terminal Air Conditioner"/>
+              <xs:enumeration value="Four Pipe Fan Coil Unit"/>
+              <xs:enumeration value="Packaged Terminal Heat Pump"/>
+              <xs:enumeration value="Packaged Rooftop Air Conditioner"/>
+              <xs:enumeration value="Packaged Rooftop Heat Pump"/>
+              <xs:enumeration value="Packaged Rooftop VAV with Hot Water Reheat"/>
+              <xs:enumeration value="Packaged Rooftop VAV with Electric Reheat"/>
+              <xs:enumeration value="VAV with Hot Water Reheat"/>
+              <xs:enumeration value="VAV with Electric Reheat"/>
+              <xs:enumeration value="Warm Air Furnace"/>
+              <xs:enumeration value="Ventilation Only"/>
+              <xs:enumeration value="Dedicated Outdoor Air System"/>
+              <xs:enumeration value="Water Loop Heat Pump"/>
+              <xs:enumeration value="Ground Source Heat Pump"/>
+              <xs:enumeration value="VRF Terminal Unit"/>
+              <xs:enumeration value="Chilled Beam"/>
+              <xs:enumeration value="Other"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="PrincipalHVACSystemType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Principal HVAC type.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="Packaged Terminal Air Conditioner"/>
+              <xs:enumeration value="Four Pipe Fan Coil Unit"/>
+              <xs:enumeration value="Packaged Terminal Heat Pump"/>
+              <xs:enumeration value="Packaged Rooftop Air Conditioner"/>
+              <xs:enumeration value="Packaged Rooftop Heat Pump"/>
+              <xs:enumeration value="Packaged Rooftop VAV with Hot Water Reheat"/>
+              <xs:enumeration value="Packaged Rooftop VAV with Electric Reheat"/>
+              <xs:enumeration value="VAV with Hot Water Reheat"/>
+              <xs:enumeration value="VAV with Electric Reheat"/>
+              <xs:enumeration value="Warm Air Furnace"/>
+              <xs:enumeration value="Ventilation Only"/>
+              <xs:enumeration value="Dedicated Outdoor Air System"/>
+              <xs:enumeration value="Water Loop Heat Pump"/>
+              <xs:enumeration value="Ground Source Heat Pump"/>
+              <xs:enumeration value="VRF Terminal Unit"/>
+              <xs:enumeration value="Chilled Beam"/>
+              <xs:enumeration value="Other"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:choice>
       <xs:element name="HVACControlSystemTypes" minOccurs="0">
         <xs:annotation>
           <xs:documentation>HVAC equipment control strategies.</xs:documentation>
