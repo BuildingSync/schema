@@ -1,5 +1,51 @@
 # BuildingSync
 
+## Version 2.2.0-pr1
+
+BuildingSync Version 2.2.0-pr1 does not introduce any breaking changes. It introduces elements required for 
+a complete audit report for ASHRAE Standard 211 Level 1.  
+Note that the element `auc:PrimaryHVACSystemType` is in the process of being deprecated, and users should replace it with 
+`auc:PrincipalHVACSystemType` to ensure future conformance to the schema.
+
+Date Range: 07/31/20 - 08/31/20
+
+| Category       | Count |
+|----------------|-------|
+| Controls         | 0  |
+| General         | 3  |
+| Measures         | 0  |
+| Reports         | 7  |
+| Systems         | 1  |
+| Validation         | 0  |
+| Other         | 1  |
+| **Total**      | 12 |
+
+| Change Type    | Count |
+|----------------|-------|
+| Breaking Change         | 0  |
+| Non-breaking Change         | 12  |
+
+New Issues: 2 (#212, #218)
+
+Closed Issues: 3
+- Merged [#172]( https://github.com/BuildingSync/schema/issues/172 ), Promote UDF - PrincipalHVACType as part of Section.
+- Merged [#173]( https://github.com/BuildingSync/schema/issues/173 ), Promote UDF - PrincipalLightingSystemType as part of Section.
+- Merged [#212]( https://github.com/BuildingSync/schema/issues/212 ), Question concerning some "Other delivered" auc:FuelTypes
+
+Accepted Pull Requests: 12
+- Merged [#200]( https://github.com/BuildingSync/schema/pull/200 ), Add ReadingType Cost to TimeSeries
+- Merged [#203]( https://github.com/BuildingSync/schema/pull/203 ), Add ResourceUseNotes to ResourceUse
+- Merged [#204]( https://github.com/BuildingSync/schema/pull/204 ), Add AnnualFuelCost to ResourceUse
+- Merged [#205]( https://github.com/BuildingSync/schema/pull/205 ), Add SimpleImpactAnalysis and CostCategory to PackageOfMeasures
+- Merged [#207]( https://github.com/BuildingSync/schema/pull/207 ), Add ExcludedSectionIDs to FloorArea
+- Merged [#208]( https://github.com/BuildingSync/schema/pull/208 ), Add LinkedPremises to Schedule
+- Merged [#213]( https://github.com/BuildingSync/schema/pull/213 ), Add AnnualFuelUseLinkedTimeSeriesIDs to ResourceUse
+- Merged [#214]( https://github.com/BuildingSync/schema/pull/214 ), Add multiple elements for energy use in AllResourceTotal
+- Merged [#215]( https://github.com/BuildingSync/schema/pull/215 ), Add choice between PrimaryHVACSystemType and PrincipalHVACSystemType
+- Merged [#216]( https://github.com/BuildingSync/schema/pull/216 ), pull rate elements out as distinct element types to reduce redundancy
+- Merged [#217]( https://github.com/BuildingSync/schema/pull/217 ), update tiered rate to include demand rate start and end dates
+- Merged [#219]( https://github.com/BuildingSync/schema/pull/219 ), feat(proposals): add proposal for versioning
+
 ## Version 2.1.0
 
 BuildingSync Version 2.1.0 does not introduce any breaking changes; however, the `version` attribute is now required 
