@@ -243,6 +243,11 @@
                                   </xs:annotation>
                                   <xs:complexType>
                                     <xs:sequence>
+                                      <xs:element name="AirInfiltrationNotes" type="xs:string" minOccurs="0">
+                                        <xs:annotation>
+                                          <xs:documentation>Details about the the assessment. This might include methods used, criteria, evidence, or basis of evaluation.</xs:documentation>
+                                        </xs:annotation>
+                                      </xs:element>
                                       <xs:element name="Tightness" type="auc:Tightness" minOccurs="0">
                                         <xs:annotation>
                                           <xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
@@ -308,6 +313,11 @@
                                   </xs:annotation>
                                   <xs:complexType>
                                     <xs:sequence>
+                                      <xs:element name="WaterInfiltrationNotes" type="xs:string" minOccurs="0">
+                                        <xs:annotation>
+                                          <xs:documentation>Details about the the assessment. This might include methods used, criteria, evidence, or basis of evaluation.</xs:documentation>
+                                        </xs:annotation>
+                                      </xs:element>
                                       <xs:element name="LocationsOfExteriorWaterIntrusionDamages" minOccurs="0">
                                         <xs:complexType>
                                           <xs:sequence>
