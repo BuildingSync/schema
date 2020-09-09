@@ -1131,45 +1131,16 @@
                                   <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                 </xs:complexType>
                               </xs:element>
-                              <xs:element name="WindowID" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>ID number of the window type associated with this side of the section.</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:sequence>
-                                    <xs:element name="FenestrationArea" minOccurs="0">
-                                      <xs:annotation>
-                                        <xs:documentation>Total area of this fenestration type. (ft2)</xs:documentation>
-                                      </xs:annotation>
-                                      <xs:complexType>
-                                        <xs:simpleContent>
-                                          <xs:extension base="xs:decimal">
-                                            <xs:attribute ref="auc:Source"/>
-                                          </xs:extension>
-                                        </xs:simpleContent>
-                                      </xs:complexType>
-                                    </xs:element>
-                                    <xs:element name="WindowToWallRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
-                                      <xs:annotation>
-                                        <xs:documentation>Ratio of total window area to total wall area. (0-1) (fraction)</xs:documentation>
-                                      </xs:annotation>
-                                    </xs:element>
-                                    <xs:element name="PercentOfWindowAreaShaded" minOccurs="0">
-                                      <xs:annotation>
-                                        <xs:documentation>The percentage of the fenestration area that is shaded by exterior objects such as trees or other buildings. (0-100) (%)</xs:documentation>
-                                      </xs:annotation>
-                                      <xs:complexType>
-                                        <xs:simpleContent>
-                                          <xs:extension base="xs:decimal">
-                                            <xs:attribute ref="auc:Source"/>
-                                          </xs:extension>
-                                        </xs:simpleContent>
-                                      </xs:complexType>
-                                    </xs:element>
-                                  </xs:sequence>
-                                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                </xs:complexType>
-                              </xs:element>
+                              <xs:choice>
+                                <xs:element ref="auc:WindowID" minOccurs="0"/>
+                                <xs:element name="WindowIDs" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element ref="auc:WindowID" minOccurs="0" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:choice>
                               <xs:element name="DoorID" minOccurs="0">
                                 <xs:annotation>
                                   <xs:documentation>ID number of the door type associated with this side of the section.</xs:documentation>
@@ -17520,4 +17491,43 @@
       <xs:enumeration value="High"/>
     </xs:restriction>
   </xs:simpleType>
+  <xs:element name="WindowID">
+    <xs:annotation>
+      <xs:documentation>ID number of the window type associated with this side of the section.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="FenestrationArea" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Total area of this fenestration type. (ft2)</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:decimal">
+                <xs:attribute ref="auc:Source"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="WindowToWallRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+          <xs:annotation>
+            <xs:documentation>Ratio of total window area to total wall area. (0-1) (fraction)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="PercentOfWindowAreaShaded" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>The percentage of the fenestration area that is shaded by exterior objects such as trees or other buildings. (0-100) (%)</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:decimal">
+                <xs:attribute ref="auc:Source"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
