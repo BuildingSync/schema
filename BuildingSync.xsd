@@ -1180,28 +1180,16 @@
                                   <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                 </xs:complexType>
                               </xs:element>
-                              <xs:element name="DoorID" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>ID number of the door type associated with this side of the section.</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:sequence>
-                                    <xs:element name="FenestrationArea" minOccurs="0">
-                                      <xs:annotation>
-                                        <xs:documentation>Total area of this fenestration type. (ft2)</xs:documentation>
-                                      </xs:annotation>
-                                      <xs:complexType>
-                                        <xs:simpleContent>
-                                          <xs:extension base="xs:decimal">
-                                            <xs:attribute ref="auc:Source"/>
-                                          </xs:extension>
-                                        </xs:simpleContent>
-                                      </xs:complexType>
-                                    </xs:element>
-                                  </xs:sequence>
-                                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                </xs:complexType>
-                              </xs:element>
+                              <xs:choice>
+                                <xs:element ref="auc:DoorID" minOccurs="0"/>
+                                <xs:element name="DoorIDs" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element ref="auc:DoorID" minOccurs="0" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:choice>
                               <xs:element name="ThermalZoneIDs" minOccurs="0">
                                 <xs:annotation>
                                   <xs:documentation>List of thermal zone IDs.</xs:documentation>
@@ -17542,6 +17530,28 @@
         <xs:element name="WallArea" minOccurs="0">
           <xs:annotation>
             <xs:documentation>Exposed, above-grade, opaque wall area of this type. (ft2)</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:decimal">
+                <xs:attribute ref="auc:Source"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoorID">
+    <xs:annotation>
+      <xs:documentation>ID number of the door type associated with this side of the section.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="FenestrationArea" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Total area of this fenestration type. (ft2)</xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:simpleContent>
