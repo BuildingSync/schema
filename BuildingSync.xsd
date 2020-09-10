@@ -713,6 +713,7 @@
         </xs:complexType>
       </xs:element>
       <xs:element ref="auc:BuildingAutomationSystem" minOccurs="0"/>
+      <xs:element ref="auc:LightingAutomationSystem" minOccurs="0"/>
       <xs:element name="HistoricalLandmark" type="xs:boolean" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Does the facility have historical landmark status (e.g., is the facility listed in the National Register of Historic Places)?</xs:documentation>
@@ -9107,6 +9108,7 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element ref="auc:LightingAutomationSystem" minOccurs="0"/>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:PrimaryFuel" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
@@ -17039,6 +17041,11 @@
   <xs:element name="BuildingAutomationSystem" type="xs:boolean">
     <xs:annotation>
       <xs:documentation>Does the building include a building automation or management system?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="LightingAutomationSystem" type="xs:boolean">
+    <xs:annotation>
+      <xs:documentation>Does the building include a lighting automation or management system?</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:simpleType name="ControlStrategyLightingType">
