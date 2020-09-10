@@ -9681,6 +9681,7 @@
       <xs:element ref="auc:Manufacturer" minOccurs="0"/>
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
+      <xs:element name="DomesticHotWaterSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Establishes whether the system applies to one or more entire buildings, sections, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
