@@ -13087,6 +13087,11 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="ConveyanceSystemCondition" type="auc:EquipmentCondition" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Description of the conveyance system's condition.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
