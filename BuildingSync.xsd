@@ -1017,6 +1017,18 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
+                  <xs:element name="NumberOfSides" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Number of sides of the section of the building. Inclusion of this element is recommended when auc:FootprintShape is Other.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:integer">
+                          <xs:attribute ref="auc:Source"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element name="Story" type="xs:int" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>The story of the given section.</xs:documentation>
