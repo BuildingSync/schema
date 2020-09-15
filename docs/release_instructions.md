@@ -2,9 +2,10 @@
 
 Follow the steps below when releasing a new version
 
-* Update the Version in the header of the XSD in two places:
+* Update the Version in the header of the XSD in three places:
     * Update in the <xs:schema ...> element.
-    * Update in the first <xs:annotation> element. 
+    * Update in the first <xs:annotation> element.
+    * Add enumeration to /version with the latest version 
 
 * Convert XSD to JSON schema. This is still in prototype. 
     * Use XMLSpy to Generate JSON Schema (Convert->Convert XML Schema to/from JSON Schema...)
@@ -20,19 +21,22 @@ Follow the steps below when releasing a new version
 
 * Update the CHANGELOG.md to include the latest changes, and the most recent version.
 
-	* Run the change_log.rb script (e.g. ruby src/change_log.rb -t abcdefghijklmnopqrstuvwxyz -s <last-release-data>).
+	* Run the change_log.rb script (e.g. ruby src/change_log.rb -t abcdefghijklmnopqrstuvwxyz -s 2019-12-21).
 	* Copy the results of this into the CHANGELOG. Remove items that are not useful to an end user such as version bumps, formatting, etc.
 
-* After merging down the release into the main branch, draft a release in GitHub. *Upload the XSD and JSON file as part of the release.*
-
-* Use XMLSpy to generate documentation.
+* Create a Pull Request into `master`
+    * Mark the PR with an `ignore` label to prevent the PR from being added to future change logs. 
+    * After merging the Pull Request, draft a release in GitHub. 
+    * *Upload the XSD and JSON file as part of the release.*
+    
+* Use XMLSpy to generate documentation (files will be saved to this (repo)[https://github.com/BuildingSync/website]).
 
     * Schema Design -> Generate Documentation
     * Set to HTML
     * Check all the includes and details
     * Make sure to output to a single file (uncheck "Split output in multiple files")
     * Embed CSS into HTML
-    * Export as the default name, then go to the system and rename the html file as `index.html` in the website's `schema/vXXX/documentation` folder.
+    * Export as `index.html` in the website's `schema/vX.Y/documentation` folder.
 
 * Edit the BuildingSync Website GitHub repo on a new branch (https://github.com/BuildingSync/website):
 

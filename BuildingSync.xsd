@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0-prerelease2">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.2.0-pr1">
   <xs:import namespace="http://www.gbxml.org/schema" schemaLocation="http://www.gbxml.org/schema/6-01/GreenBuildingXML_Ver6.01.xsd"/>
   <xs:annotation>
-    <xs:documentation>BuildingSync Schema - Version 2.0-prerelease2</xs:documentation>
+    <xs:documentation>BuildingSync Schema - Version 2.2.0-pr1</xs:documentation>
   </xs:annotation>
   <xs:element name="BuildingSync">
     <xs:complexType>
@@ -244,6 +244,11 @@
                                   </xs:annotation>
                                   <xs:complexType>
                                     <xs:sequence>
+                                      <xs:element name="AirInfiltrationNotes" type="xs:string" minOccurs="0">
+                                        <xs:annotation>
+                                          <xs:documentation>Details about the the assessment. This might include methods used, criteria, evidence, or basis of evaluation.</xs:documentation>
+                                        </xs:annotation>
+                                      </xs:element>
                                       <xs:element name="Tightness" type="auc:Tightness" minOccurs="0">
                                         <xs:annotation>
                                           <xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
@@ -294,7 +299,7 @@
                                       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
                                       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                                     </xs:sequence>
-                                    <xs:attribute name="ID" type="xs:ID"/>
+                                    <xs:attribute name="ID" type="xs:ID" use="required"/>
                                   </xs:complexType>
                                 </xs:element>
                               </xs:sequence>
@@ -309,6 +314,11 @@
                                   </xs:annotation>
                                   <xs:complexType>
                                     <xs:sequence>
+                                      <xs:element name="WaterInfiltrationNotes" type="xs:string" minOccurs="0">
+                                        <xs:annotation>
+                                          <xs:documentation>Details about the the assessment. This might include methods used, criteria, evidence, or basis of evaluation.</xs:documentation>
+                                        </xs:annotation>
+                                      </xs:element>
                                       <xs:element name="LocationsOfExteriorWaterIntrusionDamages" minOccurs="0">
                                         <xs:complexType>
                                           <xs:sequence>
@@ -399,13 +409,31 @@
                     </xs:element>
                     <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                   </xs:sequence>
-                  <xs:attribute name="ID" type="xs:ID"/>
+                  <xs:attribute name="ID" type="xs:ID" use="required"/>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
+      <xs:attribute name="version" use="required">
+        <xs:annotation>
+          <xs:documentation>The versions are sorted by official release date (reverse order).  Note that semantic versioning for BuildingSync was reset in 2016.  v2.0.0-legacy is the last official release of the schema before the version reset and is available in the schema repository: https://github.com/BuildingSync/schema/releases/tag/v2.0.0-legacy.  Since then, semantic versioning started at the v0.2.0 release and progresses as expected.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="2.0.0-legacy"/>
+            <xs:enumeration value="0.2.0"/>
+            <xs:enumeration value="0.3.0"/>
+            <xs:enumeration value="1.0.0"/>
+            <xs:enumeration value="2.0.0-pr1"/>
+            <xs:enumeration value="2.0.0-pr2"/>
+            <xs:enumeration value="2.0.0"/>
+            <xs:enumeration value="2.1.0"/>
+            <xs:enumeration value="2.2.0-pr1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:complexType name="SiteType">
@@ -451,7 +479,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="BuildingType">
     <xs:sequence>
@@ -569,12 +597,12 @@
       <xs:element ref="auc:TenantIDs" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="NAICSCode" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>North American Industry Classification System code.</xs:documentation>
+          <xs:documentation>North American Industry Classification System (NAICS) code.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="PubliclySubsidized" type="xs:boolean" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Does the building include multi-family housing that receives or received public funding for construction or operations (this does not include Section 8 or similar vouchers received by individual tenants)?</xs:documentation>
+          <xs:documentation>Does the building include multi-family housing that receives or received public funding for construction or operations (this does not include Housing Choice Voucher Program Section 8 or similar vouchers received by individual tenants)?</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="FederalBuilding" minOccurs="0">
@@ -585,12 +613,12 @@
           <xs:sequence>
             <xs:element name="Agency" type="xs:string" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>Federal agency, required to designate a building as a federal property in Portfolio Manager.</xs:documentation>
+                <xs:documentation>Federal agency, required to designate a building as a federal property in ENERGY STAR Portfolio Manager.</xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element name="DepartmentRegion" type="xs:string" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>Federal department/region, required to designate a building as a federal property in Portfolio Manager.</xs:documentation>
+                <xs:documentation>Federal department/region, required to designate a building as a federal property in ENERGY STAR Portfolio Manager.</xs:documentation>
               </xs:annotation>
             </xs:element>
           </xs:sequence>
@@ -598,7 +626,7 @@
       </xs:element>
       <xs:element name="PortfolioManager" type="auc:PortfolioManagerType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>If exists then the data for this building is included in Portfolio Manager.</xs:documentation>
+          <xs:documentation>If exists then the data for this building is included in ENERGY STAR Portfolio Manager.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="NumberOfBusinesses" minOccurs="0">
@@ -686,6 +714,7 @@
         </xs:complexType>
       </xs:element>
       <xs:element ref="auc:BuildingAutomationSystem" minOccurs="0"/>
+      <xs:element ref="auc:LightingAutomationSystem" minOccurs="0"/>
       <xs:element name="HistoricalLandmark" type="xs:boolean" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Does the facility have historical landmark status (e.g., is the facility listed in the National Register of Historic Places)?</xs:documentation>
@@ -845,7 +874,7 @@
                   </xs:element>
                   <xs:element name="AssessmentValue" type="xs:decimal" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Value from certifications that produce a numeric metric, such as Energy Star Score, Home Energy Rating System (HERS) Index Score, Home Energy Score.</xs:documentation>
+                      <xs:documentation>Value from certifications that produce a numeric metric, such as ENERGY STAR Score, Home Energy Rating System (HERS) Index Score, Home Energy Score.</xs:documentation>
                     </xs:annotation>
                   </xs:element>
                   <xs:element name="AssessmentYear" type="xs:gYear" minOccurs="0">
@@ -957,7 +986,7 @@
                   <xs:element ref="auc:PremisesName" minOccurs="0"/>
                   <xs:element name="SectionType" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>The type of section such as Whole building, Space function data, or other types. * Whole building - describes the whole building, Space function - describes a space function (see ASHRAE standard 211), Component - describes a subspace of a primary premises such as HVAC zone, retails shops in a mall, etc., Tenant - describes a section for a tenant, Virtual - desbribes a section loosely with potenially overlap with other sections and section types, Other - not well-described by other types.</xs:documentation>
+                      <xs:documentation>The type of section such as Whole building, Space function data, or other types. * Whole building - describes the whole building, Space function - describes a space function (refer to SPC 211 Standard for Commercial Building Energy Audits), Component - describes a subspace of a primary premises such as HVAC zone, retails shops in a mall, etc., Tenant - describes a section for a tenant, Virtual - describes a section loosely with potentially overlap with other sections and section types, Other - not well-described by other types.</xs:documentation>
                     </xs:annotation>
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
@@ -973,6 +1002,7 @@
                   <xs:element ref="auc:PremisesNotes" minOccurs="0"/>
                   <xs:element ref="auc:PremisesIdentifiers" minOccurs="0"/>
                   <xs:element ref="auc:OccupancyClassification" minOccurs="0"/>
+                  <xs:element ref="auc:OriginalOccupancyClassification" minOccurs="0"/>
                   <xs:element ref="auc:OccupancyLevels" minOccurs="0"/>
                   <xs:element ref="auc:TypicalOccupantUsages" minOccurs="0"/>
                   <xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
@@ -998,6 +1028,18 @@
                         <xs:enumeration value="Unknown"/>
                       </xs:restriction>
                     </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NumberOfSides" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Number of sides of the section of the building. Inclusion of this element is recommended when auc:FootprintShape is Other.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:integer">
+                          <xs:attribute ref="auc:Source"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
                   </xs:element>
                   <xs:element name="Story" type="xs:int" minOccurs="0">
                     <xs:annotation>
@@ -1091,89 +1133,36 @@
                                   </xs:simpleContent>
                                 </xs:complexType>
                               </xs:element>
-                              <xs:element name="WallID" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>ID number of the wall type associated with this side of the section.</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:sequence>
-                                    <xs:element name="WallArea" minOccurs="0">
-                                      <xs:annotation>
-                                        <xs:documentation>Exposed, above-grade, opaque wall area of this type. (ft2)</xs:documentation>
-                                      </xs:annotation>
-                                      <xs:complexType>
-                                        <xs:simpleContent>
-                                          <xs:extension base="xs:decimal">
-                                            <xs:attribute ref="auc:Source"/>
-                                          </xs:extension>
-                                        </xs:simpleContent>
-                                      </xs:complexType>
-                                    </xs:element>
-                                  </xs:sequence>
-                                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                </xs:complexType>
-                              </xs:element>
-                              <xs:element name="WindowID" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>ID number of the window type associated with this side of the section.</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:sequence>
-                                    <xs:element name="FenestrationArea" minOccurs="0">
-                                      <xs:annotation>
-                                        <xs:documentation>Total area of this fenestration type. (ft2)</xs:documentation>
-                                      </xs:annotation>
-                                      <xs:complexType>
-                                        <xs:simpleContent>
-                                          <xs:extension base="xs:decimal">
-                                            <xs:attribute ref="auc:Source"/>
-                                          </xs:extension>
-                                        </xs:simpleContent>
-                                      </xs:complexType>
-                                    </xs:element>
-                                    <xs:element name="WindowToWallRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
-                                      <xs:annotation>
-                                        <xs:documentation>Ratio of total window area to total wall area. (0-1) (fraction)</xs:documentation>
-                                      </xs:annotation>
-                                    </xs:element>
-                                    <xs:element name="PercentOfWindowAreaShaded" minOccurs="0">
-                                      <xs:annotation>
-                                        <xs:documentation>The percentage of the fenestration area that is shaded by exterior objects such as trees or other buildings. (0-100) (%)</xs:documentation>
-                                      </xs:annotation>
-                                      <xs:complexType>
-                                        <xs:simpleContent>
-                                          <xs:extension base="xs:decimal">
-                                            <xs:attribute ref="auc:Source"/>
-                                          </xs:extension>
-                                        </xs:simpleContent>
-                                      </xs:complexType>
-                                    </xs:element>
-                                  </xs:sequence>
-                                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                </xs:complexType>
-                              </xs:element>
-                              <xs:element name="DoorID" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>ID number of the door type associated with this side of the section.</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:sequence>
-                                    <xs:element name="FenestrationArea" minOccurs="0">
-                                      <xs:annotation>
-                                        <xs:documentation>Total area of this fenestration type. (ft2)</xs:documentation>
-                                      </xs:annotation>
-                                      <xs:complexType>
-                                        <xs:simpleContent>
-                                          <xs:extension base="xs:decimal">
-                                            <xs:attribute ref="auc:Source"/>
-                                          </xs:extension>
-                                        </xs:simpleContent>
-                                      </xs:complexType>
-                                    </xs:element>
-                                  </xs:sequence>
-                                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                </xs:complexType>
-                              </xs:element>
+                              <xs:choice>
+                                <xs:element ref="auc:WallID" minOccurs="0"/>
+                                <xs:element name="WallIDs">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element ref="auc:WallID" minOccurs="0" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:choice>
+                              <xs:choice>
+                                <xs:element ref="auc:WindowID" minOccurs="0"/>
+                                <xs:element name="WindowIDs" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element ref="auc:WindowID" minOccurs="0" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:choice>
+                              <xs:choice>
+                                <xs:element ref="auc:DoorID" minOccurs="0"/>
+                                <xs:element name="DoorIDs" minOccurs="0">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element ref="auc:DoorID" minOccurs="0" maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:choice>
                               <xs:element name="ThermalZoneIDs" minOccurs="0">
                                 <xs:annotation>
                                   <xs:documentation>List of thermal zone IDs.</xs:documentation>
@@ -1609,7 +1598,7 @@
                     </xs:complexType>
                   </xs:element>
                 </xs:sequence>
-                <xs:attribute name="ID" type="xs:ID"/>
+                <xs:attribute name="ID" type="xs:ID" use="required"/>
               </xs:complexType>
             </xs:element>
           </xs:sequence>
@@ -1617,7 +1606,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="ThermalZoneType">
     <xs:sequence>
@@ -1741,7 +1730,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="SpaceType">
     <xs:sequence>
@@ -1836,7 +1825,7 @@
       </xs:element>
       <xs:element ref="gbxml:SpaceBoundary" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="ScheduleType">
     <xs:sequence>
@@ -1933,9 +1922,10 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="ContactType">
@@ -2068,7 +2058,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="TenantType">
     <xs:sequence>
@@ -2142,7 +2132,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="ScenarioType">
     <xs:sequence>
@@ -2445,6 +2435,48 @@
                           <xs:complexType>
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                           </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="CostCategory" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Classification of the cost of the package (per SPC 211 Standard for Commercial Building Energy Audits sections 5.3.5 and 5.3.6)</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Low-Cost or No-Cost"/>
+                        <xs:enumeration value="Capital"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SimpleImpactAnalysis" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ImpactOnOccupantComfort" type="xs:string" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>See SPC 211 Standard for Commercial Building Energy Audits section 6.1.5(c)</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="EstimatedCost" type="auc:LowMedHigh" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>See SPC 211 Standard for Commercial Building Energy Audits section 6.1.5(d)</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="EstimatedAnnualSavings" type="auc:LowMedHigh" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>See SPC 211 Standard for Commercial Building Energy Audits section 6.1.5(e)</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="EstimatedROI" type="auc:LowMedHigh" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>See SPC 211 Standard for Commercial Building Energy Audits section 6.1.5(f)</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Priority" type="auc:LowMedHigh" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>See SPC 211 Standard for Commercial Building Energy Audits section 6.1.5(g)</xs:documentation>
+                          </xs:annotation>
                         </xs:element>
                       </xs:sequence>
                     </xs:complexType>
@@ -2774,7 +2806,7 @@
                   <xs:element ref="auc:ENERGYSTARScore" minOccurs="0"/>
                   <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                 </xs:sequence>
-                <xs:attribute name="ID" type="xs:ID"/>
+                <xs:attribute name="ID" type="xs:ID" use="required"/>
               </xs:complexType>
             </xs:element>
             <xs:element name="Other" minOccurs="0">
@@ -3050,7 +3082,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="UtilityType">
     <xs:sequence>
@@ -3091,26 +3123,10 @@
                                               <xs:documentation>The name or title of rate period.This is intended to capture the seasonal changes in rates.</xs:documentation>
                                             </xs:annotation>
                                           </xs:element>
-                                          <xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
-                                            </xs:annotation>
-                                          </xs:element>
-                                          <xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
-                                            </xs:annotation>
-                                          </xs:element>
-                                          <xs:element name="ApplicableStartDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
-                                            </xs:annotation>
-                                          </xs:element>
-                                          <xs:element name="ApplicableEndDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
-                                            </xs:annotation>
-                                          </xs:element>
+                                          <xs:element ref="auc:ApplicableStartDateForEnergyRate" minOccurs="0"/>
+                                          <xs:element ref="auc:ApplicableEndDateForEnergyRate" minOccurs="0"/>
+                                          <xs:element ref="auc:ApplicableStartDateForDemandRate" minOccurs="0"/>
+                                          <xs:element ref="auc:ApplicableEndDateForDemandRate" minOccurs="0"/>
                                           <xs:element name="DemandWindow" minOccurs="0">
                                             <xs:annotation>
                                               <xs:documentation>The time period of measurement through which the demand is established. (min)</xs:documentation>
@@ -3221,26 +3237,10 @@
                                               <xs:documentation>The name or title of rate period.This is intended to capture the seasonal changes in rates.</xs:documentation>
                                             </xs:annotation>
                                           </xs:element>
-                                          <xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
-                                            </xs:annotation>
-                                          </xs:element>
-                                          <xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
-                                            </xs:annotation>
-                                          </xs:element>
-                                          <xs:element name="ApplicableStartDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
-                                            </xs:annotation>
-                                          </xs:element>
-                                          <xs:element name="ApplicableEndDateForDemandRate" type="xs:gMonthDay" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
-                                            </xs:annotation>
-                                          </xs:element>
+                                          <xs:element ref="auc:ApplicableStartDateForEnergyRate" minOccurs="0"/>
+                                          <xs:element ref="auc:ApplicableEndDateForEnergyRate" minOccurs="0"/>
+                                          <xs:element ref="auc:ApplicableStartDateForDemandRate" minOccurs="0"/>
+                                          <xs:element ref="auc:ApplicableEndDateForDemandRate" minOccurs="0"/>
                                           <xs:element name="TimeOfUsePeriods" minOccurs="0">
                                             <xs:complexType>
                                               <xs:sequence>
@@ -3391,16 +3391,10 @@
                                                     <xs:documentation>The name or title of rate period.This is intended to capture the seasonal changes in rates.</xs:documentation>
                                                   </xs:annotation>
                                                 </xs:element>
-                                                <xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-                                                  <xs:annotation>
-                                                    <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
-                                                  </xs:annotation>
-                                                </xs:element>
-                                                <xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay" minOccurs="0">
-                                                  <xs:annotation>
-                                                    <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
-                                                  </xs:annotation>
-                                                </xs:element>
+                                                <xs:element ref="auc:ApplicableStartDateForEnergyRate" minOccurs="0"/>
+                                                <xs:element ref="auc:ApplicableEndDateForEnergyRate" minOccurs="0"/>
+                                                <xs:element ref="auc:ApplicableStartDateForDemandRate" minOccurs="0"/>
+                                                <xs:element ref="auc:ApplicableEndDateForDemandRate" minOccurs="0"/>
                                                 <xs:element name="RateTiers" minOccurs="0">
                                                   <xs:complexType>
                                                     <xs:sequence>
@@ -3688,7 +3682,7 @@
                     </xs:complexType>
                   </xs:element>
                 </xs:sequence>
-                <xs:attribute name="ID" type="xs:ID"/>
+                <xs:attribute name="ID" type="xs:ID" use="required"/>
               </xs:complexType>
             </xs:element>
           </xs:sequence>
@@ -3791,11 +3785,16 @@
         </xs:complexType>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="ResourceUseType">
     <xs:sequence>
       <xs:element ref="auc:EnergyResource" minOccurs="0"/>
+      <xs:element name="ResourceUseNotes" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Details about the resource use. For Level 1 Audits, this should include notes on meter sampling methodology (if sampling was used) and identification of irregularities in monthly energy use (SPC 211 Standard for Commercial Building Energy Audits sections 6.1.2.1.d and 6.1.2.1.j).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element ref="auc:ResourceBoundary" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The boundary that encompasses the measured resource.</xs:documentation>
@@ -3860,6 +3859,20 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
+      <xs:element name="AnnualFuelUseLinkedTimeSeriesIDs" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Links to all time series data used to calculate the AnnualFuelUse values.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LinkedTimeSeriesID" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="PeakResourceUnits" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Units for peak demand.</xs:documentation>
@@ -3886,6 +3899,18 @@
       <xs:element name="AnnualPeakConsistentUnits" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Largest 15-min peak. (kW)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AnnualFuelCost" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Annual cost of the resource ($)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -4013,7 +4038,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="AllResourceTotalType">
     <xs:sequence>
@@ -4026,7 +4051,7 @@
       <xs:element ref="auc:ResourceBoundary" minOccurs="0"/>
       <xs:element name="SiteEnergyUse" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The annual amount of all the energy the premises consumes onsite, as reported on the utility bills. (kBtu)</xs:documentation>
+          <xs:documentation>The annual amount of all the energy the premises consumes onsite, as reported on the utility bills. Calculated as imported energy (Eimp) - exported energy (Eexp) - net increase in stored imported energy (Es) (per ASHRAE 105-2014 Figure 5.6). (kBtu)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -4072,9 +4097,93 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
+      <xs:element name="BuildingEnergyUse" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The annual amount of all the energy the building consumes onsite. Calculated as imported energy (Eimp) + onsite renewable energy (Eg) - exported energy (Eexp) - net increase in stored imported energy (Es) (per ASHRAE 105-2014 Figure 5.6). (kBtu)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BuildingEnergyUseIntensity" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The Building Energy Use divided by the premises gross floor area. (kBtu/ft2)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ImportedEnergyConsistentUnits" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Energy imported annually (per ASHRAE 105-2014 Figure 5.6). (MMbtu/ft2)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OnsiteEnergyProductionConsistentUnits" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Energy produced onsite annually (per ASHRAE 105-2014 Figure 5.6). (MMbtu/ft2)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ExportedEnergyConsistentUnits" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Energy exported annually (per ASHRAE 105-2014 Figure 5.6). (MMbtu/ft2)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NetIncreaseInStoredEnergyConsistentUnits" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Net increase in stored energy annually (per ASHRAE 105-2014 Figure 5.6). (MMbtu/ft2)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="EnergyCost" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The annual cost associated with a selected 12 month time period for a premises. It can be an individual value for different energy types, and can also be an aggregated value across all energy types. ($)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EnergyCostIndex" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The Energy Cost divided by the premises gross floor area. ($/ft2)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -4183,7 +4292,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="TimeSeriesType">
     <xs:sequence>
@@ -4199,6 +4308,7 @@
             <xs:enumeration value="Total"/>
             <xs:enumeration value="Peak"/>
             <xs:enumeration value="Minimum"/>
+            <xs:enumeration value="Cost"/>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
         </xs:simpleType>
@@ -4373,7 +4483,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="MeasureType">
     <xs:sequence>
@@ -4589,7 +4699,7 @@
           <xs:sequence>
             <xs:element name="TechnologyCategory" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation>Authorized technology category as defined by the Federal Energy Management Program. In some cases a single measure may include multiple components affecting multiple categories.</xs:documentation>
+                <xs:documentation>Authorized technology category as defined by the Federal Energy Management Program (FEMP). In some cases a single measure may include multiple components affecting multiple categories.</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:choice>
@@ -5558,7 +5668,7 @@
       </xs:element>
       <xs:element name="MVOption" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Recommended approach for verification of energy savings for this measure, based on IPMVP.</xs:documentation>
+          <xs:documentation>Recommended approach for verification of energy savings for this measure, based on the International Performance Measurement and Verification Protocol (IPMVP).</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -5650,12 +5760,12 @@
       </xs:element>
       <xs:element name="StartDate" type="xs:date" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Start Date for implementation of a project or a measure. (CCYY-MM-DD)</xs:documentation>
+          <xs:documentation>Start date for implementation of a project or a measure. (CCYY-MM-DD)</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="EndDate" type="xs:date" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Date when majority of the project or measure was completed and implemented. (substantial completion). (CCYY-MM-DD)</xs:documentation>
+          <xs:documentation>Date when majority of the project or measure was completed and implemented (substantial completion). (CCYY-MM-DD)</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ImplementationStatus" minOccurs="0">
@@ -5694,7 +5804,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="ReportType">
     <xs:sequence>
@@ -5743,7 +5853,7 @@
       </xs:element>
       <xs:element name="ASHRAEAuditLevel" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Energy audit level as defined in ASHRAE Procedures for Commercial Building Energy Audits.</xs:documentation>
+          <xs:documentation>Energy audit level as defined in SPC 211 Standard for Commercial Building Energy Audits.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -5785,7 +5895,7 @@
       </xs:element>
       <xs:element name="AnalysisPeriod" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Period used for financial analysis. Can be combined with Interval Frequency to specify the units. (yrs)</xs:documentation>
+          <xs:documentation>Period used for financial analysis. Can be combined with IntervalFrequency to specify the units. (yrs)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -5878,17 +5988,17 @@
                   </xs:element>
                   <xs:element name="AuditorQualificationNumber" type="xs:string" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Certificate number, license number, etc., of Auditor Qualification.</xs:documentation>
+                      <xs:documentation>Certificate number, license number, etc., of AuditorQualification.</xs:documentation>
                     </xs:annotation>
                   </xs:element>
                   <xs:element name="AuditorQualificationState" type="auc:State" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>If Auditor Qualification is state-issued, the state the qualification is from.</xs:documentation>
+                      <xs:documentation>If AuditorQualification is state-issued, the state the qualification is from.</xs:documentation>
                     </xs:annotation>
                   </xs:element>
                   <xs:element name="CertificationExpirationDate" type="xs:date" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Date that the auditor qualification expires. (CCYY-MM-DD)</xs:documentation>
+                      <xs:documentation>Date that the AuditorQualification expires. (CCYY-MM-DD)</xs:documentation>
                     </xs:annotation>
                   </xs:element>
                   <xs:element name="CertifiedAuditTeamMemberContactID" minOccurs="0">
@@ -5905,7 +6015,7 @@
                     </xs:annotation>
                   </xs:element>
                 </xs:sequence>
-                <xs:attribute name="ID" type="xs:ID"/>
+                <xs:attribute name="ID" type="xs:ID" use="required"/>
               </xs:complexType>
             </xs:element>
           </xs:sequence>
@@ -5948,7 +6058,7 @@
       <xs:element ref="auc:LinkedPremisesOrSystem" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="HVACSystemType">
     <xs:sequence>
@@ -6020,7 +6130,7 @@
                             <xs:choice>
                               <xs:element name="SourceHeatingPlantID" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>ID number of heating plant serving as the source for this zonal system.</xs:documentation>
+                                  <xs:documentation>ID number of HeatingPlant serving as the source for this zonal system.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -6063,7 +6173,7 @@
                                     <xs:element ref="auc:BurnerYearInstalled" minOccurs="0"/>
                                     <xs:element name="BurnerTurndownRatio" minOccurs="0">
                                       <xs:annotation>
-                                        <xs:documentation>If applicable, the turndown ratio for the burner (full input/minimum input).</xs:documentation>
+                                        <xs:documentation>If applicable, the turndown ratio for the burner. (full input/minimum input)</xs:documentation>
                                       </xs:annotation>
                                       <xs:complexType>
                                         <xs:simpleContent>
@@ -6141,7 +6251,7 @@
                                     </xs:element>
                                     <xs:element name="HeatPumpBackupAFUE" minOccurs="0">
                                       <xs:annotation>
-                                        <xs:documentation>Annual Fuel Utilization Efficiency of backup system for heat pump.</xs:documentation>
+                                        <xs:documentation>Annual Fuel Utilization Efficiency (AFUE) of backup system for heat pump.</xs:documentation>
                                       </xs:annotation>
                                       <xs:complexType>
                                         <xs:simpleContent>
@@ -6154,7 +6264,7 @@
                                     <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
                                     <xs:element name="CoolingSourceID" minOccurs="0">
                                       <xs:annotation>
-                                        <xs:documentation>ID number of the cooling system with the cooling mode performance characteristics of this heat pump.</xs:documentation>
+                                        <xs:documentation>ID number of the CoolingSource with the cooling mode performance characteristics of this heat pump.</xs:documentation>
                                       </xs:annotation>
                                       <xs:complexType>
                                         <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -6162,7 +6272,7 @@
                                     </xs:element>
                                     <xs:element name="LinkedHeatingPlantID" minOccurs="0">
                                       <xs:annotation>
-                                        <xs:documentation>ID number of heating plant serving as the source for this heat pump.</xs:documentation>
+                                        <xs:documentation>ID number of HeatingPlant serving as the source for this heat pump.</xs:documentation>
                                       </xs:annotation>
                                       <xs:complexType>
                                         <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -6246,7 +6356,7 @@
                         </xs:element>
                         <xs:element name="HeatingStageCapacityFraction" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                           <xs:annotation>
-                            <xs:documentation>Average capacity of each heating stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) (fraction)</xs:documentation>
+                            <xs:documentation>Average capacity of each heating stage, at Air-Conditioning, Heating, and Refrigeration Institute (AHRI) rated conditions, expressed as a fraction of total capacity. (0-1) (fraction)</xs:documentation>
                           </xs:annotation>
                         </xs:element>
                         <xs:element ref="auc:PrimaryFuel" minOccurs="0">
@@ -6257,13 +6367,13 @@
                         <xs:element name="HeatingSourceCondition" type="auc:EquipmentCondition" minOccurs="0"/>
                         <xs:element name="Controls" minOccurs="0">
                           <xs:annotation>
-                            <xs:documentation>List of controls for heating source.</xs:documentation>
+                            <xs:documentation>List of controls for HeatingSource.</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:sequence>
                               <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
                                 <xs:annotation>
-                                  <xs:documentation>Control for heating source.</xs:documentation>
+                                  <xs:documentation>Control for HeatingSource.</xs:documentation>
                                 </xs:annotation>
                               </xs:element>
                             </xs:sequence>
@@ -6277,7 +6387,7 @@
                         <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                         <xs:element ref="auc:Quantity" minOccurs="0"/>
                       </xs:sequence>
-                      <xs:attribute name="ID" type="xs:ID"/>
+                      <xs:attribute name="ID" type="xs:ID" use="required"/>
                       <xs:attribute ref="auc:Status"/>
                     </xs:complexType>
                   </xs:element>
@@ -6298,7 +6408,7 @@
                             <xs:choice>
                               <xs:element name="CoolingPlantID" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>ID number of cooling plant serving as the source for this zonal system.</xs:documentation>
+                                  <xs:documentation>ID number of CoolingPlant serving as the source for this zonal system.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -6348,7 +6458,7 @@
                                         <xs:sequence>
                                           <xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded">
                                             <xs:annotation>
-                                              <xs:documentation>ID numbers of the central condenser plants serving as the source for this cooling system.</xs:documentation>
+                                              <xs:documentation>ID number of the central CondenserPlant serving as the source for this cooling system.</xs:documentation>
                                             </xs:annotation>
                                             <xs:complexType>
                                               <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -6372,7 +6482,7 @@
                                     </xs:element>
                                     <xs:element name="ActiveDehumidification" type="xs:boolean" minOccurs="0">
                                       <xs:annotation>
-                                        <xs:documentation>True if an active dehumidification system is available (in addition to the dehumidification that takes place during normal DX cooling operation).</xs:documentation>
+                                        <xs:documentation>True if an active dehumidification system is available (in addition to the dehumidification that takes place during normal direct expansion (DX) cooling operation).</xs:documentation>
                                       </xs:annotation>
                                     </xs:element>
                                   </xs:sequence>
@@ -6447,7 +6557,7 @@
                         </xs:element>
                         <xs:element name="CoolingStageCapacity" minOccurs="0">
                           <xs:annotation>
-                            <xs:documentation>Average capacity of each cooling stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) (fraction)</xs:documentation>
+                            <xs:documentation>Average capacity of each cooling stage, at Air-Conditioning, Heating, and Refrigeration Institute (AHRI) rated conditions, expressed as a fraction of total capacity. (0-1) (fraction)</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:simpleContent>
@@ -6476,13 +6586,13 @@
                         <xs:element name="CoolingSourceCondition" type="auc:EquipmentCondition" minOccurs="0"/>
                         <xs:element name="Controls" minOccurs="0">
                           <xs:annotation>
-                            <xs:documentation>List of controls for cooling source.</xs:documentation>
+                            <xs:documentation>List of controls for CoolingSource.</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:sequence>
                               <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
                                 <xs:annotation>
-                                  <xs:documentation>Cooling source control.</xs:documentation>
+                                  <xs:documentation>CoolingSource control.</xs:documentation>
                                 </xs:annotation>
                               </xs:element>
                             </xs:sequence>
@@ -6496,7 +6606,7 @@
                         <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                         <xs:element ref="auc:Quantity" minOccurs="0"/>
                       </xs:sequence>
-                      <xs:attribute name="ID" type="xs:ID"/>
+                      <xs:attribute name="ID" type="xs:ID" use="required"/>
                       <xs:attribute ref="auc:Status"/>
                     </xs:complexType>
                   </xs:element>
@@ -6654,6 +6764,7 @@
                                           <xs:enumeration value="Heating plant"/>
                                           <xs:enumeration value="Local electric resistance"/>
                                           <xs:enumeration value="Local gas"/>
+                                          <xs:enumeration value="None"/>
                                           <xs:enumeration value="Other"/>
                                           <xs:enumeration value="Unknown"/>
                                         </xs:restriction>
@@ -6687,7 +6798,7 @@
                         </xs:element>
                         <xs:element name="HeatingSourceID" minOccurs="0">
                           <xs:annotation>
-                            <xs:documentation>ID number of heating system associated with this delivery mechanism.</xs:documentation>
+                            <xs:documentation>ID number of the HeatingSource associated with this delivery mechanism.</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -6695,7 +6806,7 @@
                         </xs:element>
                         <xs:element name="CoolingSourceID" minOccurs="0">
                           <xs:annotation>
-                            <xs:documentation>ID number of cooling system associated with this delivery mechanism.</xs:documentation>
+                            <xs:documentation>ID number of the CoolingSource associated with this delivery mechanism.</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -6710,13 +6821,13 @@
                         </xs:element>
                         <xs:element name="Controls" minOccurs="0">
                           <xs:annotation>
-                            <xs:documentation>List of controls for delivery system.</xs:documentation>
+                            <xs:documentation>List of controls for DeliverySystem.</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:sequence>
                               <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
                                 <xs:annotation>
-                                  <xs:documentation>Delivery system control.</xs:documentation>
+                                  <xs:documentation>DeliverySystem control.</xs:documentation>
                                 </xs:annotation>
                               </xs:element>
                             </xs:sequence>
@@ -6728,8 +6839,9 @@
                         <xs:element ref="auc:ModelNumber" minOccurs="0"/>
                         <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
                         <xs:element ref="auc:Quantity" minOccurs="0"/>
+                        <xs:element name="DeliveryCondition" type="auc:EquipmentCondition" minOccurs="0"/>
                       </xs:sequence>
-                      <xs:attribute name="ID" type="xs:ID"/>
+                      <xs:attribute name="ID" type="xs:ID" use="required"/>
                       <xs:attribute ref="auc:Status">
                         <xs:annotation>
                           <xs:documentation>Defines whether a system is currently present in the building, or if it is a proposed alternative or past system.</xs:documentation>
@@ -6778,29 +6890,60 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="PrimaryHVACSystemType" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Primary HVAC type.</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Packaged Terminal Air Conditioner"/>
-            <xs:enumeration value="Four Pipe Fan Coil Unit"/>
-            <xs:enumeration value="Packaged Terminal Heat Pump"/>
-            <xs:enumeration value="Packaged Rooftop Air Conditioner"/>
-            <xs:enumeration value="Packaged Rooftop Heat Pump"/>
-            <xs:enumeration value="Packaged Rooftop VAV with Hot Water Reheat"/>
-            <xs:enumeration value="Packaged Rooftop VAV with Electric Reheat"/>
-            <xs:enumeration value="VAV with Hot Water Reheat"/>
-            <xs:enumeration value="VAV with Electric Reheat"/>
-            <xs:enumeration value="Warm Air Furnace"/>
-            <xs:enumeration value="Ventilation Only"/>
-            <xs:enumeration value="Dedicated Outdoor Air System"/>
-            <xs:enumeration value="Water Loop Heat Pump"/>
-            <xs:enumeration value="Ground Source Heat Pump"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
+      <xs:choice>
+        <xs:element name="PrimaryHVACSystemType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Primary HVAC type. WARNING: This element is being deprecated, use PrincipalHVACSystemType instead.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="Packaged Terminal Air Conditioner"/>
+              <xs:enumeration value="Four Pipe Fan Coil Unit"/>
+              <xs:enumeration value="Packaged Terminal Heat Pump"/>
+              <xs:enumeration value="Packaged Rooftop Air Conditioner"/>
+              <xs:enumeration value="Packaged Rooftop Heat Pump"/>
+              <xs:enumeration value="Packaged Rooftop VAV with Hot Water Reheat"/>
+              <xs:enumeration value="Packaged Rooftop VAV with Electric Reheat"/>
+              <xs:enumeration value="VAV with Hot Water Reheat"/>
+              <xs:enumeration value="VAV with Electric Reheat"/>
+              <xs:enumeration value="Warm Air Furnace"/>
+              <xs:enumeration value="Ventilation Only"/>
+              <xs:enumeration value="Dedicated Outdoor Air System"/>
+              <xs:enumeration value="Water Loop Heat Pump"/>
+              <xs:enumeration value="Ground Source Heat Pump"/>
+              <xs:enumeration value="VRF Terminal Unit"/>
+              <xs:enumeration value="Chilled Beam"/>
+              <xs:enumeration value="Other"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="PrincipalHVACSystemType" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Principal HVAC type.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="Packaged Terminal Air Conditioner"/>
+              <xs:enumeration value="Four Pipe Fan Coil Unit"/>
+              <xs:enumeration value="Packaged Terminal Heat Pump"/>
+              <xs:enumeration value="Packaged Rooftop Air Conditioner"/>
+              <xs:enumeration value="Packaged Rooftop Heat Pump"/>
+              <xs:enumeration value="Packaged Rooftop VAV with Hot Water Reheat"/>
+              <xs:enumeration value="Packaged Rooftop VAV with Electric Reheat"/>
+              <xs:enumeration value="VAV with Hot Water Reheat"/>
+              <xs:enumeration value="VAV with Electric Reheat"/>
+              <xs:enumeration value="Warm Air Furnace"/>
+              <xs:enumeration value="Ventilation Only"/>
+              <xs:enumeration value="Dedicated Outdoor Air System"/>
+              <xs:enumeration value="Water Loop Heat Pump"/>
+              <xs:enumeration value="Ground Source Heat Pump"/>
+              <xs:enumeration value="VRF Terminal Unit"/>
+              <xs:enumeration value="Chilled Beam"/>
+              <xs:enumeration value="Other"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:choice>
       <xs:element name="HVACControlSystemTypes" minOccurs="0">
         <xs:annotation>
           <xs:documentation>HVAC equipment control strategies.</xs:documentation>
@@ -6828,7 +6971,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="DuctSystemType">
@@ -6862,7 +7005,7 @@
       </xs:element>
       <xs:element name="MaximumOAFlowRate" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The maximum flow rate of outside air that the system is able to deliver. For systems with economizing or demand controlled ventilation capability, this is the outdoor air flow rate when the OA damper is fully open and the fan speed is at maximum. (cfm)</xs:documentation>
+          <xs:documentation>The maximum flow rate of outside air that the system is able to deliver. For systems with economizing or demand controlled ventilation capability, this is the outdoor air flow rate when the outdoor air (OA) damper is fully open and the fan speed is at maximum. (cfm)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -7060,7 +7203,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="HeatingPlantType">
@@ -7157,7 +7300,7 @@
               </xs:element>
               <xs:element name="HeatingStageCapacityFraction" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
                 <xs:annotation>
-                  <xs:documentation>Average capacity of each heating stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) (fraction)</xs:documentation>
+                  <xs:documentation>Average capacity of each heating stage, at Air-Conditioning, Heating, and Refrigeration Institute (AHRI) rated conditions, expressed as a fraction of total capacity. (0-1) (fraction)</xs:documentation>
                 </xs:annotation>
               </xs:element>
               <xs:element ref="auc:Priority" minOccurs="0"/>
@@ -7265,7 +7408,7 @@
               </xs:element>
               <xs:element name="BoilerLWT" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>The water temperature that the equipment supplies , such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. (°F)</xs:documentation>
+                  <xs:documentation>The water temperature that the equipment supplies, such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. (°F)</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:simpleContent>
@@ -7389,7 +7532,7 @@
               </xs:element>
               <xs:element name="BoilerLWT" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>The water temperature that the equipment supplies , such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. (°F)</xs:documentation>
+                  <xs:documentation>The water temperature that the equipment supplies, such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. (°F)</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:simpleContent>
@@ -7469,7 +7612,7 @@
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element name="PrimaryFuel" type="auc:FuelTypes" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Main fuel used by the heating plant.</xs:documentation>
+          <xs:documentation>Main fuel used by the HeatingPlant.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element ref="auc:BuildingAutomationSystem" minOccurs="0">
@@ -7479,7 +7622,7 @@
       </xs:element>
       <xs:element name="ControlSystemTypes" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Heating plant equipment control strategies.</xs:documentation>
+          <xs:documentation>HeatingPlant equipment control strategies.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
@@ -7489,7 +7632,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="CoolingPlantType">
@@ -7556,7 +7699,7 @@
               </xs:element>
               <xs:element name="CoolingStageCapacity" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>Average capacity of each cooling stage, at ARI rated conditions, expressed as a fraction of total capacity. (0-1) (fraction)</xs:documentation>
+                  <xs:documentation>Average capacity of each cooling stage, at Air-Conditioning, Heating, and Refrigeration Institute (AHRI) rated conditions, expressed as a fraction of total capacity. (0-1) (fraction)</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:simpleContent>
@@ -7571,7 +7714,7 @@
                   <xs:sequence>
                     <xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded">
                       <xs:annotation>
-                        <xs:documentation>ID numbers of the central condenser plants serving as the source for this cooling system.</xs:documentation>
+                        <xs:documentation>ID number of the central CondenserPlant serving as the source for this cooling system.</xs:documentation>
                       </xs:annotation>
                       <xs:complexType>
                         <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -7675,7 +7818,7 @@
               </xs:element>
               <xs:element name="ChilledWaterSupplyTemperature" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>The water temperature that the equipment supplies , such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. (°F)</xs:documentation>
+                  <xs:documentation>The water temperature that the equipment supplies, such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. (°F)</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:simpleContent>
@@ -7719,7 +7862,7 @@
               </xs:element>
               <xs:element name="ChilledWaterSupplyTemperature" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>The water temperature that the equipment supplies , such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. (°F)</xs:documentation>
+                  <xs:documentation>The water temperature that the equipment supplies, such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. (°F)</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:simpleContent>
@@ -7746,7 +7889,7 @@
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element name="PrimaryFuel" type="auc:FuelTypes" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Main fuel used by the cooling plant.</xs:documentation>
+          <xs:documentation>Main fuel used by the CooiingPlant.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element ref="auc:BuildingAutomationSystem" minOccurs="0">
@@ -7756,7 +7899,7 @@
       </xs:element>
       <xs:element name="ControlSystemTypes" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Cooling plant equipment control strategies.</xs:documentation>
+          <xs:documentation>CoolingPlant equipment control strategies.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
@@ -7766,7 +7909,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="CondenserPlantType">
@@ -7806,7 +7949,7 @@
                       </xs:complexType>
                     </xs:element>
                   </xs:sequence>
-                  <xs:attribute name="ID" type="xs:ID"/>
+                  <xs:attribute name="ID" type="xs:ID" use="required"/>
                 </xs:complexType>
               </xs:element>
               <xs:element name="CondenserFanSpeedOperation" minOccurs="0">
@@ -7872,7 +8015,7 @@
             <xs:sequence>
               <xs:element name="WaterCooledCondenserType" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>Type of water cooled condenser.</xs:documentation>
+                  <xs:documentation>Type of water-cooled condenser.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -7928,7 +8071,7 @@
                     </xs:element>
                     <xs:element name="WaterSideEconomizerDBTemperatureMaximum" minOccurs="0">
                       <xs:annotation>
-                        <xs:documentation>The control temperature (outside air dry-bulb temperature) above which the water-side economizer is disabled. (°F)</xs:documentation>
+                        <xs:documentation>The control temperature of the outside air dry-bulb temperature above which the water-side economizer is disabled. (°F)</xs:documentation>
                       </xs:annotation>
                       <xs:complexType>
                         <xs:simpleContent>
@@ -7939,7 +8082,7 @@
                       </xs:complexType>
                     </xs:element>
                   </xs:sequence>
-                  <xs:attribute name="ID" type="xs:ID"/>
+                  <xs:attribute name="ID" type="xs:ID" use="required"/>
                 </xs:complexType>
               </xs:element>
               <xs:element name="CoolingTowerFanControl" minOccurs="0">
@@ -8067,7 +8210,7 @@
                     </xs:element>
                     <xs:element name="WaterSideEconomizerDBTemperatureMaximum" minOccurs="0">
                       <xs:annotation>
-                        <xs:documentation>The control temperature (outside air dry-bulb temperature) above which the water-side economizer is disabled. (°F)</xs:documentation>
+                        <xs:documentation>The control temperature of the outside air dry-bulb temperature above which the water-side economizer is disabled. (°F)</xs:documentation>
                       </xs:annotation>
                       <xs:complexType>
                         <xs:simpleContent>
@@ -8078,7 +8221,7 @@
                       </xs:complexType>
                     </xs:element>
                   </xs:sequence>
-                  <xs:attribute name="ID" type="xs:ID"/>
+                  <xs:attribute name="ID" type="xs:ID" use="required"/>
                 </xs:complexType>
               </xs:element>
               <xs:element name="WellCount" minOccurs="0">
@@ -8119,7 +8262,7 @@
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element name="PrimaryFuel" type="auc:FuelTypes" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Main fuel used by the condenser plant.</xs:documentation>
+          <xs:documentation>Main fuel used by the CondenserPlant.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element ref="auc:BuildingAutomationSystem" minOccurs="0">
@@ -8129,7 +8272,7 @@
       </xs:element>
       <xs:element name="ControlSystemTypes" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Condenser plant equipment control strategies.</xs:documentation>
+          <xs:documentation>CondenserPlant equipment control strategies.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
@@ -8139,7 +8282,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:complexType name="OtherHVACSystemType">
     <xs:sequence>
@@ -8505,7 +8648,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="LightingSystemType">
@@ -8733,7 +8876,7 @@
       </xs:element>
       <xs:element name="InputVoltage" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Voltage rating for this lighting system.</xs:documentation>
+          <xs:documentation>Voltage rating for this LightingSystem.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -8804,7 +8947,7 @@
       </xs:element>
       <xs:element name="PercentPremisesServed" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The percentage of the premises that the lighting system applies to. This may be for the whole building or an individual space, depending on the LinkedPremises field.</xs:documentation>
+          <xs:documentation>The percentage of the premises that the LightingSystem applies to. This may be for the whole building or an individual space, depending on the LinkedPremises field.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -8979,6 +9122,7 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element ref="auc:LightingAutomationSystem" minOccurs="0"/>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:PrimaryFuel" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
@@ -8988,13 +9132,13 @@
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Establishes whether the system applies to one or more entire buildings, section, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
+          <xs:documentation>Establishes whether the system applies to one or more entire buildings, section, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of LinkedPremises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="DomesticHotWaterSystemType">
@@ -9139,7 +9283,7 @@
                                           </xs:element>
                                           <xs:element name="SolarThermalSystemCollectorAzimuth" minOccurs="0">
                                             <xs:annotation>
-                                              <xs:documentation>Degrees clockwise from North. For a premises, it is the azimuth of the front facing element. It can also be applied to envelope components, such as walls, windows (fenestration), as well as onsite generation technologies, such as photovoltaic panels. Legal Values: 0 - 360. (degrees)</xs:documentation>
+                                              <xs:documentation>Degrees clockwise from North. For a premises, it is the azimuth of the front facing element. It can also be applied to envelope components, such as walls, windows (fenestration), as well as onsite generation technologies, such as photovoltaic panels. (0 - 360) (degrees)</xs:documentation>
                                             </xs:annotation>
                                             <xs:complexType>
                                               <xs:simpleContent>
@@ -9201,7 +9345,7 @@
                                         <xs:sequence>
                                           <xs:element name="HeatingPlantID" minOccurs="0">
                                             <xs:annotation>
-                                              <xs:documentation>ID number of heating plant serving as the source for this hot water system.</xs:documentation>
+                                              <xs:documentation>ID number of HeatingPlant serving as the source for this hot water system.</xs:documentation>
                                             </xs:annotation>
                                             <xs:complexType>
                                               <xs:attribute name="IDref" type="xs:IDREF"/>
@@ -9344,6 +9488,11 @@
             <xs:element name="Unknown" type="auc:UnknownType" minOccurs="0"/>
           </xs:choice>
         </xs:complexType>
+      </xs:element>
+      <xs:element name="DomesticHotWaterSystemNotes" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Details about the DHW system. For example, methods of evaluation used to determine condition or efficiency.</xs:documentation>
+        </xs:annotation>
       </xs:element>
       <xs:element name="Recirculation" minOccurs="0">
         <xs:annotation>
@@ -9524,6 +9673,7 @@
       <xs:element ref="auc:Manufacturer" minOccurs="0"/>
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
+      <xs:element name="DomesticHotWaterSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Establishes whether the system applies to one or more entire buildings, sections, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
@@ -9532,7 +9682,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="CookingSystemType">
@@ -9641,7 +9791,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="RefrigerationSystemType">
@@ -9776,7 +9926,7 @@
                           </xs:annotation>
                         </xs:element>
                       </xs:sequence>
-                      <xs:attribute name="ID" type="xs:ID"/>
+                      <xs:attribute name="ID" type="xs:ID" use="required"/>
                     </xs:complexType>
                   </xs:element>
                   <xs:element name="CondenserPlantIDs" minOccurs="0">
@@ -9784,7 +9934,7 @@
                       <xs:sequence>
                         <xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded">
                           <xs:annotation>
-                            <xs:documentation>ID numbers of the condenser plants serving as the source for this cooling system.</xs:documentation>
+                            <xs:documentation>ID number of the CondenserPlant serving as the source for this cooling system.</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -9944,7 +10094,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="DishwasherSystemType">
@@ -10057,7 +10207,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="LaundrySystemType">
@@ -10075,7 +10225,7 @@
                   <xs:element ref="auc:ClothesWasherLoaderType" minOccurs="0"/>
                   <xs:element name="ClothesWasherModifiedEnergyFactor" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Modified Energy Factor, MEF, is the energy performance metric for ENERGY STAR qualified clothes washers and all clothes washers as of February 1, 2013. MEF is the quotient of the capacity of the clothes container, C, divided by the total clothes washer energy consumption per cycle, with such energy consumption expressed as the sum of the machine electrical energy consumption, M, the hot water energy consumption, E, and the energy required for removal of the remaining moisture in the wash load, D. The higher MEF, the more efficient the clothes washer. The equation is: MEF = C/(M + E + D).</xs:documentation>
+                      <xs:documentation>Modified Energy Factor (MEF) is the energy performance metric for ENERGY STAR qualified clothes washers and all clothes washers as of February 1, 2013. MEF is the quotient of the capacity of the clothes container, C, divided by the total clothes washer energy consumption per cycle, with such energy consumption expressed as the sum of the machine electrical energy consumption, M, the hot water energy consumption, E, and the energy required for removal of the remaining moisture in the wash load, D. The higher MEF, the more efficient the clothes washer. The equation is: MEF = C/(M + E + D).</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:simpleContent>
@@ -10087,7 +10237,7 @@
                   </xs:element>
                   <xs:element name="ClothesWasherWaterFactor" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Water Factor, WF, is the quotient of the total weighted per-cycle water consumption, Q, divided by the capacity of the clothes washer, C. The lower the value, the more water efficient the clothes washer is. The equation is: WF = Q/C. WF is the ENERGY STAR water performance metric that allows the comparison of clothes washer water consumption independent of clothes washer capacity. (gal/cycle/ft3)</xs:documentation>
+                      <xs:documentation>Water Factor (WF) is the quotient of the total weighted per-cycle water consumption, Q, divided by the capacity of the clothes washer, C. The lower the value, the more water efficient the clothes washer is. The equation is: WF = Q/C. WF is the ENERGY STAR water performance metric that allows the comparison of clothes washer water consumption independent of clothes washer capacity. (gal/cycle/ft3)</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:simpleContent>
@@ -10163,7 +10313,7 @@
                   <xs:element ref="auc:ClothesWasherLoaderType" minOccurs="0"/>
                   <xs:element name="ClothesWasherModifiedEnergyFactor" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Modified Energy Factor, MEF, is the energy performance metric for ENERGY STAR qualified clothes washers and all clothes washers as of February 1, 2013. MEF is the quotient of the capacity of the clothes container, C, divided by the total clothes washer energy consumption per cycle, with such energy consumption expressed as the sum of the machine electrical energy consumption, M, the hot water energy consumption, E, and the energy required for removal of the remaining moisture in the wash load, D. The higher MEF, the more efficient the clothes washer. The equation is: MEF = C/(M + E + D).</xs:documentation>
+                      <xs:documentation>Modified Energy Factor (MEF) is the energy performance metric for ENERGY STAR qualified clothes washers and all clothes washers as of February 1, 2013. MEF is the quotient of the capacity of the clothes container, C, divided by the total clothes washer energy consumption per cycle, with such energy consumption expressed as the sum of the machine electrical energy consumption, M, the hot water energy consumption, E, and the energy required for removal of the remaining moisture in the wash load, D. The higher MEF, the more efficient the clothes washer. The equation is: MEF = C/(M + E + D).</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:simpleContent>
@@ -10175,7 +10325,7 @@
                   </xs:element>
                   <xs:element name="ClothesWasherWaterFactor" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Water Factor, WF, is the quotient of the total weighted per-cycle water consumption, Q, divided by the capacity of the clothes washer, C. The lower the value, the more water efficient the clothes washer is. The equation is: WF = Q/C. WF is the ENERGY STAR water performance metric that allows the comparison of clothes washer water consumption independent of clothes washer capacity. (gal/cycle/ft3)</xs:documentation>
+                      <xs:documentation>Water Factor (WF) is the quotient of the total weighted per-cycle water consumption, Q, divided by the capacity of the clothes washer, C. The lower the value, the more water efficient the clothes washer is. The equation is: WF = Q/C. WF is the ENERGY STAR water performance metric that allows the comparison of clothes washer water consumption independent of clothes washer capacity. (gal/cycle/ft3)</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:simpleContent>
@@ -10262,7 +10412,7 @@
           <xs:sequence>
             <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation>Laundry system control.</xs:documentation>
+                <xs:documentation>LaundrySystem control.</xs:documentation>
               </xs:annotation>
             </xs:element>
           </xs:sequence>
@@ -10279,7 +10429,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="PumpSystemType">
@@ -10451,7 +10601,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="FanSystemType">
@@ -10536,7 +10686,7 @@
       </xs:element>
       <xs:element name="BeltType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Type of belt drive in fan unit</xs:documentation>
+          <xs:documentation>Type of belt drive in fan unit.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -10635,13 +10785,13 @@
       </xs:element>
       <xs:element name="Controls" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>List of controls for fan system.</xs:documentation>
+          <xs:documentation>List of controls for FanSystem.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
             <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation>Fan system control.</xs:documentation>
+                <xs:documentation>FanSystem control.</xs:documentation>
               </xs:annotation>
             </xs:element>
           </xs:sequence>
@@ -10655,6 +10805,7 @@
       <xs:element ref="auc:Manufacturer" minOccurs="0"/>
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
+      <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element name="LinkedSystemIDs" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
@@ -10671,7 +10822,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="MotorSystemType">
@@ -10750,7 +10901,7 @@
       </xs:element>
       <xs:element name="MotorPoleCount" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The number of pole electromagnetic windings in the motor's stator and used to assign Motor Efficiency. Pole count is always a multiple of 2.</xs:documentation>
+          <xs:documentation>The number of pole electromagnetic windings in the motor's stator and used to assign MotorEfficiency. Pole count is always a multiple of 2.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -10792,13 +10943,13 @@
       </xs:element>
       <xs:element name="Controls" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>List of controls for motor systems.</xs:documentation>
+          <xs:documentation>List of controls for MotorSystem.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
             <xs:element name="Control" type="auc:ControlGeneralType" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation>Motor system control.</xs:documentation>
+                <xs:documentation>MotorSystem control.</xs:documentation>
               </xs:annotation>
             </xs:element>
           </xs:sequence>
@@ -10812,6 +10963,7 @@
       <xs:element ref="auc:Manufacturer" minOccurs="0"/>
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
+      <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element name="LinkedSystemIDs" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
@@ -10828,7 +10980,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="HeatRecoverySystemType">
@@ -10915,7 +11067,7 @@
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="WallSystemType">
@@ -11149,7 +11301,7 @@
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="CeilingSystemType">
@@ -11312,7 +11464,7 @@
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="RoofSystemType">
@@ -11561,7 +11713,7 @@
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="FenestrationSystemType">
@@ -11967,7 +12119,7 @@
       </xs:element>
       <xs:element name="FenestrationGasFill" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>For a sealed glazing system (commonly called an Insulated Glass Unit (IGU), the gas that is found between the panes of glass.</xs:documentation>
+          <xs:documentation>For a sealed glazing system (commonly called an Insulated Glass Unit (IGU)), the gas that is found between the panes of glass.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -12049,7 +12201,7 @@
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="ExteriorFloorSystemType">
@@ -12179,7 +12331,7 @@
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="FoundationSystemType">
@@ -12600,7 +12752,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="CriticalITSystemType">
@@ -12624,7 +12776,7 @@
       </xs:element>
       <xs:element name="ITPeakPower" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The equipment's rated, maximum-power-point power at standard testing conditions (STC). (W)</xs:documentation>
+          <xs:documentation>The maximum instantaneous power use (ASHRAE Guideline 14-2014 section E1.2.2).</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -12683,7 +12835,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="PlugElectricLoadType">
@@ -12713,7 +12865,7 @@
       </xs:element>
       <xs:element name="PlugLoadPeakPower" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The equipment's rated, maximum-power-point power at standard testing conditions (STC). (W)</xs:documentation>
+          <xs:documentation>The maximum instantaneous power use (ASHRAE Guideline 14-2014 section E1.2.2).</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -12784,7 +12936,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Source"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
@@ -12813,7 +12965,7 @@
       </xs:element>
       <xs:element name="ProcessLoadPeakPower" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The equipment's rated, maximum-power-point power at standard testing conditions (STC). (W)</xs:documentation>
+          <xs:documentation>The maximum instantaneous power use (ASHRAE Guideline 14-2014 section E1.2.2).</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -12878,7 +13030,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Source"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
@@ -12915,7 +13067,7 @@
       </xs:element>
       <xs:element name="ConveyancePeakPower" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The equipment's rated, maximum-power-point power at standard testing conditions (STC). (W)</xs:documentation>
+          <xs:documentation>The maximum instantaneous power use (ASHRAE Guideline 14-2014 section E1.2.2).</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -12951,6 +13103,11 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="ConveyanceSystemCondition" type="auc:EquipmentCondition" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Description of the conveyance system's condition.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
@@ -12962,7 +13119,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="OnsiteStorageTransmissionGenerationSystemType">
@@ -13256,7 +13413,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="PoolType">
@@ -13381,7 +13538,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="WaterUseType">
@@ -13488,7 +13645,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
   <xs:complexType name="CalculationMethodType">
@@ -14553,15 +14710,25 @@
             <xs:documentation>The state for the address type, following the ISO 3166-2 Region code for US states.</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element name="PostalCode" type="xs:string" minOccurs="0">
+        <xs:element name="PostalCode" minOccurs="0">
           <xs:annotation>
-            <xs:documentation>The 5 digit postal code for the Address Type. NNNNN</xs:documentation>
+            <xs:documentation>The 5 digit postal code for the Address Type. Format: NNNNN</xs:documentation>
           </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]{5}"/>
+            </xs:restriction>
+          </xs:simpleType>
         </xs:element>
-        <xs:element name="PostalCodePlus4" type="xs:string" minOccurs="0">
+        <xs:element name="PostalCodePlus4" minOccurs="0">
           <xs:annotation>
-            <xs:documentation>The 4-digit add-on to the postal code in which the state is located. NNNN</xs:documentation>
+            <xs:documentation>The 4 digit add-on to the postal code in which the state is located. Format: NNNN</xs:documentation>
           </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="[0-9]{4}"/>
+            </xs:restriction>
+          </xs:simpleType>
         </xs:element>
         <xs:element name="County" type="xs:string" minOccurs="0">
           <xs:annotation>
@@ -14576,10 +14743,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="TelephoneNumber" type="xs:string">
+  <xs:element name="TelephoneNumber">
     <xs:annotation>
       <xs:documentation>Telephone number may be specified for customer, contractors, and other contacts or businesses. Format: NNN-NNN-NNNN</xs:documentation>
     </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
+      </xs:restriction>
+    </xs:simpleType>
   </xs:element>
   <xs:element name="EmailAddress" type="xs:string">
     <xs:annotation>
@@ -14716,6 +14888,19 @@
       <xs:enumeration value="WV"/>
       <xs:enumeration value="WI"/>
       <xs:enumeration value="WY"/>
+      <xs:enumeration value="AB"/>
+      <xs:enumeration value="BC"/>
+      <xs:enumeration value="MB"/>
+      <xs:enumeration value="NB"/>
+      <xs:enumeration value="NL"/>
+      <xs:enumeration value="NS"/>
+      <xs:enumeration value="ON"/>
+      <xs:enumeration value="PE"/>
+      <xs:enumeration value="QC"/>
+      <xs:enumeration value="SK"/>
+      <xs:enumeration value="NT"/>
+      <xs:enumeration value="NU"/>
+      <xs:enumeration value="YT"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="FuelTypes">
@@ -14855,170 +15040,175 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="OccupancyClassification">
+  <xs:element name="OccupancyClassification" type="auc:OccupancyClassificationType">
     <xs:annotation>
       <xs:documentation>Classification of the space (complex, whole building, or section) tasks by building occupants.</xs:documentation>
     </xs:annotation>
-    <xs:simpleType>
-      <xs:restriction base="xs:string">
-        <xs:enumeration value="Manufactured home"/>
-        <xs:enumeration value="Single family"/>
-        <xs:enumeration value="Multifamily"/>
-        <xs:enumeration value="Multifamily with commercial"/>
-        <xs:enumeration value="Multifamily individual unit"/>
-        <xs:enumeration value="Public housing"/>
-        <xs:enumeration value="Residential"/>
-        <xs:enumeration value="Health care-Pharmacy"/>
-        <xs:enumeration value="Health care-Skilled nursing facility"/>
-        <xs:enumeration value="Health care-Residential treatment center"/>
-        <xs:enumeration value="Health care-Inpatient hospital"/>
-        <xs:enumeration value="Health care-Outpatient rehabilitation"/>
-        <xs:enumeration value="Health care-Diagnostic center"/>
-        <xs:enumeration value="Health care-Outpatient facility"/>
-        <xs:enumeration value="Health care-Outpatient non-diagnostic"/>
-        <xs:enumeration value="Health care-Outpatient surgical"/>
-        <xs:enumeration value="Health care-Veterinary"/>
-        <xs:enumeration value="Health care-Morgue or mortuary"/>
-        <xs:enumeration value="Health care"/>
-        <xs:enumeration value="Gas station"/>
-        <xs:enumeration value="Convenience store"/>
-        <xs:enumeration value="Food sales-Grocery store"/>
-        <xs:enumeration value="Food sales"/>
-        <xs:enumeration value="Laboratory-Testing"/>
-        <xs:enumeration value="Laboratory-Medical"/>
-        <xs:enumeration value="Laboratory"/>
-        <xs:enumeration value="Vivarium"/>
-        <xs:enumeration value="Zoo"/>
-        <xs:enumeration value="Office-Financial"/>
-        <xs:enumeration value="Office"/>
-        <xs:enumeration value="Bank"/>
-        <xs:enumeration value="Courthouse"/>
-        <xs:enumeration value="Public safety station-Fire"/>
-        <xs:enumeration value="Public safety station-Police"/>
-        <xs:enumeration value="Public safety station"/>
-        <xs:enumeration value="Public safety-Detention center"/>
-        <xs:enumeration value="Public safety-Correctional facility"/>
-        <xs:enumeration value="Public safety"/>
-        <xs:enumeration value="Warehouse-Refrigerated"/>
-        <xs:enumeration value="Warehouse-Unrefrigerated"/>
-        <xs:enumeration value="Warehouse-Self-storage"/>
-        <xs:enumeration value="Warehouse"/>
-        <xs:enumeration value="Assembly-Religious"/>
-        <xs:enumeration value="Assembly-Cultural entertainment"/>
-        <xs:enumeration value="Assembly-Social entertainment"/>
-        <xs:enumeration value="Assembly-Arcade or casino without lodging"/>
-        <xs:enumeration value="Assembly-Convention center"/>
-        <xs:enumeration value="Assembly-Indoor arena"/>
-        <xs:enumeration value="Assembly-Race track"/>
-        <xs:enumeration value="Assembly-Stadium"/>
-        <xs:enumeration value="Assembly-Stadium (closed)"/>
-        <xs:enumeration value="Assembly-Stadium (open)"/>
-        <xs:enumeration value="Assembly-Public"/>
-        <xs:enumeration value="Recreation-Pool"/>
-        <xs:enumeration value="Recreation-Bowling alley"/>
-        <xs:enumeration value="Recreation-Fitness center"/>
-        <xs:enumeration value="Recreation-Ice rink"/>
-        <xs:enumeration value="Recreation-Roller rink"/>
-        <xs:enumeration value="Recreation-Indoor sport"/>
-        <xs:enumeration value="Recreation"/>
-        <xs:enumeration value="Education-Adult"/>
-        <xs:enumeration value="Education-Higher"/>
-        <xs:enumeration value="Education-Secondary"/>
-        <xs:enumeration value="Education-Primary"/>
-        <xs:enumeration value="Education-Preschool or daycare"/>
-        <xs:enumeration value="Education-Vocational"/>
-        <xs:enumeration value="Education"/>
-        <xs:enumeration value="Food service-Fast"/>
-        <xs:enumeration value="Food service-Full"/>
-        <xs:enumeration value="Food service-Limited"/>
-        <xs:enumeration value="Food service-Institutional"/>
-        <xs:enumeration value="Food service"/>
-        <xs:enumeration value="Lodging-Barracks"/>
-        <xs:enumeration value="Lodging-Institutional"/>
-        <xs:enumeration value="Lodging with extended amenities"/>
-        <xs:enumeration value="Lodging with limited amenities"/>
-        <xs:enumeration value="Lodging"/>
-        <xs:enumeration value="Retail-Automobile dealership"/>
-        <xs:enumeration value="Retail-Mall"/>
-        <xs:enumeration value="Retail-Strip mall"/>
-        <xs:enumeration value="Retail-Enclosed mall"/>
-        <xs:enumeration value="Retail-Dry goods retail"/>
-        <xs:enumeration value="Retail-Hypermarket"/>
-        <xs:enumeration value="Retail"/>
-        <xs:enumeration value="Service-Postal"/>
-        <xs:enumeration value="Service-Repair"/>
-        <xs:enumeration value="Service-Laundry or dry cleaning"/>
-        <xs:enumeration value="Service-Studio"/>
-        <xs:enumeration value="Service-Beauty and health"/>
-        <xs:enumeration value="Service-Production and assembly"/>
-        <xs:enumeration value="Service"/>
-        <xs:enumeration value="Transportation terminal"/>
-        <xs:enumeration value="Central Plant"/>
-        <xs:enumeration value="Water treatment-Wastewater"/>
-        <xs:enumeration value="Water treatment-Drinking water and distribution"/>
-        <xs:enumeration value="Water treatment"/>
-        <xs:enumeration value="Energy generation plant"/>
-        <xs:enumeration value="Industrial manufacturing plant"/>
-        <xs:enumeration value="Utility"/>
-        <xs:enumeration value="Industrial"/>
-        <xs:enumeration value="Agricultural estate"/>
-        <xs:enumeration value="Mixed-use commercial"/>
-        <xs:enumeration value="Parking"/>
-        <xs:enumeration value="Attic"/>
-        <xs:enumeration value="Basement"/>
-        <xs:enumeration value="Dining area"/>
-        <xs:enumeration value="Living area"/>
-        <xs:enumeration value="Sleeping area"/>
-        <xs:enumeration value="Laundry area"/>
-        <xs:enumeration value="Lodging area"/>
-        <xs:enumeration value="Dressing area"/>
-        <xs:enumeration value="Restroom"/>
-        <xs:enumeration value="Auditorium"/>
-        <xs:enumeration value="Classroom"/>
-        <xs:enumeration value="Day room"/>
-        <xs:enumeration value="Sport play area"/>
-        <xs:enumeration value="Stage"/>
-        <xs:enumeration value="Spectator area"/>
-        <xs:enumeration value="Office work area"/>
-        <xs:enumeration value="Non-office work area"/>
-        <xs:enumeration value="Common area"/>
-        <xs:enumeration value="Reception area"/>
-        <xs:enumeration value="Waiting area"/>
-        <xs:enumeration value="Transportation waiting area"/>
-        <xs:enumeration value="Lobby"/>
-        <xs:enumeration value="Conference room"/>
-        <xs:enumeration value="Computer lab"/>
-        <xs:enumeration value="Data center"/>
-        <xs:enumeration value="Printing room"/>
-        <xs:enumeration value="Media center"/>
-        <xs:enumeration value="Telephone data entry"/>
-        <xs:enumeration value="Darkroom"/>
-        <xs:enumeration value="Courtroom"/>
-        <xs:enumeration value="Kitchen"/>
-        <xs:enumeration value="Kitchenette"/>
-        <xs:enumeration value="Refrigerated storage"/>
-        <xs:enumeration value="Bar-Nightclub"/>
-        <xs:enumeration value="Bar"/>
-        <xs:enumeration value="Dance floor"/>
-        <xs:enumeration value="Trading floor"/>
-        <xs:enumeration value="TV studio"/>
-        <xs:enumeration value="Security room"/>
-        <xs:enumeration value="Shipping and receiving"/>
-        <xs:enumeration value="Mechanical room"/>
-        <xs:enumeration value="Chemical storage room"/>
-        <xs:enumeration value="Non-chemical storage room"/>
-        <xs:enumeration value="Janitorial closet"/>
-        <xs:enumeration value="Vault"/>
-        <xs:enumeration value="Corridor"/>
-        <xs:enumeration value="Deck"/>
-        <xs:enumeration value="Courtyard"/>
-        <xs:enumeration value="Atrium"/>
-        <xs:enumeration value="Science park"/>
-        <xs:enumeration value="Other"/>
-        <xs:enumeration value="Unknown"/>
-      </xs:restriction>
-    </xs:simpleType>
   </xs:element>
+  <xs:element name="OriginalOccupancyClassification" type="auc:OccupancyClassificationType">
+    <xs:annotation>
+      <xs:documentation>Original classification of the space (complex, whole building, or section) tasks by building occupants.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:simpleType name="OccupancyClassificationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Manufactured home"/>
+      <xs:enumeration value="Single family"/>
+      <xs:enumeration value="Multifamily"/>
+      <xs:enumeration value="Multifamily with commercial"/>
+      <xs:enumeration value="Multifamily individual unit"/>
+      <xs:enumeration value="Public housing"/>
+      <xs:enumeration value="Residential"/>
+      <xs:enumeration value="Health care-Pharmacy"/>
+      <xs:enumeration value="Health care-Skilled nursing facility"/>
+      <xs:enumeration value="Health care-Residential treatment center"/>
+      <xs:enumeration value="Health care-Inpatient hospital"/>
+      <xs:enumeration value="Health care-Outpatient rehabilitation"/>
+      <xs:enumeration value="Health care-Diagnostic center"/>
+      <xs:enumeration value="Health care-Outpatient facility"/>
+      <xs:enumeration value="Health care-Outpatient non-diagnostic"/>
+      <xs:enumeration value="Health care-Outpatient surgical"/>
+      <xs:enumeration value="Health care-Veterinary"/>
+      <xs:enumeration value="Health care-Morgue or mortuary"/>
+      <xs:enumeration value="Health care"/>
+      <xs:enumeration value="Gas station"/>
+      <xs:enumeration value="Convenience store"/>
+      <xs:enumeration value="Food sales-Grocery store"/>
+      <xs:enumeration value="Food sales"/>
+      <xs:enumeration value="Laboratory-Testing"/>
+      <xs:enumeration value="Laboratory-Medical"/>
+      <xs:enumeration value="Laboratory"/>
+      <xs:enumeration value="Vivarium"/>
+      <xs:enumeration value="Zoo"/>
+      <xs:enumeration value="Office-Financial"/>
+      <xs:enumeration value="Office"/>
+      <xs:enumeration value="Bank"/>
+      <xs:enumeration value="Courthouse"/>
+      <xs:enumeration value="Public safety station-Fire"/>
+      <xs:enumeration value="Public safety station-Police"/>
+      <xs:enumeration value="Public safety station"/>
+      <xs:enumeration value="Public safety-Detention center"/>
+      <xs:enumeration value="Public safety-Correctional facility"/>
+      <xs:enumeration value="Public safety"/>
+      <xs:enumeration value="Warehouse-Refrigerated"/>
+      <xs:enumeration value="Warehouse-Unrefrigerated"/>
+      <xs:enumeration value="Warehouse-Self-storage"/>
+      <xs:enumeration value="Warehouse"/>
+      <xs:enumeration value="Assembly-Religious"/>
+      <xs:enumeration value="Assembly-Cultural entertainment"/>
+      <xs:enumeration value="Assembly-Social entertainment"/>
+      <xs:enumeration value="Assembly-Arcade or casino without lodging"/>
+      <xs:enumeration value="Assembly-Convention center"/>
+      <xs:enumeration value="Assembly-Indoor arena"/>
+      <xs:enumeration value="Assembly-Race track"/>
+      <xs:enumeration value="Assembly-Stadium"/>
+      <xs:enumeration value="Assembly-Stadium (closed)"/>
+      <xs:enumeration value="Assembly-Stadium (open)"/>
+      <xs:enumeration value="Assembly-Public"/>
+      <xs:enumeration value="Recreation-Pool"/>
+      <xs:enumeration value="Recreation-Bowling alley"/>
+      <xs:enumeration value="Recreation-Fitness center"/>
+      <xs:enumeration value="Recreation-Ice rink"/>
+      <xs:enumeration value="Recreation-Roller rink"/>
+      <xs:enumeration value="Recreation-Indoor sport"/>
+      <xs:enumeration value="Recreation"/>
+      <xs:enumeration value="Education-Adult"/>
+      <xs:enumeration value="Education-Higher"/>
+      <xs:enumeration value="Education-Secondary"/>
+      <xs:enumeration value="Education-Primary"/>
+      <xs:enumeration value="Education-Preschool or daycare"/>
+      <xs:enumeration value="Education-Vocational"/>
+      <xs:enumeration value="Education"/>
+      <xs:enumeration value="Food service-Fast"/>
+      <xs:enumeration value="Food service-Full"/>
+      <xs:enumeration value="Food service-Limited"/>
+      <xs:enumeration value="Food service-Institutional"/>
+      <xs:enumeration value="Food service"/>
+      <xs:enumeration value="Lodging-Barracks"/>
+      <xs:enumeration value="Lodging-Institutional"/>
+      <xs:enumeration value="Lodging with extended amenities"/>
+      <xs:enumeration value="Lodging with limited amenities"/>
+      <xs:enumeration value="Lodging"/>
+      <xs:enumeration value="Retail-Automobile dealership"/>
+      <xs:enumeration value="Retail-Mall"/>
+      <xs:enumeration value="Retail-Strip mall"/>
+      <xs:enumeration value="Retail-Enclosed mall"/>
+      <xs:enumeration value="Retail-Dry goods retail"/>
+      <xs:enumeration value="Retail-Hypermarket"/>
+      <xs:enumeration value="Retail"/>
+      <xs:enumeration value="Service-Postal"/>
+      <xs:enumeration value="Service-Repair"/>
+      <xs:enumeration value="Service-Laundry or dry cleaning"/>
+      <xs:enumeration value="Service-Studio"/>
+      <xs:enumeration value="Service-Beauty and health"/>
+      <xs:enumeration value="Service-Production and assembly"/>
+      <xs:enumeration value="Service"/>
+      <xs:enumeration value="Transportation terminal"/>
+      <xs:enumeration value="Central Plant"/>
+      <xs:enumeration value="Water treatment-Wastewater"/>
+      <xs:enumeration value="Water treatment-Drinking water and distribution"/>
+      <xs:enumeration value="Water treatment"/>
+      <xs:enumeration value="Energy generation plant"/>
+      <xs:enumeration value="Industrial manufacturing plant"/>
+      <xs:enumeration value="Utility"/>
+      <xs:enumeration value="Industrial"/>
+      <xs:enumeration value="Agricultural estate"/>
+      <xs:enumeration value="Mixed-use commercial"/>
+      <xs:enumeration value="Parking"/>
+      <xs:enumeration value="Attic"/>
+      <xs:enumeration value="Basement"/>
+      <xs:enumeration value="Dining area"/>
+      <xs:enumeration value="Living area"/>
+      <xs:enumeration value="Sleeping area"/>
+      <xs:enumeration value="Laundry area"/>
+      <xs:enumeration value="Lodging area"/>
+      <xs:enumeration value="Dressing area"/>
+      <xs:enumeration value="Restroom"/>
+      <xs:enumeration value="Auditorium"/>
+      <xs:enumeration value="Classroom"/>
+      <xs:enumeration value="Day room"/>
+      <xs:enumeration value="Sport play area"/>
+      <xs:enumeration value="Stage"/>
+      <xs:enumeration value="Spectator area"/>
+      <xs:enumeration value="Office work area"/>
+      <xs:enumeration value="Non-office work area"/>
+      <xs:enumeration value="Common area"/>
+      <xs:enumeration value="Reception area"/>
+      <xs:enumeration value="Waiting area"/>
+      <xs:enumeration value="Transportation waiting area"/>
+      <xs:enumeration value="Lobby"/>
+      <xs:enumeration value="Conference room"/>
+      <xs:enumeration value="Computer lab"/>
+      <xs:enumeration value="Data center"/>
+      <xs:enumeration value="Printing room"/>
+      <xs:enumeration value="Media center"/>
+      <xs:enumeration value="Telephone data entry"/>
+      <xs:enumeration value="Darkroom"/>
+      <xs:enumeration value="Courtroom"/>
+      <xs:enumeration value="Kitchen"/>
+      <xs:enumeration value="Kitchenette"/>
+      <xs:enumeration value="Refrigerated storage"/>
+      <xs:enumeration value="Bar-Nightclub"/>
+      <xs:enumeration value="Bar"/>
+      <xs:enumeration value="Dance floor"/>
+      <xs:enumeration value="Trading floor"/>
+      <xs:enumeration value="TV studio"/>
+      <xs:enumeration value="Security room"/>
+      <xs:enumeration value="Shipping and receiving"/>
+      <xs:enumeration value="Mechanical room"/>
+      <xs:enumeration value="Chemical storage room"/>
+      <xs:enumeration value="Non-chemical storage room"/>
+      <xs:enumeration value="Janitorial closet"/>
+      <xs:enumeration value="Vault"/>
+      <xs:enumeration value="Corridor"/>
+      <xs:enumeration value="Deck"/>
+      <xs:enumeration value="Courtyard"/>
+      <xs:enumeration value="Atrium"/>
+      <xs:enumeration value="Science park"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:element name="TypicalOccupantUsages">
     <xs:annotation>
       <xs:documentation>Characterization of the usage of the space (complex, whole building, or section) by building occupants.</xs:documentation>
@@ -15201,6 +15391,20 @@
                   <xs:documentation>The story of the given floor area type.</xs:documentation>
                 </xs:annotation>
               </xs:element>
+              <xs:element name="ExcludedSectionIDs" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Links to Sections not included in the floor area calculation.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ExcludedSectionID" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -15255,7 +15459,11 @@
                 </xs:annotation>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:enumeration value="Peak total occupants"/>
+                    <xs:enumeration value="Peak total occupants">
+                      <xs:annotation>
+                        <xs:documentation>This is the design occupancy of the premise (per SPC 211 Standard for Commercial Building Energy Audits section 5.3.4.d).</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
                     <xs:enumeration value="Adults"/>
                     <xs:enumeration value="Children"/>
                     <xs:enumeration value="Average residents"/>
@@ -15267,6 +15475,11 @@
                     <xs:enumeration value="Licensed beds"/>
                     <xs:enumeration value="Capacity"/>
                     <xs:enumeration value="Capacity percentage"/>
+                    <xs:enumeration value="Normal occupancy">
+                      <xs:annotation>
+                        <xs:documentation>This is the normal occupancy of the premise (per SPC 211 Standard for Commercial Building Energy Audits section 5.3.4.d).  It can also be thought of as the average occupancy, i.e. the average number of people in the premise at any singular point in time.</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -15541,7 +15754,7 @@
   </xs:element>
   <xs:element name="ENERGYSTARScore">
     <xs:annotation>
-      <xs:documentation>The ENERGY STAR Score is a measure of how well the property is performing relative to similar properties. The ENERGY STAR scores are based on data from national building energy consumption surveys, and allows Portfolio Manager to control for key variables affecting a building's energy performance, including climate, hours of operation, and building size.</xs:documentation>
+      <xs:documentation>If "Custom" is used as an Identifier Type, this term can be used to specify the name of the Custom ID. This would be used to specify the name of the specific program that this identifier applies to, for example "Wisconsin Weatherization Program". It can also be used for the ENERGY STAR Portfolio Manager Standard IDs that are assigned to different Portfolio Manager programs, such as "NYC Building Identification Number (BIN)".</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
@@ -15652,6 +15865,26 @@
         <xs:enumeration value="Unknown"/>
       </xs:restriction>
     </xs:simpleType>
+  </xs:element>
+  <xs:element name="ApplicableEndDateForDemandRate" type="xs:gMonthDay">
+    <xs:annotation>
+      <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ApplicableEndDateForEnergyRate" type="xs:gMonthDay">
+    <xs:annotation>
+      <xs:documentation>The date after which the rate is not applicable. (MM-DD)</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ApplicableStartDateForDemandRate" type="xs:gMonthDay">
+    <xs:annotation>
+      <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ApplicableStartDateForEnergyRate" type="xs:gMonthDay">
+    <xs:annotation>
+      <xs:documentation>The date from which the rate is applicable. (MM-DD)</xs:documentation>
+    </xs:annotation>
   </xs:element>
   <xs:element name="BurnerType">
     <xs:annotation>
@@ -15806,6 +16039,7 @@
         <xs:enumeration value="Series Plate and Frame Heat Exchanger"/>
         <xs:enumeration value="Strainer Cycle"/>
         <xs:enumeration value="Thermo Cycle"/>
+        <xs:enumeration value="None"/>
         <xs:enumeration value="Other"/>
         <xs:enumeration value="Unknown"/>
       </xs:restriction>
@@ -16092,12 +16326,12 @@
     <xs:sequence>
       <xs:element name="PMBenchmarkDate" type="xs:date" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Date that the building was benchmarked in Portfolio Manager. (CCYY-MM-DD)</xs:documentation>
+          <xs:documentation>Date that the building was benchmarked in ENERGY STAR Portfolio Manager. (CCYY-MM-DD)</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="BuildingProfileStatus" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The status of the building profile submission process for Portfolio Manager.</xs:documentation>
+          <xs:documentation>The status of the building profile submission process for ENERGY STAR Portfolio Manager.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -16112,7 +16346,7 @@
       </xs:element>
       <xs:element name="FederalSustainabilityChecklistCompletionPercentage" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Percentage of the Federal High Performance Sustainability Checklist that has been completed for federal building in Portfolio Manager. (0-100) (%)</xs:documentation>
+          <xs:documentation>Percentage of the Federal High Performance Sustainability Checklist that has been completed for federal building in ENERGY STAR Portfolio Manager. (0-100) (%)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -16205,6 +16439,7 @@
                   <xs:enumeration value="Enthalpy"/>
                   <xs:enumeration value="Demand controlled ventilation"/>
                   <xs:enumeration value="Nonintegrated"/>
+                  <xs:enumeration value="None"/>
                   <xs:enumeration value="Other"/>
                   <xs:enumeration value="Unknown"/>
                 </xs:restriction>
@@ -16260,7 +16495,7 @@
               </xs:complexType>
             </xs:element>
           </xs:sequence>
-          <xs:attribute name="ID" type="xs:ID"/>
+          <xs:attribute name="ID" type="xs:ID" use="required"/>
           <xs:attribute ref="auc:Status"/>
         </xs:complexType>
       </xs:element>
@@ -16822,6 +17057,11 @@
       <xs:documentation>Does the building include a building automation or management system?</xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:element name="LightingAutomationSystem" type="xs:boolean">
+    <xs:annotation>
+      <xs:documentation>Does the building include a lighting automation or management system?</xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:simpleType name="ControlStrategyLightingType">
     <xs:annotation>
       <xs:documentation>Enumerations for lighting control strategies.</xs:documentation>
@@ -16934,7 +17174,7 @@
             <xs:sequence>
               <xs:element name="ClimateZone" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+                  <xs:documentation>Based on the ClimateZoneType term, this is the climate zone designation.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -16966,7 +17206,7 @@
             <xs:sequence>
               <xs:element name="ClimateZone" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+                  <xs:documentation>Based on the ClimateZoneType term, this is the climate zone designation.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -16985,7 +17225,7 @@
             <xs:sequence>
               <xs:element name="ClimateZone" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+                  <xs:documentation>Based on the ClimateZoneType term, this is the climate zone designation.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -17016,7 +17256,7 @@
             <xs:sequence>
               <xs:element name="ClimateZone" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+                  <xs:documentation>Based on the ClimateZoneType term, this is the climate zone designation.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -17040,7 +17280,7 @@
             <xs:sequence>
               <xs:element name="ClimateZone" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+                  <xs:documentation>Based on the ClimateZoneType term, this is the climate zone designation.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -17064,7 +17304,7 @@
             <xs:sequence>
               <xs:element name="ClimateZone" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+                  <xs:documentation>Based on the ClimateZoneType term, this is the climate zone designation.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -17087,7 +17327,7 @@
             <xs:sequence>
               <xs:element name="ClimateZone" type="xs:string" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>Based on the Climate Zone Type term, this is the climate zone designation.</xs:documentation>
+                  <xs:documentation>Based on the ClimateZoneType term, this is the climate zone designation.</xs:documentation>
                 </xs:annotation>
               </xs:element>
             </xs:sequence>
@@ -17134,7 +17374,7 @@
   </xs:element>
   <xs:element name="WeatherDataStationID">
     <xs:annotation>
-      <xs:documentation>For an actual weather station, this is the ID assigned by NOAA. For hourly energy simulations, this is the six digit code associated with the hourly weather data, generally found in the name of the weather data file, as well as in the header of the data file. (NNNNNN)</xs:documentation>
+      <xs:documentation>For an actual weather station, this is the ID assigned by National Oceanic and Atmospheric Administration (NOAA). For hourly energy simulations, this is the six digit code associated with the hourly weather data, generally found in the name of the weather data file, as well as in the header of the data file. (NNNNNN)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
@@ -17278,4 +17518,94 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+  <xs:simpleType name="LowMedHigh">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Low"/>
+      <xs:enumeration value="Medium"/>
+      <xs:enumeration value="High"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WallID">
+    <xs:annotation>
+      <xs:documentation>ID number of the wall type associated with this side of the section.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="WallArea" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Exposed, above-grade, opaque wall area of this type. (ft2)</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:decimal">
+                <xs:attribute ref="auc:Source"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoorID">
+    <xs:annotation>
+      <xs:documentation>ID number of the door type associated with this side of the section.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="FenestrationArea" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Total area of this fenestration type. (ft2)</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:decimal">
+                <xs:attribute ref="auc:Source"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WindowID">
+    <xs:annotation>
+      <xs:documentation>ID number of the window type associated with this side of the section.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="FenestrationArea" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Total area of this fenestration type. (ft2)</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:decimal">
+                <xs:attribute ref="auc:Source"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="WindowToWallRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
+          <xs:annotation>
+            <xs:documentation>Ratio of total window area to total wall area. (0-1) (fraction)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="PercentOfWindowAreaShaded" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>The percentage of the fenestration area that is shaded by exterior objects such as trees or other buildings. (0-100) (%)</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:decimal">
+                <xs:attribute ref="auc:Source"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

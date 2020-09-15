@@ -1,14 +1,124 @@
 # BuildingSync
 
-## Version 2.0 Prerelease 2
+## Version 2.2.0-pr1
 
-Date Range: 09/30/19 - 11/15/19:
+BuildingSync Version 2.2.0-pr1 does not introduce any breaking changes. It introduces elements required for 
+a complete audit report for ASHRAE Standard 211 Level 1.  
+Note that the element `auc:PrimaryHVACSystemType` is in the process of being deprecated, and users should replace it with 
+`auc:PrincipalHVACSystemType` to ensure future conformance to the schema.
 
-Closed Issues: 2
-- Merged [#135]( https://github.com/BuildingSync/schema/issues/135 ), Bound 0-100 Percentages
-- Merged [#152]( https://github.com/BuildingSync/schema/issues/152 ), Support arbitrary scores and ratings
+Date Range: 07/31/20 - 08/31/20
 
-Accepted Pull Requests: 7
+| Category       | Count |
+|----------------|-------|
+| Controls         | 0  |
+| General         | 3  |
+| Measures         | 0  |
+| Reports         | 7  |
+| Systems         | 1  |
+| Validation         | 0  |
+| Other         | 1  |
+| **Total**      | 12 |
+
+| Change Type    | Count |
+|----------------|-------|
+| Breaking Change         | 0  |
+| Non-breaking Change         | 12  |
+
+New Issues: 2 (#212, #218)
+
+Closed Issues: 3
+- Merged [#172]( https://github.com/BuildingSync/schema/issues/172 ), Promote UDF - PrincipalHVACType as part of Section.
+- Merged [#173]( https://github.com/BuildingSync/schema/issues/173 ), Promote UDF - PrincipalLightingSystemType as part of Section.
+- Merged [#212]( https://github.com/BuildingSync/schema/issues/212 ), Question concerning some "Other delivered" auc:FuelTypes
+
+Accepted Pull Requests: 12
+- Merged [#200]( https://github.com/BuildingSync/schema/pull/200 ), Add ReadingType Cost to TimeSeries
+- Merged [#203]( https://github.com/BuildingSync/schema/pull/203 ), Add ResourceUseNotes to ResourceUse
+- Merged [#204]( https://github.com/BuildingSync/schema/pull/204 ), Add AnnualFuelCost to ResourceUse
+- Merged [#205]( https://github.com/BuildingSync/schema/pull/205 ), Add SimpleImpactAnalysis and CostCategory to PackageOfMeasures
+- Merged [#207]( https://github.com/BuildingSync/schema/pull/207 ), Add ExcludedSectionIDs to FloorArea
+- Merged [#208]( https://github.com/BuildingSync/schema/pull/208 ), Add LinkedPremises to Schedule
+- Merged [#213]( https://github.com/BuildingSync/schema/pull/213 ), Add AnnualFuelUseLinkedTimeSeriesIDs to ResourceUse
+- Merged [#214]( https://github.com/BuildingSync/schema/pull/214 ), Add multiple elements for energy use in AllResourceTotal
+- Merged [#215]( https://github.com/BuildingSync/schema/pull/215 ), Add choice between PrimaryHVACSystemType and PrincipalHVACSystemType
+- Merged [#216]( https://github.com/BuildingSync/schema/pull/216 ), pull rate elements out as distinct element types to reduce redundancy
+- Merged [#217]( https://github.com/BuildingSync/schema/pull/217 ), update tiered rate to include demand rate start and end dates
+- Merged [#219]( https://github.com/BuildingSync/schema/pull/219 ), feat(proposals): add proposal for versioning
+
+## Version 2.1.0
+
+BuildingSync Version 2.1.0 does not introduce any breaking changes; however, the `version` attribute is now required 
+as part of the root `BuildingSync` element. Version 2.1.0 includes many validation updates and additions
+to support reporting auditing data. Also, the release versions now include the patch version (e.g., 
+major.minor.patch).
+
+Date Range: 12/21/19 - 07/30/20
+
+
+| Category       | Count |
+|----------------|-------|
+| Controls         | 0  |
+| General         | 7  |
+| Measures         | 0  |
+| Reports         | 0  |
+| Systems         | 2  |
+| Validation         | 2  |
+| Other         | 5  |
+| **Total**      | 16 |
+
+| Change Type    | Count |
+|----------------|-------|
+| Breaking Change         | 0  |
+| Non-breaking Change         | 16  |
+
+
+New Issues: 9 (#177, #183, #184, #187, #189, #195, #197, #198, #210))
+
+Closed Issues: 7
+- Closed [#159]( https://github.com/BuildingSync/schema/issues/159 ), Key / Keyref instead of ID / IDRef for limiting scope using Xpaths
+- Closed [#160]( https://github.com/BuildingSync/schema/issues/160 ), Create larger test suite with more comprehensive examples. Include different 'levels', then additionally create most typical HVAC systems
+- Closed [#177]( https://github.com/BuildingSync/schema/issues/177 ), Validate format of telephone number
+- Closed [#184]( https://github.com/BuildingSync/schema/issues/184 ), Add version attribute to BuildingSync element
+- Closed [#187]( https://github.com/BuildingSync/schema/issues/187 ), Change ID attributes for following elements to use="required"
+- Closed [#189]( https://github.com/BuildingSync/schema/issues/189 ), Add LinkedPremises to FanSystem and MotorSystem
+- Closed [#197]( https://github.com/BuildingSync/schema/issues/197 ), Review use of talking about standards within documentation
+
+Accepted Pull Requests: 17
+- Merged [#178]( https://github.com/BuildingSync/schema/pull/178 ), Validate format of telephone number
+- Merged [#179]( https://github.com/BuildingSync/schema/pull/179 ), Validate format of postal codes.
+- Merged [#180]( https://github.com/BuildingSync/schema/pull/180 ), Update Audit Template examples
+- Merged [#185]( https://github.com/BuildingSync/schema/pull/185 ), Add EnergyCostIndex element
+- Merged [#186]( https://github.com/BuildingSync/schema/pull/186 ), Add BRICR example generated by Audit Template
+- Merged [#188]( https://github.com/BuildingSync/schema/pull/188 ), Feat/canadian provinces
+- Merged [#192]( https://github.com/BuildingSync/schema/pull/192 ), add LinkedPremises to FanSystem and MotorSystem
+- Merged [#193]( https://github.com/BuildingSync/schema/pull/193 ), feat/require IDs on all elements with an ID attribute
+- Merged [#194]( https://github.com/BuildingSync/schema/pull/194 ), feat/require version attribute with semantic versioning restriction
+- Merged [#196]( https://github.com/BuildingSync/schema/pull/196 ), update OccupantQuantityType enumerations with definitions
+- Merged [#199]( https://github.com/BuildingSync/schema/pull/199 ), update PrimaryHVACSystemType enumerations in line with AT tool
+- Merged [#201]( https://github.com/BuildingSync/schema/pull/201 ), use BEDES term for referring to ASHRAE 211
+- Merged [#202]( https://github.com/BuildingSync/schema/pull/202 ), feat/add OriginalOccupancyClassification element to Section
+- Merged [#209]( https://github.com/BuildingSync/schema/pull/209 ), Update annotations for consistency
+
+## Version 2.0
+
+Official release of BuildingSync Version 2.0.
+ 
+Date Range: 02/01/19 - 12/20/19:
+
+Closed Issues: 6
+- Closed [#153]( https://github.com/BuildingSync/schema/issues/153 ), Daylighting setpoint needs to be footcandles (IP units)
+- Closed [#171]( https://github.com/BuildingSync/schema/issues/171 ), 2x Typos in 'Virtual' definition
+- Closed [#135]( https://github.com/BuildingSync/schema/issues/135 ), Bound 0-100 Percentages
+- Closed [#152]( https://github.com/BuildingSync/schema/issues/152 ), Support arbitrary scores and ratings
+- Closed [#73]( https://github.com/BuildingSync/schema/issues/73 ), Fractions and percentages appear to be unevenly implemented
+- Closed [#117]( https://github.com/BuildingSync/schema/issues/117 ), Typo in definition of "CoolRoof" element
+
+
+Accepted Pull Requests: 70
+- Merged [#169]( https://github.com/BuildingSync/schema/pull/169 ), Modify DaylightingIlluminanceSetpoint units
+- Merged [#174]( https://github.com/BuildingSync/schema/pull/174 ), PrimaryHVACSystemType and PrimaryLightingSystemType
+- Merged [#175]( https://github.com/BuildingSync/schema/pull/175 ), Fix spelling errors in documentation for SectionType element
 - Merged [#155]( https://github.com/BuildingSync/schema/pull/155 ), Fix capitalization - Prefix 'Yearof' should be 'YearOf'
 - Merged [#157]( https://github.com/BuildingSync/schema/pull/157 ), Add missing @type attribute to 'Other' element in schema for 'DeliveryType' element.
 - Merged [#158]( https://github.com/BuildingSync/schema/pull/158 ), Pluralize `auc:ControlSystemType` element for plants
@@ -16,16 +126,6 @@ Accepted Pull Requests: 7
 - Merged [#162]( https://github.com/BuildingSync/schema/pull/162 ), Bound percentages
 - Merged [#163]( https://github.com/BuildingSync/schema/pull/163 ), Add BenchmarkValue element
 - Merged [#164]( https://github.com/BuildingSync/schema/pull/164 ), Add LinkedPremises child element to Benchmark element.
-
-## Version 2.0 Prerelease 1
-
-Date Range: 02/01/19 - 09/30/19:
-
-Closed Issues: 2
-- Merged [#73]( https://github.com/BuildingSync/schema/issues/73 ), Fractions and percentages appear to be unevenly implemented
-- Merged [#117]( https://github.com/BuildingSync/schema/issues/117 ), Typo in definition of "CoolRoof" element
-
-Accepted Pull Requests: 60
 - Merged [#79]( https://github.com/BuildingSync/schema/pull/79 ), Add Address to Building Element
 - Merged [#80]( https://github.com/BuildingSync/schema/pull/80 ), Add ID to Report and Qualification
 - Merged [#81]( https://github.com/BuildingSync/schema/pull/81 ), Update Ownership Enumerations
