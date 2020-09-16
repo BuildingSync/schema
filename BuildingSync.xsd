@@ -1880,8 +1880,8 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="PeriodStartTime" type="xs:time" minOccurs="0"/>
-                  <xs:element name="PeriodEndTime" type="xs:time" minOccurs="0"/>
+                  <xs:element name="StartTime" type="xs:time" minOccurs="0"/>
+                  <xs:element name="EndTime" type="xs:time" minOccurs="0"/>
                   <xs:element name="DayStartTime" type="xs:time" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>In military time (00 start of day). If the night before the schedule runs into this day, then start time is 00, while yesterday's end time is 24. For example, a night club may be open from 8PM Friday to 2AM Saturday, then on Friday: Start Hour is 20 and End Hour is 24, and on Saturday: Start hour is 00 and End Hour is 02. (hh:mm:ss.zzz)</xs:documentation>
@@ -1904,8 +1904,8 @@
                       </xs:simpleContent>
                     </xs:complexType>
                   </xs:element>
-                  <xs:element name="PartialOperationPercentageAtStartTime" type="xs:decimal"/>
-                  <xs:element name="PartialOperationPercentageAtEndTime" type="xs:decimal"/>
+                  <xs:element name="PartialOperationPercentageAtStartTime" type="xs:decimal" minOccurs="0"/>
+                  <xs:element name="PartialOperationPercentageAtEndTime" type="xs:decimal" minOccurs="0"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
