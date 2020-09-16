@@ -122,11 +122,14 @@ task :check_collisions do
     }.to_set
   }
 
+  # permitted because AT’s xsd2ruby script has already been tested with them and it was OK
+  PERMITTED_CONFLICTS = %w(Capacity Latitude Location Longitude Manufacturer State ZipCode)
+
   found_conflict = false
   sets.each_with_index do |set_a, a_index|
     sets.each_with_index do |set_b, b_index|
       if a_index < b_index then
-        intersection_set = set_a.intersection(set_b)
+        intersection_set = set_a.intersection(set_b).subtract(PERMITTED_CONFLICTS)
         if intersection_set.length() > 0 then
           found_conflict = true
           $stdout.puts("Collision: #{FILENAMES[a_index].inspect} #{FILENAMES[b_index].inspect} #{intersection_set.to_a.sort.inspect}")
