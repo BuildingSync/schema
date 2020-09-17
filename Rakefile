@@ -6,8 +6,6 @@ require 'rubyXL'
 require 'pp'
 require 'json'
 require 'csv'
-require 'set'
-require 'open-uri'
 
 # Local files
 require_relative 'src/data_dictionary'
@@ -84,63 +82,6 @@ task :update_documentation do
   end
 
   File.open("BuildingSync.xsd", 'w') { |f| f << doc.to_xml(:indent => 2) }
-end
-
-desc 'Get report of naming collisions between schemas'
-task :check_collisions do
-  imported_schema_locations = File.open("BuildingSync.xsd", "r") do |file|
-    xml_schema = Nokogiri::XML(file)
-
-    xml_schema.xpath('xs:schema/xs:import').collect { |nokogiri_xml_node|
-      nokogiri_xml_node.attribute("schemaLocation").value
-    }
-  end
-
-  FILENAMES = ["BuildingSync.xsd"].concat(imported_schema_locations)
-  NAMESPACES = {
-    xs: "http://www.w3.org/2001/XMLSchema",
-  }
-  NAME_ATTRIBUTE = "name"
-
-  XPATH_FOR_NAME_ATTRIBUTE = %w(attribute complexType element simpleType).collect { |s|
-    "./xs:schema/xs:#{s}[@#{NAME_ATTRIBUTE}]"
-  }.join(" | ")
-
-  $stdout.puts("Checking files: #{FILENAMES.inspect}")
-
-  sets = FILENAMES.collect { |filename|
-    if filename.start_with?('http') then
-      nokogiri_xml_document = Nokogiri::XML(URI.open(filename))
-    else
-      nokogiri_xml_document = File.open(filename, "r") do |file|
-        Nokogiri::XML(file)
-      end
-    end
-
-    nokogiri_xml_document.xpath(XPATH_FOR_NAME_ATTRIBUTE, **NAMESPACES).collect { |nokogiri_xml_node|
-      nokogiri_xml_node.attribute(NAME_ATTRIBUTE).value
-    }.to_set
-  }
-
-  # permitted because AT’s xsd2ruby script has already been tested with them and it was OK
-  PERMITTED_CONFLICTS = %w(Capacity Latitude Location Longitude Manufacturer State ZipCode)
-
-  found_conflict = false
-  sets.each_with_index do |set_a, a_index|
-    sets.each_with_index do |set_b, b_index|
-      if a_index < b_index then
-        intersection_set = set_a.intersection(set_b).subtract(PERMITTED_CONFLICTS)
-        if intersection_set.length() > 0 then
-          found_conflict = true
-          $stdout.puts("Collision: #{FILENAMES[a_index].inspect} #{FILENAMES[b_index].inspect} #{intersection_set.to_a.sort.inspect}")
-        end
-      end
-    end
-  end
-
-  if found_conflict then
-    exit(1)
-  end
 end
 
 require 'rspec/core/rake_task'
