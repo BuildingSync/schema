@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../BuildingSync.xsd">
+<BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../BuildingSync.xsd" version="2.0.0">
   <Facilities>
-    <Facility>
+    <Facility ID="Facility-09ddd9cc-0100-4d9b-b2f5-e535f5e34743">
       <Sites>
-        <Site>
+        <Site ID="Site-d956ec74-11b4-4547-aa65-077d70022dac">
           <Address>
             <StreetAddressDetail>
               <Simplified>
@@ -35,9 +35,9 @@
               <Sections>
                 <Section ID="Wholebuilding1">
                   <ThermalZones>
-                    <ThermalZone>
+                    <ThermalZone ID="ThermalZone-919e4fa6-737a-469f-bd8a-efa5de20d66a">
                       <Spaces>
-                        <Space>
+                        <Space ID="Space-92534707-8b69-48ee-b148-8537d19e2dfd">
                           <gbxml:Area>5.984812</gbxml:Area>
                           <gbxml:Volume>23.04152</gbxml:Volume>
                           <gbxml:PlanarGeometry>
@@ -387,9 +387,9 @@
                   <FloorsAboveGrade>3</FloorsAboveGrade>
                   <FloorsBelowGrade>1</FloorsBelowGrade>
                   <ThermalZones>
-                    <ThermalZone>
+                    <ThermalZone ID="ThermalZone-6ce75900-418f-42b0-97da-f98c6becb5a7">
                       <Spaces>
-                        <Space>
+                        <Space ID="Space-cec2e013-0384-403d-bd97-ea1de6107277">
                           <gbxml:Area>17.67075</gbxml:Area>
                           <gbxml:Volume>68.03239</gbxml:Volume>
                           <gbxml:PlanarGeometry>
@@ -864,7 +864,7 @@
       </Sites>
       <Systems>
         <HVACSystems>
-          <HVACSystem>
+          <HVACSystem ID="HVACSystem-52e5575a-c8b9-421d-b2ce-c99e2e69fce0">
             <Plants>
               <HeatingPlants>
                 <HeatingPlant ID="HeatingPlant1">
@@ -877,7 +877,7 @@
             </Plants>
             <HeatingAndCoolingSystems>
               <HeatingSources>
-                <HeatingSource>
+                <HeatingSource ID="HeatingSource-448abeb6-9db6-4d6a-bf5e-20528fa0ce39">
                   <HeatingSourceType>
                     <SourceHeatingPlantID IDref="HeatingPlant1"/>
                   </HeatingSourceType>
@@ -892,7 +892,7 @@
               </Building>
             </LinkedPremises>
           </HVACSystem>
-          <HVACSystem>
+          <HVACSystem ID="HVACSystem-61481617-990a-4254-9687-bc1aba55f031">
             <Plants>
               <CoolingPlants>
                 <CoolingPlant ID="CoolingPlant1">
@@ -907,14 +907,14 @@
               <CondenserPlants>
                 <CondenserPlant ID="CondenserPlant1">
                   <AirCooled>
-                    <EvaporativelyCooledCondenser/>
+                    <EvaporativelyCooledCondenser ID="EvaporativelyCooledCondenser-fc6cbae9-3eb1-4ab9-b01c-fc3e193f337d"/>
                   </AirCooled>
                 </CondenserPlant>
               </CondenserPlants>
             </Plants>
             <HeatingAndCoolingSystems>
               <CoolingSources>
-                <CoolingSource>
+                <CoolingSource ID="CoolingSource-c9084e83-113a-48bf-9ea7-d5a57e7d9662">
                   <CoolingSourceType>
                     <CoolingPlantID IDref="CoolingPlant1"/>
                   </CoolingSourceType>
@@ -932,7 +932,7 @@
           </HVACSystem>
         </HVACSystems>
         <OnsiteStorageTransmissionGenerationSystems>
-          <OnsiteStorageTransmissionGenerationSystem>
+          <OnsiteStorageTransmissionGenerationSystem ID="OnsiteStorageTransmissionGenerationSystem-14159972-4f78-4894-af5f-2af82c9f389d">
             <EnergyConversionType>
               <Generation>
                 <OnsiteGenerationType>

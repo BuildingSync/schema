@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 BuildingSync.xsd">
+<BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../BuildingSync.xsd" version="2.0.0">
   <Facilities>
     <Facility ID="Audit1">
       <Sites>
@@ -4917,7 +4917,7 @@
                       <FanBased>
                         <FanBasedDistributionType>
                       </FanBasedDistributionType>
-                        <AirSideEconomizer>
+                        <AirSideEconomizer ID="AirSideEconomizer-a4aca68f-f9cc-44d4-b9f4-923fc265fab7">
                           <AirSideEconomizerType>Dry bulb temperature</AirSideEconomizerType>
                           <EconomizerControl>Differential</EconomizerControl>
                         </AirSideEconomizer>
@@ -4948,7 +4948,7 @@
                       <FanBased>
                         <FanBasedDistributionType>
                       </FanBasedDistributionType>
-                        <AirSideEconomizer>
+                        <AirSideEconomizer ID="AirSideEconomizer-9435e61a-ea7b-4c38-ac5b-9aefe93ccd3b">
                           <AirSideEconomizerType>Dry bulb temperature</AirSideEconomizerType>
                           <EconomizerControl>Differential</EconomizerControl>
                         </AirSideEconomizer>
@@ -4979,7 +4979,7 @@
                       <FanBased>
                         <FanBasedDistributionType>
                       </FanBasedDistributionType>
-                        <AirSideEconomizer>
+                        <AirSideEconomizer ID="AirSideEconomizer-e0a67f81-f99e-4fdb-ac04-a5fdf63c3576">
                           <AirSideEconomizerType>Dry bulb temperature</AirSideEconomizerType>
                           <EconomizerControl>Differential</EconomizerControl>
                         </AirSideEconomizer>
@@ -5010,7 +5010,7 @@
                       <FanBased>
                         <FanBasedDistributionType>
                       </FanBasedDistributionType>
-                        <AirSideEconomizer>
+                        <AirSideEconomizer ID="AirSideEconomizer-3786d516-93b8-4d34-9a2e-e9524544f62f">
                           <AirSideEconomizerType>Dry bulb temperature</AirSideEconomizerType>
                           <EconomizerControl>Differential</EconomizerControl>
                         </AirSideEconomizer>
@@ -5831,7 +5831,7 @@
                       <FanBased>
                         <FanBasedDistributionType>
                       </FanBasedDistributionType>
-                        <AirSideEconomizer>
+                        <AirSideEconomizer ID="AirSideEconomizer-4420f904-4310-4b2a-aa00-ae0ed0c3eaf9">
                           <AirSideEconomizerType>Dry bulb temperature</AirSideEconomizerType>
                           <EconomizerControl>Differential</EconomizerControl>
                         </AirSideEconomizer>
@@ -5967,7 +5967,7 @@
                       <FanBased>
                         <FanBasedDistributionType>
                       </FanBasedDistributionType>
-                        <AirSideEconomizer>
+                        <AirSideEconomizer ID="AirSideEconomizer-96a5a272-5d3f-4a20-ab95-d5fb9dcda87e">
                           <AirSideEconomizerType>Dry bulb temperature</AirSideEconomizerType>
                           <EconomizerControl>Differential</EconomizerControl>
                         </AirSideEconomizer>
@@ -6105,7 +6105,7 @@
                       <FanBased>
                         <FanBasedDistributionType>
                       </FanBasedDistributionType>
-                        <AirSideEconomizer>
+                        <AirSideEconomizer ID="AirSideEconomizer-19d0d264-fd14-4618-998c-e6482429369c">
                           <AirSideEconomizerType>Dry bulb temperature</AirSideEconomizerType>
                           <EconomizerControl>Differential</EconomizerControl>
                         </AirSideEconomizer>
@@ -6243,7 +6243,7 @@
           <HVACSystem ID="RackCondenser1">
             <Plants>
               <CondenserPlants>
-                <CondenserPlant>
+                <CondenserPlant ID="CondenserPlant-dca2dc2f-2e5e-4cb9-832a-a109515c9a90">
                   <AirCooled>
                     <CondenserFanSpeedOperation>Constant Volume</CondenserFanSpeedOperation>
                   </AirCooled>
@@ -6255,7 +6255,7 @@
           <HVACSystem ID="RackCondenser2">
             <Plants>
               <CondenserPlants>
-                <CondenserPlant>
+                <CondenserPlant ID="CondenserPlant-f773bfa3-de83-4e17-8827-231e8380f861">
                   <AirCooled>
                     <CondenserFanSpeedOperation>Constant Volume</CondenserFanSpeedOperation>
                   </AirCooled>
@@ -7923,7 +7923,7 @@
           </PlugLoad>
         </PlugLoads>
         <OnsiteStorageTransmissionGenerationSystems>
-          <OnsiteStorageTransmissionGenerationSystem>
+          <OnsiteStorageTransmissionGenerationSystem ID="OnsiteStorageTransmissionGenerationSystem-28266a98-8262-4e64-a19e-1fffaf8b8181">
             <EnergyConversionType>
               <Generation>
                 <ExternalPowerSupply>AC to AC</ExternalPowerSupply>
@@ -7945,7 +7945,7 @@
           </OnsiteStorageTransmissionGenerationSystem>
         </OnsiteStorageTransmissionGenerationSystems>
         <AirInfiltrationSystems>
-          <AirInfiltrationSystem>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem-45c93160-f5e6-4da2-911b-10a4ccf0fe63">
             <AirInfiltrationValue>112.9</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
@@ -7983,7 +7983,7 @@
               </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
-          <AirInfiltrationSystem>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem-b3f5c642-034b-4495-896b-3b81fdfabccd">
             <AirInfiltrationValue>299.1</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
@@ -8016,7 +8016,7 @@
               </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
-          <AirInfiltrationSystem>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem-d0c308b1-811e-4a74-b21f-f2a0e4b0269e">
             <AirInfiltrationValue>16.9</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
@@ -8039,7 +8039,7 @@
               </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
-          <AirInfiltrationSystem>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem-dd6271a1-d9bf-41ff-810f-76d757ee5b4a">
             <AirInfiltrationValue>197.5</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
@@ -8052,7 +8052,7 @@
               </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
-          <AirInfiltrationSystem>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem-325cb15d-b44b-47b0-8ca8-f7baf88f0306">
             <AirInfiltrationValue>101.6</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
@@ -8065,7 +8065,7 @@
               </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
-          <AirInfiltrationSystem>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem-319c37b3-4394-4d4d-a52e-bd8b1c242d9d">
             <AirInfiltrationValue>50.8</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
@@ -8078,7 +8078,7 @@
               </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
-          <AirInfiltrationSystem>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem-dadff62b-c4f4-4771-a127-56b5be4140ec">
             <AirInfiltrationValue>107.2</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
@@ -8091,7 +8091,7 @@
               </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
-          <AirInfiltrationSystem>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem-248dd52f-b9fb-47f7-a282-81015719c4d6">
             <AirInfiltrationValue>0.0</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
@@ -8104,7 +8104,7 @@
               </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
-          <AirInfiltrationSystem>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem-e12ced8b-88a4-42b9-a762-d2e0be1571ed">
             <AirInfiltrationValue>56.4</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
@@ -8117,7 +8117,7 @@
               </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
-          <AirInfiltrationSystem>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem-6ed255e3-d3e9-47f6-993e-fed99e707663">
             <AirInfiltrationValue>237.0</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
@@ -8130,7 +8130,7 @@
               </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
-          <AirInfiltrationSystem>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem-e62195b8-01d2-4e78-b7e9-a0ef2b662120">
             <AirInfiltrationValue>66.9</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
@@ -8143,7 +8143,7 @@
               </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
-          <AirInfiltrationSystem>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem-10934dc8-46d7-4181-8d27-65b170c3a4c3">
             <AirInfiltrationValue>45.1</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
@@ -8156,7 +8156,7 @@
               </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
-          <AirInfiltrationSystem>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem-355ae247-17df-4aec-be6e-8d7ff461b649">
             <AirInfiltrationValue>203.1</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
@@ -8169,7 +8169,7 @@
               </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
-          <AirInfiltrationSystem>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem-2fde9c9c-4b46-4c65-9605-e1f490d1b813">
             <AirInfiltrationValue>225.7</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
@@ -8182,7 +8182,7 @@
               </Section>
             </LinkedPremises>
           </AirInfiltrationSystem>
-          <AirInfiltrationSystem>
+          <AirInfiltrationSystem ID="AirInfiltrationSystem-3dc5e7f2-9f7a-43a5-af71-d1c33354d74a">
             <AirInfiltrationValue>6422</AirInfiltrationValue>
             <AirInfiltrationValueUnits>CFMnatural</AirInfiltrationValueUnits>
             <LinkedPremises>
@@ -11966,7 +11966,7 @@
         </Measure>
       </Measures>
       <Reports>
-        <Report>
+        <Report ID="Report-bb1b04bc-72fe-4721-b6cb-0f605ce88bd2">
           <Scenarios>
             <Scenario ID="Baseline1">
               <ScenarioName>Baseline</ScenarioName>
@@ -12072,7 +12072,7 @@
               <TemporalStatus>Post retrofit</TemporalStatus>
               <Normalization>Weather normalized</Normalization>
               <ScenarioType>
-                <PackageOfMeasures>
+                <PackageOfMeasures ID="PackageOfMeasures-7636593d-e208-49c4-9bf5-09f6bd706d9d">
                   <ReferenceCase IDref="Baseline1"/>
                   <MeasureIDs>
                     <MeasureID IDref="Measure1"/>
@@ -12232,7 +12232,7 @@
           <Utilities>
             <Utility ID="ElectricUtility1">
               <RateSchedules>
-                <RateSchedule>
+                <RateSchedule ID="RateSchedule-a385cd37-747b-4e42-a561-ad06102400ad">
                   <TypeOfRateStructure>
                     <FlatRate>
                       <RatePeriods>
@@ -12253,7 +12253,7 @@
             </Utility>
             <Utility ID="GasUtility1">
               <RateSchedules>
-                <RateSchedule>
+                <RateSchedule ID="RateSchedule-00d1d73d-f177-4555-a368-ff822b84c543">
                   <TypeOfRateStructure>
                     <FlatRate>
                       <RatePeriods>
