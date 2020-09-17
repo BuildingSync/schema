@@ -12,4 +12,3 @@ and facilitating achievement of greater energy efficiency.
 The schema is developed by a National Renewable Energy Laboratory 
 (NREL) led working group. Working group participants included industry 
 partners, national laboratories, and industry organizations.
-
