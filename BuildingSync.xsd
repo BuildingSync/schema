@@ -4358,26 +4358,20 @@
           <xs:documentation>The timestamp that marks the end of the time series. (CCYY-MM-DDThh:mm:ss.zzz)</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="IntervalFrequency" minOccurs="0">
+      <xs:element name="IntervalDuration" type="xs:integer" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The duration of the time series in the units provided by IntervalDurationUnits</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="IntervalDurationUnits" type="auc:IntervalTime" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The units of the time series IntervalDuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="IntervalFrequency" type="auc:IntervalTime" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Indicates frequency of data that's available for a given variable. Data that's available can range from 1 minute interval to annual. This interval frequency can be applied to resource or other time series data like weather.</xs:documentation>
         </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="1 minute"/>
-            <xs:enumeration value="10 minute"/>
-            <xs:enumeration value="15 minute"/>
-            <xs:enumeration value="30 minute"/>
-            <xs:enumeration value="Hour"/>
-            <xs:enumeration value="Day"/>
-            <xs:enumeration value="Week"/>
-            <xs:enumeration value="Month"/>
-            <xs:enumeration value="Annual"/>
-            <xs:enumeration value="Quarter"/>
-            <xs:enumeration value="Other"/>
-            <xs:enumeration value="Unknown"/>
-          </xs:restriction>
-        </xs:simpleType>
       </xs:element>
       <xs:element name="IntervalReading" minOccurs="0">
         <xs:annotation>
@@ -17693,4 +17687,20 @@
       <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
     </xs:complexType>
   </xs:element>
+  <xs:simpleType name="IntervalTime">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1 minute"/>
+      <xs:enumeration value="10 minute"/>
+      <xs:enumeration value="15 minute"/>
+      <xs:enumeration value="30 minute"/>
+      <xs:enumeration value="Hour"/>
+      <xs:enumeration value="Day"/>
+      <xs:enumeration value="Week"/>
+      <xs:enumeration value="Month"/>
+      <xs:enumeration value="Annual"/>
+      <xs:enumeration value="Quarter"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>
