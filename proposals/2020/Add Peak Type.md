@@ -10,4 +10,4 @@ SPC 211 Standard for Commercial Building Energy Audits section 6.2.2.1.a.8 requi
 
 ## Implementation
 
-Inside of auc:TimeSeries, create a new element auc:PeakType with options of on-peak, mid-peak, and off-peak.
+Inside of auc:TimeSeries, create a new element `auc:PeakType` as a child element of the TimeSeriesType with options of on-peak, mid-peak, and off-peak.
