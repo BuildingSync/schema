@@ -5758,6 +5758,11 @@
           <xs:documentation>True if measure is recommended.</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="HazardousMaterialsPresent" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>True if the possible presence of hazardous materials at the site is apparent, either through observation or as reported by others, which could potentially have a significant impact on the measure cost estimates.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="StartDate" type="xs:date" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Start date for implementation of a project or a measure. (CCYY-MM-DD)</xs:documentation>
