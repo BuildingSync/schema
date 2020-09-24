@@ -5758,10 +5758,51 @@
           <xs:documentation>True if measure is recommended.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="HazardousMaterialsPresent" type="xs:boolean" minOccurs="0">
+      <xs:element name="HazardousMaterials" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>True if the possible presence of hazardous materials at the site is apparent, either through observation or as reported by others, which could potentially have a significant impact on the measure cost estimates.</xs:documentation>
+          <xs:documentation>List of the hazardous materials determined to be present, either through observation or as reported by others, which could potentially have a significant impact on the measure cost estimates.</xs:documentation>
         </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="HazardousMaterial" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Hazard types, defined by the Globally Harmonized System of Classification and Labeling of Chemicals (GHS).</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Explosives"/>
+                  <xs:enumeration value="Flammable Gases"/>
+                  <xs:enumeration value="Flammable Aerosols"/>
+                  <xs:enumeration value="Oxidizing Gases"/>
+                  <xs:enumeration value="Gases Under Pressure"/>
+                  <xs:enumeration value="Flammable Liquids"/>
+                  <xs:enumeration value="Flammable Solids"/>
+                  <xs:enumeration value="Self-Reactive Substances"/>
+                  <xs:enumeration value="Pyrophoric Liquids"/>
+                  <xs:enumeration value="Pyrophoric Solids"/>
+                  <xs:enumeration value="Self-Heating Substances"/>
+                  <xs:enumeration value="Substances which, in contact with water, emit flammable gases"/>
+                  <xs:enumeration value="Oxidizing Liquids"/>
+                  <xs:enumeration value="Oxidizing Solids"/>
+                  <xs:enumeration value="Organic Peroxides"/>
+                  <xs:enumeration value="Corrosive to Metals"/>
+                  <xs:enumeration value="Acute Toxicity"/>
+                  <xs:enumeration value="Skin Corrosion/Irritation"/>
+                  <xs:enumeration value="Serous Eye Damage/Eye Irritation"/>
+                  <xs:enumeration value="Respiratory or Skin Sensitization"/>
+                  <xs:enumeration value="Germ Cell Mutagenicity"/>
+                  <xs:enumeration value="Carcinogenicity"/>
+                  <xs:enumeration value="Reproductive Toxicology"/>
+                  <xs:enumeration value="Target Organ Systemic Toxicity – Single Exposure"/>
+                  <xs:enumeration value="Target Organ Systemic Toxicity – Repeated Exposure"/>
+                  <xs:enumeration value="Aspiration Toxicity"/>
+                  <xs:enumeration value="Acute aquatic toxicity"/>
+                  <xs:enumeration value="Chronic aquatic toxicity"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
       <xs:element name="StartDate" type="xs:date" minOccurs="0">
         <xs:annotation>
