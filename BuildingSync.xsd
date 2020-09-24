@@ -4053,7 +4053,7 @@
       </xs:element>
       <xs:element name="ParentResourceUseID" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>If the ResourceUse is a submeter, this element should link to the ResourceUse which this one is a submeter of</xs:documentation>
+          <xs:documentation>If this ResourceUse is intended to represent a submetered end use ('Total Lighting', 'Heating', 'Plug load', etc.), this ResourceUse should link to a parent ResourceUse that this would 'roll up to'.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
