@@ -2807,6 +2807,11 @@
                       </xs:simpleContent>
                     </xs:complexType>
                   </xs:element>
+                  <xs:element name="NonquantifiableFactors" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Description of the nonquantifiable factors.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
                   <xs:element ref="auc:AssetScore" minOccurs="0"/>
                   <xs:element ref="auc:ENERGYSTARScore" minOccurs="0"/>
                   <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
