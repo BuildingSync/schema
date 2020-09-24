@@ -2,7 +2,7 @@
 
 ## Overview
 
-This proposal is to add the `auc:HazardousMaterialsPresent` element.
+This proposal is to add the `auc:HazardousMaterials` element.
 
 ## Justification
 
@@ -11,4 +11,4 @@ SPC 211 Standard for Commercial Building Energy Audits section 6.2.5.2 states
 
 ## Implementation
 
-Add boolean element `auc:HazardousMaterialsPresent` to `auc:Measure` to indicate if there are any hazardous materials present.
+Add element `auc:HazardousMaterials` to `auc:Measure`, which contains an unbounded list of ``auc:HazardousMaterial`, a string type with enums source from Globally Harmonized System of Classification and Labelling of Chemicals (GHS): https://en.wikipedia.org/wiki/GHS_hazard_pictograms.
