@@ -4324,6 +4324,19 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+      <xs:element name="PeakType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>When ReadingType is "Peak", this element specifies when the peak occurred.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="On-peak"/>
+            <xs:enumeration value="Off-peak"/>
+            <xs:enumeration value="Mid-peak"/>
+            <xs:enumeration value="Unknown"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="TimeSeriesReadingQuantity" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Type of energy, water, power, weather metric included in the time series.</xs:documentation>
