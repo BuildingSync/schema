@@ -1,5 +1,68 @@
 # BuildingSync
 
+## Version 2.2.0
+
+BuildingSync Version 2.2.0 does not introduce any breaking changes. Version 2.2.0 adds new elements required for a complete audit report for ASHRAE Standard 211 Level 2. This version also introduces references to the [gbXML schema](https://www.gbxml.org/). See the [documentation here](docs/gbXML_reference.md) for more information about this integration with gbXML.  
+
+Note that some elements are beginning to be deprecated. To ensure future conformance to the schema, these elements should be updated to their alternative names:
+
+| Element being deprecated | New element |
+|----------------|-------|
+| auc:HeatingSource/auc:OutputCapacity | auc:HeatingSource/auc:Capacity |
+| auc:Boiler/auc:OutputCapacity | auc:Boiler/auc:Capacity |
+| auc:DistrictHeating/auc:OutputCapacity | auc:DistrictHeating/auc:Capacity |
+| auc:SolarThermal/auc:OutputCapacity | auc:SolarThermal/auc:Capacity |
+
+Date Range: 08/31/20 - 09/25/20
+
+| Category       | Count |
+|----------------|-------|
+| Controls         | 0  |
+| General         | 5  |
+| Measures         | 1  |
+| Reports         | 6  |
+| Systems         | 9  |
+| Validation         | 1  |
+| Other         | 3  |
+| **Total**      | 25 |
+
+| Change Type    | Count |
+|----------------|-------|
+| Breaking Change         | 0  |
+| Non-breaking Change         | 21  |
+
+New Issues: 5 (#230, #233, #234, #235, #236)
+
+Closed Issues: 1
+- Merged [#172]( https://github.com/BuildingSync/schema/issues/172 ), Promote UDF - PrincipalHVACType as part of Section.
+
+Accepted Pull Requests: 25
+- Merged [#156]( https://github.com/BuildingSync/schema/pull/156 ), gbXML External Reference
+- Merged [#221]( https://github.com/BuildingSync/schema/pull/221 ), Release 2.2.0-pr1
+- Merged [#222]( https://github.com/BuildingSync/schema/pull/222 ), Add Operational enum to ScheduleCategories
+- Merged [#223]( https://github.com/BuildingSync/schema/pull/223 ), Add choice for multiple auc:WallIDs within auc:Side
+- Merged [#224]( https://github.com/BuildingSync/schema/pull/224 ), Add auc:NumberOfSides to auc:Section
+- Merged [#225]( https://github.com/BuildingSync/schema/pull/225 ), Add Air/WaterInfiltrationNotes to Air/WaterInfiltrationSystem
+- Merged [#226]( https://github.com/BuildingSync/schema/pull/226 ), Add Air/WaterInfiltrationNotes to Air/WaterInfiltrationSystem
+- Merged [#227]( https://github.com/BuildingSync/schema/pull/227 ), Add DeliveryCondition to Delivery
+- Merged [#228]( https://github.com/BuildingSync/schema/pull/228 ), Add None enum to ReheatSource
+- Merged [#229]( https://github.com/BuildingSync/schema/pull/229 ), Add None enum to AirSideEconomizerType
+- Merged [#231]( https://github.com/BuildingSync/schema/pull/231 ), Add choice for multiple auc:DoorIDs in auc:Side
+- Merged [#232]( https://github.com/BuildingSync/schema/pull/232 ), Add choice for multiple auc:WindowIDs in auc:Side
+- Merged [#237]( https://github.com/BuildingSync/schema/pull/237 ), Add Condition and Notes elements for auc:DomesticHotWaterSystem
+- Merged [#238]( https://github.com/BuildingSync/schema/pull/238 ), Add LightingAutomationSystem to Building and LightingSystem
+- Merged [#239]( https://github.com/BuildingSync/schema/pull/239 ), Add ConveyanceSystemCondition to ConveyanceSystem
+- Merged [#240]( https://github.com/BuildingSync/schema/pull/240 ), Add None enum to WaterSideEconomizerType
+- Merged [#241]( https://github.com/BuildingSync/schema/pull/241 ), Add capacity to condenser plant types
+- Merged [#242]( https://github.com/BuildingSync/schema/pull/242 ), Change OutputCapacity for HeatingSource and HeatingPlant types
+- Merged [#243]( https://github.com/BuildingSync/schema/pull/243 ), Add OverallDoorToWallRatio to Building
+- Merged [#244]( https://github.com/BuildingSync/schema/pull/244 ), Add EIA ID to Utility
+- Merged [#245]( https://github.com/BuildingSync/schema/pull/245 ), Add IntervalDuration and IntervalDurationUnits to TimeSeries
+- Merged [#246]( https://github.com/BuildingSync/schema/pull/246 ), Add PeakType to TimeSeries
+- Merged [#247]( https://github.com/BuildingSync/schema/pull/247 ), Add Load factor enum to ReadingType
+- Merged [#248]( https://github.com/BuildingSync/schema/pull/248 ), Add MeterID and ParentResourceUseID to ResourceUse
+- Merged [#250]( https://github.com/BuildingSync/schema/pull/250 ), Add NonquantifiableFactors to PackageOfMeasures
+
 ## Version 2.2.0-pr1
 
 BuildingSync Version 2.2.0-pr1 does not introduce any breaking changes. It introduces elements required for 
