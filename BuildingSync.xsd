@@ -4046,6 +4046,19 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="MeterID" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>ID of the associated meter as seen by the facility manager</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ParentResourceUseID" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>If this ResourceUse is intended to represent a submetered end use ('Total Lighting', 'Heating', 'Plug load', etc.), this ResourceUse should link to a parent ResourceUse that this would 'roll up to'.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
