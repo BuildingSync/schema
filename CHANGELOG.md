@@ -2,9 +2,13 @@
 
 ## Version 2.2.0
 
-BuildingSync Version 2.2.0 does not introduce any breaking changes. Version 2.2.0 adds new elements required for a complete audit report for ASHRAE Standard 211 Level 2. This version also introduces references to the [gbXML schema](https://www.gbxml.org/). See the [documentation here](docs/gbXML_reference.md) for more information about this integration with gbXML.  
+BuildingSync Version 2.2.0 does not introduce any breaking changes. Version 2.2.0 adds new elements required for a 
+complete audit report for ASHRAE Standard 211 Level 2. This version also introduces references to the 
+[gbXML schema](https://www.gbxml.org/). See the [documentation here](docs/gbXML_reference.md) for more information 
+about this integration with gbXML.  
 
-Note that some elements are beginning to be deprecated. To ensure future conformance to the schema, these elements should be updated to their alternative names:
+Note that some elements are beginning to be deprecated. To ensure future conformance to the schema, these elements 
+should be updated to their alternative names:
 
 | Element being deprecated | New element |
 |----------------|-------|
@@ -12,32 +16,49 @@ Note that some elements are beginning to be deprecated. To ensure future conform
 | auc:Boiler/auc:OutputCapacity | auc:Boiler/auc:Capacity |
 | auc:DistrictHeating/auc:OutputCapacity | auc:DistrictHeating/auc:Capacity |
 | auc:SolarThermal/auc:OutputCapacity | auc:SolarThermal/auc:Capacity |
+| auc:PrimaryHVACSystemType | auc:PrincipalHVACSystemType |
 
-Date Range: 08/31/20 - 09/25/20
+
+Date Range: 07/31/20 - 09/25/20
 
 | Category       | Count |
 |----------------|-------|
 | Controls         | 0  |
-| General         | 5  |
+| General         | 8  |
 | Measures         | 1  |
-| Reports         | 6  |
-| Systems         | 9  |
+| Reports         | 13  |
+| Systems         | 10  |
 | Validation         | 1  |
-| Other         | 3  |
-| **Total**      | 25 |
+| Other         | 4  |
+| **Total**      | 37 |
 
 | Change Type    | Count |
 |----------------|-------|
 | Breaking Change         | 0  |
-| Non-breaking Change         | 21  |
+| Non-breaking Change         | 37  |
 
-New Issues: 5 (#230, #233, #234, #235, #236)
+New Issues: 7 (#212, #218, #230, #233, #234, #235, #236)
 
-Closed Issues: 1
+Closed Issues: 4
 - Merged [#172]( https://github.com/BuildingSync/schema/issues/172 ), Promote UDF - PrincipalHVACType as part of Section.
+- Merged [#172]( https://github.com/BuildingSync/schema/issues/172 ), Promote UDF - PrincipalHVACType as part of Section.
+- Merged [#173]( https://github.com/BuildingSync/schema/issues/173 ), Promote UDF - PrincipalLightingSystemType as part of Section.
+- Merged [#212]( https://github.com/BuildingSync/schema/issues/212 ), Question concerning some "Other delivered" auc:FuelTypes
 
-Accepted Pull Requests: 25
+Accepted Pull Requests: 37
 - Merged [#156]( https://github.com/BuildingSync/schema/pull/156 ), gbXML External Reference
+- Merged [#200]( https://github.com/BuildingSync/schema/pull/200 ), Add ReadingType Cost to TimeSeries
+- Merged [#203]( https://github.com/BuildingSync/schema/pull/203 ), Add ResourceUseNotes to ResourceUse
+- Merged [#204]( https://github.com/BuildingSync/schema/pull/204 ), Add AnnualFuelCost to ResourceUse
+- Merged [#205]( https://github.com/BuildingSync/schema/pull/205 ), Add SimpleImpactAnalysis and CostCategory to PackageOfMeasures
+- Merged [#207]( https://github.com/BuildingSync/schema/pull/207 ), Add ExcludedSectionIDs to FloorArea
+- Merged [#208]( https://github.com/BuildingSync/schema/pull/208 ), Add LinkedPremises to Schedule
+- Merged [#213]( https://github.com/BuildingSync/schema/pull/213 ), Add AnnualFuelUseLinkedTimeSeriesIDs to ResourceUse
+- Merged [#214]( https://github.com/BuildingSync/schema/pull/214 ), Add multiple elements for energy use in AllResourceTotal
+- Merged [#215]( https://github.com/BuildingSync/schema/pull/215 ), Add choice between PrimaryHVACSystemType and PrincipalHVACSystemType
+- Merged [#216]( https://github.com/BuildingSync/schema/pull/216 ), pull rate elements out as distinct element types to reduce redundancy
+- Merged [#217]( https://github.com/BuildingSync/schema/pull/217 ), update tiered rate to include demand rate start and end dates
+- Merged [#219]( https://github.com/BuildingSync/schema/pull/219 ), feat(proposals): add proposal for versioning
 - Merged [#221]( https://github.com/BuildingSync/schema/pull/221 ), Release 2.2.0-pr1
 - Merged [#222]( https://github.com/BuildingSync/schema/pull/222 ), Add Operational enum to ScheduleCategories
 - Merged [#223]( https://github.com/BuildingSync/schema/pull/223 ), Add choice for multiple auc:WallIDs within auc:Side
@@ -62,52 +83,6 @@ Accepted Pull Requests: 25
 - Merged [#247]( https://github.com/BuildingSync/schema/pull/247 ), Add Load factor enum to ReadingType
 - Merged [#248]( https://github.com/BuildingSync/schema/pull/248 ), Add MeterID and ParentResourceUseID to ResourceUse
 - Merged [#250]( https://github.com/BuildingSync/schema/pull/250 ), Add NonquantifiableFactors to PackageOfMeasures
-
-## Version 2.2.0-pr1
-
-BuildingSync Version 2.2.0-pr1 does not introduce any breaking changes. It introduces elements required for 
-a complete audit report for ASHRAE Standard 211 Level 1.  
-Note that the element `auc:PrimaryHVACSystemType` is in the process of being deprecated, and users should replace it with 
-`auc:PrincipalHVACSystemType` to ensure future conformance to the schema.
-
-Date Range: 07/31/20 - 08/31/20
-
-| Category       | Count |
-|----------------|-------|
-| Controls         | 0  |
-| General         | 3  |
-| Measures         | 0  |
-| Reports         | 7  |
-| Systems         | 1  |
-| Validation         | 0  |
-| Other         | 1  |
-| **Total**      | 12 |
-
-| Change Type    | Count |
-|----------------|-------|
-| Breaking Change         | 0  |
-| Non-breaking Change         | 12  |
-
-New Issues: 2 (#212, #218)
-
-Closed Issues: 3
-- Merged [#172]( https://github.com/BuildingSync/schema/issues/172 ), Promote UDF - PrincipalHVACType as part of Section.
-- Merged [#173]( https://github.com/BuildingSync/schema/issues/173 ), Promote UDF - PrincipalLightingSystemType as part of Section.
-- Merged [#212]( https://github.com/BuildingSync/schema/issues/212 ), Question concerning some "Other delivered" auc:FuelTypes
-
-Accepted Pull Requests: 12
-- Merged [#200]( https://github.com/BuildingSync/schema/pull/200 ), Add ReadingType Cost to TimeSeries
-- Merged [#203]( https://github.com/BuildingSync/schema/pull/203 ), Add ResourceUseNotes to ResourceUse
-- Merged [#204]( https://github.com/BuildingSync/schema/pull/204 ), Add AnnualFuelCost to ResourceUse
-- Merged [#205]( https://github.com/BuildingSync/schema/pull/205 ), Add SimpleImpactAnalysis and CostCategory to PackageOfMeasures
-- Merged [#207]( https://github.com/BuildingSync/schema/pull/207 ), Add ExcludedSectionIDs to FloorArea
-- Merged [#208]( https://github.com/BuildingSync/schema/pull/208 ), Add LinkedPremises to Schedule
-- Merged [#213]( https://github.com/BuildingSync/schema/pull/213 ), Add AnnualFuelUseLinkedTimeSeriesIDs to ResourceUse
-- Merged [#214]( https://github.com/BuildingSync/schema/pull/214 ), Add multiple elements for energy use in AllResourceTotal
-- Merged [#215]( https://github.com/BuildingSync/schema/pull/215 ), Add choice between PrimaryHVACSystemType and PrincipalHVACSystemType
-- Merged [#216]( https://github.com/BuildingSync/schema/pull/216 ), pull rate elements out as distinct element types to reduce redundancy
-- Merged [#217]( https://github.com/BuildingSync/schema/pull/217 ), update tiered rate to include demand rate start and end dates
-- Merged [#219]( https://github.com/BuildingSync/schema/pull/219 ), feat(proposals): add proposal for versioning
 
 ## Version 2.1.0
 
