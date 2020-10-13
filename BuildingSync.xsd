@@ -13854,6 +13854,7 @@
         </xs:complexType>
       </xs:element>
       <xs:element name="Estimated" type="auc:EstimatedType" minOccurs="0"/>
+      <xs:element name="EngineeringCalculation" type="auc:EngineeringCalculationType" minOccurs="0"/>
       <xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
     </xs:choice>
   </xs:complexType>
@@ -16431,6 +16432,7 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="ElectricResistanceType"/>
+  <xs:complexType name="EngineeringCalculationType"/>
   <xs:complexType name="EstimatedType"/>
   <xs:complexType name="NeonType"/>
   <xs:complexType name="NoCoolingType"/>
