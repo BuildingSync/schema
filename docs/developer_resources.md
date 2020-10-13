@@ -6,7 +6,7 @@ Commit messages should follow the format of
 
 
 ```bash
-<type>[optional scope]: <description>
+<type>[( optional scope )]: <description>
 
 [optional body]
 ```
@@ -21,11 +21,13 @@ Commit messages should follow the format of
 - **style**: Changes that don't affect the meaning of code (e.g. whitespace)
 - **test**: Adding or correcting tests
 
-`scope` is optional, and should indicate the general area of the application affected.
+`scope` is optional for commit messages, and should indicate the general area of the application affected.
 
 `description` is a short description of the changes in imperative present tense (such as “add function to _”, not “added function”)
 
-Branches should be named as `<type>/<scope>`, where `scope` is the general scope affected, or if creating a feature branch, a shortened name of the feature being added. If `scope` is more than one word, it should be separated by dashes.
+Branches should be named as `[optional issue number -]<type>/<scope>`, where `scope` is the general scope affected, or if creating a feature branch, a shortened name of the feature being added. If `scope` is more than one word, it should be separated by dashes.
+
+Pull Request titles should follow the format `[# optional issue number] <type>[( optional scope )]: <description>`, following the same conventions as commit messages.
 
 Commit examples:
 
@@ -35,5 +37,10 @@ Commit examples:
 
 Branch examples:
 
-- `feat/typical-operating-hours`
+- `1234-feat/typical-operating-hours`
 - `refactor/terminal-unit-type`
+
+Pull request examples:
+
+- `#1234 feat(schema): add MyElement to ParentElement`
+- `proposal: add proposal for MyElement`
