@@ -13768,6 +13768,9 @@
   <xs:complexType name="CalculationMethodType">
     <xs:choice>
       <xs:element name="Modeled" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The 'Modeled' calculation method is used to represent a scenario in which a building energy modeling software was used to derive data represented by this scenario type.</xs:documentation>
+        </xs:annotation>
         <xs:complexType>
           <xs:sequence>
             <xs:element name="SoftwareProgramUsed" type="xs:string" minOccurs="0">
@@ -13817,6 +13820,9 @@
         </xs:complexType>
       </xs:element>
       <xs:element name="Measured" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The 'Measured' calculation method is used to represent a scenario in which actual measurements were used to derive data represented by this scenario type.</xs:documentation>
+        </xs:annotation>
         <xs:complexType>
           <xs:sequence>
             <xs:element name="MeasuredEnergySource" minOccurs="0">
@@ -13853,8 +13859,16 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="Estimated" type="auc:EstimatedType" minOccurs="0"/>
-      <xs:element name="EngineeringCalculation" type="auc:EngineeringCalculationType" minOccurs="0"/>
+      <xs:element name="Estimated" type="auc:EstimatedType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The 'Estimated' calculation method is used to represent a scenario in which a guess or judgement call was used to derive data represented by this scenario type.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EngineeringCalculation" type="auc:EngineeringCalculationType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The 'EngineeringCalculation' calculation method is used to represent a scenario in which a spreadsheet style calculation, or some other modeling approach that is not full building energy modeling, was used to derive data represented by this scenario type.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
     </xs:choice>
   </xs:complexType>
