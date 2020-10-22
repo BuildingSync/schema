@@ -103,10 +103,11 @@
       "Enthalpy",
       "Demand controlled ventilation",
       "Nonintegrated",
+      "None",
       "Other",
       "Unknown"
     ],
-    "enumerations_html": "<ul><li>Dry bulb temperature</li><li>Enthalpy</li><li>Demand controlled ventilation</li><li>Nonintegrated</li><li>Other</li><li>Unknown</li></ul>"
+    "enumerations_html": "<ul><li>Dry bulb temperature</li><li>Enthalpy</li><li>Demand controlled ventilation</li><li>Nonintegrated</li><li>None</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "AnnualCoolingEfficiencyUnits",
@@ -242,7 +243,7 @@
   {
     "name": "AuditorQualificationType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Professional Engineer (PE)",
       "Associated Air Balance Council (AABC) Certified Member Agency",
@@ -731,7 +732,7 @@
   {
     "name": "Color",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "White",
       "Light",
@@ -747,7 +748,7 @@
   {
     "name": "CommunicationProtocolAnalogType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "AMX192",
       "Current",
@@ -762,7 +763,7 @@
   {
     "name": "CommunicationProtocolDigitalType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "BACnet",
       "DALI",
@@ -926,7 +927,7 @@
   {
     "name": "ControlSensorDaylightingType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Camera",
       "Photocell",
@@ -938,7 +939,7 @@
   {
     "name": "ControlSensorOccupancyType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Passive infrared",
       "Ultrasonic",
@@ -970,7 +971,7 @@
   {
     "name": "ControlStrategyDaylightingType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Continuous",
       "Continuous Plus Off",
@@ -985,7 +986,7 @@
   {
     "name": "ControlStrategyGeneralType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Always On",
       "Aquastat",
@@ -1005,7 +1006,7 @@
   {
     "name": "ControlStrategyLightingType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Advanced",
       "Always On",
@@ -1025,7 +1026,7 @@
   {
     "name": "ControlStrategyOccupancyType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Occupancy Sensors",
       "Vacancy Sensors",
@@ -1155,6 +1156,16 @@
       "Unknown"
     ],
     "enumerations_html": "<ul><li>Wet Bulb Reset</li><li>Other</li><li>Unknown</li></ul>"
+  },
+  {
+    "name": "CostCategory",
+    "sub_name": null,
+    "documentation": "Classification of the cost of the package (per SPC 211 Standard for Commercial Building Energy Audits sections 5.3.5 and 5.3.6)",
+    "enumerations": [
+      "Low-Cost or No-Cost",
+      "Capital"
+    ],
+    "enumerations_html": "<ul><li>Low-Cost or No-Cost</li><li>Capital</li></ul>"
   },
   {
     "name": "CostEffectivenessScreeningMethod",
@@ -1514,7 +1525,7 @@
   {
     "name": "EndUse",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "All end uses",
       "Total lighting",
@@ -1567,7 +1578,7 @@
   {
     "name": "EnvelopeConstructionType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Masonry",
       "Structural brick",
@@ -1609,7 +1620,7 @@
   {
     "name": "EquipmentCondition",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Excellent",
       "Good",
@@ -1663,7 +1674,7 @@
   {
     "name": "ExteriorRoughness",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Very rough",
       "Rough",
@@ -1827,7 +1838,7 @@
   {
     "name": "Finish",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Wood",
       "Masonite",
@@ -1949,7 +1960,7 @@
   {
     "name": "FramingMaterial",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Wood",
       "Steel",
@@ -1995,7 +2006,7 @@
   {
     "name": "FuelTypes",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Electricity",
       "Electricity-Exported",
@@ -2382,7 +2393,7 @@
   {
     "name": "InsulationCondition",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Excellent",
       "Good",
@@ -2397,7 +2408,7 @@
   {
     "name": "InsulationMaterialType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Fiberglass",
       "Cellulose",
@@ -2444,9 +2455,9 @@
     "enumerations_html": "<ul><li>Blind</li><li>Curtain</li><li>Shade</li><li>None</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
-    "name": "IntervalFrequency",
+    "name": "IntervalTime",
     "sub_name": null,
-    "documentation": "Indicates frequency of data that's available for a given variable. Data that's available can range from 10 minute interval to annual. This interval frequency can be applied to resource or other time series data like weather.",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "1 minute",
       "10 minute",
@@ -2640,6 +2651,17 @@
       "Other"
     ],
     "enumerations_html": "<ul><li>Kitchen</li><li>Bathroom</li><li>Basement</li><li>Other</li></ul>"
+  },
+  {
+    "name": "LowMedHigh",
+    "sub_name": null,
+    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "enumerations": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "enumerations_html": "<ul><li>Low</li><li>Medium</li><li>High</li></ul>"
   },
   {
     "name": "MVOption",
@@ -3163,7 +3185,7 @@
   {
     "name": "OccupancyClassificationType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Manufactured home",
       "Single family",
@@ -3474,6 +3496,18 @@
     "enumerations_html": "<ul><li>kW</li><li>MMBtu/day</li></ul>"
   },
   {
+    "name": "PeakType",
+    "sub_name": null,
+    "documentation": "When ReadingType is \"Peak\", this element specifies when the peak occurred.",
+    "enumerations": [
+      "On-peak",
+      "Off-peak",
+      "Mid-peak",
+      "Unknown"
+    ],
+    "enumerations_html": "<ul><li>On-peak</li><li>Off-peak</li><li>Mid-peak</li><li>Unknown</li></ul>"
+  },
+  {
     "name": "Phase",
     "sub_name": null,
     "documentation": "Phase information associated with electricity readings.",
@@ -3574,7 +3608,32 @@
   {
     "name": "PrimaryHVACSystemType",
     "sub_name": null,
-    "documentation": "Primary HVAC type.",
+    "documentation": "Primary HVAC type. WARNING: This element is being deprecated, use PrincipalHVACSystemType instead.",
+    "enumerations": [
+      "Packaged Terminal Air Conditioner",
+      "Four Pipe Fan Coil Unit",
+      "Packaged Terminal Heat Pump",
+      "Packaged Rooftop Air Conditioner",
+      "Packaged Rooftop Heat Pump",
+      "Packaged Rooftop VAV with Hot Water Reheat",
+      "Packaged Rooftop VAV with Electric Reheat",
+      "VAV with Hot Water Reheat",
+      "VAV with Electric Reheat",
+      "Warm Air Furnace",
+      "Ventilation Only",
+      "Dedicated Outdoor Air System",
+      "Water Loop Heat Pump",
+      "Ground Source Heat Pump",
+      "VRF Terminal Unit",
+      "Chilled Beam",
+      "Other"
+    ],
+    "enumerations_html": "<ul><li>Packaged Terminal Air Conditioner</li><li>Four Pipe Fan Coil Unit</li><li>Packaged Terminal Heat Pump</li><li>Packaged Rooftop Air Conditioner</li><li>Packaged Rooftop Heat Pump</li><li>Packaged Rooftop VAV with Hot Water Reheat</li><li>Packaged Rooftop VAV with Electric Reheat</li><li>VAV with Hot Water Reheat</li><li>VAV with Electric Reheat</li><li>Warm Air Furnace</li><li>Ventilation Only</li><li>Dedicated Outdoor Air System</li><li>Water Loop Heat Pump</li><li>Ground Source Heat Pump</li><li>VRF Terminal Unit</li><li>Chilled Beam</li><li>Other</li></ul>"
+  },
+  {
+    "name": "PrincipalHVACSystemType",
+    "sub_name": null,
+    "documentation": "Principal HVAC type.",
     "enumerations": [
       "Packaged Terminal Air Conditioner",
       "Four Pipe Fan Coil Unit",
@@ -3724,7 +3783,7 @@
   {
     "name": "RankType",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Fair",
       "Good",
@@ -3755,9 +3814,11 @@
       "Total",
       "Peak",
       "Minimum",
+      "Load factor",
+      "Cost",
       "Unknown"
     ],
-    "enumerations_html": "<ul><li>Point</li><li>Median</li><li>Average</li><li>Total</li><li>Peak</li><li>Minimum</li><li>Unknown</li></ul>"
+    "enumerations_html": "<ul><li>Point</li><li>Median</li><li>Average</li><li>Total</li><li>Peak</li><li>Minimum</li><li>Load factor</li><li>Cost</li><li>Unknown</li></ul>"
   },
   {
     "name": "RecirculationControlType",
@@ -3860,10 +3921,11 @@
       "Heating plant",
       "Local electric resistance",
       "Local gas",
+      "None",
       "Other",
       "Unknown"
     ],
-    "enumerations_html": "<ul><li>Heating plant</li><li>Local electric resistance</li><li>Local gas</li><li>Other</li><li>Unknown</li></ul>"
+    "enumerations_html": "<ul><li>Heating plant</li><li>Local electric resistance</li><li>Local gas</li><li>None</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "ResourceBoundary",
@@ -4192,7 +4254,7 @@
   {
     "name": "State",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "AA",
       "AE",
@@ -4748,7 +4810,7 @@
   {
     "name": "Tightness",
     "sub_name": null,
-    "documentation": "BuildingSync Schema - Version 2.1.0",
+    "documentation": "BuildingSync Schema - Version 2.2.0",
     "enumerations": [
       "Very Tight",
       "Tight",
@@ -5044,10 +5106,11 @@
       "Series Plate and Frame Heat Exchanger",
       "Strainer Cycle",
       "Thermo Cycle",
+      "None",
       "Other",
       "Unknown"
     ],
-    "enumerations_html": "<ul><li>Parallel Plate and Frame Heat Exchanger</li><li>Series Plate and Frame Heat Exchanger</li><li>Strainer Cycle</li><li>Thermo Cycle</li><li>Other</li><li>Unknown</li></ul>"
+    "enumerations_html": "<ul><li>Parallel Plate and Frame Heat Exchanger</li><li>Series Plate and Frame Heat Exchanger</li><li>Strainer Cycle</li><li>Thermo Cycle</li><li>None</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
     "name": "WaterUseType",
@@ -5214,8 +5277,10 @@
       "2.0.0-pr1",
       "2.0.0-pr2",
       "2.0.0",
-      "2.1.0"
+      "2.1.0",
+      "2.2.0-pr1",
+      "2.2.0"
     ],
-    "enumerations_html": "<ul><li>2.0.0-legacy</li><li>0.2.0</li><li>0.3.0</li><li>1.0.0</li><li>2.0.0-pr1</li><li>2.0.0-pr2</li><li>2.0.0</li><li>2.1.0</li></ul>"
+    "enumerations_html": "<ul><li>2.0.0-legacy</li><li>0.2.0</li><li>0.3.0</li><li>1.0.0</li><li>2.0.0-pr1</li><li>2.0.0-pr2</li><li>2.0.0</li><li>2.1.0</li><li>2.2.0-pr1</li><li>2.2.0</li></ul>"
   }
 ]
