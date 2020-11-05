@@ -44,3 +44,7 @@ Pull request examples:
 
 - `#1234 feat(schema): add MyElement to ParentElement`
 - `proposal: add proposal for MyElement`
+
+## Deprecation Policy
+
+Details of the deprecation policy are included in the BuildingSync XML schema file.

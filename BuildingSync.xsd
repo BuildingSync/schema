@@ -3,6 +3,14 @@
   <xs:import namespace="http://www.gbxml.org/schema" schemaLocation="http://www.gbxml.org/schema/6-01/GreenBuildingXML_Ver6.01.xsd"/>
   <xs:annotation>
     <xs:documentation>BuildingSync Schema - Version 2.2.0</xs:documentation>
+    <xs:documentation xmlns="http://www.w3.org/1999/xhtml">
+      <h1>BuildingSync Schema Deprecation Policy</h1>
+      <p>This document details the deprecation policy for the BuildingSync Schema.</p>
+      <h2>Deprecating schema elements</h2>
+      <p>Since the development of the BuildingSync Schema is application-driven, the schema document itself has evolved over time to reflect the evolving understanding of the problem space.</p>
+      <p><b>Rule #1: Schema elements may only be removed by incrementing the major version of the schema document.</b></p>
+      <p>Once a schema element has been added to the schema document at a particular version, it cannot be removed from that version or have its behavior significantly changed, regardless of track.</p>
+    </xs:documentation>
   </xs:annotation>
   <xs:element name="BuildingSync">
     <xs:complexType>
@@ -10801,18 +10809,32 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="InstalledFlowRate" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Actual flow rate of fan under normal operating conditions. (cfm)</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:decimal">
-              <xs:attribute ref="auc:Source"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:choice>
+        <xs:element name="InstalledFlowRate" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Actual flow rate of fan under normal operating conditions. WARNING: this element is being deprecated, use FanInstalledFlowRate instead. (cfm)</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:decimal">
+                <xs:attribute ref="auc:Source"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FanInstalledFlowRate" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Actual flow rate of fan under normal operating conditions. (cfm)</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:decimal">
+                <xs:attribute ref="auc:Source"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
       <xs:element name="MinimumFlowRate" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The lowest rated flow rate for a fan. (cfm)</xs:documentation>
@@ -13822,6 +13844,9 @@
   <xs:complexType name="CalculationMethodType">
     <xs:choice>
       <xs:element name="Modeled" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The 'Modeled' calculation method is used to represent a scenario in which a building energy modeling software was used to derive data represented by this scenario type.</xs:documentation>
+        </xs:annotation>
         <xs:complexType>
           <xs:sequence>
             <xs:element name="SoftwareProgramUsed" type="xs:string" minOccurs="0">
@@ -13871,6 +13896,9 @@
         </xs:complexType>
       </xs:element>
       <xs:element name="Measured" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The 'Measured' calculation method is used to represent a scenario in which actual measurements were used to derive data represented by this scenario type.</xs:documentation>
+        </xs:annotation>
         <xs:complexType>
           <xs:sequence>
             <xs:element name="MeasuredEnergySource" minOccurs="0">
@@ -13907,7 +13935,16 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="Estimated" type="auc:EstimatedType" minOccurs="0"/>
+      <xs:element name="Estimated" type="auc:EstimatedType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The 'Estimated' calculation method is used to represent a scenario in which a guess or judgement call was used to derive data represented by this scenario type.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EngineeringCalculation" type="auc:EngineeringCalculationType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The 'EngineeringCalculation' calculation method is used to represent a scenario in which a spreadsheet style calculation, or some other modeling approach that is not full building energy modeling, was used to derive data represented by this scenario type.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
     </xs:choice>
   </xs:complexType>
@@ -16485,6 +16522,7 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="ElectricResistanceType"/>
+  <xs:complexType name="EngineeringCalculationType"/>
   <xs:complexType name="EstimatedType"/>
   <xs:complexType name="NeonType"/>
   <xs:complexType name="NoCoolingType"/>
