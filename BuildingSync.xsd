@@ -4346,7 +4346,11 @@
             <xs:enumeration value="Peak"/>
             <xs:enumeration value="Minimum"/>
             <xs:enumeration value="Load factor"/>
-            <xs:enumeration value="Cost"/>
+            <xs:enumeration value="Cost">
+              <xs:annotation>
+                <xs:documentation>WARNING: This enumeration is being deprecated, use auc:TimeSeriesReadingQuantity/Cost instead</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
         </xs:simpleType>
@@ -4370,7 +4374,12 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Currency"/>
+            <xs:enumeration value="Currency">
+              <xs:annotation>
+                <xs:documentation>WARNING: This enumeration is being deprecated, use Cost instead</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Cost"/>
             <xs:enumeration value="Current"/>
             <xs:enumeration value="Current Angle"/>
             <xs:enumeration value="Demand"/>
