@@ -440,6 +440,7 @@
             <xs:enumeration value="2.1.0"/>
             <xs:enumeration value="2.2.0-pr1"/>
             <xs:enumeration value="2.2.0"/>
+            <xs:enumeration value="dev"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -18038,7 +18039,7 @@
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
-                  <xs:element name="SummaryInformation">
+                  <xs:element name="SummaryInformation" minOccurs="0">
                     <xs:complexType>
                       <xs:sequence>
                         <xs:element name="NumberOfDataPoints" type="xs:decimal" minOccurs="0" maxOccurs="1">
@@ -18070,7 +18071,7 @@
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
-                  <xs:element name="TrainingPredictions">
+                  <xs:element name="TrainingPredictions" minOccurs="0">
                     <xs:complexType>
                       <xs:sequence>
                         <xs:element name="TimeSeries" type="auc:TimeSeriesType" maxOccurs="unbounded"/>
@@ -18083,7 +18084,7 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="SavingsSummaries">
+      <xs:element name="SavingsSummaries" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="SavingsSummary">
@@ -18153,7 +18154,7 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element ref="auc:UserDefinedFields"/>
+      <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
