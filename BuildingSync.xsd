@@ -17960,11 +17960,7 @@
                           </xs:complexType>
                         </xs:element>
                         <xs:element name="TimeOfWeekTemperatureModel">
-                          <xs:complexType>
-                            <xs:sequence>
-                              <xs:element name="DUMMY"/>
-                            </xs:sequence>
-                          </xs:complexType>
+                          <xs:complexType/>
                         </xs:element>
                       </xs:choice>
                     </xs:complexType>
@@ -18067,18 +18063,19 @@
                             <xs:documentation>This is used when the auc:NormalizationMethod = "Backcast".  It represents the summation of the predicted energy use over the baseline period when the values are calculated with a model developed using data from the Reporting period.  Refer to the California Industrial SEM M\&amp;V guide v1.0</xs:documentation>
                           </xs:annotation>
                         </xs:element>
-                        <xs:element name="ModelUncertainty" type="xs:decimal"/>
+                        <xs:element name="ModelUncertainty" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
                   <xs:element name="TrainingPredictions" minOccurs="0">
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="TimeSeries" type="auc:TimeSeriesType" maxOccurs="unbounded"/>
+                        <xs:element name="TimeSeries" type="auc:TimeSeriesType" minOccurs="0" maxOccurs="unbounded"/>
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
                 </xs:sequence>
+                <xs:attribute name="ID" type="xs:ID" use="required"/>
               </xs:complexType>
             </xs:element>
           </xs:sequence>
@@ -18090,6 +18087,8 @@
             <xs:element name="SavingsSummary">
               <xs:complexType>
                 <xs:sequence>
+                  <xs:element name="ReportingPeriodStartTimestamp" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+                  <xs:element name="ReportingPeriodEndTimestamp" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
                   <xs:element name="NormalizationMethod" minOccurs="1">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
@@ -18111,9 +18110,14 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="NormalizedEnergySavings" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                  <xs:element name="ReportingPeriodActualEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
                     <xs:annotation>
-                      <xs:documentation>This is used when the auc:NormalizationMethod = "Standard Conditions".  As documented in Annex B4.5 of ASRHAE Guideline 14-2018: "normalized savings is then defined as the normalized baseline energy use minus the normalized postretrofit energy use".  The "normalized baseline energy use" referred to in G-14 is captured by the auc:BaselinePeriodCalculatedEnergyUseStandardConditions element, while the "normalized postretrofit energy use" is captured by the auc:ReportingPeriodCalculatedEnergyUseStandardConditions element.</xs:documentation>
+                      <xs:documentation>This represents the actual energy consumed during the Reporting Period.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="ReportingPeriodCalculatedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Also referred to as the adjusted baseline use, this represents the energy consumed during the Reporting Period based on model predictions.</xs:documentation>
                     </xs:annotation>
                   </xs:element>
                   <xs:element name="AvoidedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
@@ -18121,9 +18125,34 @@
                       <xs:documentation>As documented in Annex B4.1g and the result of Equation B-14 of ASHRAE Guideline 14-2018 (E_save,m), this value represents the 'actual savings'.  It is calculated via the following: E_save,m = Ehat_base,m - E_meas,m.  In BuildingSync terms, auc:AvoidedEnergyUse = auc:ReportingPeriodCalculatedEnergyUse - auc:ReportingPeriodActualEnergyUse.</xs:documentation>
                     </xs:annotation>
                   </xs:element>
-                  <xs:element name="SavingsUncertainty"/>
-                  <xs:element name="ReportingModelID"/>
-                  <xs:element name="BaselineModelID"/>
+                  <xs:element name="SavingsUncertainty" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>The savings uncertainty represented as a decimal.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="ConfidenceLevel" type="auc:BoundedDecimalZeroToOne" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>The confidence level represented as a decimal between zero and one.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="ReportingModelID" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                      <xs:attribute name="IDref" type="xs:IDREF"/>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="BaselineModelID" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Used when the auc:NormalizaitonMethod = 'Forecast' to capture the model used to calculate the savings.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:attribute name="IDref" type="xs:IDREF"/>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="NormalizedEnergySavings" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>This is used when the auc:NormalizationMethod = "Standard Conditions".  As documented in Annex B4.5 of ASRHAE Guideline 14-2018: "normalized savings is then defined as the normalized baseline energy use minus the normalized postretrofit energy use".  The "normalized baseline energy use" referred to in G-14 is captured by the auc:BaselinePeriodCalculatedEnergyUseStandardConditions element, while the "normalized postretrofit energy use" is captured by the auc:ReportingPeriodCalculatedEnergyUseStandardConditions element.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
                   <xs:element name="NormalizedBaselinePeriodCalculatedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
                     <xs:annotation>
                       <xs:documentation>This is used when the auc:NormalizationMethod = "Standard Conditions".  As documented in Annex B4.5 of ASRHAE Guideline 14-2018: "In many cases, it is necessary to normalize the savings to a typical or average period (usually a year) at the site. It was shown in Section B4.3 that when measurement errors are negligible, the uncertainty in calculating actual savings using a weather-based regression is due to the error in normalizing the baseline energy use to the postretrofit period. Normalized savings requires two regression equations: one that correlates baseline energy use with baseline weather conditions and one that correlates postretrofit energy use with postretrofit weather conditions.  This value represents the "normalized baseline energy use", or the predicted energy consumption using the Baseline model when data from a standard year (or typical year) is supplied to it.</xs:documentation>
@@ -18134,21 +18163,32 @@
                       <xs:documentation>This is used when the auc:NormalizationMethod = "Standard Conditions".  As documented in Annex B4.5 of ASRHAE Guideline 14-2018: "In many cases, it is necessary to normalize the savings to a typical or average period (usually a year) at the site. It was shown in Section B4.3 that when measurement errors are negligible, the uncertainty in calculating actual savings using a weather-based regression is due to the error in normalizing the baseline energy use to the postretrofit period. Normalized savings requires two regression equations: one that correlates baseline energy use with baseline weather conditions and one that correlates postretrofit energy use with postretrofit weather conditions.  This value represents the "normalized postretrofit energy use", or the predicted energy consumption using the Reporting (or postretrofit) model when data from a standard year (or typical year) is supplied to it.</xs:documentation>
                     </xs:annotation>
                   </xs:element>
-                  <xs:element name="NormalizedBaselinePredictions">
+                  <xs:element name="NormalizedBaselinePredictions" minOccurs="0" maxOccurs="1">
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="TimeSeries" type="auc:TimeSeriesType"/>
+                        <xs:element name="TimeSeries" type="auc:TimeSeriesType" minOccurs="0" maxOccurs="unbounded"/>
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
-                  <xs:element name="NormalizedReportingPredictions">
+                  <xs:element name="ReportingPeriodPredictions" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Used when the auc:NormalizaitonMethod = 'Forecast' to capture the timeseries reporting predictions.</xs:documentation>
+                    </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="TimeSeries" type="auc:TimeSeriesType"/>
+                        <xs:element name="TimeSeries" type="auc:TimeSeriesType" minOccurs="0" maxOccurs="unbounded"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="NormalizedReportingPredictions" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="TimeSeries" type="auc:TimeSeriesType" minOccurs="0" maxOccurs="unbounded"/>
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
                 </xs:sequence>
+                <xs:attribute name="ID" type="xs:ID" use="required"/>
               </xs:complexType>
             </xs:element>
           </xs:sequence>
