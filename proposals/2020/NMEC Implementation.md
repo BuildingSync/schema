@@ -115,7 +115,7 @@ Potentially?
     - `auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures`
         - It is expected that models for reporting periods would be embedded here (regardless if modeled or measured)
         - All elements starting with `auc:ReportingPeriod` should be captured here
-- Multiple `auc:DerivdeModels` should be able to be captured, as users may want to test different `auc:ModelType`s
+- Multiple `auc:DerivedModels` should be able to be captured, as users may want to test different `auc:ModelType`s
 - The `auc:DerivedModel` will be a complex type that would look something like:
 ```xml
   <auc:DerivedModels>
