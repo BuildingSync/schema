@@ -462,9 +462,14 @@
       </xs:element>
       <xs:element ref="auc:ClimateZoneType" minOccurs="0" maxOccurs="1"/>
       <xs:element ref="auc:eGRIDRegionCode" minOccurs="0"/>
-      <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
-      <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
-      <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
+          <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
+          <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+        </xs:sequence>
+        <xs:element ref="auc:WeatherStations" minOccurs="0"></xs:element>
+      </xs:choice>
       <xs:element ref="auc:Longitude" minOccurs="0"/>
       <xs:element ref="auc:Latitude" minOccurs="0"/>
       <xs:element ref="auc:FloorAreas" minOccurs="0"/>
@@ -506,9 +511,14 @@
       </xs:element>
       <xs:element ref="auc:ClimateZoneType" minOccurs="0" maxOccurs="1"/>
       <xs:element ref="auc:eGRIDRegionCode" minOccurs="0"/>
-      <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
-      <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
-      <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
+          <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
+          <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+        </xs:sequence>
+        <xs:element ref="auc:WeatherStations" minOccurs="0"></xs:element>
+      </xs:choice>
       <xs:element ref="auc:Longitude" minOccurs="0"/>
       <xs:element ref="auc:Latitude" minOccurs="0"/>
       <xs:element name="BuildingClassification" minOccurs="0">
@@ -4526,6 +4536,14 @@
           <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
         </xs:complexType>
       </xs:element>
+      <xs:element name="WeatherStationID" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>ID number of weather station this time series contributes to.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+        </xs:complexType>
+        </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -17537,7 +17555,7 @@
   </xs:element>
   <xs:element name="WeatherDataStationID">
     <xs:annotation>
-      <xs:documentation>For an actual weather station, this is the ID assigned by National Oceanic and Atmospheric Administration (NOAA). For hourly energy simulations, this is the six digit code associated with the hourly weather data, generally found in the name of the weather data file, as well as in the header of the data file. (NNNNNN)</xs:documentation>
+      <xs:documentation>For an actual weather station, this is the ID assigned by National Oceanic and Atmospheric Administration (NOAA). For hourly energy simulations, this is the six digit code associated with the hourly weather data, generally found in the name of the weather data file, as well as in the header of the data file. (NNNNNN) WARNING: This element is being deprecated, use WeatherStations/WeatherStation/WeatherDataStationID instead</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
@@ -17547,7 +17565,7 @@
   </xs:element>
   <xs:element name="WeatherStationName">
     <xs:annotation>
-      <xs:documentation>The name of the weather station associated with this premises, which could be used for simulations, weather normalization, anomaly resolution, etc. For simulations, this is usually the name of the weather file, but the name is also in the header of the data file (TMY, IWEC), such as USA_CO_Denver.Intl.AP.</xs:documentation>
+      <xs:documentation>The name of the weather station associated with this premises, which could be used for simulations, weather normalization, anomaly resolution, etc. For simulations, this is usually the name of the weather file, but the name is also in the header of the data file (TMY, IWEC), such as USA_CO_Denver.Intl.AP. WARNING: This element is being deprecated, use WeatherStations/WeatherStation/WeatherStationName instead</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
@@ -17557,7 +17575,7 @@
   </xs:element>
   <xs:element name="WeatherStationCategory">
     <xs:annotation>
-      <xs:documentation>Describes the type of weather station used to specify the site's weather.</xs:documentation>
+      <xs:documentation>Describes the type of weather station used to specify the site's weather. WARNING: This element is being deprecated, use WeatherStations/WeatherStation/WeatherStationCategory instead</xs:documentation>
     </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">
@@ -17787,4 +17805,20 @@
       <xs:enumeration value="Unknown"/>
     </xs:restriction>
   </xs:simpleType>
+  <xs:element name="WeatherStations">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="WeatherStation" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
+                        <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
+                        <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+                    </xs:sequence>
+                    <xs:attribute name="ID" type="xs:ID" use="required"/>
+                  </xs:complexType>
+              </xs:element>
+          </xs:sequence>
+      </xs:complexType>
+  </xs:element>
 </xs:schema>
