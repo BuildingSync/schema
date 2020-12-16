@@ -464,9 +464,14 @@
       </xs:element>
       <xs:element ref="auc:ClimateZoneType" minOccurs="0" maxOccurs="1"/>
       <xs:element ref="auc:eGRIDRegionCode" minOccurs="0"/>
-      <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
-      <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
-      <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
+          <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
+          <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+        </xs:sequence>
+        <xs:element ref="auc:WeatherStations" minOccurs="0"></xs:element>
+      </xs:choice>
       <xs:element ref="auc:Longitude" minOccurs="0"/>
       <xs:element ref="auc:Latitude" minOccurs="0"/>
       <xs:element ref="auc:FloorAreas" minOccurs="0"/>
@@ -508,9 +513,14 @@
       </xs:element>
       <xs:element ref="auc:ClimateZoneType" minOccurs="0" maxOccurs="1"/>
       <xs:element ref="auc:eGRIDRegionCode" minOccurs="0"/>
-      <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
-      <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
-      <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
+          <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
+          <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+        </xs:sequence>
+        <xs:element ref="auc:WeatherStations" minOccurs="0"></xs:element>
+      </xs:choice>
       <xs:element ref="auc:Longitude" minOccurs="0"/>
       <xs:element ref="auc:Latitude" minOccurs="0"/>
       <xs:element name="BuildingClassification" minOccurs="0">
@@ -4348,7 +4358,11 @@
             <xs:enumeration value="Peak"/>
             <xs:enumeration value="Minimum"/>
             <xs:enumeration value="Load factor"/>
-            <xs:enumeration value="Cost"/>
+            <xs:enumeration value="Cost">
+              <xs:annotation>
+                <xs:documentation>WARNING: This enumeration is being deprecated, use auc:TimeSeriesReadingQuantity/Cost instead</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
         </xs:simpleType>
@@ -4372,7 +4386,12 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Currency"/>
+            <xs:enumeration value="Currency">
+              <xs:annotation>
+                <xs:documentation>WARNING: This enumeration is being deprecated, use Cost instead</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Cost"/>
             <xs:enumeration value="Current"/>
             <xs:enumeration value="Current Angle"/>
             <xs:enumeration value="Demand"/>
@@ -4528,6 +4547,14 @@
           <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
         </xs:complexType>
       </xs:element>
+      <xs:element name="WeatherStationID" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>ID number of weather station this time series contributes to.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+        </xs:complexType>
+        </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -4752,7 +4779,7 @@
                 <xs:choice>
                   <xs:element name="BoilerPlantImprovements" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Boiler Plant Improvements.</xs:documentation>
+                      <xs:documentation>Boiler plant improvements.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -4782,7 +4809,7 @@
                   </xs:element>
                   <xs:element name="ChillerPlantImprovements" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Chiller Plant Improvements.</xs:documentation>
+                      <xs:documentation>Chiller plant improvements.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -4810,7 +4837,7 @@
                   </xs:element>
                   <xs:element name="BuildingAutomationSystems" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Building Automation Systems/Energy Management Control Systems (EMCS).</xs:documentation>
+                      <xs:documentation>Building Automation Systems (BAS) or Energy Management Control Systems (EMCS).</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -4834,7 +4861,7 @@
                   </xs:element>
                   <xs:element name="OtherHVAC" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Heating, Ventilating, and Air Conditioning.</xs:documentation>
+                      <xs:documentation>Other measure related to heating, ventilating, and air conditioning (HVAC).</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -4885,7 +4912,7 @@
                   </xs:element>
                   <xs:element name="LightingImprovements" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Lighting Improvements.</xs:documentation>
+                      <xs:documentation>Lighting improvements.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -4920,7 +4947,7 @@
                   </xs:element>
                   <xs:element name="BuildingEnvelopeModifications" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Building Envelope Modifications.</xs:documentation>
+                      <xs:documentation>Building envelope modifications.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -4956,7 +4983,7 @@
                   </xs:element>
                   <xs:element name="ChilledWaterHotWaterAndSteamDistributionSystems" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Chilled Water, Hot Water, and Steam Distribution Systems.</xs:documentation>
+                      <xs:documentation>Chilled water, hot water, and steam distribution systems.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -4992,7 +5019,7 @@
                   </xs:element>
                   <xs:element name="ConveyanceSystems" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Conveyance Systems (e.g., Elevators).</xs:documentation>
+                      <xs:documentation>Conveyance systems such as elevators and escalators.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5017,7 +5044,7 @@
                   </xs:element>
                   <xs:element name="OtherElectricMotorsAndDrives" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Electric Motors and Drives Other than Those for Conveyance Systems.</xs:documentation>
+                      <xs:documentation>Electric motors and drives other than those for conveyance systems.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5067,7 +5094,7 @@
                   </xs:element>
                   <xs:element name="DistributedGeneration" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Distributed Generation.</xs:documentation>
+                      <xs:documentation>Distributed generation.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5093,7 +5120,7 @@
                   </xs:element>
                   <xs:element name="RenewableEnergySystems" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Renewable Energy Systems.</xs:documentation>
+                      <xs:documentation>Renewable energy systems.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5107,6 +5134,7 @@
                               <xs:enumeration value="Install photovoltaic system"/>
                               <xs:enumeration value="Install wind energy system"/>
                               <xs:enumeration value="Install wood waste or other organic waste stream heating or power plant"/>
+                              <xs:enumeration value="Install electrical storage"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
                               <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
@@ -5119,7 +5147,7 @@
                   </xs:element>
                   <xs:element name="EnergyDistributionSystems" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Energy/Utility Distribution Systems.</xs:documentation>
+                      <xs:documentation>Energy and utility distribution systems.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5179,7 +5207,7 @@
                   </xs:element>
                   <xs:element name="WaterAndSewerConservationSystems" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Water and Sewer Conservation Systems.</xs:documentation>
+                      <xs:documentation>Water and sewer conservation systems.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5205,7 +5233,7 @@
                   </xs:element>
                   <xs:element name="ElectricalPeakShavingLoadShifting" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Electrical Peak Shaving/Load Shifting.</xs:documentation>
+                      <xs:documentation>Electrical peak shaving and load shifting.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5227,7 +5255,7 @@
                   </xs:element>
                   <xs:element name="EnergyCostReductionThroughRateAdjustments" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Energy Cost Reduction Through Rate Adjustments.</xs:documentation>
+                      <xs:documentation>Energy cost reduction through rate adjustments.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5250,7 +5278,7 @@
                   </xs:element>
                   <xs:element name="EnergyRelatedProcessImprovements" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Energy Related Process Improvements.</xs:documentation>
+                      <xs:documentation>Energy related process improvements.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5274,7 +5302,7 @@
                   </xs:element>
                   <xs:element name="AdvancedMeteringSystems" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Advanced Metering Systems.</xs:documentation>
+                      <xs:documentation>Advanced metering systems.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5351,7 +5379,7 @@
                   </xs:element>
                   <xs:element name="FutureOtherECMs" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Future/Other ECMs.</xs:documentation>
+                      <xs:documentation>Measures reserved for future and other ECMs.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -17503,7 +17531,7 @@
   </xs:element>
   <xs:element name="eGRIDRegionCode">
     <xs:annotation>
-      <xs:documentation>The eGRID (Emissions and Generation Resource Database) region code associated with the data being described.</xs:documentation>
+      <xs:documentation>The eGRID (Emissions and Generation Resource Database) region code associated with the data being described. WARNING: Element MORE was a typo and will be removed, use MROE.</xs:documentation>
     </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">
@@ -17516,6 +17544,7 @@
         <xs:enumeration value="HIMS"/>
         <xs:enumeration value="HIOA"/>
         <xs:enumeration value="MORE"/>
+        <xs:enumeration value="MROE"/>
         <xs:enumeration value="MROW"/>
         <xs:enumeration value="NEWE"/>
         <xs:enumeration value="NWPP"/>
@@ -17539,7 +17568,7 @@
   </xs:element>
   <xs:element name="WeatherDataStationID">
     <xs:annotation>
-      <xs:documentation>For an actual weather station, this is the ID assigned by National Oceanic and Atmospheric Administration (NOAA). For hourly energy simulations, this is the six digit code associated with the hourly weather data, generally found in the name of the weather data file, as well as in the header of the data file. (NNNNNN)</xs:documentation>
+      <xs:documentation>For an actual weather station, this is the ID assigned by National Oceanic and Atmospheric Administration (NOAA). For hourly energy simulations, this is the six digit code associated with the hourly weather data, generally found in the name of the weather data file, as well as in the header of the data file. (NNNNNN) WARNING: This element is being deprecated, use WeatherStations/WeatherStation/WeatherDataStationID instead</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
@@ -17549,7 +17578,7 @@
   </xs:element>
   <xs:element name="WeatherStationName">
     <xs:annotation>
-      <xs:documentation>The name of the weather station associated with this premises, which could be used for simulations, weather normalization, anomaly resolution, etc. For simulations, this is usually the name of the weather file, but the name is also in the header of the data file (TMY, IWEC), such as USA_CO_Denver.Intl.AP.</xs:documentation>
+      <xs:documentation>The name of the weather station associated with this premises, which could be used for simulations, weather normalization, anomaly resolution, etc. For simulations, this is usually the name of the weather file, but the name is also in the header of the data file (TMY, IWEC), such as USA_CO_Denver.Intl.AP. WARNING: This element is being deprecated, use WeatherStations/WeatherStation/WeatherStationName instead</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
@@ -17559,7 +17588,7 @@
   </xs:element>
   <xs:element name="WeatherStationCategory">
     <xs:annotation>
-      <xs:documentation>Describes the type of weather station used to specify the site's weather.</xs:documentation>
+      <xs:documentation>Describes the type of weather station used to specify the site's weather. WARNING: This element is being deprecated, use WeatherStations/WeatherStation/WeatherStationCategory instead</xs:documentation>
     </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">
@@ -17789,4 +17818,20 @@
       <xs:enumeration value="Unknown"/>
     </xs:restriction>
   </xs:simpleType>
+  <xs:element name="WeatherStations">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="WeatherStation" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
+                        <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
+                        <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+                    </xs:sequence>
+                    <xs:attribute name="ID" type="xs:ID" use="required"/>
+                  </xs:complexType>
+              </xs:element>
+          </xs:sequence>
+      </xs:complexType>
+  </xs:element>
 </xs:schema>
