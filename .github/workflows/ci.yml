@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true
+      # Rake checks that all examples files pass. generate_data_dictionary will check to ensure there are
+      # no name conflicts needed to generate the data dictionary.
+      - run: |
+          bundle exec rake
+          bundle exec rake generate_data_dictionary
