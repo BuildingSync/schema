@@ -1,5 +1,5 @@
 <!-- Before creating the PR make sure that the schema is formatted correctly.
-  * Remove tabs (run bundle exec rake remove_tabs
+  * Remove tabs (run bundle exec rake remove_tabs)
   * Ensure example files have been updated
 -->
 
