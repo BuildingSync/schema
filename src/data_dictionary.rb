@@ -1,4 +1,5 @@
 require 'json'
+require 'rubyXL/convenience_methods'
 
 # Simple class that creates the data dictionary from the BuildingSync.xsd file
 class DataDictionary
@@ -147,6 +148,7 @@ class DataDictionary
 
       data[:name] = name
       data[:sub_name] = nil
+      data[:sub_display_name] = nil
       doc_string = node.parent.parent.xpath('.//xs:annotation/xs:documentation').first
 
       puts name
@@ -164,6 +166,7 @@ class DataDictionary
         if sub_name = node.parent.parent.parent.parent.parent.attribute('name')
           data[:sub_name] = sub_name.value
           name += " (#{sub_name.value})"
+          data[:sub_display_name] = add_spaces(sub_name.value)
         end
 
       end
