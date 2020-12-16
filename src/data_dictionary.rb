@@ -1,4 +1,5 @@
 require 'json'
+require 'rubyXL/convenience_methods'
 
 # Simple class that creates the data dictionary from the BuildingSync.xsd file
 class DataDictionary
