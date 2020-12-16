@@ -8,7 +8,9 @@
       <p>This document details the deprecation policy for the BuildingSync Schema.</p>
       <h2>Deprecating schema elements</h2>
       <p>Since the development of the BuildingSync Schema is application-driven, the schema document itself has evolved over time to reflect the evolving understanding of the problem space.</p>
-      <p><b>Rule #1: Schema elements may only be removed by incrementing the major version of the schema document.</b></p>
+      <p>
+        <b>Rule #1: Schema elements may only be removed by incrementing the major version of the schema document.</b>
+      </p>
       <p>Once a schema element has been added to the schema document at a particular version, it cannot be removed from that version or have its behavior significantly changed, regardless of track.</p>
     </xs:documentation>
   </xs:annotation>
@@ -4750,7 +4752,7 @@
                 <xs:choice>
                   <xs:element name="BoilerPlantImprovements" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Boiler Plant Improvements.</xs:documentation>
+                      <xs:documentation>Boiler plant improvements.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -4780,7 +4782,7 @@
                   </xs:element>
                   <xs:element name="ChillerPlantImprovements" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Chiller Plant Improvements.</xs:documentation>
+                      <xs:documentation>Chiller plant improvements.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -4808,7 +4810,7 @@
                   </xs:element>
                   <xs:element name="BuildingAutomationSystems" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Building Automation Systems/Energy Management Control Systems (EMCS).</xs:documentation>
+                      <xs:documentation>Building Automation Systems (BAS) or Energy Management Control Systems (EMCS).</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -4832,7 +4834,7 @@
                   </xs:element>
                   <xs:element name="OtherHVAC" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Heating, Ventilating, and Air Conditioning.</xs:documentation>
+                      <xs:documentation>Other measure related to heating, ventilating, and air conditioning (HVAC).</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -4883,7 +4885,7 @@
                   </xs:element>
                   <xs:element name="LightingImprovements" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Lighting Improvements.</xs:documentation>
+                      <xs:documentation>Lighting improvements.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -4918,7 +4920,7 @@
                   </xs:element>
                   <xs:element name="BuildingEnvelopeModifications" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Building Envelope Modifications.</xs:documentation>
+                      <xs:documentation>Building envelope modifications.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -4954,7 +4956,7 @@
                   </xs:element>
                   <xs:element name="ChilledWaterHotWaterAndSteamDistributionSystems" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Chilled Water, Hot Water, and Steam Distribution Systems.</xs:documentation>
+                      <xs:documentation>Chilled water, hot water, and steam distribution systems.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -4990,7 +4992,7 @@
                   </xs:element>
                   <xs:element name="ConveyanceSystems" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Conveyance Systems (e.g., Elevators).</xs:documentation>
+                      <xs:documentation>Conveyance systems such as elevators and escalators.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5015,7 +5017,7 @@
                   </xs:element>
                   <xs:element name="OtherElectricMotorsAndDrives" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Electric Motors and Drives Other than Those for Conveyance Systems.</xs:documentation>
+                      <xs:documentation>Electric motors and drives other than those for conveyance systems.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5065,7 +5067,7 @@
                   </xs:element>
                   <xs:element name="DistributedGeneration" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Distributed Generation.</xs:documentation>
+                      <xs:documentation>Distributed generation.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5091,7 +5093,7 @@
                   </xs:element>
                   <xs:element name="RenewableEnergySystems" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Renewable Energy Systems.</xs:documentation>
+                      <xs:documentation>Renewable energy systems.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5105,6 +5107,7 @@
                               <xs:enumeration value="Install photovoltaic system"/>
                               <xs:enumeration value="Install wind energy system"/>
                               <xs:enumeration value="Install wood waste or other organic waste stream heating or power plant"/>
+                              <xs:enumeration value="Install electrical storage"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
                               <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
@@ -5117,7 +5120,7 @@
                   </xs:element>
                   <xs:element name="EnergyDistributionSystems" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Energy/Utility Distribution Systems.</xs:documentation>
+                      <xs:documentation>Energy and utility distribution systems.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5177,7 +5180,7 @@
                   </xs:element>
                   <xs:element name="WaterAndSewerConservationSystems" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Water and Sewer Conservation Systems.</xs:documentation>
+                      <xs:documentation>Water and sewer conservation systems.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5203,7 +5206,7 @@
                   </xs:element>
                   <xs:element name="ElectricalPeakShavingLoadShifting" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Electrical Peak Shaving/Load Shifting.</xs:documentation>
+                      <xs:documentation>Electrical peak shaving and load shifting.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5225,7 +5228,7 @@
                   </xs:element>
                   <xs:element name="EnergyCostReductionThroughRateAdjustments" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Energy Cost Reduction Through Rate Adjustments.</xs:documentation>
+                      <xs:documentation>Energy cost reduction through rate adjustments.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5248,7 +5251,7 @@
                   </xs:element>
                   <xs:element name="EnergyRelatedProcessImprovements" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Energy Related Process Improvements.</xs:documentation>
+                      <xs:documentation>Energy related process improvements.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5272,7 +5275,7 @@
                   </xs:element>
                   <xs:element name="AdvancedMeteringSystems" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Advanced Metering Systems.</xs:documentation>
+                      <xs:documentation>Advanced metering systems.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
@@ -5349,7 +5352,7 @@
                   </xs:element>
                   <xs:element name="FutureOtherECMs" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Future/Other ECMs.</xs:documentation>
+                      <xs:documentation>Measures reserved for future and other ECMs.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
