@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rake', '~> 12.3.0'
+gem 'rake', '~> 13.0.1'
 gem 'nokogiri', '>= 1.10.4'
-gem 'rubyXL', '~> 3.3.33'
-gem 'rspec', '~> 3.7.0'
+gem 'rubyXL', '~> 3.4.16'
+gem 'rspec', '~> 3.10.0'
 gem 'github_api'
