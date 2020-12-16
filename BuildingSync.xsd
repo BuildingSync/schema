@@ -17504,7 +17504,7 @@
   </xs:element>
   <xs:element name="eGRIDRegionCode">
     <xs:annotation>
-      <xs:documentation>The eGRID (Emissions and Generation Resource Database) region code associated with the data being described.</xs:documentation>
+      <xs:documentation>The eGRID (Emissions and Generation Resource Database) region code associated with the data being described. WARNING: Element MORE was a typo and will be removed, use MROE.</xs:documentation>
     </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">
@@ -17517,6 +17517,7 @@
         <xs:enumeration value="HIMS"/>
         <xs:enumeration value="HIOA"/>
         <xs:enumeration value="MORE"/>
+        <xs:enumeration value="MROE"/>
         <xs:enumeration value="MROW"/>
         <xs:enumeration value="NEWE"/>
         <xs:enumeration value="NWPP"/>
