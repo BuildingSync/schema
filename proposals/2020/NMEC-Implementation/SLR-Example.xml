@@ -77,13 +77,13 @@
                   <auc:ResourceUseID IDref="Elec"/>
                 </auc:TimeSeries>
                 <!-- ...repeat for every day required for the above -->
-              <auc:TimeSeries ID="TimeSeries-1">
-                <auc:ReadingType>Average</auc:ReadingType>
-                <auc:TimeSeriesReadingQuantity>Dry Bulb Temperature</auc:TimeSeriesReadingQuantity>
-                <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
-                <auc:IntervalFrequency>Day</auc:IntervalFrequency>
-                <auc:IntervalReading>38.42</auc:IntervalReading>
-              </auc:TimeSeries>
+                <auc:TimeSeries ID="TimeSeries-1">
+                  <auc:ReadingType>Average</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Dry Bulb Temperature</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
+                  <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                  <auc:IntervalReading>38.42</auc:IntervalReading>
+                </auc:TimeSeries>
               </auc:TimeSeriesData>
               <!-- Link to the Premise of Interest -->
               <auc:LinkedPremises>
@@ -260,13 +260,13 @@
                   <auc:ResourceUseID IDref="Elec-2"/>
                 </auc:TimeSeries>
                 <!-- ...repeat for every day required for the above (no changes) -->
-              <auc:TimeSeries ID="TimeSeries-1-2">
-                <auc:ReadingType>Average</auc:ReadingType>
-                <auc:TimeSeriesReadingQuantity>Dry Bulb Temperature</auc:TimeSeriesReadingQuantity>
-                <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
-                <auc:IntervalFrequency>Day</auc:IntervalFrequency>
-                <auc:IntervalReading>38.42</auc:IntervalReading>
-              </auc:TimeSeries>
+                <auc:TimeSeries ID="TimeSeries-1-2">
+                  <auc:ReadingType>Average</auc:ReadingType>
+                  <auc:TimeSeriesReadingQuantity>Dry Bulb Temperature</auc:TimeSeriesReadingQuantity>
+                  <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
+                  <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                  <auc:IntervalReading>38.42</auc:IntervalReading>
+                </auc:TimeSeries>
               </auc:TimeSeriesData>
               <auc:LinkedPremises>
                 <auc:Building>
@@ -403,17 +403,14 @@
                       <auc:BaselinePeriodModelID IDref="Scenario-Baseline-DM-StandardConditions-SLR"/>
                       <auc:ReportingPeriodModelID IDref="Scenario-Reporting-DM-StandardConditions-SLR"/>
                       <auc:NormalizationMethod>Standard Conditions</auc:NormalizationMethod>
-
                       <!-- The timestamps used come from whatever 'standard condition' dataset was used.  They may appear
                       slightly nonsensical...this is considered ok for 'standard condition' datasets -->
                       <auc:ComparisonPeriodStartTimestamp>1977-07-01T00:00:00</auc:ComparisonPeriodStartTimestamp>
                       <auc:ComparisonPeriodEndTimestamp>2001-09-30T23:59:00</auc:ComparisonPeriodEndTimestamp>
-                      
                       <!-- Normalized savings uncertainty is calculated as the square-root of the sum of the 
                         baseline and performance period models' squared uncertainties. -->
                       <auc:SavingsUncertainty>0.40</auc:SavingsUncertainty>
                       <auc:ConfidenceLevel>0.90</auc:ConfidenceLevel>
-
                       <!-- Here we summarize the calculated energy consumption for each model over the defined timeperiod at standard conditions -->
                       <auc:StandardConditionsBaselinePeriodAggregateModeledEnergyUse>5980485</auc:StandardConditionsBaselinePeriodAggregateModeledEnergyUse>
                       <auc:StandardConditionsReportingPeriodAggregateModeledEnergyUse>5442312</auc:StandardConditionsReportingPeriodAggregateModeledEnergyUse>
@@ -427,7 +424,6 @@
                           <auc:IntervalReading>14057.40</auc:IntervalReading>
                         </auc:TimeSeries>
                       </auc:StandardConditionsBaselinePeriodModeledTimeSeriesData>
-
                       <!-- Stores modeled data for the reporting period -->
                       <auc:StandardConditionsReportingPeriodModeledTimeSeriesData>
                         <!-- repeat for all time periods... -->
