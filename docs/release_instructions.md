@@ -7,7 +7,7 @@ Follow the steps below when releasing a new version
     * Update in the first <xs:annotation> element.
     * Add enumeration to /version with the latest version 
 
-* Convert XSD to JSON schema. This is still in prototype. 
+* Convert XSD to JSON schema. This is still in prototype. This functionality will be moved to Oxygen XML soon.
     * Use XMLSpy to Generate JSON Schema (Convert->Convert XML Schema to/from JSON Schema...)
     * Use the default options
 
@@ -29,15 +29,13 @@ Follow the steps below when releasing a new version
     * After merging the Pull Request, draft a release in GitHub. 
     * *Upload the XSD and JSON file as part of the release.*
     
-* Use XMLSpy to generate documentation (files will be saved to this (repo)[https://github.com/BuildingSync/website]).
-
-    * Schema Design -> Generate Documentation
-    * Set to HTML
-    * Check all the includes and details
-    * Make sure to output to a single file (uncheck "Split output in multiple files")
-    * Embed CSS into HTML
-    * Export as `index.html` in the website's `schema/vX.Y/documentation` folder.
-
+* Use Oxygen XML to generate the documentation. The documentation will actually be saved in [this repo](https://github.com/BuildingSync/website]).
+    * Tools -> Generate Documentation -> XML Schema Documentation
+    * Choose *Format HTML*
+    * Check *split output into multiple* and *Split by location*    
+    * Set directory and name to be the website's folder `schema/vX.Y.Z/documentation/index.html`. The name needs to be `index.html`.
+    * Select *Generate*
+    
 * Edit the BuildingSync Website GitHub repo on a new branch (https://github.com/BuildingSync/website):
 
 	* Run the schema's rake task for generating the data dictionary (`bundle exec rake generate_data_dictionary`). This will create the list of enumerations in both JSON and XSLX format. In the BuildingSync/website repository:
