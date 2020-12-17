@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 file:///Users/cmosiman/Github/BuildingSync/schema/BuildingSync.xsd" version="2.2.0">
+  <auc:Facilities>
+    <auc:Facility ID="Facility-32">
+      <auc:Sites>
+        <auc:Site ID="Site-33">
+          <auc:Buildings>
+            <auc:Building ID="My-Fav-Building">
+              <auc:PremisesName>My-Fav-Building</auc:PremisesName>
+              <auc:Address>
+                <auc:City>Denver</auc:City>
+                <auc:State>CO</auc:State>
+                <auc:PostalCode>80205</auc:PostalCode>
+              </auc:Address>
+              <auc:Longitude>-104.97855661401148</auc:Longitude>
+              <auc:Latitude>39.76550841416409</auc:Latitude>
+            </auc:Building>
+          </auc:Buildings>
+        </auc:Site>
+      </auc:Sites>
+      <auc:Measures>
+        <auc:Measure ID="Boiler-ERV-Completed">
+          <auc:TechnologyCategories>
+            <auc:TechnologyCategory>
+              <auc:BoilerPlantImprovements>
+                <auc:MeasureName>Add energy recovery</auc:MeasureName>
+              </auc:BoilerPlantImprovements>
+            </auc:TechnologyCategory>
+          </auc:TechnologyCategories>
+          <auc:StartDate>2013-03-01</auc:StartDate>
+          <auc:EndDate>2014-02-28</auc:EndDate>
+          <auc:ImplementationStatus>Completed</auc:ImplementationStatus>
+        </auc:Measure>
+      </auc:Measures>
+      <auc:Reports>
+        <!-- Report-1 Considers a typical Baseline & Reporting Period -->
+        <auc:Report ID="Report-1">
+          <auc:Scenarios>
+            <!-- Current Building Measured Scenario - Contains actual recorded data for the ResourceUse of interest -->
+            <auc:Scenario ID="Scenario-Measured">
+              <auc:ScenarioType>
+                <auc:CurrentBuilding>
+                  <auc:CalculationMethod>
+                    <auc:Measured/>
+                  </auc:CalculationMethod>
+                </auc:CurrentBuilding>
+              </auc:ScenarioType>
+              <auc:ResourceUses>
+                <auc:ResourceUse ID="Elec">
+                  <auc:EnergyResource>Electricity</auc:EnergyResource>
+                  <auc:ResourceUnits>kWh</auc:ResourceUnits>
+                  <auc:EndUse>All end uses</auc:EndUse>
+                </auc:ResourceUse>
+              </auc:ResourceUses>
+              <auc:TimeSeriesData>
+                <!-- ...repeat for 12 months for baseline period until endtime of 2013-02-28 -->
+                <auc:TimeSeries ID="TS-Daily-Baseline1">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
+                  <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                  <auc:IntervalReading>21505.44</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Elec"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="TS-Daily-Baseline2">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2012-03-02T00:00:00</auc:StartTimestamp>
+                  <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                  <auc:IntervalReading>20892.24</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Elec"/>
+                </auc:TimeSeries>
+                <!-- ...repeat for 12 months for reporting period until endtime of 2015-02-28 -->
+                <auc:TimeSeries ID="TS-Daily-Reporting1">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2014-03-01T00:00:00</auc:StartTimestamp>
+                  <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                  <auc:IntervalReading>15988.56</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Elec"/>
+                </auc:TimeSeries>
+                <!-- ...repeat for every day required for the above -->
+              <auc:TimeSeries ID="TimeSeries-1">
+                <auc:ReadingType>Average</auc:ReadingType>
+                <auc:TimeSeriesReadingQuantity>Dry Bulb Temperature</auc:TimeSeriesReadingQuantity>
+                <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
+                <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                <auc:IntervalReading>38.42</auc:IntervalReading>
+              </auc:TimeSeries>
+              </auc:TimeSeriesData>
+              <!-- Link to the Premise of Interest -->
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="My-Fav-Building"/>
+                </auc:Building>
+              </auc:LinkedPremises>
+            </auc:Scenario>
+            <!-- Derived Model Scenario -->
+            <auc:Scenario ID="Scenario-DerivedModel">
+              <auc:ScenarioType>
+                <auc:DerivedModel ID="Scenario-Baseline-DM">
+                  <auc:DerivedModelName>DerivedModel 1</auc:DerivedModelName>
+                  <!-- Identify the Scenario sourcing the data used for the analysis -->
+                  <auc:MeasuredScenarioID IDref="Scenario-Measured"/>
+                  <auc:Models>
+                    <!-- This begins our Model definition.  -->
+                    <auc:Model ID="Scenario-Baseline-DM-SLR">
+                      <!-- Timespan over which the model was created -->
+                      <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
+                      <auc:EndTimestamp>2013-02-28T00:00:00</auc:EndTimestamp>
+                      <auc:DerivedModelInputs>
+                        <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                        <!-- ResponseVariable captures what the model is predicting -->
+                        <auc:ResponseVariable>
+                          <auc:ResponseVariableName>Electricity</auc:ResponseVariableName>
+                          <auc:ResponseVariableUnits>kWh</auc:ResponseVariableUnits>
+                          <auc:ResponseVariableEndUse>All end uses</auc:ResponseVariableEndUse>
+                        </auc:ResponseVariable>
+                        <auc:ExplanatoryVariables>
+                          <!-- Each ExplanatoryVariable is simple and intended to provide context -->
+                          <auc:ExplanatoryVariable>
+                            <auc:ExplanatoryVariableName>Drybulb Temperature</auc:ExplanatoryVariableName>
+                            <auc:ExplanatoryVariableUnits>Fahrenheit, F</auc:ExplanatoryVariableUnits>
+                          </auc:ExplanatoryVariable>
+                        </auc:ExplanatoryVariables>
+                      </auc:DerivedModelInputs>
+                      <!-- Coefficients for the model are captured here, as well as the specific model type used. 
+                      the specific Coefficients to use depend on the ModelType selected. -->
+                      <auc:DerivedModelCoefficients>
+                        <auc:Guideline14Model>
+                          <auc:ModelType>2 parameter simple linear regression</auc:ModelType>
+                          <auc:Intercept>31433.86</auc:Intercept>
+                          <auc:Beta1>-288.1071</auc:Beta1>
+                        </auc:Guideline14Model>
+                      </auc:DerivedModelCoefficients>
+                      <!-- Model performance is summarized here.  -->
+                      <auc:DerivedModelPerformance>
+                        <auc:RSquared>0.69</auc:RSquared>
+                        <auc:CVRMSE>11.46</auc:CVRMSE>
+                        <auc:NDBE>0.00</auc:NDBE>
+                        <auc:NMBE>0.00</auc:NMBE>
+                      </auc:DerivedModelPerformance>
+                      <auc:SummaryInformation>
+                        <auc:NumberOfDataPoints>365</auc:NumberOfDataPoints>
+                        <auc:NumberOfParameters>2</auc:NumberOfParameters>
+                        <auc:AggregateActualEnergyUse>5950194</auc:AggregateActualEnergyUse>
+                        <auc:AggregateModeledEnergyUse>5950194</auc:AggregateModeledEnergyUse>
+                      </auc:SummaryInformation>
+                      <!-- The model fit data, i.e. the yhat values of the model -->
+                      <auc:ModeledTimeSeriesData>
+                        <auc:TimeSeries ID="TS-ModelFit-1">
+                          <auc:ReadingType>Total</auc:ReadingType>
+                          <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
+                          <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                          <auc:IntervalReading>20365.587</auc:IntervalReading>
+                        </auc:TimeSeries>
+                        <auc:TimeSeries ID="TS-ModelFit-2">
+                          <auc:ReadingType>Total</auc:ReadingType>
+                          <auc:StartTimestamp>2012-03-02T00:00:00</auc:StartTimestamp>
+                          <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                          <auc:IntervalReading>19950.433</auc:IntervalReading>
+                        </auc:TimeSeries>
+                      </auc:ModeledTimeSeriesData>
+                    </auc:Model>
+                  </auc:Models>
+                  <auc:SavingsSummaries>
+                    <!-- A summary of the savings achieved when the Model defined by the BaselinePeriodModelID is
+                    'applied' to the 'Current Building Measured' data (DerivedModel/MeasuredScenarioID/@IDref) for the
+                    time period spanning the ComparisonPeriodStartTimeStamp -> ComparisonPeriodEndTimeStamp.  -->
+                    <auc:SavingsSummary ID="SavingsSummary-1">
+                      <auc:BaselinePeriodModelID IDref="Scenario-Baseline-DM-SLR"/>
+                      <auc:NormalizationMethod>Forecast</auc:NormalizationMethod>
+                      <auc:ComparisonPeriodStartTimestamp>2014-03-01T00:00:00</auc:ComparisonPeriodStartTimestamp>
+                      <auc:ComparisonPeriodEndTimestamp>2015-02-28T23:59:00</auc:ComparisonPeriodEndTimestamp>
+                      <auc:ComparisonPeriodAggregateActualEnergyUse>5103905</auc:ComparisonPeriodAggregateActualEnergyUse>
+                      <auc:ComparisonPeriodAggregateModeledEnergyUse>5456928</auc:ComparisonPeriodAggregateModeledEnergyUse>
+                      <auc:AvoidedEnergyUse>353022.9</auc:AvoidedEnergyUse>
+                      <auc:SavingsUncertainty>0.405</auc:SavingsUncertainty>
+                      <auc:ConfidenceLevel>0.90</auc:ConfidenceLevel>
+                      <!-- Include in here the TimeSeries data for the modeled period.  -->
+                      <auc:ComparisonPeriodModeledTimeSeriesData>
+                        <!-- Repeat at consistent time intervals between the ComparisonPeriodStartTimeStamp and ComparisonPeriodEndTimeStamp. The cardinality of the data between this data and the 
+                        data in the Current Building Measured Scenario (ID=Scenario-Measured) shall be one-to-one -->
+                        <auc:TimeSeries ID="TS-Prediction-1">
+                          <auc:StartTimestamp>2014-03-01T00:00:00</auc:StartTimestamp>
+                          <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                          <auc:IntervalReading>17017</auc:IntervalReading>
+                        </auc:TimeSeries>
+                      </auc:ComparisonPeriodModeledTimeSeriesData>
+                    </auc:SavingsSummary>
+                  </auc:SavingsSummaries>
+                </auc:DerivedModel>
+              </auc:ScenarioType>
+            </auc:Scenario>
+            <!-- Scenario representing the Measure actually implemented. More informational than necessary, although
+            does help tie the auditing workflow with the M&V workflow well. -->
+            <auc:Scenario ID="Scenario-POM">
+              <auc:ScenarioType>
+                <auc:PackageOfMeasures ID="POM-1">
+                  <auc:MeasureIDs>
+                    <auc:MeasureID IDref="Boiler-ERV-Completed"/>
+                  </auc:MeasureIDs>
+                  <auc:CalculationMethod>
+                    <auc:Measured/>
+                  </auc:CalculationMethod>
+                </auc:PackageOfMeasures>
+              </auc:ScenarioType>
+              <!-- TimeSeriesData stored in the implemented POM may include data from 
+              temporary measurements (i.e. HOBO, data loggers, etc.), but is not intended 
+              to store the consistent TS data for the analysis. -->
+              <auc:TimeSeriesData>
+                <auc:TimeSeries ID="TS-POM-Sample-1">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2012-03-02T00:00:00</auc:StartTimestamp>
+                  <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                  <auc:IntervalReading>19950.433</auc:IntervalReading>
+                </auc:TimeSeries>
+              </auc:TimeSeriesData>
+            </auc:Scenario>
+          </auc:Scenarios>
+        </auc:Report>
+        <!-- Report-2 Considers a Normalized Savings approach. -->
+        <auc:Report ID="Report-2">
+          <auc:Scenarios>
+            <!-- Current Building Measured Scenario (no changes) - Contains actual recorded data for the ResourceUse of interest -->
+            <auc:Scenario ID="Scenario-Measured-2">
+              <auc:ScenarioType>
+                <auc:CurrentBuilding>
+                  <auc:CalculationMethod>
+                    <auc:Measured/>
+                  </auc:CalculationMethod>
+                </auc:CurrentBuilding>
+              </auc:ScenarioType>
+              <auc:ResourceUses>
+                <auc:ResourceUse ID="Elec-2">
+                  <auc:EnergyResource>Electricity</auc:EnergyResource>
+                  <auc:ResourceUnits>kWh</auc:ResourceUnits>
+                  <auc:EndUse>All end uses</auc:EndUse>
+                </auc:ResourceUse>
+              </auc:ResourceUses>
+              <auc:TimeSeriesData>
+                <!-- ...repeat for 12 months for 'baseline' period until endtime of 2013-02-28 (no changes) -->
+                <auc:TimeSeries ID="TS-Daily-Baseline1-2">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
+                  <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                  <auc:IntervalReading>21505.44</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Elec-2"/>
+                </auc:TimeSeries>
+                <auc:TimeSeries ID="TS-Daily-Baseline2-2">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2012-03-02T00:00:00</auc:StartTimestamp>
+                  <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                  <auc:IntervalReading>20892.24</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Elec-2"/>
+                </auc:TimeSeries>
+                <!-- ...repeat for 12 months for 'reporting' period until endtime of 2015-02-28 (no changes) -->
+                <auc:TimeSeries ID="TS-Daily-Reporting1-2">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2014-03-01T00:00:00</auc:StartTimestamp>
+                  <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                  <auc:IntervalReading>15988.56</auc:IntervalReading>
+                  <auc:ResourceUseID IDref="Elec-2"/>
+                </auc:TimeSeries>
+                <!-- ...repeat for every day required for the above (no changes) -->
+              <auc:TimeSeries ID="TimeSeries-1-2">
+                <auc:ReadingType>Average</auc:ReadingType>
+                <auc:TimeSeriesReadingQuantity>Dry Bulb Temperature</auc:TimeSeriesReadingQuantity>
+                <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
+                <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                <auc:IntervalReading>38.42</auc:IntervalReading>
+              </auc:TimeSeries>
+              </auc:TimeSeriesData>
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="My-Fav-Building"/>
+                </auc:Building>
+              </auc:LinkedPremises>
+            </auc:Scenario>
+            <!-- Derived Model Scenario - Now 2 Models Defined -->
+            <auc:Scenario ID="Scenario-DerivedModel-2">
+              <auc:ScenarioType>
+                <auc:DerivedModel ID="Scenario-DM-StandardConditions">
+                  <auc:DerivedModelName>DerivedModel 1</auc:DerivedModelName>
+                  <auc:MeasuredScenarioID IDref="Scenario-Measured-2"/>
+                  <auc:Models>
+                    <!-- This begins our Model definition for the baseline period.
+                      (no changes compared to Model/@ID=Scenario-Baseline-DM-SLR) -->
+                    <auc:Model ID="Scenario-Baseline-DM-StandardConditions-SLR">
+                      <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
+                      <auc:EndTimestamp>2013-02-28T00:00:00</auc:EndTimestamp>
+                      <auc:DerivedModelInputs>
+                        <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                        <auc:ResponseVariable>
+                          <auc:ResponseVariableName>Electricity</auc:ResponseVariableName>
+                          <auc:ResponseVariableUnits>kWh</auc:ResponseVariableUnits>
+                          <auc:ResponseVariableEndUse>All end uses</auc:ResponseVariableEndUse>
+                        </auc:ResponseVariable>
+                        <auc:ExplanatoryVariables>
+                          <auc:ExplanatoryVariable>
+                            <auc:ExplanatoryVariableName>Drybulb Temperature</auc:ExplanatoryVariableName>
+                            <auc:ExplanatoryVariableUnits>Fahrenheit, F</auc:ExplanatoryVariableUnits>
+                          </auc:ExplanatoryVariable>
+                        </auc:ExplanatoryVariables>
+                      </auc:DerivedModelInputs>
+                      <auc:DerivedModelCoefficients>
+                        <auc:Guideline14Model>
+                          <auc:ModelType>2 parameter simple linear regression</auc:ModelType>
+                          <auc:Intercept>31433.86</auc:Intercept>
+                          <auc:Beta1>-288.1071</auc:Beta1>
+                        </auc:Guideline14Model>
+                      </auc:DerivedModelCoefficients>
+                      <!-- Model performance is summarized here.  -->
+                      <auc:DerivedModelPerformance>
+                        <auc:RSquared>0.69</auc:RSquared>
+                        <auc:CVRMSE>11.46</auc:CVRMSE>
+                        <auc:NDBE>0.00</auc:NDBE>
+                        <auc:NMBE>0.00</auc:NMBE>
+                      </auc:DerivedModelPerformance>
+                      <auc:SummaryInformation>
+                        <auc:NumberOfDataPoints>365</auc:NumberOfDataPoints>
+                        <auc:NumberOfParameters>2</auc:NumberOfParameters>
+                        <auc:AggregateActualEnergyUse>5950194</auc:AggregateActualEnergyUse>
+                        <auc:AggregateModeledEnergyUse>5950194</auc:AggregateModeledEnergyUse>
+                      </auc:SummaryInformation>
+                      <!-- The model fit data, i.e. the yhat values of the model -->
+                      <auc:ModeledTimeSeriesData>
+                        <auc:TimeSeries ID="TS-ModelFit-Baseline-StandardConditions-1">
+                          <auc:ReadingType>Total</auc:ReadingType>
+                          <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
+                          <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                          <auc:IntervalReading>20365.587</auc:IntervalReading>
+                        </auc:TimeSeries>
+                        <auc:TimeSeries ID="TS-ModelFit-Baseline-StandardConditions-2">
+                          <auc:ReadingType>Total</auc:ReadingType>
+                          <auc:StartTimestamp>2012-03-02T00:00:00</auc:StartTimestamp>
+                          <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                          <auc:IntervalReading>19950.433</auc:IntervalReading>
+                        </auc:TimeSeries>
+                      </auc:ModeledTimeSeriesData>
+                    </auc:Model>
+                    <!-- This begins our Model definition for the reporting period. This is NEW  -->
+                    <auc:Model ID="Scenario-Reporting-DM-StandardConditions-SLR">
+                      <!-- Timespan over which the model was created -->
+                      <auc:StartTimestamp>2014-03-01T00:00:00</auc:StartTimestamp>
+                      <auc:EndTimestamp>2015-02-28T23:59:00</auc:EndTimestamp>
+                      <auc:DerivedModelInputs>
+                        <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                        <!-- ResponseVariable must be same as baseline period -->
+                        <auc:ResponseVariable>
+                          <auc:ResponseVariableName>Electricity</auc:ResponseVariableName>
+                          <auc:ResponseVariableUnits>kWh</auc:ResponseVariableUnits>
+                          <auc:ResponseVariableEndUse>All end uses</auc:ResponseVariableEndUse>
+                        </auc:ResponseVariable>
+                        <auc:ExplanatoryVariables>
+                          <!-- ExplanatoryVariables must be same as baseline period  -->
+                          <auc:ExplanatoryVariable>
+                            <auc:ExplanatoryVariableName>Drybulb Temperature</auc:ExplanatoryVariableName>
+                            <auc:ExplanatoryVariableUnits>Fahrenheit, F</auc:ExplanatoryVariableUnits>
+                          </auc:ExplanatoryVariable>
+                        </auc:ExplanatoryVariables>
+                      </auc:DerivedModelInputs>
+                      <!-- Coefficients for the model are captured here, as well as the specific model type used. 
+                      the specific Coefficients to use depend on the ModelType selected. -->
+                      <auc:DerivedModelCoefficients>
+                        <auc:Guideline14Model>
+                          <auc:ModelType>2 parameter simple linear regression</auc:ModelType>
+                          <auc:Intercept>24637.51</auc:Intercept>
+                          <auc:Beta1>-186.22</auc:Beta1>
+                        </auc:Guideline14Model>
+                      </auc:DerivedModelCoefficients>
+                      <!-- Model performance is summarized here.  -->
+                      <auc:DerivedModelPerformance>
+                        <auc:RSquared>0.5</auc:RSquared>
+                        <auc:CVRMSE>12.89</auc:CVRMSE>
+                        <auc:NDBE>0.00</auc:NDBE>
+                        <auc:NMBE>0.00</auc:NMBE>
+                      </auc:DerivedModelPerformance>
+                      <auc:SummaryInformation>
+                        <auc:NumberOfDataPoints>365</auc:NumberOfDataPoints>
+                        <auc:NumberOfParameters>2</auc:NumberOfParameters>
+                        <auc:AggregateActualEnergyUse>5103905</auc:AggregateActualEnergyUse>
+                        <auc:AggregateModeledEnergyUse>5103905</auc:AggregateModeledEnergyUse>
+                      </auc:SummaryInformation>
+                      <!-- The model fit data, i.e. the yhat values of the model -->
+                      <auc:ModeledTimeSeriesData>
+                        <auc:TimeSeries ID="TS-ModelFit-Reporting-StandardConditions-1">
+                          <auc:ReadingType>Total</auc:ReadingType>
+                          <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
+                          <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                          <auc:IntervalReading>15319</auc:IntervalReading>
+                        </auc:TimeSeries>
+                        <auc:TimeSeries ID="TS-ModelFit-Reporting-StandardConditions-2">
+                          <auc:ReadingType>Total</auc:ReadingType>
+                          <auc:StartTimestamp>2012-03-02T00:00:00</auc:StartTimestamp>
+                          <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                          <auc:IntervalReading>16528</auc:IntervalReading>
+                        </auc:TimeSeries>
+                      </auc:ModeledTimeSeriesData>
+                    </auc:Model>
+                  </auc:Models>
+                  <auc:SavingsSummaries>
+                    <!-- This SavingsSummary  -->
+                    <auc:SavingsSummary ID="SavingsSummary-2">
+                      <!-- In this case we refer to both the BaselinePeriod and ReportingPeriod Model -->
+                      <auc:BaselinePeriodModelID IDref="Scenario-Baseline-DM-StandardConditions-SLR"/>
+                      <auc:ReportingPeriodModelID IDref="Scenario-Reporting-DM-StandardConditions-SLR"/>
+                      <auc:NormalizationMethod>Standard Conditions</auc:NormalizationMethod>
+
+                      <!-- The timestamps used come from whatever 'standard condition' dataset was used.  They may appear
+                      slightly nonsensical...this is considered ok for 'standard condition' datasets -->
+                      <auc:ComparisonPeriodStartTimestamp>1977-07-01T00:00:00</auc:ComparisonPeriodStartTimestamp>
+                      <auc:ComparisonPeriodEndTimestamp>2001-09-30T23:59:00</auc:ComparisonPeriodEndTimestamp>
+                      
+                      <!-- Normalized savings uncertainty is calculated as the square-root of the sum of the 
+                        baseline and performance period models' squared uncertainties. -->
+                      <auc:SavingsUncertainty>0.40</auc:SavingsUncertainty>
+                      <auc:ConfidenceLevel>0.90</auc:ConfidenceLevel>
+
+                      <!-- Here we summarize the calculated energy consumption for each model over the defined timeperiod at standard conditions -->
+                      <auc:StandardConditionsBaselinePeriodAggregateModeledEnergyUse>5980485</auc:StandardConditionsBaselinePeriodAggregateModeledEnergyUse>
+                      <auc:StandardConditionsReportingPeriodAggregateModeledEnergyUse>5442312</auc:StandardConditionsReportingPeriodAggregateModeledEnergyUse>
+                      <auc:StandardConditionsAvoidedEnergyUse>538172</auc:StandardConditionsAvoidedEnergyUse>
+                      <!-- Stores modeled data for the baseline period -->
+                      <auc:StandardConditionsBaselinePeriodModeledTimeSeriesData>
+                        <auc:TimeSeries ID="StandardConditions-Baseline-1">
+                          <auc:ReadingType>Total</auc:ReadingType>
+                          <auc:StartTimestamp>1977-07-01T00:00:00</auc:StartTimestamp>
+                          <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                          <auc:IntervalReading>14057.40</auc:IntervalReading>
+                        </auc:TimeSeries>
+                      </auc:StandardConditionsBaselinePeriodModeledTimeSeriesData>
+
+                      <!-- Stores modeled data for the reporting period -->
+                      <auc:StandardConditionsReportingPeriodModeledTimeSeriesData>
+                        <!-- repeat for all time periods... -->
+                        <auc:TimeSeries ID="StandardConditions-Reporting-1">
+                          <auc:ReadingType>Total</auc:ReadingType>
+                          <auc:StartTimestamp>1977-07-01T00:00:00</auc:StartTimestamp>
+                          <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                          <auc:IntervalReading>13406.05</auc:IntervalReading>
+                        </auc:TimeSeries>
+                      </auc:StandardConditionsReportingPeriodModeledTimeSeriesData>
+                      <!-- Since this is not 'Current Building Measured' data (i.e. it is 'Standard Conditions'), we can include
+                      it as part of the StandardConditionsTimeSeriesData. -->
+                      <auc:StandardConditionsTimeSeriesData>
+                        <!-- repeat for all time periods... -->
+                        <auc:TimeSeries ID="StandardConditions-Temp-1">
+                          <auc:ReadingType>Average</auc:ReadingType>
+                          <auc:TimeSeriesReadingQuantity>Dry Bulb Temperature</auc:TimeSeriesReadingQuantity>
+                          <auc:StartTimestamp>1977-07-01T00:00:00</auc:StartTimestamp>
+                          <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                          <auc:IntervalReading>60.31</auc:IntervalReading>
+                        </auc:TimeSeries>
+                        <auc:TimeSeries ID="StandardConditions-Temp-2">
+                          <auc:ReadingType>Average</auc:ReadingType>
+                          <auc:TimeSeriesReadingQuantity>Dry Bulb Temperature</auc:TimeSeriesReadingQuantity>
+                          <auc:StartTimestamp>1977-07-02T00:00:00</auc:StartTimestamp>
+                          <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                          <auc:IntervalReading>59.77</auc:IntervalReading>
+                        </auc:TimeSeries>
+                      </auc:StandardConditionsTimeSeriesData>
+                    </auc:SavingsSummary>
+                  </auc:SavingsSummaries>
+                </auc:DerivedModel>
+              </auc:ScenarioType>
+            </auc:Scenario>
+            <!-- Scenario representing the Measure actually implemented -->
+            <auc:Scenario ID="Scenario-StandardConditions-POM">
+              <auc:ScenarioType>
+                <auc:PackageOfMeasures ID="StandardConditions-POM-1">
+                  <auc:MeasureIDs>
+                    <auc:MeasureID IDref="Boiler-ERV-Completed"/>
+                  </auc:MeasureIDs>
+                  <auc:CalculationMethod>
+                    <auc:Measured/>
+                  </auc:CalculationMethod>
+                </auc:PackageOfMeasures>
+              </auc:ScenarioType>
+              <!-- TimeSeriesData stored in the implemented POM may include data from 
+              temporary measurements (i.e. HOBO, data loggers, etc.), but is not intended 
+              to store the consistent TS data for the analysis. -->
+              <auc:TimeSeriesData>
+                <auc:TimeSeries ID="TS-StandardConditions-POM-Sample-1">
+                  <auc:ReadingType>Total</auc:ReadingType>
+                  <auc:StartTimestamp>2012-03-02T00:00:00</auc:StartTimestamp>
+                  <auc:IntervalFrequency>Day</auc:IntervalFrequency>
+                  <auc:IntervalReading>19950.433</auc:IntervalReading>
+                </auc:TimeSeries>
+              </auc:TimeSeriesData>
+            </auc:Scenario>
+          </auc:Scenarios>
+        </auc:Report>
+      </auc:Reports>
+    </auc:Facility>
+  </auc:Facilities>
+</auc:BuildingSync>

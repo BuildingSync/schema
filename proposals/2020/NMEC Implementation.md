@@ -5,32 +5,42 @@
 This proposal is to provide a mechanism for storing the results of an NMEC (normalized metered energy consumption) calculation (or similar regression based analyses) within the BuildingSync schema.  Specifically, how can model inputs, outputs, and metrics for the models be stored in a standardized fashion.
 
 ## Justification
-Using BuildingSync to represent data inputs and outputs for Advanced Measurement & Verification analyses can be highly useful for people needing to streamline reporting of energy efficiency savings.  BuildingSync will not _implement_ any methodology in particular, but will provide support for serializing the analysis from different methodologies in a standardized way.  
+Using BuildingSync to represent data inputs and outputs for Advanced Measurement & Verification analyses can be highly useful for people needing to streamline reporting of energy efficiency savings.  BuildingSync will not _implement_ any methodology (i.e. it is NOT an application and does not do the analysis), but will provide support for serializing the analysis from different methodologies in a standardized way and identify input expectations for different analysis tools (formal Schematron docs will be defined in the TestSuite repo).
 # Implementation
 
 To tackle this, we introduce the `DerivedModelType` as follows:
 
 ![img](./img/DerivedModelType.png)
 
-- An `auc:DerivedModelType` can store multiple individual `auc:Model`s, where each model would be a different analysis method (i.e. a 2p SLR or 5p CPM).
-- An `auc:DerivedModel` can be declared in the following places:
-    - `auc:Scenario/auc:ScenarioType/auc:CurrentBuilding/auc:DerivedModel`:  A derived model placed here represents a model created for analysis of a Baseline Period
-    - `auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures/auc:DerivedModel`: A derived model placed here represents a model created for a Reporting / Performance Period
-- Every `auc:DerivedModel` should make use of storing measured data using the existing 'Current Building Measured' Scenario, which is an `auc:Scenario` typed as: `auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]`. The model should refer back to a 'Current Building Measured' Scenario for which the analysis was performed using the `auc:MeasuredScenarioID` element.  The `auc:Model/auc:StartTimestamp` and `auc:Model/auc:EndTimestamp` refers to data from the 'Current Building Measured` scenario which is used to generate the model in this analysis.
+- An `auc:DerivedModelType` is defined as a child of `auc:Scenario/auc:ScenarioType` as a `auc:DerivedModel` element.
+- A `auc:DerivedModel` will refer to data from the 'Current Building Measured' Scenario and SHALL NOT DUPLICATE data.
+- The most important data contained by an `auc:DerivedModel` is:
+  - `auc:Models/auc:Model` - each model represents an analysis of the timeseries data present in the 'Current Building Measured' Scenario.  See [Model Details](#model-details)
+  - `auc:SavingsSummaries/auc:SavingsSummary` - a summary provides a mechanism to store data related to either:
+      - a comparison between two `auc:Model` elements (consider a [Normalized Savings Case](https://github.com/kW-Labs/nmecr/blob/master/inst/vignettes/nmecr_normalized_savings.pdf)).
+      - an extrapolation of an `auc:Model` to a past / future point in time (consider a implementation of Energy Efficiency Measures and having a ['Baseline' and 'Reporting' period](https://github.com/kW-Labs/nmecr/blob/master/inst/vignettes/nmecr_overview.pdf)). This is also relevant in the use case where an `auc:Model` might be defined for successive years (2015, 2016, 2017, etc.) and comparison of year over year savings is relevant (i.e. % change btw 2015-2016, 2016-2017, etc.) OR comparison to a 'baseline' year is relevant (i.e. 2015 is baseline year, looking at the % change btw. 2015 & 2016, 2015 & 2017, etc.)
 
 ## Model Details
-The majority of the details concerning the implemented analysis are stored as part of an individual `auc:DerivedModel/auc:Models/auc:Model`.  This includes:
-- `auc:Model/auc:DerivedModelCoefficients`: Calculated coefficients for the model.  Currently, only `auc:DerivedModelCoefficients/auc:Guideline14Model` coefficients have been explicitly defined (in reference to ASHRAE Guideline 14-2014 Figure D-1), although support for `auc:TimeOfWeekTemperatureModel` may be added.
+The majority of the details concerning the implemented analysis are stored as part of an individual `auc:DerivedModel/auc:Models/auc:Model`.  Each model should be self contained (i.e. fully descriptive) EXCEPT for the data necessary to pull in from the 'Current Building Measured' Scenario.  This descriptive data includes:
+- `auc:Model/auc:DerivedModelCoefficients`: Calculated coefficients for the model.  Currently, only `auc:DerivedModelCoefficients/auc:Guideline14Model` coefficients have been explicitly defined (in reference to ASHRAE Guideline 14-2014 Figure D-1). A stub element to support `auc:TimeOfWeekTemperatureModel` has been created, but needs work.
 - `auc:Model/auc:DerivedModelInputs`: Whereas `auc:Model/auc:DerivedModelCoefficients` represent actual parameters calculated for the model, this element captures more generic information about the model inputs.
     - `auc:Model/auc:DerivedModelInputs/auc:IntervalFrequency`: Frequency of data used for analysis (monthly, daily, hourly, etc.)
-    - `auc:Model/auc:DerivedModelInputs/auc:ResonseVariable`: Store general information about what the response variable is (i.e Electricity), its end use, and the units used in the model (i.e. kWh).
+    - `auc:Model/auc:DerivedModelInputs/auc:ResponseVariable`: Store general information about what the response variable is (i.e Electricity), its end use, and the units used in the model (i.e. kWh).
     - `auc:Model/auc:DerivedModelInputs/auc:ExplanatoryVariables`: Store general information about the variables used in the regression / model.
 - `auc:Model/auc:DerivedModelPerformance`: Store values associated with the characterized performance of the model, including `RSquared`, `RMSE`, etc.
 - `auc:Model/auc:TrainingPredictions`: Predictions of the response variable (yhat) using the model information defined withinfor the time intervals analyzed can be stored here.
 
-# Example - Forecast Method
+# Important Notes
+- A 'Current Building Measured' Scenario is defined as: `auc:Scenario[auc:ScenarioType/auc:CurrentBuilding/auc:CalculationMethod/auc:Measured]`
+- For NMEC analysis, we expect the 'Current Building Measured' Scenario to capture __all__ time series data used in the analysis.  This includes data for __both__ the Baseline Period and the Reporting Period. This is to clarify that an `auc:Scenario[auc:ScenarioType/auc:PackageOfMeasures]` is NOT used to store data related to the analysis. While it may be included to define which measures were implemented, this has not been fully baked and details for how these should interplay will be provided at a further date.
 
-We provide an example snippet based on analysis performed in the [nmecr overview](https://github.com/kW-Labs/nmecr/blob/master/inst/vignettes/nmecr_overview.pdf).  Or example is performed using the SLR model instead of a TOWT model.
+# Examples
+
+We provide an example BuildingSync document with commentary containing output data for:
+1. Forecast Method (Report-1) - based on analysis performed in the [nmecr overview](https://github.com/kW-Labs/nmecr/blob/master/inst/vignettes/nmecr_overview.pdf)
+2. Standard Conditions Method (Report-2) - based on the analysis performed in the [nmecr normalized savings](https://github.com/kW-Labs/nmecr/blob/master/inst/vignettes/nmecr_normalized_savings.pdf).
+
+Our examples are performed using the SLR model instead of a TOWT model.  The snippet is available as [example-1](./NMEC-Implementation/SLR-Example.xml).
 
 | Model | Start Time | End Time |
 |:--- |:---|:---|
@@ -41,163 +51,33 @@ We assume the workflow will look as follows
 
 ![img](./img/DerivedModelIO.png)
 
-We will create two scenarios:
-1. Scenario to store current building measured data (energy and temperature) (`ID=Scenario-Measured`) (included in both input and output file)
-1. Scenario to store a derived model associated with the baseline period (`ID=Scenario-DM-Baseline`) (included in output file)
 
-## Current Building Measured Scenario 
+## Report-1 - Forecast Method
 
-- For NMEC analysis, we expect the 'Current Building Measured' Scenario to capture time series data for __both__ the Baseline Period and the Reporting Period.  Additional data for the Implementation Period may also be included, but isn't necessary nor considered in the analysis.
-- For the dependent variable of interest (i.e. electricity), we expect an `auc:ResourceUse` to be declared and the timeseries data to point back to it
-- For independent variables, these can also be captured as timeseries elements.
+- A 'Current Building Measured' Scenario is created to store current building measured data (energy and temperature) (`ID=Scenario-Measured`)
+- For the dependent variable of interest (electricity), an `auc:ResourceUse` is declared and timeseries data associated with it using the `auc:ResourceUseID` element.
+- For independent variables used, these are also captured as timeseries elements.
+- The `auc:DerivedModel` contains a single `auc:Model` and a single `auc:SavingsSummary`.
+- The `auc:Model` contains:
+  - Timespan used for the model analysis
+  - Characteristics of the model
+  - Coefficients for the model
+  - Model performance
+  - Model time series data for the baseline period
+- The `auc:SavingsSummary` contains:
+  - Reference to the BaselinePeriodModelID
+  - Timespan used for the reporting period analysis
+  - Savings and aggregate energy uses
+  - Timeseries data for the reporting period (ComparisonPeriod)
 
-```xml
-            <auc:Scenario ID="Scenario-Measured">
-              <auc:ScenarioType>
-                <auc:CurrentBuilding>
-                  <auc:CalculationMethod>
-                    <auc:Measured/>
-                  </auc:CalculationMethod>
-                </auc:CurrentBuilding>
-              </auc:ScenarioType>
-              <auc:ResourceUses>
-                <auc:ResourceUse ID="Elec">
-                  <auc:EnergyResource>Electricity</auc:EnergyResource>
-                  <auc:ResourceUnits>kWh</auc:ResourceUnits>
-                  <auc:EndUse>All end uses</auc:EndUse>
-                </auc:ResourceUse>
-              </auc:ResourceUses>
-              <auc:TimeSeriesData>
-                <!-- ...repeat for 12 months for baseline period until endtime of 2013-02-28 -->
-                <auc:TimeSeries ID="TS-Daily-BP1">
-                  <auc:ReadingType>Total</auc:ReadingType>
-                  <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
-                  <auc:IntervalFrequency>Day</auc:IntervalFrequency>
-                  <auc:IntervalReading>21505.44</auc:IntervalReading>
-                  <auc:ResourceUseID IDref="Elec"/>
-                </auc:TimeSeries>
-                <auc:TimeSeries ID="TS-Daily-BP2">
-                  <auc:ReadingType>Total</auc:ReadingType>
-                  <auc:StartTimestamp>2012-03-02T00:00:00</auc:StartTimestamp>
-                  <auc:IntervalFrequency>Day</auc:IntervalFrequency>
-                  <auc:IntervalReading>20892.24</auc:IntervalReading>
-                  <auc:ResourceUseID IDref="Elec"/>
-                </auc:TimeSeries>
-                <!-- ...repeat for 12 months for reporting period until endtime of 2015-02-28 -->
-                <auc:TimeSeries ID="TS-Daily-RP1">
-                  <auc:ReadingType>Total</auc:ReadingType>
-                  <auc:StartTimestamp>2014-03-01T00:00:00</auc:StartTimestamp>
-                  <auc:IntervalFrequency>Day</auc:IntervalFrequency>
-                  <auc:IntervalReading>15988.56</auc:IntervalReading>
-                  <auc:ResourceUseID IDref="Elec"/>
-                </auc:TimeSeries>
-                  <!-- ...repeat for every month required for the above -->
-                <auc:TimeSeries ID="TimeSeries-1">
-                  <auc:ReadingType>Average</auc:ReadingType>
-                  <auc:TimeSeriesReadingQuantity>Dry Bulb Temperature</auc:TimeSeriesReadingQuantity>
-                  <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
-                  <auc:IntervalFrequency>Day</auc:IntervalFrequency>
-                  <auc:IntervalReading>38.42</auc:IntervalReading>
-                </auc:TimeSeries>
-              </auc:TimeSeriesData>
-            </auc:Scenario>
-```
+## Report-2 - Standard Conditions Method
 
-## Derived Model - Baseline Period
-
-We perform a simple linear regression model using data from the Baseline Period. In our output, we capture:
-- Characteristics of the model
-- Coefficients for the model
-- Model performance (result of the `nmecr::calculate_summary_statistics` from nmecr)
-- Model fit data for the baseline period
-- Savings summary data for the reporting period (Result of the `nmecr::calculate_savings_and_uncertainty` function)
-
-```xml
-            <auc:Scenario ID="Scenario-DM-Baseline">
-              <auc:ScenarioType>
-                <auc:CurrentBuilding>
-                  <auc:DerivedModel ID="DerivedModel-Baseline">
-                    <auc:DerivedModelName>This is my name</auc:DerivedModelName>
-                    <auc:MeasuredScenarioID IDref="Scenario-Measured"/>
-                    <auc:Models>
-                      <auc:Model ID="Scenario-Baseline-DM-SLR">
-                        <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
-                        <auc:EndTimestamp>2013-01-01T00:00:00</auc:EndTimestamp>
-                        <auc:DerivedModelInputs>
-                          <auc:IntervalFrequency>Day</auc:IntervalFrequency>
-                          <auc:ResponseVariable>
-                            <auc:ResponseVariableName>Electricity</auc:ResponseVariableName>
-                            <auc:ResponseVariableUnits>kWh</auc:ResponseVariableUnits>
-                            <auc:ResponseVariableEndUse>All end uses</auc:ResponseVariableEndUse>
-                          </auc:ResponseVariable>
-                          <auc:ExplanatoryVariables>
-                            <auc:ExplanatoryVariable>
-                              <auc:ExplanatoryVariableName>Drybulb Temperature</auc:ExplanatoryVariableName>
-                              <auc:ExplanatoryVariableUnits>Fahrenheit, F</auc:ExplanatoryVariableUnits>
-                            </auc:ExplanatoryVariable>
-                          </auc:ExplanatoryVariables>
-                        </auc:DerivedModelInputs>
-                        <auc:DerivedModelCoefficients>
-                          <auc:Guideline14Model>
-                            <auc:ModelType>2 parameter simple linear regression</auc:ModelType>
-                            <auc:Intercept>31433.86</auc:Intercept>
-                            <auc:Beta1>-288.1071</auc:Beta1>
-                          </auc:Guideline14Model>
-                        </auc:DerivedModelCoefficients>
-                        <auc:DerivedModelPerformance>
-                          <auc:RSquared>0.43</auc:RSquared>
-                          <auc:CVRMSE>17.89</auc:CVRMSE>
-                          <auc:NDBE>0.00</auc:NDBE>
-                          <auc:NMBE>0.00</auc:NMBE>
-                        </auc:DerivedModelPerformance>
-                        <auc:SummaryInformation>
-                          <auc:NumberOfDataPoints>365</auc:NumberOfDataPoints>
-                          <auc:NumberOfParameters>2</auc:NumberOfParameters>
-                        </auc:SummaryInformation>
-                        <!-- The model fit data, i.e. the yhat values of the model -->
-                        <auc:TrainingPredictions>
-                          <auc:TimeSeries ID="TS-ModelFit-1">
-                            <auc:ReadingType>Total</auc:ReadingType>
-                            <auc:StartTimestamp>2012-03-01T00:00:00</auc:StartTimestamp>
-                            <auc:IntervalFrequency>Day</auc:IntervalFrequency>
-                            <auc:IntervalReading>20365.587</auc:IntervalReading>
-                          </auc:TimeSeries>
-                          <auc:TimeSeries ID="TS-ModelFit-2">
-                            <auc:ReadingType>Total</auc:ReadingType>
-                            <auc:StartTimestamp>2012-03-02T00:00:00</auc:StartTimestamp>
-                            <auc:IntervalFrequency>Day</auc:IntervalFrequency>
-                            <auc:IntervalReading>19950.433</auc:IntervalReading>
-                          </auc:TimeSeries>
-                          <!-- ... repeat for 12 months -->
-                        </auc:TrainingPredictions>
-                      </auc:Model>
-                    </auc:Models>
-                    <auc:SavingsSummaries>
-                      <auc:SavingsSummary ID="SavingsSummary-SLR">
-                        <auc:ReportingPeriodStartTimestamp>2014-03-01T00:00:00</auc:ReportingPeriodStartTimestamp>
-                        <auc:ReportingPeriodEndTimestamp>2015-02-28T23:59:00</auc:ReportingPeriodEndTimestamp>
-                        <auc:NormalizationMethod>Forecast</auc:NormalizationMethod>
-                        <auc:ReportingPeriodActualEnergyUse>5103905</auc:ReportingPeriodActualEnergyUse>
-                        <auc:ReportingPeriodCalculatedEnergyUse>5456928</auc:ReportingPeriodCalculatedEnergyUse>
-                        <auc:AvoidedEnergyUse>353022.9</auc:AvoidedEnergyUse>
-                        <auc:SavingsUncertainty>0.405</auc:SavingsUncertainty>
-                        <auc:ConvidenceLevel>0.90</auc:ConfidenceLevel>
-                        <auc:BaselineModelID IDref="Scenario-Baseline-DM-SLR"/>
-                        <auc:ReportingPeriodPredictions>
-                          <auc:TimeSeries ID="TS-Prediction-1">
-                            <auc:StartTimestamp>2014-03-01T00:00:00</auc:StartTimestamp>
-                            <auc:IntervalFrequency>Day</auc:IntervalFrequency>
-                            <auc:IntervalReading>17017</auc:IntervalReading>
-                          </auc:TimeSeries>
-                        </auc:ReportingPeriodPredictions>
-                      </auc:SavingsSummary>
-                    </auc:SavingsSummaries>
-                  </auc:DerivedModel>
-                </auc:CurrentBuilding>
-              </auc:ScenarioType>
-            </auc:Scenario>
-```
-
+- The majority of this is similar to Report-1 except for the addition of a second `auc:Model` created during the reporting period
+- The `auc:SavingsSummary` differs in that:
+  - It refers to two model IDs (baseline & reporting)
+  - The comparison period used is that defined by 'Standard Conditions' or 'typical' data.
+  - It stores timeseries and aggregate energy use _modeled_ by the baseline and reporting periods.
+  - It stores timeseries data (i.e. temperature) for the 'Standard Conditions' timeperiods.
 
 # Definitions and Concept Clarification
 __Note: italicized words after a reference identify the name of the concept used in the reference__
