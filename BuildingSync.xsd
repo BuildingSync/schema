@@ -18234,6 +18234,9 @@
                     <xs:complexType>
                       <xs:sequence>
                         <xs:element name="RSquared" minOccurs="0" maxOccurs="1">
+                          <xs:annotation>
+                            <xs:documentation>Also referred to as the coefficient of determination, R-Squared is a measure of the extent to which variations in the dependent variable from its mean value are explained by the regression model (ASHRAE Guideline 14-2014). Specifics for the calculation can be found in Guideline 14, or calculated as: R-Squared = 1 - (SS_resid / SS_total). Here, SS_resid is the sum of the squared residuals from the regression, and SS_total is the sum of the squared differences from the mean of the dependent variable (total sum of squares). See: https://www.mathworks.com/help/matlab/data_analysis/linear-regression.html#f1-15010.</xs:documentation>
+                          </xs:annotation>
                           <xs:simpleType>
                             <xs:restriction base="xs:decimal">
                               <xs:minInclusive value="0"/>
@@ -18242,6 +18245,9 @@
                           </xs:simpleType>
                         </xs:element>
                         <xs:element name="AdjustedRSquared" minOccurs="0" maxOccurs="1">
+                          <xs:annotation>
+                            <xs:documentation>Adjusted R-Squared is typically used to compare model fits across models generated with different numbers of parameters, since R-Squared is unable to account for model complexity (i.e. quadratic, cubic, etc.). It uses a penalty for the number of terms in a model, and can be calculated as: Adj-R-Squared = 1 - (SS_resid / SS_total) * ((n - 1) / (n - d - 1)). Here, SS_resid is the sum of the squared residuals from the regression, and SS_total is the sum of the squared differences from the mean of the dependent variable (total sum of squares). n is the number of observations in the data, and d is the degree of the polynomial. See: https://www.mathworks.com/help/matlab/data_analysis/linear-regression.html#f1-15010.</xs:documentation>
+                          </xs:annotation>
                           <xs:simpleType>
                             <xs:restriction base="xs:decimal">
                               <xs:minInclusive value="0"/>
@@ -18250,6 +18256,9 @@
                           </xs:simpleType>
                         </xs:element>
                         <xs:element name="RMSE" minOccurs="0" maxOccurs="1">
+                          <xs:annotation>
+                            <xs:documentation>The Root Mean Square Error (RMSE) is the standard deviation of the residuals. It is calculated as follows: RMSE = sqrt( sum((y_i - yhat_i)^2) / (n - p) ). Here, y_i is the ith observation of the dependent variable, yhat_i is the regression models predicted value of y_i, n is the number of data points or periods in the baseline period, and p is the number of parameters or terms in the baseline model (ASHRAE Guideline 14-2014).</xs:documentation>
+                          </xs:annotation>
                           <xs:simpleType>
                             <xs:restriction base="xs:decimal">
                               <xs:minInclusive value="0"/>
