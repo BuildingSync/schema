@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.2.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.3.0-pr1">
   <xs:import namespace="http://www.gbxml.org/schema" schemaLocation="http://www.gbxml.org/schema/6-01/GreenBuildingXML_Ver6.01.xsd"/>
   <xs:annotation>
-    <xs:documentation>BuildingSync Schema - Version 2.2.0</xs:documentation>
+    <xs:documentation>BuildingSync Schema - Version 2.3.0-pr1</xs:documentation>
     <xs:documentation xmlns="http://www.w3.org/1999/xhtml">
       <h1>BuildingSync Schema Deprecation Policy</h1>
       <p>This document details the deprecation policy for the BuildingSync Schema.</p>
@@ -442,6 +442,7 @@
             <xs:enumeration value="2.1.0"/>
             <xs:enumeration value="2.2.0-pr1"/>
             <xs:enumeration value="2.2.0"/>
+            <xs:enumeration value="2.3.0-pr1"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -470,7 +471,7 @@
           <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
           <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
         </xs:sequence>
-        <xs:element ref="auc:WeatherStations" minOccurs="0"></xs:element>
+        <xs:element ref="auc:WeatherStations" minOccurs="0"/>
       </xs:choice>
       <xs:element ref="auc:Longitude" minOccurs="0"/>
       <xs:element ref="auc:Latitude" minOccurs="0"/>
@@ -519,7 +520,7 @@
           <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
           <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
         </xs:sequence>
-        <xs:element ref="auc:WeatherStations" minOccurs="0"></xs:element>
+        <xs:element ref="auc:WeatherStations" minOccurs="0"/>
       </xs:choice>
       <xs:element ref="auc:Longitude" minOccurs="0"/>
       <xs:element ref="auc:Latitude" minOccurs="0"/>
@@ -18349,18 +18350,18 @@
   </xs:simpleType>
   <xs:element name="WeatherStations">
     <xs:complexType>
-        <xs:sequence>
-            <xs:element name="WeatherStation" maxOccurs="unbounded">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
-                        <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
-                        <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
-                    </xs:sequence>
-                    <xs:attribute name="ID" type="xs:ID" use="required"/>
-                  </xs:complexType>
-              </xs:element>
-          </xs:sequence>
-      </xs:complexType>
+      <xs:sequence>
+        <xs:element name="WeatherStation" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
+              <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
+              <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="ID" type="xs:ID" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
   </xs:element>
 </xs:schema>

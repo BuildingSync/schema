@@ -72,13 +72,30 @@ end
 
 def print_issue(issue)
   is_feature = false
-  issue.labels.each {|label| is_feature = true if label.name == 'Feature Request'}
+  issue.labels.each {|label| is_feature = true if label.name == 'feature'}
+  is_enhancement = false
+  issue.labels.each {|label| is_enhancement = true if label.name == 'enhancement'}
+  is_bug = false
+  issue.labels.each {|label| is_bug = true if label.name == 'bug'}
+  ignore = false
+  issue.labels.each {|label| ignore = true if label.name == 'ignore'}
+
+  quick_check = [is_feature, is_enhancement, is_bug]
+  if !quick_check.none? and !quick_check.one?
+    raise "Cannot only have one of [feature, enhancement, bug]. Seen on #{get_html_url(issue)}"
+  end
 
   if is_feature
-    "- Improved [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}"
+    text = "- New Feature [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}"
+  elsif is_enhancement
+    text = "- Improved [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}"
+  elsif is_bug
+    text = "- Fixed [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}"
   else
-    "- Merged [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}"
+    text = "- Merged [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}"
   end
+
+  [text, ignore]
 end
 
 # Process Open Issues
@@ -110,6 +127,7 @@ page = 1
 # container for storing category of changes
 categories = {
   "Controls" => 0,
+  "Documentation" => 0,
   "General" => 0,
   "Measures" => 0,
   "Reports" => 0,
@@ -186,10 +204,17 @@ end
 puts "\nNew Issues: #{new_issues.length} (" + new_issues.map {|issue| get_issue_num(issue)}.join(', ') + ')'
 
 puts "\nClosed Issues: #{closed_issues.length}"
-closed_issues.each {|issue| puts print_issue(issue)}
+
+closed_issues.each do |issue|
+  issue_text, ignore = print_issue(issue)
+  puts issue_text if not ignore
+end
 
 puts "\nAccepted Pull Requests: #{accepted_pull_requests.length}"
-accepted_pull_requests.each {|issue| puts print_issue(issue)}
+accepted_pull_requests.each do |issue|
+  issue_text, ignore = print_issue(issue)
+  puts issue_text if not ignore
+end
 
 puts "\nAll Open Issues: #{total_open_issues.length} (" + total_open_issues.map {|issue| get_issue_num(issue)}.join(', ') + ')'
 
