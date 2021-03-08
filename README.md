@@ -6,9 +6,9 @@ BuildingSync is a building data exchange schema to better enable integration bet
 workflows. The schema's original use case was focused on commercial building energy audits; however, several additional 
 use cases have been realized including building energy modeling and more high-level generic building data exchange. 
 
-BuildingSync helps streamlines the data exchange process, improving the value of the data, minimizing duplication of 
+BuildingSync helps streamline the data exchange process, improving the value of the data, minimizing duplication of 
 effort for subsequent building data collection efforts (including audits), and facilitating the achievement of greater 
-energy efficiency. This in done in party by standarizing on (a) reporting audits in an electronic format, 
+energy efficiency. This in done in part by standarizing on (a) reporting audits in an electronic format, 
 (b) tracking proposed, implemented, and discarded energy conservation measures, and (c) storing building 
 characteristics (at multiple levels) for audits, benchmarking, and building energy analysis.
 
@@ -21,15 +21,14 @@ a new pull request with the additions.
 * Generic BuildingSync information is available on the [DOE website](https://www.energy.gov/eere/buildings/buildingsync) 
   and the [project website](https://buildingsync.net/).
 * [BuildingSync Examples](examples) - These examples are kept up to date and show a wide range of implementations. Any 
-  new update to BuildingSync are required to pass validation on these example files.
+  new update to BuildingSync is required to pass validation on these example files.
 * [BuildingSync Use Case Selection Tool](https://selectiontool.buildingsync.net/) allows for users to determine 
   if their instance complies with a specific use case for BuildingSync by checking if the required elements are 
   implemented in an uploaded instance. The Selection Tools provides an API for automated integration into
   other tools. Also, the website contains an easy way to view the entirety of the schema and how elements relate to
   the [Building Exchange Data Exchange Specification](https://bedes.lbl.gov/). The Selection Tool is open sourced 
   [here](https://github.com/BuildingSync/selection-tool)
-* [Use Case TestSuite](https://pypi.org/project/testsuite/) provides a Python package for easier generation
-  of BuildingSync use cases. The source code is available [here](https://github.com/BuildingSync/TestSuite).
+* [Use Case TestSuite](https://pypi.org/project/testsuite/) provides a Python package for easier generation of BuildingSync use cases. BuildingSync use cases depend on the generation of schematron documents, which is time-consuming and difficult to implement well. The TestSuite allows users to define a use case using a more palatable CSV template, which it then turns into a Schematron document. The source code is available [here](https://github.com/BuildingSync/TestSuite).
 * [BuildingSync to OpenStudio/EnergyPlus](https://rubygems.org/gems/buildingsync). The translator is open sourced 
   [here](https://github.com/BuildingSync/BuildingSync-gem). This project will translate a Level 1 (and partial Level 2) 
   ASHRAE Energy Audit to a fully defined OpenStudio and EnergyPlus model. This project is in early Beta testing and 
