@@ -796,6 +796,18 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
+      <xs:element name="TotalExteriorRoofArea" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Total roof area exposed to the elements. (ft2)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="OverallWindowToWallRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
         <xs:annotation>
           <xs:documentation>Overall window to wall ratio of the facility. (0-1) (fraction)</xs:documentation>
