@@ -5929,6 +5929,17 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="AuditFilingStatus" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The status of audit filing.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Initial filing"/>
+            <xs:enumeration value="Amended Filing"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="ASHRAEAuditLevel" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Energy audit level as defined in SPC 211 Standard for Commercial Building Energy Audits.</xs:documentation>
