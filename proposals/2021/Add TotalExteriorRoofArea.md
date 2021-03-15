@@ -1,8 +1,8 @@
-# Add TotalExteriorRoofArea to Building
+# Add TotalRoofArea to Building
 
 ## Overview
 
-This proposal is to add the `TotalExteriorRoofArea` element as a child of `Building` element. 
+This proposal is to add the `TotalRoofArea` element as a child of `Building` element. 
 
 ## Justification
 
@@ -19,7 +19,7 @@ Our proposal is to add it under a `Building` such as:
         <auc:Facility ID="F1">
             <auc:Buildings>
                 <auc:Building ID="G1">
-                    <auc:TotalExteriorRoofArea>3000</auc:TotalExteriorRoofArea>
+                    <auc:TotalRoofArea>3000</auc:TotalRoofArea>
                 </auc:Building>
             </auc:Buildings>
         </auc:Facility>
@@ -42,19 +42,24 @@ Our proposal is to add it under a `Building` such as:
         </xs:complexType>
       </xs:element>
       ...
-      <xs:element name="TotalExteriorRoofArea" minOccurs="0">
+      <xs:element name="TotalRoofArea" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Total roof area exposed to the elements. (ft2)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
-            <xs:extension base="xs:decimal">
+            <xs:extension base="auc:nonNegativeDecimal">
               <xs:attribute ref="auc:Source"/>
             </xs:extension>
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
       ...
+  <xs:simpleType name="nonNegativeDecimal">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
 ```
 
 ## References
