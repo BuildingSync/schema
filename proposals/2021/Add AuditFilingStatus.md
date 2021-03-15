@@ -2,16 +2,16 @@
 
 ## Overview
 
-This proposal
+This proposal is to add the `AuditFilingStatus` element as a child of `ReportType` element, and to restrict the options with `Initial filing` and `Amended filing`.
 
 ## Justification
 
-This field is only specific to Atlanta reports, but could be a useful input for others if requested.
+This field originally took place in the audit reports for the city of Atlanta, but we believe it is a good field and therefore propose to add it to the schema.
 
 ## UDFs
 
 Currently this is conveyed via:
-`/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report[auc:LinkedPremisesOrSystem/auc:Building/auc:LinkedBuildingID]/auc:UserDefinedFields/auc:UserDefinedField[auc:FieldName/text() = Audit Filing Status]/auc:FieldValue`. Our proposal is to add it as child element of `ReportType` and provide enumerated options (starting with `Initial filing` and `Amended Filing`).
+`/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report[auc:LinkedPremisesOrSystem/auc:Building/auc:LinkedBuildingID]/auc:UserDefinedFields/auc:UserDefinedField[auc:FieldName/text() = Audit Filing Status]/auc:FieldValue`. Our proposal is to add it as child element of `ReportType` and provide enumerated options (starting with `Initial filing` and `Amended filing`).
 
 ## Example
 
@@ -37,12 +37,12 @@ Currently this is conveyed via:
       ...
       <xs:element name="AuditFilingStatus" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The status of audit filing.</xs:documentation>
+          <xs:documentation>The status of an audit filing, used to clarify whether or not this audit report is an initial submission (Initial filing) or an amendment to a previously submitted report (Amended filing).</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:enumeration value="Initial filing"/>
-            <xs:enumeration value="Amended Filing"/>
+            <xs:enumeration value="Amended filing"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>

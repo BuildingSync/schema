@@ -5931,12 +5931,12 @@
       </xs:element>
       <xs:element name="AuditFilingStatus" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The status of audit filing.</xs:documentation>
+          <xs:documentation>The status of an audit filing, used to clarify whether or not this audit report is an initial submission (Initial filing) or an amendment to a previously submitted report (Amended filing).</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:enumeration value="Initial filing"/>
-            <xs:enumeration value="Amended Filing"/>
+            <xs:enumeration value="Amended filing"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
