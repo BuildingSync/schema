@@ -1,12 +1,12 @@
-# Add DemisingAboveGradeWallArea
+# Add TotalCommonConditionedAboveGradeWallArea
 
 ## Overview
 
-This proposal is to add the `DemisingAboveGradeWallArea` child element to the `Building` element. Demising wall is defined as the envelope for spaces adjacent to unenclosed spaces. The added element captures the amount of "exterior / semi-exterior" wall area of a building that separates conditioned space from unconditioned space.
+This proposal is to add the `TotalCommonConditionedAboveGradeWallArea` child element under the `Building` element. This captures the total area of the above grade wall common with other conditioned buildings.
 
 ## Justification
 
-Audit Template Tool defines demising wall as (internal) partition that separates tenant spaces from common areas. However, we adopt the definition of demising wall in the ASHRAE Standard 90.1-2010 Performance Rating Method Reference Manual, as described above.
+Audit Template Tool defines demising wall as the total area of the above grade wall common with other conditioned buildings, as an overall building characteristic. However, the term demising wall has conflicting definition in other standards (such as interior partitions). To avoid ambiguity, we adopt the descriptive name `TotalCommonConditionedAboveGradeWallArea` instead of `DemisingAboveGradeWallArea`.
 
 ### UDFs
 Currently, this is conveyed in Audit template via: `/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:UserDefinedFields/auc:UserDefinedField[auc:FieldName/text() = Demising Above Grade Wall Area]/auc:FieldValue`. Our proposal is that it would rather look like:
@@ -19,7 +19,7 @@ Currently, this is conveyed in Audit template via: `/auc:BuildingSync/auc:Facili
                 <Site>
                     <Buildings>
                         <Building ID="G1">
-                            <DemisingAboveGradeWallArea>1000</DemisingAboveGradeWallArea>
+                            <TotalCommonConditionedAboveGradeWallArea>1000</TotalCommonConditionedAboveGradeWallArea>
                         </Building>
                     </Buildings>
                 </Site>
@@ -45,13 +45,13 @@ Currently, this is conveyed in Audit template via: `/auc:BuildingSync/auc:Facili
         </xs:complexType>
       </xs:element>
     ...
-      <xs:element name="DemisingAboveGradeWallArea" minOccurs="0">
+      <xs:element name="TotalCommonConditionedAboveGradeWallArea" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Above grade demising wall area. (ft2)</xs:documentation>
+          <xs:documentation>The total area of the above grade wall common with other conditioned buildings. (ft2)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
-            <xs:extension base="xs:decimal">
+            <xs:extension base="auc:nonNegativeDecimal">
               <xs:attribute ref="auc:Source"/>
             </xs:extension>
           </xs:simpleContent>
@@ -61,4 +61,5 @@ Currently, this is conveyed in Audit template via: `/auc:BuildingSync/auc:Facili
 ```
 
 ## References
-https://www.pnnl.gov/main/publications/external/technical_reports/PNNL-25130.pdf
+https://help.buildingenergyscore.com/support/solutions/articles/8000053362-facility-description-construction (even though their usage of the term demising wall is incorrect)
+ASHRAE Standard 211 6.2.1.2.b
