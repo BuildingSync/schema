@@ -13304,6 +13304,17 @@
   </xs:complexType>
   <xs:complexType name="OnsiteStorageTransmissionGenerationSystemType">
     <xs:sequence>
+      <xs:element name="AverageAnnualOperatingHours" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The average operating hours per year of the onsite generation system.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="8760"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="EnergyConversionType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Type of energy conversion provided by the system.</xs:documentation>
