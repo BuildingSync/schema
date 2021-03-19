@@ -6,7 +6,7 @@ This proposal is to add the `MultiTenant` element as a child element of `Buildin
 
 ## Justification
 
-Is it necessary? True if .
+True if the building is a multi-tenant building.
 
 ## UDFs
 
@@ -45,7 +45,7 @@ Our proposal is to add it under a `Building`.
       ...
       <xs:element name="MultiTenant" type="xs:boolean" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>True if.</xs:documentation>
+          <xs:documentation>True if the building is a multi-tenant building.</xs:documentation>
         </xs:annotation>
       </xs:element>
       ...
