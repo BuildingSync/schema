@@ -11,7 +11,7 @@ This field originally took place in the audit reports for the city of Atlanta, b
 ## UDFs
 
 Currently this is conveyed via:
-`/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report[auc:LinkedPremisesOrSystem/auc:Building/auc:LinkedBuildingID]/auc:UserDefinedFields/auc:UserDefinedField[auc:FieldName/text() = Audit Filing Status]/auc:FieldValue`. Our proposal is to add it as child element of `ReportType` and provide enumerated options (starting with `Initial filing` and `Amended filing`).
+`/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report[auc:LinkedPremisesOrSystem/auc:Building/auc:LinkedBuildingID]/auc:UserDefinedFields/auc:UserDefinedField[auc:FieldName/text() = Audit Filing Status]/auc:FieldValue` in the Audit Template Field Group ATL. Our proposal is to add it as a child element of `ReportType` and provide enumerated options (starting with `Initial filing` and `Amended filing`).
 
 ## Example
 
