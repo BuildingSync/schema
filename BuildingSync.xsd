@@ -6092,6 +6092,18 @@
                       <xs:documentation>Type of certification held by an auditor team member.</xs:documentation>
                     </xs:annotation>
                   </xs:element>
+                  <xs:element name="AuditorYearsOfExperience" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>The number of years the energy auditor has been conducting audits professionally.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:nonNegativeInteger">
+                          <xs:attribute ref="auc:Source"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                 </xs:sequence>
                 <xs:attribute name="ID" type="xs:ID" use="required"/>
               </xs:complexType>
