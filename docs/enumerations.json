@@ -260,7 +260,7 @@
     "name": "AuditorQualificationType",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Professional Engineer (PE)",
       "Associated Air Balance Council (AABC) Certified Member Agency",
@@ -778,7 +778,7 @@
     "name": "Color",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "White",
       "Light",
@@ -795,7 +795,7 @@
     "name": "CommunicationProtocolAnalogType",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "AMX192",
       "Current",
@@ -811,7 +811,7 @@
     "name": "CommunicationProtocolDigitalType",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "BACnet",
       "DALI",
@@ -984,7 +984,7 @@
     "name": "ControlSensorDaylightingType",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Camera",
       "Photocell",
@@ -997,7 +997,7 @@
     "name": "ControlSensorOccupancyType",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Passive infrared",
       "Ultrasonic",
@@ -1031,7 +1031,7 @@
     "name": "ControlStrategyDaylightingType",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Continuous",
       "Continuous Plus Off",
@@ -1047,7 +1047,7 @@
     "name": "ControlStrategyGeneralType",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Always On",
       "Aquastat",
@@ -1068,7 +1068,7 @@
     "name": "ControlStrategyLightingType",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Advanced",
       "Always On",
@@ -1089,7 +1089,7 @@
     "name": "ControlStrategyOccupancyType",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Occupancy Sensors",
       "Vacancy Sensors",
@@ -1361,6 +1361,17 @@
     "enumerations_html": "<ul><li>Desiccant wheel</li><li>Liquid desiccant</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
+    "name": "DimensionlessUnitsBaseType",
+    "sub_name": null,
+    "sub_display_name": null,
+    "documentation": "BuildingSync Schema - Version 2.3.0",
+    "enumerations": [
+      "Percent, %",
+      "Percent Relative Humidity, %RH"
+    ],
+    "enumerations_html": "<ul><li>Percent, %</li><li>Percent Relative Humidity, %RH</li></ul>"
+  },
+  {
     "name": "DiscardReason",
     "sub_name": null,
     "sub_display_name": null,
@@ -1624,7 +1635,7 @@
     "name": "EndUse",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "All end uses",
       "Total lighting",
@@ -1680,7 +1691,7 @@
     "name": "EnvelopeConstructionType",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Masonry",
       "Structural brick",
@@ -1724,7 +1735,7 @@
     "name": "EquipmentCondition",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Excellent",
       "Good",
@@ -1763,6 +1774,34 @@
     "enumerations_html": "<ul><li>Bathroom</li><li>Kitchen hood</li><li>Laboratory hood</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
+    "name": "ExplanatoryVariableName",
+    "sub_name": null,
+    "sub_display_name": null,
+    "documentation": "Hour of the week used as an indicator variable.  A total of 168 indicator variables should exist.",
+    "enumerations": [
+      "Drybulb Temperature",
+      "Wetbulb Temperature",
+      "Relative Humidity",
+      "Global Horizontal Irradiance (GHI)",
+      "Diffuse Horizontal Irradiance (DHI)",
+      "Direct Normal Irradiance (DNI)",
+      "Hour of week",
+      "Hour of day",
+      "Day of week",
+      "Day of month",
+      "Day of year",
+      "Week of year",
+      "Month of year",
+      "Fifteen minute interval of week",
+      "Fifteen minute interval of day",
+      "Season",
+      "Weekday / Weekend",
+      "Holiday",
+      "Other"
+    ],
+    "enumerations_html": "<ul><li>Drybulb Temperature</li><li>Wetbulb Temperature</li><li>Relative Humidity</li><li>Global Horizontal Irradiance (GHI)</li><li>Diffuse Horizontal Irradiance (DHI)</li><li>Direct Normal Irradiance (DNI)</li><li>Hour of week</li><li>Hour of day</li><li>Day of week</li><li>Day of month</li><li>Day of year</li><li>Week of year</li><li>Month of year</li><li>Fifteen minute interval of week</li><li>Fifteen minute interval of day</li><li>Season</li><li>Weekday / Weekend</li><li>Holiday</li><li>Other</li></ul>"
+  },
+  {
     "name": "ExteriorDoorType",
     "sub_name": null,
     "sub_display_name": null,
@@ -1782,7 +1821,7 @@
     "name": "ExteriorRoughness",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Very rough",
       "Rough",
@@ -1957,7 +1996,7 @@
     "name": "Finish",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Wood",
       "Masonite",
@@ -2085,7 +2124,7 @@
     "name": "FramingMaterial",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Wood",
       "Steel",
@@ -2134,7 +2173,7 @@
     "name": "FuelTypes",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Electricity",
       "Electricity-Exported",
@@ -2544,7 +2583,7 @@
     "name": "InsulationCondition",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Excellent",
       "Good",
@@ -2560,7 +2599,7 @@
     "name": "InsulationMaterialType",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Fiberglass",
       "Cellulose",
@@ -2609,10 +2648,31 @@
     "enumerations_html": "<ul><li>Blind</li><li>Curtain</li><li>Shade</li><li>None</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
+    "name": "IntervalFrequencyType",
+    "sub_name": null,
+    "sub_display_name": null,
+    "documentation": "BuildingSync Schema - Version 2.3.0",
+    "enumerations": [
+      "1 minute",
+      "10 minute",
+      "15 minute",
+      "30 minute",
+      "Hour",
+      "Day",
+      "Week",
+      "Month",
+      "Annual",
+      "Quarter",
+      "Other",
+      "Unknown"
+    ],
+    "enumerations_html": "<ul><li>1 minute</li><li>10 minute</li><li>15 minute</li><li>30 minute</li><li>Hour</li><li>Day</li><li>Week</li><li>Month</li><li>Annual</li><li>Quarter</li><li>Other</li><li>Unknown</li></ul>"
+  },
+  {
     "name": "IntervalTime",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "1 minute",
       "10 minute",
@@ -2822,7 +2882,7 @@
     "name": "LowMedHigh",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Low",
       "Medium",
@@ -3216,12 +3276,13 @@
       "Install photovoltaic system",
       "Install wind energy system",
       "Install wood waste or other organic waste stream heating or power plant",
+      "Install electrical storage",
       "Clean and/or repair",
       "Implement training and/or documentation",
       "Upgrade operating protocols, calibration, and/or sequencing",
       "Other"
     ],
-    "enumerations_html": "<ul><li>Install landfill gas, wastewater treatment plant digester gas, or coal bed methane power plant</li><li>Install photovoltaic system</li><li>Install wind energy system</li><li>Install wood waste or other organic waste stream heating or power plant</li><li>Clean and/or repair</li><li>Implement training and/or documentation</li><li>Upgrade operating protocols, calibration, and/or sequencing</li><li>Other</li></ul>"
+    "enumerations_html": "<ul><li>Install landfill gas, wastewater treatment plant digester gas, or coal bed methane power plant</li><li>Install photovoltaic system</li><li>Install wind energy system</li><li>Install wood waste or other organic waste stream heating or power plant</li><li>Install electrical storage</li><li>Clean and/or repair</li><li>Implement training and/or documentation</li><li>Upgrade operating protocols, calibration, and/or sequencing</li><li>Other</li></ul>"
   },
   {
     "name": "MeasureName",
@@ -3321,6 +3382,20 @@
     "enumerations_html": "<ul><li>Direct metering</li><li>Master meter without sub metering</li><li>Master meter with sub metering</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
+    "name": "ModelType",
+    "sub_name": null,
+    "sub_display_name": null,
+    "documentation": null,
+    "enumerations": [
+      "2 parameter simple linear regression",
+      "3 parameter heating change point model",
+      "3 parameter cooling change point model",
+      "4 parameter change point model",
+      "5 parameter change point model"
+    ],
+    "enumerations_html": "<ul><li>2 parameter simple linear regression</li><li>3 parameter heating change point model</li><li>3 parameter cooling change point model</li><li>4 parameter change point model</li><li>5 parameter change point model</li></ul>"
+  },
+  {
     "name": "MotorApplication",
     "sub_name": null,
     "sub_display_name": null,
@@ -3381,10 +3456,22 @@
     "enumerations_html": "<ul><li>National Median</li><li>Regional Median</li><li>Adjusted to specific year</li><li>Weather normalized</li><li>Other</li></ul>"
   },
   {
+    "name": "NormalizationMethod",
+    "sub_name": null,
+    "sub_display_name": null,
+    "documentation": "'Forecast' is the most common normalization method. It implies creation of a single Model using data from a baseline period (i.e. preconditions). 'Standard Conditions' is used to compare building performance of, say, two particular years to a 'typical' year. In this event, two models are created, one for the baseline and one for the reporting period, and input data is fed into each for a 'typical year' (TMY3, etc.) and performance compared.  'Backcast' is not used often, but makes sense in the event that finer temporal data is available in the reporting period to train the Model. A single Model is also created in this case.",
+    "enumerations": [
+      "Forecast",
+      "Backcast",
+      "Standard Conditions"
+    ],
+    "enumerations_html": "<ul><li>Forecast</li><li>Backcast</li><li>Standard Conditions</li></ul>"
+  },
+  {
     "name": "OccupancyClassificationType",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Manufactured home",
       "Single family",
@@ -3653,6 +3740,18 @@
     "enumerations_html": "<ul><li>Standby generator</li><li>Turbine</li><li>Microturbine</li><li>Reciprocating engine</li><li>Fuel cell</li><li>Gasification</li><li>Binary Cycle</li><li>Anaerobic biodigester</li><li>Hydrokinetic</li><li>Solar parabolic trough</li><li>Solar power tower</li><li>Wind</li><li>Other</li><li>Unknown</li></ul>"
   },
   {
+    "name": "OtherUnitsType",
+    "sub_name": null,
+    "sub_display_name": null,
+    "documentation": "BuildingSync Schema - Version 2.3.0",
+    "enumerations": [
+      "Other",
+      "Unknown",
+      "None"
+    ],
+    "enumerations_html": "<ul><li>Other</li><li>Unknown</li><li>None</li></ul>"
+  },
+  {
     "name": "Ownership",
     "sub_name": null,
     "sub_display_name": null,
@@ -3696,6 +3795,17 @@
     "sub_name": null,
     "sub_display_name": null,
     "documentation": "Units for peak demand.",
+    "enumerations": [
+      "kW",
+      "MMBtu/day"
+    ],
+    "enumerations_html": "<ul><li>kW</li><li>MMBtu/day</li></ul>"
+  },
+  {
+    "name": "PeakResourceUnitsBaseType",
+    "sub_name": null,
+    "sub_display_name": null,
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "kW",
       "MMBtu/day"
@@ -3818,6 +3928,18 @@
       "Unknown"
     ],
     "enumerations_html": "<ul><li>Hot Tub</li><li>Pool</li><li>Other</li><li>Unknown</li></ul>"
+  },
+  {
+    "name": "PressureUnitsBaseType",
+    "sub_name": null,
+    "sub_display_name": null,
+    "documentation": "BuildingSync Schema - Version 2.3.0",
+    "enumerations": [
+      "Bar",
+      "Atmosphere, atm",
+      "Pounds per Square Inch, psi"
+    ],
+    "enumerations_html": "<ul><li>Bar</li><li>Atmosphere, atm</li><li>Pounds per Square Inch, psi</li></ul>"
   },
   {
     "name": "PrimaryHVACSystemType",
@@ -4008,7 +4130,7 @@
     "name": "RankType",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Fair",
       "Good",
@@ -4204,6 +4326,31 @@
       "None"
     ],
     "enumerations_html": "<ul><li>Cubic Meters</li><li>kcf</li><li>MCF</li><li>Gallons</li><li>Wh</li><li>kWh</li><li>MWh</li><li>Btu</li><li>kBtu</li><li>MMBtu</li><li>therms</li><li>lbs</li><li>Klbs</li><li>Mlbs</li><li>Mass ton</li><li>Ton-hour</li><li>Other</li><li>Unknown</li><li>None</li></ul>"
+  },
+  {
+    "name": "ResourceUnitsBaseType",
+    "sub_name": null,
+    "sub_display_name": null,
+    "documentation": "BuildingSync Schema - Version 2.3.0",
+    "enumerations": [
+      "Cubic Meters",
+      "kcf",
+      "MCF",
+      "Gallons",
+      "Wh",
+      "kWh",
+      "MWh",
+      "Btu",
+      "kBtu",
+      "MMBtu",
+      "therms",
+      "lbs",
+      "Klbs",
+      "Mlbs",
+      "Mass ton",
+      "Ton-hour"
+    ],
+    "enumerations_html": "<ul><li>Cubic Meters</li><li>kcf</li><li>MCF</li><li>Gallons</li><li>Wh</li><li>kWh</li><li>MWh</li><li>Btu</li><li>kBtu</li><li>MMBtu</li><li>therms</li><li>lbs</li><li>Klbs</li><li>Mlbs</li><li>Mass ton</li><li>Ton-hour</li></ul>"
   },
   {
     "name": "RoofInsulationApplication",
@@ -4508,7 +4655,7 @@
     "name": "State",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "AA",
       "AE",
@@ -4944,6 +5091,16 @@
     "enumerations_html": "<ul><li>Cooling</li><li>Heating</li><li>Hot Water</li><li>Interior Lighting</li><li>Overall HVAC Systems</li></ul>"
   },
   {
+    "name": "TemperatureUnitsBaseType",
+    "sub_name": null,
+    "sub_display_name": null,
+    "documentation": "BuildingSync Schema - Version 2.3.0",
+    "enumerations": [
+      "Fahrenheit, F"
+    ],
+    "enumerations_html": "<ul><li>Fahrenheit, F</li></ul>"
+  },
+  {
     "name": "TemporalStatus",
     "sub_name": null,
     "sub_display_name": null,
@@ -5080,7 +5237,7 @@
     "name": "Tightness",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "BuildingSync Schema - Version 2.2.0",
+    "documentation": "BuildingSync Schema - Version 2.3.0",
     "enumerations": [
       "Very Tight",
       "Tight",
@@ -5098,6 +5255,7 @@
     "documentation": "Type of energy, water, power, weather metric included in the time series.",
     "enumerations": [
       "Currency",
+      "Cost",
       "Current",
       "Current Angle",
       "Demand",
@@ -5119,7 +5277,7 @@
       "Wind Speed",
       "Other"
     ],
-    "enumerations_html": "<ul><li>Currency</li><li>Current</li><li>Current Angle</li><li>Demand</li><li>Frequency</li><li>Power</li><li>Power Factor</li><li>Energy</li><li>Voltage</li><li>Voltage Angle</li><li>Distortion Power Factor</li><li>Volumetric Flow</li><li>Humidity ratio</li><li>Relative humidity</li><li>Diffuse Horizontal Radiation</li><li>Direct Normal Radiation</li><li>Global Horizontal Radiation</li><li>Dry Bulb Temperature</li><li>Wet Bulb Temperature</li><li>Wind Speed</li><li>Other</li></ul>"
+    "enumerations_html": "<ul><li>Currency</li><li>Cost</li><li>Current</li><li>Current Angle</li><li>Demand</li><li>Frequency</li><li>Power</li><li>Power Factor</li><li>Energy</li><li>Voltage</li><li>Voltage Angle</li><li>Distortion Power Factor</li><li>Volumetric Flow</li><li>Humidity ratio</li><li>Relative humidity</li><li>Diffuse Horizontal Radiation</li><li>Direct Normal Radiation</li><li>Global Horizontal Radiation</li><li>Dry Bulb Temperature</li><li>Wet Bulb Temperature</li><li>Wind Speed</li><li>Other</li></ul>"
   },
   {
     "name": "TypeOfCookingEquipment",
@@ -5471,7 +5629,7 @@
     "name": "WeatherStationCategory",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "Describes the type of weather station used to specify the site's weather.",
+    "documentation": "Describes the type of weather station used to specify the site's weather. WARNING: This element is being deprecated, use WeatherStations/WeatherStation/WeatherStationCategory instead",
     "enumerations": [
       "FAA",
       "ICAO",
@@ -5528,7 +5686,7 @@
     "name": "eGRIDRegionCode",
     "sub_name": null,
     "sub_display_name": null,
-    "documentation": "The eGRID (Emissions and Generation Resource Database) region code associated with the data being described.",
+    "documentation": "The eGRID (Emissions and Generation Resource Database) region code associated with the data being described. WARNING: Element MORE was a typo and will be removed, use MROE.",
     "enumerations": [
       "AKGD",
       "AKMS",
@@ -5539,6 +5697,7 @@
       "HIMS",
       "HIOA",
       "MORE",
+      "MROE",
       "MROW",
       "NEWE",
       "NWPP",
@@ -5558,7 +5717,7 @@
       "SRVC",
       "Other"
     ],
-    "enumerations_html": "<ul><li>AKGD</li><li>AKMS</li><li>AZNM</li><li>CAMX</li><li>ERCT</li><li>FRCC</li><li>HIMS</li><li>HIOA</li><li>MORE</li><li>MROW</li><li>NEWE</li><li>NWPP</li><li>NYCW</li><li>NYLI</li><li>NYUP</li><li>RFCE</li><li>RFCM</li><li>RFCW</li><li>RMPA</li><li>SPNO</li><li>SPSO</li><li>SRMV</li><li>SRMW</li><li>SRSO</li><li>SRTV</li><li>SRVC</li><li>Other</li></ul>"
+    "enumerations_html": "<ul><li>AKGD</li><li>AKMS</li><li>AZNM</li><li>CAMX</li><li>ERCT</li><li>FRCC</li><li>HIMS</li><li>HIOA</li><li>MORE</li><li>MROE</li><li>MROW</li><li>NEWE</li><li>NWPP</li><li>NYCW</li><li>NYLI</li><li>NYUP</li><li>RFCE</li><li>RFCM</li><li>RFCW</li><li>RMPA</li><li>SPNO</li><li>SPSO</li><li>SRMV</li><li>SRMW</li><li>SRSO</li><li>SRTV</li><li>SRVC</li><li>Other</li></ul>"
   },
   {
     "name": "version",
@@ -5575,8 +5734,10 @@
       "2.0.0",
       "2.1.0",
       "2.2.0-pr1",
-      "2.2.0"
+      "2.2.0",
+      "2.3.0-pr1",
+      "2.3.0"
     ],
-    "enumerations_html": "<ul><li>2.0.0-legacy</li><li>0.2.0</li><li>0.3.0</li><li>1.0.0</li><li>2.0.0-pr1</li><li>2.0.0-pr2</li><li>2.0.0</li><li>2.1.0</li><li>2.2.0-pr1</li><li>2.2.0</li></ul>"
+    "enumerations_html": "<ul><li>2.0.0-legacy</li><li>0.2.0</li><li>0.3.0</li><li>1.0.0</li><li>2.0.0-pr1</li><li>2.0.0-pr2</li><li>2.0.0</li><li>2.1.0</li><li>2.2.0-pr1</li><li>2.2.0</li><li>2.3.0-pr1</li><li>2.3.0</li></ul>"
   }
 ]
