@@ -796,6 +796,18 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
+      <xs:element name="TotalCommonConditionedAboveGradeWallArea" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Above grade demising wall area. (ft2)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="auc:nonNegativeDecimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="OverallWindowToWallRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
         <xs:annotation>
           <xs:documentation>Overall window to wall ratio of the facility. (0-1) (fraction)</xs:documentation>
@@ -5929,6 +5941,17 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="AuditFilingStatus" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The status of an audit filing, used to clarify whether or not this audit report is an initial submission (Initial filing) or an amendment to a previously submitted report (Amended filing).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Initial filing"/>
+            <xs:enumeration value="Amended filing"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="ASHRAEAuditLevel" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Energy audit level as defined in SPC 211 Standard for Commercial Building Energy Audits.</xs:documentation>
@@ -6091,6 +6114,18 @@
                     <xs:annotation>
                       <xs:documentation>Type of certification held by an auditor team member.</xs:documentation>
                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="AuditorYearsOfExperience" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>The number of years the energy auditor has been conducting audits professionally.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:nonNegativeInteger">
+                          <xs:attribute ref="auc:Source"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
                   </xs:element>
                 </xs:sequence>
                 <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -17711,6 +17746,11 @@
       <xs:enumeration value="Leaky"/>
       <xs:enumeration value="Very Leaky"/>
       <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="nonNegativeDecimal">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="BoundedDecimalZeroToOne">
