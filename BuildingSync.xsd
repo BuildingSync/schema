@@ -796,6 +796,18 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
+      <xs:element name="TotalCommonConditionedAboveGradeWallArea" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Above grade demising wall area. (ft2)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="auc:nonNegativeDecimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="OverallWindowToWallRatio" minOccurs="0" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
         <xs:annotation>
           <xs:documentation>Overall window to wall ratio of the facility. (0-1) (fraction)</xs:documentation>
@@ -17712,6 +17724,11 @@
       <xs:enumeration value="Leaky"/>
       <xs:enumeration value="Very Leaky"/>
       <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="nonNegativeDecimal">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="BoundedDecimalZeroToOne">
