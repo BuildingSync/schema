@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.3.0-pr1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.3.0">
   <xs:import namespace="http://www.gbxml.org/schema" schemaLocation="http://www.gbxml.org/schema/6-01/GreenBuildingXML_Ver6.01.xsd"/>
   <xs:annotation>
-    <xs:documentation>BuildingSync Schema - Version 2.3.0-pr1</xs:documentation>
+    <xs:documentation>BuildingSync Schema - Version 2.3.0</xs:documentation>
     <xs:documentation xmlns="http://www.w3.org/1999/xhtml">
       <h1>BuildingSync Schema Deprecation Policy</h1>
       <p>This document details the deprecation policy for the BuildingSync Schema.</p>
@@ -443,6 +443,7 @@
             <xs:enumeration value="2.2.0-pr1"/>
             <xs:enumeration value="2.2.0"/>
             <xs:enumeration value="2.3.0-pr1"/>
+            <xs:enumeration value="2.3.0"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -555,6 +556,11 @@
       <xs:element ref="auc:OwnershipStatus" minOccurs="0"/>
       <xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
       <xs:element ref="auc:TenantIDs" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="MultiTenant" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>True if the building is a multi-tenant building.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="NAICSCode" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation>North American Industry Classification System (NAICS) code.</xs:documentation>
@@ -728,6 +734,18 @@
         <xs:complexType>
           <xs:simpleContent>
             <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TotalCommonConditionedAboveGradeWallArea" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Above grade demising wall area. (ft2)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="auc:nonNegativeDecimal">
               <xs:attribute ref="auc:Source"/>
             </xs:extension>
           </xs:simpleContent>
@@ -5873,6 +5891,22 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="AuditFilingStatus" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The status of an audit filing, used to clarify whether or not this audit report is an initial submission (Initial filing) or an amendment to a previously submitted report (Amended filing).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Initial filing"/>
+            <xs:enumeration value="Amended filing"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EarlyCompliance" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>True if the audit report was submitted before the compliance deadline.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ASHRAEAuditLevel" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Energy audit level as defined in SPC 211 Standard for Commercial Building Energy Audits.</xs:documentation>
@@ -6035,6 +6069,18 @@
                     <xs:annotation>
                       <xs:documentation>Type of certification held by an auditor team member.</xs:documentation>
                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="AuditorYearsOfExperience" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>The number of years the energy auditor has been conducting audits professionally.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:nonNegativeInteger">
+                          <xs:attribute ref="auc:Source"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
                   </xs:element>
                 </xs:sequence>
                 <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -13248,6 +13294,17 @@
   </xs:complexType>
   <xs:complexType name="OnsiteStorageTransmissionGenerationSystemType">
     <xs:sequence>
+      <xs:element name="AverageAnnualOperatingHours" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The average operating hours per year of the onsite generation system.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="8760"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="EnergyConversionType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Type of energy conversion provided by the system.</xs:documentation>
@@ -17705,6 +17762,11 @@
       <xs:enumeration value="Leaky"/>
       <xs:enumeration value="Very Leaky"/>
       <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="nonNegativeDecimal">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="BoundedDecimalZeroToOne">

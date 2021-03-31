@@ -1,8 +1,8 @@
 # BuildingSync
 
-## Version 2.3.0-PR1
+## Version 2.3.0
 
-BuildingSync Version 2.3.0-PR1 does not introduce any breaking changes. 
+BuildingSync Version 2.3.0 does not introduce any breaking changes. 
 
 Date Range: 09/26/20 - 12/19/20
 
