@@ -2,22 +2,14 @@
 
 Follow the steps below when releasing a new version
 
+### Prepare for release
+
+* Checkout develop and pull the most recent changes
+
 * Update the Version in the header of the XSD in three places:
     * Update in the <xs:schema ...> element.
     * Update in the first <xs:annotation> element.
     * Add enumeration to /version with the latest version 
-
-* Convert XSD to JSON schema. This is still in prototype. This functionality will be moved to Oxygen XML soon.
-    * Use XMLSpy to Generate JSON Schema (Convert->Convert XML Schema to/from JSON Schema...)
-    * Use the default options
-
-* Ensure that the XSD and JSON Schema have spaces, and not tabs.
-
-    * You can run the following command to convert tabs to spaces (make sure to create backups of the files before running).
-
-        ```bash
-        rake remove_tabs
-        ```
 
 * Update the CHANGELOG.md to include the latest changes, and the most recent version.
 
@@ -26,22 +18,31 @@ Follow the steps below when releasing a new version
 
 * Create a Pull Request into `master`
     * Mark the PR with an `ignore` label to prevent the PR from being added to future change logs. 
-    * After merging the Pull Request, draft a release in GitHub. 
-    * *Upload the XSD and JSON file as part of the release.*
-    
-* Use Oxygen XML to generate the documentation. The documentation will actually be saved in [this repo](https://github.com/BuildingSync/website]).
-    * Tools -> Generate Documentation -> XML Schema Documentation
-    * Choose *Format HTML*
-    * Check *split output into multiple* and *Split by location*    
-    * Set directory and name to be the website's folder `schema/vX.Y.Z/documentation/index.html`. The name needs to be `index.html`.
-    * Select *Generate*
-    
-* Edit the BuildingSync Website GitHub repo on a new branch (https://github.com/BuildingSync/website):
+    * Merge the PR
 
-	* Run the schema's rake task for generating the data dictionary (`bundle exec rake generate_data_dictionary`). This will create the list of enumerations in both JSON and XSLX format. In the BuildingSync/website repository:
-	    * Copy this repository's `docs/enumerations.json` file into a new `_data/vXXX` folder in the website folder. Note that the folder cannot contain a dot.
-	    * Copy the `DataDictionary.xlsx` into the `schema/vXXX/datadictionary` folder.
-        * Update the `datadictionary/index.html` and `measures/index.html` to point to the new `enumerations.json` file.
-        * Update `/schema/index.md` to include new release by following the existing pattern.
+### Tag and release
 
-* Create a Pull Request from the new branch to gh-pages.
+Check out master locally, pull changes, and create a tag and push it
+```bash
+git checkout master && git pull
+git tag -a v<version> -m "<message>" [SHA]
+```
+Where `v<version>` is a valid [semantic version](https://semver.org/) (e.g. `v1.2` or `v1.2-pr.1`) and `<message>` is the tagging message (e.g. "First official release")
+```bash
+# push the tag
+git push origin 
+```
+
+This should trigger a GitHub workflow for building and publishing the release. Once the release has been successfully published on GitHub, continue.
+
+### Update BuildingSync Website
+
+At this point the GitHub action for publishing the release should be finished. Now we need to update the docs/data in [this repo](https://github.com/BuildingSync/website]). Check out the repo and make a new branch.
+
+* Copy `index.html` from the release into `schema/vX.Y.Z/documentation/index.html`.
+* Copy `enumerations.json` from the release into file into a new `_data/vXXX` folder in the website folder. Note that the folder cannot contain a dot.
+* Copy the `DataDictionary.xlsx` from the release into the `schema/vXXX/datadictionary` folder.
+* Update the `datadictionary/index.html` and `measures/index.html` to point to the new `enumerations.json` file.
+* Update `/schema/index.md` to include new release by following the existing pattern.
+
+Create a Pull Request from the new branch to gh-pages.
