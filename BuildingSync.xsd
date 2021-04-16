@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.2.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.3.0">
   <xs:import namespace="http://www.gbxml.org/schema" schemaLocation="http://www.gbxml.org/schema/6-01/GreenBuildingXML_Ver6.01.xsd"/>
   <xs:annotation>
-    <xs:documentation>BuildingSync Schema - Version 2.2.0</xs:documentation>
+    <xs:documentation>BuildingSync Schema - Version 2.3.0</xs:documentation>
     <xs:documentation xmlns="http://www.w3.org/1999/xhtml">
       <h1>BuildingSync Schema Deprecation Policy</h1>
       <p>This document details the deprecation policy for the BuildingSync Schema.</p>
@@ -442,6 +442,8 @@
             <xs:enumeration value="2.1.0"/>
             <xs:enumeration value="2.2.0-pr1"/>
             <xs:enumeration value="2.2.0"/>
+            <xs:enumeration value="2.3.0-pr1"/>
+            <xs:enumeration value="2.3.0"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -464,9 +466,14 @@
       </xs:element>
       <xs:element ref="auc:ClimateZoneType" minOccurs="0" maxOccurs="1"/>
       <xs:element ref="auc:eGRIDRegionCode" minOccurs="0"/>
-      <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
-      <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
-      <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
+          <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
+          <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+        </xs:sequence>
+        <xs:element ref="auc:WeatherStations" minOccurs="0"/>
+      </xs:choice>
       <xs:element ref="auc:Longitude" minOccurs="0"/>
       <xs:element ref="auc:Latitude" minOccurs="0"/>
       <xs:element ref="auc:FloorAreas" minOccurs="0"/>
@@ -508,9 +515,14 @@
       </xs:element>
       <xs:element ref="auc:ClimateZoneType" minOccurs="0" maxOccurs="1"/>
       <xs:element ref="auc:eGRIDRegionCode" minOccurs="0"/>
-      <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
-      <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
-      <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
+          <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
+          <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+        </xs:sequence>
+        <xs:element ref="auc:WeatherStations" minOccurs="0"/>
+      </xs:choice>
       <xs:element ref="auc:Longitude" minOccurs="0"/>
       <xs:element ref="auc:Latitude" minOccurs="0"/>
       <xs:element name="BuildingClassification" minOccurs="0">
@@ -606,6 +618,11 @@
       <xs:element ref="auc:OwnershipStatus" minOccurs="0"/>
       <xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
       <xs:element ref="auc:TenantIDs" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="MultiTenant" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>True if the building is a multi-tenant building.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="NAICSCode" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation>North American Industry Classification System (NAICS) code.</xs:documentation>
@@ -779,6 +796,18 @@
         <xs:complexType>
           <xs:simpleContent>
             <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TotalCommonConditionedAboveGradeWallArea" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Above grade demising wall area. (ft2)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="auc:nonNegativeDecimal">
               <xs:attribute ref="auc:Source"/>
             </xs:extension>
           </xs:simpleContent>
@@ -2830,6 +2859,7 @@
                 <xs:attribute name="ID" type="xs:ID" use="required"/>
               </xs:complexType>
             </xs:element>
+            <xs:element name="DerivedModel" type="auc:DerivedModelType" minOccurs="0"/>
             <xs:element name="Other" minOccurs="0">
               <xs:complexType>
                 <xs:sequence>
@@ -4348,7 +4378,11 @@
             <xs:enumeration value="Peak"/>
             <xs:enumeration value="Minimum"/>
             <xs:enumeration value="Load factor"/>
-            <xs:enumeration value="Cost"/>
+            <xs:enumeration value="Cost">
+              <xs:annotation>
+                <xs:documentation>WARNING: This enumeration is being deprecated, use auc:TimeSeriesReadingQuantity/Cost instead</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="Unknown"/>
           </xs:restriction>
         </xs:simpleType>
@@ -4372,7 +4406,12 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="Currency"/>
+            <xs:enumeration value="Currency">
+              <xs:annotation>
+                <xs:documentation>WARNING: This enumeration is being deprecated, use Cost instead</xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Cost"/>
             <xs:enumeration value="Current"/>
             <xs:enumeration value="Current Angle"/>
             <xs:enumeration value="Demand"/>
@@ -4523,6 +4562,14 @@
       <xs:element name="ResourceUseID" minOccurs="0">
         <xs:annotation>
           <xs:documentation>ID number of resource use that this time series contributes to. This field is not used for non-energy data such as weather.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="WeatherStationID" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>ID number of weather station this time series contributes to.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -5899,6 +5946,22 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="AuditFilingStatus" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The status of an audit filing, used to clarify whether or not this audit report is an initial submission (Initial filing) or an amendment to a previously submitted report (Amended filing).</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Initial filing"/>
+            <xs:enumeration value="Amended filing"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="EarlyCompliance" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>True if the audit report was submitted before the compliance deadline.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ASHRAEAuditLevel" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Energy audit level as defined in SPC 211 Standard for Commercial Building Energy Audits.</xs:documentation>
@@ -6061,6 +6124,18 @@
                     <xs:annotation>
                       <xs:documentation>Type of certification held by an auditor team member.</xs:documentation>
                     </xs:annotation>
+                  </xs:element>
+                  <xs:element name="AuditorYearsOfExperience" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>The number of years the energy auditor has been conducting audits professionally.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:nonNegativeInteger">
+                          <xs:attribute ref="auc:Source"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
                   </xs:element>
                 </xs:sequence>
                 <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -13286,6 +13361,17 @@
   </xs:complexType>
   <xs:complexType name="OnsiteStorageTransmissionGenerationSystemType">
     <xs:sequence>
+      <xs:element name="AverageAnnualOperatingHours" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The average operating hours per year of the onsite generation system.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="8760"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="EnergyConversionType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Type of energy conversion provided by the system.</xs:documentation>
@@ -17516,7 +17602,7 @@
   </xs:element>
   <xs:element name="eGRIDRegionCode">
     <xs:annotation>
-      <xs:documentation>The eGRID (Emissions and Generation Resource Database) region code associated with the data being described.</xs:documentation>
+      <xs:documentation>The eGRID (Emissions and Generation Resource Database) region code associated with the data being described. WARNING: Element MORE was a typo and will be removed, use MROE.</xs:documentation>
     </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">
@@ -17529,6 +17615,7 @@
         <xs:enumeration value="HIMS"/>
         <xs:enumeration value="HIOA"/>
         <xs:enumeration value="MORE"/>
+        <xs:enumeration value="MROE"/>
         <xs:enumeration value="MROW"/>
         <xs:enumeration value="NEWE"/>
         <xs:enumeration value="NWPP"/>
@@ -17552,7 +17639,7 @@
   </xs:element>
   <xs:element name="WeatherDataStationID">
     <xs:annotation>
-      <xs:documentation>For an actual weather station, this is the ID assigned by National Oceanic and Atmospheric Administration (NOAA). For hourly energy simulations, this is the six digit code associated with the hourly weather data, generally found in the name of the weather data file, as well as in the header of the data file. (NNNNNN)</xs:documentation>
+      <xs:documentation>For an actual weather station, this is the ID assigned by National Oceanic and Atmospheric Administration (NOAA). For hourly energy simulations, this is the six digit code associated with the hourly weather data, generally found in the name of the weather data file, as well as in the header of the data file. (NNNNNN) WARNING: This element is being deprecated, use WeatherStations/WeatherStation/WeatherDataStationID instead</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
@@ -17562,7 +17649,7 @@
   </xs:element>
   <xs:element name="WeatherStationName">
     <xs:annotation>
-      <xs:documentation>The name of the weather station associated with this premises, which could be used for simulations, weather normalization, anomaly resolution, etc. For simulations, this is usually the name of the weather file, but the name is also in the header of the data file (TMY, IWEC), such as USA_CO_Denver.Intl.AP.</xs:documentation>
+      <xs:documentation>The name of the weather station associated with this premises, which could be used for simulations, weather normalization, anomaly resolution, etc. For simulations, this is usually the name of the weather file, but the name is also in the header of the data file (TMY, IWEC), such as USA_CO_Denver.Intl.AP. WARNING: This element is being deprecated, use WeatherStations/WeatherStation/WeatherStationName instead</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
@@ -17572,7 +17659,7 @@
   </xs:element>
   <xs:element name="WeatherStationCategory">
     <xs:annotation>
-      <xs:documentation>Describes the type of weather station used to specify the site's weather.</xs:documentation>
+      <xs:documentation>Describes the type of weather station used to specify the site's weather. WARNING: This element is being deprecated, use WeatherStations/WeatherStation/WeatherStationCategory instead</xs:documentation>
     </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">
@@ -17681,6 +17768,11 @@
       <xs:enumeration value="Leaky"/>
       <xs:enumeration value="Very Leaky"/>
       <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="nonNegativeDecimal">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="BoundedDecimalZeroToOne">
@@ -17802,4 +17894,548 @@
       <xs:enumeration value="Unknown"/>
     </xs:restriction>
   </xs:simpleType>
+  <xs:complexType name="DerivedModelType">
+    <xs:annotation>
+      <xs:documentation>A derived model represents a supervised or unsupervised learning model derived from data presented in a scenario.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="DerivedModelName" type="xs:string" minOccurs="0"/>
+      <xs:element name="MeasuredScenarioID" minOccurs="0">
+        <xs:complexType>
+          <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Models">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Model" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="StartTimestamp" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+                  <xs:element name="EndTimestamp" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+                  <xs:element name="DerivedModelInputs">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="IntervalFrequency" type="auc:IntervalFrequencyType" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="ResponseVariable" minOccurs="1" maxOccurs="1">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ResponseVariableName" type="auc:FuelTypes" minOccurs="1" maxOccurs="1"/>
+                              <xs:element name="ResponseVariableUnits" type="auc:ResourceUnitsType" minOccurs="1" maxOccurs="1"/>
+                              <xs:element name="ResponseVariableEndUse" type="auc:EndUse" minOccurs="1" maxOccurs="1"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="ExplanatoryVariables">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ExplanatoryVariable" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ExplanatoryVariableName" minOccurs="1" maxOccurs="1">
+                                      <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                          <xs:enumeration value="Drybulb Temperature"/>
+                                          <xs:enumeration value="Wetbulb Temperature"/>
+                                          <xs:enumeration value="Relative Humidity"/>
+                                          <xs:enumeration value="Global Horizontal Irradiance (GHI)"/>
+                                          <xs:enumeration value="Diffuse Horizontal Irradiance (DHI)"/>
+                                          <xs:enumeration value="Direct Normal Irradiance (DNI)"/>
+                                          <xs:enumeration value="Hour of week">
+                                            <xs:annotation>
+                                              <xs:documentation>Hour of the week used as an indicator variable.  A total of 168 indicator variables should exist.</xs:documentation>
+                                            </xs:annotation>
+                                          </xs:enumeration>
+                                          <xs:enumeration value="Hour of day">
+                                            <xs:annotation>
+                                              <xs:documentation>Hour of the day used as an indicator variable.  A total of 24 indicator variables should exist.</xs:documentation>
+                                            </xs:annotation>
+                                          </xs:enumeration>
+                                          <xs:enumeration value="Day of week">
+                                            <xs:annotation>
+                                              <xs:documentation>Day of the week used as an indicator variable.  A total of 7 indicator variables should exist.</xs:documentation>
+                                            </xs:annotation>
+                                          </xs:enumeration>
+                                          <xs:enumeration value="Day of month">
+                                            <xs:annotation>
+                                              <xs:documentation>Day of the month used as an indicator variable.  Between 28 - 31 indicator variables should exist.</xs:documentation>
+                                            </xs:annotation>
+                                          </xs:enumeration>
+                                          <xs:enumeration value="Day of year">
+                                            <xs:annotation>
+                                              <xs:documentation>Day of the year used as an indicator variable.  Either 365 or 366 indicator variables should exist.</xs:documentation>
+                                            </xs:annotation>
+                                          </xs:enumeration>
+                                          <xs:enumeration value="Week of year">
+                                            <xs:annotation>
+                                              <xs:documentation>Week of the year used as an indicator variable.  A total of 52 indicator variables should exist.</xs:documentation>
+                                            </xs:annotation>
+                                          </xs:enumeration>
+                                          <xs:enumeration value="Month of year">
+                                            <xs:annotation>
+                                              <xs:documentation>Month of the year used as an indicator variable.  A total of 12 indicator variables should exist.</xs:documentation>
+                                            </xs:annotation>
+                                          </xs:enumeration>
+                                          <xs:enumeration value="Fifteen minute interval of week">
+                                            <xs:annotation>
+                                              <xs:documentation>A fifteen minute interval during the week used as an indicator variable.  A total of 7 days/wk * 24hrs/day * 4 15min/1hr = 672 indicator variables should exist.</xs:documentation>
+                                            </xs:annotation>
+                                          </xs:enumeration>
+                                          <xs:enumeration value="Fifteen minute interval of day">
+                                            <xs:annotation>
+                                              <xs:documentation>A fifteen minute interval during the day used as an indicator variable.  A total of 24hrs/day * 4 15min/1hr = 96 indicator variables should exist.</xs:documentation>
+                                            </xs:annotation>
+                                          </xs:enumeration>
+                                          <xs:enumeration value="Season">
+                                            <xs:annotation>
+                                              <xs:documentation>A season during the year.  Typically this would be 4 indicator variables.</xs:documentation>
+                                            </xs:annotation>
+                                          </xs:enumeration>
+                                          <xs:enumeration value="Weekday / Weekend">
+                                            <xs:annotation>
+                                              <xs:documentation>Two indicator variables are used to represent the weekends vs. weekdays.</xs:documentation>
+                                            </xs:annotation>
+                                          </xs:enumeration>
+                                          <xs:enumeration value="Holiday">
+                                            <xs:annotation>
+                                              <xs:documentation>Two indicator variables are used to represent holidays vs. non-holidays.</xs:documentation>
+                                            </xs:annotation>
+                                          </xs:enumeration>
+                                          <xs:enumeration value="Other"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="ExplanatoryVariableUnits" type="auc:UnitsType"> </xs:element>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="DerivedModelCoefficients">
+                    <xs:complexType>
+                      <xs:choice>
+                        <xs:element name="Guideline14Model">
+                          <xs:annotation>
+                            <xs:documentation>Defined parameters are based on those available in ASHRAE Guideline 14-2014 Table D-1 and Figure D-1.  Concepts and nomenclature is also adopted from the CalTRACK methodology.  Attempts to generalize these parameters are made.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ModelType" minOccurs="1">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="2 parameter simple linear regression"/>
+                                    <xs:enumeration value="3 parameter heating change point model"/>
+                                    <xs:enumeration value="3 parameter cooling change point model"/>
+                                    <xs:enumeration value="4 parameter change point model"/>
+                                    <xs:enumeration value="5 parameter change point model"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                              <xs:element name="Intercept" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                  <xs:documentation>The 'y-intercept' value.  In Figure D-1 (a), this is Eb.  In Figure D-1 (a)-(g), this is C.</xs:documentation>
+                                </xs:annotation>
+                              </xs:element>
+                              <xs:element name="Beta1" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                  <xs:documentation>In a two and three parameter model, this is the slope of the line (Figure D-1 (a)-(d)).  If the model type is a 3p heating model, this is referred to as beta_hdd, whereas for a 3p cooling model, this is referred to as beta_cdd (per CalTRACK terminology).  In the 4p and 5p models, this is beta_hdd.</xs:documentation>
+                                </xs:annotation>
+                              </xs:element>
+                              <xs:element name="Beta2" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                  <xs:documentation>In both three parameter models, this is the change point.  In the 4p and 5p models, this is beta_cdd.</xs:documentation>
+                                </xs:annotation>
+                              </xs:element>
+                              <xs:element name="Beta3" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                  <xs:documentation>In the 4p models, this is the change point (as there is only one change point).  In the 5p models, this is the lower value change point, which in CalTRACK terms is referred to as the heating change point.</xs:documentation>
+                                </xs:annotation>
+                              </xs:element>
+                              <xs:element name="Beta4" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                                <xs:annotation>
+                                  <xs:documentation>In the 5p model, this is the upper value change point, which in CalTRACK terms is referred to as the cooling change point.</xs:documentation>
+                                </xs:annotation>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="TimeOfWeekTemperatureModel">
+                          <xs:complexType/>
+                        </xs:element>
+                      </xs:choice>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="DerivedModelPerformance">
+                    <xs:annotation>
+                      <xs:documentation>Characterization of the performance of the model.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="RSquared" minOccurs="0" maxOccurs="1">
+                          <xs:annotation>
+                            <xs:documentation>Also referred to as the coefficient of determination, R-Squared is a measure of the extent to which variations in the dependent variable from its mean value are explained by the regression model (ASHRAE Guideline 14-2014). Specifics for the calculation can be found in Guideline 14, or calculated as: R-Squared = 1 - (SS_resid / SS_total). Here, SS_resid is the sum of the squared residuals from the regression, and SS_total is the sum of the squared differences from the mean of the dependent variable (total sum of squares). See: https://www.mathworks.com/help/matlab/data_analysis/linear-regression.html#f1-15010.</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:decimal">
+                              <xs:minInclusive value="0"/>
+                              <xs:maxInclusive value="1"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="AdjustedRSquared" minOccurs="0" maxOccurs="1">
+                          <xs:annotation>
+                            <xs:documentation>Adjusted R-Squared is typically used to compare model fits across models generated with different numbers of parameters, since R-Squared is unable to account for model complexity (i.e. quadratic, cubic, etc.). It uses a penalty for the number of terms in a model, and can be calculated as: Adj-R-Squared = 1 - (SS_resid / SS_total) * ((n - 1) / (n - d - 1)). Here, SS_resid is the sum of the squared residuals from the regression, and SS_total is the sum of the squared differences from the mean of the dependent variable (total sum of squares). n is the number of observations in the data, and d is the degree of the polynomial. See: https://www.mathworks.com/help/matlab/data_analysis/linear-regression.html#f1-15010.</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:decimal">
+                              <xs:minInclusive value="0"/>
+                              <xs:maxInclusive value="1"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="RMSE" minOccurs="0" maxOccurs="1">
+                          <xs:annotation>
+                            <xs:documentation>The Root Mean Square Error (RMSE) is the standard deviation of the residuals. It is calculated as follows: RMSE = sqrt( sum((y_i - yhat_i)^2) / (n - p) ). Here, y_i is the ith observation of the dependent variable, yhat_i is the regression models predicted value of y_i, n is the number of data points or periods in the baseline period, and p is the number of parameters or terms in the baseline model (ASHRAE Guideline 14-2014).</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:decimal">
+                              <xs:minInclusive value="0"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="CVRMSE" minOccurs="0" maxOccurs="1">
+                          <xs:annotation>
+                            <xs:documentation>The Coefficient of Variation of the Root Mean Square Error expressed as a percentage.</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:decimal">
+                              <xs:minInclusive value="0"/>
+                              <xs:maxInclusive value="100"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="NDBE" minOccurs="0" maxOccurs="1">
+                          <xs:annotation>
+                            <xs:documentation>The Net Determination Bias Error expressed as a percentage.</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:decimal">
+                              <xs:minInclusive value="0"/>
+                              <xs:maxInclusive value="100"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="MBE" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                          <xs:annotation>
+                            <xs:documentation>The Mean Bias Error.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="NMBE" minOccurs="0" maxOccurs="1">
+                          <xs:annotation>
+                            <xs:documentation>The Normalized Mean Bias Error expressed as a percentage.</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:decimal">
+                              <xs:minInclusive value="0"/>
+                              <xs:maxInclusive value="100"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="SummaryInformation" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="NumberOfDataPoints" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                          <xs:annotation>
+                            <xs:documentation>As documented in Annex B4 of ASRHAE Guideline 14-2018, this refers to the total number of periods in the Baseline period data.  It is denoted as "n" throughout B4.  A "period" refers to a measurement of the ResponseVariable.  For example, 24 hours worth of data collected at hourly intervals would have 24 "periods".</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="NumberOfParameters" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                          <xs:annotation>
+                            <xs:documentation>As documented in Annex B4 of ASRHAE Guideline 14-2018, this refers to the total number of parameters in the model.  It is denoted as "p" throughout B4.  The number of parameters is not necessarily equal to the number of auc:ExplanatoryVariable elements.  For example, a 5 parameter change point model has 5 parameters, even though there is only a single ExplanatoryVariable (likely Drybulb Temperature).  In certain cases, this is used in the calculation of the degrees of freedom for the t-statistic.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="DegreesOfFreedom" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                          <xs:annotation>
+                            <xs:documentation>Degrees of Freedom as used in the context of a t-distribution.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="AggregateActualEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                          <xs:annotation>
+                            <xs:documentation>This value represents the actual energy use for the building / premise over the defined period. It is an aggregate number and should be of the same units defined by the ResponseVariable/ResponseVariableUnits. See: the Retrofit Isolation Approach (G-14 4.1.1) and Whole Facility Approach (G-14 4.1.2) of ASHRAE Guideline 14-2018.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                        <xs:element name="AggregateModeledEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                          <xs:annotation>
+                            <xs:documentation>This value represents the model estimated energy use for the building / premise over the defined period. It is an aggregate number and should be of the same units defined by the ResponseVariable/ResponseVariableUnits.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="ModeledTimeSeriesData" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>This element stores the timeseries data generated when the model is applied to the training data, oftentimes referred to as yhat. The difference between each pairwise element in this series with its corresponding data from the Current Building Modeled Scenario would generate the residuals.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="TimeSeries" type="auc:TimeSeriesType" minOccurs="0" maxOccurs="unbounded"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="ID" type="xs:ID" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SavingsSummaries" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SavingsSummary">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="BaselinePeriodModelID" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Applicable when the NormalizationMethod is Forecast or Standard Conditions. Define a link to the ID of the Model considered as the baseline period Model. In the event it is Forecast, the reporting period and comparison period are considered synonymous.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:attribute name="IDref" type="xs:IDREF"/>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="ReportingPeriodModelID" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Applicable when the NormalizationMethod is Backcast or Standard Conditions. Define a link to the ID of the Model considered as the reporting period Model. In the event it is Backcast, the baseline period and comparison period are considered synonymous.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:attribute name="IDref" type="xs:IDREF"/>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="NormalizationMethod" minOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>'Forecast' is the most common normalization method. It implies creation of a single Model using data from a baseline period (i.e. preconditions). 'Standard Conditions' is used to compare building performance of, say, two particular years to a 'typical' year. In this event, two models are created, one for the baseline and one for the reporting period, and input data is fed into each for a 'typical year' (TMY3, etc.) and performance compared.  'Backcast' is not used often, but makes sense in the event that finer temporal data is available in the reporting period to train the Model. A single Model is also created in this case.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Forecast"/>
+                        <xs:enumeration value="Backcast"/>
+                        <xs:enumeration value="Standard Conditions"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="ComparisonPeriodStartTimestamp" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Applicable regardless of the NormalizationMethod. The beginning of the time period used for comparison.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="ComparisonPeriodEndTimestamp" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Applicable regardless of the NormalizationMethod. The end of the time period used for comparison.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="ComparisonPeriodAggregateActualEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Applicable when the NormalizationMethod is Forecast or Backcast. This value represents the actual energy use for the building / premise during the period of comparison. It is an aggregate number and should be of the same units defined by the ResponseVariable/ResponseVariableUnits.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="ComparisonPeriodAggregateModeledEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Applicable when the NormalizationMethod is Forecast or Backcast. This value represents the model estimated energy use for the building / premise during the period of comparison. It is an aggregate number and should be of the same units defined by the ResponseVariable/ResponseVariableUnits.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="AvoidedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Applicable when the NormalizationMethod is Forecast or Backcast. As documented in Annex B4.1g and the result of Equation B-14 of ASHRAE Guideline 14-2018 (E_save,m), this value represents the 'actual savings'.  It is calculated via the following: E_save,m = Ehat_base,m - E_meas,m.  In BuildingSync terms, the AvoidedEnergyUse = ComparisonPeriodAggregateModeledEnergyUse - ComparisonPeriodAggregateActualEnergyUse.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="SavingsUncertainty" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>The savings uncertainty represented as a decimal.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="ConfidenceLevel" type="auc:BoundedDecimalZeroToOne" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>The confidence level represented as a decimal between zero and one.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="StandardConditionsBaselinePeriodAggregateModeledEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Applicable when the NormalizationMethod is Standard Conditions.  As documented in Annex B4.5 of ASRHAE Guideline 14-2018: "In many cases, it is necessary to normalize the savings to a typical or average period (usually a year) at the site. It was shown in Section B4.3 that when measurement errors are negligible, the uncertainty in calculating actual savings using a weather-based regression is due to the error in normalizing the baseline energy use to the postretrofit period. Normalized savings requires two regression equations: one that correlates baseline energy use with baseline weather conditions and one that correlates postretrofit energy use with postretrofit weather conditions.  This value represents the "normalized baseline energy use", or the predicted energy consumption using the Baseline model when data from a standard year (or typical year) is supplied to it.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="StandardConditionsReportingPeriodAggregateModeledEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Applicable when the NormalizationMethod is Standard Conditions.  As documented in Annex B4.5 of ASRHAE Guideline 14-2018: "In many cases, it is necessary to normalize the savings to a typical or average period (usually a year) at the site. It was shown in Section B4.3 that when measurement errors are negligible, the uncertainty in calculating actual savings using a weather-based regression is due to the error in normalizing the baseline energy use to the postretrofit period. Normalized savings requires two regression equations: one that correlates baseline energy use with baseline weather conditions and one that correlates postretrofit energy use with postretrofit weather conditions.  This value represents the "normalized postretrofit energy use", or the predicted energy consumption using the Reporting (or postretrofit) model when data from a standard year (or typical year) is supplied to it.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="StandardConditionsAvoidedEnergyUse" type="xs:decimal" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Applicable when the NormalizationMethod is Standard Conditions. As documented in Annex B4.5 of ASRHAE Guideline 14-2018: "normalized savings is then defined as the normalized baseline energy use minus the normalized postretrofit energy use".  The "normalized baseline energy use" referred to in G-14 is captured by the auc:BaselinePeriodCalculatedEnergyUseStandardConditions element, while the "normalized postretrofit energy use" is captured by the auc:ReportingPeriodCalculatedEnergyUseStandardConditions element.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="ComparisonPeriodModeledTimeSeriesData" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Applicable when the NormalizationMethod is Forecast or Backcast. Used to capture the modeled timeseries data associated with the comparison period.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="TimeSeries" type="auc:TimeSeriesType" minOccurs="0" maxOccurs="unbounded"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="StandardConditionsBaselinePeriodModeledTimeSeriesData" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Applicable when the NormalizationMethod is Standard Conditions. Used to capture the modeled timeseries data associated with the baseline period at standard conditions.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="TimeSeries" type="auc:TimeSeriesType" minOccurs="0" maxOccurs="unbounded"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="StandardConditionsReportingPeriodModeledTimeSeriesData" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Applicable when the NormalizationMethod is Standard Conditions. Used to capture the modeled timeseries data associated with the reporting period at standard conditions.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="TimeSeries" type="auc:TimeSeriesType" minOccurs="0" maxOccurs="unbounded"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="StandardConditionsTimeSeriesData" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                      <xs:documentation>Applicable when the NormalizationMethod is Standard Conditions. Used to capture timeseries data inputs (i.e. temperature or weather data from a TMY3 file, etc.).</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="TimeSeries" type="auc:TimeSeriesType" minOccurs="0" maxOccurs="unbounded"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="ID" type="xs:ID" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
+  </xs:complexType>
+  <xs:simpleType name="IntervalFrequencyType">
+    <xs:annotation>
+      <xs:documentation>Indicates frequency of data that's available for a given variable. Data that's available can range from 1 minute interval to annual. This interval frequency can be applied to resource or other time series data like weather.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1 minute"/>
+      <xs:enumeration value="10 minute"/>
+      <xs:enumeration value="15 minute"/>
+      <xs:enumeration value="30 minute"/>
+      <xs:enumeration value="Hour"/>
+      <xs:enumeration value="Day"/>
+      <xs:enumeration value="Week"/>
+      <xs:enumeration value="Month"/>
+      <xs:enumeration value="Annual"/>
+      <xs:enumeration value="Quarter"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UnitsType">
+    <xs:annotation>
+      <xs:documentation>Enumeration for different potential units.</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="auc:ResourceUnitsType auc:PressureUnitsType auc:PeakResourceUnitsType auc:TemperatureUnitsType"/>
+  </xs:simpleType>
+  <xs:simpleType name="DimensionlessUnitsType">
+    <xs:union memberTypes="auc:OtherUnitsType auc:DimensionlessUnitsBaseType"/>
+  </xs:simpleType>
+  <xs:simpleType name="PeakResourceUnitsType">
+    <xs:union memberTypes="auc:OtherUnitsType auc:PeakResourceUnitsBaseType"/>
+  </xs:simpleType>
+  <xs:simpleType name="PressureUnitsType">
+    <xs:union memberTypes="auc:OtherUnitsType auc:PressureUnitsBaseType"/>
+  </xs:simpleType>
+  <xs:simpleType name="ResourceUnitsType">
+    <xs:union memberTypes="auc:OtherUnitsType auc:ResourceUnitsBaseType"/>
+  </xs:simpleType>
+  <xs:simpleType name="TemperatureUnitsType">
+    <xs:union memberTypes="auc:OtherUnitsType auc:TemperatureUnitsBaseType"/>
+  </xs:simpleType>
+  <xs:simpleType name="OtherUnitsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Unknown"/>
+      <xs:enumeration value="None"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DimensionlessUnitsBaseType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Percent, %"/>
+      <xs:enumeration value="Percent Relative Humidity, %RH"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PeakResourceUnitsBaseType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="kW"/>
+      <xs:enumeration value="MMBtu/day"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PressureUnitsBaseType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bar"/>
+      <xs:enumeration value="Atmosphere, atm"/>
+      <xs:enumeration value="Pounds per Square Inch, psi"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ResourceUnitsBaseType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Cubic Meters"/>
+      <xs:enumeration value="kcf"/>
+      <xs:enumeration value="MCF"/>
+      <xs:enumeration value="Gallons"/>
+      <xs:enumeration value="Wh"/>
+      <xs:enumeration value="kWh"/>
+      <xs:enumeration value="MWh"/>
+      <xs:enumeration value="Btu"/>
+      <xs:enumeration value="kBtu"/>
+      <xs:enumeration value="MMBtu"/>
+      <xs:enumeration value="therms"/>
+      <xs:enumeration value="lbs"/>
+      <xs:enumeration value="Klbs"/>
+      <xs:enumeration value="Mlbs"/>
+      <xs:enumeration value="Mass ton"/>
+      <xs:enumeration value="Ton-hour"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TemperatureUnitsBaseType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Fahrenheit, F"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WeatherStations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="WeatherStation" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
+              <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
+              <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="ID" type="xs:ID" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

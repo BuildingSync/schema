@@ -1,3 +1,36 @@
+# *********************************************************************************************************
+# BuildingSync®, Copyright (c) 2015-2021, Alliance for Sustainable Energy, LLC, and other contributors.
+#
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted
+# provided that the following conditions are met:
+#
+# (1) Redistributions of source code must retain the above copyright notice, this list of conditions
+# and the following disclaimer.
+#
+# (2) Redistributions in binary form must reproduce the above copyright notice, this list of conditions
+# and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#
+# (3) Neither the name of the copyright holder nor the names of any contributors may be used to endorse
+# or promote products derived from this software without specific prior written permission from the
+# respective party.
+#
+# (4) Other than as required in clauses (1) and (2), distributions in any form of modifications or other
+# derivative works may not use the "BuildingSync" trademark or any other confusingly similar designation
+# without specific prior written permission from Alliance for Sustainable Energy, LLC.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND ANY CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
+# IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+# FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER(S), ANY
+# CONTRIBUTORS, THE UNITED STATES GOVERNMENT, OR THE UNITED STATES DEPARTMENT OF ENERGY, NOR ANY OF
+# THEIR EMPLOYEES, BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+# OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+# STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+# SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+# *********************************************************************************************************
+
 require 'nokogiri'
 require 'pp'
 require 'open-uri'
@@ -166,5 +199,191 @@ RSpec.describe 'No naming collisions between schemas' do
     end
 
     expect(conflicts).to be_empty
+  end
+end
+
+RSpec.describe 'No naming collisions within the schema' do
+  it 'should not have any elements with duplicate names' do
+    schema_doc = Nokogiri::XML(File.read('BuildingSync.xsd'))
+    named_elements = schema_doc.xpath("//xs:element[@name]")
+    element_names = Hash.new
+    named_elements.each do |node|
+      element_name = node['name']
+      if element_names.key?(element_name)
+        element_names[element_name].append(node.line())
+      else
+        element_names[element_name] = [node.line()]
+      end
+    end
+
+    # TODO: remove ignored dupes once we fix them all. (ie make no exceptions)
+    # See https://github.com/BuildingSync/project-tracker/issues/21
+    ignored_dupes = [
+      'ActiveDehumidification',
+      'AdvancedPowerStrip',
+      'AnnualCoolingEfficiencyValue',
+      'AnnualDemandSavingsCost',
+      'AnnualHeatingEfficiencyValue',
+      'AnnualPeakElectricityReduction',
+      'AnnualSavingsByFuel',
+      'AnnualSavingsByFuels',
+      'AnnualSavingsCost',
+      'AnnualSavingsNativeUnits',
+      'AnnualSavingsSiteEnergy',
+      'AnnualSavingsSourceEnergy',
+      'AnnualWaterCostSavings',
+      'AnnualWaterSavings',
+      'AssemblyType',
+      'BoilerLWT',
+      'Building',
+      'BurnerQuantity',
+      'BurnerTurndownRatio',
+      'CBECS',
+      'CDDBaseTemperature',
+      'Capacity',
+      'ChilledWaterSupplyTemperature',
+      'ClimateZone',
+      'ClothesWasherCapacity',
+      'ClothesWasherModifiedEnergyFactor',
+      'ClothesWasherWaterFactor',
+      'Combustion',
+      'CombustionEfficiency',
+      'CommunicationProtocol',
+      'CondenserPlantID',
+      'CondenserPlantIDs',
+      'CondenserWaterTemperature',
+      'CondensingTemperature',
+      'Control',
+      'ControlSensor',
+      'ControlStrategy',
+      'ControlSystemTypes',
+      'Controls',
+      'ConveyanceSystems',
+      'CoolingSourceID',
+      'CoolingStageCapacity',
+      'DemandRatchetPercentage',
+      'DemandRateAdjustment',
+      'DemandWindow',
+      'DryerElectricEnergyUsePerLoad',
+      'DryerGasEnergyUsePerLoad',
+      'ElectricDemandRate',
+      'ElectricResistance',
+      'EndTimestamp',
+      'EndUse',
+      'EnergyCostRate',
+      'EnergyRateAdjustment',
+      'EnergySellRate',
+      'EnergyUse',
+      'EquipmentDisposalAndSalvageCosts',
+      'ExistingScheduleAffected',
+      'ExteriorRoughness',
+      'Facility',
+      'FanBased',
+      'FenestrationArea',
+      'FloorsAboveGrade',
+      'FloorsBelowGrade',
+      'FoundationHeightAboveGrade',
+      'FoundationWallConstruction',
+      'FoundationWallInsulationCondition',
+      'FoundationWallInsulationThickness',
+      'FoundationWallRValue',
+      'FoundationWallUFactor',
+      'FundingFromIncentives',
+      'FundingFromTaxCredits',
+      'HDDBaseTemperature',
+      'HeatPump',
+      'HeatingStageCapacityFraction',
+      'HotWaterBoilerMaximumFlowRate',
+      'InputCapacity',
+      'InteriorVisibleAbsorptance',
+      'InternalRateOfReturn',
+      'IntervalFrequency',
+      'LampLabel',
+      'LampPower',
+      'LinkedBuildingID',
+      'LinkedFacilityID',
+      'LinkedScheduleID',
+      'LinkedScheduleIDs',
+      'LinkedSectionID',
+      'LinkedSiteID',
+      'LinkedSpaceID',
+      'LinkedSystemID',
+      'LinkedSystemIDs',
+      'LinkedThermalZoneID',
+      'MVCost',
+      'MakeupAirSourceID',
+      'Manual',
+      'MeasureName',
+      'MinimumPartLoadRatio',
+      'ModifiedSchedule',
+      'NPVofTaxImplications',
+      'NetPresentValue',
+      'NoCooling',
+      'NoHeating',
+      'NumberOfDiscreteCoolingStages',
+      'NumberOfHeatingStages',
+      'OMCostAnnualSavings',
+      'Occupancy',
+      'Other',
+      'OtherCombination',
+      'OtherControlStrategyName',
+      'OtherControlTechnology',
+      'OtherControlTechnologyName',
+      'OutputCapacity',
+      'PipeInsulationThickness',
+      'PipeLocation',
+      'PortfolioManager',
+      'PrimaryFuel',
+      'Priority',
+      'RatePeriod',
+      'RatePeriodName',
+      'RatePeriods',
+      'RatedCoolingSensibleHeatRatio',
+      'RefrigerantChargeFactor',
+      'RequiredVentilationRate',
+      'Section',
+      'SimplePayback',
+      'Site',
+      'SiteEnergyUse',
+      'SlabArea',
+      'SlabExposedPerimeter',
+      'SlabInsulationCondition',
+      'SlabInsulationThickness',
+      'SlabPerimeter',
+      'SourceEnergyUse',
+      'SourceEnergyUseIntensity',
+      'Space',
+      'SpaceID',
+      'SpaceIDs',
+      'StartTimestamp',
+      'SteamBoilerMaximumOperatingPressure',
+      'SteamBoilerMinimumOperatingPressure',
+      'Story',
+      'StreetAdditionalInfo',
+      'SummerPeakElectricityReduction',
+      'ThermalEfficiency',
+      'ThermalZone',
+      'ThermalZoneID',
+      'ThermalZoneIDs',
+      'TimeSeries',
+      'Timer',
+      'TransformerNeeded',
+      'Unknown',
+      'UtilityAccountNumber',
+      'UtilityBillpayer',
+      'UtilityMeterNumber',
+      'VentilationControlMethods',
+      'VentilationRate',
+      'WaterSideEconomizer',
+      'WaterSideEconomizerDBTemperatureMaximum',
+      'WaterSideEconomizerTemperatureMaximum',
+      'WaterUse',
+      'WeightedAverageLoad',
+      'WinterPeakElectricityReduction',
+      'YearOfConstruction'
+    ]
+
+    dupe_names = element_names.select{ |k, v| v.length() > 1 && !ignored_dupes.include?(k) }
+    expect(dupe_names).to be_empty
   end
 end

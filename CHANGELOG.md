@@ -1,5 +1,52 @@
 # BuildingSync
 
+## Version 2.3.0
+
+BuildingSync Version 2.3.0 does not introduce any breaking changes. 
+
+Date Range: 09/26/20 - 12/19/20
+
+| Category       | Count |
+|----------------|-------|
+| Controls         | 0  |
+| General         | 2  |
+| Measures         | 1  |
+| Reports         | 3  |
+| Systems         | 3  |
+| Validation         | 0  |
+| Other         | 6  |
+| **Total**      | 15 |
+
+| Change Type    | Count |
+|----------------|-------|
+| Breaking Change         | 0  |
+| Non-breaking Change         | 15  |
+
+New Issues: 16 (#253, #254, #259, #260, #264, #265, #268, #271, #272, #273, #274, #275, #276, #283, #284, #285)
+
+Closed Issues: 4
+- Merged [#265]( https://github.com/BuildingSync/schema/issues/265 ), Add modeling of temperature time series
+- Merged [#273]( https://github.com/BuildingSync/schema/issues/273 ), TechnologyCategory annotations need to be updated
+- Merged [#274]( https://github.com/BuildingSync/schema/issues/274 ), Add 'Install electrical storage' to 'Renewable Energy Systems' TechCat
+- Merged [#276]( https://github.com/BuildingSync/schema/issues/276 ), Fix typo in auc:eGRIDRegionCode enumeration
+
+Accepted Pull Requests: 15
+- Merged [#255]( https://github.com/BuildingSync/schema/pull/255 ), docs: add notes on git naming conventions
+- Merged [#256]( https://github.com/BuildingSync/schema/pull/256 ), Add LinkedSystemIDs to DuctSystem
+- Merged [#257]( https://github.com/BuildingSync/schema/pull/257 ), Add estimated as an "engineering calculation"
+- Merged [#258]( https://github.com/BuildingSync/schema/pull/258 ), docs(schema): add deprecation warning for Delivery Capacity
+- Merged [#261]( https://github.com/BuildingSync/schema/pull/261 ), docs(schema): add deprecation policy
+- Merged [#262]( https://github.com/BuildingSync/schema/pull/262 ), docs(examples): update Audit Template example files
+- Merged [#263]( https://github.com/BuildingSync/schema/pull/263 ), Add choice for FanInstalledFlowRate. Will deprecate InstalledFanFlowRate.
+- Merged [#267]( https://github.com/BuildingSync/schema/pull/267 ), Add weather station element
+- Merged [#269]( https://github.com/BuildingSync/schema/pull/269 ), create TimeSeriesReadingQuantity Cost
+- Merged [#277]( https://github.com/BuildingSync/schema/pull/277 ), Add derived models to reporting and scenarios
+- Merged [#278]( https://github.com/BuildingSync/schema/pull/278 ), Update annotations for data dictionary
+- Merged [#279]( https://github.com/BuildingSync/schema/pull/279 ), Add MROE eGridRegion
+- Merged [#280]( https://github.com/BuildingSync/schema/pull/280 ), Add new measure for install electrical storage
+- Merged [#281]( https://github.com/BuildingSync/schema/pull/281 ), Add GH Actions and Issue Templates
+- Merged [#282]( https://github.com/BuildingSync/schema/pull/282 ), `<p>` formatting in XSD
+
 ## Version 2.2.0
 
 BuildingSync Version 2.2.0 does not introduce any breaking changes. Version 2.2.0 adds new elements required for a 
