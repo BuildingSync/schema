@@ -2,7 +2,7 @@
 
 ## Overview
 
-This proposal is to address issue of the redundant `Separate SHW from heating` measure option under `ChilledWaterHotWaterAndSteamDistributionSystems` and `ServiceHotWaterSystems`.
+This proposal is to address the issue of the redundant `Separate SHW from heating` measure option under `ChilledWaterHotWaterAndSteamDistributionSystems` and `ServiceHotWaterSystems`.
 
 ## Justification
 
