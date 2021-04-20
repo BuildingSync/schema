@@ -9,4 +9,4 @@ This proposal is to delete the `Energy cost reduction through rate adjustments -
 `Energy cost reduction through rate adjustments - uncategorized` is captured by option `other`. This proposal suggests that we delete this redundant option.
 
 ## Related issue 
-#275
+[#275](https://github.com/BuildingSync/schema/issues/275)
