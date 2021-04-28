@@ -1,0 +1,54 @@
+name: Publish
+
+on:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        uses: actions/checkout@v2
+      -
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true
+      -
+        name: Test
+        run: bundle exec rake
+      -
+        name: Checkout xs3p
+        uses: actions/checkout@v2
+        with:
+          repository: macintoshpie/xs3p
+          path: xs3p
+      -
+        name: Build HTML
+        run: |
+          sudo apt install xsltproc
+          xsltproc --output index.html xs3p/xs3p.xsl BuildingSync.xsd
+          stat index.html
+      -
+        name: Build Data Dictionary
+        run: bundle exec rake generate_data_dictionary
+      -
+        name: Build Changelog
+        run: |
+          # grab the most recent version section from the changelog
+          python -c 'print(open("CHANGELOG.md").read().split("## ")[1])' > ${{ github.workflow }}-CHANGELOG.md
+          cat ${{ github.workflow }}-CHANGELOG.md
+      -
+        name: Release with Artifacts
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            BuildingSync.xsd
+            index.html
+            docs/DataDictionary.xlsx
+            docs/enumerations.json
+          body_path: ${{ github.workflow }}-CHANGELOG.md
+          prerelease: ${{ contains(github.ref, 'pr') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
