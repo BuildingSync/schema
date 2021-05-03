@@ -5394,25 +5394,6 @@
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
-                  <xs:element name="FutureOtherECMs" minOccurs="0">
-                    <xs:annotation>
-                      <xs:documentation>Measures reserved for future and other ECMs.</xs:documentation>
-                    </xs:annotation>
-                    <xs:complexType>
-                      <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
-                          <xs:annotation>
-                            <xs:documentation>Short description of measure.</xs:documentation>
-                          </xs:annotation>
-                          <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                              <xs:enumeration value="Other"/>
-                            </xs:restriction>
-                          </xs:simpleType>
-                        </xs:element>
-                      </xs:sequence>
-                    </xs:complexType>
-                  </xs:element>
                   <xs:element name="HealthAndSafety" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>Category heading for measures that are necessary for health, comfort, or safety reasons, not for energy efficiency reasons.</xs:documentation>
