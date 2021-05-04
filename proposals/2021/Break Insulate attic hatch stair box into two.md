@@ -1,4 +1,4 @@
-# Break Insulate attic hatch / stair box into two
+# Break `Insulate attic hatch / stair box` into two options
 
 ## Overview
 
