@@ -356,6 +356,8 @@ RSpec.describe 'No naming collisions within the schema' do
       'SpaceID',
       'SpaceIDs',
       'StartTimestamp',
+      'SpatialUnit',
+      'SpatialUnits',
       'SteamBoilerMaximumOperatingPressure',
       'SteamBoilerMinimumOperatingPressure',
       'Story',
