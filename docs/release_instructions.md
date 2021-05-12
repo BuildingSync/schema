@@ -9,7 +9,7 @@ Follow the steps below when releasing a new version
 * Update the Version in the header of the XSD in three places:
     * Update version the `/xs:schema@version`.
     * Update version in the "schema title", at `/xs:schema/xs:annotation/xs:documentation[1]`.
-    * If creating an official release (ie you are NOT creating a pre-release), add the version as an enumeration to the `auc:BuildingSync` `version` attribute with the latest version. Though we historically added some pre-releases to `@version`, they should no longer be included.
+    * If creating an official release (i.e., you are NOT creating a pre-release), add the version as an enumeration to the `auc:BuildingSync` `version` attribute with the latest version. Though we historically added some pre-releases to `@version`, they should no longer be included.
 
 * Update the CHANGELOG.md to include the latest changes, and the most recent version.
 
