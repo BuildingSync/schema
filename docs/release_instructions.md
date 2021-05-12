@@ -27,7 +27,7 @@ Check out master locally, pull changes, and create a tag and push it
 git checkout master && git pull
 git tag -a v<version> -m "<message>" [SHA]
 ```
-Where `v<version>` is a valid [semantic version](https://semver.org/) (e.g. `v1.2.3` or `v1.2.3-pr.1`) and `<message>` is the tagging message (e.g. "First official release"). See [Versioning](versioning.md) for more information.
+Where `v<version>` is a valid [semantic version](https://semver.org/) (e.g., `v1.2.3` or `v1.2.3-pr.1`) and `<message>` is the tagging message (e.g. "First official release"). See [Versioning](versioning.md) for more information.
 ```bash
 # push the tag
 git push origin 
