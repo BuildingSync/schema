@@ -563,7 +563,11 @@
       </xs:element>
       <xs:element name="NAICSCode" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>North American Industry Classification System (NAICS) code.</xs:documentation>
+          <xs:documentation>
+            <BSyncDoc>
+              <definition>North American Industry Classification System (NAICS) code.</definition>
+            </BSyncDoc>
+          </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="PubliclySubsidized" type="xs:boolean" minOccurs="0">
@@ -705,7 +709,12 @@
       </xs:element>
       <xs:element name="Perimeter" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Length of a line forming the boundary around the premises. (ft)</xs:documentation>
+          <xs:documentation>
+            <BSyncDoc>
+              <definition>Length of a line forming the boundary around the premises.</definition>
+              <units>ft</units>
+            </BSyncDoc>
+          </xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -14193,7 +14202,12 @@
             <xs:sequence>
               <xs:element name="LinkedFacilityID" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>ID numbers of the facilities associated with the system.</xs:documentation>
+                  <xs:documentation>
+                    <BSyncDoc>
+                      <definition>ID numbers of the facilities associated with the system.</definition>
+                      <linksTo>/auc:BuildingSync/auc:Facilities/auc:Facility</linksTo>
+                    </BSyncDoc>
+                  </xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
@@ -14202,7 +14216,12 @@
                         <xs:sequence>
                           <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
                             <xs:annotation>
-                              <xs:documentation>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</xs:documentation>
+                              <xs:documentation>
+                                <BSyncDoc>
+                                  <definition>ID numbers of one or more schedules that apply to this system type in the context of the linked premise.</definition>
+                                  <linksTo>/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Schedules/auc:Schedule</linksTo>
+                                </BSyncDoc>
+                              </xs:documentation>
                             </xs:annotation>
                             <xs:complexType>
                               <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -15584,7 +15603,14 @@
             <xs:sequence>
               <xs:element name="FloorAreaType" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>Floor area can be defined and described in many different ways for different purposes. This type field allows multiple types of floor area definitions to exist in the same dataset.</xs:documentation>
+                  <xs:documentation>
+                    <BSyncDoc>
+                      <definition>Floor area can be defined and described in many different ways for different purposes. This type field allows multiple types of floor area definitions to exist in the same dataset.</definition>
+                      <bedesIDs>
+                        <bedesID>468fbd28-7043-45fb-8287-9e4ee2efbe6d</bedesID>
+                      </bedesIDs>
+                    </BSyncDoc>
+                  </xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -15622,7 +15648,12 @@
               </xs:element>
               <xs:element name="FloorAreaValue" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>The floor area numeric value. (ft2)</xs:documentation>
+                  <xs:documentation>
+                    <BSyncDoc>
+                      <definition>The floor area numeric value.</definition>
+                      <units>ft2</units>
+                    </BSyncDoc>
+                  </xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:simpleContent>
@@ -15634,7 +15665,12 @@
               </xs:element>
               <xs:element name="FloorAreaPercentage" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>The percentage of floor area that belongs to a FloorAreaType. (0-100) (%)</xs:documentation>
+                  <xs:documentation>
+                    <BSyncDoc>
+                      <definition>The percentage of floor area that belongs to a FloorAreaType.</definition>
+                      <units>ft2</units>
+                    </BSyncDoc>
+                  </xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                   <xs:restriction base="xs:float">
