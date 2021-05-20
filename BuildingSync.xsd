@@ -545,13 +545,7 @@
       </xs:element>
       <xs:element ref="auc:OccupancyLevels" minOccurs="0"/>
       <xs:element ref="auc:TypicalOccupantUsages" minOccurs="0"/>
-      <xs:element name="SpatialUnits" minOccurs="0">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="SpatialUnit" type="auc:SpatialUnitTypeType" minOccurs="1" maxOccurs="unbounded"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
+      <xs:element ref="auc:SpatialUnits" minOccurs="0"/>
       <xs:element ref="auc:Ownership" minOccurs="0"/>
       <xs:element ref="auc:OwnershipStatus" minOccurs="0"/>
       <xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
@@ -958,13 +952,7 @@
                   <xs:element ref="auc:OriginalOccupancyClassification" minOccurs="0"/>
                   <xs:element ref="auc:OccupancyLevels" minOccurs="0"/>
                   <xs:element ref="auc:TypicalOccupantUsages" minOccurs="0"/>
-                  <xs:element name="SpatialUnits" minOccurs="0">
-                    <xs:complexType>
-                      <xs:sequence>
-                        <xs:element name="SpatialUnit" type="auc:SpatialUnitTypeType" minOccurs="1" maxOccurs="unbounded"/>
-                      </xs:sequence>
-                    </xs:complexType>
-                  </xs:element>
+                  <xs:element ref="auc:SpatialUnits" minOccurs="0"/>
                   <xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
                   <xs:element ref="auc:TenantIDs" minOccurs="0" maxOccurs="unbounded"/>
                   <xs:element ref="auc:YearOfConstruction" minOccurs="0"/>
@@ -16688,5 +16676,12 @@
     <xs:annotation>
       <xs:documentation>Year in which construction was completed on the premise. (CCYY)</xs:documentation>
     </xs:annotation>
+  </xs:element>
+  <xs:element name="SpatialUnits">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SpatialUnit" type="auc:SpatialUnitTypeType" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
   </xs:element>
 </xs:schema>
