@@ -548,69 +548,7 @@
       <xs:element name="SpatialUnits" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="SpatialUnit" minOccurs="0" maxOccurs="unbounded">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element name="SpatialUnitType" minOccurs="0">
-                    <xs:annotation>
-                      <xs:documentation>Unit type within the premises.</xs:documentation>
-                    </xs:annotation>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:enumeration value="Lots"/>
-                        <xs:enumeration value="Parking spaces"/>
-                        <xs:enumeration value="Apartment units"/>
-                        <xs:enumeration value="Businesses"/>
-                        <xs:enumeration value="Guest rooms"/>
-                        <xs:enumeration value="Stations"/>
-                        <xs:enumeration value="Buildings"/>
-                        <xs:enumeration value="Areas"/>
-                        <xs:enumeration value="Thermal Zones"/>
-                        <xs:enumeration value="Floors"/>
-                        <xs:enumeration value="Rooms"/>
-                        <xs:enumeration value="Bedrooms"/>
-                        <xs:enumeration value="Other"/>
-                        <xs:enumeration value="Unknown"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
-                  <xs:element name="NumberOfUnits" minOccurs="0">
-                    <xs:annotation>
-                      <xs:documentation>Number of individual units within the premises.</xs:documentation>
-                    </xs:annotation>
-                    <xs:complexType>
-                      <xs:simpleContent>
-                        <xs:extension base="xs:integer">
-                          <xs:attribute ref="auc:Source"/>
-                        </xs:extension>
-                      </xs:simpleContent>
-                    </xs:complexType>
-                  </xs:element>
-                  <xs:element name="UnitDensity" minOccurs="0">
-                    <xs:annotation>
-                      <xs:documentation>Number of units per 1,000 square feet.</xs:documentation>
-                    </xs:annotation>
-                    <xs:complexType>
-                      <xs:simpleContent>
-                        <xs:extension base="xs:decimal">
-                          <xs:attribute ref="auc:Source"/>
-                        </xs:extension>
-                      </xs:simpleContent>
-                    </xs:complexType>
-                  </xs:element>
-                  <xs:element name="SpatialUnitOccupiedPercentage" minOccurs="0">
-                    <xs:annotation>
-                      <xs:documentation>Percentage of the spatial units that are occupied. (0-100) (%)</xs:documentation>
-                    </xs:annotation>
-                    <xs:complexType>
-                      <xs:simpleContent>
-                        <xs:extension base="xs:decimal"/>
-                      </xs:simpleContent>
-                    </xs:complexType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
+            <xs:element name="SpatialUnit" type="auc:SpatialUnitTypeType" minOccurs="1" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -1050,6 +988,13 @@
                   <xs:element ref="auc:OriginalOccupancyClassification" minOccurs="0"/>
                   <xs:element ref="auc:OccupancyLevels" minOccurs="0"/>
                   <xs:element ref="auc:TypicalOccupantUsages" minOccurs="0"/>
+                  <xs:element name="SpatialUnits" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="SpatialUnit" type="auc:SpatialUnitTypeType" minOccurs="1" maxOccurs="unbounded"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
                   <xs:element ref="auc:TenantIDs" minOccurs="0" maxOccurs="unbounded"/>
                   <xs:element name="YearOfConstruction" type="xs:gYear" minOccurs="0">
@@ -4803,7 +4748,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -4833,7 +4778,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -4861,7 +4806,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -4885,7 +4830,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -4936,7 +4881,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -4971,7 +4916,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5008,7 +4953,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5044,7 +4989,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5069,7 +5014,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure</xs:documentation>
                           </xs:annotation>
@@ -5094,7 +5039,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5119,7 +5064,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5145,7 +5090,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5172,7 +5117,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5198,7 +5143,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5232,7 +5177,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5258,7 +5203,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5280,7 +5225,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5303,7 +5248,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5327,7 +5272,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5350,7 +5295,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5378,7 +5323,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5404,7 +5349,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5437,7 +5382,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -13992,6 +13937,67 @@
       <xs:element name="Other" type="auc:OtherType" minOccurs="0"/>
     </xs:choice>
   </xs:complexType>
+  <xs:complexType name="SpatialUnitTypeType">
+    <xs:sequence>
+      <xs:element name="SpatialUnitType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Unit type within the premises.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Lots"/>
+            <xs:enumeration value="Parking spaces"/>
+            <xs:enumeration value="Apartment units"/>
+            <xs:enumeration value="Businesses"/>
+            <xs:enumeration value="Guest rooms"/>
+            <xs:enumeration value="Stations"/>
+            <xs:enumeration value="Buildings"/>
+            <xs:enumeration value="Areas"/>
+            <xs:enumeration value="Thermal Zones"/>
+            <xs:enumeration value="Floors"/>
+            <xs:enumeration value="Rooms"/>
+            <xs:enumeration value="Bedrooms"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Unknown"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="NumberOfUnits" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Number of individual units within the premises.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:integer">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UnitDensity" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Number of units per 1,000 square feet.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SpatialUnitOccupiedPercentage" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Percentage of the spatial units that are occupied. (0-100) (%)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal"/>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
   <xs:element name="Quantity">
     <xs:annotation>
       <xs:documentation>Number of systems of this type.</xs:documentation>
@@ -17603,7 +17609,6 @@
         <xs:enumeration value="FRCC"/>
         <xs:enumeration value="HIMS"/>
         <xs:enumeration value="HIOA"/>
-        <xs:enumeration value="MORE"/>
         <xs:enumeration value="MROE"/>
         <xs:enumeration value="MROW"/>
         <xs:enumeration value="NEWE"/>
