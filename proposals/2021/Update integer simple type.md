@@ -1,8 +1,8 @@
-# Update various simple types for correctness
+# Update various integer simple types for correctness
 
 ## Overview
 
-This proposal is to update  a number simple type requirements on elements that are incorrect or potentially misleading. The mapping for the simple types to their updated counterpart where applicable is as follows:
+This proposal is to update  a number of integer simple type requirements on elements that are incorrect or potentially misleading. The mapping for  their updated counterpart where applicable is as follows:
  - `xs:integer` -> `xs:nonNegativeInteger`
 ## Justification
 
