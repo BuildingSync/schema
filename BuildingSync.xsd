@@ -6374,32 +6374,18 @@
                             </xs:simpleContent>
                           </xs:complexType>
                         </xs:element>
-                        <xs:choice>
-                          <xs:element name="OutputCapacity" minOccurs="0">
-                            <xs:annotation>
-                              <xs:documentation>Output capacity of equipment. WARNING: This element is being deprecated, use Capacity instead</xs:documentation>
-                            </xs:annotation>
-                            <xs:complexType>
-                              <xs:simpleContent>
-                                <xs:extension base="xs:decimal">
-                                  <xs:attribute ref="auc:Source"/>
-                                </xs:extension>
-                              </xs:simpleContent>
-                            </xs:complexType>
-                          </xs:element>
-                          <xs:element name="Capacity" minOccurs="0">
-                            <xs:annotation>
-                              <xs:documentation>Output capacity of equipment.</xs:documentation>
-                            </xs:annotation>
-                            <xs:complexType>
-                              <xs:simpleContent>
-                                <xs:extension base="xs:decimal">
-                                  <xs:attribute ref="auc:Source"/>
-                                </xs:extension>
-                              </xs:simpleContent>
-                            </xs:complexType>
-                          </xs:element>
-                        </xs:choice>
+                        <xs:element name="Capacity" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>Output capacity of equipment.</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:simpleContent>
+                              <xs:extension base="xs:decimal">
+                                <xs:attribute ref="auc:Source"/>
+                              </xs:extension>
+                            </xs:simpleContent>
+                          </xs:complexType>
+                        </xs:element>
                         <xs:element ref="auc:CapacityUnits" minOccurs="0"/>
                         <xs:element ref="auc:HeatingStaging" minOccurs="0"/>
                         <xs:element name="NumberOfHeatingStages" minOccurs="0">
@@ -7341,32 +7327,18 @@
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
-              <xs:choice>
-                <xs:element name="OutputCapacity" minOccurs="0">
-                  <xs:annotation>
-                    <xs:documentation>Output capacity of equipment. WARNING: This element is being deprecated, use Capacity instead</xs:documentation>
-                  </xs:annotation>
-                  <xs:complexType>
-                    <xs:simpleContent>
-                      <xs:extension base="xs:decimal">
-                        <xs:attribute ref="auc:Source"/>
-                      </xs:extension>
-                    </xs:simpleContent>
-                  </xs:complexType>
-                </xs:element>
-                <xs:element name="Capacity" minOccurs="0">
-                  <xs:annotation>
-                    <xs:documentation>Output capacity of equipment.</xs:documentation>
-                  </xs:annotation>
-                  <xs:complexType>
-                    <xs:simpleContent>
-                      <xs:extension base="xs:decimal">
-                        <xs:attribute ref="auc:Source"/>
-                      </xs:extension>
-                    </xs:simpleContent>
-                  </xs:complexType>
-                </xs:element>
-              </xs:choice>
+              <xs:element name="Capacity" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Output capacity of equipment.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:decimal">
+                      <xs:attribute ref="auc:Source"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
               <xs:element ref="auc:CapacityUnits" minOccurs="0"/>
               <xs:element name="NumberOfHeatingStages" minOccurs="0">
                 <xs:annotation>
@@ -7574,32 +7546,18 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:choice>
-                <xs:element name="OutputCapacity" minOccurs="0">
-                  <xs:annotation>
-                    <xs:documentation>Output capacity of equipment. WARNING: This element is being deprecated, use Capacity instead</xs:documentation>
-                  </xs:annotation>
-                  <xs:complexType>
-                    <xs:simpleContent>
-                      <xs:extension base="xs:decimal">
-                        <xs:attribute ref="auc:Source"/>
-                      </xs:extension>
-                    </xs:simpleContent>
-                  </xs:complexType>
-                </xs:element>
-                <xs:element name="Capacity" minOccurs="0">
-                  <xs:annotation>
-                    <xs:documentation>Output capacity of equipment.</xs:documentation>
-                  </xs:annotation>
-                  <xs:complexType>
-                    <xs:simpleContent>
-                      <xs:extension base="xs:decimal">
-                        <xs:attribute ref="auc:Source"/>
-                      </xs:extension>
-                    </xs:simpleContent>
-                  </xs:complexType>
-                </xs:element>
-              </xs:choice>
+              <xs:element name="Capacity" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Output capacity of equipment.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:decimal">
+                      <xs:attribute ref="auc:Source"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
               <xs:element ref="auc:CapacityUnits" minOccurs="0"/>
               <xs:element name="AnnualHeatingEfficiencyValue" minOccurs="0">
                 <xs:annotation>
@@ -7669,32 +7627,18 @@
         <xs:element name="SolarThermal" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
-              <xs:choice>
-                <xs:element name="OutputCapacity" minOccurs="0">
-                  <xs:annotation>
-                    <xs:documentation>Output capacity of equipment. WARNING: This element is being deprecated, use Capacity instead</xs:documentation>
-                  </xs:annotation>
-                  <xs:complexType>
-                    <xs:simpleContent>
-                      <xs:extension base="xs:decimal">
-                        <xs:attribute ref="auc:Source"/>
-                      </xs:extension>
-                    </xs:simpleContent>
-                  </xs:complexType>
-                </xs:element>
-                <xs:element name="Capacity" minOccurs="0">
-                  <xs:annotation>
-                    <xs:documentation>Output capacity of equipment.</xs:documentation>
-                  </xs:annotation>
-                  <xs:complexType>
-                    <xs:simpleContent>
-                      <xs:extension base="xs:decimal">
-                        <xs:attribute ref="auc:Source"/>
-                      </xs:extension>
-                    </xs:simpleContent>
-                  </xs:complexType>
-                </xs:element>
-              </xs:choice>
+              <xs:element name="Capacity" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>Output capacity of equipment.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:decimal">
+                      <xs:attribute ref="auc:Source"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
               <xs:element ref="auc:CapacityUnits" minOccurs="0"/>
               <xs:element name="AnnualHeatingEfficiencyValue" minOccurs="0">
                 <xs:annotation>
