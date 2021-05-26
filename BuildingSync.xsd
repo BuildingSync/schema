@@ -4748,7 +4748,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -4764,7 +4764,7 @@
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
                               <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                              <xs:enumeration value="Convert to Cleaner Fuels"/>
+                              <xs:enumeration value="Convert to cleaner fuels"/>
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -4778,7 +4778,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -4806,13 +4806,12 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
                           <xs:simpleType>
                             <xs:restriction base="xs:string">
-                              <xs:enumeration value="Add heat recovery"/>
                               <xs:enumeration value="Add or upgrade BAS/EMS/EMCS"/>
                               <xs:enumeration value="Add or upgrade controls"/>
                               <xs:enumeration value="Convert pneumatic controls to DDC"/>
@@ -4830,7 +4829,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -4840,7 +4839,8 @@
                               <xs:enumeration value="Improve distribution fans"/>
                               <xs:enumeration value="Improve ventilation fans"/>
                               <xs:enumeration value="Convert CV system to VAV system"/>
-                              <xs:enumeration value="Repair leaks / seal ducts"/>
+                              <xs:enumeration value="Repair leaks in ducts"/>
+                              <xs:enumeration value="Seal ducts"/>
                               <xs:enumeration value="Add duct insulation"/>
                               <xs:enumeration value="Balance ventilation/distribution system"/>
                               <xs:enumeration value="Repair or replace HVAC damper and controller"/>
@@ -4853,14 +4853,12 @@
                               <xs:enumeration value="Install solar ventilation preheating system"/>
                               <xs:enumeration value="Add or repair economizer"/>
                               <xs:enumeration value="Add energy recovery"/>
-                              <xs:enumeration value="Add or replace cooling tower"/>
                               <xs:enumeration value="Install thermal destratification fans"/>
                               <xs:enumeration value="Install demand control ventilation"/>
                               <xs:enumeration value="Install gas cooling"/>
                               <xs:enumeration value="Install air source heat pump"/>
                               <xs:enumeration value="Install variable refrigerant flow system"/>
                               <xs:enumeration value="Capture and return condensate"/>
-                              <xs:enumeration value="Install or Upgrade Master Venting"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
                               <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
@@ -4881,7 +4879,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -4916,7 +4914,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -4927,7 +4925,8 @@
                               <xs:enumeration value="Insulate thermal bypasses"/>
                               <xs:enumeration value="Increase ceiling insulation"/>
                               <xs:enumeration value="Increase roof insulation"/>
-                              <xs:enumeration value="Insulate attic hatch / stair box"/>
+                              <xs:enumeration value="Insulate attic hatch"/>
+                              <xs:enumeration value="Insulate attic stair box"/>
                               <xs:enumeration value="Add attic/knee wall insulation"/>
                               <xs:enumeration value="Install cool/green roof"/>
                               <xs:enumeration value="Add shading devices"/>
@@ -4952,7 +4951,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -4966,7 +4965,6 @@
                               <xs:enumeration value="Replace or upgrade water heater"/>
                               <xs:enumeration value="Add energy recovery"/>
                               <xs:enumeration value="Install solar hot water system"/>
-                              <xs:enumeration value="Separate SHW from heating"/>
                               <xs:enumeration value="Replace with higher efficiency pump"/>
                               <xs:enumeration value="Replace with variable speed pump"/>
                               <xs:enumeration value="Install or upgrade master venting"/>
@@ -4988,7 +4986,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5013,7 +5011,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure</xs:documentation>
                           </xs:annotation>
@@ -5038,7 +5036,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5063,7 +5061,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5089,7 +5087,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5116,7 +5114,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5142,7 +5140,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5176,7 +5174,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5202,7 +5200,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5224,14 +5222,13 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
                           <xs:simpleType>
                             <xs:restriction base="xs:string">
                               <xs:enumeration value="Change to more favorable rate schedule"/>
-                              <xs:enumeration value="Energy cost reduction through rate adjustments - uncategorized"/>
                               <xs:enumeration value="Energy service billing and meter auditing recommendations"/>
                               <xs:enumeration value="Change to lower energy cost supplier(s)"/>
                               <xs:enumeration value="Other"/>
@@ -5247,7 +5244,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5271,7 +5268,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5294,7 +5291,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5322,7 +5319,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -5335,25 +5332,6 @@
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
                               <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
-                              <xs:enumeration value="Other"/>
-                            </xs:restriction>
-                          </xs:simpleType>
-                        </xs:element>
-                      </xs:sequence>
-                    </xs:complexType>
-                  </xs:element>
-                  <xs:element name="FutureOtherECMs" minOccurs="0">
-                    <xs:annotation>
-                      <xs:documentation>Measures reserved for future and other ECMs.</xs:documentation>
-                    </xs:annotation>
-                    <xs:complexType>
-                      <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
-                          <xs:annotation>
-                            <xs:documentation>Short description of measure.</xs:documentation>
-                          </xs:annotation>
-                          <xs:simpleType>
-                            <xs:restriction base="xs:string">
                               <xs:enumeration value="Other"/>
                             </xs:restriction>
                           </xs:simpleType>
@@ -5381,7 +5359,7 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                        <xs:element name="MeasureName" minOccurs="1" maxOccurs="1">
                           <xs:annotation>
                             <xs:documentation>Short description of measure.</xs:documentation>
                           </xs:annotation>
@@ -17608,7 +17586,6 @@
         <xs:enumeration value="FRCC"/>
         <xs:enumeration value="HIMS"/>
         <xs:enumeration value="HIOA"/>
-        <xs:enumeration value="MORE"/>
         <xs:enumeration value="MROE"/>
         <xs:enumeration value="MROW"/>
         <xs:enumeration value="NEWE"/>
