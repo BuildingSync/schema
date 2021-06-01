@@ -10698,32 +10698,18 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:choice>
-        <xs:element name="InstalledFlowRate" minOccurs="0">
-          <xs:annotation>
-            <xs:documentation>Actual flow rate of fan under normal operating conditions. WARNING: this element is being deprecated, use FanInstalledFlowRate instead. (cfm)</xs:documentation>
-          </xs:annotation>
-          <xs:complexType>
-            <xs:simpleContent>
-              <xs:extension base="xs:decimal">
-                <xs:attribute ref="auc:Source"/>
-              </xs:extension>
-            </xs:simpleContent>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="FanInstalledFlowRate" minOccurs="0">
-          <xs:annotation>
-            <xs:documentation>Actual flow rate of fan under normal operating conditions. (cfm)</xs:documentation>
-          </xs:annotation>
-          <xs:complexType>
-            <xs:simpleContent>
-              <xs:extension base="xs:decimal">
-                <xs:attribute ref="auc:Source"/>
-              </xs:extension>
-            </xs:simpleContent>
-          </xs:complexType>
-        </xs:element>
-      </xs:choice>
+      <xs:element name="FanInstalledFlowRate" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Actual flow rate of fan under normal operating conditions. (cfm)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="MinimumFlowRate" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The lowest rated flow rate for a fan. (cfm)</xs:documentation>
