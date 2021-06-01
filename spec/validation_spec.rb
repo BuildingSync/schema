@@ -44,21 +44,21 @@ RSpec.describe 'Validate Examples' do
     # and point schemaLocation to it instead
     schema_doc = Nokogiri::XML(File.read('BuildingSync.xsd'))
 
-    GEOJSON_XSD_PATH = 'geojson.xsd'
-    GEOJSON_IMPORT_XPATH = 'xs:schema/xs:import[@namespace = "http://www.gbxml.org/schema"]'
-    if !File.file?(GEOJSON_XSD_PATH) then
-      imported_schema_locations = schema_doc.xpath(GEOJSON_IMPORT_XPATH).collect { |nokogiri_xml_node|
+    GBXML_XSD_PATH = 'gbxml.xsd'
+    GBXML_IMPORT_PATH = 'xs:schema/xs:import[@namespace = "http://www.gbxml.org/schema"]'
+    if !File.file?(GBXML_XSD_PATH) then
+      imported_schema_locations = schema_doc.xpath(GBXML_IMPORT_PATH).collect { |nokogiri_xml_node|
         nokogiri_xml_node.attribute("schemaLocation").value
       }
       expect(imported_schema_locations.length).to eq 1
 
-      open(GEOJSON_XSD_PATH, 'wb') do |file|
+      open(GBXML_XSD_PATH, 'wb') do |file|
         file << open(imported_schema_locations[0]).read
       end
     end
 
-    schema_doc.xpath(GEOJSON_IMPORT_XPATH).collect { |nokogiri_xml_node|
-      nokogiri_xml_node.attribute("schemaLocation").value = GEOJSON_XSD_PATH
+    schema_doc.xpath(GBXML_IMPORT_PATH).collect { |nokogiri_xml_node|
+      nokogiri_xml_node.attribute("schemaLocation").value = GBXML_XSD_PATH
     }
 
     @xsd = Nokogiri::XML::Schema.from_document(schema_doc)
@@ -258,5 +258,54 @@ RSpec.describe 'No naming collisions within the schema' do
 
     dupe_names = element_names.select{ |k, v| v.length() > 1 && !ignored_dupes.include?(k) }
     expect(dupe_names).to be_empty
+  end
+end
+
+RSpec.describe 'Version translation from v2 to v3' do
+  before :all do
+    # TODO: DRY this up --- duplicate code from example validators spec above
+  
+    # Nokogiri doesn't seem to support XSDs which import other schemas with URLs
+    # for the schemaLocation. To allow testing, we download the imported schema
+    # and point schemaLocation to it instead
+    schema_doc = Nokogiri::XML(File.read('BuildingSync.xsd'))
+
+    GBXML_XSD_PATH = 'gbxml.xsd'
+    GBXML_IMPORT_PATH = 'xs:schema/xs:import[@namespace = "http://www.gbxml.org/schema"]'
+    if !File.file?(GBXML_XSD_PATH) then
+      imported_schema_locations = schema_doc.xpath(GBXML_IMPORT_PATH).collect { |nokogiri_xml_node|
+        nokogiri_xml_node.attribute("schemaLocation").value
+      }
+      expect(imported_schema_locations.length).to eq 1
+
+      open(GBXML_XSD_PATH, 'wb') do |file|
+        file << open(imported_schema_locations[0]).read
+      end
+    end
+
+    schema_doc.xpath(GBXML_IMPORT_PATH).collect { |nokogiri_xml_node|
+      nokogiri_xml_node.attribute("schemaLocation").value = GBXML_XSD_PATH
+    }
+
+    @xsd = Nokogiri::XML::Schema.from_document(schema_doc)
+
+    # clean up output dir
+    FileUtils.rm_rf('spec/output')
+    FileUtils.mkdir_p('spec/output')
+  end
+
+  it 'should result in valid v3 file' do
+    doc = Nokogiri::XML(File.read('spec/data/v2_for_translation.xml'))
+    xslt_doc = Nokogiri::XML(File.read('translation/v2_to_v3.xsl'))
+    # we must remove xsl:message from the stylesheet b/c nokogiri does not handle
+    # them properly -- it considers it a failure.
+    # See: https://github.com/sparklemotion/nokogiri/issues/1217
+    xslt_doc.search('//xsl:message').remove
+    xslt = Nokogiri::XSLT::Stylesheet.parse_stylesheet_doc(xslt_doc)
+
+    transformed_doc = xslt.transform(doc)
+    File.write('spec/output/v2_to_v3.xml', transformed_doc)
+
+    expect(@xsd.validate(transformed_doc)).to be_empty
   end
 end
