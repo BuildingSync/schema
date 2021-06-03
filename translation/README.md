@@ -14,7 +14,7 @@ xsltproc [-o <output>] <stylesheet> <file> [<file> ...]
 ```
 Where `-o <output>` can optionally be included to save the result, `<stylesheet>` is the path to the desired `.xsl` file, and `<file>` is the path to the file you'd like to transform.
 
-If on Windows, either find another XSLT processor or use an online processor.
+If on Windows, run the simple python script `xsltproc.py` with desired inputs, or either find another XSLT processor or use an online processor.
 
 ## Limitations
 ### v2 to v3

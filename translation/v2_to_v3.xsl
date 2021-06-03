@@ -52,4 +52,32 @@ Version: 0.1.0
     </xsl:comment>
   </xsl:template>
 
+  <!-- Transform auc:WallID element under auc:Side to auc:WallIDs/auc:WallID element -->
+  <xsl:template match="auc:WallID">
+    <xsl:element name="auc:WallIDs">
+      <xsl:copy-of select="."/>
+    </xsl:element>
+  </xsl:template>
+
+  <!-- Transform auc:WindowID element under auc:Side to auc:WindowIDs/auc:WindowID element -->
+  <xsl:template match="auc:WindowID">
+    <xsl:element name="auc:WindowIDs">
+      <xsl:copy-of select="."/>
+    </xsl:element>
+  </xsl:template>
+
+  <!-- Transform auc:DoorID element under auc:Side to auc:DoorIDs/auc:DoorID element -->
+  <xsl:template match="auc:DoorID">
+    <xsl:element name="auc:DoorIDs">
+      <xsl:copy-of select="."/>
+    </xsl:element>
+  </xsl:template>
+
+  <!-- Map auc:PrimaryHVACSystemType to auc:PrincipalHVACSystemType -->
+  <xsl:template match="auc:PrimaryHVACSystemType">
+    <xsl:element name="auc:PrincipalHVACSystemType">
+      <xsl:apply-templates/>
+    </xsl:element>
+  </xsl:template>
+
 </xsl:stylesheet>
