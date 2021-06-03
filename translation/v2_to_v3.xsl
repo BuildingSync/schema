@@ -104,7 +104,7 @@ Version: 0.1.0
       <xsl:apply-templates/>
     </xsl:element>
   </xsl:template>
-  <xsl:template match="auc:auc:SolarThermal/auc:OutputCapacity">
+  <xsl:template match="auc:SolarThermal/auc:OutputCapacity">
     <xsl:element name="auc:Capacity">
       <xsl:apply-templates/>
     </xsl:element>
