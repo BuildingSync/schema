@@ -16,7 +16,7 @@ In addition, as `auc:WallIDs` becomes the only choice, the `xsd:choice` element 
                           <xs:complexType>
                             <xs:sequence>
                               ...
-                              <xs:element name="WallIDs">
+                              <xs:element name="WallIDs" minOccurs="0" maxOccurs="1">
                                 <xs:complexType>
                                   <xs:sequence>
                                     <xs:element ref="auc:WallID" minOccurs="0" maxOccurs="unbounded"/>
