@@ -1083,26 +1083,20 @@
                                   </xs:complexType>
                                 </xs:element>
                               </xs:choice>
-                              <xs:choice>
-                                <xs:element ref="auc:WindowID" minOccurs="0"/>
-                                <xs:element name="WindowIDs" minOccurs="0">
-                                  <xs:complexType>
-                                    <xs:sequence>
-                                      <xs:element ref="auc:WindowID" minOccurs="0" maxOccurs="unbounded"/>
-                                    </xs:sequence>
-                                  </xs:complexType>
-                                </xs:element>
-                              </xs:choice>
-                              <xs:choice>
-                                <xs:element ref="auc:DoorID" minOccurs="0"/>
-                                <xs:element name="DoorIDs" minOccurs="0">
-                                  <xs:complexType>
-                                    <xs:sequence>
-                                      <xs:element ref="auc:DoorID" minOccurs="0" maxOccurs="unbounded"/>
-                                    </xs:sequence>
-                                  </xs:complexType>
-                                </xs:element>
-                              </xs:choice>
+                              <xs:element name="WindowIDs" minOccurs="0" maxOccurs="1">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element ref="auc:WindowID" minOccurs="0" maxOccurs="unbounded"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element name="DoorIDs" minOccurs="0" maxOccurs="1">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element ref="auc:DoorID" minOccurs="0" maxOccurs="unbounded"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
                               <xs:element ref="auc:ThermalZoneIDs" minOccurs="0"/>
                             </xs:sequence>
                           </xs:complexType>

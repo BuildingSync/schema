@@ -15,7 +15,7 @@ Version: 0.1.0
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	exclude-result-prefixes="xs">
 
-  <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
+  <xsl:output method="xml" version="1.0" encoding="UTF-8" omit-xml-declaration="no" standalone="yes" indent="yes"/>
 
   <xsl:template match="/">
     <xsl:comment>This BuildingSync v3.0 document was generated from a BuildingSync v2.X document via an XML Stylesheet Language Transformation (XSLT).</xsl:comment>
@@ -31,9 +31,9 @@ Version: 0.1.0
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="@xsi:schemaLocation">
+  <!--xsl:template match="@xsi:schemaLocation">
     <xsl:attribute name="xsi:schemaLocation">http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v3.0.0/BuildingSync.xsd</xsl:attribute>
-  </xsl:template>
+  </xsl:template-->
 
   <xsl:template match="@auc:version">
     <xsl:attribute name="auc:version">3.0.0</xsl:attribute>
@@ -50,6 +50,20 @@ Version: 0.1.0
     <xsl:comment>
       <xsl:apply-templates select="@* | node()"/>
     </xsl:comment>
+  </xsl:template>
+
+  <!-- Transform auc:WindowID element under auc:Side to auc:WindowIDs/auc:WindowID element -->
+  <xsl:template match="auc:WindowID">
+    <xsl:element name="auc:WindowIDs">
+      <xsl:copy-of select="."/>
+    </xsl:element>
+  </xsl:template>
+
+  <!-- Transform auc:DoorID element under auc:Side to auc:DoorIDs/auc:DoorID element -->
+  <xsl:template match="auc:DoorID">
+    <xsl:element name="auc:DoorIDs">
+      <xsl:copy-of select="."/>
+    </xsl:element>
   </xsl:template>
 
 </xsl:stylesheet>
