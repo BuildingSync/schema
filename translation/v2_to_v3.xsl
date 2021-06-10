@@ -15,7 +15,7 @@ Version: 0.1.0
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	exclude-result-prefixes="xs">
 
-  <xsl:output method="xml" version="1.0" encoding="UTF-8" omit-xml-declaration="no" standalone="yes" indent="yes"/>
+  <xsl:output method="xml" version="1.0" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 
   <xsl:template match="/">
     <xsl:comment>This BuildingSync v3.0 document was generated from a BuildingSync v2.X document via an XML Stylesheet Language Transformation (XSLT).</xsl:comment>
@@ -52,6 +52,13 @@ Version: 0.1.0
     </xsl:comment>
   </xsl:template>
 
+  <!-- Transform auc:WallID element under auc:Side to auc:WallIDs/auc:WallID element -->
+  <xsl:template match="auc:WallID">
+    <xsl:element name="auc:WallIDs">
+      <xsl:copy-of select="."/>
+    </xsl:element>
+  </xsl:template>
+  
   <!-- Transform auc:WindowID element under auc:Side to auc:WindowIDs/auc:WindowID element -->
   <xsl:template match="auc:WindowID">
     <xsl:element name="auc:WindowIDs">
