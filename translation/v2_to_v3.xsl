@@ -39,6 +39,8 @@ Version: 0.1.0
     <xsl:attribute name="auc:version">3.0.0</xsl:attribute>
   </xsl:template>
 
+  <!-- Measures -->
+
   <!-- Map "Repair leaks / seal ducts" to "Repair leaks in ducts" -->
   <xsl:template match="auc:MeasureName[. = 'Repair leaks / seal ducts']">
     <xsl:copy>Repair leaks in ducts</xsl:copy>
@@ -46,6 +48,28 @@ Version: 0.1.0
   <!-- Map "Insulate attic hatch / stair box" to "Insulate attic hatch" -->
   <xsl:template match="auc:MeasureName[. = 'Insulate attic hatch / stair box']">
     <xsl:copy>Insulate attic hatch</xsl:copy>
+  </xsl:template>
+  <!-- Map enumeration "MORE" to "MROE" under auc:eGRIDRegionCode -->
+  <xsl:template match="auc:eGRIDRegionCode[. = 'MORE']">
+    <xsl:copy>MROE</xsl:copy>
+  </xsl:template>
+  <!-- Map enumeration "Convert to Cleaner Fuels" to "Convert to cleaner fuels" under auc:BoilerPlantImprovements -->
+  <xsl:template match="auc:MeasureName[. = 'Convert to Cleaner Fuels']">
+    <xsl:copy>Convert to cleaner fuels</xsl:copy>
+  </xsl:template>
+  <!-- Map enumeration "Energy cost reduction through rate adjustments - uncategorized" to "Other" under auc:EnergyCostReductionThroughRateAdjustments/auc:MeasureName -->
+  <xsl:template match="auc:MeasureName[. = 'Energy cost reduction through rate adjustments - uncategorized']">
+    <xsl:copy>Other</xsl:copy>
+  </xsl:template>
+
+  <!-- Delete enumeration "Add heat recovery" from auc:BuildingAutomationSystems/auc:MeasureName -->
+  <xsl:template match="auc:BuildingAutomationSystems/auc:MeasureName[. = 'Convert to Cleaner Fuels']"/>
+
+  <!-- Map auc:FutureOtherECMs to auc:Uncategorized -->
+  <xsl:template match="auc:FutureOtherECMs">
+    <xsl:element name="auc:Uncategorized">
+      <xsl:apply-templates/>
+    </xsl:element>
   </xsl:template>
 
   <!-- Limit auc:MeasureName to exactly one by commenting out all other auc:MeasureNames -->
@@ -56,26 +80,20 @@ Version: 0.1.0
     </xsl:comment>
   </xsl:template>
 
-  <!-- Transform auc:WallID element under auc:Side to auc:WallIDs/auc:WallID element -->
-  <xsl:template match="auc:WallID">
-    <xsl:element name="auc:WallIDs">
-      <xsl:copy-of select="."/>
+  <!-- Move enumeration "Add or replace cooling tower" from auc:OtherHVAC/auc:MeasureName to auc:ChillerPlantImprovements/auc:MeasureName -->
+  <!--xsl:template match="auc:OtherHVAC/auc:MeasureName[. = 'Add or replace cooling tower']">
+    <xsl:element name="auc:FanInstallFlowRate">
+      <xsl:apply-templates/>
     </xsl:element>
-  </xsl:template>
+  </xsl:template-->
+  <!-- Move enumeration "Install or upgrade master venting" from auc:OtherHVAC/auc:MeasureName to auc:ChilledWaterHotWaterAndSteamDistributionSystems/auc:MeasureName -->
+  <!-- Move enumeration "Separate SHW from heating" from auc:ChilledWaterHotWaterAndSteamDistributionSystems/auc:MeasureName to auc:ServiceHotWaterSystems/auc:MeasureName -->
 
-  <!-- Transform auc:WindowID element under auc:Side to auc:WindowIDs/auc:WindowID element -->
-  <xsl:template match="auc:WindowID">
-    <xsl:element name="auc:WindowIDs">
-      <xsl:copy-of select="."/>
-    </xsl:element>
-  </xsl:template>
+  <!-- Systems and other components -->
 
-  <!-- Transform auc:DoorID element under auc:Side to auc:DoorIDs/auc:DoorID element -->
-  <xsl:template match="auc:DoorID">
-    <xsl:element name="auc:DoorIDs">
-      <xsl:copy-of select="."/>
-    </xsl:element>
-  </xsl:template>
+  <!-- Deprecate auc:Capacity and auc:CapacityUnits under auc:Delivery -->
+  <xsl:template match="auc:Delivery/auc:Capacity"/>
+  <xsl:template match="auc:Delivery/auc:CapacityUnits"/>
 
   <!-- Map auc:PrimaryHVACSystemType to auc:PrincipalHVACSystemType -->
   <xsl:template match="auc:PrimaryHVACSystemType">
@@ -84,9 +102,12 @@ Version: 0.1.0
     </xsl:element>
   </xsl:template>
 
-  <!-- Deprecate auc:Capacity and auc:CapacityUnits under auc:Delivery -->
-  <xsl:template match="auc:Delivery/auc:Capacity"/>
-  <xsl:template match="auc:Delivery/auc:CapacityUnits"/>
+  <!-- Map auc:InstalledFlowRate to auc:FanInstallFlowRate under auc:FanSystem -->
+  <xsl:template match="auc:FanSystem/auc:InstalledFlowRate">
+    <xsl:element name="auc:FanInstallFlowRate">
+      <xsl:apply-templates/>
+    </xsl:element>
+  </xsl:template>
 
   <!-- Map auc:OutputCapacity to auc:Capacity for auc:HeatingSource and HeatingPlant types -->
   <xsl:template match="auc:HeatingSource/auc:OutputCapacity">
@@ -110,40 +131,21 @@ Version: 0.1.0
     </xsl:element>
   </xsl:template>
 
-  <!-- Map auc:InstalledFlowRate to auc:FanInstallFlowRate under auc:FanSystem -->
-  <xsl:template match="auc:FanSystem/auc:InstalledFlowRate">
-    <xsl:element name="auc:FanInstallFlowRate">
-      <xsl:apply-templates/>
+  <!-- Transform auc:WallID, auc:WindowID, auc:DoorID elements under auc:Side to auc:WallIDs/auc:WallID, auc:WindowIDs/auc:WindowID, auc:DoorIDs/auc:DoorID elements -->
+  <xsl:template match="auc:WallID">
+    <xsl:element name="auc:WallIDs">
+      <xsl:copy-of select="."/>
     </xsl:element>
   </xsl:template>
-
-  <!-- Map enumeration "MORE" to "MROE" under auc:eGRIDRegionCode -->
-  <xsl:template match="auc:eGRIDRegionCode[. = 'MORE']">
-    <xsl:copy>MROE</xsl:copy>
-  </xsl:template>
-
-  <!-- Map enumeration "Convert to Cleaner Fuels" to "Convert to cleaner fuels" under auc:BoilerPlantImprovements -->
-  <xsl:template match="auc:MeasureName[. = 'Convert to Cleaner Fuels']">
-    <xsl:copy>Convert to cleaner fuels</xsl:copy>
-  </xsl:template>
-
-  <!-- Delete enumeration "Add heat recovery" from auc:BuildingAutomationSystems/auc:MeasureName -->
-  <xsl:template match="auc:BuildingAutomationSystems/auc:MeasureName[. = 'Convert to Cleaner Fuels']"/>
-
-  <!-- Map enumeration "Energy cost reduction through rate adjustments - uncategorized" to "Other" under auc:EnergyCostReductionThroughRateAdjustments/auc:MeasureName -->
-  <xsl:template match="auc:MeasureName[. = 'Energy cost reduction through rate adjustments - uncategorized']">
-    <xsl:copy>Other</xsl:copy>
-  </xsl:template>
-
-  <!-- Map auc:FutureOtherECMs to auc:Uncategorized -->
-  <xsl:template match="auc:FutureOtherECMs">
-    <xsl:element name="auc:Uncategorized">
-      <xsl:apply-templates/>
+  <xsl:template match="auc:WindowID">
+    <xsl:element name="auc:WindowIDs">
+      <xsl:copy-of select="."/>
     </xsl:element>
   </xsl:template>
-
-  <!-- Move enumeration "Add or replace cooling tower" from auc:OtherHVAC/auc:MeasureName to auc:ChillerPlantImprovements/auc:MeasureName -->
-  <!-- Move enumeration "Install or upgrade master venting" from auc:OtherHVAC/auc:MeasureName to auc:ChilledWaterHotWaterAndSteamDistributionSystems/auc:MeasureName -->
-  <!-- Move enumeration "Separate SHW from heating" from auc:ChilledWaterHotWaterAndSteamDistributionSystems/auc:MeasureName to auc:ServiceHotWaterSystems/auc:MeasureName -->
+  <xsl:template match="auc:DoorID">
+    <xsl:element name="auc:DoorIDs">
+      <xsl:copy-of select="."/>
+    </xsl:element>
+  </xsl:template>
 
 </xsl:stylesheet>
