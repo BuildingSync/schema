@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.2.0/BuildingSync.xsd" version="2.2.0">
   <auc:Facilities>
     <auc:Facility ID="Facility-69928597382680">
@@ -73,13 +73,13 @@ This example is configured to import and export with BuildingSync version 2.2.0.
                   <auc:FootprintShape>L-Shape</auc:FootprintShape>
                   <auc:Sides>
                     <auc:Side>
-                      <auc:DoorID IDref="FenestrationSystemType-99179560"/>
+                      <auc:DoorIDs><auc:DoorID IDref="FenestrationSystemType-99179560"/></auc:DoorIDs>
                     </auc:Side>
                     <auc:Side>
                       <auc:WallID IDref="WallSystemType-69928423734500"/>
                     </auc:Side>
                     <auc:Side>
-                      <auc:WindowID IDref="FenestrationSystemType-69928414143620"/>
+                      <auc:WindowIDs><auc:WindowID IDref="FenestrationSystemType-69928414143620"/></auc:WindowIDs>
                     </auc:Side>
                   </auc:Sides>
                   <auc:Roofs>
@@ -646,7 +646,7 @@ This example is configured to import and export with BuildingSync version 2.2.0.
                     <auc:BoilerType>Hot water</auc:BoilerType>
                     <auc:DraftType>Unknown</auc:DraftType>
                     <auc:CondensingOperation>Condensing</auc:CondensingOperation>
-                    <auc:OutputCapacity>200000.0</auc:OutputCapacity>
+                    <auc:Capacity>200000.0</auc:Capacity>
                     <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
                     <auc:AnnualHeatingEfficiencyValue>70.0</auc:AnnualHeatingEfficiencyValue>
                     <auc:AnnualHeatingEfficiencyUnits>Thermal Efficiency</auc:AnnualHeatingEfficiencyUnits>
@@ -1196,7 +1196,7 @@ This example is configured to import and export with BuildingSync version 2.2.0.
                   </auc:HeatingSourceType>
                   <auc:AnnualHeatingEfficiencyValue>65.0</auc:AnnualHeatingEfficiencyValue>
                   <auc:AnnualHeatingEfficiencyUnits>Thermal Efficiency</auc:AnnualHeatingEfficiencyUnits>
-                  <auc:OutputCapacity>1000.0</auc:OutputCapacity>
+                  <auc:Capacity>1000.0</auc:Capacity>
                   <auc:CapacityUnits>kBtu/hr</auc:CapacityUnits>
                   <auc:PrimaryFuel>Natural gas</auc:PrimaryFuel>
                   <auc:HeatingSourceCondition>Good</auc:HeatingSourceCondition>
