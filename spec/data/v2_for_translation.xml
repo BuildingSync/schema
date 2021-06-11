@@ -3,6 +3,24 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.3.0/BuildingSync.xsd" version="2.3.0">
   <auc:Facilities>
     <auc:Facility ID="Facility-1">
+      <auc:Sites>
+        <auc:Site ID="Site-1">
+          <auc:Buildings>
+            <auc:Building ID="Building-1">
+              <auc:Sections>
+                <auc:Section ID="Section-1">
+                  <auc:Sides>
+                    <auc:Side>
+                      <auc:WindowID IDref="Window-1"/>
+                      <auc:DoorID IDref="Door-1"/>
+                    </auc:Side>
+                  </auc:Sides>
+                </auc:Section>
+              </auc:Sections>
+            </auc:Building>
+          </auc:Buildings>
+        </auc:Site>
+      </auc:Sites>
       <auc:Measures>
         <auc:Measure ID="Measure-1">
           <auc:TechnologyCategories>

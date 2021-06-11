@@ -31,9 +31,9 @@ Version: 0.1.0
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="@xsi:schemaLocation">
+  <!--xsl:template match="@xsi:schemaLocation">
     <xsl:attribute name="xsi:schemaLocation">http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v3.0.0/BuildingSync.xsd</xsl:attribute>
-  </xsl:template>
+  </xsl:template-->
 
   <xsl:template match="@auc:version">
     <xsl:attribute name="auc:version">3.0.0</xsl:attribute>
@@ -152,6 +152,20 @@ Version: 0.1.0
       <xsl:copy-of select="."/>
     </xsl:element>
   </xsl:template>
+  <xsl:template match="auc:DoorID">
+    <xsl:element name="auc:DoorIDs">
+      <xsl:copy-of select="."/>
+    </xsl:element>
+  </xsl:template>
+
+  <!-- Transform auc:WindowID element under auc:Side to auc:WindowIDs/auc:WindowID element -->
+  <xsl:template match="auc:WindowID">
+    <xsl:element name="auc:WindowIDs">
+      <xsl:copy-of select="."/>
+    </xsl:element>
+  </xsl:template>
+
+  <!-- Transform auc:DoorID element under auc:Side to auc:DoorIDs/auc:DoorID element -->
   <xsl:template match="auc:DoorID">
     <xsl:element name="auc:DoorIDs">
       <xsl:copy-of select="."/>
