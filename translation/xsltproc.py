@@ -23,5 +23,4 @@ for filename in glob.glob(os.path.join(example_path, '*.xml')):
     # Path to the output xml file
     output_path = os.path.basename(filename)
 
-    with open(output_path, "wb") as f:
-        f.write(ET.tostring(xml_new, pretty_print=True))
+    xml_new.write_output(output_path)
