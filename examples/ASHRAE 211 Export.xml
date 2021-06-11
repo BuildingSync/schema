@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--This BuildingSync v3.0 document was generated from a BuildingSync v2.X document via an XML Stylesheet Language Transformation (XSLT).-->
+
 <BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../BuildingSync.xsd" version="2.0.0">
   <Facilities>
     <Facility ID="Facility-9dd5d819-4587-4702-95dc-bf2775840cb6">
@@ -56,9 +58,9 @@
                   <FootprintShape>U-Shape</FootprintShape>
                   <Sides>
                     <Side>
-                      <WallID IDref="AllWall1">
+                      <auc:WallIDs xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019"><WallID IDref="AllWall1">
                         <WallArea>5000</WallArea>
-                      </WallID>
+                      </WallID></auc:WallIDs>
                       <auc:WindowIDs xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019"><WindowID IDref="Window1">
                         <WindowToWallRatio>0.5</WindowToWallRatio>
                       </WindowID></auc:WindowIDs>

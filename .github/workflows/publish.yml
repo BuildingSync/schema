@@ -49,6 +49,7 @@ jobs:
             index.html
             docs/DataDictionary.xlsx
             docs/enumerations.json
+            docs/geometry_reference.pdf
           body_path: ${{ github.workflow }}-CHANGELOG.md
           prerelease: ${{ contains(github.ref, 'pr') }}
         env:

@@ -142,11 +142,14 @@ Version: 0.1.0
     </xsl:element>
   </xsl:template>
   <!-- 5. Transform auc:WallID, auc:WindowID, auc:DoorID elements under auc:Side to auc:WallIDs/auc:WallID, auc:WindowIDs/auc:WindowID, auc:DoorIDs/auc:DoorID elements -->
+  <!-- Transform auc:WallID element under auc:Side to auc:WallIDs/auc:WallID element -->
   <xsl:template match="auc:WallID">
     <xsl:element name="auc:WallIDs">
       <xsl:copy-of select="."/>
     </xsl:element>
   </xsl:template>
+  
+  <!-- Transform auc:WindowID element under auc:Side to auc:WindowIDs/auc:WindowID element -->
   <xsl:template match="auc:WindowID">
     <xsl:element name="auc:WindowIDs">
       <xsl:copy-of select="."/>
