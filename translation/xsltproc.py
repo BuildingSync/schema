@@ -6,7 +6,7 @@ import lxml.etree as ET
 # Path to the xsl file
 xsl_path = "v2_to_v3.xsl"
 # Path to the working folder
-example_path = 'Test'
+example_path = '../spec/data'
 
 ### Prepare processor
 xslt = ET.parse(xsl_path)

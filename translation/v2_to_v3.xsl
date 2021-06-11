@@ -80,10 +80,10 @@ Version: 0.1.0
       <xsl:apply-templates/>
     </xsl:element>
   </xsl:template>
-  <!-- 9. Move enumeration "Install or upgrade master venting" from auc:OtherHVAC/auc:MeasureName to auc:ChilledWaterHotWaterAndSteamDistributionSystems/auc:MeasureName -->
-  <xsl:template match="auc:OtherHVAC[auc:MeasureName = 'Install or upgrade master venting']">
+  <!-- 9. Map enumeration "Install or Upgrade Master Venting" from auc:OtherHVAC/auc:MeasureName to "Install or upgrade master venting" under auc:ChilledWaterHotWaterAndSteamDistributionSystems/auc:MeasureName -->
+  <xsl:template match="auc:OtherHVAC[auc:MeasureName = 'Install or Upgrade Master Venting']">
     <xsl:element name="auc:ChilledWaterHotWaterAndSteamDistributionSystems">
-      <xsl:apply-templates/>
+      <auc:MeasureName>Install or upgrade master venting</auc:MeasureName>
     </xsl:element>
   </xsl:template>
   <!-- 10. Move enumeration "Separate SHW from heating" from auc:ChilledWaterHotWaterAndSteamDistributionSystems/auc:MeasureName to auc:ServiceHotWaterSystems/auc:MeasureName -->
@@ -116,7 +116,7 @@ Version: 0.1.0
   </xsl:template>
   <!-- 3. Map auc:InstalledFlowRate to auc:FanInstallFlowRate under auc:FanSystem -->
   <xsl:template match="auc:FanSystem/auc:InstalledFlowRate">
-    <xsl:element name="auc:FanInstallFlowRate">
+    <xsl:element name="auc:FanInstalledFlowRate">
       <xsl:apply-templates/>
     </xsl:element>
   </xsl:template>
@@ -152,20 +152,6 @@ Version: 0.1.0
       <xsl:copy-of select="."/>
     </xsl:element>
   </xsl:template>
-  <xsl:template match="auc:DoorID">
-    <xsl:element name="auc:DoorIDs">
-      <xsl:copy-of select="."/>
-    </xsl:element>
-  </xsl:template>
-
-  <!-- Transform auc:WindowID element under auc:Side to auc:WindowIDs/auc:WindowID element -->
-  <xsl:template match="auc:WindowID">
-    <xsl:element name="auc:WindowIDs">
-      <xsl:copy-of select="."/>
-    </xsl:element>
-  </xsl:template>
-
-  <!-- Transform auc:DoorID element under auc:Side to auc:DoorIDs/auc:DoorID element -->
   <xsl:template match="auc:DoorID">
     <xsl:element name="auc:DoorIDs">
       <xsl:copy-of select="."/>
