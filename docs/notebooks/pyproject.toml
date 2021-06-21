@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "bsync-examples"
+version = "0.1.0"
+description = ""
+authors = ["corymosiman12 <cory.mosiman12@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7.4"
+jupyterlab = "^3.0.10"
+bsync = {git = "https://github.com/BuildingSync/bsyncpy.git", branch="main" }
+lxml = "^4.6.2"
+eeweather = "^0.3.24"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
