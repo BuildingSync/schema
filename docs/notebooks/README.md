@@ -2,6 +2,7 @@ Here you can find Jupyter Notebooks which serve as guides for using BuildingSync
 
 # Setup
 
+- `pip install poetry`
 - `poetry install`
 - `poetry run jupyter lab`
 
