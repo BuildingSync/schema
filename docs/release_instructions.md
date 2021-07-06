@@ -37,7 +37,7 @@ This should trigger a GitHub workflow for building and publishing the release. I
 
 ### Update BuildingSync Website
 
-At this point the GitHub action for publishing the release should be finished. Now we need to update the docs/data in [this repo](https://github.com/BuildingSync/website]). Check out the repo and make a new branch.
+At this point the GitHub action for publishing the release should be finished. Now we need to update the docs/data in [this repo](https://github.com/BuildingSync/selection-tool). Check out the repo and make a new branch.
 
 * Copy `index.html` from the release into `schema/vX.Y.Z/documentation/index.html`.
 * Copy `enumerations.json` from the release into file into a new `_data/vXXX` folder in the website folder. Note that the folder cannot contain a dot.
