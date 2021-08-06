@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.3.0/BuildingSync.xsd" version="3.0.0">
+  <auc:Facilities>
+    <auc:Facility ID="Facility-1">
+      <auc:Sites>
+        <auc:Site ID="Site-1">
+          <auc:Buildings>
+            <auc:Building ID="Building-1">
+              <auc:Sections>
+                <auc:Section ID="Section-1">
+                  <auc:Sides>
+                    <auc:Side>
+                      <auc:WindowIDs><auc:WindowID IDref="Window-1"/></auc:WindowIDs>
+                      <auc:DoorIDs><auc:DoorID IDref="Door-1"/></auc:DoorIDs>
+                    </auc:Side>
+                  </auc:Sides>
+                </auc:Section>
+              </auc:Sections>
+            </auc:Building>
+          </auc:Buildings>
+        </auc:Site>
+      </auc:Sites>
+      <auc:Measures>
+        <auc:Measure ID="Measure-1">
+          <auc:TechnologyCategories>
+            <auc:TechnologyCategory>
+              <auc:OtherHVAC>
+                <auc:MeasureName>Repair leaks in ducts</auc:MeasureName>
+              </auc:OtherHVAC>
+            </auc:TechnologyCategory>
+          </auc:TechnologyCategories>
+        </auc:Measure>
+      </auc:Measures>
+    </auc:Facility>
+    <auc:Facility ID="Facility-2">
+      <auc:Sites>
+        <auc:Site ID="Site-2">
+          <auc:Address>
+            <auc:StreetAddressDetail>
+              <auc:Simplified>
+                <auc:StreetAddress>Somewhere</auc:StreetAddress>
+              </auc:Simplified>
+            </auc:StreetAddressDetail>
+            <auc:City>Golden</auc:City>
+            <auc:State>CO</auc:State>
+            <auc:PostalCode>80401</auc:PostalCode>
+          </auc:Address>
+          <auc:ClimateZoneType>
+            <auc:ASHRAE>
+              <auc:ClimateZone>5B</auc:ClimateZone>
+            </auc:ASHRAE>
+          </auc:ClimateZoneType>
+          <auc:Longitude>-122.42768558472727</auc:Longitude>
+          <auc:Latitude>37.76937674999205</auc:Latitude>
+          <auc:Ownership>Unknown</auc:Ownership>
+          <auc:Buildings>
+            <auc:Building ID="Building-2">
+              <auc:PremisesName>Building 001</auc:PremisesName>
+              <auc:PremisesNotes/>
+              <auc:eGRIDRegionCode>AKGD</auc:eGRIDRegionCode>
+              <auc:FloorsAboveGrade>1</auc:FloorsAboveGrade>
+              <auc:FloorsBelowGrade>0</auc:FloorsBelowGrade>
+              <auc:FloorAreas>
+                <auc:FloorArea>
+                  <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                  <auc:FloorAreaValue>75000</auc:FloorAreaValue>
+                </auc:FloorArea>
+                <auc:FloorArea>
+                  <auc:FloorAreaType>Heated and Cooled</auc:FloorAreaType>
+                  <auc:FloorAreaValue>75000</auc:FloorAreaValue>
+                </auc:FloorArea>
+                <auc:FloorArea>
+                  <auc:FloorAreaType>Footprint</auc:FloorAreaType>
+                  <auc:FloorAreaValue>80000</auc:FloorAreaValue>
+                </auc:FloorArea>
+              </auc:FloorAreas>
+              <auc:AspectRatio>3.6732677131179763</auc:AspectRatio>
+              <auc:Perimeter>1350</auc:Perimeter>
+              <auc:YearOfConstruction>1960</auc:YearOfConstruction>
+              <auc:YearOfLastMajorRemodel>2008</auc:YearOfLastMajorRemodel>
+              <auc:Sections>
+                <auc:Section ID="Section-2">
+                  <auc:SectionType>Whole building</auc:SectionType>
+                  <auc:FootprintShape>Rectangular</auc:FootprintShape>
+                  <auc:Sides>
+                    <auc:Side>
+                      <auc:WallIDs><auc:WallID IDref="WallSystemType-1"/></auc:WallIDs>
+                      <auc:WindowIDs><auc:WindowID IDref="FenestrationSystemType-2"/></auc:WindowIDs>
+                      <auc:DoorIDs><auc:DoorID IDref="FenestrationSystemType-1"/></auc:DoorIDs>
+                    </auc:Side>
+                  </auc:Sides>
+                </auc:Section>
+                <auc:Section ID="Subsection-2">
+                  <auc:OccupancyClassification>Office</auc:OccupancyClassification>
+                  <auc:TypicalOccupantUsages>
+                    <auc:TypicalOccupantUsage>
+                      <auc:TypicalOccupantUsageValue>40.0</auc:TypicalOccupantUsageValue>
+                      <auc:TypicalOccupantUsageUnits>Hours per week</auc:TypicalOccupantUsageUnits>
+                    </auc:TypicalOccupantUsage>
+                    <auc:TypicalOccupantUsage>
+                      <auc:TypicalOccupantUsageValue>50.0</auc:TypicalOccupantUsageValue>
+                      <auc:TypicalOccupantUsageUnits>Weeks per year</auc:TypicalOccupantUsageUnits>
+                    </auc:TypicalOccupantUsage>
+                  </auc:TypicalOccupantUsages>
+                  <auc:FloorAreas>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Gross</auc:FloorAreaType>
+                      <auc:FloorAreaValue>69452</auc:FloorAreaValue>
+                    </auc:FloorArea>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Tenant</auc:FloorAreaType>
+                      <auc:FloorAreaValue>69452</auc:FloorAreaValue>
+                    </auc:FloorArea>
+                    <auc:FloorArea>
+                      <auc:FloorAreaType>Common</auc:FloorAreaType>
+                      <auc:FloorAreaValue>0.0</auc:FloorAreaValue>
+                    </auc:FloorArea>
+                  </auc:FloorAreas>
+                </auc:Section>
+              </auc:Sections>
+            </auc:Building>
+          </auc:Buildings>
+        </auc:Site>
+      </auc:Sites>
+      <auc:Systems>
+        <auc:HVACSystems>
+          <auc:HVACSystem ID="HVACSystem-1">
+            <auc:Plants>
+              <auc:HeatingPlants>
+                <auc:HeatingPlant ID="HeatingPlant-1">
+                  <auc:Boiler>
+                    <auc:Capacity>2000</auc:Capacity>
+                  </auc:Boiler>
+                </auc:HeatingPlant>
+                <auc:HeatingPlant ID="HeatingPlant-2">
+                  <auc:DistrictHeating>
+                    <auc:Capacity>5000</auc:Capacity>
+                  </auc:DistrictHeating>
+                </auc:HeatingPlant>
+                <auc:HeatingPlant ID="HeatingPlant-3">
+                  <auc:SolarThermal>
+                    <auc:Capacity>3000</auc:Capacity>
+                  </auc:SolarThermal>
+                </auc:HeatingPlant>
+              </auc:HeatingPlants>
+            </auc:Plants>
+            <auc:HeatingAndCoolingSystems>
+              <auc:HeatingSources>
+                <auc:HeatingSource ID="HeatingSource-1">
+                  <auc:Capacity>1200</auc:Capacity>
+                </auc:HeatingSource>
+              </auc:HeatingSources>
+              <auc:Deliveries>
+                <auc:Delivery ID="Delivery-1">
+                </auc:Delivery>
+              </auc:Deliveries>
+            </auc:HeatingAndCoolingSystems>
+            <auc:PrincipalHVACSystemType>Packaged Rooftop Air Conditioner</auc:PrincipalHVACSystemType>
+          </auc:HVACSystem>
+        </auc:HVACSystems>
+        <auc:FanSystems>
+          <auc:FanSystem ID="FanSystem-1">
+            <auc:FanInstalledFlowRate>300</auc:FanInstalledFlowRate>
+          </auc:FanSystem>
+        </auc:FanSystems>
+        <auc:WallSystems>
+          <auc:WallSystem ID="WallSystemType-1">
+            <auc:ExteriorWallConstruction>Wood frame</auc:ExteriorWallConstruction>
+            <auc:ExteriorWallFinish>Brick</auc:ExteriorWallFinish>
+          </auc:WallSystem>
+        </auc:WallSystems>
+        <auc:FenestrationSystems>
+          <auc:FenestrationSystem ID="FenestrationSystemType-1">
+            <auc:FenestrationType>
+              <auc:Door/>
+            </auc:FenestrationType>
+            <auc:UserDefinedFields>
+              <auc:UserDefinedField>
+                <auc:FieldName>Other Exterior Door Type</auc:FieldName>
+                <auc:FieldValue/>
+              </auc:UserDefinedField>
+            </auc:UserDefinedFields>
+          </auc:FenestrationSystem>
+          <auc:FenestrationSystem ID="FenestrationSystemType-2">
+            <auc:FenestrationType>
+              <auc:Window/>
+            </auc:FenestrationType>
+            <auc:FenestrationFrameMaterial>Aluminum no thermal break</auc:FenestrationFrameMaterial>
+            <auc:FenestrationOperation>false</auc:FenestrationOperation>
+            <auc:GlassType>Clear uncoated</auc:GlassType>
+            <auc:FenestrationGlassLayers>Single pane</auc:FenestrationGlassLayers>
+          </auc:FenestrationSystem>
+        </auc:FenestrationSystems>
+      </auc:Systems>
+      <auc:Measures>
+        <auc:Measure ID="Measure-2">
+          <auc:TechnologyCategories>
+            <auc:TechnologyCategory>
+              <auc:OtherHVAC>
+                <auc:MeasureName>Repair leaks in ducts</auc:MeasureName>
+              </auc:OtherHVAC>
+            </auc:TechnologyCategory>
+          </auc:TechnologyCategories>
+        </auc:Measure>
+        <auc:Measure ID="Measure-3">
+          <auc:TechnologyCategories>
+            <auc:TechnologyCategory>
+              <auc:BuildingEnvelopeModifications>
+                <auc:MeasureName>Insulate attic hatch</auc:MeasureName>
+              </auc:BuildingEnvelopeModifications>
+            </auc:TechnologyCategory>
+          </auc:TechnologyCategories>
+        </auc:Measure>
+        <auc:Measure ID="Measure-4">
+          <auc:TechnologyCategories>
+            <auc:TechnologyCategory>
+              <auc:OtherHVAC>
+                <auc:MeasureName>Replace or modify AHU</auc:MeasureName>
+              </auc:OtherHVAC>
+            </auc:TechnologyCategory>
+          </auc:TechnologyCategories>
+        </auc:Measure>
+        <auc:Measure ID="Measure-5">
+          <auc:TechnologyCategories>
+            <auc:TechnologyCategory>
+              <auc:BoilerPlantImprovements>
+                <auc:MeasureName>Convert to cleaner fuels</auc:MeasureName>
+              </auc:BoilerPlantImprovements>
+            </auc:TechnologyCategory>
+          </auc:TechnologyCategories>
+        </auc:Measure>
+        <auc:Measure ID="Measure-6">
+          <auc:TechnologyCategories>
+            <auc:TechnologyCategory>
+              <auc:EnergyCostReductionThroughRateAdjustments>
+                <auc:MeasureName>Other</auc:MeasureName>
+              </auc:EnergyCostReductionThroughRateAdjustments>
+            </auc:TechnologyCategory>
+          </auc:TechnologyCategories>
+        </auc:Measure>
+        <auc:Measure ID="Measure-7">
+          <auc:TechnologyCategories>
+            <auc:TechnologyCategory>
+              <auc:Uncategorized>
+                <auc:MeasureName>Other</auc:MeasureName>
+              </auc:Uncategorized>
+            </auc:TechnologyCategory>
+          </auc:TechnologyCategories>
+        </auc:Measure>
+        <auc:Measure ID="Measure-8">
+          <auc:TechnologyCategories>
+            <auc:TechnologyCategory>
+              <auc:OtherHVAC>
+                <auc:MeasureName>Improve distribution fans</auc:MeasureName>
+              </auc:OtherHVAC>
+            </auc:TechnologyCategory>
+          </auc:TechnologyCategories>
+        </auc:Measure>
+        <auc:Measure ID="Measure-9">
+          <auc:TechnologyCategories>
+            <auc:TechnologyCategory>
+              <auc:ChillerPlantImprovements>
+                <auc:MeasureName>Add or replace cooling tower</auc:MeasureName>
+              </auc:ChillerPlantImprovements>
+            </auc:TechnologyCategory>
+          </auc:TechnologyCategories>
+        </auc:Measure>
+        <auc:Measure ID="Measure-10">
+          <auc:TechnologyCategories>
+            <auc:TechnologyCategory>
+              <auc:ChilledWaterHotWaterAndSteamDistributionSystems><auc:MeasureName>Install or upgrade master venting</auc:MeasureName></auc:ChilledWaterHotWaterAndSteamDistributionSystems>
+            </auc:TechnologyCategory>
+          </auc:TechnologyCategories>
+        </auc:Measure>
+        <auc:Measure ID="Measure-11">
+          <auc:TechnologyCategories>
+            <auc:TechnologyCategory>
+              <auc:ServiceHotWaterSystems>
+                <auc:MeasureName>Separate SHW from heating</auc:MeasureName>
+              </auc:ServiceHotWaterSystems>
+            </auc:TechnologyCategory>
+          </auc:TechnologyCategories>
+        </auc:Measure>
+        <auc:Measure ID="Measure-12">
+          <auc:TechnologyCategories>
+            <auc:TechnologyCategory>
+              <auc:OtherHVAC><auc:MeasureName>Add energy recovery</auc:MeasureName></auc:OtherHVAC>
+            </auc:TechnologyCategory>
+          </auc:TechnologyCategories>
+        </auc:Measure>
+      </auc:Measures>
+      <auc:Reports>
+        <auc:Report ID="Report-1">
+          <auc:Scenarios>
+            <auc:Scenario ID="Baseline">
+              <auc:ScenarioName>Baseline</auc:ScenarioName>
+              <auc:ScenarioType>
+                <auc:PackageOfMeasures ID="PackageOfMeasures-1">
+                  <auc:ReferenceCase IDref="Baseline"/>
+                </auc:PackageOfMeasures>
+              </auc:ScenarioType>
+            </auc:Scenario>
+            <auc:Scenario ID="Scenario-1">
+              <auc:ScenarioName>TestScenario</auc:ScenarioName>
+              <auc:ScenarioType>
+                <auc:PackageOfMeasures ID="PackageOfMeasures-2">
+                  <auc:ReferenceCase IDref="Baseline"/>
+                  <auc:MeasureIDs>
+                    <auc:MeasureID IDref="Measure-1"/>
+                  </auc:MeasureIDs>
+                </auc:PackageOfMeasures>
+              </auc:ScenarioType>
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="Building-1"/>
+                </auc:Building>
+              </auc:LinkedPremises>
+              <auc:UserDefinedFields>
+                <auc:UserDefinedField>
+                  <auc:FieldName>Recommendation Category</auc:FieldName>
+                  <auc:FieldValue>Potential Capital Recommendations</auc:FieldValue>
+                </auc:UserDefinedField>
+              </auc:UserDefinedFields>
+            </auc:Scenario>
+          </auc:Scenarios>
+        </auc:Report>
+      </auc:Reports>
+    </auc:Facility>
+  </auc:Facilities>
+</auc:BuildingSync>
