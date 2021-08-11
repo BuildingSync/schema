@@ -57,70 +57,22 @@ Version: 0.1.0
   <xsl:template match="auc:BoilerPlantImprovements/auc:MeasureName[. = 'Convert to cleaner fuels']">
     <xsl:copy>Convert to Cleaner Fuels</xsl:copy>
   </xsl:template>
-  <!-- 5. Map enumeration "Energy cost reduction through rate adjustments - uncategorized" to "Other" under auc:EnergyCostReductionThroughRateAdjustments/auc:MeasureName -->
-  <!--xsl:template match="auc:EnergyCostReductionThroughRateAdjustments/auc:MeasureName[. = 'Energy cost reduction through rate adjustments - uncategorized']">
-    <xsl:copy>Other</xsl:copy>
-  </xsl:template-->
-  <!-- 6. Map auc:FutureOtherECMs to auc:Uncategorized -->
-  <!--xsl:template match="auc:FutureOtherECMs">
-    <xsl:element name="auc:Uncategorized">
-      <xsl:apply-templates/>
-    </xsl:element>
-  </xsl:template-->
-  <!-- 7. Limit auc:MeasureName to exactly one by commenting out all other auc:MeasureNames -->
-  <!--xsl:template match="auc:MeasureName[not(position() = 1)]">
-    <xsl:message>WARNING: commenting out auc:MeasureName <xsl:value-of select="current()"/></xsl:message>
-    <xsl:comment>
-      <xsl:apply-templates select="@* | node()"/>
-    </xsl:comment>
-  </xsl:template-->
-  <!-- 8. Move enumeration "Add or replace cooling tower" from auc:ChillerPlantImprovements/auc:MeasureName to auc:OtherHVAC/auc:MeasureName -->
-  <!--xsl:template match="auc:ChillerPlantImprovements[auc:MeasureName = 'Add or replace cooling tower']">
-    <xsl:element name="auc:OtherHVAC">
-      <xsl:apply-templates/>
-    </xsl:element>
-  </xsl:template-->
-  <!-- 9. Map enumeration "Install or upgrade master venting" from auc:ChilledWaterHotWaterAndSteamDistributionSystems/auc:MeasureName to "Install or Upgrade Master Venting" under auc:OtherHVAC/auc:MeasureName -->
-  <!--xsl:template match="auc:ChilledWaterHotWaterAndSteamDistributionSystems[auc:MeasureName = 'Install or upgrade master venting']">
-    <xsl:element name="auc:OtherHVAC">
-      <auc:MeasureName>Install or Upgrade Master Venting</auc:MeasureName>
-    </xsl:element>
-  </xsl:template-->
-  <!-- 10. Move enumeration "Separate SHW from heating" from auc:ServiceHotWaterSystems/auc:MeasureName to auc:ChilledWaterHotWaterAndSteamDistributionSystems/auc:MeasureName -->
-  <!--xsl:template match="auc:ServiceHotWaterSystems[auc:MeasureName = 'Separate SHW from heating']">
-    <xsl:element name="auc:ChilledWaterHotWaterAndSteamDistributionSystems">
-      <xsl:apply-templates/>
-    </xsl:element>
-  </xsl:template-->
-  <!-- 11. Map enumeration "Add heat recovery" from auc:BuildingAutomationSystems/auc:MeasureName to "Add energy recovery" under auc:OtherHVAC/auc:MeasureName-->
-  <!--xsl:template match="auc:BuildingAutomationSystems[auc:MeasureName = 'Add heat recovery']">
-    <xsl:element name="auc:OtherHVAC">
-      <auc:MeasureName>Add energy recovery</auc:MeasureName>
-    </xsl:element>
-  </xsl:template-->
 
   <!-- Systems and other components -->
 
-  <!-- 1. Deprecate auc:Capacity and auc:CapacityUnits under auc:Delivery -->
-  <!--xsl:template match="auc:Delivery/auc:Capacity">
-    <xsl:comment>auc:Delivery/auc:Capacity is deprecated in version 3.0.</xsl:comment>
-  </xsl:template>
-  <xsl:template match="auc:Delivery/auc:CapacityUnits">
-    <xsl:comment>auc:Delivery/auc:CapacityUnits is deprecated in version 3.0.</xsl:comment>
-  </xsl:template-->
-  <!-- 2. Map auc:PrincipalHVACSystemType to auc:PrimaryHVACSystemType -->
+  <!-- 1. Map auc:PrincipalHVACSystemType to auc:PrimaryHVACSystemType -->
   <xsl:template match="auc:PrincipalHVACSystemType">
     <xsl:element name="auc:PrimaryHVACSystemType">
       <xsl:apply-templates/>
     </xsl:element>
   </xsl:template>
-  <!-- 3. Map auc:FanInstallFlowRate to auc:InstalledFlowRate under auc:FanSystem -->
+  <!-- 2. Map auc:FanInstallFlowRate to auc:InstalledFlowRate under auc:FanSystem -->
   <xsl:template match="auc:FanSystem/auc:FanInstalledFlowRate">
     <xsl:element name="auc:InstalledFlowRate">
       <xsl:apply-templates/>
     </xsl:element>
   </xsl:template>
-  <!-- 4. Map auc:Capacity to auc:OutputCapacity for auc:HeatingSource and HeatingPlant types -->
+  <!-- 3. Map auc:Capacity to auc:OutputCapacity for auc:HeatingSource and HeatingPlant types -->
   <xsl:template match="auc:HeatingSource/auc:Capacity">
     <xsl:element name="auc:OutputCapacity">
       <xsl:apply-templates/>
@@ -141,15 +93,13 @@ Version: 0.1.0
       <xsl:apply-templates/>
     </xsl:element>
   </xsl:template>
-  <!-- 5. Transform auc:WallIDs/auc:WallID, auc:WindowIDs/auc:WindowID, auc:DoorIDs/auc:DoorID elements under auc:Side to auc:WallID, auc:WindowID, auc:DoorID elements -->
+  <!-- 4. Transform auc:WallIDs/auc:WallID, auc:WindowIDs/auc:WindowID, auc:DoorIDs/auc:DoorID elements under auc:Side to auc:WallID, auc:WindowID, auc:DoorID elements -->
   <xsl:template match="auc:WallIDs">
     <xsl:copy-of select="auc:WallID"/>
   </xsl:template>
-
   <xsl:template match="auc:WindowIDs">
     <xsl:copy-of select="auc:WindowID"/>
   </xsl:template>
-
   <xsl:template match="auc:DoorIDs">
     <xsl:copy-of select="auc:DoorID"/>
   </xsl:template>
