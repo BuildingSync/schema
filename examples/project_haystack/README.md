@@ -14,17 +14,17 @@ The BuildingSync XML file contains three _new_ high-level elements under the `<B
             ...
 ```
  
-The file also contains one _new_ low-level element `<NEWExternalMetaDataObjectID>` showing an example connection to a Haystack entity, shown below.
+The file also contains one _new_ low-level element `<NEWExternalMetaDataEntityID>` showing an example connection to a Haystack entity, shown below.
  
 ```xml
         <HVACSystem ID="HVACSystem-1">
           <PrincipalHVACSystemType>BuildingSync Packaged Rooftop Heat Pump</PrincipalHVACSystemType>
-          <NEWExternalMetaDataObjectID>9d7b67cb-e07d-4f07-98b2-08f3c6df0400</NEWExternalID>
+          <NEWExternalMetaDataEntityID>9d7b67cb-e07d-4f07-98b2-08f3c6df0400</NEWExternalMetaDataEntityID>
 ```
  
 ## Project Haystack
  
-The Project Haystack JSON file shows an example entity with a common ID to connect to the `<NEWExternalMetaDataObjectID>` BuildingSync element.
+The Project Haystack JSON file shows an example entity with a common ID to connect to the `<NEWExternalMetaDataEntityID>` BuildingSync element.
  
 ```json
      {
