@@ -35,8 +35,8 @@ Version: 0.1.0
     <xsl:attribute name="xsi:schemaLocation">http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v3.0.0/BuildingSync.xsd</xsl:attribute>
   </xsl:template-->
 
-  <xsl:template match="@auc:version">
-    <xsl:attribute name="auc:version">3.0.0</xsl:attribute>
+  <xsl:template match="@version">
+    <xsl:attribute name="version">3.0.0</xsl:attribute>
   </xsl:template>
 
   <!-- Measures -->

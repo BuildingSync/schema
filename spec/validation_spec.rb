@@ -309,3 +309,55 @@ RSpec.describe 'Version translation from v2 to v3' do
     expect(@xsd.validate(transformed_doc)).to be_empty
   end
 end
+
+RSpec.describe 'Version translation from v3 to v2' do
+  before :all do
+    # TODO: DRY this up --- duplicate code from example validators spec above
+  
+    # Nokogiri doesn't seem to support XSDs which import other schemas with URLs
+    # for the schemaLocation. To allow testing, we download the imported schema
+    # and point schemaLocation to it instead
+    # schema_doc = Nokogiri::XML(URI.open('https://raw.githubusercontent.com/BuildingSync/schema/v2.3.0/BuildingSync.xsd'))
+    BUILDINGSYNC_V2_PATH = 'BuildingSync-v2.3.0.xsd'
+    if !File.file?(BUILDINGSYNC_V2_PATH) then
+      open(BUILDINGSYNC_V2_PATH, 'wb') do |file|
+        file << open('https://raw.githubusercontent.com/BuildingSync/schema/v2.3.0/BuildingSync.xsd').read
+      end
+    end
+    schema_doc = Nokogiri::XML(File.read(BUILDINGSYNC_V2_PATH))
+
+    GBXML_XSD_PATH = 'gbxml.xsd'
+    GBXML_IMPORT_PATH = 'xs:schema/xs:import[@namespace = "http://www.gbxml.org/schema"]'
+    if !File.file?(GBXML_XSD_PATH) then
+      imported_schema_locations = schema_doc.xpath(GBXML_IMPORT_PATH).collect { |nokogiri_xml_node|
+        nokogiri_xml_node.attribute("schemaLocation").value
+      }
+      expect(imported_schema_locations.length).to eq 1
+
+      open(GBXML_XSD_PATH, 'wb') do |file|
+        file << open(imported_schema_locations[0]).read
+      end
+    end
+
+    schema_doc.xpath(GBXML_IMPORT_PATH).collect { |nokogiri_xml_node|
+      nokogiri_xml_node.attribute("schemaLocation").value = GBXML_XSD_PATH
+    }
+
+    @xsd = Nokogiri::XML::Schema.from_document(schema_doc)
+  end
+
+  it 'should result in valid v2 file' do
+    doc = Nokogiri::XML(File.read('spec/data/v3_for_translation.xml'))
+    xslt_doc = Nokogiri::XML(File.read('translation/v3_to_v2.xsl'))
+    # we must remove xsl:message from the stylesheet b/c nokogiri does not handle
+    # them properly -- it considers it a failure.
+    # See: https://github.com/sparklemotion/nokogiri/issues/1217
+    xslt_doc.search('//xsl:message').remove
+    xslt = Nokogiri::XSLT::Stylesheet.parse_stylesheet_doc(xslt_doc)
+
+    transformed_doc = xslt.transform(doc)
+    File.write('spec/output/v3_to_v2.xml', transformed_doc)
+
+    expect(@xsd.validate(transformed_doc)).to be_empty
+  end
+end
