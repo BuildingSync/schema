@@ -466,7 +466,7 @@
         </xs:annotation>
       </xs:element>
       <xs:element ref="auc:ClimateZoneType" minOccurs="0" maxOccurs="1"/>
-      <xs:element ref="auc:eGRIDRegionCode" minOccurs="0"/>
+      <xs:element ref="auc:eGRIDSubregionCodes" minOccurs="0"/>
       <xs:choice>
         <xs:sequence>
           <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
@@ -515,7 +515,7 @@
         </xs:annotation>
       </xs:element>
       <xs:element ref="auc:ClimateZoneType" minOccurs="0" maxOccurs="1"/>
-      <xs:element ref="auc:eGRIDRegionCode" minOccurs="0"/>
+      <xs:element ref="auc:eGRIDSubregionCodes" minOccurs="0"/>
       <xs:choice>
         <xs:sequence>
           <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
@@ -14577,42 +14577,49 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="eGRIDRegionCode">
+  <xs:element name="eGRIDSubregionCodes">
     <xs:annotation>
-      <xs:documentation>The eGRID (Emissions and Generation Resource Database) region code associated with the data being described. WARNING: Element MORE was a typo and will be removed, use MROE.</xs:documentation>
+      <xs:documentation>The eGRID (Emissions and Generation Resource Database) subregion codes associated with the data being described.</xs:documentation>
     </xs:annotation>
-    <xs:simpleType>
-      <xs:restriction base="xs:string">
-        <xs:enumeration value="AKGD"/>
-        <xs:enumeration value="AKMS"/>
-        <xs:enumeration value="AZNM"/>
-        <xs:enumeration value="CAMX"/>
-        <xs:enumeration value="ERCT"/>
-        <xs:enumeration value="FRCC"/>
-        <xs:enumeration value="HIMS"/>
-        <xs:enumeration value="HIOA"/>
-        <xs:enumeration value="MROE"/>
-        <xs:enumeration value="MROW"/>
-        <xs:enumeration value="NEWE"/>
-        <xs:enumeration value="NWPP"/>
-        <xs:enumeration value="NYCW"/>
-        <xs:enumeration value="NYLI"/>
-        <xs:enumeration value="NYUP"/>
-        <xs:enumeration value="PRMS"/>
-        <xs:enumeration value="RFCE"/>
-        <xs:enumeration value="RFCM"/>
-        <xs:enumeration value="RFCW"/>
-        <xs:enumeration value="RMPA"/>
-        <xs:enumeration value="SPNO"/>
-        <xs:enumeration value="SPSO"/>
-        <xs:enumeration value="SRMV"/>
-        <xs:enumeration value="SRMW"/>
-        <xs:enumeration value="SRSO"/>
-        <xs:enumeration value="SRTV"/>
-        <xs:enumeration value="SRVC"/>
-        <xs:enumeration value="Other"/>
-      </xs:restriction>
-    </xs:simpleType>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="eGRIDSubregionCode">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="AKGD"/>
+              <xs:enumeration value="AKMS"/>
+              <xs:enumeration value="AZNM"/>
+              <xs:enumeration value="CAMX"/>
+              <xs:enumeration value="ERCT"/>
+              <xs:enumeration value="FRCC"/>
+              <xs:enumeration value="HIMS"/>
+              <xs:enumeration value="HIOA"/>
+              <xs:enumeration value="MORE"/>
+              <xs:enumeration value="MROE"/>
+              <xs:enumeration value="MROW"/>
+              <xs:enumeration value="NEWE"/>
+              <xs:enumeration value="NWPP"/>
+              <xs:enumeration value="NYCW"/>
+              <xs:enumeration value="NYLI"/>
+              <xs:enumeration value="NYUP"/>
+              <xs:enumeration value="PRMS"/>
+              <xs:enumeration value="RFCE"/>
+              <xs:enumeration value="RFCM"/>
+              <xs:enumeration value="RFCW"/>
+              <xs:enumeration value="RMPA"/>
+              <xs:enumeration value="SPNO"/>
+              <xs:enumeration value="SPSO"/>
+              <xs:enumeration value="SRMV"/>
+              <xs:enumeration value="SRMW"/>
+              <xs:enumeration value="SRSO"/>
+              <xs:enumeration value="SRTV"/>
+              <xs:enumeration value="SRVC"/>
+              <xs:enumeration value="Other"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
   </xs:element>
   <xs:element name="WeatherDataStationID">
     <xs:annotation>
