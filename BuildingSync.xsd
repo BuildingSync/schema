@@ -14699,7 +14699,7 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="eGRIDSubregionCode">
+        <xs:element name="eGRIDSubregionCode" maxOccurs="unbounded">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:enumeration value="AKGD"/>
