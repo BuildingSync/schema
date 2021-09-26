@@ -37,12 +37,7 @@ This should trigger a GitHub workflow for building and publishing the release. I
 
 ### Update BuildingSync Website
 
-At this point the GitHub action for publishing the release should be finished. Now we need to update the docs/data in [this repo](https://github.com/BuildingSync/selection-tool). Check out the repo and make a new branch.
+At this point the GitHub action for publishing the release should be finished. Now we need to update the docs/data in [this repo](https://github.com/BuildingSync/BuildingSync-website). Read the README in that repository.
 
-* Copy `index.html` from the release into `schema/vX.Y.Z/documentation/index.html`.
-* Copy `enumerations.json` from the release into file into a new `_data/vXXX` folder in the website folder. Note that the folder cannot contain a dot.
-* Copy the `DataDictionary.xlsx` from the release into the `schema/vXXX/datadictionary` folder.
-* Update the `datadictionary/index.html` and `measures/index.html` to point to the new `enumerations.json` file.
-* Update `/schema/index.md` to include new release by following the existing pattern.
 
-Create a Pull Request from the new branch to gh-pages.
+
