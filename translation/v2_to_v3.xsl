@@ -99,7 +99,7 @@ Version: 0.1.0
     </xsl:element>
   </xsl:template>
 
-  <!-- Systems and other components -->
+  <!-- Systems and general components -->
 
   <!-- 1. Deprecate auc:Capacity and auc:CapacityUnits under auc:Delivery -->
   <xsl:template match="auc:Delivery/auc:Capacity">
@@ -148,16 +148,24 @@ Version: 0.1.0
       <xsl:copy-of select="."/>
     </xsl:element>
   </xsl:template>
-  
   <!-- Transform auc:WindowID element under auc:Side to auc:WindowIDs/auc:WindowID element -->
   <xsl:template match="auc:WindowID">
     <xsl:element name="auc:WindowIDs">
       <xsl:copy-of select="."/>
     </xsl:element>
   </xsl:template>
+  <!-- Transform auc:WindowID element under auc:Side to auc:WindowIDs/auc:WindowID element -->
   <xsl:template match="auc:DoorID">
     <xsl:element name="auc:DoorIDs">
       <xsl:copy-of select="."/>
+    </xsl:element>
+  </xsl:template>
+  <!-- 6. Transform auc:eGRIDRegionCode element to auc:eGRIDSubregionCodes/auc:eGRIDSubregionCode element -->
+  <xsl:template match="auc:eGRIDRegionCode">
+    <xsl:element name="auc:eGRIDSubregionCodes">
+      <xsl:element name="auc:eGRIDSubregionCode">
+        <xsl:apply-templates/>
+      </xsl:element>
     </xsl:element>
   </xsl:template>
 
