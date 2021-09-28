@@ -50,8 +50,10 @@ Version: 0.1.0
     <xsl:copy>Insulate attic hatch</xsl:copy>
   </xsl:template>
   <!-- 3. Map enumeration "MORE" to "MROE" under auc:eGRIDRegionCode -->
-  <xsl:template match="auc:eGRIDRegionCode/auc:MeasureName[. = 'MORE']">
-    <xsl:copy>MROE</xsl:copy>
+  <xsl:template match="auc:eGRIDRegionCode[. = 'MORE']">
+    <xsl:element name="auc:eGRIDSubregionCodes">
+      <auc:eGRIDSubregionCode>MROE</auc:eGRIDSubregionCode>
+    </xsl:element>
   </xsl:template>
   <!-- 4. Map enumeration "Convert to Cleaner Fuels" to "Convert to cleaner fuels" under auc:BoilerPlantImprovements -->
   <xsl:template match="auc:BoilerPlantImprovements/auc:MeasureName[. = 'Convert to Cleaner Fuels']">
