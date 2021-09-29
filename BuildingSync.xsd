@@ -465,7 +465,10 @@
         </xs:annotation>
       </xs:element>
       <xs:element ref="auc:ClimateZoneType" minOccurs="0" maxOccurs="1"/>
-      <xs:element ref="auc:eGRIDRegionCode" minOccurs="0"/>
+      <xs:choice>
+        <xs:element ref="auc:eGRIDRegionCode" minOccurs="0"/>
+        <xs:element ref="auc:eGRIDSubregionCodes" minOccurs="0" maxOccurs="1"/>
+      </xs:choice>
       <xs:choice>
         <xs:sequence>
           <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
@@ -514,7 +517,10 @@
         </xs:annotation>
       </xs:element>
       <xs:element ref="auc:ClimateZoneType" minOccurs="0" maxOccurs="1"/>
-      <xs:element ref="auc:eGRIDRegionCode" minOccurs="0"/>
+      <xs:choice>
+        <xs:element ref="auc:eGRIDRegionCode" minOccurs="0"/>
+        <xs:element ref="auc:eGRIDSubregionCodes" minOccurs="0" maxOccurs="1"/>
+      </xs:choice>
       <xs:choice>
         <xs:sequence>
           <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
@@ -5634,18 +5640,32 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="MaximumOAFlowRate" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>The maximum flow rate of outside air that the system is able to deliver. For systems with economizing or demand controlled ventilation capability, this is the outdoor air flow rate when the outdoor air (OA) damper is fully open and the fan speed is at maximum. (cfm)</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:decimal">
-              <xs:attribute ref="auc:Source"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:choice>
+        <xs:element name="MaximumOAFlowRate" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>WARNING:This element is being deprecated in version 3.0, use MaximumOutsideAirFlowRate. The maximum flow rate of outside air that the system is able to deliver. For systems with economizing or demand controlled ventilation capability, this is the outdoor air flow rate when the outdoor air (OA) damper is fully open and the fan speed is at maximum. (cfm)</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:decimal">
+                <xs:attribute ref="auc:Source"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MaximumOutsideAirFlowRate" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>The maximum flow rate of outside air that the system is able to deliver. For systems with economizing or demand controlled ventilation capability, this is the outdoor air flow rate when the outdoor air (OA) damper is fully open and the fan speed is at maximum. (cfm)</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:decimal">
+                <xs:attribute ref="auc:Source"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
       <xs:element name="DuctInsulationCondition" type="auc:InsulationCondition" minOccurs="0"/>
       <xs:element name="DuctSealing" minOccurs="0">
         <xs:annotation>
@@ -14651,7 +14671,7 @@
   </xs:element>
   <xs:element name="eGRIDRegionCode">
     <xs:annotation>
-      <xs:documentation>The eGRID (Emissions and Generation Resource Database) region code associated with the data being described. WARNING: Element MORE was a typo and will be removed, use MROE.</xs:documentation>
+      <xs:documentation>WARNING: eGRIDRegionCode will be deprecated in BuildingSync 3.0 - use eGRIDSubregionCodes.</xs:documentation>
     </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">
@@ -14686,6 +14706,50 @@
         <xs:enumeration value="Other"/>
       </xs:restriction>
     </xs:simpleType>
+  </xs:element>
+  <xs:element name="eGRIDSubregionCodes">
+    <xs:annotation>
+      <xs:documentation>The eGRID (Emissions and Generation Resource Database) subregion codes associated with the data being described.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="eGRIDSubregionCode" maxOccurs="unbounded">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="AKGD"/>
+              <xs:enumeration value="AKMS"/>
+              <xs:enumeration value="AZNM"/>
+              <xs:enumeration value="CAMX"/>
+              <xs:enumeration value="ERCT"/>
+              <xs:enumeration value="FRCC"/>
+              <xs:enumeration value="HIMS"/>
+              <xs:enumeration value="HIOA"/>
+              <xs:enumeration value="MORE"/>
+              <xs:enumeration value="MROE"/>
+              <xs:enumeration value="MROW"/>
+              <xs:enumeration value="NEWE"/>
+              <xs:enumeration value="NWPP"/>
+              <xs:enumeration value="NYCW"/>
+              <xs:enumeration value="NYLI"/>
+              <xs:enumeration value="NYUP"/>
+              <xs:enumeration value="PRMS"/>
+              <xs:enumeration value="RFCE"/>
+              <xs:enumeration value="RFCM"/>
+              <xs:enumeration value="RFCW"/>
+              <xs:enumeration value="RMPA"/>
+              <xs:enumeration value="SPNO"/>
+              <xs:enumeration value="SPSO"/>
+              <xs:enumeration value="SRMV"/>
+              <xs:enumeration value="SRMW"/>
+              <xs:enumeration value="SRSO"/>
+              <xs:enumeration value="SRTV"/>
+              <xs:enumeration value="SRVC"/>
+              <xs:enumeration value="Other"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
   </xs:element>
   <xs:element name="WeatherDataStationID">
     <xs:annotation>
