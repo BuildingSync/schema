@@ -170,5 +170,11 @@ Version: 0.1.0
       </xsl:element>
     </xsl:element>
   </xsl:template>
+  <!-- 7. Map auc:MaximumOAFlowRate to auc:MaximumOutsideAirFlowRate under auc:DuctSystem -->
+  <xsl:template match="auc:DuctSystem/auc:MaximumOAFlowRate">
+    <xsl:element name="auc:MaximumOutsideAirFlowRate">
+      <xsl:apply-templates/>
+    </xsl:element>
+  </xsl:template>
 
 </xsl:stylesheet>

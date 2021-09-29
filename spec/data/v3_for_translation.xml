@@ -57,7 +57,9 @@
             <auc:Building ID="Building-2">
               <auc:PremisesName>Building 001</auc:PremisesName>
               <auc:PremisesNotes/>
-              <auc:eGRIDRegionCode>AKGD</auc:eGRIDRegionCode>
+              <auc:eGRIDSubregionCodes>
+                <auc:eGRIDSubregionCode>AKGD</auc:eGRIDSubregionCode>
+              </auc:eGRIDSubregionCodes>
               <auc:FloorsAboveGrade>1</auc:FloorsAboveGrade>
               <auc:FloorsBelowGrade>0</auc:FloorsBelowGrade>
               <auc:FloorAreas>
@@ -155,6 +157,11 @@
                 </auc:Delivery>
               </auc:Deliveries>
             </auc:HeatingAndCoolingSystems>
+            <auc:DuctSystems>
+              <auc:DuctSystem ID="DuctSystem-1">
+                <auc:MaximumOutsideAirFlowRate>5000</auc:MaximumOutsideAirFlowRate>
+              </auc:DuctSystem>
+            </auc:DuctSystems>
             <auc:PrincipalHVACSystemType>Packaged Rooftop Air Conditioner</auc:PrincipalHVACSystemType>
           </auc:HVACSystem>
         </auc:HVACSystems>

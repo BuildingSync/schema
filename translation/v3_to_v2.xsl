@@ -103,5 +103,15 @@ Version: 0.1.0
   <xsl:template match="auc:DoorIDs">
     <xsl:copy-of select="auc:DoorID"/>
   </xsl:template>
+  <!-- 5. Transform auc:eGRIDSubregionCodes/auc:eGRIDSubregionCode element to auc:eGRIDRegionCode element -->
+  <xsl:template match="auc:eGRIDSubregionCodes">
+    <xsl:copy-of select="auc:eGRIDRegionCode"/>
+  </xsl:template>
+  <!-- 7. Map auc:MaximumOutsideAirFlowRate to auc:MaximumOAFlowRate under auc:DuctSystem -->
+  <xsl:template match="auc:DuctSystem/auc:MaximumOutsideAirFlowRate">
+    <xsl:element name="auc:MaximumOAFlowRate">
+      <xsl:apply-templates/>
+    </xsl:element>
+  </xsl:template>
 
 </xsl:stylesheet>
