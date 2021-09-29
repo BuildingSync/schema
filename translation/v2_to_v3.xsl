@@ -156,7 +156,7 @@ Version: 0.1.0
       <xsl:copy-of select="."/>
     </xsl:element>
   </xsl:template>
-  <!-- Transform auc:WindowID element under auc:Side to auc:WindowIDs/auc:WindowID element -->
+  <!-- Transform auc:DoorID element under auc:Side to auc:DoorIDs/auc:DoorID element -->
   <xsl:template match="auc:DoorID">
     <xsl:element name="auc:DoorIDs">
       <xsl:copy-of select="."/>
