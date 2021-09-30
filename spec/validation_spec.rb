@@ -44,21 +44,20 @@ RSpec.describe 'Validate Examples' do
     # and point schemaLocation to it instead
     schema_doc = Nokogiri::XML(File.read('BuildingSync.xsd'))
 
-    GEOJSON_XSD_PATH = 'geojson.xsd'
-    GEOJSON_IMPORT_XPATH = 'xs:schema/xs:import[@namespace = "http://www.gbxml.org/schema"]'
-    if !File.file?(GEOJSON_XSD_PATH) then
-      imported_schema_locations = schema_doc.xpath(GEOJSON_IMPORT_XPATH).collect { |nokogiri_xml_node|
+    GBXML_XSD_PATH = 'gbxml.xsd'
+    GBXML_IMPORT_PATH = 'xs:schema/xs:import[@namespace = "http://www.gbxml.org/schema"]'
+    if !File.file?(GBXML_XSD_PATH) then
+      imported_schema_locations = schema_doc.xpath(GBXML_IMPORT_PATH).collect { |nokogiri_xml_node|
         nokogiri_xml_node.attribute("schemaLocation").value
       }
       expect(imported_schema_locations.length).to eq 1
 
-      open(GEOJSON_XSD_PATH, 'wb') do |file|
+      open(GBXML_XSD_PATH, 'wb') do |file|
         file << open(imported_schema_locations[0]).read
       end
     end
-
-    schema_doc.xpath(GEOJSON_IMPORT_XPATH).collect { |nokogiri_xml_node|
-      nokogiri_xml_node.attribute("schemaLocation").value = GEOJSON_XSD_PATH
+    schema_doc.xpath(GBXML_IMPORT_PATH).collect { |nokogiri_xml_node|
+      nokogiri_xml_node.attribute("schemaLocation").value = GBXML_XSD_PATH
     }
 
     @xsd = Nokogiri::XML::Schema.from_document(schema_doc)
