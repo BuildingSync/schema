@@ -201,3 +201,62 @@ RSpec.describe 'No naming collisions between schemas' do
     expect(conflicts).to be_empty
   end
 end
+
+RSpec.describe 'No naming collisions within the schema' do
+  it 'should not have any elements with duplicate names' do
+    schema_doc = Nokogiri::XML(File.read('BuildingSync.xsd'))
+    named_elements = schema_doc.xpath("//xs:element[@name]")
+    element_names = Hash.new
+    named_elements.each do |node|
+      element_name = node['name']
+      if element_names.key?(element_name)
+        element_names[element_name].append(node.line())
+      else
+        element_names[element_name] = [node.line()]
+      end
+    end
+
+    # TODO: remove ignored dupes once we fix them all. (ie make no exceptions)
+    # See - https://github.com/BuildingSync/project-tracker/issues/21
+    #     - https://github.com/BuildingSync/schema/issues/323
+    #     - https://github.com/BuildingSync/schema/issues/324
+    #     - https://github.com/BuildingSync/schema/issues/325
+    ignored_dupes = [
+      'AdvancedPowerStrip',
+      'AssemblyType',
+      'Building',
+      'CBECS',
+      'Capacity',
+      'ClimateZone',
+      'CommunicationProtocol',
+      'Control',
+      'ControlSensor',
+      'ControlStrategy',
+      'ControlSystemTypes',
+      'Controls',
+      'ConveyanceSystems',
+      'Facility',
+      'HeatPump',
+      'LampLabel',
+      'Manual',
+      'MeasureName',
+      'Other',
+      'OtherControlTechnology',
+      'Priority',
+      'RatePeriod',
+      'RatePeriods',
+      'Section',
+      'Site',
+      'SiteEnergyUse',
+      'SourceEnergyUse',
+      'Space',
+      'ThermalZone',
+      'Timer',
+      'WaterSideEconomizer',
+      'WaterUse'
+    ]
+
+    dupe_names = element_names.select{ |k, v| v.length() > 1 && !ignored_dupes.include?(k) }
+    expect(dupe_names).to be_empty
+  end
+end
