@@ -44,21 +44,21 @@ RSpec.describe 'Validate Examples' do
     # and point schemaLocation to it instead
     schema_doc = Nokogiri::XML(File.read('BuildingSync.xsd'))
 
-    GBXML_XSD_PATH = 'gbxml.xsd'
-    GBXML_IMPORT_PATH = 'xs:schema/xs:import[@namespace = "http://www.gbxml.org/schema"]'
-    if !File.file?(GBXML_XSD_PATH) then
-      imported_schema_locations = schema_doc.xpath(GBXML_IMPORT_PATH).collect { |nokogiri_xml_node|
+    GEOJSON_XSD_PATH = 'geojson.xsd'
+    GEOJSON_IMPORT_XPATH = 'xs:schema/xs:import[@namespace = "http://www.gbxml.org/schema"]'
+    if !File.file?(GEOJSON_XSD_PATH) then
+      imported_schema_locations = schema_doc.xpath(GEOJSON_IMPORT_XPATH).collect { |nokogiri_xml_node|
         nokogiri_xml_node.attribute("schemaLocation").value
       }
       expect(imported_schema_locations.length).to eq 1
 
-      open(GBXML_XSD_PATH, 'wb') do |file|
+      open(GEOJSON_XSD_PATH, 'wb') do |file|
         file << open(imported_schema_locations[0]).read
       end
     end
 
-    schema_doc.xpath(GBXML_IMPORT_PATH).collect { |nokogiri_xml_node|
-      nokogiri_xml_node.attribute("schemaLocation").value = GBXML_XSD_PATH
+    schema_doc.xpath(GEOJSON_IMPORT_XPATH).collect { |nokogiri_xml_node|
+      nokogiri_xml_node.attribute("schemaLocation").value = GEOJSON_XSD_PATH
     }
 
     @xsd = Nokogiri::XML::Schema.from_document(schema_doc)
@@ -150,7 +150,7 @@ RSpec.describe 'No naming collisions between schemas' do
   it 'should not have any collisions between names in schemas' do
     imported_schema_locations = File.open("BuildingSync.xsd", "r") do |file|
       xml_schema = Nokogiri::XML(file)
-  
+
       xml_schema.xpath('xs:schema/xs:import').collect { |nokogiri_xml_node|
         nokogiri_xml_node.attribute("schemaLocation").value
       }
@@ -264,7 +264,7 @@ end
 RSpec.describe 'Version translation from v2 to v3' do
   before :all do
     # TODO: DRY this up --- duplicate code from example validators spec above
-  
+
     # Nokogiri doesn't seem to support XSDs which import other schemas with URLs
     # for the schemaLocation. To allow testing, we download the imported schema
     # and point schemaLocation to it instead
@@ -313,7 +313,7 @@ end
 RSpec.describe 'Version translation from v3 to v2' do
   before :all do
     # TODO: DRY this up --- duplicate code from example validators spec above
-  
+
     # Nokogiri doesn't seem to support XSDs which import other schemas with URLs
     # for the schemaLocation. To allow testing, we download the imported schema
     # and point schemaLocation to it instead
