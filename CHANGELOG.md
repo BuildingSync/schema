@@ -81,6 +81,7 @@ BuildingSync Version 2.4.0 does not introduce any breaking changes.
 
 Date Range: 03/11/21 - 9/30/21
 
+<<<<<<< HEAD
 | Category       | Count |     
 |----------------|-------|     
 | Controls         | 0  |      
@@ -95,6 +96,22 @@ Date Range: 03/11/21 - 9/30/21
 
 | Change Type    | Count |     
 |----------------|-------|     
+=======
+| Category       | Count |
+|----------------|-------|
+| Controls         | 0  |
+| Documentation         | 8  |
+| General         | 6  |
+| Measures         | 0  |
+| Reports         | 3  |
+| Systems         | 2  |
+| Validation         | 0  |
+| Other         | 4  |
+| **Total**      | 23 |
+
+| Change Type    | Count |
+|----------------|-------|
+>>>>>>> origin/develop-v3
 | Breaking Change         | 0  |
 | Non-breaking Change         | 23  |
 

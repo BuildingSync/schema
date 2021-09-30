@@ -13,36 +13,31 @@ Follow the steps below when releasing a new version
 
 * Update the CHANGELOG.md to include the latest changes, and the most recent version.
 
-	* Run the change_log.rb script (e.g., ruby src/change_log.rb -t abcdefghijklmnopqrstuvwxyz -s 2019-12-21). The date range must span from the last official release (i.e., don't start at a pre-release) until the current date.
+	* Run the change_log.rb script (e.g., ruby src/change_log.rb -t abcdefghijklmnopqrstuvwxyz -s 2019-12-21). The date range must span from the last official release (ie don't start at a pre-release) until the current date.
 	* Copy the results of this into the CHANGELOG. Remove items that are not useful to an end user such as version bumps, formatting, etc.
 
-* Create a Pull Request into `master`
+* Create a Pull Request into `main`
     * Mark the PR with an `ignore` label to prevent the PR from being added to future change logs. 
     * Merge the PR
 
 ### Tag and release
 
-Check out master locally, pull changes, and create a tag and push it
+Check out main locally, pull changes, and create a tag and push it
 ```bash
-git checkout master && git pull
+git checkout main && git pull
 git tag -a v<version> -m "<message>" [SHA]
 ```
 Where `v<version>` is a valid [semantic version](https://semver.org/) (e.g., `v1.2.3` or `v1.2.3-pr.1`) and `<message>` is the tagging message (e.g. "First official release"). See [Versioning](versioning.md) for more information.
 ```bash
 # push the tag
-git push origin 
+git push --tags origin 
 ```
 
 This should trigger a GitHub workflow for building and publishing the release. If publishing a pre-release, you are done. Otherwise, once the release has been successfully published on GitHub, continue.
 
 ### Update BuildingSync Website
 
-At this point the GitHub action for publishing the release should be finished. Now we need to update the docs/data in [this repo](https://github.com/BuildingSync/selection-tool). Check out the repo and make a new branch.
+At this point the GitHub action for publishing the release should be finished. Now we need to update the docs/data in [this repo](https://github.com/BuildingSync/BuildingSync-website). Read the README in that repository.
 
-* Copy `index.html` from the release into `schema/vX.Y.Z/documentation/index.html`.
-* Copy `enumerations.json` from the release into file into a new `_data/vXXX` folder in the website folder. Note that the folder cannot contain a dot.
-* Copy the `DataDictionary.xlsx` from the release into the `schema/vXXX/datadictionary` folder.
-* Update the `datadictionary/index.html` and `measures/index.html` to point to the new `enumerations.json` file.
-* Update `/schema/index.md` to include new release by following the existing pattern.
 
-Create a Pull Request from the new branch to gh-pages.
+

@@ -56,7 +56,6 @@ RSpec.describe 'Validate Examples' do
         file << open(imported_schema_locations[0]).read
       end
     end
-
     schema_doc.xpath(GBXML_IMPORT_PATH).collect { |nokogiri_xml_node|
       nokogiri_xml_node.attribute("schemaLocation").value = GBXML_XSD_PATH
     }
@@ -150,7 +149,7 @@ RSpec.describe 'No naming collisions between schemas' do
   it 'should not have any collisions between names in schemas' do
     imported_schema_locations = File.open("BuildingSync.xsd", "r") do |file|
       xml_schema = Nokogiri::XML(file)
-  
+
       xml_schema.xpath('xs:schema/xs:import').collect { |nokogiri_xml_node|
         nokogiri_xml_node.attribute("schemaLocation").value
       }
@@ -264,7 +263,7 @@ end
 RSpec.describe 'Version translation from v2 to v3' do
   before :all do
     # TODO: DRY this up --- duplicate code from example validators spec above
-  
+
     # Nokogiri doesn't seem to support XSDs which import other schemas with URLs
     # for the schemaLocation. To allow testing, we download the imported schema
     # and point schemaLocation to it instead
@@ -313,7 +312,7 @@ end
 RSpec.describe 'Version translation from v3 to v2' do
   before :all do
     # TODO: DRY this up --- duplicate code from example validators spec above
-  
+
     # Nokogiri doesn't seem to support XSDs which import other schemas with URLs
     # for the schemaLocation. To allow testing, we download the imported schema
     # and point schemaLocation to it instead
