@@ -30,7 +30,7 @@ git tag -a v<version> -m "<message>" [SHA]
 Where `v<version>` is a valid [semantic version](https://semver.org/) (e.g., `v1.2.3` or `v1.2.3-pr.1`) and `<message>` is the tagging message (e.g. "First official release"). See [Versioning](versioning.md) for more information.
 ```bash
 # push the tag
-git push origin 
+git push --tags origin 
 ```
 
 This should trigger a GitHub workflow for building and publishing the release. If publishing a pre-release, you are done. Otherwise, once the release has been successfully published on GitHub, continue.
