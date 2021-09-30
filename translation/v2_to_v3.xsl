@@ -36,7 +36,7 @@ Version: 0.1.0
   </xsl:template-->
 
   <xsl:template match="@version">
-    <xsl:attribute name="version">3.0.0</xsl:attribute>
+    <xsl:attribute name="version">3.0.0-pr1</xsl:attribute>
   </xsl:template>
 
   <!-- Measures -->

@@ -1,5 +1,80 @@
 # BuildingSync
 
+## Version 3.0
+
+Date Range: 03/11/21 - 10/01/21
+
+| Category       | Count |     
+|----------------|-------|
+| Controls         | 0  |
+| Documentation         | 2  |
+| General         | 4  |
+| Measures         | 8  |
+| Reports         | 0  |
+| Systems         | 5  |
+| Validation         | 0  |
+| Other         | 5  |
+| **Total**      | 24 |
+
+| Change Type    | Count |
+|----------------|-------|
+| Breaking Change         | 18  |
+| Non-breaking Change         | 6  |
+
+New Issues: 30 (#314, #318, #320, #321, #330, #333, #336, #337, #338, #343, #347, #356, #358, #361, #362, #370, #375, #391, #393, #397)
+
+Closed Issues: 24
+- Improved [#230]( https://github.com/BuildingSync/schema/issues/230 ), Deprecate PrimaryHVACSystemType element
+- Improved [#233]( https://github.com/BuildingSync/schema/issues/233 ), Deprecate auc:WallID as direct child of auc:Side
+- Improved [#234]( https://github.com/BuildingSync/schema/issues/234 ), Deprecate auc:WindowID as direct child of auc:Side
+- Improved [#235]( https://github.com/BuildingSync/schema/issues/235 ), Deprecate auc:DoorID as direct child of auc:Side
+- Improved [#253]( https://github.com/BuildingSync/schema/issues/253 ), Deprecate OutputCapacity for HeatingSource and HeatingPlant types
+- Improved [#259]( https://github.com/BuildingSync/schema/issues/259 ), Deprecate auc:Delivery/auc:Capacity and auc:Delivery/auc:CapacityUnits
+- Improved [#264]( https://github.com/BuildingSync/schema/issues/264 ), Deprecate auc:FanSystem/auc:InstalledFlowRate
+- Improved [#268]( https://github.com/BuildingSync/schema/issues/268 ), Consider auc:MeasureName Refactor to minOccurs=1 maxOccurs=1
+- Improved [#271]( https://github.com/BuildingSync/schema/issues/271 ), Remove 'Add heat recovery' from EMCS Technology Category
+- Improved [#272]( https://github.com/BuildingSync/schema/issues/272 ), Redundant 'Separate SHW from heating' in Hot Water Systems and in SWH Tech Categories
+- Improved [#275]( https://github.com/BuildingSync/schema/issues/275 ), Remove `Energy cost reduction through rate adjustments - uncategorized`
+- Fixed [#283]( https://github.com/BuildingSync/schema/issues/283 ), Deprecate: MORE in auc:eGRIDRegionCode enumeration
+- Merged [#296]( https://github.com/BuildingSync/schema/issues/296 ), DuctSystem/MaximumOAFlowRate Rename
+- Improved [#321]( https://github.com/BuildingSync/schema/issues/321 ), Restrict BuildingSync@version to actual version
+- Improved [#330]( https://github.com/BuildingSync/schema/issues/330 ), Remove redundant "Add or replace cooling tower" from Other HVAC
+- Merged [#333]( https://github.com/BuildingSync/schema/issues/333 ), Correct capitalization in `Convert to Cleaner Fuels`
+- Improved [#336]( https://github.com/BuildingSync/schema/issues/336 ), Address issue using `/` with spaces
+- Improved [#337]( https://github.com/BuildingSync/schema/issues/337 ), Redundant `Install or upgrade master venting` in `ChilledWaterHotWaterAndSteamDistributionSystems` and `OtherHVAC`
+- Improved [#338]( https://github.com/BuildingSync/schema/issues/338 ), Remove `FutureOtherECMs` measure category
+- Merged [#343]( https://github.com/BuildingSync/schema/issues/343 ), Don't add future prerelease versions to official release schemas
+- New Feature [#347]( https://github.com/BuildingSync/schema/issues/347 ), Initial XSLT for translation between versions of BuildingSync
+- New Feature [#358]( https://github.com/BuildingSync/schema/issues/358 ), Primary, Secondary and Tertiary eGRID Subregion Codes
+- New Feature [#361]( https://github.com/BuildingSync/schema/issues/361 ), Update version translator to include all breaking changes
+- New Feature [#375]( https://github.com/BuildingSync/schema/issues/375 ), Create reverse translation from 3.0 to 2.4
+
+Accepted Pull Requests: 24
+- Merged [#271]( https://github.com/BuildingSync/schema/pull/271 ), Remove 'Add heat recovery' from EMCS Technology Category
+- Merged [#272]( https://github.com/BuildingSync/schema/pull/272 ), Remove 'Separate SHW from heating’ from Hot Water Systems
+- Merged [#275]( https://github.com/BuildingSync/schema/pull/275 ), Remove Energy cost reduction through rate adjustments – uncategorized
+- Merged [#329]( https://github.com/BuildingSync/schema/pull/329 ), Remove redundant items
+- Merged [#331]( https://github.com/BuildingSync/schema/pull/331 ), Remove redundant "Add or replace cooling tower"
+- Merged [#334]( https://github.com/BuildingSync/schema/pull/334 ), Correct capitalization - change `Convert to Cleaner Fuels` to `Convert to cleaner fuels`
+- Merged [#335]( https://github.com/BuildingSync/schema/pull/335 ), Address issue using `/` with spaces
+- Merged [#341]( https://github.com/BuildingSync/schema/pull/341 ), Refactor Measurename minOccurs maxOccurs
+- Fixed [#342]( https://github.com/BuildingSync/schema/pull/342 ), Deprecate MORE in eGRIDRegionCode
+- Merged [#345]( https://github.com/BuildingSync/schema/pull/345 ), Deprecate WallID as direct child under Side
+- Merged [#346]( https://github.com/BuildingSync/schema/pull/346 ), Docs/versioning v3
+- Merged [#348]( https://github.com/BuildingSync/schema/pull/348 ), Feat/translation
+- Merged [#350]( https://github.com/BuildingSync/schema/pull/350 ), Refactor/update simple types
+- Merged [#351]( https://github.com/BuildingSync/schema/pull/351 ), Deprecate InstalledFlowRate under FanSystem
+- Merged [#352]( https://github.com/BuildingSync/schema/pull/352 ), Deprecate PrimaryHVACSystemType
+- Merged [#353]( https://github.com/BuildingSync/schema/pull/353 ), Deprecate OutputCapacity for HeatingSource and HeatingPlant types
+- Merged [#354]( https://github.com/BuildingSync/schema/pull/354 ), Deprecate Capacity and CapacityUnits in Delivery
+- Merged [#360]( https://github.com/BuildingSync/schema/pull/360 ), Feat/v2 to v3 translation updates
+- Merged [#364]( https://github.com/BuildingSync/schema/pull/364 ), Deprecate DoorID and WindowID as direct Child under Side
+- Merged [#373]( https://github.com/BuildingSync/schema/pull/373 ), Docs/selection tool
+- Merged [#378]( https://github.com/BuildingSync/schema/pull/378 ), Feat/v3 to v2 translation
+- Merged [#389]( https://github.com/BuildingSync/schema/pull/389 ), Refactor/remove old versions
+- Improved [#394]( https://github.com/BuildingSync/schema/pull/394 ), Deprecate eGRIDRegionCode
+- Improved [#396]( https://github.com/BuildingSync/schema/pull/396 ), Deprecate MaximumOAFlowRate
+
 ## Version 2.4.0
 
 BuildingSync Version 2.4.0 does not introduce any breaking changes. 
