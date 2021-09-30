@@ -16,15 +16,15 @@ Follow the steps below when releasing a new version
 	* Run the change_log.rb script (e.g., ruby src/change_log.rb -t abcdefghijklmnopqrstuvwxyz -s 2019-12-21). The date range must span from the last official release (ie don't start at a pre-release) until the current date.
 	* Copy the results of this into the CHANGELOG. Remove items that are not useful to an end user such as version bumps, formatting, etc.
 
-* Create a Pull Request into `master`
+* Create a Pull Request into `main`
     * Mark the PR with an `ignore` label to prevent the PR from being added to future change logs. 
     * Merge the PR
 
 ### Tag and release
 
-Check out master locally, pull changes, and create a tag and push it
+Check out main locally, pull changes, and create a tag and push it
 ```bash
-git checkout master && git pull
+git checkout main && git pull
 git tag -a v<version> -m "<message>" [SHA]
 ```
 Where `v<version>` is a valid [semantic version](https://semver.org/) (e.g., `v1.2.3` or `v1.2.3-pr.1`) and `<message>` is the tagging message (e.g. "First official release"). See [Versioning](versioning.md) for more information.
