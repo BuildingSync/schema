@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.3.0">
-  <xs:import namespace="http://www.gbxml.org/schema" schemaLocation="http://www.gbxml.org/schema/6-01/GreenBuildingXML_Ver6.01.xsd"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.4.0">
+  <xs:import namespace="http://www.gbxml.org/schema" schemaLocation="https://github.com/BuildingSync/schema/releases/download/v2.4.0/GreenBuildingXML_Ver6.01.xsd"/>
   <xs:annotation>
-    <xs:documentation>BuildingSync Schema - Version 2.3.0</xs:documentation>
+    <xs:documentation>BuildingSync Schema - Version 2.4.0</xs:documentation>
     <xs:documentation xmlns="http://www.w3.org/1999/xhtml">
       <h1>BuildingSync Schema Deprecation Policy</h1>
       <p>This document details the deprecation policy for the BuildingSync Schema.</p>
@@ -432,18 +432,11 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="2.0.0-legacy"/>
-            <xs:enumeration value="0.2.0"/>
-            <xs:enumeration value="0.3.0"/>
-            <xs:enumeration value="1.0.0"/>
-            <xs:enumeration value="2.0.0-pr1"/>
-            <xs:enumeration value="2.0.0-pr2"/>
             <xs:enumeration value="2.0.0"/>
             <xs:enumeration value="2.1.0"/>
-            <xs:enumeration value="2.2.0-pr1"/>
             <xs:enumeration value="2.2.0"/>
-            <xs:enumeration value="2.3.0-pr1"/>
             <xs:enumeration value="2.3.0"/>
+            <xs:enumeration value="2.4.0"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
