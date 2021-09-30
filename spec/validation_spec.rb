@@ -44,21 +44,20 @@ RSpec.describe 'Validate Examples' do
     # and point schemaLocation to it instead
     schema_doc = Nokogiri::XML(File.read('BuildingSync.xsd'))
 
-    GEOJSON_XSD_PATH = 'geojson.xsd'
-    GEOJSON_IMPORT_XPATH = 'xs:schema/xs:import[@namespace = "http://www.gbxml.org/schema"]'
-    if !File.file?(GEOJSON_XSD_PATH) then
-      imported_schema_locations = schema_doc.xpath(GEOJSON_IMPORT_XPATH).collect { |nokogiri_xml_node|
+    GBXML_XSD_PATH = 'gbxml.xsd'
+    GBXML_IMPORT_PATH = 'xs:schema/xs:import[@namespace = "http://www.gbxml.org/schema"]'
+    if !File.file?(GBXML_XSD_PATH) then
+      imported_schema_locations = schema_doc.xpath(GBXML_IMPORT_PATH).collect { |nokogiri_xml_node|
         nokogiri_xml_node.attribute("schemaLocation").value
       }
       expect(imported_schema_locations.length).to eq 1
 
-      open(GEOJSON_XSD_PATH, 'wb') do |file|
+      open(GBXML_XSD_PATH, 'wb') do |file|
         file << open(imported_schema_locations[0]).read
       end
     end
-
-    schema_doc.xpath(GEOJSON_IMPORT_XPATH).collect { |nokogiri_xml_node|
-      nokogiri_xml_node.attribute("schemaLocation").value = GEOJSON_XSD_PATH
+    schema_doc.xpath(GBXML_IMPORT_PATH).collect { |nokogiri_xml_node|
+      nokogiri_xml_node.attribute("schemaLocation").value = GBXML_XSD_PATH
     }
 
     @xsd = Nokogiri::XML::Schema.from_document(schema_doc)
@@ -150,7 +149,7 @@ RSpec.describe 'No naming collisions between schemas' do
   it 'should not have any collisions between names in schemas' do
     imported_schema_locations = File.open("BuildingSync.xsd", "r") do |file|
       xml_schema = Nokogiri::XML(file)
-  
+
       xml_schema.xpath('xs:schema/xs:import').collect { |nokogiri_xml_node|
         nokogiri_xml_node.attribute("schemaLocation").value
       }
@@ -217,170 +216,43 @@ RSpec.describe 'No naming collisions within the schema' do
     end
 
     # TODO: remove ignored dupes once we fix them all. (ie make no exceptions)
-    # See https://github.com/BuildingSync/project-tracker/issues/21
+    # See - https://github.com/BuildingSync/project-tracker/issues/21
+    #     - https://github.com/BuildingSync/schema/issues/323
+    #     - https://github.com/BuildingSync/schema/issues/324
+    #     - https://github.com/BuildingSync/schema/issues/325
     ignored_dupes = [
-      'ActiveDehumidification',
       'AdvancedPowerStrip',
-      'AnnualCoolingEfficiencyValue',
-      'AnnualDemandSavingsCost',
-      'AnnualHeatingEfficiencyValue',
-      'AnnualPeakElectricityReduction',
-      'AnnualSavingsByFuel',
-      'AnnualSavingsByFuels',
-      'AnnualSavingsCost',
-      'AnnualSavingsNativeUnits',
-      'AnnualSavingsSiteEnergy',
-      'AnnualSavingsSourceEnergy',
-      'AnnualWaterCostSavings',
-      'AnnualWaterSavings',
       'AssemblyType',
-      'BoilerLWT',
       'Building',
-      'BurnerQuantity',
-      'BurnerTurndownRatio',
       'CBECS',
-      'CDDBaseTemperature',
       'Capacity',
-      'ChilledWaterSupplyTemperature',
       'ClimateZone',
-      'ClothesWasherCapacity',
-      'ClothesWasherModifiedEnergyFactor',
-      'ClothesWasherWaterFactor',
-      'Combustion',
-      'CombustionEfficiency',
       'CommunicationProtocol',
-      'CondenserPlantID',
-      'CondenserPlantIDs',
-      'CondenserWaterTemperature',
-      'CondensingTemperature',
       'Control',
       'ControlSensor',
       'ControlStrategy',
       'ControlSystemTypes',
       'Controls',
       'ConveyanceSystems',
-      'CoolingSourceID',
-      'CoolingStageCapacity',
-      'DemandRatchetPercentage',
-      'DemandRateAdjustment',
-      'DemandWindow',
-      'DryerElectricEnergyUsePerLoad',
-      'DryerGasEnergyUsePerLoad',
-      'ElectricDemandRate',
-      'ElectricResistance',
-      'EndTimestamp',
-      'EndUse',
-      'EnergyCostRate',
-      'EnergyRateAdjustment',
-      'EnergySellRate',
-      'EnergyUse',
-      'EquipmentDisposalAndSalvageCosts',
-      'ExistingScheduleAffected',
-      'ExteriorRoughness',
       'Facility',
-      'FanBased',
-      'FenestrationArea',
-      'FloorsAboveGrade',
-      'FloorsBelowGrade',
-      'FoundationHeightAboveGrade',
-      'FoundationWallConstruction',
-      'FoundationWallInsulationCondition',
-      'FoundationWallInsulationThickness',
-      'FoundationWallRValue',
-      'FoundationWallUFactor',
-      'FundingFromIncentives',
-      'FundingFromTaxCredits',
-      'HDDBaseTemperature',
       'HeatPump',
-      'HeatingStageCapacityFraction',
-      'HotWaterBoilerMaximumFlowRate',
-      'InputCapacity',
-      'InteriorVisibleAbsorptance',
-      'InternalRateOfReturn',
-      'IntervalFrequency',
       'LampLabel',
-      'LampPower',
-      'LinkedBuildingID',
-      'LinkedFacilityID',
-      'LinkedScheduleID',
-      'LinkedScheduleIDs',
-      'LinkedSectionID',
-      'LinkedSiteID',
-      'LinkedSpaceID',
-      'LinkedSystemID',
-      'LinkedSystemIDs',
-      'LinkedThermalZoneID',
-      'MVCost',
-      'MakeupAirSourceID',
       'Manual',
       'MeasureName',
-      'MinimumPartLoadRatio',
-      'ModifiedSchedule',
-      'NPVofTaxImplications',
-      'NetPresentValue',
-      'NoCooling',
-      'NoHeating',
-      'NumberOfDiscreteCoolingStages',
-      'NumberOfHeatingStages',
-      'OMCostAnnualSavings',
-      'Occupancy',
       'Other',
-      'OtherCombination',
-      'OtherControlStrategyName',
       'OtherControlTechnology',
-      'OtherControlTechnologyName',
-      'OutputCapacity',
-      'PipeInsulationThickness',
-      'PipeLocation',
-      'PortfolioManager',
-      'PrimaryFuel',
       'Priority',
       'RatePeriod',
-      'RatePeriodName',
       'RatePeriods',
-      'RatedCoolingSensibleHeatRatio',
-      'RefrigerantChargeFactor',
-      'RequiredVentilationRate',
       'Section',
-      'SimplePayback',
       'Site',
       'SiteEnergyUse',
-      'SlabArea',
-      'SlabExposedPerimeter',
-      'SlabInsulationCondition',
-      'SlabInsulationThickness',
-      'SlabPerimeter',
       'SourceEnergyUse',
-      'SourceEnergyUseIntensity',
       'Space',
-      'SpaceID',
-      'SpaceIDs',
-      'StartTimestamp',
-      'SteamBoilerMaximumOperatingPressure',
-      'SteamBoilerMinimumOperatingPressure',
-      'Story',
-      'StreetAdditionalInfo',
-      'SummerPeakElectricityReduction',
-      'ThermalEfficiency',
       'ThermalZone',
-      'ThermalZoneID',
-      'ThermalZoneIDs',
-      'TimeSeries',
       'Timer',
-      'TransformerNeeded',
-      'Unknown',
-      'UtilityAccountNumber',
-      'UtilityBillpayer',
-      'UtilityMeterNumber',
-      'VentilationControlMethods',
-      'VentilationRate',
       'WaterSideEconomizer',
-      'WaterSideEconomizerDBTemperatureMaximum',
-      'WaterSideEconomizerTemperatureMaximum',
-      'WaterUse',
-      'WeightedAverageLoad',
-      'WinterPeakElectricityReduction',
-      'YearOfConstruction'
+      'WaterUse'
     ]
 
     dupe_names = element_names.select{ |k, v| v.length() > 1 && !ignored_dupes.include?(k) }

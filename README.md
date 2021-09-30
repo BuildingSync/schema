@@ -22,12 +22,12 @@ a new pull request with the additions.
   and the [project website](https://buildingsync.net/).
 * [BuildingSync Examples](examples) - These examples are kept up to date and show a wide range of implementations. Any 
   new update to BuildingSync is required to pass validation on these example files.
-* [BuildingSync Use Case Selection Tool](https://selectiontool.buildingsync.net/) allows for users to determine 
+* [BuildingSync Use Case Validator](https://buildingsync.net/validation) allows for users to determine 
   if their instance complies with a specific use case for BuildingSync by checking if the required elements are 
-  implemented in an uploaded instance. The Selection Tools provides an API for automated integration into
+  implemented in an uploaded instance. An API is also provided for automated integration into
   other tools. Also, the website contains an easy way to view the entirety of the schema and how elements relate to
-  the [Building Exchange Data Exchange Specification](https://bedes.lbl.gov/). The Selection Tool is open sourced 
-  [here](https://github.com/BuildingSync/selection-tool)
+  the [Building Exchange Data Exchange Specification](https://bedes.lbl.gov/). The Validator is open sourced 
+  [here](https://github.com/BuildingSync/BuildingSync-website)
 * [Use Case TestSuite](https://pypi.org/project/testsuite/) provides a Python package for easier generation of BuildingSync use cases. BuildingSync use cases depend on the generation of schematron documents, which is time-consuming and difficult to implement well. The TestSuite allows users to define a use case using a more palatable CSV template, which it then turns into a Schematron document. The source code is available [here](https://github.com/BuildingSync/TestSuite).
 * [BuildingSync to OpenStudio/EnergyPlus](https://rubygems.org/gems/buildingsync). The translator is open sourced 
   [here](https://github.com/BuildingSync/BuildingSync-gem). This project will translate a Level 1 (and partial Level 2) 

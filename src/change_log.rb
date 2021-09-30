@@ -192,6 +192,10 @@ while results != 0
       end
       if closed >= options[:start_date] && closed <= options[:end_date]
         closed_issues << issue
+        issue.labels.each do |lbl|
+          categories[lbl.name] += 1 if categories.key? lbl.name
+          change_type[lbl.name] += 1 if change_type.key? lbl.name
+        end
       end
     elsif closed >= options[:start_date] && closed <= options[:end_date]
       accepted_pull_requests << issue

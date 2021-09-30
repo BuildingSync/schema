@@ -2,46 +2,42 @@
 
 Follow the steps below when releasing a new version
 
+### Prepare for release
+
+* Checkout develop and pull the most recent changes
+
 * Update the Version in the header of the XSD in three places:
-    * Update in the <xs:schema ...> element.
-    * Update in the first <xs:annotation> element.
-    * Add enumeration to /version with the latest version 
-
-* Convert XSD to JSON schema. This is still in prototype. This functionality will be moved to Oxygen XML soon.
-    * Use XMLSpy to Generate JSON Schema (Convert->Convert XML Schema to/from JSON Schema...)
-    * Use the default options
-
-* Ensure that the XSD and JSON Schema have spaces, and not tabs.
-
-    * You can run the following command to convert tabs to spaces (make sure to create backups of the files before running).
-
-        ```bash
-        rake remove_tabs
-        ```
+    * Update version the `/xs:schema@version`.
+    * Update version in the "schema title", at `/xs:schema/xs:annotation/xs:documentation[1]`.
+    * If creating an official release (i.e., you are NOT creating a pre-release), add the version as an enumeration to the `auc:BuildingSync` `version` attribute with the latest version. Though we historically added some pre-releases to `@version`, they should no longer be included.
 
 * Update the CHANGELOG.md to include the latest changes, and the most recent version.
 
-	* Run the change_log.rb script (e.g. ruby src/change_log.rb -t abcdefghijklmnopqrstuvwxyz -s 2019-12-21).
+	* Run the change_log.rb script (e.g., ruby src/change_log.rb -t abcdefghijklmnopqrstuvwxyz -s 2019-12-21). The date range must span from the last official release (ie don't start at a pre-release) until the current date.
 	* Copy the results of this into the CHANGELOG. Remove items that are not useful to an end user such as version bumps, formatting, etc.
 
-* Create a Pull Request into `master`
+* Create a Pull Request into `main`
     * Mark the PR with an `ignore` label to prevent the PR from being added to future change logs. 
-    * After merging the Pull Request, draft a release in GitHub. 
-    * *Upload the XSD and JSON file as part of the release.*
-    
-* Use Oxygen XML to generate the documentation. The documentation will actually be saved in [this repo](https://github.com/BuildingSync/website]).
-    * Tools -> Generate Documentation -> XML Schema Documentation
-    * Choose *Format HTML*
-    * Check *split output into multiple* and *Split by location*    
-    * Set directory and name to be the website's folder `schema/vX.Y.Z/documentation/index.html`. The name needs to be `index.html`.
-    * Select *Generate*
-    
-* Edit the BuildingSync Website GitHub repo on a new branch (https://github.com/BuildingSync/website):
+    * Merge the PR
 
-	* Run the schema's rake task for generating the data dictionary (`bundle exec rake generate_data_dictionary`). This will create the list of enumerations in both JSON and XSLX format. In the BuildingSync/website repository:
-	    * Copy this repository's `docs/enumerations.json` file into a new `_data/vXXX` folder in the website folder. Note that the folder cannot contain a dot.
-	    * Copy the `DataDictionary.xlsx` into the `schema/vXXX/datadictionary` folder.
-        * Update the `datadictionary/index.html` and `measures/index.html` to point to the new `enumerations.json` file.
-        * Update `/schema/index.md` to include new release by following the existing pattern.
+### Tag and release
 
-* Create a Pull Request from the new branch to gh-pages.
+Check out main locally, pull changes, and create a tag and push it
+```bash
+git checkout main && git pull
+git tag -a v<version> -m "<message>" [SHA]
+```
+Where `v<version>` is a valid [semantic version](https://semver.org/) (e.g., `v1.2.3` or `v1.2.3-pr.1`) and `<message>` is the tagging message (e.g. "First official release"). See [Versioning](versioning.md) for more information.
+```bash
+# push the tag
+git push --tags origin 
+```
+
+This should trigger a GitHub workflow for building and publishing the release. If publishing a pre-release, you are done. Otherwise, once the release has been successfully published on GitHub, continue.
+
+### Update BuildingSync Website
+
+At this point the GitHub action for publishing the release should be finished. Now we need to update the docs/data in [this repo](https://github.com/BuildingSync/BuildingSync-website). Read the README in that repository.
+
+
+
