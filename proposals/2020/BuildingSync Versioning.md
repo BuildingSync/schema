@@ -34,6 +34,6 @@ These are the changes that require a new PATCH version. This would include chang
 ### Version management
 I propose BuildingSync supports the two most recent MAJOR versions at a time. Support for a version means it will receive all new non-breaking changes (ie MINOR and PATCH changes).
 
-BuildingSync should maintain two branches for each MAJOR version, develop and master. For example, for versions 2 and 3, you could have `develop-v2`, `master-v2`, `develop-v3` and `master-v3`. All releases (ie tags) are made off of the `master` branches. When ready for a new release, the maintainer merges the develop branch into master, then tags the last commit.
+BuildingSync should maintain two branches for each MAJOR version, develop and main. For example, for versions 2 and 3, you could have `develop-v2`, `main-v2`, `develop-v3` and `main-v3`. All releases (ie tags) are made off of the `main` branches. When ready for a new release, the maintainer merges the develop branch into main, then tags the last commit.
 
 To add a non-breaking change to the currently supported versions, the developer applies it to one of the develop branches then cherry picks or manually transfers the changes to the other develop branch.
