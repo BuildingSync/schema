@@ -18,7 +18,7 @@ end
 
 desc 'Convert tabs to spaces'
 task :remove_tabs do
-  Dir['examples/**/*.xml', 'BuildingSync.xsd'].each do |file|
+  Dir['examples/**/*.xml', 'BuildingSync.xsd', 'proposals/**/*.xml'].each do |file|
     puts " Cleaning #{file}"
     doc = Nokogiri.XML(File.read(file)) do |config|
       config.default_xml.noblanks
