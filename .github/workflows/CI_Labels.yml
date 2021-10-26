@@ -1,0 +1,64 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI Labels
+
+# Controls when the workflow will run
+on:
+  pull_request:
+    types:
+      # default types (i.e. default for on: pull_request)
+      - opened
+      - synchronize
+      - reopened
+      # trigger on change of labels
+      - labeled
+      - unlabeled
+    branches:
+      - develop-v3
+      - develop-v2
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR Labels
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const VALID_LABELS_MESSAGE = 'Success! PR has valid labels.'
+            const BREAKING_LABELS = ['Breaking Change', 'Non-breaking Change']
+            const CHANGE_TYPE_LABELS = ['feature', 'bug', 'docs', 'enhancement']
+            
+            const labelNames = context.payload.pull_request.labels.map(label => label.name)
+            console.log(`INFO: Found PR labels: ${labelNames}`)
+            
+            const assertExactlyOneOf = (choices) => {
+              const foundLabels = []
+              for (let choice of choices) {
+                if (labelNames.includes(choice)) {
+                  foundLabels.push(choice)
+                }
+              }
+              
+              if (foundLabels.length === 1) {
+                return true
+              }
+              else if (foundLabels.length === 0) {
+                throw `PR is missing one of the labels: ${choices}`
+              }
+              else {
+                throw `Expected PR to include exactly one label from ${choices}; Found ${foundLabels}`
+              }
+            }
+            
+            if (labelNames.length === 1 && labelNames[0] === 'ignore') {
+              console.log(VALID_LABELS_MESSAGE)
+              return
+            }
+            
+            assertExactlyOneOf(BREAKING_LABELS)
+            assertExactlyOneOf(CHANGE_TYPE_LABELS)
+            if (!labelNames.some(label => label.startsWith('Schema:'))) {
+              console.log('WARNING: it is recommended to include one of the "Schema: ..." labels on the PR if it modifies the Schema in any way')
+            }
+            console.log(VALID_LABELS_MESSAGE)
