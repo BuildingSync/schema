@@ -27,7 +27,7 @@ jobs:
           script: |
             const VALID_LABELS_MESSAGE = 'Success! PR has valid labels.'
             const BREAKING_LABELS = ['Breaking Change', 'Non-breaking Change']
-            const CHANGE_TYPE_LABELS = ['feature', 'bug', 'docs']
+            const CHANGE_TYPE_LABELS = ['feature', 'bug', 'docs', 'enhancement']
             
             const labelNames = context.payload.pull_request.labels.map(label => label.name)
             console.log(`INFO: Found PR labels: ${labelNames}`)
