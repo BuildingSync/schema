@@ -1,14 +1,13 @@
 [tool.poetry]
 name = "bsync-examples"
-version = "0.1.0"
-description = ""
-authors = ["corymosiman12 <cory.mosiman12@gmail.com>"]
+version = "0.2.0"
+description = "Examples for generating BuildingSync files from Python. This currently uses BuildingSync Version 2.4."
+authors = ["corymosiman12 <cory.mosiman12@gmail.com>", "nllong <nicholas.long@nrel.gov>"]
 
 [tool.poetry.dependencies]
-python = "^3.7.4"
+python = "^3.7.9"
 jupyterlab = "^3.0.10"
-bsync = {git = "https://github.com/BuildingSync/bsyncpy.git", branch="main" }
-lxml = "^4.6.2"
+bsyncpy = {git = "https://github.com/BuildingSync/bsyncpy.git", branch="feat/support-bsync-2.4" }
 eeweather = "^0.3.24"
 
 [tool.poetry.dev-dependencies]
