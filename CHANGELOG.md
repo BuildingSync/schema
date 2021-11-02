@@ -1,5 +1,10 @@
 # BuildingSync
 
+## Version 2.2.1
+
+BuildingSync Version 2.2.1 does not introduce any breaking changes. Version 2.2.1's only change is the `schemaLocation`
+for the gbXML Schema v6.01. The new `schemaLocation` points to [BuildingSync's mirror of the schema](https://github.com/BuildingSync/gbXML_Schemas/releases/tag/v6.01). See [issue #393](https://github.com/BuildingSync/schema/issues/393) for more information.
+
 ## Version 2.2.0
 
 BuildingSync Version 2.2.0 does not introduce any breaking changes. Version 2.2.0 adds new elements required for a 
