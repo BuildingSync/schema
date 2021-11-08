@@ -69,4 +69,5 @@ The following table lists all elements that require an `IDREF` attribute, and an
 | WallID | WallSystem | BuildingSync/Facilities/Facility/Systems/WallSystems/WallSystem |
 | WeatherStationID | WeatherStation | BuildingSync/Facilities/Facility/Sites/Site/(Buildings/Building/)WeatherStations/WeatherStation |
 | WindowID | Window | BuildingSync/Facilities/Facility/Systems/FenestrationSystems/FenestrationSystem/FenestrationType/Window |
-Notes: elements with * marks will be renamed to enhance consistency; elements with \*\*\* in names refer to multiple options  (any valid element with name matching the pattern) within the path.
+
+Notes: elements with * marks will be renamed soon to enhance consistency; elements with \*\*\* in names refer to multiple options  (any valid element with name matching the pattern) within the path.
