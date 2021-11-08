@@ -64,8 +64,9 @@ The following table lists all elements that require an `IDREF` attribute, and an
 | TenantID | Tenant | BuildingSync/Facilities/Facility/Tenants/Tenant |
 | LinkedThermalZoneID | ThermalZone | BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building/Sections/Section/ThermalZones/ThermalZone |
 | ThermalZoneID | ThermalZone | BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building/Sections/Section/ThermalZones/ThermalZone |
-| LinkedTimeSeriesID | TimeSeries | "BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario/TimeSeriesData/TimeSeries, BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario/ScenarioType/DerivedModel/SavingSummaries/SavingSummary/\*\*\*Data/TimeSeries, BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario/ScenarioType/DerivedModel/Models/Model/ModeledTimeSeriesData/TimeSeries" |
+| LinkedTimeSeriesID | TimeSeries | BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario/TimeSeriesData/TimeSeries, BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario/ScenarioType/DerivedModel/SavingSummaries/SavingSummary/\*\*\*Data/TimeSeries, BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario/ScenarioType/DerivedModel/Models/Model/ModeledTimeSeriesData/TimeSeries |
 | UtilityID | Utility | BuildingSync/Facilities/Facility/Reports/Report/Utilities/Utility |
 | WallID | WallSystem | BuildingSync/Facilities/Facility/Systems/WallSystems/WallSystem |
 | WeatherStationID | WeatherStation | BuildingSync/Facilities/Facility/Sites/Site/(Buildings/Building/)WeatherStations/WeatherStation |
 | WindowID | Window | BuildingSync/Facilities/Facility/Systems/FenestrationSystems/FenestrationSystem/FenestrationType/Window |
+Notes: elements with * marks will be renamed to enhance consistency; elements with \*\*\* in names refer to multiple options  (any valid element with name matching the pattern) within the path.
