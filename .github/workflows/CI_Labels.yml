@@ -55,7 +55,7 @@ jobs:
               return
             }
 
-            if (labels.length === 1 && labelNames[0] === 'No Schema Changes') {
+            if (labelNames.length === 1 && labelNames[0] === 'No Schema Changes') {
               console.log(VALID_LABELS_MESSAGE)
               return
             }
