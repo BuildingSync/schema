@@ -53,6 +53,7 @@ OptionParser.new do |opts|
   # defaults, go back 90 days
   options[:start_date] = Date.today - 90
   options[:end_date] = Date.today + 1
+  options[:branch] = 'develop-v3'
 
   opts.on('-s', '--start-date [DATE]', Date, 'Start of data (e.g. 2017-09-06)') do |v|
     options[:start_date] = v
@@ -62,6 +63,9 @@ OptionParser.new do |opts|
   end
   opts.on('-t', '--token [String]', String, 'Github API Token') do |v|
     options[:token] = v
+  end
+  opts.on('-b', '--branch [String]', String, 'Github Branch to create changelog for') do |v|
+    options[:branch] = v
   end
 end.parse!
 
@@ -73,6 +77,11 @@ puts options
 ### Repository options
 repo_owner = 'BuildingSync'
 repo = 'schema'
+
+LABEL_BREAKING_CHANGE = "Breaking Change"
+LABEL_NONBREAKING_CHANGE = "Non-breaking Change"
+LABEL_NONSCHEMA_CHANGE = "Non-schema Change"
+LABEL_SCHEMA_SCOPE_PREFIX = "Schema: "
 
 github = Github.new
 if options[:token]
@@ -86,6 +95,11 @@ total_open_pull_requests = []
 new_issues = []
 closed_issues = []
 accepted_pull_requests = []
+
+def codify_labels(labels)
+  scopes_as_tags = labels.map { |label| "`#{label.name.gsub(LABEL_SCHEMA_SCOPE_PREFIX, '')}`" }
+  return "#{scopes_as_tags.join(", ")}"
+end
 
 def get_num(issue)
   issue.html_url.split('/')[-1].to_i
@@ -104,31 +118,18 @@ def get_title(issue)
 end
 
 def print_issue(issue)
-  is_feature = false
-  issue.labels.each {|label| is_feature = true if label.name == 'feature'}
-  is_enhancement = false
-  issue.labels.each {|label| is_enhancement = true if label.name == 'enhancement'}
-  is_bug = false
-  issue.labels.each {|label| is_bug = true if label.name == 'bug'}
-  ignore = false
-  issue.labels.each {|label| ignore = true if label.name == 'ignore'}
-
-  quick_check = [is_feature, is_enhancement, is_bug]
-  if !quick_check.none? and !quick_check.one?
-    raise "Cannot only have one of [feature, enhancement, bug]. Seen on #{get_html_url(issue)}"
-  end
-
-  if is_feature
-    text = "- New Feature [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}"
-  elsif is_enhancement
-    text = "- Improved [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}"
-  elsif is_bug
-    text = "- Fixed [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}"
-  else
-    text = "- Merged [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}"
-  end
-
+  ignore = issue.labels.map { |label| label.name }.include? 'ignore'
+  codified_labels = codify_labels(issue.labels)
+  codified_labels = codified_labels.length > 0 ? " (#{codified_labels})" : ""
+  text = "- [#{get_issue_num(issue)}]( #{get_html_url(issue)} ), #{get_title(issue)}#{codified_labels}"
   [text, ignore]
+end
+
+def print_pr(pr)
+  scope_labels = pr.labels.map { |label| label if label.name.start_with? LABEL_SCHEMA_SCOPE_PREFIX }.compact
+  codified_scopes = codify_labels(scope_labels)
+  codified_scopes = codified_scopes.length > 0 ? " (#{codified_scopes})" : ""
+  [" - [##{pr.number}](#{pr.html_url}), #{pr.title}#{codified_scopes}", false]
 end
 
 # Process Open Issues
@@ -153,26 +154,62 @@ while results != 0
   page += 1
 end
 
-# Process Closed Issues
-results = -1
-page = 1
+# Process merged PRs
+pr_classifications = {
+  LABEL_BREAKING_CHANGE => [],
+  LABEL_NONBREAKING_CHANGE => [],
+  LABEL_NONSCHEMA_CHANGE => []
+}
 
-# container for storing category of changes
-categories = {
-  "Controls" => 0,
-  "Documentation" => 0,
-  "General" => 0,
-  "Measures" => 0,
-  "Reports" => 0,
-  "Systems" => 0,
-  "Validation" => 0,
+scope_counter = {
+  "Schema: Controls" => 0,
+  "Schema: Documentation" => 0,
+  "Schema: General" => 0,
+  "Schema: Measures" => 0,
+  "Schema: Reports" => 0,
+  "Schema: Systems" => 0,
+  "Schema: Validation" => 0,
   "Other" => 0
 }
 
-change_type = {
-    "Breaking Change" => 0,
-    "Non-breaking Change" => 0
-}
+results = -1
+page = 1
+q = "repo:#{repo_owner}/#{repo} "\
+    "is:pr is:merged "\
+    "base:#{options[:branch]} "\
+    "merged:#{options[:start_date].strftime('%Y-%m-%d')}..#{options[:end_date].strftime('%Y-%m-%d')}"
+
+while results != 0
+  resp = github.search.issues q: q, page: page
+  results = resp.items.length
+  resp.items.each do |pr, _index|
+    label_names = pr.labels.map { |label| label.name }
+    next if label_names.to_s =~ /ignore/
+
+    accepted_pull_requests << pr
+    if label_names.include? LABEL_BREAKING_CHANGE
+      pr_classifications[LABEL_BREAKING_CHANGE] << pr
+    elsif label_names.include? LABEL_NONBREAKING_CHANGE
+      pr_classifications[LABEL_NONBREAKING_CHANGE] << pr
+    elsif label_names.include? LABEL_NONSCHEMA_CHANGE
+      pr_classifications[LABEL_NONSCHEMA_CHANGE] << pr
+    else
+      puts "WARNING: Labels do not specify implications of PR \"#{ pr.title }\", expected one of #{[LABEL_BREAKING_CHANGE, LABEL_NONBREAKING_CHANGE, LABEL_NONSCHEMA_CHANGE]}: #{ pr.labels }: #{pr.html_url}"
+      pr_classifications[LABEL_NONSCHEMA_CHANGE] << pr
+    end
+
+    # log the information about the PR
+    label_names.each do |label_name|
+      scope_counter[label_name] += 1 if scope_counter.key? label_name
+    end
+  end
+
+  page += 1
+end
+
+# Process Closed Issues
+results = -1
+page = 1
 
 while results != 0
   # TODO: this needs to be a pull_request. For now have to manually check if the PR was closed, or merged.
@@ -192,20 +229,8 @@ while results != 0
       end
       if closed >= options[:start_date] && closed <= options[:end_date]
         closed_issues << issue
-        issue.labels.each do |lbl|
-          categories[lbl.name] += 1 if categories.key? lbl.name
-          change_type[lbl.name] += 1 if change_type.key? lbl.name
         end
       end
-    elsif closed >= options[:start_date] && closed <= options[:end_date]
-      accepted_pull_requests << issue
-
-      # log the information about the PR
-      issue.labels.each do |lbl|
-        categories[lbl.name] += 1 if categories.key? lbl.name
-        change_type[lbl.name] += 1 if change_type.key? lbl.name
-      end
-    end
   end
 
   page += 1
@@ -213,10 +238,10 @@ end
 
 # postprocess the category
 total_count = 0
-categories.each_value do |v|
+scope_counter.each_value do |v|
   total_count += v
 end
-categories["Other"] = accepted_pull_requests.size - total_count
+scope_counter["Other"] = accepted_pull_requests.size - total_count
 
 closed_issues.sort! {|x, y| get_num(x) <=> get_num(y)}
 new_issues.sort! {|x, y| get_num(x) <=> get_num(y)}
@@ -228,15 +253,25 @@ puts "Total Open Pull Requests: #{total_open_pull_requests.length}"
 puts "\nDate Range: #{options[:start_date].strftime('%m/%d/%y')} - #{options[:end_date].strftime('%m/%d/%y')}"
 puts "\n| Category       | Count |"
 puts "|----------------|-------|"
-categories.each do |k,v|
+scope_counter.each do |k,v|
   puts "| #{k}         | #{v}  |"
 end
 puts "| **Total**      | #{accepted_pull_requests.size} |"
-puts "\n| Change Type    | Count |"
-puts "|----------------|-------|"
-change_type.each do |k,v|
-  puts "| #{k}         | #{v}  |"
+
+pr_classifications.each do |change_type, prs|
+  puts "\n### #{change_type}s"
+  
+  if prs.length == 0
+    puts "\n*No #{change_type.downcase}s*"
+  else
+    prs.each do |pr, _index|
+      pr_text, ignore = print_pr(pr)
+      puts pr_text if not ignore
+    end
+  end
 end
+
+puts "\n### Issues"
 
 puts "\nNew Issues: #{new_issues.length} (" + new_issues.map {|issue| get_issue_num(issue)}.join(', ') + ')'
 
@@ -247,11 +282,6 @@ closed_issues.each do |issue|
   puts issue_text if not ignore
 end
 
-puts "\nAccepted Pull Requests: #{accepted_pull_requests.length}"
-accepted_pull_requests.each do |issue|
-  issue_text, ignore = print_issue(issue)
-  puts issue_text if not ignore
-end
 
 puts "\nAll Open Issues: #{total_open_issues.length} (" + total_open_issues.map {|issue| get_issue_num(issue)}.join(', ') + ')'
 
