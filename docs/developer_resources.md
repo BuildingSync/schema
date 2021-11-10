@@ -1,50 +1,14 @@
 # Developer Resources
 
-## Git Naming Conventions
-
-Commit messages should follow the format of
-
-
-```bash
-<type>[( optional scope )]: <description>
-
-[optional body]
-```
-
-`type` must be one of the following:
-
-- **docs**: Changes to the documentation (e.g. improving the annotation of an element, updating this file, etc)
-- **feat**: Adds a new feature (e.g. adding a new element to the schema)
-- **fix**: A bug fix (e.g. adding a missing closing tag, or moving a misplaced element)
-- **proposal**: Adding or editing a proposal (e.g. creating a proposal for a new modeling concept for the schema)
-- **refactor**: Changes that don't fix a bug or add a new feature (e.g. turning an element into a complexType for reuse)
-- **style**: Changes that don't affect the meaning of code (e.g. whitespace)
-- **test**: Adding or correcting tests
-
-`scope` is optional for commit messages, and should indicate the general area of the application affected.
-
-`description` is a short description of the changes in imperative present tense (such as “add function to _”, not “added function”)
-
-Branches should be named as `[optional issue number -]<type>/<scope>`, where `scope` is the general scope affected, or if creating a feature branch, a shortened name of the feature being added. If `scope` is more than one word, it should be separated by dashes.
-
-Pull Request titles should follow the format `[# optional issue number] <type>[( optional scope )]: <description>`, following the same conventions as commit messages.
-
-Commit examples:
-
-- `feat(schema): add MyElement to ParentElement`
-- `proposal: add proposal for MyElement`
-- `refactor: make SimpleElement restriction a regex test`
-
-Branch examples:
-
-- `1234-feat/typical-operating-hours`
-- `refactor/terminal-unit-type`
-
-Pull request examples:
-
-- `#1234 feat(schema): add MyElement to ParentElement`
-- `proposal: add proposal for MyElement`
-
 ## Deprecation Policy
 
 Details of the deprecation policy are included in the BuildingSync XML schema file.
+
+## Pull Requests
+### Summary
+BuildingSync uses Pull Requests (PRs) to track and report changes to users when creating releases. Specifically, we document changes to the schema/repo by using labels on PRs, thus we require developers to add labels to all PRs. Our CI will validate labels.
+
+### Requirements
+- PRs are our "source of truth" for important changes to the repo/schema
+- We encourage separate PRs for each "logical"/"discrete" change to the schema (especially if the changes are impactful/non-trivial to users). For example, removing an element from the schema should be separate from adding a choice to an unrelated element.
+- The labels for the PR indicate the implications of the changes. Our CI system will validate your labels. See [CI Labels](../.github/workflows/CI_Labels.yml) for more info.
