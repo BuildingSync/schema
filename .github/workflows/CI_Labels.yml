@@ -27,7 +27,6 @@ jobs:
           script: |
             const VALID_LABELS_MESSAGE = 'Success! PR has valid labels.'
             const BREAKING_LABELS = ['Breaking Change', 'Non-breaking Change']
-            const CHANGE_TYPE_LABELS = ['feature', 'bug', 'docs', 'enhancement']
             
             const labelNames = context.payload.pull_request.labels.map(label => label.name)
             console.log(`INFO: Found PR labels: ${labelNames}`)
@@ -55,10 +54,14 @@ jobs:
               console.log(VALID_LABELS_MESSAGE)
               return
             }
+
+            if (labels.length === 1 && labelNames[0] === 'No Schema Changes') {
+              console.log(VALID_LABELS_MESSAGE)
+              return
+            }
             
             assertExactlyOneOf(BREAKING_LABELS)
-            assertExactlyOneOf(CHANGE_TYPE_LABELS)
             if (!labelNames.some(label => label.startsWith('Schema:'))) {
-              console.log('WARNING: it is recommended to include one of the "Schema: ..." labels on the PR if it modifies the Schema in any way')
+              throw `PR is missing a scoping label, i.e. a label starting with "Schema: ..."`
             }
             console.log(VALID_LABELS_MESSAGE)
