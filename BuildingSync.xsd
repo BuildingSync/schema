@@ -1104,7 +1104,7 @@
                             <xs:sequence>
                               <xs:element name="RoofID">
                                 <xs:annotation>
-                                  <xs:documentation>ID number of the roof type associated with this section.</xs:documentation>
+                                  <xs:documentation>ID number of the roof type associated with this section. Valid reference paths: BuildingSync/Facilities/Facility/Systems/RoofSystems/RoofSystem.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:sequence>
@@ -1145,7 +1145,7 @@
                                         <xs:sequence>
                                           <xs:element name="SkylightID" minOccurs="0" maxOccurs="unbounded">
                                             <xs:annotation>
-                                              <xs:documentation>ID number of the skylight type associated with this side of the section.</xs:documentation>
+                                              <xs:documentation>ID number of the skylight type associated with this side of the section. Valid reference paths: BuildingSync/Facilities/Facility/Systems/FenestrationSystems/FenestrationSystem/FenestrationType/Skylight.</xs:documentation>
                                             </xs:annotation>
                                             <xs:complexType>
                                               <xs:sequence>
@@ -1192,7 +1192,7 @@
                             <xs:sequence>
                               <xs:element name="CeilingID">
                                 <xs:annotation>
-                                  <xs:documentation>ID number of the roof/ceiling type associated with this section.</xs:documentation>
+                                  <xs:documentation>ID number of the roof/ceiling type associated with this section. Valid reference paths: BuildingSync/Facilities/Facility/Systems/CeilingSystems/CeilingSystem.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:sequence>
@@ -1246,7 +1246,7 @@
                             <xs:sequence>
                               <xs:element name="ExteriorFloorID">
                                 <xs:annotation>
-                                  <xs:documentation>ID number of the exterior floor type associated with this section.</xs:documentation>
+                                  <xs:documentation>ID number of the exterior floor type associated with this section. Valid reference paths: BuildingSync/Facilities/Facility/Systems/ExteriorFloorSystems/ExteriorFloorSystem.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:sequence>
@@ -1288,7 +1288,7 @@
                             <xs:sequence>
                               <xs:element name="FoundationID">
                                 <xs:annotation>
-                                  <xs:documentation>ID number of the foundation type associated with this section.</xs:documentation>
+                                  <xs:documentation>ID number of the foundation type associated with this section. Valid reference paths: BuildingSync/Facilities/Facility/Systems/FoundationSystems/FoundationSystem.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:sequence>
@@ -1415,12 +1415,12 @@
   <xs:complexType name="ThermalZoneType">
     <xs:sequence>
       <xs:element ref="auc:PremisesName" minOccurs="0"/>
-      <xs:element name="DeliveryIDs" minOccurs="0">
+      <xs:element name="LinkedDeliveryIDs" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="DeliveryID" minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="LinkedDeliveryID" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation>ID number of HVAC delivery systems supporting the zone.</xs:documentation>
+                <xs:documentation>ID number of HVAC delivery systems supporting the zone. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/Deliveries/Delivery.</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -1434,7 +1434,7 @@
           <xs:sequence>
             <xs:element name="HVACScheduleID" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation>ID numbers of the heating, cooling, or other HVAC schedules associated with the zone.</xs:documentation>
+                <xs:documentation>ID numbers of the heating, cooling, or other HVAC schedules associated with the zone. Valid reference paths: BuildingSync/Facilities/Facility/Schedules/Schedule.</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -1549,7 +1549,7 @@
           <xs:sequence>
             <xs:element name="OccupancyScheduleID" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation>ID numbers of the occupancy schedules associated with the space.</xs:documentation>
+                <xs:documentation>ID numbers of the occupancy schedules associated with the space. Valid reference paths: BuildingSync/Facilities/Facility/Schedules/Schedule.</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -1927,6 +1927,9 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element name="ContactID" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Contact ID. Valid reference paths: BuildingSync/Facilities/Facility/Contacts/Contact.</xs:documentation>
+              </xs:annotation>
               <xs:complexType>
                 <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
               </xs:complexType>
@@ -2084,7 +2087,7 @@
             <xs:element name="Target" minOccurs="0">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element ref="auc:ReferenceCase" minOccurs="0"/>
+                  <xs:element ref="auc:ReferenceScenarioID" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsSiteEnergy" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsSourceEnergy" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsCost" minOccurs="0"/>
@@ -2104,7 +2107,7 @@
             <xs:element name="PackageOfMeasures" minOccurs="0">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element ref="auc:ReferenceCase" minOccurs="0"/>
+                  <xs:element ref="auc:ReferenceScenarioID" minOccurs="0"/>
                   <xs:element name="MeasureIDs" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>ID numbers for measures included in the package. Multiple items may be selected.</xs:documentation>
@@ -2113,7 +2116,7 @@
                       <xs:sequence>
                         <xs:element name="MeasureID" maxOccurs="unbounded">
                           <xs:annotation>
-                            <xs:documentation>ID number of measure.</xs:documentation>
+                            <xs:documentation>ID number of measure. Valid reference paths: BuildingSync/Facilities/Facility/Measures/Measure.</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -2278,7 +2281,7 @@
             <xs:element name="Other" minOccurs="0">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element ref="auc:ReferenceCase" minOccurs="0"/>
+                  <xs:element ref="auc:ReferenceScenarioID" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsSiteEnergy" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsSourceEnergy" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsCost" minOccurs="0"/>
@@ -2935,6 +2938,9 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element name="LinkedTimeSeriesID" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Link to the time series data used to calculate the AnnualFuelUse values. Valid reference paths: BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario/TimeSeriesData/TimeSeries, BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario/ScenarioType/DerivedModel/SavingSummaries/SavingSummary/***Data/TimeSeries, BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario/ScenarioType/DerivedModel/Models/Model/ModeledTimeSeriesData/TimeSeries.</xs:documentation>
+              </xs:annotation>
               <xs:complexType>
                 <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
               </xs:complexType>
@@ -3006,7 +3012,7 @@
           <xs:sequence>
             <xs:element name="UtilityID" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation>ID of utility associated with this resource use.</xs:documentation>
+                <xs:documentation>ID of utility associated with this resource use. Valid reference paths: BuildingSync/Facilities/Facility/Reports/Report/Utilities/Utility.</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -3112,7 +3118,7 @@
       </xs:element>
       <xs:element name="ParentResourceUseID" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>If this ResourceUse is intended to represent a submetered end use ('Total Lighting', 'Heating', 'Plug load', etc.), this ResourceUse should link to a parent ResourceUse that this would 'roll up to'.</xs:documentation>
+          <xs:documentation>If this ResourceUse is intended to represent a submetered end use ('Total Lighting', 'Heating', 'Plug load', etc.), this ResourceUse should link to a parent ResourceUse that this would 'roll up to'. Valid reference paths: BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario/ResourceUses/ResourceUse.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -3525,7 +3531,7 @@
       <xs:element ref="auc:CDDBaseTemperature" minOccurs="0"/>
       <xs:element name="ResourceUseID" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>ID number of resource use that this time series contributes to. This field is not used for non-energy data such as weather.</xs:documentation>
+          <xs:documentation>ID number of resource use that this time series contributes to. This field is not used for non-energy data such as weather. Valid reference paths: BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario/ResourceUses/ResourceUse.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -3533,7 +3539,7 @@
       </xs:element>
       <xs:element name="WeatherStationID" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>ID number of weather station this time series contributes to.</xs:documentation>
+          <xs:documentation>ID number of weather station this time series contributes to. Valid reference paths: BuildingSync/Facilities/Facility/Sites/Site/(Buildings/Building/)WeatherStations/WeatherStation.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -3557,24 +3563,24 @@
                   <xs:element name="Replacement" minOccurs="0">
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="ExistingSystemReplaced" minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="ExistingSystemIDReplaced" minOccurs="0" maxOccurs="unbounded">
                           <xs:annotation>
-                            <xs:documentation>ID numbers of any existing systems replaced by the measure.</xs:documentation>
+                            <xs:documentation>ID numbers of any existing systems replaced by the measure. Valid reference paths: BuildingSync/Facilities/Facility/Systems/***Systems/***System.</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="AlternativeSystemReplacement" minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="AlternativeSystemIDReplacement" minOccurs="0" maxOccurs="unbounded">
                           <xs:annotation>
-                            <xs:documentation>ID numbers of alternative systems that would replace the existing systems.</xs:documentation>
+                            <xs:documentation>ID numbers of alternative systems that would replace the existing systems. Valid reference paths: BuildingSync/Facilities/Facility/Systems/***Systems/***System.</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element ref="auc:ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded"/>
-                        <xs:element ref="auc:ModifiedSchedule" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="auc:ExistingScheduleIDAffected" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="auc:ModifiedScheduleID" minOccurs="0" maxOccurs="unbounded"/>
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
@@ -3587,24 +3593,24 @@
                   <xs:element name="ModificationRetrocommissioning" minOccurs="0">
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="ExistingSystemAffected" minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="ExistingSystemIDAffected" minOccurs="0" maxOccurs="unbounded">
                           <xs:annotation>
-                            <xs:documentation>ID numbers of any existing systems affected by the measure.</xs:documentation>
+                            <xs:documentation>ID numbers of any existing systems affected by the measure. Valid reference paths: BuildingSync/Facilities/Facility/Systems/***Systems/***System.</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element name="ModifiedSystem" minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="ModifiedSystemID" minOccurs="0" maxOccurs="unbounded">
                           <xs:annotation>
-                            <xs:documentation>ID numbers of alternative systems that represent "improvements" to existing systems.</xs:documentation>
+                            <xs:documentation>ID numbers of alternative systems that represent "improvements" to existing systems. Valid reference paths: BuildingSync/Facilities/Facility/Systems/***Systems/***System.</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element ref="auc:ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded"/>
-                        <xs:element ref="auc:ModifiedSchedule" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="auc:ExistingScheduleIDAffected" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="auc:ModifiedScheduleID" minOccurs="0" maxOccurs="unbounded"/>
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
@@ -3617,16 +3623,16 @@
                   <xs:element name="Addition" minOccurs="0">
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="AlternativeSystemAdded" minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="AlternativeSystemIDAdded" minOccurs="0" maxOccurs="unbounded">
                           <xs:annotation>
-                            <xs:documentation>ID numbers of alternative systems that would be added as part of the measure.</xs:documentation>
+                            <xs:documentation>ID numbers of alternative systems that would be added as part of the measure. Valid reference paths: BuildingSync/Facilities/Facility/Systems/***Systems/***System</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element ref="auc:ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded"/>
-                        <xs:element ref="auc:ModifiedSchedule" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="auc:ExistingScheduleIDAffected" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="auc:ModifiedScheduleID" minOccurs="0" maxOccurs="unbounded"/>
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
@@ -3639,16 +3645,16 @@
                   <xs:element name="Removal" minOccurs="0">
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="ExistingSystemRemoved" minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="ExistingSystemIDRemoved" minOccurs="0" maxOccurs="unbounded">
                           <xs:annotation>
-                            <xs:documentation>ID numbers of any existing systems removed as part of the measure.</xs:documentation>
+                            <xs:documentation>ID numbers of any existing systems removed as part of the measure. Valid reference paths: BuildingSync/Facilities/Facility/Systems/***Systems/***System.</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                           </xs:complexType>
                         </xs:element>
-                        <xs:element ref="auc:ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded"/>
-                        <xs:element ref="auc:ModifiedSchedule" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="auc:ExistingScheduleIDAffected" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="auc:ModifiedScheduleID" minOccurs="0" maxOccurs="unbounded"/>
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
@@ -4387,7 +4393,7 @@
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-            <xs:element ref="auc:ReferenceCase" minOccurs="0"/>
+            <xs:element ref="auc:ReferenceScenarioID" minOccurs="0"/>
             <xs:element ref="auc:CalculationMethod" minOccurs="0"/>
             <xs:element ref="auc:AnnualSavingsSiteEnergy" minOccurs="0"/>
             <xs:element ref="auc:AnnualSavingsSourceEnergy" minOccurs="0"/>
@@ -4777,7 +4783,7 @@
                   </xs:element>
                   <xs:element name="CertifiedAuditTeamMemberContactID" minOccurs="0">
                     <xs:annotation>
-                      <xs:documentation>Contact ID of auditor team member with certification.</xs:documentation>
+                      <xs:documentation>Contact ID of auditor team member with certification. Valid reference paths: BuildingSync/Facilities/Facility/Contacts/Contact.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -4835,7 +4841,7 @@
       </xs:element>
       <xs:element name="AuditorContactID" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Contact ID of auditor responsible for the audit report.</xs:documentation>
+          <xs:documentation>Contact ID of auditor responsible for the audit report. Valid reference paths: BuildingSync/Facilities/Facility/Contacts/Contact.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -4914,9 +4920,9 @@
                           </xs:annotation>
                           <xs:complexType>
                             <xs:choice>
-                              <xs:element name="SourceHeatingPlantID" minOccurs="0">
+                              <xs:element name="HeatingPlantID" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>ID number of HeatingPlant serving as the source for this zonal system.</xs:documentation>
+                                  <xs:documentation>ID number of HeatingPlant serving as the source for this zonal system. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -5005,9 +5011,9 @@
                                     </xs:element>
                                     <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
                                     <xs:element ref="auc:CoolingSourceID" minOccurs="0"/>
-                                    <xs:element name="LinkedHeatingPlantID" minOccurs="0">
+                                    <xs:element name="HeatingPlantID" minOccurs="0">
                                       <xs:annotation>
-                                        <xs:documentation>ID number of HeatingPlant serving as the source for this heat pump.</xs:documentation>
+                                        <xs:documentation>ID number of HeatingPlant serving as the source for this heat pump. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant.</xs:documentation>
                                       </xs:annotation>
                                       <xs:complexType>
                                         <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -5109,7 +5115,7 @@
                             <xs:choice>
                               <xs:element name="CoolingPlantID" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>ID number of CoolingPlant serving as the source for this zonal system.</xs:documentation>
+                                  <xs:documentation>ID number of CoolingPlant serving as the source for this zonal system. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/CoolingPlants/CoolingPlant.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                   <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -5372,6 +5378,9 @@
                                       </xs:simpleType>
                                     </xs:element>
                                     <xs:element name="ReheatPlantID" minOccurs="0">
+                                      <xs:annotation>
+                                        <xs:documentation>ID number of HeatingPlant serving as the source for this reheat system. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant.</xs:documentation>
+                                      </xs:annotation>
                                       <xs:complexType>
                                         <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                       </xs:complexType>
@@ -5386,7 +5395,7 @@
                         </xs:element>
                         <xs:element name="HeatingSourceID" minOccurs="0">
                           <xs:annotation>
-                            <xs:documentation>ID number of the HeatingSource associated with this delivery mechanism.</xs:documentation>
+                            <xs:documentation>ID number of the HeatingSource associated with this delivery mechanism. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/HeatingSources/HeatingSource.</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -5747,7 +5756,7 @@
       </xs:element>
       <xs:element name="HeatingDeliveryID" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Heating delivery system supported by the air-distribution system.</xs:documentation>
+          <xs:documentation>Heating delivery system supported by the air-distribution system. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/Deliveries/Delivery.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -5755,7 +5764,7 @@
       </xs:element>
       <xs:element name="CoolingDeliveryID" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Cooling delivery system supported by the air-distribution system.</xs:documentation>
+          <xs:documentation>Cooling delivery system supported by the air-distribution system. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/Deliveries/Delivery.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -6714,7 +6723,7 @@
           <xs:sequence>
             <xs:element name="LinkedDeliveryID" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
-                <xs:documentation>Connect to an air distribution system</xs:documentation>
+                <xs:documentation>Connect to an air distribution system. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/Deliveries/Delivery.</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -7400,7 +7409,7 @@
                                         <xs:sequence>
                                           <xs:element name="HeatingPlantID" minOccurs="0">
                                             <xs:annotation>
-                                              <xs:documentation>ID number of HeatingPlant serving as the source for this hot water system.</xs:documentation>
+                                              <xs:documentation>ID number of HeatingPlant serving as the source for this hot water system. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant.</xs:documentation>
                                             </xs:annotation>
                                             <xs:complexType>
                                               <xs:attribute name="IDref" type="xs:IDREF"/>
@@ -8886,7 +8895,7 @@
       </xs:element>
       <xs:element name="SystemIDReceivingHeat" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>ID number of the system that usually receives heat from another system.</xs:documentation>
+          <xs:documentation>ID number of the system that usually receives heat from another system. Valid reference paths: BuildingSync/Facilities/Facility/Systems/***Systems/***System.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -8894,7 +8903,7 @@
       </xs:element>
       <xs:element name="SystemIDProvidingHeat" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>ID number of the system that usually provides heat to another system.</xs:documentation>
+          <xs:documentation>ID number of the system that usually provides heat to another system. Valid reference paths: BuildingSync/Facilities/Facility/Systems/***Systems/***System.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -12691,7 +12700,7 @@
   </xs:attribute>
   <xs:element name="PrimaryContactID">
     <xs:annotation>
-      <xs:documentation>Primary contact ID number for the premises.</xs:documentation>
+      <xs:documentation>Primary contact ID number for the premises. Valid reference paths: BuildingSync/Facilities/Facility/Contacts/Contact.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -12702,7 +12711,7 @@
       <xs:sequence>
         <xs:element name="TenantID">
           <xs:annotation>
-            <xs:documentation>Tenant ID number for the premises.</xs:documentation>
+            <xs:documentation>Tenant ID number for the premises. Valid reference paths: BuildingSync/Facilities/Facility/Tenants/Tenant.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -12786,6 +12795,9 @@
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element name="ExcludedSectionID" maxOccurs="unbounded">
+                      <xs:annotation>
+                        <xs:documentation>Link to Sections not included in the floor area calculation. Valid reference paths: BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building/Sections/Section.</xs:documentation>
+                      </xs:annotation>
                       <xs:complexType>
                         <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                       </xs:complexType>
@@ -13121,9 +13133,9 @@
       </xs:simpleContent>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ReferenceCase">
+  <xs:element name="ReferenceScenarioID">
     <xs:annotation>
-      <xs:documentation>ID number for scenario that serves as the reference case for calculating energy savings, simple payback, etc.</xs:documentation>
+      <xs:documentation>ID number for scenario that serves as the reference case for calculating energy savings, simple payback, etc. Valid reference paths: BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -14769,7 +14781,7 @@
   </xs:simpleType>
   <xs:element name="WallID">
     <xs:annotation>
-      <xs:documentation>ID number of the wall type associated with this side of the section.</xs:documentation>
+      <xs:documentation>ID number of the wall type associated with this side of the section. Valid reference paths: BuildingSync/Facilities/Facility/Systems/WallSystems/WallSystem.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -14791,7 +14803,7 @@
   </xs:element>
   <xs:element name="DoorID">
     <xs:annotation>
-      <xs:documentation>ID number of the door type associated with this side of the section.</xs:documentation>
+      <xs:documentation>ID number of the door type associated with this side of the section. Valid reference paths: BuildingSync/Facilities/Facility/Systems/FenestrationSystems/FenestrationSystem/FenestrationType/Door.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -14802,7 +14814,7 @@
   </xs:element>
   <xs:element name="WindowID">
     <xs:annotation>
-      <xs:documentation>ID number of the window type associated with this side of the section.</xs:documentation>
+      <xs:documentation>ID number of the window type associated with this side of the section. Valid reference paths: BuildingSync/Facilities/Facility/Systems/FenestrationSystems/FenestrationSystem/FenestrationType/Window.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -14835,6 +14847,9 @@
     <xs:sequence>
       <xs:element name="DerivedModelName" type="xs:string" minOccurs="0"/>
       <xs:element name="MeasuredScenarioID" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>ID number of the scenario of which the data is used to derive the model. Valid reference paths: BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario.</xs:documentation>
+        </xs:annotation>
         <xs:complexType>
           <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
         </xs:complexType>
@@ -15138,7 +15153,7 @@
                 <xs:sequence>
                   <xs:element name="BaselinePeriodModelID" minOccurs="0" maxOccurs="1">
                     <xs:annotation>
-                      <xs:documentation>Applicable when the NormalizationMethod is Forecast or Standard Conditions. Define a link to the ID of the Model considered as the baseline period Model. In the event it is Forecast, the reporting period and comparison period are considered synonymous.</xs:documentation>
+                      <xs:documentation>Applicable when the NormalizationMethod is Forecast or Standard Conditions. Define a link to the ID of the Model considered as the baseline period Model. In the event it is Forecast, the reporting period and comparison period are considered synonymous. Valid reference paths: BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario/ScenarioType/DerivedModel/Models/Model.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:attribute name="IDref" type="xs:IDREF"/>
@@ -15146,7 +15161,7 @@
                   </xs:element>
                   <xs:element name="ReportingPeriodModelID" minOccurs="0" maxOccurs="1">
                     <xs:annotation>
-                      <xs:documentation>Applicable when the NormalizationMethod is Backcast or Standard Conditions. Define a link to the ID of the Model considered as the reporting period Model. In the event it is Backcast, the baseline period and comparison period are considered synonymous.</xs:documentation>
+                      <xs:documentation>Applicable when the NormalizationMethod is Backcast or Standard Conditions. Define a link to the ID of the Model considered as the reporting period Model. In the event it is Backcast, the baseline period and comparison period are considered synonymous. Valid reference paths: BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario/ScenarioType/DerivedModel/Models/Model.</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
                       <xs:attribute name="IDref" type="xs:IDREF"/>
@@ -15633,7 +15648,7 @@
       <xs:sequence>
         <xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded">
           <xs:annotation>
-            <xs:documentation>ID number of the CondenserPlant serving as the source for this cooling system.</xs:documentation>
+            <xs:documentation>ID number of the CondenserPlant serving as the source for this cooling system. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/CondenserPlants/CondenserPlant.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -15668,7 +15683,7 @@
   </xs:element>
   <xs:element name="CoolingSourceID">
     <xs:annotation>
-      <xs:documentation>ID number of the associated CoolingSource.</xs:documentation>
+      <xs:documentation>ID number of the associated CoolingSource. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/CoolingSources/CoolingSource.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -15826,9 +15841,9 @@
       </xs:simpleContent>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ExistingScheduleAffected">
+  <xs:element name="ExistingScheduleIDAffected">
     <xs:annotation>
-      <xs:documentation>ID numbers of schedules replaced by the measure.</xs:documentation>
+      <xs:documentation>ID numbers of schedules replaced by the measure. Valid reference paths: BuildingSync/Facilities/Facility/Schedules/Schedule.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -16034,7 +16049,7 @@
   </xs:element>
   <xs:element name="LinkedBuildingID">
     <xs:annotation>
-      <xs:documentation>ID numbers of the associated buildings.</xs:documentation>
+      <xs:documentation>ID numbers of the associated buildings. Valid reference paths: BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -16046,7 +16061,7 @@
   </xs:element>
   <xs:element name="LinkedFacilityID">
     <xs:annotation>
-      <xs:documentation>ID numbers of the facilities associated with the system.</xs:documentation>
+      <xs:documentation>ID numbers of the facilities associated with the system. Valid reference paths: BuildingSync/Facilities/Facility.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -16061,7 +16076,7 @@
       <xs:sequence>
         <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded">
           <xs:annotation>
-            <xs:documentation>ID numbers of one or more schedules that apply in the context of the linked premise.</xs:documentation>
+            <xs:documentation>ID numbers of one or more schedules that apply in the context of the linked premise. Valid reference paths: BuildingSync/Facilities/Facility/Schedules/Schedule.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -16072,7 +16087,7 @@
   </xs:element>
   <xs:element name="LinkedSectionID">
     <xs:annotation>
-      <xs:documentation>ID numbers of the associated sections.</xs:documentation>
+      <xs:documentation>ID numbers of the associated sections. Valid reference paths: BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building/Sections/Section.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -16084,7 +16099,7 @@
   </xs:element>
   <xs:element name="LinkedSiteID">
     <xs:annotation>
-      <xs:documentation>ID numbers of the sites associated with the system.</xs:documentation>
+      <xs:documentation>ID numbers of the sites associated with the system. Valid reference paths: BuildingSync/Facilities/Facility/Sites/Site.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -16096,7 +16111,7 @@
   </xs:element>
   <xs:element name="LinkedSpaceID">
     <xs:annotation>
-      <xs:documentation>ID numbers of the associated spaces.</xs:documentation>
+      <xs:documentation>ID numbers of the associated spaces. Valid reference paths: BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building/Sections/Section/ThermalZones/ThermalZone/Spaces/Space.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -16108,7 +16123,7 @@
   </xs:element>
   <xs:element name="LinkedSystemID">
     <xs:annotation>
-      <xs:documentation>ID number of associated system(s).</xs:documentation>
+      <xs:documentation>ID number of associated system(s). Valid reference paths: BuildingSync/Facilities/Facility/Systems/***Systems/***System.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -16123,7 +16138,7 @@
   </xs:element>
   <xs:element name="LinkedThermalZoneID">
     <xs:annotation>
-      <xs:documentation>ID numbers of the associated zones.</xs:documentation>
+      <xs:documentation>ID numbers of the associated zones. Valid reference paths: BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building/Sections/Section/ThermalZones/ThermalZone.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -16145,9 +16160,9 @@
       </xs:simpleContent>
     </xs:complexType>
   </xs:element>
-  <xs:element name="MakeupAirSourceID">
+  <xs:element name="MakeupAirSpaceID">
     <xs:annotation>
-      <xs:documentation>ID number of the Space that provides makeup air for exhaust ventilation.</xs:documentation>
+      <xs:documentation>ID number of the Space that provides makeup air for exhaust ventilation. Valid reference paths: BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building/Sections/Section/ThermalZones/ThermalZone/Spaces/Space.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
@@ -16162,9 +16177,9 @@
       <xs:documentation>The minimum part load ratio at which the system is able to operate. (0-1) (fraction)</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="ModifiedSchedule">
+  <xs:element name="ModifiedScheduleID">
     <xs:annotation>
-      <xs:documentation>ID numbers of schedules associated with the improved systems.</xs:documentation>
+      <xs:documentation>ID numbers of schedules associated with the improved systems. Valid reference paths: BuildingSync/Facilities/Facility/Schedules/Schedule.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -16417,7 +16432,7 @@
       <xs:sequence>
         <xs:element name="SpaceID" minOccurs="0" maxOccurs="unbounded">
           <xs:annotation>
-            <xs:documentation>ID number of the space type associated with this side of the section.</xs:documentation>
+            <xs:documentation>ID number of the space type associated with this side of the section. Valid reference paths: BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building/Sections/Section/ThermalZones/ThermalZone/Spaces/Space.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
@@ -16494,7 +16509,7 @@
       <xs:sequence>
         <xs:element name="ThermalZoneID" minOccurs="0" maxOccurs="unbounded">
           <xs:annotation>
-            <xs:documentation>ID number of the zone type associated with this space or side of the section.</xs:documentation>
+            <xs:documentation>ID number of the zone type associated with this space or side of the section. Valid reference paths: BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building/Sections/Section/ThermalZones/ThermalZone.</xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
