@@ -1415,7 +1415,7 @@
   <xs:complexType name="ThermalZoneType">
     <xs:sequence>
       <xs:element ref="auc:PremisesName" minOccurs="0"/>
-      <xs:element ref="auc:LinkedDeliveryIDs" minOccurs="0">
+      <xs:element ref="auc:LinkedDeliveryIDs" minOccurs="0"/>
       <xs:element name="HVACScheduleIDs" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
@@ -6688,7 +6688,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element ref="auc:LinkedDeliveryIDs" minOccurs="0">
+      <xs:element ref="auc:LinkedDeliveryIDs" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
