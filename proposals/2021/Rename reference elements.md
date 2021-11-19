@@ -18,6 +18,7 @@ We propose the following changes:
 `ExistingSystemReplaced` -> `ExistingSystemIDReplaced`
 `SourceHeatingPlantID` -> `HeatingPlantID`
 `LinkedHeatingPlantID` -> `HeatingPlantID`
+`DeliveryIDs` -> `LinkedDeliveryIDs`
 `DeliveryID` -> `LinkedDeliveryID`
 `MakeupAirSourceID` -> `MakeupAirSpaceID`
 `ModifiedSchedule` -> `ModifiedScheduleID`

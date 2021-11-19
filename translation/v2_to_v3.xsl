@@ -226,7 +226,12 @@ Version: 0.1.0
       <xsl:apply-templates select="@*|node()"/>
     </xsl:element>
   </xsl:template>
-  <!-- 9. `DeliveryID` -> `LinkedDeliveryID` -->
+  <!-- 9. `DeliveryIDs` -> `LinkedDeliveryIDs` and `DeliveryID` -> `LinkedDeliveryID` -->
+  <xsl:template match="auc:DeliveryIDs">
+    <xsl:element name="auc:LinkedDeliveryIDs">
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:element>
+  </xsl:template>
   <xsl:template match="auc:DeliveryID">
     <xsl:element name="auc:LinkedDeliveryID">
       <xsl:apply-templates select="@*|node()"/>
