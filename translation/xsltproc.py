@@ -4,9 +4,9 @@ import lxml.etree as ET
 
 ### Inputs
 # Path to the xsl file
-xsl_path = "v3_to_v2.xsl"
+xsl_path = "rename.xsl"
 # Path to the working folder
-example_path = '../spec/data'
+example_path = '../examples'
 
 ### Prepare processor
 xslt = ET.parse(xsl_path)
