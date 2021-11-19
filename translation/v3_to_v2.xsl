@@ -114,4 +114,89 @@ Version: 0.1.0
     </xsl:element>
   </xsl:template>
 
+  <!-- Reference elements -->
+  <!-- 1. `AlternativeSystemIDAdded` -> `AlternativeSystemAdded` -->
+  <xsl:template match="auc:AlternativeSystemIDAdded">
+    <xsl:element name="auc:AlternativeSystemAdded">
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:element>
+  </xsl:template>
+  <!-- 2. `AlternativeSystemIDReplacement` -> `AlternativeSystemReplacement` -->
+  <xsl:template match="auc:AlternativeSystemIDReplacement">
+    <xsl:element name="auc:AlternativeSystemReplacement">
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:element>
+  </xsl:template>
+  <!-- 3. `ExistingScheduleIDAffected` -> `ExistingScheduleAffected` -->
+  <xsl:template match="auc:ExistingScheduleIDAffected">
+    <xsl:element name="auc:ExistingScheduleAffected">
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:element>
+  </xsl:template>
+  <!-- 4. `ExistingSystemIDAffected` -> `ExistingSystemAffected` -->
+  <xsl:template match="auc:ExistingSystemIDAffected">
+    <xsl:element name="auc:ExistingSystemAffected">
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:element>
+  </xsl:template>
+  <!-- 5. `ExistingSystemIDRemoved` -> `ExistingSystemRemoved` -->
+  <xsl:template match="auc:ExistingSystemIDRemoved">
+    <xsl:element name="auc:ExistingSystemRemoved">
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:element>
+  </xsl:template>
+  <!-- 6. `ExistingSystemIDReplaced` -> `ExistingSystemReplaced` -->
+  <xsl:template match="auc:ExistingSystemIDReplaced">
+    <xsl:element name="auc:ExistingSystemReplaced">
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:element>
+  </xsl:template>
+  <!-- 7. `HeatingPlantID` -> `SourceHeatingPlantID` under auc:HeatingSourceType -->
+  <xsl:template match="auc:HeatingSourceType/auc:HeatingPlantID">
+    <xsl:element name="auc:SourceHeatingPlantID">
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:element>
+  </xsl:template>
+  <!-- 8. `HeatingPlantID` -> `LinkedHeatingPlantID` under auc:HeatPump -->
+  <xsl:template match="auc:HeatPump/auc:HeatingPlantID">
+    <xsl:element name="auc:LinkedHeatingPlantID">
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:element>
+  </xsl:template>
+  <!-- 9. `DeliveryIDs` -> `LinkedDeliveryIDs` and `DeliveryID` -> `LinkedDeliveryID` under auc:OtherHVACSystem -->
+  <xsl:template match="auc:OtherHVACSystem/auc:DeliveryIDs">
+    <xsl:element name="auc:LinkedDeliveryIDs">
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:element>
+  </xsl:template>
+  <xsl:template match="auc:LinkedDeliveryIDs/auc:DeliveryID">
+    <xsl:element name="auc:LinkedDeliveryID">
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:element>
+  </xsl:template>
+  <!-- 10. `MakeupAirSpaceID` -> `MakeupAirSourceID` -->
+  <xsl:template match="auc:MakeupAirSpaceID">
+    <xsl:element name="auc:MakeupAirSourceID">
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:element>
+  </xsl:template>
+  <!-- 11. `ModifiedScheduleID` -> `ModifiedSchedule` -->
+  <xsl:template match="auc:ModifiedScheduleID">
+    <xsl:element name="auc:ModifiedSchedule">
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:element>
+  </xsl:template>
+  <!-- 12. `ModifiedSystemID` -> `ModifiedSystem` -->
+  <xsl:template match="auc:ModifiedSystemID">
+    <xsl:element name="auc:ModifiedSystem">
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:element>
+  </xsl:template>
+  <!-- 13. `ReferenceScenarioID` -> `ReferenceCase` -->
+  <xsl:template match="auc:ReferenceScenarioID">
+    <xsl:element name="auc:ReferenceCase">
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:element>
+  </xsl:template>
+
 </xsl:stylesheet>
