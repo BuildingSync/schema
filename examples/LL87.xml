@@ -132,7 +132,7 @@
               <HeatingSources>
                 <HeatingSource ID="HeatingSource1">
                   <HeatingSourceType>
-                    <SourceHeatingPlantID IDref="HeatingPlant1"/>
+                    <auc:HeatingPlantID xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" IDref="HeatingPlant1"/>
                   </HeatingSourceType>
                   <HeatingMedium>Hot water</HeatingMedium>
                   <PrimaryFuel>Fuel oil no 5 and no 6</PrimaryFuel>
@@ -344,7 +344,7 @@
           <TypeOfMeasure>
             <Removals>
               <Removal>
-                <ExistingSystemRemoved IDref="AllThePV"/>
+                <auc:ExistingSystemIDRemoved xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" IDref="AllThePV"/>
               </Removal>
             </Removals>
           </TypeOfMeasure>
@@ -359,7 +359,7 @@
           <TypeOfMeasure>
             <Removals>
               <Removal>
-                <ExistingSystemRemoved IDref="AllThePV"/>
+                <auc:ExistingSystemIDRemoved xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" IDref="AllThePV"/>
               </Removal>
             </Removals>
           </TypeOfMeasure>
