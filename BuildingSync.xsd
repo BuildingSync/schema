@@ -1415,20 +1415,7 @@
   <xs:complexType name="ThermalZoneType">
     <xs:sequence>
       <xs:element ref="auc:PremisesName" minOccurs="0"/>
-      <xs:element name="LinkedDeliveryIDs" minOccurs="0">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="LinkedDeliveryID" minOccurs="0" maxOccurs="unbounded">
-              <xs:annotation>
-                <xs:documentation>ID number of HVAC delivery systems supporting the zone. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/Deliveries/Delivery.</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-              </xs:complexType>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
+      <xs:element ref="auc:LinkedDeliveryIDs" minOccurs="0">
       <xs:element name="HVACScheduleIDs" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
@@ -4920,14 +4907,7 @@
                           </xs:annotation>
                           <xs:complexType>
                             <xs:choice>
-                              <xs:element name="HeatingPlantID" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>ID number of HeatingPlant serving as the source for this zonal system. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                </xs:complexType>
-                              </xs:element>
+                              <xs:element ref="auc:HeatingPlantID" minOccurs="0"/>
                               <xs:element ref="auc:ElectricResistance" minOccurs="0"/>
                               <xs:element name="Furnace" minOccurs="0">
                                 <xs:complexType>
@@ -5011,14 +4991,7 @@
                                     </xs:element>
                                     <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
                                     <xs:element ref="auc:CoolingSourceID" minOccurs="0"/>
-                                    <xs:element name="HeatingPlantID" minOccurs="0">
-                                      <xs:annotation>
-                                        <xs:documentation>ID number of HeatingPlant serving as the source for this heat pump. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant.</xs:documentation>
-                                      </xs:annotation>
-                                      <xs:complexType>
-                                        <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-                                      </xs:complexType>
-                                    </xs:element>
+                                    <xs:element ref="auc:HeatingPlantID" minOccurs="0"/>
                                   </xs:sequence>
                                 </xs:complexType>
                               </xs:element>
@@ -6715,23 +6688,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="LinkedDeliveryIDs" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>List of connections to air distribution systems.</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="LinkedDeliveryID" minOccurs="0" maxOccurs="unbounded">
-              <xs:annotation>
-                <xs:documentation>Connect to an air distribution system. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/Deliveries/Delivery.</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
-              </xs:complexType>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
+      <xs:element ref="auc:LinkedDeliveryIDs" minOccurs="0">
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
     </xs:sequence>
@@ -7407,14 +7364,7 @@
                                     <xs:element name="SpaceHeatingSystem" minOccurs="0">
                                       <xs:complexType>
                                         <xs:sequence>
-                                          <xs:element name="HeatingPlantID" minOccurs="0">
-                                            <xs:annotation>
-                                              <xs:documentation>ID number of HeatingPlant serving as the source for this hot water system. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant.</xs:documentation>
-                                            </xs:annotation>
-                                            <xs:complexType>
-                                              <xs:attribute name="IDref" type="xs:IDREF"/>
-                                            </xs:complexType>
-                                          </xs:element>
+                                          <xs:element ref="auc:HeatingPlantID" minOccurs="0"/>
                                         </xs:sequence>
                                       </xs:complexType>
                                     </xs:element>
@@ -15981,6 +15931,14 @@
       </xs:simpleContent>
     </xs:complexType>
   </xs:element>
+  <xs:element name="HeatingPlantID">
+    <xs:annotation>
+      <xs:documentation>ID number of HeatingPlant serving as the source for the zone/system. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="HeatingStageCapacityFraction" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">
     <xs:annotation>
       <xs:documentation>Average capacity of each heating stage, at Air-Conditioning, Heating, and Refrigeration Institute (AHRI) rated conditions, expressed as a fraction of total capacity. (0-1) (fraction)</xs:documentation>
@@ -16057,6 +16015,20 @@
         <xs:element ref="auc:FloorAreas" minOccurs="0"/>
       </xs:sequence>
       <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LinkedDeliveryIDs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="LinkedDeliveryID" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>ID number of HVAC delivery system supporting the zone or connecting to an air distribution system. Valid reference paths: BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/Deliveries/Delivery.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="LinkedFacilityID">
