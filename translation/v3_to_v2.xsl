@@ -163,8 +163,8 @@ Version: 0.1.0
       <xsl:apply-templates select="@*|node()"/>
     </xsl:element>
   </xsl:template>
-  <!-- 9. `DeliveryIDs` -> `LinkedDeliveryIDs` and `DeliveryID` -> `LinkedDeliveryID` under auc:OtherHVACSystem -->
-  <xsl:template match="auc:OtherHVACSystem/auc:DeliveryIDs">
+  <!-- 9. `DeliveryIDs` -> `LinkedDeliveryIDs` and `DeliveryID` -> `LinkedDeliveryID` under auc:ThermalZone -->
+  <xsl:template match="auc:ThermalZone/auc:DeliveryIDs">
     <xsl:element name="auc:LinkedDeliveryIDs">
       <xsl:apply-templates select="@*|node()"/>
     </xsl:element>

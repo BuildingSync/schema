@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.3.0/BuildingSync.xsd" version="2.3.0">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.4.0/BuildingSync.xsd" version="2.4.0">
   <auc:Facilities>
     <auc:Facility ID="Facility-1">
       <auc:Sites>
@@ -11,8 +11,8 @@
                 <auc:Section ID="Section-1">
                   <auc:Sides>
                     <auc:Side>
-                      <auc:WindowID IDref="Window-1"/>
-                      <auc:DoorID IDref="Door-1"/>
+                      <auc:WindowID IDref="FenestrationSystemType-2"/>
+                      <auc:DoorID IDref="FenestrationSystemType-1"/>
                     </auc:Side>
                   </auc:Sides>
                 </auc:Section>
@@ -118,6 +118,16 @@
                       <auc:FloorAreaValue>0.0</auc:FloorAreaValue>
                     </auc:FloorArea>
                   </auc:FloorAreas>
+                  <auc:ThermalZones>
+                    <auc:ThermalZone ID="ThermalZone-1">
+                      <auc:DeliveryIDs>
+                        <auc:DeliveryID IDref="Delivery-1"/>
+                      </auc:DeliveryIDs>
+                      <auc:Spaces>
+                        <auc:Space ID="Space-1"/>
+                      </auc:Spaces>
+                    </auc:ThermalZone>
+                  </auc:ThermalZones>
                 </auc:Section>
               </auc:Sections>
             </auc:Building>
@@ -151,6 +161,18 @@
                 <auc:HeatingSource ID="HeatingSource-1">
                   <auc:OutputCapacity>1200</auc:OutputCapacity>
                 </auc:HeatingSource>
+                <auc:HeatingSource ID="HeatingSource-2">
+                  <auc:HeatingSourceType>
+                    <auc:SourceHeatingPlantID IDref="HeatingPlant-1"/>
+                  </auc:HeatingSourceType>
+                </auc:HeatingSource>
+                <auc:HeatingSource ID="HeatingSource-3">
+                  <auc:HeatingSourceType>
+                    <auc:HeatPump>
+                      <auc:LinkedHeatingPlantID IDref="HeatingPlant-2"/>
+                    </auc:HeatPump>
+                  </auc:HeatingSourceType>
+                </auc:HeatingSource>
               </auc:HeatingSources>
               <auc:Deliveries>
                 <auc:Delivery ID="Delivery-1">
@@ -165,6 +187,17 @@
               </auc:DuctSystem>
             </auc:DuctSystems>
             <auc:PrimaryHVACSystemType>Packaged Rooftop Air Conditioner</auc:PrimaryHVACSystemType>
+          </auc:HVACSystem>
+          <auc:HVACSystem ID="HVACSystem-2">
+            <auc:OtherHVACSystems>
+              <auc:OtherHVACSystem ID="OtherHVACSystem-1">
+                <auc:OtherHVACType>
+                  <auc:MechanicalVentilation>
+                    <!--auc:MakeupAirSourceID IDref="Space-1"/-->
+                  </auc:MechanicalVentilation>
+                </auc:OtherHVACType>
+              </auc:OtherHVACSystem>
+            </auc:OtherHVACSystems>
           </auc:HVACSystem>
         </auc:HVACSystems>
         <auc:FanSystems>
@@ -201,6 +234,27 @@
           </auc:FenestrationSystem>
         </auc:FenestrationSystems>
       </auc:Systems>
+      <auc:Schedules>
+        <auc:Schedule ID="Schedule-1">
+          <auc:ScheduleDetails>
+            <auc:ScheduleDetail>
+              <auc:DayType>Saturday</auc:DayType>
+              <auc:DayStartTime>07:00:00</auc:DayStartTime>
+              <auc:DayEndTime>18:00:00</auc:DayEndTime>
+            </auc:ScheduleDetail>
+            <auc:ScheduleDetail>
+              <auc:DayType>Sunday</auc:DayType>
+              <auc:DayStartTime>08:00:00</auc:DayStartTime>
+              <auc:DayEndTime>17:00:00</auc:DayEndTime>
+            </auc:ScheduleDetail>
+            <auc:ScheduleDetail>
+              <auc:DayType>Weekday</auc:DayType>
+              <auc:DayStartTime>06:00:00</auc:DayStartTime>
+              <auc:DayEndTime>20:00:00</auc:DayEndTime>
+            </auc:ScheduleDetail>
+          </auc:ScheduleDetails>
+        </auc:Schedule>
+      </auc:Schedules>
       <auc:Measures>
         <auc:Measure ID="Measure-2">
           <auc:TechnologyCategories>
@@ -301,6 +355,46 @@
               </auc:BuildingAutomationSystems>
             </auc:TechnologyCategory>
           </auc:TechnologyCategories>
+        </auc:Measure>
+        <auc:Measure ID="Measure-13">
+          <auc:TypeOfMeasure>
+            <auc:Additions>
+              <auc:Addition>
+                <auc:AlternativeSystemAdded IDref="HVACSystem-1"/>
+                <auc:ExistingScheduleAffected IDref="Schedule-1"/>
+              </auc:Addition>
+            </auc:Additions>
+          </auc:TypeOfMeasure>
+        </auc:Measure>
+        <auc:Measure ID="Measure-14">
+          <auc:TypeOfMeasure>
+            <auc:Replacements>
+              <auc:Replacement>
+                <auc:ExistingSystemReplaced IDref="HVACSystem-1"/>
+                <auc:AlternativeSystemReplacement IDref="HVACSystem-1"/>
+              </auc:Replacement>
+            </auc:Replacements>
+          </auc:TypeOfMeasure>
+        </auc:Measure>
+        <auc:Measure ID="Measure-15">
+          <auc:TypeOfMeasure>
+            <auc:ModificationRetrocommissions>
+              <auc:ModificationRetrocommissioning>
+                <auc:ExistingSystemAffected IDref="HVACSystem-1"/>
+                <auc:ModifiedSystem IDref="HVACSystem-1"/>
+                <auc:ModifiedSchedule IDref="Schedule-1"/>
+              </auc:ModificationRetrocommissioning>
+            </auc:ModificationRetrocommissions>
+          </auc:TypeOfMeasure>
+        </auc:Measure>
+        <auc:Measure ID="Measure-16">
+          <auc:TypeOfMeasure>
+            <auc:Removals>
+              <auc:Removal>
+                <auc:ExistingSystemRemoved IDref="HVACSystem-1"/>
+              </auc:Removal>
+            </auc:Removals>
+          </auc:TypeOfMeasure>
         </auc:Measure>
       </auc:Measures>
       <auc:Reports>
