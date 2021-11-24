@@ -16137,11 +16137,7 @@
       <xs:documentation>ID number of the Space that provides makeup air for exhaust ventilation. Valid reference paths: BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building/Sections/Section/ThermalZones/ThermalZone/Spaces/Space.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
-      <xs:simpleContent>
-        <xs:extension base="xs:IDREF">
-          <xs:attribute name="IDref" type="xs:IDREF"/>
-        </xs:extension>
-      </xs:simpleContent>
+      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="MinimumPartLoadRatio" type="auc:BoundedDecimalZeroToOneWithSourceAttribute">

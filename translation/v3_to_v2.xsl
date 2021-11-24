@@ -18,7 +18,7 @@ Version: 0.1.0
   <xsl:output method="xml" version="1.0" encoding="UTF-8" omit-xml-declaration="no" indent="yes"/>
 
   <xsl:template match="/">
-    <xsl:comment>This BuildingSync v2.3 document was generated from a BuildingSync v3.X document via an XML Stylesheet Language Transformation (XSLT).</xsl:comment>
+    <xsl:comment>This BuildingSync v2.4 document was generated from a BuildingSync v3.X document via an XML Stylesheet Language Transformation (XSLT).</xsl:comment>
     <!--xsl:text>&#10;</xsl:text-->
     <xsl:copy>
       <xsl:apply-templates/>
@@ -36,7 +36,7 @@ Version: 0.1.0
   </xsl:template-->
 
   <xsl:template match="@version">
-    <xsl:attribute name="version">2.3.0</xsl:attribute>
+    <xsl:attribute name="version">2.4.0</xsl:attribute>
   </xsl:template>
 
   <!-- Measures -->
@@ -177,7 +177,7 @@ Version: 0.1.0
   <!-- 10. `MakeupAirSpaceID` -> `MakeupAirSourceID` -->
   <xsl:template match="auc:MakeupAirSpaceID">
     <xsl:element name="auc:MakeupAirSourceID">
-      <xsl:apply-templates select="@*|node()"/>
+      <xsl:value-of select="@IDref"/>
     </xsl:element>
   </xsl:template>
   <!-- 11. `ModifiedScheduleID` -> `ModifiedSchedule` -->

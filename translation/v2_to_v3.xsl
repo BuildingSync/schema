@@ -237,11 +237,9 @@ Version: 0.1.0
       <xsl:apply-templates select="@*|node()"/>
     </xsl:element>
   </xsl:template>
-  <!-- 10. `MakeupAirSourceID` -> `MakeupAirSpaceID` -->
+  <!-- 10. `MakeupAirSourceID` -> `MakeupAirSpaceID` and move text into attribute -->
   <xsl:template match="auc:MakeupAirSourceID">
-    <xsl:element name="auc:MakeupAirSpaceID">
-      <xsl:apply-templates select="@*|node()"/>
-    </xsl:element>
+    <auc:MakeupAirSpaceID IDref="{.}"/>
   </xsl:template>
   <!-- 11. `ModifiedSchedule` -> `ModifiedScheduleID` -->
   <xsl:template match="auc:ModifiedSchedule">
