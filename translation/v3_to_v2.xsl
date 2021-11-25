@@ -49,11 +49,7 @@ Version: 0.1.0
   <xsl:template match="auc:MeasureName[. = 'Insulate attic hatch']">
     <xsl:copy>Insulate attic hatch / stair box</xsl:copy>
   </xsl:template>
-  <!-- 3. Map enumeration "MROE" to "MORE" under auc:eGRIDRegionCode -->
-  <xsl:template match="auc:eGRIDRegionCode/auc:MeasureName[. = 'MROE']">
-    <xsl:copy>MORE</xsl:copy>
-  </xsl:template>
-  <!-- 4. Map enumeration "Convert to cleaner fuels" to "Convert to Cleaner Fuels" under auc:BoilerPlantImprovements -->
+  <!-- 3. Map enumeration "Convert to cleaner fuels" to "Convert to Cleaner Fuels" under auc:BoilerPlantImprovements -->
   <xsl:template match="auc:BoilerPlantImprovements/auc:MeasureName[. = 'Convert to cleaner fuels']">
     <xsl:copy>Convert to Cleaner Fuels</xsl:copy>
   </xsl:template>
@@ -105,6 +101,9 @@ Version: 0.1.0
   </xsl:template>
   <!-- 5. Transform auc:eGRIDSubregionCodes/auc:eGRIDSubregionCode element to auc:eGRIDRegionCode element -->
   <xsl:template match="auc:eGRIDSubregionCodes">
+    <xsl:copy-of select="auc:eGRIDSubregionCode"/>
+  </xsl:template>
+  <xsl:template match="auc:eGRIDSubregionCode">
     <xsl:copy-of select="auc:eGRIDRegionCode"/>
   </xsl:template>
   <!-- 7. Map auc:MaximumOutsideAirFlowRate to auc:MaximumOAFlowRate under auc:DuctSystem -->
