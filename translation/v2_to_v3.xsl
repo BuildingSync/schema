@@ -66,7 +66,7 @@ Version: 0.1.0
   <!-- 6. Map auc:FutureOtherECMs to auc:Uncategorized -->
   <xsl:template match="auc:FutureOtherECMs">
     <xsl:element name="auc:Uncategorized">
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="@*|node()"/>
     </xsl:element>
   </xsl:template>
   <!-- 7. Limit auc:MeasureName to exactly one by commenting out all other auc:MeasureNames -->
@@ -79,7 +79,7 @@ Version: 0.1.0
   <!-- 8. Move enumeration "Add or replace cooling tower" from auc:OtherHVAC/auc:MeasureName to auc:ChillerPlantImprovements/auc:MeasureName -->
   <xsl:template match="auc:OtherHVAC[auc:MeasureName = 'Add or replace cooling tower']">
     <xsl:element name="auc:ChillerPlantImprovements">
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="@*|node()"/>
     </xsl:element>
   </xsl:template>
   <!-- 9. Map enumeration "Install or Upgrade Master Venting" from auc:OtherHVAC/auc:MeasureName to "Install or upgrade master venting" under auc:ChilledWaterHotWaterAndSteamDistributionSystems/auc:MeasureName -->
@@ -91,7 +91,7 @@ Version: 0.1.0
   <!-- 10. Move enumeration "Separate SHW from heating" from auc:ChilledWaterHotWaterAndSteamDistributionSystems/auc:MeasureName to auc:ServiceHotWaterSystems/auc:MeasureName -->
   <xsl:template match="auc:ChilledWaterHotWaterAndSteamDistributionSystems[auc:MeasureName = 'Separate SHW from heating']">
     <xsl:element name="auc:ServiceHotWaterSystems">
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="@*|node()"/>
     </xsl:element>
   </xsl:template>
   <!-- 11. Map enumeration "Add heat recovery" from auc:BuildingAutomationSystems/auc:MeasureName to "Add energy recovery" under auc:OtherHVAC/auc:MeasureName-->
@@ -113,34 +113,34 @@ Version: 0.1.0
   <!-- 2. Map auc:PrimaryHVACSystemType to auc:PrincipalHVACSystemType -->
   <xsl:template match="auc:PrimaryHVACSystemType">
     <xsl:element name="auc:PrincipalHVACSystemType">
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="@*|node()"/>
     </xsl:element>
   </xsl:template>
   <!-- 3. Map auc:InstalledFlowRate to auc:FanInstallFlowRate under auc:FanSystem -->
   <xsl:template match="auc:FanSystem/auc:InstalledFlowRate">
     <xsl:element name="auc:FanInstalledFlowRate">
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="@*|node()"/>
     </xsl:element>
   </xsl:template>
   <!-- 4. Map auc:OutputCapacity to auc:Capacity for auc:HeatingSource and HeatingPlant types -->
   <xsl:template match="auc:HeatingSource/auc:OutputCapacity">
     <xsl:element name="auc:Capacity">
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="@*|node()"/>
     </xsl:element>
   </xsl:template>
   <xsl:template match="auc:Boiler/auc:OutputCapacity">
     <xsl:element name="auc:Capacity">
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="@*|node()"/>
     </xsl:element>
   </xsl:template>
   <xsl:template match="auc:DistrictHeating/auc:OutputCapacity">
     <xsl:element name="auc:Capacity">
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="@*|node()"/>
     </xsl:element>
   </xsl:template>
   <xsl:template match="auc:SolarThermal/auc:OutputCapacity">
     <xsl:element name="auc:Capacity">
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="@*|node()"/>
     </xsl:element>
   </xsl:template>
   <!-- 5. Transform auc:WallID, auc:WindowID, auc:DoorID elements under auc:Side to auc:WallIDs/auc:WallID, auc:WindowIDs/auc:WindowID, auc:DoorIDs/auc:DoorID elements -->
@@ -166,14 +166,14 @@ Version: 0.1.0
   <xsl:template match="auc:eGRIDRegionCode">
     <xsl:element name="auc:eGRIDSubregionCodes">
       <xsl:element name="auc:eGRIDSubregionCode">
-        <xsl:apply-templates/>
+        <xsl:apply-templates select="@*|node()"/>
       </xsl:element>
     </xsl:element>
   </xsl:template>
   <!-- 7. Map auc:MaximumOAFlowRate to auc:MaximumOutsideAirFlowRate under auc:DuctSystem -->
   <xsl:template match="auc:DuctSystem/auc:MaximumOAFlowRate">
     <xsl:element name="auc:MaximumOutsideAirFlowRate">
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="@*|node()"/>
     </xsl:element>
   </xsl:template>
 
