@@ -4,7 +4,7 @@ import lxml.etree as ET
 
 ### Inputs
 # Path to the xsl file
-xsl_path = "v3_to_v2.xsl"
+xsl_path = "v2_to_v3.xsl"
 # Path to the working folder
 example_path = '../spec/data'
 

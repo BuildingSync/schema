@@ -316,11 +316,11 @@ RSpec.describe 'Version translation from v3 to v2' do
     # Nokogiri doesn't seem to support XSDs which import other schemas with URLs
     # for the schemaLocation. To allow testing, we download the imported schema
     # and point schemaLocation to it instead
-    # schema_doc = Nokogiri::XML(URI.open('https://raw.githubusercontent.com/BuildingSync/schema/v2.3.0/BuildingSync.xsd'))
-    BUILDINGSYNC_V2_PATH = 'BuildingSync-v2.3.0.xsd'
+    # schema_doc = Nokogiri::XML(URI.open('https://raw.githubusercontent.com/BuildingSync/schema/v2.4.0/BuildingSync.xsd'))
+    BUILDINGSYNC_V2_PATH = 'BuildingSync-v2.4.0.xsd'
     if !File.file?(BUILDINGSYNC_V2_PATH) then
       open(BUILDINGSYNC_V2_PATH, 'wb') do |file|
-        file << open('https://raw.githubusercontent.com/BuildingSync/schema/v2.3.0/BuildingSync.xsd').read
+        file << open('https://raw.githubusercontent.com/BuildingSync/schema/v2.4.0/BuildingSync.xsd').read
       end
     end
     schema_doc = Nokogiri::XML(File.read(BUILDINGSYNC_V2_PATH))
