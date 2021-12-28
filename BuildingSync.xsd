@@ -433,10 +433,15 @@
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:enumeration value="2.0.0"/>
+            <xs:enumeration value="2.0"/>
             <xs:enumeration value="2.1.0"/>
+            <xs:enumeration value="2.1"/>
             <xs:enumeration value="2.2.0"/>
+            <xs:enumeration value="2.2"/>
             <xs:enumeration value="2.3.0"/>
+            <xs:enumeration value="2.3"/>
             <xs:enumeration value="2.4.0"/>
+            <xs:enumeration value="2.4"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -4312,6 +4317,7 @@
                             <xs:restriction base="xs:string">
                               <xs:enumeration value="Improve data center efficiency"/>
                               <xs:enumeration value="Implement hot aisle hold aisle design"/>
+                              <xs:enumeration value="Implement hot aisle cold aisle design"/>
                               <xs:enumeration value="Implement server virtualization"/>
                               <xs:enumeration value="Upgrade servers"/>
                               <xs:enumeration value="Clean and/or repair"/>
