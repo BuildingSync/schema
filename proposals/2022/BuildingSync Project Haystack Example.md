@@ -1,12 +1,12 @@
 # BuildingSync Project Haystack Example
 
-The files in this directory contain an example implementation of connecting a BuildingSync model (.xml) to a [Project Haystack](https://project-haystack.org/) model (.json). The files are _not_ valid schema representations and are shortened to highlight the relevant common elements and entities.
+The examples below demonstrate an implementation for connecting a BuildingSync model (.xml) to a [Project Haystack](https://project-haystack.org/) model (.json). The examples are _not_ valid schema representations and are shortened to highlight the relevant common elements and entities.
 
 ## BuildingSync
 
-The BuildingSync XML file contains three _new_ high-level elements under the `<Building>` element, listed below, that describe details of the metadata ontology or schema. These elements are placed here to accomodate multiple buildings on a single site that may use different metadata schemas, e.g. Brick, Haystack, and ASHRAE 223.
+The BuildingSync XML below contains three _new_ high-level elements under the `<Building>` element that describe details of the metadata ontology or schema. These elements are placed here to accomodate multiple buildings on a single site that may use different metadata schemas, e.g. Brick, Haystack, and ASHRAE 223.
  
-The file also contains one _new_ low-level element `<NEWExternalMetaDataEntityID>` showing an example connection to a Haystack entity, shown below.
+The XML also contains one _new_ low-level element `<NEWExternalMetaDataEntityID>` showing an example connection to a Haystack entity, shown below.
  
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -38,7 +38,7 @@ The file also contains one _new_ low-level element `<NEWExternalMetaDataEntityID
  
 ## Project Haystack
  
-The Project Haystack JSON file shows an example entity with a common ID to connect to the `<NEWExternalMetaDataEntityID>` BuildingSync element.
+The Project Haystack JSON below shows an example entity with a common ID to connect to the `<NEWExternalMetaDataEntityID>` BuildingSync element.
  
 ```json
 {
