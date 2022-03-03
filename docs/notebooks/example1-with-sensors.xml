@@ -223,6 +223,21 @@
                     <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Energy-11"/>
                     <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Energy-12"/>
                   </AnnualFuelUseLinkedTimeSeriesIDs>
+                  <Emissions>
+                    <Emission>
+                      <EmissionBoundary>Indirect</EmissionBoundary>
+                      <EmissionsType>CO2e</EmissionsType>
+                      <GHGEmissions>TOTAL FROM OUR TIME SERIES</GHGEmissions>
+                      <EmissionsLinkedTimeSeriesIDs>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-1"/>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-2"/>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-3"/>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-4"/>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-5"/>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-..."/>
+                      </EmissionsLinkedTimeSeriesIDs>
+                    </Emission>
+                  </Emissions>
                   <PeakResourceUnits>kW</PeakResourceUnits>
                   <AnnualPeakNativeUnits>21.120000</AnnualPeakNativeUnits>
                   <AnnualPeakConsistentUnits>21.120000</AnnualPeakConsistentUnits>
@@ -799,6 +814,15 @@
                   <IntervalReading>32.470000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-CO2e-1">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions | CO2e <-NEW </TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-12-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-01-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>250</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Emissions"/>
+                </TimeSeries>
               </TimeSeriesData>
               <AllResourceTotals>
                 <AllResourceTotal ID="AllResourceTotal-1">
@@ -814,6 +838,8 @@
                   <NetIncreaseInStoredEnergyConsistentUnits>0.000000</NetIncreaseInStoredEnergyConsistentUnits>
                   <EnergyCost>5395.000000</EnergyCost>
                   <EnergyCostIndex>0.980000</EnergyCostIndex>
+                  <AnnualAverageCarbonEmissions>kgCO2e  - 15000</AnnualAverageCarbonEmissions>
+                  <AnnualMarginalCarbonEmissions>kgCO2e    -  25000 </AnnualMarginalCarbonEmissions>
                 </AllResourceTotal>
               </AllResourceTotals>
             </Scenario>
@@ -841,9 +867,12 @@
               <ScenarioType>
                 <Target>
                   <ReferenceCase IDref="Scenario-Benchmark"/>
+                  <ReferenceEndDate>2025-12-31</ReferenceEndDate>
                   <AnnualSavingsSiteEnergy>67181.500000</AnnualSavingsSiteEnergy>
                   <AnnualSavingsCost>931</AnnualSavingsCost>
                   <ENERGYSTARScore>70.000000</ENERGYSTARScore>
+                  <AnnualSavingsAverageCarbonEmissions>500</AnnualSavingsAverageCarbonEmissions>
+                  <AnnualSavingsMarginalCarbonEmissions>200</AnnualSavingsMarginalCarbonEmissions>
                 </Target>
               </ScenarioType>
               <AllResourceTotals>
@@ -852,6 +881,8 @@
                   <SiteEnergyUseIntensity>37.800000</SiteEnergyUseIntensity>
                   <EnergyCost>4451.510000</EnergyCost>
                   <EnergyCostIndex>0.810000</EnergyCostIndex>
+                  <AnnualAverageCarbonEmissions>kgCO2e  -  10000 </AnnualAverageCarbonEmissions>
+                  <AnnualMarginalCarbonEmissions>kgCO2e  -  8000 </AnnualMarginalCarbonEmissions>
                 </AllResourceTotal>
               </AllResourceTotals>
             </Scenario>
@@ -870,8 +901,32 @@
                     <EstimatedROI>High</EstimatedROI>
                     <Priority>Medium</Priority>
                   </SimpleImpactAnalysis>
+                  <AnnualSavingsByFuels>
+                    <AnnualSavingsByFuel>
+                      <EnergyResource>Electricity</EnergyResource>
+                      <AnnualSavingsNativeUnits>12050</AnnualSavingsNativeUnits>
+                      <ResourceUnits>kgCO2e <_-- NEW</ResourceUnits>
+                      <Emissions <--- new section >
+                        <Emission>
+                          <EmissionBoundary>Indirect</EmissionBoundary>
+                          <EmissionsType>CO2e</EmissionsType>
+                          <GHGEmissions>TOTAL SAVINGS OVER REFERDCNE CASE</GHGEmissions>
+                          <EmissionsLinkedTimeSeriesIDs <<< IS THIS WHERE wwe are saving timeseries>
+                            <LinkedTimeSeriesID IDref="TS-ResourceUse-Savings-CO2e-1"/>
+                            <LinkedTimeSeriesID IDref="TS-ResourceUse-Savings-CO2e-2"/>
+                            <LinkedTimeSeriesID IDref="TS-ResourceUse-Savings-CO2e-3"/>
+                          </EmissionsLinkedTimeSeriesIDs>
+                        </Emission>
+                      </Emissions>
+                    </AnnualSavingsByFuel>
+                  </AnnualSavingsByFuels>
                 </PackageOfMeasures>
               </ScenarioType>
+              <TimeSeriesData>
+                <TimeSeries ID="TS-ResourceUse-Savings-CO2e-1">
+                  <ReadingType>Value</ReadingType>
+                </TimeSeries>
+              </TimeSeriesData>
             </Scenario>
             <Scenario ID="Scenario-POM-VSDs">
               <ScenarioType>
