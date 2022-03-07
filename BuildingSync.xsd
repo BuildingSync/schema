@@ -15558,17 +15558,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ActiveDehumidification">
+  <xs:element name="ActiveDehumidification" type="xs:boolean">
     <xs:annotation>
       <xs:documentation>True if an active dehumidification system is available (in addition to the dehumidification that takes place during normal direct expansion (DX) cooling operation).</xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:simpleContent>
-        <xs:extension base="xs:decimal">
-          <xs:attribute ref="auc:Source"/>
-        </xs:extension>
-      </xs:simpleContent>
-    </xs:complexType>
   </xs:element>
   <xs:element name="AnnualCoolingEfficiencyValue">
     <xs:annotation>
