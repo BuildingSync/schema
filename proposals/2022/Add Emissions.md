@@ -39,7 +39,7 @@ The BuildingSync schema needs to be modify to accomodate a standard way of repor
   </xs:element>
   <xs:element name="AnnualSavingsMarginalCarbonEmissions">
     <xs:annotation>
-      <xs:documentation>Marginal carbon emissions savings per year. (kg CO2e/year)</xs:documentation>
+      <xs:documentation>Marginal GHG emissions savings per year. (kg CO2e/year)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
