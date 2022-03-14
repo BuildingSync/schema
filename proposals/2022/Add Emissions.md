@@ -27,7 +27,7 @@ The BuildingSync schema needs to be modify to accomodate a standard way of repor
 ```xml
  <xs:element name="AnnualSavingsAverageCarbonEmissions">
     <xs:annotation>
-      <xs:documentation>Average carbon emissions savings per year. (kg CO2e/year)</xs:documentation>
+      <xs:documentation>Average GHG emissions savings per year. (kg CO2e/year)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
