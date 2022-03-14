@@ -2,11 +2,11 @@
 
 ## Overview
 
-This proposal is to add several Emissions related fields to the BuildingSync schema to capture information on carbon emissions, specifically CO2e in units of kg of CO2e. 
+This proposal is to add several Emissions related fields to the BuildingSync schema to capture information on GHG emissions, specifically CO2e in units of kg of CO2e. 
 
 1. Added to AllResourceTotal:
-	- AnnualAverageCarbonEmissions
-	- AnnualMarginalCarbonEmissions
+	- AnnualAverageGHGEmissions
+	- AnnualMarginalGHGEmissions
 1. Added to ResourceUse -> Emissions -> Emission:
 	- EmissionsLinkedTimeSeriesIDs -> EmissionsLinkedTimeSeriesID
 1. Added to TimeSeries -> TimeSeriesReadingQuantity
@@ -15,17 +15,17 @@ This proposal is to add several Emissions related fields to the BuildingSync sch
 	1. Added to ScenarioType -> CurrentBuilding, ScenarioType -> Benchmark, and ScenarioType -> Derived Model
 		- no changes
 	1. Added to ScenarioType -> Target, ScenarioType -> PackageOfMeasures, and ScenarioType -> Other:
-		- AnnualSavingsAverageCarbonEmissions
-		- AnnualSavingsMarginalCarbonEmissions
+		- AnnualSavingsAverageGHGEmissions
+		- AnnualSavingsMarginalGHGEmissions
 
 ## Justification
 
-The BuildingSync schema needs to be modify to accomodate a standard way of reporting carbon emissions (in kg CO2e) to support the focus on decarbonization efforts.
+The BuildingSync schema needs to be modify to accommodate a standard way of reporting GHG emissions (in kg CO2e) to support the focus on decarbonization efforts.
 
 ## Implementation
 
 ```xml
- <xs:element name="AnnualSavingsAverageCarbonEmissions">
+ <xs:element name="AnnualSavingsAverageGHGEmissions">
     <xs:annotation>
       <xs:documentation>Average GHG emissions savings per year. (kg CO2e/year)</xs:documentation>
     </xs:annotation>
