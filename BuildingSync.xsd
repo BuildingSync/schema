@@ -2117,8 +2117,8 @@
                   <xs:element ref="auc:AnnualPeakElectricityReduction" minOccurs="0"/>
                   <xs:element ref="auc:AnnualWaterSavings" minOccurs="0"/>
                   <xs:element ref="auc:AnnualWaterCostSavings" minOccurs="0"/>
-                  <xs:element ref="auc:AnnualSavingsAverageCarbonEmissions" minOccurs="0"/>
-                  <xs:element ref="auc:AnnualSavingsMarginalCarbonEmissions" minOccurs="0"/>
+                  <xs:element ref="auc:AnnualSavingsAverageGHGEmissions" minOccurs="0"/>
+                  <xs:element ref="auc:AnnualSavingsMarginalGHGEmissions" minOccurs="0"/>
                   <xs:element ref="auc:SimplePayback" minOccurs="0"/>
                   <xs:element ref="auc:NetPresentValue" minOccurs="0"/>
                   <xs:element ref="auc:InternalRateOfReturn" minOccurs="0"/>
@@ -2201,8 +2201,8 @@
                   <xs:element ref="auc:AnnualDemandSavingsCost" minOccurs="0"/>
                   <xs:element ref="auc:AnnualWaterSavings" minOccurs="0"/>
                   <xs:element ref="auc:AnnualWaterCostSavings" minOccurs="0"/>
-                  <xs:element ref="auc:AnnualSavingsAverageCarbonEmissions" minOccurs="0"/>
-                  <xs:element ref="auc:AnnualSavingsMarginalCarbonEmissions" minOccurs="0"/>
+                  <xs:element ref="auc:AnnualSavingsAverageGHGEmissions" minOccurs="0"/>
+                  <xs:element ref="auc:AnnualSavingsMarginalGHGEmissions" minOccurs="0"/>
                   <xs:element name="ImplementationPeriod" type="xs:integer" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>Total period of time necessary to implement all measures in the package. (months)</xs:documentation>
@@ -2315,8 +2315,8 @@
                   <xs:element ref="auc:AnnualPeakElectricityReduction" minOccurs="0"/>
                   <xs:element ref="auc:AnnualWaterSavings" minOccurs="0"/>
                   <xs:element ref="auc:AnnualWaterCostSavings" minOccurs="0"/>
-                  <xs:element ref="auc:AnnualSavingsAverageCarbonEmissions" minOccurs="0"/>
-                  <xs:element ref="auc:AnnualSavingsMarginalCarbonEmissions" minOccurs="0"/>
+                  <xs:element ref="auc:AnnualSavingsAverageGHGEmissions" minOccurs="0"/>
+                  <xs:element ref="auc:AnnualSavingsMarginalGHGEmissions" minOccurs="0"/>
                   <xs:element ref="auc:SimplePayback" minOccurs="0"/>
                   <xs:element ref="auc:NetPresentValue" minOccurs="0"/>
                   <xs:element ref="auc:InternalRateOfReturn" minOccurs="0"/>
@@ -3402,9 +3402,9 @@
         </xs:complexType>
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
-      <xs:element minOccurs="0" name="AnnualAverageCarbonEmissions">
+      <xs:element minOccurs="0" name="AnnualAverageGHGEmissions">
         <xs:annotation>
-          <xs:documentation>Annual Average Carbon Emissions. (kg CO2e)</xs:documentation>
+          <xs:documentation>Annual Average GHG Emissions. (kg CO2e)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -3414,9 +3414,9 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element name="AnnualMarginalCarbonEmissions" minOccurs="0">
+      <xs:element name="AnnualMarginalGHGEmissions" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Annual Marginal Carbon Emissions. (kg CO2e)</xs:documentation>
+          <xs:documentation>Annual Marginal GHG Emissions. (kg CO2e)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -15697,9 +15697,9 @@
       </xs:simpleContent>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AnnualSavingsAverageCarbonEmissions">
+  <xs:element name="AnnualSavingsAverageGHGEmissions">
     <xs:annotation>
-      <xs:documentation>Average carbon emissions savings per year. (kg CO2e/year)</xs:documentation>
+      <xs:documentation>Average GHG emissions savings per year. (kg CO2e/year)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
@@ -15709,9 +15709,9 @@
       </xs:simpleContent>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AnnualSavingsMarginalCarbonEmissions">
+  <xs:element name="AnnualSavingsMarginalGHGEmissions">
     <xs:annotation>
-      <xs:documentation>Marginal carbon emissions savings per year. (kg CO2e/year)</xs:documentation>
+      <xs:documentation>Marginal GHG emissions savings per year. (kg CO2e/year)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
