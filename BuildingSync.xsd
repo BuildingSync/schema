@@ -2119,6 +2119,7 @@
                   <xs:element ref="auc:AnnualWaterCostSavings" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsAverageGHGEmissions" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsMarginalGHGEmissions" minOccurs="0"/>
+                  <xs:element ref="auc:AnnualSavingsGHGEmissionIntensity" minOccurs="0"/>
                   <xs:element ref="auc:SimplePayback" minOccurs="0"/>
                   <xs:element ref="auc:NetPresentValue" minOccurs="0"/>
                   <xs:element ref="auc:InternalRateOfReturn" minOccurs="0"/>
@@ -2203,6 +2204,7 @@
                   <xs:element ref="auc:AnnualWaterCostSavings" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsAverageGHGEmissions" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsMarginalGHGEmissions" minOccurs="0"/>
+                  <xs:element ref="auc:AnnualSavingsGHGEmissionIntensity" minOccurs="0"/>
                   <xs:element name="ImplementationPeriod" type="xs:integer" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>Total period of time necessary to implement all measures in the package. (months)</xs:documentation>
@@ -2317,6 +2319,7 @@
                   <xs:element ref="auc:AnnualWaterCostSavings" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsAverageGHGEmissions" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsMarginalGHGEmissions" minOccurs="0"/>
+                  <xs:element ref="auc:AnnualSavingsGHGEmissionIntensity" minOccurs="0"/>
                   <xs:element ref="auc:SimplePayback" minOccurs="0"/>
                   <xs:element ref="auc:NetPresentValue" minOccurs="0"/>
                   <xs:element ref="auc:InternalRateOfReturn" minOccurs="0"/>
@@ -3417,6 +3420,18 @@
       <xs:element name="AnnualMarginalGHGEmissions" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Annual Marginal GHG Emissions. (kg CO2e)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AnnualGHGEmissionIntensity" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Annual GHG Emission Intensity. (kg CO2e/ft2/year)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
@@ -15712,6 +15727,18 @@
   <xs:element name="AnnualSavingsMarginalGHGEmissions">
     <xs:annotation>
       <xs:documentation>Marginal GHG emissions savings per year. (kg CO2e/year)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute ref="auc:Source"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AnnualSavingsGHGEmissionIntensity">
+    <xs:annotation>
+      <xs:documentation>Annual GHG emissions intensity savings per year. (kg CO2e/ft2/year)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
