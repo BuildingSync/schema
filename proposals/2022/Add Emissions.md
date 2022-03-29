@@ -23,7 +23,7 @@ This proposal is to add several Emissions related fields to the BuildingSync sch
 
 ## Justification
 
-The BuildingSync schema needs to be modified to accommodate a standard way of reporting GHG emissions (in kg CO2e) to support the focus on decarbonization efforts.
+The BuildingSync schema needs to be modified to accommodate a standard way of reporting GHG emissions (in MtCO2e) to support the focus on decarbonization efforts.
 
 ## Implementation
 
