@@ -223,6 +223,27 @@
                     <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Energy-11"/>
                     <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Energy-12"/>
                   </AnnualFuelUseLinkedTimeSeriesIDs>
+                  <Emissions>
+                    <Emission>
+                      <EmissionBoundary>Indirect</EmissionBoundary>
+                      <EmissionsType>CO2e</EmissionsType>
+                      <GHGEmissions>25000</GHGEmissions>
+                      <EmissionsLinkedTimeSeriesIDs>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Greenhouse Gas Emissions-1"/>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-2"/>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-3"/>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-4"/>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-5"/>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-6"/>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-7"/>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-8"/>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-9"/>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-10"/>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-11"/>
+                        <LinkedTimeSeriesID IDref="TS-ResourceUse-CO2e-12"/>
+                      </EmissionsLinkedTimeSeriesIDs>
+                    </Emission>
+                  </Emissions>
                   <PeakResourceUnits>kW</PeakResourceUnits>
                   <AnnualPeakNativeUnits>21.120000</AnnualPeakNativeUnits>
                   <AnnualPeakConsistentUnits>21.120000</AnnualPeakConsistentUnits>
@@ -799,6 +820,114 @@
                   <IntervalReading>32.470000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-CO2e-1">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-12-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-01-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>250</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-CO2e-2">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-01-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-02-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>240</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-CO2e-3">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-02-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-03-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>260</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-CO2e-4">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-03-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-04-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>250</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-CO2e-5">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-04-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-05-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>260</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-CO2e-6">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-05-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-06-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>230</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-CO2e-7">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-06-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-07-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>280</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-CO2e-8">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-07-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-08-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>270</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-CO2e-9">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-08-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-09-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>260</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-CO2e-10">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-09-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-10-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>250</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-CO2e-11">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-10-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-11-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>240</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-CO2e-12">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-11-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-12-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>250</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
               </TimeSeriesData>
               <AllResourceTotals>
                 <AllResourceTotal ID="AllResourceTotal-1">
@@ -814,6 +943,8 @@
                   <NetIncreaseInStoredEnergyConsistentUnits>0.000000</NetIncreaseInStoredEnergyConsistentUnits>
                   <EnergyCost>5395.000000</EnergyCost>
                   <EnergyCostIndex>0.980000</EnergyCostIndex>
+                  <AnnualAverageGHGEmissions>15000</AnnualAverageGHGEmissions>
+                  <AnnualMarginalGHGEmissions>25000</AnnualMarginalGHGEmissions>
                 </AllResourceTotal>
               </AllResourceTotals>
             </Scenario>
@@ -841,6 +972,12 @@
               <ScenarioType>
                 <Target>
                   <ReferenceCase IDref="Scenario-Benchmark"/>
+                  <ReferenceEndDate>2025-12-31</ReferenceEndDate>
+                  <AnnualSavingsSiteEnergy>67181.500000</AnnualSavingsSiteEnergy>
+                  <AnnualSavingsCost>931</AnnualSavingsCost>
+                  <ENERGYSTARScore>70.000000</ENERGYSTARScore>
+                  <AnnualSavingsAverageGHGEmissions>500</AnnualSavingsAverageGHGEmissions>
+                  <AnnualSavingsMarginalGHGEmissions>200</AnnualSavingsMarginalGHGEmissions>
                   <AnnualSavingsSiteEnergy>67181.500000</AnnualSavingsSiteEnergy>
                   <AnnualSavingsCost>931</AnnualSavingsCost>
                   <ENERGYSTARScore>70.000000</ENERGYSTARScore>
@@ -852,6 +989,8 @@
                   <SiteEnergyUseIntensity>37.800000</SiteEnergyUseIntensity>
                   <EnergyCost>4451.510000</EnergyCost>
                   <EnergyCostIndex>0.810000</EnergyCostIndex>
+                  <AnnualAverageGHGEmissions>10000</AnnualAverageGHGEmissions>
+                  <AnnualMarginalGHGEmissions>8000</AnnualMarginalGHGEmissions>
                 </AllResourceTotal>
               </AllResourceTotals>
             </Scenario>
@@ -870,8 +1009,290 @@
                     <EstimatedROI>High</EstimatedROI>
                     <Priority>Medium</Priority>
                   </SimpleImpactAnalysis>
+                  <AnnualSavingsAverageGHGEmissions>600</AnnualSavingsAverageGHGEmissions>
+                  <AnnualSavingsMarginalGHGEmissions>210</AnnualSavingsMarginalGHGEmissions>
                 </PackageOfMeasures>
               </ScenarioType>
+              <ResourceUses>
+                <ResourceUse ID="POM-LEDs-RU-Electricity">
+                  <EnergyResource>Electricity</EnergyResource>
+                  <ResourceUseNotes>This is required for L1 to document irregularities in monthly energy patterns (Std 211 6.1.2.1.j). No irregularities found.</ResourceUseNotes>
+                  <ResourceUnits>kWh</ResourceUnits>
+                  <EndUse>All end uses</EndUse>
+                  <AnnualFuelUseNativeUnits>50000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>234.000000</AnnualFuelUseConsistentUnits>
+                  <AnnualFuelUseLinkedTimeSeriesIDs>
+                    <LinkedTimeSeriesID IDref="POM-LEDs-RU-Electricity-Energy-1"/>
+                    <LinkedTimeSeriesID IDref="POM-LEDs-RU-Electricity-Energy-2"/>
+                    <LinkedTimeSeriesID IDref="POM-LEDs-RU-Electricity-Energy-3"/>
+                    <LinkedTimeSeriesID IDref="POM-LEDs-RU-Electricity-Energy-4"/>
+                    <LinkedTimeSeriesID IDref="POM-LEDs-RU-Electricity-Energy-5"/>
+                    <LinkedTimeSeriesID IDref="POM-LEDs-RU-Electricity-Energy-6"/>
+                    <LinkedTimeSeriesID IDref="POM-LEDs-RU-Electricity-Energy-7"/>
+                    <LinkedTimeSeriesID IDref="POM-LEDs-RU-Electricity-Energy-8"/>
+                    <LinkedTimeSeriesID IDref="POM-LEDs-RU-Electricity-Energy-9"/>
+                    <LinkedTimeSeriesID IDref="POM-LEDs-RU-Electricity-Energy-10"/>
+                    <LinkedTimeSeriesID IDref="POM-LEDs-RU-Electricity-Energy-11"/>
+                    <LinkedTimeSeriesID IDref="POM-LEDs-RU-Electricity-Energy-12"/>
+                  </AnnualFuelUseLinkedTimeSeriesIDs>
+                  <Emissions>
+                    <Emission>
+                      <EmissionBoundary>Indirect</EmissionBoundary>
+                      <EmissionsType>CO2e</EmissionsType>
+                      <GHGEmissions>8000</GHGEmissions>
+                      <EmissionsLinkedTimeSeriesIDs>
+                        <LinkedTimeSeriesID IDref="POM-LEDs-RU-CO2e-1"/>
+                        <LinkedTimeSeriesID IDref="POM-LEDs-RU-CO2e-2"/>
+                        <LinkedTimeSeriesID IDref="POM-LEDs-RU-CO2e-3"/>
+                        <LinkedTimeSeriesID IDref="POM-LEDs-RU-CO2e-4"/>
+                        <LinkedTimeSeriesID IDref="POM-LEDs-RU-CO2e-5"/>
+                        <LinkedTimeSeriesID IDref="POM-LEDs-RU-CO2e-6"/>
+                        <LinkedTimeSeriesID IDref="POM-LEDs-RU-CO2e-7"/>
+                        <LinkedTimeSeriesID IDref="POM-LEDs-RU-CO2e-8"/>
+                        <LinkedTimeSeriesID IDref="POM-LEDs-RU-CO2e-9"/>
+                        <LinkedTimeSeriesID IDref="POM-LEDs-RU-CO2e-10"/>
+                        <LinkedTimeSeriesID IDref="POM-LEDs-RU-CO2e-11"/>
+                        <LinkedTimeSeriesID IDref="POM-LEDs-RU-CO2e-12"/>
+                      </EmissionsLinkedTimeSeriesIDs>
+                    </Emission>
+                  </Emissions>
+                  <PeakResourceUnits>kW</PeakResourceUnits>
+                  <AnnualPeakNativeUnits>18.120000</AnnualPeakNativeUnits>
+                  <AnnualPeakConsistentUnits>18.120000</AnnualPeakConsistentUnits>
+                  <AnnualFuelCost>4500.000000</AnnualFuelCost>
+                  <UtilityIDs>
+                    <UtilityID IDref="Utility-Electric"/>
+                  </UtilityIDs>
+                </ResourceUse>
+              </ResourceUses>
+              <TimeSeriesData>
+                <TimeSeries ID="POM-LEDs-RU-Electricity-Energy-1">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-01-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-02-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>6792.890000</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-Electricity-Energy-2">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-02-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-03-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5841.750000</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-Electricity-Energy-3">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-03-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-04-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>6025.190000</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-Electricity-Energy-4">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-04-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-05-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>4985.300000</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-Electricity-Energy-5">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-05-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-06-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5184.040000</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-Electricity-Energy-6">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-06-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-07-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5358.550000</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-Electricity-Energy-7">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-07-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-08-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5755.670000</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-Electricity-Energy-8">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-08-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-09-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5981.780000</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-Electricity-Energy-9">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-09-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-10-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5401.940000</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-Electricity-Energy-10">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-10-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-11-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5225.840000</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-Electricity-Energy-11">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-11-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-12-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5672.150000</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-Electricity-Energy-12">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-12-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-01-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>6291.630000</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-CO2e-1">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-12-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-01-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>280</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-CO2e-2">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-01-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-02-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>240</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-CO2e-3">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-02-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-03-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>250</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-CO2e-4">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-03-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-04-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>260</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-CO2e-5">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-04-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-05-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>280</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-CO2e-6">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-05-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-06-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>270</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-CO2e-7">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-06-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-07-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>250</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-CO2e-8">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-07-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-08-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>220</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-CO2e-9">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-08-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-09-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>230</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-CO2e-10">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-09-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-10-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>250</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-CO2e-11">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-10-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-11-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>280</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="POM-LEDs-RU-CO2e-12">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2020-11-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-12-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>300</IntervalReading>
+                  <ResourceUseID IDref="POM-LEDs-RU-Electricity"/>
+                </TimeSeries>
+              </TimeSeriesData>
+              <AllResourceTotals>
+                <AllResourceTotal ID="AllResourceTotal-Target">
+                  <SiteEnergyUse>200000.500000</SiteEnergyUse>
+                  <SiteEnergyUseIntensity>35.800000</SiteEnergyUseIntensity>
+                  <EnergyCost>4300.510000</EnergyCost>
+                  <EnergyCostIndex>0.710000</EnergyCostIndex>
+                  <AnnualAverageGHGEmissions>9000</AnnualAverageGHGEmissions>
+                  <AnnualMarginalGHGEmissions>7000</AnnualMarginalGHGEmissions>
+                </AllResourceTotal>
+              </AllResourceTotals>
             </Scenario>
             <Scenario ID="Scenario-POM-VSDs">
               <ScenarioType>
