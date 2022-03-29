@@ -30,7 +30,7 @@ The BuildingSync schema needs to be modified to accommodate a standard way of re
 ```xml
  <xs:element name="AnnualSavingsAverageGHGEmissions">
     <xs:annotation>
-      <xs:documentation>Average GHG emissions savings per year. (kg CO2e/year)</xs:documentation>
+      <xs:documentation>Average GHG emissions savings per year. (MtCO2e/year)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
@@ -42,7 +42,7 @@ The BuildingSync schema needs to be modified to accommodate a standard way of re
   </xs:element>
   <xs:element name="AnnualSavingsMarginalGHGEmissions">
     <xs:annotation>
-      <xs:documentation>Marginal GHG emissions savings per year. (kg CO2e/year)</xs:documentation>
+      <xs:documentation>Marginal GHG emissions savings per year. (MtCO2e/year)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
