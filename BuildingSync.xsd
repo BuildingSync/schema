@@ -3416,8 +3416,7 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
-      <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
-      <xs:element minOccurs="0" name="AnnualAverageGHGEmissions">
+      <xs:element name="AnnualAverageGHGEmissions" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Annual Average GHG Emissions. (MtCO2e)</xs:documentation>
         </xs:annotation>
@@ -3453,6 +3452,7 @@
           </xs:simpleContent>
         </xs:complexType>
       </xs:element>
+      <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
