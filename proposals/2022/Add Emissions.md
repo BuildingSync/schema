@@ -2,7 +2,7 @@
 
 ## Overview
 
-This proposal is to add several Emissions related fields to the BuildingSync schema to capture information on GHG emissions, specifically CO2e in units of kg of CO2e. 
+This proposal is to add several Emissions related fields to the BuildingSync schema to capture information on GHG emissions, specifically CO2e in units of MtCO2e. 
 
 1. Added to AllResourceTotal:
 	- AnnualAverageGHGEmissions
@@ -10,7 +10,6 @@ This proposal is to add several Emissions related fields to the BuildingSync sch
   - AnnualGHGEmissionIntensity
 1. Added to ResourceUse -> Emissions -> Emission:
 	- EmissionsLinkedTimeSeriesIDs -> EmissionsLinkedTimeSeriesID
-  - **changed units on AvoidedEmissions from kgCO2e to MtCO2e to be consistent with GHG metric definition**
 1. Added to TimeSeries -> TimeSeriesReadingQuantity
 	- Enum "Emissions"
 1. Scenario Type changes by scenario_type:
