@@ -7,8 +7,10 @@ This proposal is to add several Emissions related fields to the BuildingSync sch
 1. Added to AllResourceTotal:
 	- AnnualAverageGHGEmissions
 	- AnnualMarginalGHGEmissions
+  - AnnualGHGEmissionIntensity
 1. Added to ResourceUse -> Emissions -> Emission:
 	- EmissionsLinkedTimeSeriesIDs -> EmissionsLinkedTimeSeriesID
+  - **changed units on AvoidedEmissions from kgCO2e to MtCO2e to be consistent with GHG metric definition**
 1. Added to TimeSeries -> TimeSeriesReadingQuantity
 	- Enum "Emissions"
 1. Scenario Type changes by scenario_type:
@@ -17,6 +19,7 @@ This proposal is to add several Emissions related fields to the BuildingSync sch
 	1. Added to ScenarioType -> Target, ScenarioType -> PackageOfMeasures, and ScenarioType -> Other:
 		- AnnualSavingsAverageGHGEmissions
 		- AnnualSavingsMarginalGHGEmissions
+    - AnnualSavingsGHGEmissionIntensity
 
 ## Justification
 
@@ -49,7 +52,59 @@ The BuildingSync schema needs to be modified to accommodate a standard way of re
       </xs:simpleContent>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AnnualSavingsGHGEmissionIntensity">
+    <xs:annotation>
+      <xs:documentation>Annual GHG emissions intensity savings per year. (kg CO2e/ft2/year)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute ref="auc:Source"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+
 ```
+```xml
+  <xs:element name="AnnualAverageGHGEmissions" minOccurs="0">
+    <xs:annotation>
+      <xs:documentation>Annual Average GHG Emissions. (MtCO2e)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute ref="auc:Source"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AnnualMarginalGHGEmissions" minOccurs="0">
+    <xs:annotation>
+      <xs:documentation>Annual Marginal GHG Emissions. (MtCO2e)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute ref="auc:Source"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AnnualGHGEmissionIntensity" minOccurs="0">
+    <xs:annotation>
+      <xs:documentation>Annual GHG Emission Intensity. (kg CO2e/ft2/year)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute ref="auc:Source"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+```
+
 ```xml
  <xs:element name="Emissions" minOccurs="0">
   <xs:complexType>
