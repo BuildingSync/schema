@@ -2,7 +2,7 @@
 
 ## Overview
 
-This proposal is to add several Emissions related fields to the BuildingSync schema to capture information on GHG emissions, specifically CO2e in units of MtCO2e. 
+This proposal is to add several Emissions related fields to the BuildingSync schema to capture information on GHG emissions, in units of MtCO2e. 
 
 1. Added to AllResourceTotal:
 	- AnnualAverageGHGEmissions
