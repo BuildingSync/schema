@@ -1,5 +1,7 @@
 # Energy Auditing with BuildingSync
 
+Follow the instructions in the [README.md](../README.md) file to run in Jupyter Lab/Notebook.
+
 ## Introduction
 So you've been tasked with performing an energy audit that requires submission of a BuildingSync document? What does that even mean? This notebook is intended to provide an interactive and informational introduction to what BuildingSync is and how it relates to buildings, building systems, and energy audit reporting. This will be done by performing an example energy audit on the DOE Small Office Prototype building.
 
