@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" version="2.4.0">
+<BuildingSync xmlns="{http://www.w3.org/2001/XMLSchema-instance}xsi" xsi="{http://buildingsync.net/schemas/bedes-auc/2019 ../../../BuildingSync.xsd}SchemaLocation" version="2.4.0">
   <Facilities>
     <Facility ID="Facility-1">
       <Sites>
@@ -71,7 +71,7 @@
                     </FloorArea>
                   </FloorAreas>
                 </Section>
-                <Section ID="Mechanical room">
+                <Section ID="Mechanical-room">
                   <SectionType>Space function</SectionType>
                   <OccupancyClassification>Mechanical room</OccupancyClassification>
                   <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
@@ -412,7 +412,7 @@
                     </FloorArea>
                   </FloorAreas>
                 </Section>
-                <Section ID="Corridor-Pod1">
+                <Section ID="Corridor-Pod2">
                   <SectionType>Space function</SectionType>
                   <OccupancyClassification>Corridor</OccupancyClassification>
                   <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
@@ -443,7 +443,7 @@
                     </FloorArea>
                   </FloorAreas>
                 </Section>
-                <Section ID="Corridor-Pod1">
+                <Section ID="Corridor-Pod3">
                   <SectionType>Space function</SectionType>
                   <OccupancyClassification>Corridor</OccupancyClassification>
                   <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
@@ -474,7 +474,7 @@
                     </FloorArea>
                   </FloorAreas>
                 </Section>
-                <Section ID="Corridor-Pod1">
+                <Section ID="Corridor-Main">
                   <SectionType>Space function</SectionType>
                   <OccupancyClassification>Corridor</OccupancyClassification>
                   <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
@@ -548,8 +548,6 @@
             <LinkedPremises>
               <Section>
                 <LinkedSectionID IDref="Corridor-Pod1"/>
-              </Section>
-              <Section>
                 <LinkedSectionID IDref="Classroom-Pod1"/>
               </Section>
             </LinkedPremises>
@@ -558,20 +556,16 @@
             <PrincipalHVACSystemType>Packaged Rooftop VAV with Hot Water Reheat</PrincipalHVACSystemType>
             <LinkedPremises>
               <Section>
-                <LinkedSectionID IDref="Corridor-Pod1"/>
-              </Section>
-              <Section>
+                <LinkedSectionID IDref="Corridor-Pod2"/>
                 <LinkedSectionID IDref="Classroom-Pod2"/>
               </Section>
             </LinkedPremises>
           </HVACSystem>
-          <HVACSystem ID="VAV-Pod1">
+          <HVACSystem ID="VAV-Pod3">
             <PrincipalHVACSystemType>Packaged Rooftop VAV with Hot Water Reheat</PrincipalHVACSystemType>
             <LinkedPremises>
               <Section>
-                <LinkedSectionID IDref="Corridor-Pod1"/>
-              </Section>
-              <Section>
+                <LinkedSectionID IDref="Corridor-Pod3"/>
                 <LinkedSectionID IDref="Classroom-Pod3"/>
               </Section>
             </LinkedPremises>
@@ -581,23 +575,11 @@
             <LinkedPremises>
               <Section>
                 <LinkedSectionID IDref="Computer-Lab"/>
-              </Section>
-              <Section>
-                <LinkedSectionID IDref="Corridor-Pod1"/>
-              </Section>
-              <Section>
+                <LinkedSectionID IDref="Corridor-Main"/>
                 <LinkedSectionID IDref="Lobby"/>
-              </Section>
-              <Section>
-                <LinkedSectionID IDref="Mechanical room"/>
-              </Section>
-              <Section>
+                <LinkedSectionID IDref="Mechanical-room"/>
                 <LinkedSectionID IDref="Bathroom"/>
-              </Section>
-              <Section>
                 <LinkedSectionID IDref="Offices"/>
-              </Section>
-              <Section>
                 <LinkedSectionID IDref="Library"/>
               </Section>
             </LinkedPremises>
@@ -654,7 +636,7 @@
               </Section>
             </LinkedPremises>
           </LightingSystem>
-          <LightingSystem ID="LightingSystem-Corridor-Pod1">
+          <LightingSystem ID="LightingSystem-Corridor-Pod2">
             <LampType>
               <LinearFluorescent>
                 <LampLabel>T8</LampLabel>
@@ -663,11 +645,11 @@
             <BallastType>Standard Electronic</BallastType>
             <LinkedPremises>
               <Section>
-                <LinkedSectionID IDref="Corridor-Pod1"/>
+                <LinkedSectionID IDref="Corridor-Pod2"/>
               </Section>
             </LinkedPremises>
           </LightingSystem>
-          <LightingSystem ID="LightingSystem-Corridor-Pod1">
+          <LightingSystem ID="LightingSystem-Corridor-Pod3">
             <LampType>
               <LinearFluorescent>
                 <LampLabel>T8</LampLabel>
@@ -676,11 +658,11 @@
             <BallastType>Standard Electronic</BallastType>
             <LinkedPremises>
               <Section>
-                <LinkedSectionID IDref="Corridor-Pod1"/>
+                <LinkedSectionID IDref="Corridor-Pod3"/>
               </Section>
             </LinkedPremises>
           </LightingSystem>
-          <LightingSystem ID="LightingSystem-Corridor-Pod1">
+          <LightingSystem ID="LightingSystem-Corridor-Main">
             <LampType>
               <LinearFluorescent>
                 <LampLabel>T8</LampLabel>
@@ -689,7 +671,7 @@
             <BallastType>Standard Electronic</BallastType>
             <LinkedPremises>
               <Section>
-                <LinkedSectionID IDref="Corridor-Pod1"/>
+                <LinkedSectionID IDref="Corridor-Main"/>
               </Section>
             </LinkedPremises>
           </LightingSystem>
@@ -810,7 +792,7 @@
               </Section>
             </LinkedPremises>
           </LightingSystem>
-          <LightingSystem ID="LightingSystem-Mechanical room">
+          <LightingSystem ID="LightingSystem-Mechanical-room">
             <LampType>
               <LinearFluorescent>
                 <LampLabel>T8</LampLabel>
@@ -819,7 +801,7 @@
             <BallastType>Standard Electronic</BallastType>
             <LinkedPremises>
               <Section>
-                <LinkedSectionID IDref="Mechanical room"/>
+                <LinkedSectionID IDref="Mechanical-room"/>
               </Section>
             </LinkedPremises>
           </LightingSystem>
@@ -854,27 +836,27 @@
               </Section>
             </LinkedPremises>
           </PlugLoad>
-          <PlugLoad ID="PlugLoad-Corridor-Pod1">
+          <PlugLoad ID="PlugLoad-Corridor-Pod2">
             <WeightedAverageLoad>4.000000</WeightedAverageLoad>
             <LinkedPremises>
               <Section>
-                <LinkedSectionID IDref="Corridor-Pod1"/>
+                <LinkedSectionID IDref="Corridor-Pod2"/>
               </Section>
             </LinkedPremises>
           </PlugLoad>
-          <PlugLoad ID="PlugLoad-Corridor-Pod1">
+          <PlugLoad ID="PlugLoad-Corridor-Pod3">
             <WeightedAverageLoad>4.000000</WeightedAverageLoad>
             <LinkedPremises>
               <Section>
-                <LinkedSectionID IDref="Corridor-Pod1"/>
+                <LinkedSectionID IDref="Corridor-Pod3"/>
               </Section>
             </LinkedPremises>
           </PlugLoad>
-          <PlugLoad ID="PlugLoad-Corridor-Pod1">
+          <PlugLoad ID="PlugLoad-Corridor-Main">
             <WeightedAverageLoad>4.000000</WeightedAverageLoad>
             <LinkedPremises>
               <Section>
-                <LinkedSectionID IDref="Corridor-Pod1"/>
+                <LinkedSectionID IDref="Corridor-Main"/>
               </Section>
             </LinkedPremises>
           </PlugLoad>
@@ -950,11 +932,11 @@
               </Section>
             </LinkedPremises>
           </PlugLoad>
-          <PlugLoad ID="PlugLoad-Mechanical room">
+          <PlugLoad ID="PlugLoad-Mechanical-room">
             <WeightedAverageLoad>10.000000</WeightedAverageLoad>
             <LinkedPremises>
               <Section>
-                <LinkedSectionID IDref="Mechanical room"/>
+                <LinkedSectionID IDref="Mechanical-room"/>
               </Section>
             </LinkedPremises>
           </PlugLoad>
@@ -968,7 +950,61 @@
           </PlugLoad>
         </PlugLoads>
       </Systems>
-      <Measures/>
+      <Measures>
+        <Measure ID="Measure-LEDs">
+          <TypeOfMeasure>
+            <Replacements>
+              <Replacement>
+                <ExistingSystemReplaced IDref="LightingSystem-Lobby"/>
+                <ExistingSystemReplaced IDref="LightingSystem-Corridor-Pod1"/>
+                <ExistingSystemReplaced IDref="LightingSystem-Corridor-Pod2"/>
+                <ExistingSystemReplaced IDref="LightingSystem-Corridor-Pod3"/>
+                <ExistingSystemReplaced IDref="LightingSystem-Corridor-Main"/>
+                <ExistingSystemReplaced IDref="LightingSystem-Classroom-Pod1"/>
+                <ExistingSystemReplaced IDref="LightingSystem-Classroom-Pod2"/>
+                <ExistingSystemReplaced IDref="LightingSystem-Classroom-Pod3"/>
+                <ExistingSystemReplaced IDref="LightingSystem-Computer-Lab"/>
+                <ExistingSystemReplaced IDref="LightingSystem-Bathroom"/>
+                <ExistingSystemReplaced IDref="LightingSystem-Cafeteria"/>
+                <ExistingSystemReplaced IDref="LightingSystem-Gym"/>
+                <ExistingSystemReplaced IDref="LightingSystem-Kitchen"/>
+                <ExistingSystemReplaced IDref="LightingSystem-Library"/>
+                <ExistingSystemReplaced IDref="LightingSystem-Mechanical-room"/>
+                <ExistingSystemReplaced IDref="LightingSystem-Offices"/>
+              </Replacement>
+            </Replacements>
+          </TypeOfMeasure>
+          <SystemCategoryAffected>Lighting</SystemCategoryAffected>
+          <TechnologyCategories>
+            <TechnologyCategory>
+              <LightingImprovements>
+                <MeasureName>Retrofit with light emitting diode technologies</MeasureName>
+              </LightingImprovements>
+            </TechnologyCategory>
+          </TechnologyCategories>
+          <LongDescription>This measure is designed to replace all fluorescent bulbs with LEDs</LongDescription>
+        </Measure>
+        <Measure ID="Measure-VSDs">
+          <TypeOfMeasure>
+            <ModificationRetrocommissions>
+              <ModificationRetrocommissioning>
+                <ExistingSystemAffected IDref="PSZAC-Gym"/>
+                <ExistingSystemAffected IDref="PSZAC-Kitchen"/>
+                <ExistingSystemAffected IDref="PSZAC-Cafeteria"/>
+              </ModificationRetrocommissioning>
+            </ModificationRetrocommissions>
+          </TypeOfMeasure>
+          <SystemCategoryAffected>Fan</SystemCategoryAffected>
+          <TechnologyCategories>
+            <TechnologyCategory>
+              <OtherElectricMotorsAndDrives>
+                <MeasureName>Add VSD motor controller</MeasureName>
+              </OtherElectricMotorsAndDrives>
+            </TechnologyCategory>
+          </TechnologyCategories>
+          <LongDescription>This measure is designed to retrofit all RTU fans with a VSD</LongDescription>
+        </Measure>
+      </Measures>
       <Reports>
         <Report ID="Report-L1-Audit">
           <Scenarios>
@@ -1009,13 +1045,13 @@
                   <UtilityIDs>
                     <UtilityID IDref="Utility-Electric"/>
                   </UtilityIDs>
-                </ResourceUse>
-                <ResourceUse ID="ResourceUse-GreenhouseGasEmissions">
                   <Emissions>
                     <Emission>
                       <EmissionBoundary>Indirect</EmissionBoundary>
                       <EmissionsType>CO2e</EmissionsType>
-                      <GHGEmissions>25000.000000</GHGEmissions>
+                      <EmissionsFactor>0.000507</EmissionsFactor>
+                      <EmissionsFactorSource>Utility</EmissionsFactorSource>
+                      <GHGEmissions>331.236350</GHGEmissions>
                     </Emission>
                   </Emissions>
                 </ResourceUse>
@@ -1044,6 +1080,15 @@
                   <UtilityIDs>
                     <UtilityID IDref="Utility-Natural-Gas"/>
                   </UtilityIDs>
+                  <Emissions>
+                    <Emission>
+                      <EmissionBoundary>Indirect</EmissionBoundary>
+                      <EmissionsType>CO2e</EmissionsType>
+                      <EmissionsFactor>14.430000</EmissionsFactor>
+                      <EmissionsFactorSource>US EPA</EmissionsFactorSource>
+                      <GHGEmissions>14357.128500</GHGEmissions>
+                    </Emission>
+                  </Emissions>
                 </ResourceUse>
               </ResourceUses>
               <TimeSeriesData>
@@ -1154,114 +1199,6 @@
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>50311.110000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
-                </TimeSeries>
-                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-1">
-                  <ReadingType>Total</ReadingType>
-                  <TimeSeriesReadingQuantity>Other</TimeSeriesReadingQuantity>
-                  <StartTimestamp>2021-01-01T00:00:00</StartTimestamp>
-                  <EndTimestamp>2021-02-01T00:00:00</EndTimestamp>
-                  <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>250.000000</IntervalReading>
-                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
-                </TimeSeries>
-                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-2">
-                  <ReadingType>Total</ReadingType>
-                  <TimeSeriesReadingQuantity>Other</TimeSeriesReadingQuantity>
-                  <StartTimestamp>2021-02-01T00:00:00</StartTimestamp>
-                  <EndTimestamp>2021-03-01T00:00:00</EndTimestamp>
-                  <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>240.000000</IntervalReading>
-                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
-                </TimeSeries>
-                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-3">
-                  <ReadingType>Total</ReadingType>
-                  <TimeSeriesReadingQuantity>Other</TimeSeriesReadingQuantity>
-                  <StartTimestamp>2021-03-01T00:00:00</StartTimestamp>
-                  <EndTimestamp>2021-04-01T00:00:00</EndTimestamp>
-                  <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>260.000000</IntervalReading>
-                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
-                </TimeSeries>
-                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-4">
-                  <ReadingType>Total</ReadingType>
-                  <TimeSeriesReadingQuantity>Other</TimeSeriesReadingQuantity>
-                  <StartTimestamp>2021-04-01T00:00:00</StartTimestamp>
-                  <EndTimestamp>2021-05-01T00:00:00</EndTimestamp>
-                  <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>250.000000</IntervalReading>
-                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
-                </TimeSeries>
-                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-5">
-                  <ReadingType>Total</ReadingType>
-                  <TimeSeriesReadingQuantity>Other</TimeSeriesReadingQuantity>
-                  <StartTimestamp>2021-05-01T00:00:00</StartTimestamp>
-                  <EndTimestamp>2021-06-01T00:00:00</EndTimestamp>
-                  <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>260.000000</IntervalReading>
-                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
-                </TimeSeries>
-                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-6">
-                  <ReadingType>Total</ReadingType>
-                  <TimeSeriesReadingQuantity>Other</TimeSeriesReadingQuantity>
-                  <StartTimestamp>2021-06-01T00:00:00</StartTimestamp>
-                  <EndTimestamp>2021-07-01T00:00:00</EndTimestamp>
-                  <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>230.000000</IntervalReading>
-                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
-                </TimeSeries>
-                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-7">
-                  <ReadingType>Total</ReadingType>
-                  <TimeSeriesReadingQuantity>Other</TimeSeriesReadingQuantity>
-                  <StartTimestamp>2021-07-01T00:00:00</StartTimestamp>
-                  <EndTimestamp>2021-08-01T00:00:00</EndTimestamp>
-                  <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>280.000000</IntervalReading>
-                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
-                </TimeSeries>
-                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-8">
-                  <ReadingType>Total</ReadingType>
-                  <TimeSeriesReadingQuantity>Other</TimeSeriesReadingQuantity>
-                  <StartTimestamp>2021-08-01T00:00:00</StartTimestamp>
-                  <EndTimestamp>2021-09-01T00:00:00</EndTimestamp>
-                  <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>270.000000</IntervalReading>
-                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
-                </TimeSeries>
-                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-9">
-                  <ReadingType>Total</ReadingType>
-                  <TimeSeriesReadingQuantity>Other</TimeSeriesReadingQuantity>
-                  <StartTimestamp>2021-09-01T00:00:00</StartTimestamp>
-                  <EndTimestamp>2021-10-01T00:00:00</EndTimestamp>
-                  <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>260.000000</IntervalReading>
-                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
-                </TimeSeries>
-                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-10">
-                  <ReadingType>Total</ReadingType>
-                  <TimeSeriesReadingQuantity>Other</TimeSeriesReadingQuantity>
-                  <StartTimestamp>2021-10-01T00:00:00</StartTimestamp>
-                  <EndTimestamp>2021-11-01T00:00:00</EndTimestamp>
-                  <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>250.000000</IntervalReading>
-                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
-                </TimeSeries>
-                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-11">
-                  <ReadingType>Total</ReadingType>
-                  <TimeSeriesReadingQuantity>Other</TimeSeriesReadingQuantity>
-                  <StartTimestamp>2021-11-01T00:00:00</StartTimestamp>
-                  <EndTimestamp>2021-12-01T00:00:00</EndTimestamp>
-                  <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>240.000000</IntervalReading>
-                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
-                </TimeSeries>
-                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-12">
-                  <ReadingType>Total</ReadingType>
-                  <TimeSeriesReadingQuantity>Other</TimeSeriesReadingQuantity>
-                  <StartTimestamp>2021-12-01T00:00:00</StartTimestamp>
-                  <EndTimestamp>2022-01-01T00:00:00</EndTimestamp>
-                  <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>250.000000</IntervalReading>
-                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Energy-1">
                   <ReadingType>Total</ReadingType>
@@ -1710,6 +1647,44 @@
                   <NetIncreaseInStoredEnergyConsistentUnits>0.000000</NetIncreaseInStoredEnergyConsistentUnits>
                   <EnergyCost>17564.290000</EnergyCost>
                   <EnergyCostIndex>0.237500</EnergyCostIndex>
+                </AllResourceTotal>
+              </AllResourceTotals>
+            </Scenario>
+            <Scenario ID="Scenario-Benchmark">
+              <ScenarioType>
+                <Benchmark>
+                  <BenchmarkType>
+                    <PortfolioManager>
+                      <PMBenchmarkDate>2021-03-24</PMBenchmarkDate>
+                    </PortfolioManager>
+                  </BenchmarkType>
+                  <BenchmarkTool>Portfolio Manager</BenchmarkTool>
+                  <BenchmarkYear>2021</BenchmarkYear>
+                  <BenchmarkValue>69.000000</BenchmarkValue>
+                </Benchmark>
+              </ScenarioType>
+              <AllResourceTotals>
+                <AllResourceTotal ID="AllResourceTotal-Benchmark">
+                  <SiteEnergyUse>3236419.050000</SiteEnergyUse>
+                  <SiteEnergyUseIntensity>43.500000</SiteEnergyUseIntensity>
+                </AllResourceTotal>
+              </AllResourceTotals>
+            </Scenario>
+            <Scenario ID="Scenario-Target">
+              <ScenarioType>
+                <Target>
+                  <ReferenceCase IDref="Scenario-Benchmark"/>
+                  <AnnualSavingsSiteEnergy>67181.500000</AnnualSavingsSiteEnergy>
+                  <AnnualSavingsCost>931</AnnualSavingsCost>
+                  <ENERGYSTARScore>70.000000</ENERGYSTARScore>
+                </Target>
+              </ScenarioType>
+              <AllResourceTotals>
+                <AllResourceTotal ID="AllResourceTotal-Target">
+                  <SiteEnergyUse>207643.500000</SiteEnergyUse>
+                  <SiteEnergyUseIntensity>37.800000</SiteEnergyUseIntensity>
+                  <EnergyCost>4451.510000</EnergyCost>
+                  <EnergyCostIndex>0.810000</EnergyCostIndex>
                 </AllResourceTotal>
               </AllResourceTotals>
             </Scenario>
