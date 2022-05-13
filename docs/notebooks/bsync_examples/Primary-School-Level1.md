@@ -32,11 +32,6 @@ But first, let us import the required libraries and set up some useful functions
 
 
 ```python
-
-```
-
-
-```python
 from bsyncpy import bsync
 from lxml import etree
 from datetime import datetime, date
@@ -51,6 +46,8 @@ def bsync_dump(root_element, file="example1.xml"):
     doctype = '<?xml version="1.0" encoding="UTF-8"?>'
     as_etree = root_element.toxml()
     as_etree.set("xmlns", "http://buildingsync.net/schemas/bedes-auc/2019")
+ 
+
     # Have to manually set the version right now. Align release of bsyncpy to this version.
     as_etree.set("version", "2.4.0")  
     output = etree.tostring(as_etree, doctype=doctype, pretty_print=True)
@@ -88,7 +85,14 @@ For that, we will:
 
 ```python
 # Defining the root is as easy as that
-root = bsync.BuildingSync()
+xmlargs = {
+    'xmlns:xsi' : "http://www.w3.org/2001/XMLSchema-instance",
+    'xsi:SchemaLocation' : "http://buildingsync.net/schemas/bedes-auc/2019 ../../../BuildingSync.xsd"
+}
+
+# xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    # xsi:SchemaLocation = "http://buildingsync.net/schemas/bedes-auc/2019 ../../../BuildingSync.xsd"
+root = bsync.BuildingSync()#**kwargs=xmlargs)
 # We add facilities
 facs = bsync.Facilities()
 # We add a single facility within our facilities. Here, we need to define an ID for the facility
@@ -521,7 +525,7 @@ office_sec += office_occ_levels
 
 ```python
 # create a new section
-mech_sec = bsync.Sections.Section(ID="Mechanical room")
+mech_sec = bsync.Sections.Section(ID="Mechanical-room")
 mech_sec += bsync.SectionType('Space function')
 mech_sec += bsync.OccupancyClassification("Mechanical room")
 mech_sec += bsync.OriginalOccupancyClassification("Education-Primary")
@@ -1102,7 +1106,7 @@ corridor1_sec += corridor1_occ_levels
 
 ```python
 # create a new section
-corridor2_sec = bsync.Sections.Section(ID="Corridor-Pod1")
+corridor2_sec = bsync.Sections.Section(ID="Corridor-Pod2")
 corridor2_sec += bsync.SectionType('Space function')
 corridor2_sec += bsync.OccupancyClassification("Corridor")
 corridor2_sec += bsync.OriginalOccupancyClassification("Education-Primary")
@@ -1153,7 +1157,7 @@ corridor2_sec += corridor2_occ_levels
 
 ```python
 # create a new section
-corridor3_sec = bsync.Sections.Section(ID="Corridor-Pod1")
+corridor3_sec = bsync.Sections.Section(ID="Corridor-Pod3")
 corridor3_sec += bsync.SectionType('Space function')
 corridor3_sec += bsync.OccupancyClassification("Corridor")
 corridor3_sec += bsync.OriginalOccupancyClassification("Education-Primary")
@@ -1204,7 +1208,7 @@ corridor3_sec += corridor3_occ_levels
 
 ```python
 # create a new section
-corridormain_sec = bsync.Sections.Section(ID="Corridor-Pod1")
+corridormain_sec = bsync.Sections.Section(ID="Corridor-Main")
 corridormain_sec += bsync.SectionType('Space function')
 corridormain_sec += bsync.OccupancyClassification("Corridor")
 corridormain_sec += bsync.OriginalOccupancyClassification("Education-Primary")
@@ -1415,9 +1419,10 @@ plugloads = [{'spaceid' : lobby_sec["ID"], 'plugload' : 4.0},
 # First, the VAVs
 
 # For the first VAV servicing pod 1:
-pod1premises = bsync.LinkedPremises()
-pod1premises += bsync.LinkedPremises.Section(bsync.LinkedSectionID(IDref=corridor1_sec["ID"]))
-pod1premises += bsync.LinkedPremises.Section(bsync.LinkedSectionID(IDref=classroom1_sec["ID"]))
+pod1premises = bsync.LinkedPremises(bsync.LinkedPremises.Section(
+   bsync.LinkedSectionID(IDref=corridor1_sec["ID"]) ,
+   bsync.LinkedSectionID(IDref=classroom1_sec["ID"])
+))
 
 vav_pod1 = bsync.HVACSystem(
         bsync.PrincipalHVACSystemType("Packaged Rooftop VAV with Hot Water Reheat"),
@@ -1426,9 +1431,10 @@ vav_pod1 = bsync.HVACSystem(
     )
 
 # For the second VAV servicing pod 2:
-pod2premises = bsync.LinkedPremises()
-pod2premises += bsync.LinkedPremises.Section(bsync.LinkedSectionID(IDref=corridor2_sec["ID"]))
-pod2premises += bsync.LinkedPremises.Section(bsync.LinkedSectionID(IDref=classroom2_sec["ID"]))
+pod2premises = bsync.LinkedPremises(bsync.LinkedPremises.Section(
+   bsync.LinkedSectionID(IDref=corridor2_sec["ID"]) ,
+   bsync.LinkedSectionID(IDref=classroom2_sec["ID"])
+))
 
 vav_pod2 = bsync.HVACSystem(
         bsync.PrincipalHVACSystemType("Packaged Rooftop VAV with Hot Water Reheat"),
@@ -1437,25 +1443,27 @@ vav_pod2 = bsync.HVACSystem(
     )
 
 # For the third VAV servicing pod 3:
-pod3premises = bsync.LinkedPremises()
-pod3premises += bsync.LinkedPremises.Section(bsync.LinkedSectionID(IDref=corridor3_sec["ID"]))
-pod3premises += bsync.LinkedPremises.Section(bsync.LinkedSectionID(IDref=classroom3_sec["ID"]))
+pod3premises = bsync.LinkedPremises(bsync.LinkedPremises.Section(
+   bsync.LinkedSectionID(IDref=corridor3_sec["ID"]) ,
+   bsync.LinkedSectionID(IDref=classroom3_sec["ID"])
+))
 
 vav_pod3 = bsync.HVACSystem(
         bsync.PrincipalHVACSystemType("Packaged Rooftop VAV with Hot Water Reheat"),
         pod3premises,
-        ID="VAV-Pod1"
+        ID="VAV-Pod3"
     )
 
 # For the last VAV servicing other rooms:
-vav4premises = bsync.LinkedPremises()
-vav4premises += bsync.LinkedPremises.Section(bsync.LinkedSectionID(IDref=computerlab_sec["ID"]))
-vav4premises += bsync.LinkedPremises.Section(bsync.LinkedSectionID(IDref=corridormain_sec["ID"]))
-vav4premises += bsync.LinkedPremises.Section(bsync.LinkedSectionID(IDref=lobby_sec["ID"]))
-vav4premises += bsync.LinkedPremises.Section(bsync.LinkedSectionID(IDref=mech_sec["ID"]))
-vav4premises += bsync.LinkedPremises.Section(bsync.LinkedSectionID(IDref=bath_sec["ID"]))
-vav4premises += bsync.LinkedPremises.Section(bsync.LinkedSectionID(IDref=office_sec["ID"]))
-vav4premises += bsync.LinkedPremises.Section(bsync.LinkedSectionID(IDref=lib_sec["ID"]))
+vav4premises = bsync.LinkedPremises(bsync.LinkedPremises.Section(
+    bsync.LinkedSectionID(IDref=computerlab_sec["ID"]),
+    bsync.LinkedSectionID(IDref=corridormain_sec["ID"]),
+    bsync.LinkedSectionID(IDref=lobby_sec["ID"]),
+    bsync.LinkedSectionID(IDref=mech_sec["ID"]),
+    bsync.LinkedSectionID(IDref=bath_sec["ID"]),
+    bsync.LinkedSectionID(IDref=office_sec["ID"]),
+    bsync.LinkedSectionID(IDref=lib_sec["ID"]),
+))
 
 vav_other = bsync.HVACSystem(
         bsync.PrincipalHVACSystemType("Packaged Rooftop VAV with Hot Water Reheat"),
@@ -1652,15 +1660,15 @@ elec_ru += bsync.AnnualFuelCost(16412.13)
 
 
 
-ghg_ru = bsync.ResourceUse(
-    bsync.Emissions(
-        bsync.Emission(
-            bsync.EmissionBoundary("Indirect"), 
-            bsync.EmissionsType("CO2e"),
-            bsync.GHGEmissions(25000.0),
+elec_ru += bsync.Emissions(
+            bsync.Emission(
+                bsync.EmissionBoundary("Indirect"), 
+                bsync.EmissionsType("CO2e"),
+                bsync.EmissionsFactor(0.000506662677),
+                bsync.EmissionsFactorSource('Utility'),
+                bsync.GHGEmissions(331.23635),
         )
     )
-)
 
 # create a resource use for natural gas, units of MMBtu, all end uses
 # additional connect it up to the utility
@@ -1674,6 +1682,16 @@ ng_ru = bsync.ResourceUse(
     )
 )
 
+ng_ru += bsync.Emissions(
+            bsync.Emission(
+                bsync.EmissionBoundary("Indirect"), 
+                bsync.EmissionsType("CO2e"),
+                bsync.EmissionsFactor(14.43),
+                bsync.EmissionsFactorSource('US EPA'),
+                bsync.GHGEmissions(14357.1285),
+        )
+    )
+
 # given the above, we add the annual totals
 ng_ru += bsync.AnnualFuelUseNativeUnits(994.95)
 ng_ru += bsync.AnnualFuelUseConsistentUnits(994.95) # already in MMBTU
@@ -1681,12 +1699,10 @@ ng_ru += bsync.AnnualFuelCost(1152.52) # ~ $1.158/MMBtu
 
 # add these to the ResourceUses parent element
 all_ru += elec_ru
-all_ru += ghg_ru
 all_ru += ng_ru
 
 # we can still add information to the child elements
 elec_ru['ID'] = 'ResourceUse-Electricity'
-ghg_ru['ID'] = 'ResourceUse-GreenhouseGasEmissions'
 ng_ru['ID'] = 'ResourceUse-Natural-gas'
 
 # ResourceUses are child elements of a specific scenario:
@@ -1838,7 +1854,6 @@ monthly_elec = [
     51428.89,
     50311.11
 ]
-monthly_ghg = [250.0, 240.0, 260.0, 250.0, 260.0, 230.0, 280.0, 270.0, 260.0, 250.0, 240.0, 250.0] #Check GHG in EP output TK
 monthly_ng = [
     165.21,
     143.79,
@@ -1901,7 +1916,6 @@ monthly_ng_cost = [
 ]
 
 elec_ids = []
-ghg_ids = []
 ng_ids = []
 def create_monthly(values, resource_use_id, start_year, tsrq='Energy', rt='Total'):
     """
@@ -1937,8 +1951,6 @@ def create_monthly(values, resource_use_id, start_year, tsrq='Energy', rt='Total
         )
         monthly.append(ts)
         
-        if tsrq == 'Other':
-            ghg_ids.append(my_id)
         if tsrq == 'Energy':
             if 'Electricity' in resource_use_id:
                 elec_ids.append(my_id)
@@ -1947,7 +1959,6 @@ def create_monthly(values, resource_use_id, start_year, tsrq='Energy', rt='Total
     return monthly
     
 elec_ts = create_monthly(monthly_elec, elec_ru['ID'], 2021)
-ghg_ts = create_monthly(monthly_ghg, ghg_ru['ID'], 2021, tsrq="Other")
 ng_ts = create_monthly(monthly_ng, ng_ru['ID'], 2021)
 elec_peak_ts = create_monthly(monthly_elec_peak, elec_ru['ID'], 2021, 'Power', 'Peak')
 
@@ -1959,7 +1970,6 @@ def add_to_full(months, full):
         full += month
 
 add_to_full(elec_ts, full_ts_data)
-add_to_full(ghg_ts, full_ts_data)
 add_to_full(ng_ts, full_ts_data)
 add_to_full(elec_peak_ts, full_ts_data)
 add_to_full(elec_cost_ts, full_ts_data)
@@ -2024,6 +2034,84 @@ art = bsync.AllResourceTotals(
 cbms += art
 ```
 
+### Benchmark Scenario
+Relevant Standard 211 Sections:
+- 6.1.3
+
+We inserted the above information (electricity, natural gas, square footage, etc.) into the Energy Star Portfolio Manager and got a score of 69. We can add this information into BuildingSync with our benchmark scenario.
+
+![ESPM](./img/ESPM-Target-School.png)
+
+
+
+
+```python
+# define the benchmark scenario
+bench_sc = bsync.Scenario(
+    bsync.AllResourceTotals(
+        bsync.AllResourceTotal(
+            bsync.AllResourceTotal.SiteEnergyUse(3236419.05),  
+            bsync.SiteEnergyUseIntensity(43.5),
+            ID="AllResourceTotal-Benchmark"
+        )
+    ),
+    
+    ID="Scenario-Benchmark"
+)
+bench_st = bsync.Scenario.ScenarioType()
+bench = bsync.Benchmark(
+    bsync.BenchmarkType(
+        bsync.PortfolioManager(
+            bsync.PMBenchmarkDate(date(2021, 3, 24))
+        )
+    ),
+    bsync.BenchmarkTool("Portfolio Manager"),
+    bsync.BenchmarkYear(2021),  # I believe this is the year of the data for which WE entered...TODO check this.
+    bsync.BenchmarkValue(69.)
+)
+
+# 
+scenarios += bench_sc
+bench_sc += bench_st
+bench_st += bench
+```
+
+
+### Target Scenario
+Relevant Standard 211 Sections:
+- 6.1.4
+
+Since we used a PM score in the baseline, we will also use that for our target. Let's say we are shooting for a target score of 80.
+
+
+```python
+# define the target scenario in reference to the benchmark scenario
+target_sc = bsync.Scenario(
+    bsync.AllResourceTotals(
+        bsync.AllResourceTotal(
+            bsync.AllResourceTotal.SiteEnergyUse(207643.5),  
+            bsync.SiteEnergyUseIntensity(37.8),
+            bsync.EnergyCost(4451.51),
+            bsync.EnergyCostIndex(0.81),
+            ID="AllResourceTotal-Target"
+        )
+    ),
+    ID="Scenario-Target"
+)
+target_st = bsync.Scenario.ScenarioType()
+target = bsync.Target(
+    bsync.ReferenceCase(IDref=bench_sc["ID"]),
+    bsync.AnnualSavingsSiteEnergy(67181.5),
+    bsync.AnnualSavingsCost(931),
+    bsync.ENERGYSTARScore(70.),
+)
+
+# 
+scenarios += target_sc
+target_sc += target_st
+target_st += target
+```
+
 ### Current Building Modeled Scenario
 Relevant Standard 211 Sections:
 - 6.1.5 & 6.1.6
@@ -2056,12 +2144,13 @@ measures = bsync.Measures()
 f1 += measures
 
 # A measure to upgrade the lighting system to LEDs
+lights_replaced = bsync.Replacement()
+for section in plugloads:
+    lights_replaced += bsync.ExistingSystemReplaced(IDref=f"LightingSystem-{section['spaceid']}")
 led_measure = bsync.Measure(
     bsync.TypeOfMeasure(
         bsync.Replacements(
-            bsync.Replacement(
-                bsync.ExistingSystemReplaced(IDref="LightingSystem-1")
-            )
+            lights_replaced
         )
     ),
     bsync.SystemCategoryAffected("Lighting"),
@@ -2103,6 +2192,8 @@ vsd_measure = bsync.Measure(
     bsync.LongDescription("This measure is designed to retrofit all RTU fans with a VSD"),
     ID="Measure-VSDs"
 )
+measures += led_measure
+measures += vsd_measure
 ```
 
 #### POM Scenarios
@@ -2221,12 +2312,30 @@ bsync_dump(root, file='PrimarySchool-Level1.xml')
 ```
 
 
+    ---------------------------------------------------------------------------
+
+    AttributeError                            Traceback (most recent call last)
+
+    /Users/tmarzull/Documents/BuildingSync/working/schema/docs/notebooks/bsync_examples/Primary-School-Levels1.ipynb Cell 78' in <cell line: 1>()
+    ----> <a href='vscode-notebook-cell:/Users/tmarzull/Documents/BuildingSync/working/schema/docs/notebooks/bsync_examples/Primary-School-Levels1.ipynb#ch0000073?line=0'>1</a> bsync_dump(root, file='PrimarySchool-Level1.xml')
 
 
-    True
+    /Users/tmarzull/Documents/BuildingSync/working/schema/docs/notebooks/bsync_examples/Primary-School-Levels1.ipynb Cell 3' in bsync_dump(root_element, file)
+         <a href='vscode-notebook-cell:/Users/tmarzull/Documents/BuildingSync/working/schema/docs/notebooks/bsync_examples/Primary-School-Levels1.ipynb#ch0000002?line=11'>12</a> doctype = '<?xml version="1.0" encoding="UTF-8"?>'
+         <a href='vscode-notebook-cell:/Users/tmarzull/Documents/BuildingSync/working/schema/docs/notebooks/bsync_examples/Primary-School-Levels1.ipynb#ch0000002?line=12'>13</a> as_etree = root_element.toxml()
+    ---> <a href='vscode-notebook-cell:/Users/tmarzull/Documents/BuildingSync/working/schema/docs/notebooks/bsync_examples/Primary-School-Levels1.ipynb#ch0000002?line=13'>14</a> as_etree.register_namespace('', "http://buildingsync.net/schemas/bedes-auc/2019")
+         <a href='vscode-notebook-cell:/Users/tmarzull/Documents/BuildingSync/working/schema/docs/notebooks/bsync_examples/Primary-School-Levels1.ipynb#ch0000002?line=14'>15</a> as_etree.register_namespace('xsi', "http://www.w3.org/2001/XMLSchema-instance")
+         <a href='vscode-notebook-cell:/Users/tmarzull/Documents/BuildingSync/working/schema/docs/notebooks/bsync_examples/Primary-School-Levels1.ipynb#ch0000002?line=17'>18</a> #as_etree.set("xmlns", "http://buildingsync.net/schemas/bedes-auc/2019")
+         <a href='vscode-notebook-cell:/Users/tmarzull/Documents/BuildingSync/working/schema/docs/notebooks/bsync_examples/Primary-School-Levels1.ipynb#ch0000002?line=18'>19</a> #as_etree.set("xmlns", "{http://www.w3.org/2001/XMLSchema-instance}xsi")
+         <a href='vscode-notebook-cell:/Users/tmarzull/Documents/BuildingSync/working/schema/docs/notebooks/bsync_examples/Primary-School-Levels1.ipynb#ch0000002?line=19'>20</a> #as_etree.set("xsi", "{http://buildingsync.net/schemas/bedes-auc/2019 ../../../BuildingSync.xsd}SchemaLocation")
+       (...)
+         <a href='vscode-notebook-cell:/Users/tmarzull/Documents/BuildingSync/working/schema/docs/notebooks/bsync_examples/Primary-School-Levels1.ipynb#ch0000002?line=25'>26</a> 
+         <a href='vscode-notebook-cell:/Users/tmarzull/Documents/BuildingSync/working/schema/docs/notebooks/bsync_examples/Primary-School-Levels1.ipynb#ch0000002?line=26'>27</a> # Have to manually set the version right now. Align release of bsyncpy to this version.
 
+
+    AttributeError: 'lxml.etree._Element' object has no attribute 'register_namespace'
 
 
 You should see a green check mark for the L100 AUDIT use case!
 
-![Valid](./img/valid.png)
+![Valid](./img/L100ValidPrimarySchool.png)
