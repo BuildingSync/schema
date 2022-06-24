@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<BuildingSync xmlns="{http://www.w3.org/2001/XMLSchema-instance}xsi" xsi="{http://buildingsync.net/schemas/bedes-auc/2019 ../../../BuildingSync.xsd}SchemaLocation" version="2.4.0">
+<BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../BuildingSync.xsd" version="2.4.0">
   <Facilities>
     <Facility ID="Facility-1">
       <Sites>
@@ -533,6 +533,36 @@
                     <FloorArea>
                       <FloorAreaType>Conditioned</FloorAreaType>
                       <FloorAreaValue>1840.620000</FloorAreaValue>
+                    </FloorArea>
+                  </FloorAreas>
+                </Section>
+                <Section ID="Whole-Building">
+                  <SectionType>Whole building</SectionType>
+                  <OccupancyClassification>Education-Primary</OccupancyClassification>
+                  <OccupancyLevels>
+                    <OccupancyLevel>
+                      <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+                      <OccupantQuantity>1849.000000</OccupantQuantity>
+                    </OccupancyLevel>
+                  </OccupancyLevels>
+                  <TypicalOccupantUsages>
+                    <TypicalOccupantUsage>
+                      <TypicalOccupantUsageValue>45.000000</TypicalOccupantUsageValue>
+                      <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+                    </TypicalOccupantUsage>
+                    <TypicalOccupantUsage>
+                      <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+                      <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+                    </TypicalOccupantUsage>
+                  </TypicalOccupantUsages>
+                  <FloorAreas>
+                    <FloorArea>
+                      <FloorAreaType>Gross</FloorAreaType>
+                      <FloorAreaValue>73960.000000</FloorAreaValue>
+                    </FloorArea>
+                    <FloorArea>
+                      <FloorAreaType>Conditioned</FloorAreaType>
+                      <FloorAreaValue>73960.000000</FloorAreaValue>
                     </FloorArea>
                   </FloorAreas>
                 </Section>
@@ -1097,6 +1127,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-01-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-02-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>52651.670000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1106,6 +1138,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-02-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-03-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>46018.330000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1115,6 +1149,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-03-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-04-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>52645.000000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1124,6 +1160,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-04-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-05-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>49929.170000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1133,6 +1171,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-05-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-06-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>58176.390000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1142,6 +1182,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-06-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-07-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>66276.940000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1151,6 +1193,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-07-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-08-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>52738.060000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1160,6 +1204,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-08-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-09-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>56057.780000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1169,6 +1215,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-09-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-10-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>60436.110000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1178,6 +1226,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-10-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-11-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>57091.670000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1187,6 +1237,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-11-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-12-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>51428.890000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1196,6 +1248,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-12-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2022-01-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>50311.110000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1205,6 +1259,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-01-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-02-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>165.210000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1214,6 +1270,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-02-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-03-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>143.790000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1223,6 +1281,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-03-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-04-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>103.090000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1232,6 +1292,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-04-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-05-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>60.020000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1241,6 +1303,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-05-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-06-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>49.660000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1250,6 +1314,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-06-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-07-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>40.180000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1259,6 +1325,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-07-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-08-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>36.890000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1268,6 +1336,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-08-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-09-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>40.950000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1277,6 +1347,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-09-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-10-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>37.870000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1286,6 +1358,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-10-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-11-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>60.750000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1295,6 +1369,8 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-11-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-12-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>86.850000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1304,116 +1380,154 @@
                   <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-12-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2022-01-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>169.700000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Power-1">
                   <ReadingType>Peak</ReadingType>
+                  <PeakType>Unknown</PeakType>
                   <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-01-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-02-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>167374.990000</IntervalReading>
+                  <IntervalReading>167.374990</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Power-2">
                   <ReadingType>Peak</ReadingType>
+                  <PeakType>Unknown</PeakType>
                   <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-02-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-03-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>155851.460000</IntervalReading>
+                  <IntervalReading>155.851460</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Power-3">
                   <ReadingType>Peak</ReadingType>
+                  <PeakType>Unknown</PeakType>
                   <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-03-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-04-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>165633.220000</IntervalReading>
+                  <IntervalReading>165.633220</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Power-4">
                   <ReadingType>Peak</ReadingType>
+                  <PeakType>Unknown</PeakType>
                   <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-04-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-05-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>191066.240000</IntervalReading>
+                  <IntervalReading>191.066240</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Power-5">
                   <ReadingType>Peak</ReadingType>
+                  <PeakType>Unknown</PeakType>
                   <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-05-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-06-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>219526.400000</IntervalReading>
+                  <IntervalReading>219.526400</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Power-6">
                   <ReadingType>Peak</ReadingType>
+                  <PeakType>Unknown</PeakType>
                   <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-06-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-07-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>248431.130000</IntervalReading>
+                  <IntervalReading>248.431130</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Power-7">
                   <ReadingType>Peak</ReadingType>
+                  <PeakType>Unknown</PeakType>
                   <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-07-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-08-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>181331.960000</IntervalReading>
+                  <IntervalReading>181.331960</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Power-8">
                   <ReadingType>Peak</ReadingType>
+                  <PeakType>Unknown</PeakType>
                   <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-08-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-09-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>178148.530000</IntervalReading>
+                  <IntervalReading>178.148530</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Power-9">
                   <ReadingType>Peak</ReadingType>
+                  <PeakType>Unknown</PeakType>
                   <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-09-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-10-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>227075.020000</IntervalReading>
+                  <IntervalReading>227.075020</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Power-10">
                   <ReadingType>Peak</ReadingType>
+                  <PeakType>Unknown</PeakType>
                   <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-10-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-11-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>223758.040000</IntervalReading>
+                  <IntervalReading>223.758040</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Power-11">
                   <ReadingType>Peak</ReadingType>
+                  <PeakType>Unknown</PeakType>
                   <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-11-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-12-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>194377.020000</IntervalReading>
+                  <IntervalReading>194.377020</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Power-12">
                   <ReadingType>Peak</ReadingType>
+                  <PeakType>Unknown</PeakType>
                   <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-12-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2022-01-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>150135.320000</IntervalReading>
+                  <IntervalReading>150.135320</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Cost-1">
@@ -1421,6 +1535,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-01-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-02-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>1221.220000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1430,6 +1546,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-02-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-03-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>1125.760000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1439,6 +1557,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-03-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-04-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>1211.380000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1448,6 +1568,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-04-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-05-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>1342.050000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1457,6 +1579,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-05-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-06-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>1540.300000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1466,6 +1590,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-06-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-07-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>1740.370000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1475,6 +1601,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-07-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-08-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>1300.190000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1484,6 +1612,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-08-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-09-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>1297.570000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1493,6 +1623,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-09-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-10-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>1593.210000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1502,6 +1634,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-10-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-11-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>1559.120000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1511,6 +1645,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-11-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-12-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>1367.600000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1520,6 +1656,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-12-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2022-01-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>1113.370000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
@@ -1529,6 +1667,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-01-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-02-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>191.310000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1538,6 +1678,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-02-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-03-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>166.500000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1547,6 +1689,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-03-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-04-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>119.380000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1556,6 +1700,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-04-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-05-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>69.500000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1565,6 +1711,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-05-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-06-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>57.500000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1574,6 +1722,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-06-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-07-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>46.520000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1583,6 +1733,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-07-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-08-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>42.720000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1592,6 +1744,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-08-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-09-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>47.430000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1601,6 +1755,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-09-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-10-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>43.860000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1610,6 +1766,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-10-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-11-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>70.350000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1619,6 +1777,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-11-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2021-12-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>100.580000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1628,6 +1788,8 @@
                   <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
                   <StartTimestamp>2021-12-01T00:00:00</StartTimestamp>
                   <EndTimestamp>2022-01-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>1</IntervalDuration>
+                  <IntervalDurationUnits>Month</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>196.510000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
@@ -1649,6 +1811,11 @@
                   <EnergyCostIndex>0.237500</EnergyCostIndex>
                 </AllResourceTotal>
               </AllResourceTotals>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Primary-School-Prototype"/>
+                </Building>
+              </LinkedPremises>
             </Scenario>
             <Scenario ID="Scenario-Benchmark">
               <ScenarioType>
@@ -1669,6 +1836,11 @@
                   <SiteEnergyUseIntensity>43.500000</SiteEnergyUseIntensity>
                 </AllResourceTotal>
               </AllResourceTotals>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Primary-School-Prototype"/>
+                </Building>
+              </LinkedPremises>
             </Scenario>
             <Scenario ID="Scenario-Target">
               <ScenarioType>
@@ -1687,6 +1859,11 @@
                   <EnergyCostIndex>0.810000</EnergyCostIndex>
                 </AllResourceTotal>
               </AllResourceTotals>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Primary-School-Prototype"/>
+                </Building>
+              </LinkedPremises>
             </Scenario>
             <Scenario ID="Scenario-POM-LEDs">
               <ScenarioType>
@@ -1705,6 +1882,11 @@
                   </SimpleImpactAnalysis>
                 </PackageOfMeasures>
               </ScenarioType>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Primary-School-Prototype"/>
+                </Building>
+              </LinkedPremises>
             </Scenario>
             <Scenario ID="Scenario-POM-VSDs">
               <ScenarioType>
@@ -1723,6 +1905,11 @@
                   </SimpleImpactAnalysis>
                 </PackageOfMeasures>
               </ScenarioType>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Primary-School-Prototype"/>
+                </Building>
+              </LinkedPremises>
             </Scenario>
             <Scenario ID="Scenario-POM-LEDs-VSDs">
               <ScenarioType>
@@ -1742,6 +1929,11 @@
                   </SimpleImpactAnalysis>
                 </PackageOfMeasures>
               </ScenarioType>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Primary-School-Prototype"/>
+                </Building>
+              </LinkedPremises>
             </Scenario>
           </Scenarios>
           <Utilities>
