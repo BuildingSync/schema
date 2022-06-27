@@ -20,10 +20,15 @@ This notebook uses resources from:
 ## 3. Overview
 
 This notebook is broken down into the following sections:
+
 1) Setting up the root, or the base, of your BuildingSync file
+
 2) Adding the information required for a Level 1 energy audit
+
 3) Adding the information required for a Level 2 energy audit
+
 4) Adding the information required for a Level 3 energy audit (WIP)
+
 5) Generating a BuildingSync file and verifying it against version 2.4.0 of the BuildingSync schema
 
 
@@ -180,13 +185,6 @@ r1 = bsync.Report(premise, ID='Report-L1-Audit')
 f1 += reports
 reports += r1
 
-
-```
-
-Now, we link the report to the facility, and the remaining elements where they belong according to the BuildingSync schema.
-
-
-```python
 
 ```
 
@@ -2259,42 +2257,11 @@ led_measure = bsync.Measure(
     ID="Measure-LEDs"
 )
 
-# A measure to upgrade the fans in the RTUs to use VFDs
-# instead of simple on/off fans.
-# The CFMs for each of the RTUs are around ~ 700-800cfm,
-# so there is no obvious choice of fans to upgrade to vfds.
-# Here, we just recommend upgrading all of them.
-
-vsd_retrofit = bsync.ModificationRetrocommissioning()
-for section in ['Gym', 'Kitchen', 'Cafeteria']:
-    vsd_retrofit += bsync.ExistingSystemAffected(IDref=f"PSZAC-{section}")
-vsd_measure = bsync.Measure(
-    bsync.TypeOfMeasure(
-        bsync.ModificationRetrocommissions(
-            vsd_retrofit
-        )
-    ),
-    # could have also used Air Distribution or Motor, this seemed ok too.
-    bsync.SystemCategoryAffected("Fan"),
-    bsync.TechnologyCategories(
-        bsync.TechnologyCategory(
-            bsync.OtherElectricMotorsAndDrives(
-                bsync.OtherElectricMotorsAndDrives.MeasureName("Add VSD motor controller")
-            )
-        )
-    ),
-    bsync.LongDescription("This measure is designed to retrofit all RTU fans with a VSD"),
-    ID="Measure-VSDs"
-)
 measures += led_measure
-measures += vsd_measure
 ```
 
 #### 5.7.2 POM Scenarios
 Now that the measures have been added, we create three potential POM scenarios, and add the necessary attributes per Standard 211 6.1.5 and 6.1.6
-1. LEDs only
-2. VSDs only
-3. LEDs and VSDs
 
 
 ```python
@@ -2325,70 +2292,11 @@ sc_1 = bsync.Scenario(
     ),
     ID="Scenario-POM-LEDs"
 )
-
-pom_vsd = bsync.PackageOfMeasures(
-    bsync.ReferenceCase(IDref=cbms['ID']),
-    bsync.MeasureIDs(
-        bsync.MeasureID(IDref="Measure-VSDs")
-    ),
-    bsync.CostCategory("Capital"),
-    bsync.SimpleImpactAnalysis(
-        bsync.ImpactOnOccupantComfort("Low"),
-        bsync.EstimatedCost("Medium"),
-        bsync.EstimatedAnnualSavings("Medium"),
-        bsync.EstimatedROI("High"),
-        bsync.SimpleImpactAnalysis.Priority("Medium")
-    ),
-    ID="POM-VSDs"
-)
-sc_2 = bsync.Scenario(
-    bsync.Scenario.ScenarioType(
-        pom_vsd
-    ),
-    bsync.LinkedPremises(
-        bsync.LinkedPremises.Building(
-            bsync.LinkedBuildingID(IDref=b1["ID"])
-        )
-    ),
-    ID="Scenario-POM-VSDs"
-)
-
-pom_led_vsd = bsync.PackageOfMeasures(
-    bsync.ReferenceCase(IDref=cbms['ID']),
-    bsync.MeasureIDs(
-        bsync.MeasureID(IDref="Measure-LEDs"),
-        bsync.MeasureID(IDref="Measure-VSDs")
-    ),
-    bsync.CostCategory("Capital"),
-    bsync.SimpleImpactAnalysis(
-        bsync.ImpactOnOccupantComfort("Low"),
-        bsync.EstimatedCost("Medium"),
-        bsync.EstimatedAnnualSavings("Medium"),
-        bsync.EstimatedROI("High"),
-        bsync.SimpleImpactAnalysis.Priority("Medium")
-    ),
-    ID="POM-LEDs-VSDs"
-)
-
-sc_3 = bsync.Scenario(
-    bsync.Scenario.ScenarioType(
-        pom_led_vsd
-    ),
-    bsync.LinkedPremises(
-        bsync.LinkedPremises.Building(
-            bsync.LinkedBuildingID(IDref=b1["ID"])
-        )
-    ),
-    ID="Scenario-POM-LEDs-VSDs"
-)
-
 ```
 
 
 ```python
 scenarios += sc_1
-scenarios += sc_2
-scenarios += sc_3
 ```
 
 ## 5.8 Level 1 Audit Validation
@@ -2411,7 +2319,7 @@ bsync_dump(root, file='Reference-PrimarySchool-L100-Audit.xml')
 
 
 
-You should see a green check mark for the L100 AUDIT use case!
+Now upload the file using the BSync use case validator. You should see a green check mark for the L100 AUDIT use case!
 
 ![Valid](./img/L100ValidPrimarySchool.png)
 
@@ -2423,8 +2331,8 @@ Level 2 audits include all elements from level 1 audits, and add quite a few det
 
 ### 6.1 Facility Description
 
-For section 6.2.1.1, Building Information, we can use the information we collected during the level 1 audit. 
-We just need to add schedules (occupancy, lighting, process and plug loads, and equipment). 
+For section 6.2.1.1, Building Information, we can use the information we collected during the level 1 audit and enrich it somewhat. 
+We will add schedules first (occupancy, lighting, process and plug loads, and equipment). 
 
 #### 6.1.1 Schedules
 
@@ -5695,9 +5603,9 @@ wall_sys += wall
 systems += wall_sys
 ```
 
-###### 6.2.3.2 Windows
+###### 6.2.3.2 Windows and Doors
 
-We define the window system:
+We define the windows and doors system:
 
 
 ```python
@@ -5779,7 +5687,7 @@ ceiling_sys = bsync.CeilingSystems(
 systems += ceiling_sys
 ```
 
-###### 6.2.3.5 Assigning the envelope elements
+#### 6.2.4 Assigning the envelope elements
 
 Now, we assign envelope elements to each space. As usual, we proceed manually for the first space and we will then use a loop to generate the other envelope definitions.
 Let us start with the cafeteria:
@@ -6685,7 +6593,7 @@ pretty_print(classroom1_sec)
     
 
 
-###### 6.2.3.6 Other
+#### 6.2.5 Other
 
 We add final elements that were missing from the L100 audit.
 
@@ -6702,13 +6610,13 @@ b1_gfa += bsync.ExcludedSectionIDs(bsync.ExcludedSectionID(IDref=wb_sec["ID"]))
 b1_cfa += bsync.ExcludedSectionIDs(bsync.ExcludedSectionID(IDref=wb_sec["ID"]))
 ```
 
-#### 6.3 HVAC Systems, Central Plants, Air and Water Distribution Systems and Outside Air Control
+### 6.3 HVAC Systems, Central Plants, Air and Water Distribution Systems and Outside Air Control
 
 This section follows the requirements of Standard 211, section 6.2.1.3.
 
 The primary school has 4 VAV systems and 3 CAV systems.
 
-##### 6.3.1 Central Plant and VAV systems
+#### 6.3.1 Central Plant and VAV systems
 
 We will go step by step for the first VAV. We pick up where we left it for the level 1 audit, where we already defined:
 - the system type
@@ -7095,7 +7003,7 @@ pretty_print(class_corner1_1_tz)
     
 
 
-And now, ducts! We need to deliver this air to thermal zones after all, don't we?
+And now, ducts! We need to deliver this air to thermal zones after all, do we not?
 
 
 ```python
@@ -7927,7 +7835,7 @@ for zone, location, ventilation_rate in zip(["Bathroom", "Kitchen"], ["Bathroom"
     )
 ```
 
-##### 6.3.2 Domestic Hot Water
+#### 6.3.2 Domestic Hot Water
 
 We add the DHS description under DomesticHotWaterSystems:
 
@@ -7984,7 +7892,7 @@ dhs += bsync.DomesticHotWaterSystem(
 
 ```
 
-#### 6.3 Lighting systems
+### 6.4 Lighting systems
 
 We need to add detail to the lighting systems description. The individual lighting systems are defined using the lights_{section-id} format, where section_id is the section id in lowercase characters.
 
@@ -8045,7 +7953,7 @@ for lampsys in lamps_dict:
     
 ```
 
-##### X.X.X.X Meters
+### 6.5 Meters
 
 We need to add meter numbers. We use random numbers for this example.
 
@@ -8060,7 +7968,7 @@ ng_ut += bsync.UtilityMeterNumbers(
 )
 ```
 
-#### X.X.X Measures
+### 6.6 Measures
 
 We must add some information to the proposed measures:
 - start and end date
@@ -8072,7 +7980,7 @@ We must add some information to the proposed measures:
 
 We also add more specific information on system replacements, or upgrades.
 
-##### X.X.X.X Measure 1: Replace Fluorescent Tubes With LEDs
+#### 6.6.1 Replace Fluorescent Tubes With LEDs
 
 
 ```python
@@ -8149,380 +8057,33 @@ for lampsys in lamps_dict:
     lights_replaced += bsync.AlternativeSystemReplacement(IDref=lamps["ID"])
 ```
 
-##### X.X.X.X Measure 2: Replace CAV Fans With VSD
+#### 6.6.2 Packages of Measures
 
-
-
-```python
-vsd_measure += bsync.StartDate(date(2022, 1, 1))
-vsd_measure += bsync.EndDate(date(2022, 12, 31))
-vsd_measure += bsync.Recommended(True)
-vsd_measure += bsync.MeasureScaleOfApplication("Entire building")
-vsd_measure += bsync.MeasureMaterialCost(3000.)# approx. $1000 per VSD controller
-vsd_measure += bsync.MeasureInstallationCost(960.) # $40/hour labor, assuming 8 hours per VSD
-vsd_measure += bsync.UsefulLife(15.) #An internet search results in 15 to 35 years of lifespan.
-```
-
-Since we are upgrading the L100 audit, we must redefine the entire HVAC system since the original measure definition references the entire HVAC system (remember, we did not specify fans and other systems yet at that point). If we were not upgrading an existing measure definition, we could define the replaced systems as being only the fans and our job would be easier.
+We add more information to the previously-created packages of measures.
 
 
 ```python
-
-```
-
-
-```python
-pszac_1_vsd = bsync.HVACSystem(
-        bsync.PrincipalHVACSystemType("Packaged Rooftop Air Conditioner"),
-        bsync.LinkedPremises(bsync.LinkedPremises.Section(bsync.LinkedSectionID(
-            bsync.LinkedScheduleIDs(bsync.LinkedScheduleID(IDref="Schedule-Equipment-HVAC")),
-            IDref=gym_sec["ID"]))),
-        ID="PSZAC-Gym-VSD"
-    )
-pszac_2_vsd = bsync.HVACSystem(
-        bsync.PrincipalHVACSystemType("Packaged Rooftop Air Conditioner"),
-        bsync.LinkedPremises(bsync.LinkedPremises.Section(bsync.LinkedSectionID(
-            bsync.LinkedScheduleIDs(bsync.LinkedScheduleID(IDref="Schedule-Equipment-HVAC")),
-            IDref=kitchen_sec["ID"]))),
-        ID="PSZAC-Kitchen-VSD"
-    )
-pszac_3_vsd = bsync.HVACSystem(
-        bsync.PrincipalHVACSystemType("Packaged Rooftop Air Conditioner"),
-        bsync.LinkedPremises(bsync.LinkedPremises.Section(bsync.LinkedSectionID(
-            bsync.LinkedScheduleIDs(bsync.LinkedScheduleID(IDref="Schedule-Equipment-HVAC")),
-            IDref=cafeteria_sec["ID"]))),
-        ID="PSZAC-Cafeteria-VSD"
-    )
-
-hvac_systems += pszac_1_vsd
-hvac_systems += pszac_2_vsd
-hvac_systems += pszac_3_vsd
-
-for key in params.keys():
-    
-    # We define the heating and cooling systems
-    pod_heatingandcooling = bsync.HeatingAndCoolingSystems(
-        # This is a multi-zone system
-        bsync.ZoningSystemType("Single zone")
-    )
-
-    pod_heatingandcooling += bsync.HeatingSources(
-        bsync.HeatingSource(
-            bsync.HeatingSourceType(
-                bsync.Furnace(
-                    bsync.FurnaceType("Other"),
-                    
-                )
-            ),
-            bsync.HeatingMedium("Air"),
-            bsync.PrimaryFuel("Natural gas"),
-            bsync.InputCapacity(params[key]['heatingcapacity']/0.8),
-            bsync.HeatingSource.Capacity(params[key]['heatingcapacity']),
-            bsync.CapacityUnits('W'),
-            bsync.HeatingSourceCondition('Good'),
-            bsync.HeatingSource.Controls(
-                bsync.HeatingSource.Controls.Control(
-                    bsync.Thermostat(
-                        bsync.Thermostat.ControlStrategy("EMCS"),
-                        bsync.ControlSystemType(
-                            bsync.Digital(
-                                bsync.Digital.CommunicationProtocol("BACnet")
-                            )
-                        )
-                    )
-                )
-            ),
-            bsync.AnnualHeatingEfficiencyValue(0.8),
-            bsync.AnnualHeatingEfficiencyUnits('COP'),
-            bsync.Quantity(1),
-            bsync.YearInstalled(2018),
-            ID=f"{key}-HeatingCoil-VSD"
-        )
-    )
-
-    pod_condenserplant = bsync.Plants(
-        bsync.CondenserPlants(
-            bsync.CondenserPlant(
-                bsync.AirCooled(
-                bsync.CondenserFanSpeedOperation("Variable Volume"),
-                bsync.Capacity(params[key]['coolingcapacity']),
-                bsync.CapacityUnits("W")
-                ),
-                bsync.PrimaryFuel("Electricity"),
-                bsync.CondenserPlantCondition("Good"),
-                bsync.YearInstalled(2018),
-                bsync.CondenserPlant.ControlSystemTypes(
-                bsync.ControlSystemType(
-                    bsync.ControlSystemType.Other(
-                        bsync.OtherCommunicationProtocolName("Unknown")
-                        )
-                    )
-                ),
-                bsync.BuildingAutomationSystem(True),
-                ID=f"{key}-Condenser-VSD"
-            )
-        )
-    )
-    
-    pod_heatingandcooling += bsync.CoolingSources(
-        bsync.CoolingSource(
-            bsync.CoolingSourceType(
-                bsync.DX(
-                    bsync.DXSystemType("Packaged/unitary direct expansion/RTU"),
-                    bsync.CompressorType("Reciprocating"),
-                    bsync.CompressorStaging("Multiple discrete stages"),
-                    bsync.CondenserPlantIDs(
-                        bsync.CondenserPlantID(IDref=f"{key}-Condenser-VSD")
-                    )
-                )
-            ),
-            bsync.CoolingMedium("Refrigerant"),
-            bsync.AnnualCoolingEfficiencyValue(params[key]['COP']),
-            bsync.AnnualCoolingEfficiencyUnits('COP'),
-            # We add the total capacity of the system
-            bsync.Capacity(params[key]['coolingcapacity']),
-            bsync.CapacityUnits('W'),
-            # And we add each additional stage as a fraction of that total capacity
-            bsync.NumberOfDiscreteCoolingStages(2),
-            bsync.CoolingStageCapacity(0.5), #All PSZACs have the same stage ratio
-            bsync.RatedCoolingSensibleHeatRatio(params[key]['SHR']),
-            bsync.CoolingSourceCondition('Good'),
-            bsync.CoolingSource.Controls(
-                bsync.CoolingSource.Controls.Control(
-                    bsync.Thermostat(
-                        bsync.Thermostat.ControlStrategy("EMCS"),
-                        bsync.ControlSystemType(
-                            bsync.Digital(
-                                bsync.Digital.CommunicationProtocol("BACnet")
-                            )
-                        )
-                    )
-                )
-            ),
-            bsync.YearInstalled(2018),
-            ID=f"{key}-DXCoil-VSD"
-        )
-    )
-
-    pod_delivery = bsync.Deliveries(
-        bsync.Delivery(
-            bsync.DeliveryType(
-                bsync.CentralAirDistribution(
-                    bsync.AirDeliveryType("Central fan"),
-                    bsync.TerminalUnit("CAV terminal box no reheat"),
-                    bsync.ReheatSource("None"),
-                    bsync.FanBased(
-                        bsync.FanBasedDistributionType(),
-                        bsync.AirSideEconomizer(
-                            bsync.AirSideEconomizerType("Dry bulb temperature"),
-                            ID=f"{key}-AirSideEconomizer-VAV"
-                        ),
-                        bsync.OutsideAirResetMaximumCoolingSupplyTemperature(70.),
-                        bsync.OutsideAirResetMinimumCoolingSupplyTemperature(60.),
-                        bsync.OutsideAirTemperatureLowerLimitCoolingResetControl(50.)
-                    ),   
-                )
-            ),
-            bsync.HeatingSourceID(IDref=f"{key}-HeatingCoil-VSD"),
-            bsync.CoolingSourceID(IDref=f"{key}-DXCoil-VSD"),
-            bsync.Delivery.Controls(
-                bsync.Delivery.Controls.Control(
-                    bsync.Thermostat(
-                        bsync.Thermostat.ControlStrategy("EMCS"),
-                        bsync.ControlSystemType(
-                            bsync.Digital(
-                                bsync.Digital.CommunicationProtocol("BACnet")
-                            )
-                        )
-                    )
-                )
-            ),
-            bsync.Quantity(1),
-            bsync.YearInstalled(2018),
-            bsync.DeliveryCondition("Good"),
-            ID=f"{key}-Delivery-VSD"
-        )
-    )
-
-    pod_heatingandcooling += pod_delivery
-    
-    #for tzs in params[key]['tzvars']:
-    #    tzs += bsync.DeliveryIDs(
-    #    bsync.DeliveryID(IDref=f"{key}-Delivery-VSD")
-    #    )
-    
-    pod_ducts_premises = bsync.LinkedPremises()
-    pod_duct_tzs = bsync.LinkedPremises.ThermalZone()
-    pod_ducts_premises += pod_duct_tzs
-    for zone in params[key]['thermalzones'].keys():
-        pod_duct_tzs += bsync.LinkedThermalZoneID(IDref=zone)
-
-    pod_ducts = bsync.DuctSystems(
-        bsync.DuctSystem(
-            bsync.DuctConfiguration("Single"),
-            bsync.Quantity(1),
-            bsync.Location("Interior"),
-            bsync.HeatingDeliveryID(IDref=f"{key}-Delivery-VSD"),
-            bsync.CoolingDeliveryID(IDref=f"{key}-Delivery-VSD"),
-            pod_ducts_premises,
-            bsync.DuctInsulationCondition("Good"),
-            ID=f"{key}-Duct-VSD"
-        )
-
-    )
-    
-    pod_vent_systems = bsync.OtherHVACSystems()
-    for zone in params[key]['thermalzones'].keys():
-        if '-Pod' in zone:
-            zoneid = zone[:-8]
-        else:
-            zoneid = zone[:-3]
-        pod_vent_systems += bsync.OtherHVACSystem(
-            bsync.OtherHVACType(
-                bsync.MechanicalVentilation(
-                    bsync.VentilationRate(params[key]['thermalzones'][zone]),
-                    bsync.VentilationType("Supply only"),
-                    bsync.DemandControlVentilation(True)
-                )
-            ),
-            bsync.OtherHVACSystem.Controls(
-                bsync.OtherHVACSystem.Controls.Control(
-                    bsync.Thermostat(
-                        bsync.Thermostat.ControlStrategy("EMCS")
-                    )
-                )
-            ),
-            bsync.LinkedPremises(
-                bsync.LinkedPremises.ThermalZone(
-                    bsync.LinkedThermalZoneID(
-                        bsync.LinkedScheduleIDs(
-                            bsync.LinkedScheduleID(IDref="Schedule-MinOA")
-                        ),
-                        IDref=zone
-                    )
-                )
-            ),
-            bsync.Integration("Integrated with central air distribution"),
-            bsync.LinkedDeliveryIDs(
-                bsync.LinkedDeliveryID(IDref=f"{key}-Delivery-VSD")
-            ),
-            ID=f"{key}-Vent-{zoneid}-VSD"
-        )
-    
-    pod_fan = bsync.FanSystem(
-        bsync.FanEfficiency(0.58),
-        bsync.FanSize(params[key]['fan_size']),
-        bsync.InstalledFlowRate(params[key]['fan_size']),
-        bsync.FanApplication("Supply"),
-        bsync.FanControlType("Variable Volume"),
-        bsync.MotorLocationRelativeToAirStream(True),
-        bsync.FanSystem.Controls(
-            bsync.FanSystem.Controls.Control(
-                bsync.FanSystem.Controls.Control.Manual(
-                    bsync.FanSystem.Controls.Control.Manual.ControlStrategy("EMCS")
-                )
-            )
-        ),
-        bsync.Quantity(1),
-        bsync.PrimaryFuel("Electricity"),
-        bsync.Location("Interior"),
-        bsync.YearInstalled(2018),
-        bsync.LinkedSystemIDs(
-            bsync.LinkedSystemID(IDref=f"{key}-Delivery-VSD")
-        ),
-        ID=f"VAV-{key}-Fan-VSD"
-    )
-    fan_systems += pod_fan
-
-    fan_motor = bsync.MotorSystem(
-        bsync.MotorEfficiency(0.89),
-        bsync.DriveEfficiency(1.),
-        bsync.MotorApplication("Fan"),
-        bsync.MotorSystem.Controls(
-            bsync.MotorSystem.Controls.Control(
-                bsync.MotorSystem.Controls.Control.Manual(
-                    bsync.MotorSystem.Controls.Control.Manual.ControlStrategy("EMCS")
-                )
-            )
-        ),
-        bsync.Quantity(1),
-        bsync.PrimaryFuel("Electricity"),
-        bsync.Location("Interior"),
-        bsync.YearInstalled(2018),
-        bsync.LinkedSystemIDs(
-            bsync.LinkedSystemID(IDref=f"VAV-{key}-Fan-VSD")
-        ),
-        ID=f"Motor-{key}-Fan-VSD"
-    )
-
-    motor_systems += fan_motor
-    
-    pod_condenser_pump = bsync.PumpSystem(
-        bsync.PumpControlType("Constant Volume"),
-        bsync.PumpEfficiency(1.),
-        bsync.PumpMaximumFlowRate(0.000708),
-        bsync.PumpInstalledFlowRate(0.000708),
-        bsync.LinkedSystemIDs(
-            bsync.LinkedSystemID(IDref=f"{key}-Condenser-VSD")
-        ),
-        ID=f"{key}-Condenser-Pump-VSD"
-    )
-
-    pump_systems += pod_condenser_pump
-    
-    if key == 'PSZAC-1':
-        pszac_1_vsd += pod_heatingandcooling
-        pszac_1_vsd += pod_condenserplant
-        pszac_1_vsd += pod_ducts
-        pszac_1_vsd += pod_vent_systems
-    elif key == 'PSZAC-2':
-        pszac_2_vsd += pod_heatingandcooling
-        pszac_2_vsd += pod_condenserplant
-        pszac_2_vsd += pod_ducts
-        pszac_2_vsd += pod_vent_systems
-    else:
-        pszac_3_vsd += pod_heatingandcooling
-        pszac_3_vsd += pod_condenserplant
-        pszac_3_vsd += pod_ducts
-        pszac_3_vsd += pod_vent_systems
-
-    
-```
-
-
-```python
-vsd_retrofit += bsync.ModifiedSystem(IDref=pszac_1_vsd["ID"])
-vsd_retrofit += bsync.ModifiedSystem(IDref=pszac_2_vsd["ID"])
-vsd_retrofit += bsync.ModifiedSystem(IDref=pszac_3_vsd["ID"])
-```
-
-##### X.X.X.X Packages of Measures
-
-We add more information to the previously-created packages of measures. We have 3: one with LEDs only, one with VSDs only, and one with LEDs and VSDs.
-
-
-```python
-pom_led += bsync.AnnualPeakElectricityReduction(0.)
-pom_led += bsync.AnnualDemandSavingsCost(0)
-pom_led += bsync.PackageFirstCost(0.)
+pom_led += bsync.AnnualPeakElectricityReduction(27.) #kW. From simulation
+pom_led += bsync.AnnualDemandSavingsCost(872.57) #USD. From simulation
+pom_led += bsync.PackageFirstCost(8955.)
 pom_led += bsync.MVCost(0.)
-pom_led += bsync.OMCostAnnualSavings(0.)
+pom_led += bsync.OMCostAnnualSavings(1513.22) # T8 have a lifespan of 8 years, at $3 a piece and LEDs 16 years at $100/25 pieces. Counting 1mn/bulb @ $40/hour for replacing them.
 pom_led += bsync.AnnualWaterSavings(0.)
 pom_led += bsync.AnnualWaterCostSavings(0.)
 pom_led += bsync.EquipmentDisposalAndSalvageCosts(0.)
-pom_led += bsync.SimplePayback(7.)
-pom_led += bsync.InternalRateOfReturn(0.)
+pom_led += bsync.SimplePayback(3.2)
+pom_led += bsync.InternalRateOfReturn(17.39) # Over 16 years
 pom_led += bsync.ImplementationPeriodCostSavings(0.)
 pom_led += bsync.ProjectMarkup(0.)
 pom_led += bsync.FundingFromIncentives(0.)
 pom_led += bsync.FundingFromTaxCredits(0.)
 pom_led += bsync.RecurringIncentives(0)
 pom_led += bsync.ImplementationPeriod(0)
-pom_led += bsync.AnnualSavingsSiteEnergy(0.)
+pom_led += bsync.AnnualSavingsSiteEnergy(53569.)
 pom_led += bsync.AnnualSavingsCost(1269)
 pom_led += bsync.AnnualSavingsByFuels(
     bsync.AnnualSavingsByFuel(
-        bsync.AnnualSavingsNativeUnits(2000.),
+        bsync.AnnualSavingsNativeUnits(53569.),
         bsync.EnergyResource("Electricity"),
         bsync.ResourceUnits("kWh")
     ),
@@ -8534,73 +8095,11 @@ pom_led += bsync.AnnualSavingsByFuels(
 )
 pom_led += bsync.OtherFinancialIncentives(0)
 
-pom_vsd += bsync.AnnualPeakElectricityReduction(0.)
-pom_vsd += bsync.AnnualDemandSavingsCost(0)
-pom_vsd += bsync.PackageFirstCost(0.)
-pom_vsd += bsync.MVCost(0.)
-pom_vsd += bsync.OMCostAnnualSavings(0.)
-pom_vsd += bsync.AnnualWaterSavings(0.)
-pom_vsd += bsync.AnnualWaterCostSavings(0.)
-pom_vsd += bsync.EquipmentDisposalAndSalvageCosts(0.)
-pom_vsd += bsync.SimplePayback(7.)
-pom_vsd += bsync.InternalRateOfReturn(0.)
-pom_vsd += bsync.ImplementationPeriodCostSavings(0.)
-pom_vsd += bsync.ProjectMarkup(0.)
-pom_vsd += bsync.FundingFromIncentives(0.)
-pom_vsd += bsync.FundingFromTaxCredits(0.)
-pom_vsd += bsync.RecurringIncentives(0)
-pom_vsd += bsync.ImplementationPeriod(0)
-pom_vsd += bsync.AnnualSavingsSiteEnergy(0.)
-pom_vsd += bsync.AnnualSavingsCost(1269)
-pom_vsd += bsync.AnnualSavingsByFuels(
-    bsync.AnnualSavingsByFuel(
-        bsync.AnnualSavingsNativeUnits(2000.),
-        bsync.EnergyResource("Electricity"),
-        bsync.ResourceUnits("kWh")
-    ),
-    bsync.AnnualSavingsByFuel(
-        bsync.AnnualSavingsNativeUnits(0.),
-        bsync.EnergyResource("Natural gas"),
-        bsync.ResourceUnits("MMBtu")
-    ),
-)
-pom_vsd += bsync.OtherFinancialIncentives(0)
-
-pom_led_vsd += bsync.AnnualPeakElectricityReduction(0.)
-pom_led_vsd += bsync.AnnualDemandSavingsCost(0)
-pom_led_vsd += bsync.PackageFirstCost(0.)
-pom_led_vsd += bsync.MVCost(0.)
-pom_led_vsd += bsync.OMCostAnnualSavings(0.)
-pom_led_vsd += bsync.AnnualWaterSavings(0.)
-pom_led_vsd += bsync.AnnualWaterCostSavings(0.)
-pom_led_vsd += bsync.EquipmentDisposalAndSalvageCosts(0.)
-pom_led_vsd += bsync.SimplePayback(7.)
-pom_led_vsd += bsync.InternalRateOfReturn(0.)
-pom_led_vsd += bsync.ImplementationPeriodCostSavings(0.)
-pom_led_vsd += bsync.ProjectMarkup(0.)
-pom_led_vsd += bsync.FundingFromIncentives(0.)
-pom_led_vsd += bsync.FundingFromTaxCredits(0.)
-pom_led_vsd += bsync.RecurringIncentives(0)
-pom_led_vsd += bsync.ImplementationPeriod(0)
-pom_led_vsd += bsync.AnnualSavingsSiteEnergy(0.)
-pom_led_vsd += bsync.AnnualSavingsCost(1269)
-pom_led_vsd += bsync.AnnualSavingsByFuels(
-    bsync.AnnualSavingsByFuel(
-        bsync.AnnualSavingsNativeUnits(2000.),
-        bsync.EnergyResource("Electricity"),
-        bsync.ResourceUnits("kWh")
-    ),
-    bsync.AnnualSavingsByFuel(
-        bsync.AnnualSavingsNativeUnits(0.),
-        bsync.EnergyResource("Natural gas"),
-        bsync.ResourceUnits("MMBtu")
-    ),
-)
-pom_led_vsd += bsync.OtherFinancialIncentives(0)
-
 ```
 
-#### X.X.X Utilities and TimeSeries
+### 6.7 Utilities and TimeSeries
+
+We need to add load factors and the entity responsible for paying utility bills.
 
 
 ```python
@@ -8624,7 +8123,9 @@ elec_ut += bsync.UtilityBillpayer("School district")
 ng_ut += bsync.UtilityBillpayer("School district")
 ```
 
-#### X.X.X Water and Air Infiltration
+### 6.8 Water and Air Infiltration
+
+We define eater and air infiltration systems following a walkthrough survey. We add notes and link the whole building section.
 
 
 ```python
@@ -8658,9 +8159,10 @@ systems += bsync.AirInfiltrationSystems(
 )
 ```
 
-#### X.X.X Critical IT Sytems
+### 6.9 Critical IT Sytems
 
-
+We need to define critical IT systems, which might include BAS, networking systems, etc.
+Here we define one networking system present in the library.
 
 
 ```python
@@ -8681,9 +8183,13 @@ systems += bsync.CriticalITSystems(
 
 ```
 
+## 7. Validation of the L200 Audit
+
+We save the XML file using our utility function again:
+
 
 ```python
-bsync_dump(root, file="Reference-PrimarySchool-L100-Audit.xml")
+bsync_dump(root, file="Reference-PrimarySchool-L200-Audit.xml")
 ```
 
 
@@ -8693,34 +8199,7 @@ bsync_dump(root, file="Reference-PrimarySchool-L100-Audit.xml")
 
 
 
+And now, we head to the [use case validator](https://buildingsync.net/validator) webpage to upload our new file.
+Congratulations! It passes the L200 schema validator.
 
-```python
-plugloads
-```
-
-
-
-
-    [{'spaceid': 'Lobby', 'plugload': 4.0},
-     {'spaceid': 'Corridor-Pod1', 'plugload': 4.0},
-     {'spaceid': 'Corridor-Pod2', 'plugload': 4.0},
-     {'spaceid': 'Corridor-Pod3', 'plugload': 4.0},
-     {'spaceid': 'Corridor-Main', 'plugload': 4.0},
-     {'spaceid': 'Classroom-Pod1', 'plugload': 15.0},
-     {'spaceid': 'Classroom-Pod2', 'plugload': 15.0},
-     {'spaceid': 'Classroom-Pod3', 'plugload': 15.0},
-     {'spaceid': 'Computer-Lab', 'plugload': 20.0},
-     {'spaceid': 'Bathroom', 'plugload': 4.0},
-     {'spaceid': 'Cafeteria', 'plugload': 25.39},
-     {'spaceid': 'Gym', 'plugload': 5.0},
-     {'spaceid': 'Kitchen', 'plugload': 1630.3893},
-     {'spaceid': 'Library', 'plugload': 15.0},
-     {'spaceid': 'Mechanical-room', 'plugload': 10.0},
-     {'spaceid': 'Offices', 'plugload': 10.8}]
-
-
-
-
-```python
-
-```
+![Valid](./img/L200ValidPrimarySchool.png)
