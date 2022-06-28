@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" version="2.4.0">
+<BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../../../BuildingSync.xsd"
+  version="2.4.0">
   <Facilities>
     <Facility ID="Facility-1">
       <Sites>
         <Site ID="Site-1">
           <Buildings>
             <Building ID="Building-Small-Office-Prototype">
-              <PremisesName>Small Office Prototype</PremisesName>
+              <PremisesName>Small Office Prototype in Denver</PremisesName>
               <PremisesNotes>Here we record general problems / issues identified in a walkthrough survey.</PremisesNotes>
               <Address>
                 <StreetAddressDetail>
                   <Simplified>
-                    <StreetAddress>4055 Brooks Street</StreetAddress>
+                    <StreetAddress>Some address</StreetAddress>
                   </Simplified>
                 </StreetAddressDetail>
-                <City>Missoula</City>
-                <State>MT</State>
-                <PostalCode>59804</PostalCode>
+                <City>Denver</City>
+                <State>CO</State>
+                <PostalCode>80014</PostalCode>
               </Address>
               <BuildingClassification>Commercial</BuildingClassification>
               <OccupancyClassification>Office</OccupancyClassification>
@@ -93,17 +96,17 @@
                       <SideNumber>A1</SideNumber>
                       <WallIDs>
                         <WallID IDref="Wall-1">
-                          <WallArea>123.000000</WallArea>
+                          <WallArea>909.012230</WallArea>
                         </WallID>
                       </WallIDs>
                       <WindowIDs>
                         <WindowID IDref="Window-1-Original">
-                          <FenestrationArea>123.000000</FenestrationArea>
+                          <FenestrationArea>180.187860</FenestrationArea>
                         </WindowID>
                       </WindowIDs>
                       <DoorIDs>
                         <DoorID IDref="Door-1">
-                          <FenestrationArea>123.000000</FenestrationArea>
+                          <FenestrationArea>42.086890</FenestrationArea>
                         </DoorID>
                       </DoorIDs>
                     </Side>
@@ -111,17 +114,17 @@
                       <SideNumber>B1</SideNumber>
                       <WallIDs>
                         <WallID IDref="Wall-1">
-                          <WallArea>123.000000</WallArea>
+                          <WallArea>606.008200</WallArea>
                         </WallID>
                       </WallIDs>
                       <WindowIDs>
                         <WindowID IDref="Window-1-Original">
-                          <FenestrationArea>123.000000</FenestrationArea>
+                          <FenestrationArea>120.125240</FenestrationArea>
                         </WindowID>
                       </WindowIDs>
                       <DoorIDs>
                         <DoorID IDref="Door-1">
-                          <FenestrationArea>123.000000</FenestrationArea>
+                          <FenestrationArea>0.000000</FenestrationArea>
                         </DoorID>
                       </DoorIDs>
                     </Side>
@@ -129,17 +132,17 @@
                       <SideNumber>C1</SideNumber>
                       <WallIDs>
                         <WallID IDref="Wall-1">
-                          <WallArea>123.000000</WallArea>
+                          <WallArea>909.012230</WallArea>
                         </WallID>
                       </WallIDs>
                       <WindowIDs>
                         <WindowID IDref="Window-1-Original">
-                          <FenestrationArea>123.000000</FenestrationArea>
+                          <FenestrationArea>180.187860</FenestrationArea>
                         </WindowID>
                       </WindowIDs>
                       <DoorIDs>
                         <DoorID IDref="Door-1">
-                          <FenestrationArea>123.000000</FenestrationArea>
+                          <FenestrationArea>0.000000</FenestrationArea>
                         </DoorID>
                       </DoorIDs>
                     </Side>
@@ -147,17 +150,17 @@
                       <SideNumber>D1</SideNumber>
                       <WallIDs>
                         <WallID IDref="Wall-1">
-                          <WallArea>123.000000</WallArea>
+                          <WallArea>606.008200</WallArea>
                         </WallID>
                       </WallIDs>
                       <WindowIDs>
                         <WindowID IDref="Window-1-Original">
-                          <FenestrationArea>123.000000</FenestrationArea>
+                          <FenestrationArea>120.125240</FenestrationArea>
                         </WindowID>
                       </WindowIDs>
                       <DoorIDs>
                         <DoorID IDref="Door-1">
-                          <FenestrationArea>123.000000</FenestrationArea>
+                          <FenestrationArea>0.000000</FenestrationArea>
                         </DoorID>
                       </DoorIDs>
                     </Side>
@@ -165,7 +168,7 @@
                   <Roofs>
                     <Roof>
                       <RoofID IDref="Roof-1">
-                        <RoofArea>123.000000</RoofArea>
+                        <RoofArea>6444.999000</RoofArea>
                         <RoofCondition>Good</RoofCondition>
                       </RoofID>
                     </Roof>
@@ -173,7 +176,7 @@
                   <Foundations>
                     <Foundation>
                       <FoundationID IDref="Foundation-1">
-                        <FoundationArea>123.000000</FoundationArea>
+                        <FoundationArea>3891.153600</FoundationArea>
                       </FoundationID>
                     </Foundation>
                   </Foundations>
@@ -195,15 +198,15 @@
                     <HeatPump>
                       <HeatPumpType>Packaged Unitary</HeatPumpType>
                       <HeatPumpBackupSystemFuel>Natural gas</HeatPumpBackupSystemFuel>
-                      <HeatPumpBackupAFUE>0.123000</HeatPumpBackupAFUE>
-                      <CoolingSourceID IDref="CoolingSource-1"/>
+                      <HeatPumpBackupAFUE>0.000000</HeatPumpBackupAFUE>
+                      <CoolingSourceID IDref="CoolingSource-5"/>
                     </HeatPump>
                   </HeatingSourceType>
-                  <AnnualHeatingEfficiencyValue>123.000000</AnnualHeatingEfficiencyValue>
+                  <AnnualHeatingEfficiencyValue>3.010000</AnnualHeatingEfficiencyValue>
                   <AnnualHeatingEfficiencyUnits>COP</AnnualHeatingEfficiencyUnits>
-                  <InputCapacity>123.000000</InputCapacity>
-                  <Capacity>123.000000</Capacity>
-                  <CapacityUnits>gpm</CapacityUnits>
+                  <InputCapacity>10311.100000</InputCapacity>
+                  <Capacity>10311.100000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
                   <HeatingSourceCondition>Good</HeatingSourceCondition>
                   <Controls>
                     <Control>
@@ -214,19 +217,22 @@
                       </OtherControlTechnology>
                     </Control>
                   </Controls>
-                  <YearInstalled>2020</YearInstalled>
+                  <YearInstalled>2000</YearInstalled>
                 </HeatingSource>
                 <HeatingSource ID="HeatingSource-2">
                   <HeatingSourceType>
-                    <Furnace>
-                      <FurnaceType>Warm air</FurnaceType>
-                    </Furnace>
+                    <HeatPump>
+                      <HeatPumpType>Packaged Unitary</HeatPumpType>
+                      <HeatPumpBackupSystemFuel>Natural gas</HeatPumpBackupSystemFuel>
+                      <HeatPumpBackupAFUE>0.000000</HeatPumpBackupAFUE>
+                      <CoolingSourceID IDref="CoolingSource-5"/>
+                    </HeatPump>
                   </HeatingSourceType>
-                  <AnnualHeatingEfficiencyValue>123.000000</AnnualHeatingEfficiencyValue>
+                  <AnnualHeatingEfficiencyValue>3.010000</AnnualHeatingEfficiencyValue>
                   <AnnualHeatingEfficiencyUnits>COP</AnnualHeatingEfficiencyUnits>
-                  <InputCapacity>123.000000</InputCapacity>
-                  <Capacity>123.000000</Capacity>
-                  <CapacityUnits>gpm</CapacityUnits>
+                  <InputCapacity>9801.300000</InputCapacity>
+                  <Capacity>9801.300000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
                   <HeatingSourceCondition>Good</HeatingSourceCondition>
                   <Controls>
                     <Control>
@@ -237,7 +243,85 @@
                       </OtherControlTechnology>
                     </Control>
                   </Controls>
-                  <YearInstalled>2020</YearInstalled>
+                  <YearInstalled>2000</YearInstalled>
+                </HeatingSource>
+                <HeatingSource ID="HeatingSource-3">
+                  <HeatingSourceType>
+                    <HeatPump>
+                      <HeatPumpType>Packaged Unitary</HeatPumpType>
+                      <HeatPumpBackupSystemFuel>Natural gas</HeatPumpBackupSystemFuel>
+                      <HeatPumpBackupAFUE>0.000000</HeatPumpBackupAFUE>
+                      <CoolingSourceID IDref="CoolingSource-5"/>
+                    </HeatPump>
+                  </HeatingSourceType>
+                  <AnnualHeatingEfficiencyValue>3.010000</AnnualHeatingEfficiencyValue>
+                  <AnnualHeatingEfficiencyUnits>COP</AnnualHeatingEfficiencyUnits>
+                  <InputCapacity>7858.100000</InputCapacity>
+                  <Capacity>7858.100000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <HeatingSourceCondition>Good</HeatingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                </HeatingSource>
+                <HeatingSource ID="HeatingSource-4">
+                  <HeatingSourceType>
+                    <HeatPump>
+                      <HeatPumpType>Packaged Unitary</HeatPumpType>
+                      <HeatPumpBackupSystemFuel>Natural gas</HeatPumpBackupSystemFuel>
+                      <HeatPumpBackupAFUE>0.000000</HeatPumpBackupAFUE>
+                      <CoolingSourceID IDref="CoolingSource-5"/>
+                    </HeatPump>
+                  </HeatingSourceType>
+                  <AnnualHeatingEfficiencyValue>3.010000</AnnualHeatingEfficiencyValue>
+                  <AnnualHeatingEfficiencyUnits>COP</AnnualHeatingEfficiencyUnits>
+                  <InputCapacity>9067.800000</InputCapacity>
+                  <Capacity>9067.800000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <HeatingSourceCondition>Good</HeatingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                </HeatingSource>
+                <HeatingSource ID="HeatingSource-5">
+                  <HeatingSourceType>
+                    <HeatPump>
+                      <HeatPumpType>Packaged Unitary</HeatPumpType>
+                      <HeatPumpBackupSystemFuel>Natural gas</HeatPumpBackupSystemFuel>
+                      <HeatPumpBackupAFUE>0.000000</HeatPumpBackupAFUE>
+                      <CoolingSourceID IDref="CoolingSource-5"/>
+                    </HeatPump>
+                  </HeatingSourceType>
+                  <AnnualHeatingEfficiencyValue>3.010000</AnnualHeatingEfficiencyValue>
+                  <AnnualHeatingEfficiencyUnits>COP</AnnualHeatingEfficiencyUnits>
+                  <InputCapacity>9855.400000</InputCapacity>
+                  <Capacity>9855.400000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <HeatingSourceCondition>Good</HeatingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
                 </HeatingSource>
               </HeatingSources>
               <CoolingSources>
@@ -249,10 +333,10 @@
                       <CompressorStaging>Single stage</CompressorStaging>
                     </DX>
                   </CoolingSourceType>
-                  <AnnualCoolingEfficiencyValue>123.000000</AnnualCoolingEfficiencyValue>
+                  <AnnualCoolingEfficiencyValue>2.610000</AnnualCoolingEfficiencyValue>
                   <AnnualCoolingEfficiencyUnits>COP</AnnualCoolingEfficiencyUnits>
-                  <Capacity>123.000000</Capacity>
-                  <CapacityUnits>gpm</CapacityUnits>
+                  <Capacity>10198.900000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
                   <CoolingSourceCondition>Good</CoolingSourceCondition>
                   <Controls>
                     <Control>
@@ -263,7 +347,103 @@
                       </OtherControlTechnology>
                     </Control>
                   </Controls>
-                  <YearInstalled>2020</YearInstalled>
+                  <YearInstalled>2000</YearInstalled>
+                </CoolingSource>
+                <CoolingSource ID="CoolingSource-2">
+                  <CoolingSourceType>
+                    <DX>
+                      <DXSystemType>Packaged/unitary heat pump</DXSystemType>
+                      <CompressorType>Reciprocating</CompressorType>
+                      <CompressorStaging>Single stage</CompressorStaging>
+                    </DX>
+                  </CoolingSourceType>
+                  <AnnualCoolingEfficiencyValue>2.610000</AnnualCoolingEfficiencyValue>
+                  <AnnualCoolingEfficiencyUnits>COP</AnnualCoolingEfficiencyUnits>
+                  <Capacity>9847.200000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <CoolingSourceCondition>Good</CoolingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                </CoolingSource>
+                <CoolingSource ID="CoolingSource-3">
+                  <CoolingSourceType>
+                    <DX>
+                      <DXSystemType>Packaged/unitary heat pump</DXSystemType>
+                      <CompressorType>Reciprocating</CompressorType>
+                      <CompressorStaging>Single stage</CompressorStaging>
+                    </DX>
+                  </CoolingSourceType>
+                  <AnnualCoolingEfficiencyValue>2.610000</AnnualCoolingEfficiencyValue>
+                  <AnnualCoolingEfficiencyUnits>COP</AnnualCoolingEfficiencyUnits>
+                  <Capacity>7737.100000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <CoolingSourceCondition>Good</CoolingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                </CoolingSource>
+                <CoolingSource ID="CoolingSource-4">
+                  <CoolingSourceType>
+                    <DX>
+                      <DXSystemType>Packaged/unitary heat pump</DXSystemType>
+                      <CompressorType>Reciprocating</CompressorType>
+                      <CompressorStaging>Single stage</CompressorStaging>
+                    </DX>
+                  </CoolingSourceType>
+                  <AnnualCoolingEfficiencyValue>2.610000</AnnualCoolingEfficiencyValue>
+                  <AnnualCoolingEfficiencyUnits>COP</AnnualCoolingEfficiencyUnits>
+                  <Capacity>9143.800000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <CoolingSourceCondition>Good</CoolingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                </CoolingSource>
+                <CoolingSource ID="CoolingSource-5">
+                  <CoolingSourceType>
+                    <DX>
+                      <DXSystemType>Packaged/unitary heat pump</DXSystemType>
+                      <CompressorType>Reciprocating</CompressorType>
+                      <CompressorStaging>Single stage</CompressorStaging>
+                    </DX>
+                  </CoolingSourceType>
+                  <AnnualCoolingEfficiencyValue>2.610000</AnnualCoolingEfficiencyValue>
+                  <AnnualCoolingEfficiencyUnits>COP</AnnualCoolingEfficiencyUnits>
+                  <Capacity>9847.200000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <CoolingSourceCondition>Good</CoolingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
                 </CoolingSource>
               </CoolingSources>
               <Deliveries>
@@ -292,8 +472,124 @@
                       </OtherControlTechnology>
                     </Control>
                   </Controls>
-                  <YearInstalled>2020</YearInstalled>
-                  <Quantity>5</Quantity>
+                  <YearInstalled>2000</YearInstalled>
+                  <Quantity>1</Quantity>
+                  <DeliveryCondition>Good</DeliveryCondition>
+                </Delivery>
+                <Delivery ID="Delivery-2">
+                  <DeliveryType>
+                    <CentralAirDistribution>
+                      <AirDeliveryType>Central fan</AirDeliveryType>
+                      <TerminalUnit>CAV terminal box no reheat</TerminalUnit>
+                      <ReheatSource>None</ReheatSource>
+                      <FanBased>
+                        <AirSideEconomizer ID="AirSideEconomizer-2">
+                          <AirSideEconomizerType>None</AirSideEconomizerType>
+                          <EconomizerControl>Fixed</EconomizerControl>
+                        </AirSideEconomizer>
+                      </FanBased>
+                    </CentralAirDistribution>
+                  </DeliveryType>
+                  <HeatingSourceID IDref="HeatingSource-2"/>
+                  <CoolingSourceID IDref="CoolingSource-2"/>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                  <Quantity>1</Quantity>
+                  <DeliveryCondition>Good</DeliveryCondition>
+                </Delivery>
+                <Delivery ID="Delivery-3">
+                  <DeliveryType>
+                    <CentralAirDistribution>
+                      <AirDeliveryType>Central fan</AirDeliveryType>
+                      <TerminalUnit>CAV terminal box no reheat</TerminalUnit>
+                      <ReheatSource>None</ReheatSource>
+                      <FanBased>
+                        <AirSideEconomizer ID="AirSideEconomizer-3">
+                          <AirSideEconomizerType>None</AirSideEconomizerType>
+                          <EconomizerControl>Fixed</EconomizerControl>
+                        </AirSideEconomizer>
+                      </FanBased>
+                    </CentralAirDistribution>
+                  </DeliveryType>
+                  <HeatingSourceID IDref="HeatingSource-3"/>
+                  <CoolingSourceID IDref="CoolingSource-3"/>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                  <Quantity>1</Quantity>
+                  <DeliveryCondition>Good</DeliveryCondition>
+                </Delivery>
+                <Delivery ID="Delivery-4">
+                  <DeliveryType>
+                    <CentralAirDistribution>
+                      <AirDeliveryType>Central fan</AirDeliveryType>
+                      <TerminalUnit>CAV terminal box no reheat</TerminalUnit>
+                      <ReheatSource>None</ReheatSource>
+                      <FanBased>
+                        <AirSideEconomizer ID="AirSideEconomizer-4">
+                          <AirSideEconomizerType>None</AirSideEconomizerType>
+                          <EconomizerControl>Fixed</EconomizerControl>
+                        </AirSideEconomizer>
+                      </FanBased>
+                    </CentralAirDistribution>
+                  </DeliveryType>
+                  <HeatingSourceID IDref="HeatingSource-4"/>
+                  <CoolingSourceID IDref="CoolingSource-4"/>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                  <Quantity>1</Quantity>
+                  <DeliveryCondition>Good</DeliveryCondition>
+                </Delivery>
+                <Delivery ID="Delivery-5">
+                  <DeliveryType>
+                    <CentralAirDistribution>
+                      <AirDeliveryType>Central fan</AirDeliveryType>
+                      <TerminalUnit>CAV terminal box no reheat</TerminalUnit>
+                      <ReheatSource>None</ReheatSource>
+                      <FanBased>
+                        <AirSideEconomizer ID="AirSideEconomizer-5">
+                          <AirSideEconomizerType>None</AirSideEconomizerType>
+                          <EconomizerControl>Fixed</EconomizerControl>
+                        </AirSideEconomizer>
+                      </FanBased>
+                    </CentralAirDistribution>
+                  </DeliveryType>
+                  <HeatingSourceID IDref="HeatingSource-5"/>
+                  <CoolingSourceID IDref="CoolingSource-5"/>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                  <Quantity>1</Quantity>
                   <DeliveryCondition>Good</DeliveryCondition>
                 </Delivery>
               </Deliveries>
@@ -304,6 +600,30 @@
                 <DuctInsulationCondition>Good</DuctInsulationCondition>
                 <HeatingDeliveryID IDref="Delivery-1"/>
                 <CoolingDeliveryID IDref="Delivery-1"/>
+              </DuctSystem>
+              <DuctSystem ID="DuctSystem-2">
+                <DuctConfiguration>Single</DuctConfiguration>
+                <DuctInsulationCondition>Good</DuctInsulationCondition>
+                <HeatingDeliveryID IDref="Delivery-2"/>
+                <CoolingDeliveryID IDref="Delivery-2"/>
+              </DuctSystem>
+              <DuctSystem ID="DuctSystem-3">
+                <DuctConfiguration>Single</DuctConfiguration>
+                <DuctInsulationCondition>Good</DuctInsulationCondition>
+                <HeatingDeliveryID IDref="Delivery-3"/>
+                <CoolingDeliveryID IDref="Delivery-3"/>
+              </DuctSystem>
+              <DuctSystem ID="DuctSystem-4">
+                <DuctConfiguration>Single</DuctConfiguration>
+                <DuctInsulationCondition>Good</DuctInsulationCondition>
+                <HeatingDeliveryID IDref="Delivery-4"/>
+                <CoolingDeliveryID IDref="Delivery-4"/>
+              </DuctSystem>
+              <DuctSystem ID="DuctSystem-5">
+                <DuctConfiguration>Single</DuctConfiguration>
+                <DuctInsulationCondition>Good</DuctInsulationCondition>
+                <HeatingDeliveryID IDref="Delivery-5"/>
+                <CoolingDeliveryID IDref="Delivery-5"/>
               </DuctSystem>
             </DuctSystems>
             <HVACControlSystemTypes>
@@ -332,11 +652,11 @@
               <MinimumDimmingLightFraction>0.200000</MinimumDimmingLightFraction>
             </DimmingCapability>
             <PercentPremisesServed>100.000000</PercentPremisesServed>
-            <InstalledPower>123.000000</InstalledPower>
-            <LampPower>123.000000</LampPower>
-            <NumberOfLampsPerBallast>1</NumberOfLampsPerBallast>
+            <InstalledPower>5.500000</InstalledPower>
+            <LampPower>32.000000</LampPower>
+            <NumberOfLampsPerBallast>4</NumberOfLampsPerBallast>
             <NumberOfBallastsPerLuminaire>1.000000</NumberOfBallastsPerLuminaire>
-            <NumberOfLuminaires>10</NumberOfLuminaires>
+            <NumberOfLuminaires>43</NumberOfLuminaires>
             <OutsideLighting>false</OutsideLighting>
             <Controls>
               <Control>
@@ -367,11 +687,11 @@
             </LampType>
             <BallastType>Standard Electronic</BallastType>
             <PercentPremisesServed>100.000000</PercentPremisesServed>
-            <InstalledPower>123.000000</InstalledPower>
-            <LampPower>123.000000</LampPower>
+            <InstalledPower>1.582575</InstalledPower>
+            <LampPower>316.516000</LampPower>
             <NumberOfLampsPerBallast>1</NumberOfLampsPerBallast>
             <NumberOfBallastsPerLuminaire>1.000000</NumberOfBallastsPerLuminaire>
-            <NumberOfLuminaires>1</NumberOfLuminaires>
+            <NumberOfLuminaires>5</NumberOfLuminaires>
             <OutsideLighting>true</OutsideLighting>
             <Controls>
               <Control>
@@ -405,11 +725,11 @@
               <MinimumDimmingLightFraction>0.100000</MinimumDimmingLightFraction>
             </DimmingCapability>
             <PercentPremisesServed>100.000000</PercentPremisesServed>
-            <InstalledPower>123.000000</InstalledPower>
-            <LampPower>123.000000</LampPower>
-            <NumberOfLampsPerBallast>1</NumberOfLampsPerBallast>
+            <InstalledPower>2.752000</InstalledPower>
+            <LampPower>16.000000</LampPower>
+            <NumberOfLampsPerBallast>4</NumberOfLampsPerBallast>
             <NumberOfBallastsPerLuminaire>1.000000</NumberOfBallastsPerLuminaire>
-            <NumberOfLuminaires>10</NumberOfLuminaires>
+            <NumberOfLuminaires>43</NumberOfLuminaires>
             <OutsideLighting>false</OutsideLighting>
             <Controls>
               <Control>
@@ -439,11 +759,7 @@
             <DomesticHotWaterType>
               <StorageTank>
                 <TankHeatingType>
-                  <Direct>
-                    <DirectTankHeatingSource>
-                      <ElectricResistance/>
-                    </DirectTankHeatingSource>
-                  </Direct>
+                  <Unknown/>
                 </TankHeatingType>
                 <TankVolume>40.000000</TankVolume>
                 <StorageTankInsulationRValue>123.000000</StorageTankInsulationRValue>
@@ -452,19 +768,19 @@
             <DomesticHotWaterSystemNotes>Notes</DomesticHotWaterSystemNotes>
             <Recirculation>
               <RecirculationLoopCount>1</RecirculationLoopCount>
-              <RecirculationFlowRate>123.000000</RecirculationFlowRate>
+              <RecirculationFlowRate>3.600000</RecirculationFlowRate>
               <RecirculationControlType>Continuous</RecirculationControlType>
               <PipeInsulationThickness>123.000000</PipeInsulationThickness>
-              <RecirculationEnergyLossRate>123.000000</RecirculationEnergyLossRate>
+              <RecirculationEnergyLossRate>1.870180</RecirculationEnergyLossRate>
             </Recirculation>
             <HotWaterDistributionType>Looped</HotWaterDistributionType>
-            <WaterHeaterEfficiencyType>COP</WaterHeaterEfficiencyType>
-            <WaterHeaterEfficiency>123.000000</WaterHeaterEfficiency>
-            <DailyHotWaterDraw>123.000000</DailyHotWaterDraw>
+            <WaterHeaterEfficiencyType>Thermal Efficiency</WaterHeaterEfficiencyType>
+            <WaterHeaterEfficiency>1.000000</WaterHeaterEfficiency>
+            <DailyHotWaterDraw>40.000000</DailyHotWaterDraw>
             <HotWaterSetpointTemperature>140.000000</HotWaterSetpointTemperature>
-            <ParasiticFuelConsumptionRate>123.000000</ParasiticFuelConsumptionRate>
-            <Capacity>123.000000</Capacity>
-            <CapacityUnits>gpm</CapacityUnits>
+            <ParasiticFuelConsumptionRate>1950.520000</ParasiticFuelConsumptionRate>
+            <Capacity>11722.840000</Capacity>
+            <CapacityUnits>W</CapacityUnits>
             <Controls>
               <Control>
                 <Manual>
@@ -474,7 +790,7 @@
                 </Manual>
               </Control>
             </Controls>
-            <YearInstalled>2020</YearInstalled>
+            <YearInstalled>2000</YearInstalled>
             <PrimaryFuel>Electricity</PrimaryFuel>
             <DomesticHotWaterSystemCondition>Good</DomesticHotWaterSystemCondition>
             <LinkedPremises>
@@ -490,34 +806,106 @@
         </DomesticHotWaterSystems>
         <FanSystems>
           <FanSystem ID="FanSystem-1">
-            <FanEfficiency>123.000000</FanEfficiency>
-            <FanSize>123.000000</FanSize>
-            <InstalledFlowRate>123.000000</InstalledFlowRate>
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>880.000000</FanSize>
+            <FanInstalledFlowRate>880.000000</FanInstalledFlowRate>
             <FanControlType>Constant Volume</FanControlType>
             <LinkedSystemIDs>
               <LinkedSystemID IDref="Delivery-1"/>
             </LinkedSystemIDs>
           </FanSystem>
-          <FanSystem ID="FanSystem-new">
-            <FanEfficiency>123.000000</FanEfficiency>
-            <FanSize>123.000000</FanSize>
-            <InstalledFlowRate>123.000000</InstalledFlowRate>
+          <FanSystem ID="FanSystem-1-new">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>872.000000</FanSize>
+            <InstalledFlowRate>872.000000</InstalledFlowRate>
             <FanControlType>Variable Volume</FanControlType>
             <LinkedSystemIDs>
               <LinkedSystemID IDref="Delivery-1"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-2">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>836.000000</FanSize>
+            <FanInstalledFlowRate>836.000000</FanInstalledFlowRate>
+            <FanControlType>Constant Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-2"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-2-new">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>830.000000</FanSize>
+            <InstalledFlowRate>830.000000</InstalledFlowRate>
+            <FanControlType>Variable Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-2"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-3">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>671.000000</FanSize>
+            <FanInstalledFlowRate>671.000000</FanInstalledFlowRate>
+            <FanControlType>Constant Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-3"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-3-new">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>664.000000</FanSize>
+            <InstalledFlowRate>664.000000</InstalledFlowRate>
+            <FanControlType>Variable Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-3"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-4">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>774.000000</FanSize>
+            <FanInstalledFlowRate>774.000000</FanInstalledFlowRate>
+            <FanControlType>Constant Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-4"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-4-new">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>766.000000</FanSize>
+            <InstalledFlowRate>766.000000</InstalledFlowRate>
+            <FanControlType>Variable Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-4"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-5">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>841.000000</FanSize>
+            <FanInstalledFlowRate>841.000000</FanInstalledFlowRate>
+            <FanControlType>Constant Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-5"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-5-new">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>833.000000</FanSize>
+            <InstalledFlowRate>833.000000</InstalledFlowRate>
+            <FanControlType>Variable Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-5"/>
             </LinkedSystemIDs>
           </FanSystem>
         </FanSystems>
         <WallSystems>
           <WallSystem ID="Wall-1">
             <ExteriorWallConstruction>Wood frame</ExteriorWallConstruction>
-            <WallRValue>1.000000</WallRValue>
+            <WallUFactor>0.547000</WallUFactor>
           </WallSystem>
         </WallSystems>
         <RoofSystems>
           <RoofSystem ID="Roof-1">
             <RoofConstruction>Wood frame</RoofConstruction>
-            <RoofRValue>1.000000</RoofRValue>
+            <RoofUFactor>4.706000</RoofUFactor>
           </RoofSystem>
         </RoofSystems>
         <FenestrationSystems>
@@ -528,9 +916,9 @@
             <FenestrationFrameMaterial>Vinyl</FenestrationFrameMaterial>
             <GlassType>Clear uncoated</GlassType>
             <FenestrationGlassLayers>Single pane</FenestrationGlassLayers>
-            <FenestrationUFactor>1.250000</FenestrationUFactor>
-            <SolarHeatGainCoefficient>0.500000</SolarHeatGainCoefficient>
-            <VisibleTransmittance>0.800000</VisibleTransmittance>
+            <FenestrationUFactor>3.241000</FenestrationUFactor>
+            <SolarHeatGainCoefficient>0.391000</SolarHeatGainCoefficient>
+            <VisibleTransmittance>0.391000</VisibleTransmittance>
           </FenestrationSystem>
           <FenestrationSystem ID="Window-1">
             <FenestrationType>
@@ -539,9 +927,9 @@
             <FenestrationFrameMaterial>Vinyl</FenestrationFrameMaterial>
             <GlassType>Low e</GlassType>
             <FenestrationGlassLayers>Triple pane</FenestrationGlassLayers>
-            <FenestrationUFactor>0.250000</FenestrationUFactor>
-            <SolarHeatGainCoefficient>0.500000</SolarHeatGainCoefficient>
-            <VisibleTransmittance>0.700000</VisibleTransmittance>
+            <FenestrationUFactor>0.300000</FenestrationUFactor>
+            <SolarHeatGainCoefficient>0.391000</SolarHeatGainCoefficient>
+            <VisibleTransmittance>0.391000</VisibleTransmittance>
           </FenestrationSystem>
           <FenestrationSystem ID="Door-1">
             <FenestrationType>
@@ -551,7 +939,7 @@
               </Door>
             </FenestrationType>
             <FenestrationFrameMaterial>Steel</FenestrationFrameMaterial>
-            <FenestrationRValue>0.500000</FenestrationRValue>
+            <FenestrationUFactor>2.839000</FenestrationUFactor>
           </FenestrationSystem>
         </FenestrationSystems>
         <FoundationSystems>
@@ -559,7 +947,7 @@
             <GroundCouplings>
               <GroundCoupling>
                 <SlabOnGrade>
-                  <SlabUFactor>0.500000</SlabUFactor>
+                  <SlabUFactor>0.345000</SlabUFactor>
                 </SlabOnGrade>
               </GroundCoupling>
             </GroundCouplings>
@@ -584,9 +972,9 @@
         <AirInfiltrationSystems>
           <AirInfiltrationSystem ID="Infiltration-1">
             <AirInfiltrationNotes>Notes on test</AirInfiltrationNotes>
-            <Tightness>Very Tight</Tightness>
-            <AirInfiltrationValue>123.000000</AirInfiltrationValue>
-            <AirInfiltrationValueUnits>CFM25</AirInfiltrationValueUnits>
+            <Tightness>Tight</Tightness>
+            <AirInfiltrationValue>0.151000</AirInfiltrationValue>
+            <AirInfiltrationValueUnits>ACHnatural</AirInfiltrationValueUnits>
             <AirInfiltrationTest>Blower door</AirInfiltrationTest>
             <LinkedPremises>
               <Section>
@@ -609,6 +997,13 @@
       <Schedules>
         <Schedule ID="Schedule-Occupancy">
           <ScheduleDetails>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Occupied</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>06:00:00</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
             <ScheduleDetail>
               <DayType>Weekday</DayType>
               <ScheduleCategory>Occupied</ScheduleCategory>
@@ -666,6 +1061,13 @@
               <PartialOperationPercentage>5.000000</PartialOperationPercentage>
             </ScheduleDetail>
             <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Occupied</ScheduleCategory>
+              <DayStartTime>23:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
               <DayType>Weekend</DayType>
               <ScheduleCategory>Occupied</ScheduleCategory>
               <DayStartTime>00:00:00</DayStartTime>
@@ -716,6 +1118,20 @@
               <DayType>Weekday</DayType>
               <ScheduleCategory>Lighting</ScheduleCategory>
               <DayStartTime>08:00:00</DayStartTime>
+              <DayEndTime>12:00:00</DayEndTime>
+              <PartialOperationPercentage>90.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Lighting</ScheduleCategory>
+              <DayStartTime>12:00:00</DayStartTime>
+              <DayEndTime>13:00:00</DayEndTime>
+              <PartialOperationPercentage>80.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Lighting</ScheduleCategory>
+              <DayStartTime>13:00:00</DayStartTime>
               <DayEndTime>17:00:00</DayEndTime>
               <PartialOperationPercentage>90.000000</PartialOperationPercentage>
             </ScheduleDetail>
@@ -781,13 +1197,13 @@
               <DayType>Weekday</DayType>
               <ScheduleCategory>Miscellaneous equipment</ScheduleCategory>
               <DayStartTime>00:00:00</DayStartTime>
-              <DayEndTime>05:00:00</DayEndTime>
+              <DayEndTime>08:00:00</DayEndTime>
               <PartialOperationPercentage>50.000000</PartialOperationPercentage>
             </ScheduleDetail>
             <ScheduleDetail>
               <DayType>Weekday</DayType>
               <ScheduleCategory>Miscellaneous equipment</ScheduleCategory>
-              <DayStartTime>05:00:00</DayStartTime>
+              <DayStartTime>08:00:00</DayStartTime>
               <DayEndTime>12:00:00</DayEndTime>
               <PartialOperationPercentage>100.000000</PartialOperationPercentage>
             </ScheduleDetail>
@@ -845,23 +1261,37 @@
             <ScheduleDetail>
               <DayType>Weekday</DayType>
               <ScheduleCategory>HVAC equipment</ScheduleCategory>
-              <DayStartTime>07:00:00</DayStartTime>
-              <DayEndTime>20:00:00</DayEndTime>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>06:00:00</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>06:00:00</DayStartTime>
+              <DayEndTime>19:00:00</DayEndTime>
               <PartialOperationPercentage>100.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>19:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
             </ScheduleDetail>
             <ScheduleDetail>
               <DayType>Weekend</DayType>
               <ScheduleCategory>HVAC equipment</ScheduleCategory>
-              <DayStartTime>07:00:00</DayStartTime>
-              <DayEndTime>20:00:00</DayEndTime>
-              <PartialOperationPercentage>100.000000</PartialOperationPercentage>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
             </ScheduleDetail>
             <ScheduleDetail>
               <DayType>Holiday</DayType>
               <ScheduleCategory>HVAC equipment</ScheduleCategory>
-              <DayStartTime>07:00:00</DayStartTime>
-              <DayEndTime>20:00:00</DayEndTime>
-              <PartialOperationPercentage>100.000000</PartialOperationPercentage>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
             </ScheduleDetail>
           </ScheduleDetails>
           <LinkedPremises>
@@ -872,6 +1302,13 @@
         </Schedule>
         <Schedule ID="Schedule-HVAC-new">
           <ScheduleDetails>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>06:00:00</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
             <ScheduleDetail>
               <DayType>Weekday</DayType>
               <ScheduleCategory>HVAC equipment</ScheduleCategory>
@@ -908,18 +1345,25 @@
               <PartialOperationPercentage>60.000000</PartialOperationPercentage>
             </ScheduleDetail>
             <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>20:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
               <DayType>Weekend</DayType>
               <ScheduleCategory>HVAC equipment</ScheduleCategory>
-              <DayStartTime>07:00:00</DayStartTime>
-              <DayEndTime>20:00:00</DayEndTime>
-              <PartialOperationPercentage>30.000000</PartialOperationPercentage>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
             </ScheduleDetail>
             <ScheduleDetail>
               <DayType>Holiday</DayType>
               <ScheduleCategory>HVAC equipment</ScheduleCategory>
-              <DayStartTime>07:00:00</DayStartTime>
-              <DayEndTime>20:00:00</DayEndTime>
-              <PartialOperationPercentage>20.000000</PartialOperationPercentage>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
             </ScheduleDetail>
           </ScheduleDetails>
           <LinkedPremises>
@@ -930,33 +1374,6 @@
         </Schedule>
       </Schedules>
       <Measures>
-        <Measure ID="Measure-HVAC-schedule-lowcost">
-          <TypeOfMeasure>
-            <ModificationRetrocommissions>
-              <ModificationRetrocommissioning>
-                <ExistingScheduleAffected IDref="Schedule-HVAC"/>
-                <ModifiedSchedule IDref="Schedule-HVAC-new"/>
-              </ModificationRetrocommissioning>
-            </ModificationRetrocommissions>
-          </TypeOfMeasure>
-          <SystemCategoryAffected>Air Distribution</SystemCategoryAffected>
-          <TechnologyCategories>
-            <TechnologyCategory>
-              <OtherHVAC>
-                <MeasureName>Other distribution</MeasureName>
-              </OtherHVAC>
-            </TechnologyCategory>
-          </TechnologyCategories>
-          <MeasureScaleOfApplication>Individual system</MeasureScaleOfApplication>
-          <CustomMeasureName>Update HVAC schedule</CustomMeasureName>
-          <LongDescription>The current HVAC schedule is set to be at 100'%' fan operation during weekday from 7am - 8pm. This measure would implement a modified schedule to enable pre-cooling/pre-heating from 6am - 7am, and reduce output to 80'%' during peak time 12pm - 1pm. </LongDescription>
-          <UsefulLife>1.000000</UsefulLife>
-          <MeasureInstallationCost>0.000000</MeasureInstallationCost>
-          <MeasureMaterialCost>0.000000</MeasureMaterialCost>
-          <Recommended>true</Recommended>
-          <StartDate>2021-01-01</StartDate>
-          <EndDate>2021-12-30</EndDate>
-        </Measure>
         <Measure ID="Measure-LEDs">
           <TypeOfMeasure>
             <Replacements>
@@ -977,8 +1394,8 @@
           <MeasureScaleOfApplication>Individual system</MeasureScaleOfApplication>
           <LongDescription>This measure is designed to replace all fluorescent bulbs with LEDs</LongDescription>
           <UsefulLife>1.000000</UsefulLife>
-          <MeasureInstallationCost>123.000000</MeasureInstallationCost>
-          <MeasureMaterialCost>123.000000</MeasureMaterialCost>
+          <MeasureInstallationCost>50.000000</MeasureInstallationCost>
+          <MeasureMaterialCost>774.000000</MeasureMaterialCost>
           <Recommended>true</Recommended>
           <StartDate>2021-01-01</StartDate>
           <EndDate>2021-12-30</EndDate>
@@ -987,8 +1404,8 @@
           <TypeOfMeasure>
             <ModificationRetrocommissions>
               <ModificationRetrocommissioning>
-                <ExistingSystemAffected IDref="FanSystem-1"/>
-                <ModifiedSystem IDref="FanSystem-new"/>
+                <ExistingSystemAffected IDref="FanSystem-5"/>
+                <ModifiedSystem IDref="FanSystem-5-new"/>
               </ModificationRetrocommissioning>
             </ModificationRetrocommissions>
           </TypeOfMeasure>
@@ -1003,8 +1420,8 @@
           <MeasureScaleOfApplication>Individual system</MeasureScaleOfApplication>
           <LongDescription>This measure is designed to retrofit all RTU fans with a VSD</LongDescription>
           <UsefulLife>1.000000</UsefulLife>
-          <MeasureInstallationCost>123.000000</MeasureInstallationCost>
-          <MeasureMaterialCost>123.000000</MeasureMaterialCost>
+          <MeasureInstallationCost>750.000000</MeasureInstallationCost>
+          <MeasureMaterialCost>1250.000000</MeasureMaterialCost>
           <Recommended>true</Recommended>
           <StartDate>2021-01-01</StartDate>
           <EndDate>2021-12-30</EndDate>
@@ -1024,11 +1441,11 @@
               <ResourceUses>
                 <ResourceUse ID="ResourceUse-Electricity">
                   <EnergyResource>Electricity</EnergyResource>
-                  <ResourceUseNotes>This is required for L1 to document irregularities in monthly energy patterns (Std 211 6.1.2.1.j). No irregularities found.</ResourceUseNotes>
+                  <ResourceUseNotes>This is required to document irregularities in monthly energy patterns (Std 211 6.1.2.1.j). No irregularities found.</ResourceUseNotes>
                   <ResourceUnits>kWh</ResourceUnits>
                   <EndUse>All end uses</EndUse>
-                  <AnnualFuelUseNativeUnits>68516.730000</AnnualFuelUseNativeUnits>
-                  <AnnualFuelUseConsistentUnits>234.000000</AnnualFuelUseConsistentUnits>
+                  <AnnualFuelUseNativeUnits>67334.150000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>229.753657</AnnualFuelUseConsistentUnits>
                   <AnnualFuelUseLinkedTimeSeriesIDs>
                     <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Total-1"/>
                     <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Total-2"/>
@@ -1044,9 +1461,9 @@
                     <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Total-12"/>
                   </AnnualFuelUseLinkedTimeSeriesIDs>
                   <PeakResourceUnits>kW</PeakResourceUnits>
-                  <AnnualPeakNativeUnits>21.120000</AnnualPeakNativeUnits>
-                  <AnnualPeakConsistentUnits>21.120000</AnnualPeakConsistentUnits>
-                  <AnnualFuelCost>5304.000000</AnnualFuelCost>
+                  <AnnualPeakNativeUnits>26.040000</AnnualPeakNativeUnits>
+                  <AnnualPeakConsistentUnits>26.040000</AnnualPeakConsistentUnits>
+                  <AnnualFuelCost>4613.820000</AnnualFuelCost>
                   <UtilityIDs>
                     <UtilityID IDref="Utility-Electric"/>
                   </UtilityIDs>
@@ -1056,8 +1473,8 @@
                   <ResourceUseNotes>No irregularities in monthly energy consumption found.</ResourceUseNotes>
                   <ResourceUnits>MMBtu</ResourceUnits>
                   <EndUse>All end uses</EndUse>
-                  <AnnualFuelUseNativeUnits>17.160000</AnnualFuelUseNativeUnits>
-                  <AnnualFuelUseConsistentUnits>17.160000</AnnualFuelUseConsistentUnits>
+                  <AnnualFuelUseNativeUnits>8.720000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>8.720000</AnnualFuelUseConsistentUnits>
                   <AnnualFuelUseLinkedTimeSeriesIDs>
                     <LinkedTimeSeriesID IDref="TS-ResourceUse-Natural-gas-Total-1"/>
                     <LinkedTimeSeriesID IDref="TS-ResourceUse-Natural-gas-Total-2"/>
@@ -1072,7 +1489,7 @@
                     <LinkedTimeSeriesID IDref="TS-ResourceUse-Natural-gas-Total-11"/>
                     <LinkedTimeSeriesID IDref="TS-ResourceUse-Natural-gas-Total-12"/>
                   </AnnualFuelUseLinkedTimeSeriesIDs>
-                  <AnnualFuelCost>91.630000</AnnualFuelCost>
+                  <AnnualFuelCost>540.830000</AnnualFuelCost>
                   <UtilityIDs>
                     <UtilityID IDref="Utility-Natural-Gas"/>
                   </UtilityIDs>
@@ -1080,46 +1497,46 @@
                 <ResourceUse ID="ResourceUse-Electricity-Lighting-Submeter">
                   <EnergyResource>Electricity</EnergyResource>
                   <ResourceUnits>kWh</ResourceUnits>
-                  <EndUse>Total lighting</EndUse>
-                  <PercentEndUse>25.000000</PercentEndUse>
-                  <AnnualFuelUseNativeUnits>18384.912000</AnnualFuelUseNativeUnits>
-                  <AnnualFuelUseConsistentUnits>62.790000</AnnualFuelUseConsistentUnits>
+                  <EndUse>Interior lighting</EndUse>
+                  <PercentEndUse>28.705000</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>20062.690000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>68.453898</AnnualFuelUseConsistentUnits>
                   <ParentResourceUseID IDref="ResourceUse-Electricity"/>
                 </ResourceUse>
                 <ResourceUse ID="ResourceUse-Electricity-Heating-Submeter">
                   <EnergyResource>Electricity</EnergyResource>
                   <ResourceUnits>kWh</ResourceUnits>
                   <EndUse>Heating</EndUse>
-                  <PercentEndUse>30.000000</PercentEndUse>
-                  <AnnualFuelUseNativeUnits>22061.894400</AnnualFuelUseNativeUnits>
-                  <AnnualFuelUseConsistentUnits>75.348000</AnnualFuelUseConsistentUnits>
+                  <PercentEndUse>6.722000</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>4698.230000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>16.030361</AnnualFuelUseConsistentUnits>
                   <ParentResourceUseID IDref="ResourceUse-Electricity"/>
                 </ResourceUse>
                 <ResourceUse ID="ResourceUse-Electricity-Cooling-Submeter">
                   <EnergyResource>Electricity</EnergyResource>
                   <ResourceUnits>kWh</ResourceUnits>
                   <EndUse>Cooling</EndUse>
-                  <PercentEndUse>25.000000</PercentEndUse>
-                  <AnnualFuelUseNativeUnits>18384.912000</AnnualFuelUseNativeUnits>
-                  <AnnualFuelUseConsistentUnits>62.790000</AnnualFuelUseConsistentUnits>
+                  <PercentEndUse>8.769000</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>6128.870000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>20.911704</AnnualFuelUseConsistentUnits>
                   <ParentResourceUseID IDref="ResourceUse-Electricity"/>
                 </ResourceUse>
                 <ResourceUse ID="ResourceUse-Electricity-SHW-Submeter">
                   <EnergyResource>Electricity</EnergyResource>
                   <ResourceUnits>kWh</ResourceUnits>
                   <EndUse>Domestic hot water</EndUse>
-                  <PercentEndUse>10.000000</PercentEndUse>
-                  <AnnualFuelUseNativeUnits>7353.964800</AnnualFuelUseNativeUnits>
-                  <AnnualFuelUseConsistentUnits>25.116000</AnnualFuelUseConsistentUnits>
+                  <PercentEndUse>10.281000</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>7185.370000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>24.516482</AnnualFuelUseConsistentUnits>
                   <ParentResourceUseID IDref="ResourceUse-Electricity"/>
                 </ResourceUse>
                 <ResourceUse ID="ResourceUse-Electricity-Plugload-Submeter">
                   <EnergyResource>Electricity</EnergyResource>
                   <ResourceUnits>kWh</ResourceUnits>
                   <EndUse>Plug load</EndUse>
-                  <PercentEndUse>5.000000</PercentEndUse>
-                  <AnnualFuelUseNativeUnits>3676.982400</AnnualFuelUseNativeUnits>
-                  <AnnualFuelUseConsistentUnits>12.558000</AnnualFuelUseConsistentUnits>
+                  <PercentEndUse>21.379000</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>14942.150000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>50.982616</AnnualFuelUseConsistentUnits>
                   <ParentResourceUseID IDref="ResourceUse-Electricity"/>
                 </ResourceUse>
               </ResourceUses>
@@ -1132,7 +1549,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>6792.890000</IntervalReading>
+                  <IntervalReading>5933.100000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Total-2">
@@ -1143,7 +1560,7 @@
                   <IntervalDuration>28</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>5841.750000</IntervalReading>
+                  <IntervalReading>5446.100000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Total-3">
@@ -1154,7 +1571,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>6025.190000</IntervalReading>
+                  <IntervalReading>5736.490000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Total-4">
@@ -1165,7 +1582,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>4985.300000</IntervalReading>
+                  <IntervalReading>4980.500000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Total-5">
@@ -1176,7 +1593,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>5184.040000</IntervalReading>
+                  <IntervalReading>5187.210000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Total-6">
@@ -1187,7 +1604,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>5358.550000</IntervalReading>
+                  <IntervalReading>5842.950000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Total-7">
@@ -1198,7 +1615,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>5755.670000</IntervalReading>
+                  <IntervalReading>5801.730000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Total-8">
@@ -1209,7 +1626,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>5981.780000</IntervalReading>
+                  <IntervalReading>6220.160000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Total-9">
@@ -1220,7 +1637,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>5401.940000</IntervalReading>
+                  <IntervalReading>5682.870000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Total-10">
@@ -1231,7 +1648,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>5225.840000</IntervalReading>
+                  <IntervalReading>5571.930000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Total-11">
@@ -1242,7 +1659,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>5672.150000</IntervalReading>
+                  <IntervalReading>5525.150000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Total-12">
@@ -1253,7 +1670,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>6291.630000</IntervalReading>
+                  <IntervalReading>5405.940000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-1">
@@ -1264,7 +1681,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>5.700000</IntervalReading>
+                  <IntervalReading>1.720000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-2">
@@ -1275,7 +1692,7 @@
                   <IntervalDuration>28</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>4.010000</IntervalReading>
+                  <IntervalReading>1.250000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-3">
@@ -1286,7 +1703,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.580000</IntervalReading>
+                  <IntervalReading>0.410000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-4">
@@ -1297,7 +1714,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.400000</IntervalReading>
+                  <IntervalReading>0.430000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-5">
@@ -1308,7 +1725,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.020000</IntervalReading>
+                  <IntervalReading>0.010000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-6">
@@ -1363,7 +1780,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.010000</IntervalReading>
+                  <IntervalReading>0.200000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-11">
@@ -1374,7 +1791,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.360000</IntervalReading>
+                  <IntervalReading>0.400000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-12">
@@ -1385,7 +1802,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>6.080000</IntervalReading>
+                  <IntervalReading>4.300000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Peak-1">
@@ -1397,7 +1814,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>15.420000</IntervalReading>
+                  <IntervalReading>23.580000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Peak-2">
@@ -1409,7 +1826,7 @@
                   <IntervalDuration>28</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>15.500000</IntervalReading>
+                  <IntervalReading>25.380000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Peak-3">
@@ -1421,7 +1838,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>16.250000</IntervalReading>
+                  <IntervalReading>26.040000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Peak-4">
@@ -1433,7 +1850,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>16.650000</IntervalReading>
+                  <IntervalReading>24.450000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Peak-5">
@@ -1445,7 +1862,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>18.560000</IntervalReading>
+                  <IntervalReading>17.030000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Peak-6">
@@ -1457,7 +1874,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>20.010000</IntervalReading>
+                  <IntervalReading>22.710000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Peak-7">
@@ -1469,7 +1886,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>20.820000</IntervalReading>
+                  <IntervalReading>22.010000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Peak-8">
@@ -1481,7 +1898,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>21.120000</IntervalReading>
+                  <IntervalReading>21.810000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Peak-9">
@@ -1493,7 +1910,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>20.420000</IntervalReading>
+                  <IntervalReading>20.630000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Peak-10">
@@ -1505,7 +1922,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>20.080000</IntervalReading>
+                  <IntervalReading>21.870000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Peak-11">
@@ -1517,7 +1934,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>17.400000</IntervalReading>
+                  <IntervalReading>21.630000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Peak-12">
@@ -1529,7 +1946,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>16.300000</IntervalReading>
+                  <IntervalReading>21.780000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-1">
@@ -1672,7 +2089,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>520.480000</IntervalReading>
+                  <IntervalReading>332.160000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Cost-2">
@@ -1683,7 +2100,7 @@
                   <IntervalDuration>28</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>451.530000</IntervalReading>
+                  <IntervalReading>306.290000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Cost-3">
@@ -1694,7 +2111,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>464.830000</IntervalReading>
+                  <IntervalReading>321.720000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Cost-4">
@@ -1705,7 +2122,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>389.430000</IntervalReading>
+                  <IntervalReading>281.540000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Cost-5">
@@ -1716,7 +2133,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>403.840000</IntervalReading>
+                  <IntervalReading>292.530000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Cost-6">
@@ -1727,7 +2144,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>416.490000</IntervalReading>
+                  <IntervalReading>534.100000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Cost-7">
@@ -1738,7 +2155,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>445.290000</IntervalReading>
+                  <IntervalReading>530.450000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Cost-8">
@@ -1749,7 +2166,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>461.680000</IntervalReading>
+                  <IntervalReading>567.490000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Cost-9">
@@ -1760,7 +2177,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>419.640000</IntervalReading>
+                  <IntervalReading>519.930000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Cost-10">
@@ -1771,7 +2188,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>406.870000</IntervalReading>
+                  <IntervalReading>312.970000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Cost-11">
@@ -1782,7 +2199,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>439.230000</IntervalReading>
+                  <IntervalReading>310.490000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Cost-12">
@@ -1793,7 +2210,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>484.140000</IntervalReading>
+                  <IntervalReading>304.150000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-1">
@@ -1804,7 +2221,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>30.440000</IntervalReading>
+                  <IntervalReading>46.690000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-2">
@@ -1815,7 +2232,7 @@
                   <IntervalDuration>28</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>21.410000</IntervalReading>
+                  <IntervalReading>45.930000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-3">
@@ -1826,7 +2243,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>3.100000</IntervalReading>
+                  <IntervalReading>44.550000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-4">
@@ -1837,7 +2254,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>2.140000</IntervalReading>
+                  <IntervalReading>44.580000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-5">
@@ -1848,7 +2265,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.110000</IntervalReading>
+                  <IntervalReading>43.900000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-6">
@@ -1859,7 +2276,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.000000</IntervalReading>
+                  <IntervalReading>43.880000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-7">
@@ -1870,7 +2287,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.000000</IntervalReading>
+                  <IntervalReading>43.880000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-8">
@@ -1881,7 +2298,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.000000</IntervalReading>
+                  <IntervalReading>43.880000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-9">
@@ -1892,7 +2309,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.000000</IntervalReading>
+                  <IntervalReading>43.880000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-10">
@@ -1903,7 +2320,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.050000</IntervalReading>
+                  <IntervalReading>44.210000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-11">
@@ -1914,7 +2331,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>1.920000</IntervalReading>
+                  <IntervalReading>44.530000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-12">
@@ -1925,24 +2342,24 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>32.470000</IntervalReading>
+                  <IntervalReading>50.920000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Natural-gas"/>
                 </TimeSeries>
               </TimeSeriesData>
               <AllResourceTotals>
                 <AllResourceTotal ID="AllResourceTotal-1">
-                  <SiteEnergyUse>250953.500000</SiteEnergyUse>
-                  <SiteEnergyUseIntensity>45.600000</SiteEnergyUseIntensity>
-                  <SourceEnergyUse>759011.900000</SourceEnergyUse>
-                  <SourceEnergyUseIntensity>138.000000</SourceEnergyUseIntensity>
-                  <BuildingEnergyUse>250953.500000</BuildingEnergyUse>
-                  <BuildingEnergyUseIntensity>45.600000</BuildingEnergyUseIntensity>
-                  <ImportedEnergyConsistentUnits>250.953500</ImportedEnergyConsistentUnits>
+                  <SiteEnergyUse>238473.656550</SiteEnergyUse>
+                  <SiteEnergyUseIntensity>43.358800</SiteEnergyUseIntensity>
+                  <SourceEnergyUse>737088.900000</SourceEnergyUse>
+                  <SourceEnergyUseIntensity>134.000000</SourceEnergyUseIntensity>
+                  <BuildingEnergyUse>238473.656550</BuildingEnergyUse>
+                  <BuildingEnergyUseIntensity>43.358800</BuildingEnergyUseIntensity>
+                  <ImportedEnergyConsistentUnits>238.473657</ImportedEnergyConsistentUnits>
                   <OnsiteEnergyProductionConsistentUnits>0.000000</OnsiteEnergyProductionConsistentUnits>
                   <ExportedEnergyConsistentUnits>0.000000</ExportedEnergyConsistentUnits>
                   <NetIncreaseInStoredEnergyConsistentUnits>0.000000</NetIncreaseInStoredEnergyConsistentUnits>
-                  <EnergyCost>5395.000000</EnergyCost>
-                  <EnergyCostIndex>0.980000</EnergyCostIndex>
+                  <EnergyCost>4952.480000</EnergyCost>
+                  <EnergyCostIndex>0.900000</EnergyCostIndex>
                 </AllResourceTotal>
               </AllResourceTotals>
               <LinkedPremises>
@@ -1956,18 +2373,19 @@
                 <Benchmark>
                   <BenchmarkType>
                     <PortfolioManager>
-                      <PMBenchmarkDate>2021-03-24</PMBenchmarkDate>
+                      <PMBenchmarkDate>2022-06-01</PMBenchmarkDate>
                     </PortfolioManager>
                   </BenchmarkType>
                   <BenchmarkTool>Portfolio Manager</BenchmarkTool>
                   <BenchmarkYear>2019</BenchmarkYear>
-                  <BenchmarkValue>56.000000</BenchmarkValue>
+                  <BenchmarkValue>80.000000</BenchmarkValue>
                 </Benchmark>
               </ScenarioType>
               <AllResourceTotals>
                 <AllResourceTotal ID="AllResourceTotal-Benchmark">
-                  <SiteEnergyUse>274825.000000</SiteEnergyUse>
-                  <SiteEnergyUseIntensity>50.000000</SiteEnergyUseIntensity>
+                  <SiteEnergyUse>238473.656550</SiteEnergyUse>
+                  <SiteEnergyUseIntensity>43.358800</SiteEnergyUseIntensity>
+                  <EnergyCost>4952.480000</EnergyCost>
                 </AllResourceTotal>
               </AllResourceTotals>
               <LinkedPremises>
@@ -1980,17 +2398,17 @@
               <ScenarioType>
                 <Target>
                   <ReferenceCase IDref="Scenario-Benchmark"/>
-                  <AnnualSavingsSiteEnergy>67181.500000</AnnualSavingsSiteEnergy>
-                  <AnnualSavingsCost>931</AnnualSavingsCost>
-                  <ENERGYSTARScore>70.000000</ENERGYSTARScore>
+                  <AnnualSavingsSiteEnergy>39070.530000</AnnualSavingsSiteEnergy>
+                  <AnnualSavingsCost>995</AnnualSavingsCost>
+                  <ENERGYSTARScore>89.000000</ENERGYSTARScore>
                 </Target>
               </ScenarioType>
               <AllResourceTotals>
                 <AllResourceTotal ID="AllResourceTotal-Target">
-                  <SiteEnergyUse>207643.500000</SiteEnergyUse>
-                  <SiteEnergyUseIntensity>37.800000</SiteEnergyUseIntensity>
-                  <EnergyCost>4451.510000</EnergyCost>
-                  <EnergyCostIndex>0.810000</EnergyCostIndex>
+                  <SiteEnergyUse>190348.600000</SiteEnergyUse>
+                  <SiteEnergyUseIntensity>34.600000</SiteEnergyUseIntensity>
+                  <EnergyCost>4846.040000</EnergyCost>
+                  <EnergyCostIndex>0.881000</EnergyCostIndex>
                 </AllResourceTotal>
               </AllResourceTotals>
               <LinkedPremises>
@@ -2007,13 +2425,13 @@
                     <MeasureID IDref="Measure-LEDs"/>
                   </MeasureIDs>
                   <CostCategory>Capital</CostCategory>
-                  <AnnualSavingsSiteEnergy>123.000000</AnnualSavingsSiteEnergy>
-                  <AnnualSavingsCost>123</AnnualSavingsCost>
+                  <AnnualSavingsSiteEnergy>35.713000</AnnualSavingsSiteEnergy>
+                  <AnnualSavingsCost>772</AnnualSavingsCost>
                   <AnnualSavingsByFuels>
                     <AnnualSavingsByFuel>
                       <EnergyResource>Electricity</EnergyResource>
                       <ResourceUnits>kWh</ResourceUnits>
-                      <AnnualSavingsNativeUnits>123.000000</AnnualSavingsNativeUnits>
+                      <AnnualSavingsNativeUnits>11524.540000</AnnualSavingsNativeUnits>
                     </AnnualSavingsByFuel>
                     <AnnualSavingsByFuel>
                       <EnergyResource>Natural gas</EnergyResource>
@@ -2021,23 +2439,23 @@
                       <AnnualSavingsNativeUnits>0.000000</AnnualSavingsNativeUnits>
                     </AnnualSavingsByFuel>
                   </AnnualSavingsByFuels>
-                  <AnnualPeakElectricityReduction>123.000000</AnnualPeakElectricityReduction>
-                  <AnnualDemandSavingsCost>123</AnnualDemandSavingsCost>
+                  <AnnualPeakElectricityReduction>3.220000</AnnualPeakElectricityReduction>
+                  <AnnualDemandSavingsCost>0</AnnualDemandSavingsCost>
                   <AnnualWaterSavings>0.000000</AnnualWaterSavings>
                   <AnnualWaterCostSavings>0.000000</AnnualWaterCostSavings>
                   <ImplementationPeriod>1</ImplementationPeriod>
-                  <PackageFirstCost>0.000000</PackageFirstCost>
+                  <PackageFirstCost>824.000000</PackageFirstCost>
                   <MVCost>0.000000</MVCost>
-                  <OMCostAnnualSavings>123.000000</OMCostAnnualSavings>
+                  <OMCostAnnualSavings>0.000000</OMCostAnnualSavings>
                   <EquipmentDisposalAndSalvageCosts>0.000000</EquipmentDisposalAndSalvageCosts>
                   <ImplementationPeriodCostSavings>0.000000</ImplementationPeriodCostSavings>
-                  <ProjectMarkup>123.000000</ProjectMarkup>
-                  <FundingFromIncentives>123.000000</FundingFromIncentives>
-                  <FundingFromTaxCredits>123.000000</FundingFromTaxCredits>
-                  <OtherFinancialIncentives>123</OtherFinancialIncentives>
-                  <RecurringIncentives>123</RecurringIncentives>
-                  <SimplePayback>123.000000</SimplePayback>
-                  <InternalRateOfReturn>1.000000</InternalRateOfReturn>
+                  <ProjectMarkup>0.000000</ProjectMarkup>
+                  <FundingFromIncentives>0.000000</FundingFromIncentives>
+                  <FundingFromTaxCredits>0.000000</FundingFromTaxCredits>
+                  <OtherFinancialIncentives>0</OtherFinancialIncentives>
+                  <RecurringIncentives>0</RecurringIncentives>
+                  <SimplePayback>1.070000</SimplePayback>
+                  <InternalRateOfReturn>0.000000</InternalRateOfReturn>
                 </PackageOfMeasures>
               </ScenarioType>
               <LinkedPremises>
@@ -2054,37 +2472,37 @@
                     <MeasureID IDref="Measure-VSDs"/>
                   </MeasureIDs>
                   <CostCategory>Capital</CostCategory>
-                  <AnnualSavingsSiteEnergy>123.000000</AnnualSavingsSiteEnergy>
-                  <AnnualSavingsCost>123</AnnualSavingsCost>
+                  <AnnualSavingsSiteEnergy>5.175000</AnnualSavingsSiteEnergy>
+                  <AnnualSavingsCost>9</AnnualSavingsCost>
                   <AnnualSavingsByFuels>
                     <AnnualSavingsByFuel>
                       <EnergyResource>Electricity</EnergyResource>
                       <ResourceUnits>kWh</ResourceUnits>
-                      <AnnualSavingsNativeUnits>123.000000</AnnualSavingsNativeUnits>
+                      <AnnualSavingsNativeUnits>207.240000</AnnualSavingsNativeUnits>
                     </AnnualSavingsByFuel>
                     <AnnualSavingsByFuel>
                       <EnergyResource>Natural gas</EnergyResource>
                       <ResourceUnits>MMBtu</ResourceUnits>
-                      <AnnualSavingsNativeUnits>12.000000</AnnualSavingsNativeUnits>
+                      <AnnualSavingsNativeUnits>4.460000</AnnualSavingsNativeUnits>
                     </AnnualSavingsByFuel>
                   </AnnualSavingsByFuels>
-                  <AnnualPeakElectricityReduction>123.000000</AnnualPeakElectricityReduction>
-                  <AnnualDemandSavingsCost>123</AnnualDemandSavingsCost>
+                  <AnnualPeakElectricityReduction>0.420000</AnnualPeakElectricityReduction>
+                  <AnnualDemandSavingsCost>0</AnnualDemandSavingsCost>
                   <AnnualWaterSavings>0.000000</AnnualWaterSavings>
                   <AnnualWaterCostSavings>0.000000</AnnualWaterCostSavings>
                   <ImplementationPeriod>1</ImplementationPeriod>
-                  <PackageFirstCost>0.000000</PackageFirstCost>
+                  <PackageFirstCost>2000.000000</PackageFirstCost>
                   <MVCost>0.000000</MVCost>
-                  <OMCostAnnualSavings>123.000000</OMCostAnnualSavings>
+                  <OMCostAnnualSavings>0.000000</OMCostAnnualSavings>
                   <EquipmentDisposalAndSalvageCosts>0.000000</EquipmentDisposalAndSalvageCosts>
                   <ImplementationPeriodCostSavings>0.000000</ImplementationPeriodCostSavings>
-                  <ProjectMarkup>123.000000</ProjectMarkup>
-                  <FundingFromIncentives>123.000000</FundingFromIncentives>
-                  <FundingFromTaxCredits>123.000000</FundingFromTaxCredits>
-                  <OtherFinancialIncentives>123</OtherFinancialIncentives>
-                  <RecurringIncentives>123</RecurringIncentives>
-                  <SimplePayback>123.000000</SimplePayback>
-                  <InternalRateOfReturn>1.000000</InternalRateOfReturn>
+                  <ProjectMarkup>0.000000</ProjectMarkup>
+                  <FundingFromIncentives>0.000000</FundingFromIncentives>
+                  <FundingFromTaxCredits>0.000000</FundingFromTaxCredits>
+                  <OtherFinancialIncentives>0</OtherFinancialIncentives>
+                  <RecurringIncentives>0</RecurringIncentives>
+                  <SimplePayback>230.150000</SimplePayback>
+                  <InternalRateOfReturn>0.000000</InternalRateOfReturn>
                 </PackageOfMeasures>
               </ScenarioType>
               <LinkedPremises>
@@ -2093,45 +2511,46 @@
                 </Building>
               </LinkedPremises>
             </Scenario>
-            <Scenario ID="Scenario-POM-HVAC-Schedule">
+            <Scenario ID="Scenario-POM-LEDs-VSDs">
               <ScenarioType>
-                <PackageOfMeasures ID="POM-HVAC-Schedule">
+                <PackageOfMeasures ID="POM-LEDs-VSDs">
                   <ReferenceCase IDref="Scenario-measured"/>
                   <MeasureIDs>
-                    <MeasureID IDref="Measure-HVAC-schedule-lowcost"/>
+                    <MeasureID IDref="Measure-LEDs"/>
+                    <MeasureID IDref="Measure-VSDs"/>
                   </MeasureIDs>
-                  <CostCategory>Low-Cost or No-Cost</CostCategory>
-                  <AnnualSavingsSiteEnergy>123.000000</AnnualSavingsSiteEnergy>
-                  <AnnualSavingsCost>123</AnnualSavingsCost>
+                  <CostCategory>Capital</CostCategory>
+                  <AnnualSavingsSiteEnergy>41.827000</AnnualSavingsSiteEnergy>
+                  <AnnualSavingsCost>781</AnnualSavingsCost>
                   <AnnualSavingsByFuels>
                     <AnnualSavingsByFuel>
                       <EnergyResource>Electricity</EnergyResource>
                       <ResourceUnits>kWh</ResourceUnits>
-                      <AnnualSavingsNativeUnits>123.000000</AnnualSavingsNativeUnits>
+                      <AnnualSavingsNativeUnits>11701.620000</AnnualSavingsNativeUnits>
                     </AnnualSavingsByFuel>
                     <AnnualSavingsByFuel>
                       <EnergyResource>Natural gas</EnergyResource>
                       <ResourceUnits>MMBtu</ResourceUnits>
-                      <AnnualSavingsNativeUnits>0.000000</AnnualSavingsNativeUnits>
+                      <AnnualSavingsNativeUnits>1.890000</AnnualSavingsNativeUnits>
                     </AnnualSavingsByFuel>
                   </AnnualSavingsByFuels>
-                  <AnnualPeakElectricityReduction>123.000000</AnnualPeakElectricityReduction>
-                  <AnnualDemandSavingsCost>123</AnnualDemandSavingsCost>
+                  <AnnualPeakElectricityReduction>4.700000</AnnualPeakElectricityReduction>
+                  <AnnualDemandSavingsCost>0</AnnualDemandSavingsCost>
                   <AnnualWaterSavings>0.000000</AnnualWaterSavings>
                   <AnnualWaterCostSavings>0.000000</AnnualWaterCostSavings>
                   <ImplementationPeriod>1</ImplementationPeriod>
-                  <PackageFirstCost>0.000000</PackageFirstCost>
+                  <PackageFirstCost>2824.000000</PackageFirstCost>
                   <MVCost>0.000000</MVCost>
-                  <OMCostAnnualSavings>123.000000</OMCostAnnualSavings>
+                  <OMCostAnnualSavings>0.000000</OMCostAnnualSavings>
                   <EquipmentDisposalAndSalvageCosts>0.000000</EquipmentDisposalAndSalvageCosts>
                   <ImplementationPeriodCostSavings>0.000000</ImplementationPeriodCostSavings>
-                  <ProjectMarkup>123.000000</ProjectMarkup>
-                  <FundingFromIncentives>123.000000</FundingFromIncentives>
-                  <FundingFromTaxCredits>123.000000</FundingFromTaxCredits>
-                  <OtherFinancialIncentives>123</OtherFinancialIncentives>
-                  <RecurringIncentives>123</RecurringIncentives>
-                  <SimplePayback>123.000000</SimplePayback>
-                  <InternalRateOfReturn>1.000000</InternalRateOfReturn>
+                  <ProjectMarkup>0.000000</ProjectMarkup>
+                  <FundingFromIncentives>0.000000</FundingFromIncentives>
+                  <FundingFromTaxCredits>0.000000</FundingFromTaxCredits>
+                  <OtherFinancialIncentives>0</OtherFinancialIncentives>
+                  <RecurringIncentives>0</RecurringIncentives>
+                  <SimplePayback>3.620000</SimplePayback>
+                  <InternalRateOfReturn>0.000000</InternalRateOfReturn>
                 </PackageOfMeasures>
               </ScenarioType>
               <LinkedPremises>
@@ -2141,6 +2560,7 @@
               </LinkedPremises>
             </Scenario>
           </Scenarios>
+          <ASHRAEAuditLevel>Level 2: Energy Survey and Analysis</ASHRAEAuditLevel>
           <Utilities>
             <Utility ID="Utility-Electric">
               <RateSchedules>
@@ -2149,22 +2569,38 @@
                     <FlatRate>
                       <RatePeriods>
                         <RatePeriod>
+                          <ApplicableStartDateForEnergyRate>--06-01</ApplicableStartDateForEnergyRate>
+                          <ApplicableEndDateForEnergyRate>--09-30</ApplicableEndDateForEnergyRate>
+                          <ApplicableStartDateForDemandRate>--06-01</ApplicableStartDateForDemandRate>
+                          <ApplicableEndDateForDemandRate>--09-30</ApplicableEndDateForDemandRate>
+                          <EnergyCostRate>0.088520</EnergyCostRate>
+                          <ElectricDemandRate>0.000000</ElectricDemandRate>
+                        </RatePeriod>
+                        <RatePeriod>
                           <ApplicableStartDateForEnergyRate>--01-01</ApplicableStartDateForEnergyRate>
-                          <ApplicableEndDateForEnergyRate>--01-01</ApplicableEndDateForEnergyRate>
+                          <ApplicableEndDateForEnergyRate>--05-31</ApplicableEndDateForEnergyRate>
                           <ApplicableStartDateForDemandRate>--01-01</ApplicableStartDateForDemandRate>
-                          <ApplicableEndDateForDemandRate>--01-01</ApplicableEndDateForDemandRate>
-                          <EnergyCostRate>0.072500</EnergyCostRate>
+                          <ApplicableEndDateForDemandRate>--05-31</ApplicableEndDateForDemandRate>
+                          <EnergyCostRate>0.053140</EnergyCostRate>
+                          <ElectricDemandRate>0.000000</ElectricDemandRate>
+                        </RatePeriod>
+                        <RatePeriod>
+                          <ApplicableStartDateForEnergyRate>--10-01</ApplicableStartDateForEnergyRate>
+                          <ApplicableEndDateForEnergyRate>--12-31</ApplicableEndDateForEnergyRate>
+                          <ApplicableStartDateForDemandRate>--10-01</ApplicableStartDateForDemandRate>
+                          <ApplicableEndDateForDemandRate>--12-31</ApplicableEndDateForDemandRate>
+                          <EnergyCostRate>0.053140</EnergyCostRate>
                           <ElectricDemandRate>0.000000</ElectricDemandRate>
                         </RatePeriod>
                       </RatePeriods>
                     </FlatRate>
                   </TypeOfRateStructure>
-                  <ReferenceForRateStructure>https://missoulaelectric.com/member-care/billing-payment/rates/</ReferenceForRateStructure>
-                  <FixedMonthlyCharge>28.000000</FixedMonthlyCharge>
+                  <ReferenceForRateStructure>https://www.xcelenergy.com/staticfiles/xe-responsive/Company/Rates%20&amp;%20Regulations/Regulatory'/%'20Filings/CO%20Recent'/%'20Filings/PSCo_Electric_Entire_Tariff.pdf</ReferenceForRateStructure>
+                  <FixedMonthlyCharge>16.880000</FixedMonthlyCharge>
                 </RateSchedule>
               </RateSchedules>
-              <EIAUtilityID>12692</EIAUtilityID>
-              <UtilityName>Missoula Electric Cooperative</UtilityName>
+              <EIAUtilityID>12345</EIAUtilityID>
+              <UtilityName>Xcel Energy</UtilityName>
               <UtilityMeterNumbers>
                 <UtilityMeterNumber>Some-meter-ID</UtilityMeterNumber>
               </UtilityMeterNumbers>
@@ -2179,16 +2615,17 @@
                       <RatePeriods>
                         <RatePeriod>
                           <ApplicableStartDateForEnergyRate>--01-01</ApplicableStartDateForEnergyRate>
-                          <ApplicableEndDateForEnergyRate>--01-01</ApplicableEndDateForEnergyRate>
-                          <EnergyCostRate>5.500000</EnergyCostRate>
+                          <ApplicableEndDateForEnergyRate>--12-31</ApplicableEndDateForEnergyRate>
+                          <EnergyCostRate>0.163600</EnergyCostRate>
                         </RatePeriod>
                       </RatePeriods>
                     </FlatRate>
                   </TypeOfRateStructure>
-                  <ReferenceForRateStructure>https://naturalgaslocal.com/states/montana/missoula/</ReferenceForRateStructure>
+                  <ReferenceForRateStructure>https://www.xcelenergy.com/staticfiles/xe-responsive/Company/Rates%20&amp;%20Regulations/psco_gas_entire_tariff.pdf</ReferenceForRateStructure>
+                  <FixedMonthlyCharge>43.880000</FixedMonthlyCharge>
                 </RateSchedule>
               </RateSchedules>
-              <UtilityName>NorthWestern Energy</UtilityName>
+              <UtilityName>Xcel Energy</UtilityName>
               <UtilityMeterNumbers>
                 <UtilityMeterNumber>Some-meter-ID</UtilityMeterNumber>
               </UtilityMeterNumbers>

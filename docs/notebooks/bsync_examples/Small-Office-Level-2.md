@@ -11,12 +11,12 @@ While this notebook is setup in Python, this introduction is not reserved only f
 ## Learning Objectives
 By the end of this notebook, you should:
 - Have a practical understanding of some XML features, namely: elements, attributes, and xpaths
-- Know the main elements of the BuildingSync schema: Buildings, Systems, Reports, Scenarios, TimeSeriesData
-- Be able to relate these concepts back to an ASHRAE Standard 211 energy audit
-- Create a minimum viable Level 1 BuildingSync document and verify it validates using the [BuildingSync Use Case Validator](https://buildingsync.net/validator)
+- Know the main elements of the BuildingSync schema: Buildings, Systems, Reports, Scenarios, TimeSeriesData, Measures
+- Be able to relate these concepts back to an ASHRAE Standard 211 energy audit, and have an understanding of the additional detail needed in a Level 2 audit (compared to a Level 1 audit)
+- Create a minimum viable Level 2 BuildingSync document and verify it validates using the [BuildingSync Use Case Validator](https://buildingsync.net/validator)
 
 ## For Reference: Core Concepts and Notation Used
-- We will be using BuildingSync version 2.3.0. [Documentation](https://buildingsync.net/documentation/2.3.0). [Github release](https://github.com/BuildingSync/schema/releases/tag/v2.3.0).
+- We will be using BuildingSync version 2.4.0. [Documentation](https://buildingsync.net/documentation/2.4.0). [Github release](https://github.com/BuildingSync/schema/releases/tag/v2.4.0).
 - BuildingSync is an XML Schema Document (XSD). It defines intended structure. Referring to something as a BuildingSync document typically means the document is intended to conform to the BuildingSync schema.
 - An XSD defines a hierarchical or tree-based schema, where elements are 'nested' within other elements. An XML document then looks like nested elements within one another. Similar to HTML, it uses angle brackets `<` and `>` to open and close an element tag. The example below provides a very simple example of an XML document:
 ```xml
@@ -43,15 +43,15 @@ def pretty_print(element):
     """Simple printing of an xml element from the bsync library"""
     print(etree.tostring(element.toxml(), pretty_print=True).decode('utf-8'))
     
-def bsync_dump(root_element, file="example1.xml"):
+def bsync_dump(root_element, file='example1.xml'):
     """Write the element to the specified file"""
     doctype = '<?xml version="1.0" encoding="UTF-8"?>'
     as_etree = root_element.toxml()
-    as_etree.set("xmlns", "http://buildingsync.net/schemas/bedes-auc/2019")
-    #as_etree.set("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance")
-    #as_etree.set("xsi:schemaLocation", "http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.4.0/BuildingSync.xsd")
+    as_etree.set('xmlns', 'http://buildingsync.net/schemas/bedes-auc/2019')
+    #as_etree.set('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance')
+    #as_etree.set('xsi:schemaLocation', 'http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.4.0/BuildingSync.xsd')
     # Have to manually set the version right now. Align release of bsyncpy to this version.
-    as_etree.set("version", "2.4.0")  
+    as_etree.set('version', '2.4.0')  
     output = etree.tostring(as_etree, doctype=doctype, pretty_print=True)
     with open(file, 'wb+') as f:
         f.write(output)
@@ -66,9 +66,10 @@ The small office prototype is a single story rectangular building. We will use D
 We can summarize the high level features as:
 - Total Floor Area: 5500sf
 - WWR: Southern Wall ~25%, Other Walls ~20%
-- Climate Zone 5B
+- ASHRAE Climate Zone 5B
 - Assume built year: 2000
 - Let's assume this is on the 90.1-2004 code cycle
+- Audit year: 2020
 
 ## "I have a building...where do I start"
 Relevant Standard 211 Sections:
@@ -80,10 +81,10 @@ Let's start by defining a building. In this exercise, we will learn about some B
 ```xml
 <BuildingSync>
     <Facilities>
-        <Facility ID="F-1">
+        <Facility ID='F-1'>
             ...children stuff here...
         </Facility>
-        <Facility ID="F-2">
+        <Facility ID='F-2'>
             ...children stuff here...
         </Facility>
     </Facilities>
@@ -108,11 +109,11 @@ We start by creating the primary structure of a BuildingSync document. We introd
 # assignment, etc.
 root = bsync.BuildingSync()
 facs = bsync.Facilities()
-f1 = bsync.Facilities.Facility(ID="Facility-1")
+f1 = bsync.Facilities.Facility(ID='Facility-1')
 sites = bsync.Sites()
-s1 = bsync.Sites.Site(ID="Site-1")
+s1 = bsync.Sites.Site(ID='Site-1')
 bldgs = bsync.Buildings()
-b1 = bsync.Buildings.Building(ID="Building-Small-Office-Prototype")
+b1 = bsync.Buildings.Building(ID='Building-Small-Office-Prototype')
 sections = bsync.Sections()
 systems = bsync.Systems()
 contacts = bsync.Contacts()
@@ -123,9 +124,10 @@ utilities = bsync.Utilities()
 
 # We link the entire report to the building
 r1 = bsync.Report(
+    bsync.ASHRAEAuditLevel('Level 2: Energy Survey and Analysis'),
     bsync.LinkedPremisesOrSystem(
         bsync.LinkedPremisesOrSystem.Building(
-            bsync.LinkedBuildingID(IDref=b1["ID"])
+            bsync.LinkedBuildingID(IDref=b1['ID'])
         )
     ),
     ID='Report-L2-Audit')
@@ -159,6 +161,40 @@ r1 += utilities
 pretty_print(root)
 ```
 
+    <BuildingSync>
+      <Facilities>
+        <Facility ID="Facility-1">
+          <Sites>
+            <Site ID="Site-1">
+              <Buildings>
+                <Building ID="Building-Small-Office-Prototype">
+                  <Sections/>
+                </Building>
+              </Buildings>
+            </Site>
+          </Sites>
+          <Systems/>
+          <Schedules/>
+          <Measures/>
+          <Reports>
+            <Report ID="Report-L2-Audit">
+              <Scenarios/>
+              <ASHRAEAuditLevel>Level 2: Energy Survey and Analysis</ASHRAEAuditLevel>
+              <Utilities/>
+              <LinkedPremisesOrSystem>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+                </Building>
+              </LinkedPremisesOrSystem>
+            </Report>
+          </Reports>
+          <Contacts/>
+        </Facility>
+      </Facilities>
+    </BuildingSync>
+    
+    
+
 #### 6.2.1.1 Building information
 
 This section of Standard 211 asks for lots of detail. We walk through the components of this that get added _as child elements of the building_, and then discuss other information.
@@ -169,34 +205,34 @@ This section of Standard 211 asks for lots of detail. We walk through the compon
 b1 += bsync.PremisesName('Small Office Prototype in Denver')
 
 # 6.1.1.1.m 
-b1 += bsync.PremisesNotes("Here we record general problems / issues identified in a walkthrough survey.")
+b1 += bsync.PremisesNotes('Here we record general problems / issues identified in a walkthrough survey.')
 
 # 6.1.1.1.d - address
 b1 += bsync.Address(
     bsync.StreetAddressDetail(
         bsync.Simplified(
-            bsync.StreetAddress("Some address")
+            bsync.StreetAddress('Some address')
         )
     ),
-    bsync.Address.State("CO"),
-    bsync.City("Denver"),
-    bsync.PostalCode("80401")
+    bsync.Address.State('CO'),
+    bsync.City('Denver'),
+    bsync.PostalCode('80014')
 )
 
 # 6.2.1.1.b - gross and conditioned floor area
 b1 += bsync.FloorAreas(
     bsync.FloorArea(
-        bsync.FloorAreaType("Gross"),
+        bsync.FloorAreaType('Gross'),
         bsync.FloorAreaValue(5500.0),
         bsync.ExcludedSectionIDs(
-            bsync.ExcludedSectionID(IDref="Section-excluded")
+            bsync.ExcludedSectionID(IDref='Section-excluded')
         )
     ),
     bsync.FloorArea(
-        bsync.FloorAreaType("Conditioned"),
+        bsync.FloorAreaType('Conditioned'),
         bsync.FloorAreaValue(5500.0),
         bsync.ExcludedSectionIDs(
-            bsync.ExcludedSectionID(IDref="Section-excluded")
+            bsync.ExcludedSectionID(IDref='Section-excluded')
         )
     )
 )
@@ -210,8 +246,8 @@ b1 += bsync.OverallWindowToWallRatio(0.2133)
 b1 += bsync.OverallDoorToWallRatio(0.05)
 
 # 6.1.1.1.f - classification of the uses
-b1 += bsync.BuildingClassification("Commercial")
-b1 += bsync.OccupancyClassification("Office")
+b1 += bsync.BuildingClassification('Commercial')
+b1 += bsync.OccupancyClassification('Office')
 b1 += bsync.BuildingAutomationSystem(True)
 b1 += bsync.HistoricalLandmark(False)
 
@@ -248,36 +284,36 @@ Continuing with the information required by 6.1.1.1, we define additional conten
 # 6.1.1.1.b - Owner and auditor contact info
 c1 = bsync.Contact(
     bsync.ContactName('The dude'),
-    bsync.ContactCompany("Some big company"),
+    bsync.ContactCompany('Some big company'),
     bsync.ContactRoles(
         bsync.ContactRole('Owner')
     ),
     bsync.ContactTelephoneNumbers(
         bsync.ContactTelephoneNumber(
-            bsync.TelephoneNumber("123-456-7890")
+            bsync.TelephoneNumber('123-456-7890')
         )
     ),
     bsync.ContactEmailAddresses(
         bsync.ContactEmailAddress(
-            bsync.EmailAddress("the.dude@somebigco.net")
+            bsync.EmailAddress('the.dude@somebigco.net')
         )
     ),
     ID='Contact-Owner'
 )
 c2 = bsync.Contact(
     bsync.ContactName('The lady'),
-    bsync.ContactCompany("Auditeers"),
+    bsync.ContactCompany('Auditeers'),
     bsync.ContactRoles(
         bsync.ContactRole('Energy Auditor')
     ),
     bsync.ContactTelephoneNumbers(
         bsync.ContactTelephoneNumber(
-            bsync.TelephoneNumber("123-456-7890")
+            bsync.TelephoneNumber('123-456-7890')
         )
     ),
     bsync.ContactEmailAddresses(
         bsync.ContactEmailAddress(
-            bsync.EmailAddress("the.lady@the-three-auditeers.com")
+            bsync.EmailAddress('the.lady@the-three-auditeers.com')
         )
     ),
     ID='Contact-Auditor'
@@ -308,15 +344,15 @@ The Small Office, as its name suggests, is just an office space, and therefore w
 ```python
 # create a new section
 section = bsync.Sections.Section(
-    bsync.SectionType("Space function"),
-    bsync.OccupancyClassification("Office"),
-    bsync.OriginalOccupancyClassification("Office"),
-    bsync.ThermalZoneLayout("Single zone"),
-    ID=f"Section-office"
+    bsync.SectionType('Space function'),
+    bsync.OccupancyClassification('Office'),
+    bsync.OriginalOccupancyClassification('Office'),
+    bsync.ThermalZoneLayout('Single zone'),
+    ID=f'Section-office'
 )
-section_wb = bsync.Sections.Section(ID="Section-Whole-building")
-section_wb += bsync.SectionType("Whole building")
-section_ex = bsync.Sections.Section(ID="Section-excluded")
+section_wb = bsync.Sections.Section(ID='Section-Whole-building')
+section_wb += bsync.SectionType('Whole building')
+section_ex = bsync.Sections.Section(ID='Section-excluded')
 sections += section
 sections += section_wb
 sections += section_ex
@@ -332,11 +368,11 @@ Section 5.3.4 lays out specific requirements to convey for each space function. 
 # 5.3.4.a Gross floor area for the section (we also add conditioned for 5.3.4.f)
 section_fa = bsync.FloorAreas(
     bsync.FloorArea(
-        bsync.FloorAreaType("Gross"),
+        bsync.FloorAreaType('Gross'),
         bsync.FloorAreaValue(5500.0)
     ),
     bsync.FloorArea(
-        bsync.FloorAreaType("Conditioned"),
+        bsync.FloorAreaType('Conditioned'),
         bsync.FloorAreaValue(5500.0)
     )
 )
@@ -344,11 +380,11 @@ section_fa = bsync.FloorAreas(
 # 5.3.4.b and 5.3.4.c are asking for typical operating hours for the section
 tous = bsync.TypicalOccupantUsages()
 tou_hpw = bsync.TypicalOccupantUsage(
-    bsync.TypicalOccupantUsageUnits("Hours per week"),
+    bsync.TypicalOccupantUsageUnits('Hours per week'),
     bsync.TypicalOccupantUsageValue(40.0)
 )
 tou_wpy = bsync.TypicalOccupantUsage(
-    bsync.TypicalOccupantUsageUnits("Weeks per year"),
+    bsync.TypicalOccupantUsageUnits('Weeks per year'),
     bsync.TypicalOccupantUsageValue(50.)
 )
 tous += tou_hpw
@@ -357,7 +393,7 @@ tous += tou_wpy
 # 5.3.4.d looks for normal / design or peak occupancy.
 occ_levels = bsync.OccupancyLevels()
 occ_design = bsync.OccupancyLevel(
-    bsync.OccupantQuantityType("Peak total occupants"),
+    bsync.OccupantQuantityType('Peak total occupants'),
     bsync.OccupantQuantity(31.)
 )
 occ_levels += occ_design
@@ -373,7 +409,9 @@ section += occ_levels
 #pretty_print(sections)
 ```
 
-6.2.1.1.e Schedules
+### 6.2.1.1.e Schedules
+Schedules of occupancy, lighting, process and plug loads, and HVAC shall be provided for typical days (weekdays, weekends, holidays).
+In BuildingSync, schedules are defined individually and referred (linked) in different sections. For example, lighting schedule is linked when lighting system is defined. 
 
 
 ```python
@@ -761,7 +799,6 @@ schedules += schedule_light
 schedules += schedule_pl
 schedules += schedule_hvac
 schedules += schedule_hvac_new
-#pretty_print(schedules)
 ```
 
 #### 6.2.1.2 Envelope
@@ -781,7 +818,7 @@ roof = bsync.RoofSystem(
 )
 roofsys += roof
 
-# 6.2.1.2.b wall
+# 6.2.1.2.b Opaque walls (above ground)
 wallsys = bsync.WallSystems()
 wall = bsync.WallSystem(
     bsync.ExteriorWallConstruction("Wood frame"),
@@ -978,8 +1015,8 @@ hc_systems += bsync.ZoningSystemType("Single zone")
 
 # cooling system
 css = bsync.CoolingSources()
-coolingcapacity = [6862.6, 6344.4, 4688.8, 5836.3, 5989.0]
-for each in range(1,6):
+coolingcapacities = [10198.9, 9847.2, 7737.1, 9143.8, 9847.2]
+for index, coolingcapacity in enumerate(coolingcapacities):
     cs = bsync.CoolingSource(
         bsync.CoolingSourceType(
             bsync.DX(
@@ -990,7 +1027,7 @@ for each in range(1,6):
         ),
         bsync.AnnualCoolingEfficiencyValue(2.61),
         bsync.AnnualCoolingEfficiencyUnits('COP'),
-        bsync.Capacity(coolingcapacity[each-1]),
+        bsync.Capacity(coolingcapacity),
         bsync.CapacityUnits('W'),
         bsync.CoolingSourceCondition('Good'),
         bsync.CoolingSource.Controls(
@@ -1003,7 +1040,7 @@ for each in range(1,6):
             )
         ),
         bsync.YearInstalled(2000),
-        ID=f"CoolingSource-{each}"
+        ID=f"CoolingSource-{index+1}"
     )
     css += cs
 
@@ -1011,8 +1048,8 @@ hc_systems += css
 
 # heating system
 hss = bsync.HeatingSources()
-heatingcapacity = [7203.66, 6659.65, 4921.86, 6126.30, 6286.66]
-for each in range(1,6):
+heatingcapacities = [10311.1, 9801.3, 7858.1, 9067.8, 9855.4]
+for index, heatingcapacity in enumerate(heatingcapacities):
     hs = bsync.HeatingSource(
         bsync.HeatingSourceType(
             bsync.HeatingSourceType.HeatPump(
@@ -1024,8 +1061,8 @@ for each in range(1,6):
         ),
         bsync.AnnualHeatingEfficiencyValue(3.01),
         bsync.AnnualHeatingEfficiencyUnits('COP'),
-        bsync.InputCapacity(heatingcapacity[each-1]),
-        bsync.HeatingSource.Capacity(heatingcapacity[each-1]),
+        bsync.InputCapacity(heatingcapacity),
+        bsync.HeatingSource.Capacity(heatingcapacity),
         bsync.CapacityUnits('W'),
         bsync.HeatingSourceCondition('Good'),
         bsync.HeatingSource.Controls(
@@ -1038,7 +1075,7 @@ for each in range(1,6):
             )
         ),
         bsync.YearInstalled(2000),
-        ID=f"HeatingSource-{each}"
+        ID=f"HeatingSource-{index+1}"
     )
     hss += hs
 
@@ -1102,16 +1139,15 @@ hvacctl = bsync.HVACControlSystemTypes(
 hvac_system += hc_systems
 hvac_system += duct_systems
 hvac_system += hvacctl
-#pretty_print(hvac_systems)
 
 # fan
 fan_systems = bsync.FanSystems()
-fanflowrate = [0.44, 0.40, 0.30, 0.37, 0.38]
-fanflowrate = [x*2118.88 for x in fanflowrate]
+fanflowrate = [880., 836., 671., 774., 841.]
+fanflowrate_new = [872., 830., 664., 766., 833.]
 for each in range(1,6):
     fan = bsync.FanSystem(
-        bsync.FanEfficiency(0.54),
-        bsync.FanSize(1000.),
+        bsync.FanEfficiency(0.536),
+        bsync.FanSize(fanflowrate[each-1]),
         bsync.FanInstalledFlowRate(fanflowrate[each-1]),
         bsync.FanControlType("Constant Volume"),
         bsync.LinkedSystemIDs(
@@ -1120,9 +1156,9 @@ for each in range(1,6):
         ID=f"FanSystem-{each}"
     )
     fan_new = bsync.FanSystem(
-        bsync.FanEfficiency(0.54),
-        bsync.FanSize(1000.),
-        bsync.InstalledFlowRate(fanflowrate[each-1]),
+        bsync.FanEfficiency(0.536),
+        bsync.FanSize(fanflowrate_new[each-1]),
+        bsync.InstalledFlowRate(fanflowrate_new[each-1]),
         bsync.FanControlType("Variable Volume"),
         bsync.LinkedSystemIDs(
             bsync.LinkedSystemID(IDref=f"Delivery-{each}")
@@ -1160,7 +1196,7 @@ shw = bsync.DomesticHotWaterSystem(
     bsync.PrimaryFuel("Electricity"),
     bsync.Recirculation(
         bsync.RecirculationLoopCount(1),
-        bsync.RecirculationFlowRate(3.84972648), # 4.048e-06 m3/s to gal/hr
+        bsync.RecirculationFlowRate(3.6), 
         bsync.RecirculationControlType("Continuous"),
         bsync.PipeInsulationThickness(123.), # arbitrary value, actually not required
         bsync.RecirculationEnergyLossRate(1.870180469)
@@ -1168,7 +1204,7 @@ shw = bsync.DomesticHotWaterSystem(
     bsync.HotWaterDistributionType("Looped"),
     bsync.HotWaterSetpointTemperature(140.),
     bsync.WaterHeaterEfficiency(1.),
-    bsync.WaterHeaterEfficiencyType("COP"),
+    bsync.WaterHeaterEfficiencyType("Thermal Efficiency"),
     bsync.DailyHotWaterDraw(40.), # arbitrary value, actually not required
     bsync.ParasiticFuelConsumptionRate(1950.52), # 572 W to Btu/hr
     bsync.Capacity(11722.84),
@@ -1219,11 +1255,11 @@ ls1 = bsync.LightingSystem(
     bsync.DimmingCapability(
         bsync.MinimumDimmingLightFraction(0.2)
     ),
-    bsync.InstalledPower(5.50205),
-    bsync.LampPower(550.205),
-    bsync.NumberOfLampsPerBallast(1),
+    bsync.InstalledPower(5.500),
+    bsync.LampPower(32.0),
+    bsync.NumberOfLampsPerBallast(4),
     bsync.NumberOfBallastsPerLuminaire(1.),
-    bsync.NumberOfLuminaires(10),
+    bsync.NumberOfLuminaires(43),
     bsync.PercentPremisesServed(100.),
     bsync.LightingAutomationSystem(False),
     bsync.LightingSystem.Controls(
@@ -1256,7 +1292,7 @@ ls2 = bsync.LightingSystem(
         )
     ),
     bsync.BallastType("Standard Electronic"),
-    bsync.InstalledPower(1.58258),
+    bsync.InstalledPower(1.582575),
     bsync.LampPower(316.516),
     bsync.NumberOfLampsPerBallast(1),
     bsync.NumberOfBallastsPerLuminaire(1.),
@@ -1284,7 +1320,7 @@ ls2 = bsync.LightingSystem(
     ),
     ID="LightingSystem-2"
 )
-# new lighting system for measure
+# new led lighting system for measure
 ls_new = bsync.LightingSystem(
     bsync.OutsideLighting(False),
     bsync.LampType(
@@ -1296,11 +1332,11 @@ ls_new = bsync.LightingSystem(
     bsync.DimmingCapability(
         bsync.MinimumDimmingLightFraction(0.1)
     ),
-    bsync.InstalledPower(0.64),
-    bsync.LampPower(64.),
-    bsync.NumberOfLampsPerBallast(1),
+    bsync.InstalledPower(2.752),
+    bsync.LampPower(16.),
+    bsync.NumberOfLampsPerBallast(4),
     bsync.NumberOfBallastsPerLuminaire(1.),
-    bsync.NumberOfLuminaires(10),
+    bsync.NumberOfLuminaires(43),
     bsync.PercentPremisesServed(100.),
     bsync.LightingAutomationSystem(False),
     bsync.LightingSystem.Controls(
@@ -1427,18 +1463,34 @@ elec_ut = bsync.Utility(
                 bsync.FlatRate(
                     bsync.FlatRate.RatePeriods(
                         bsync.FlatRate.RatePeriods.RatePeriod(
+                            bsync.ApplicableStartDateForEnergyRate(date(2019,6,1)),
+                            bsync.ApplicableEndDateForEnergyRate(date(2019,9,30)),
+                            bsync.EnergyCostRate(0.08852), # $0.08852/kWh
+                            bsync.ApplicableStartDateForDemandRate(date(2019,6,1)),
+                            bsync.ApplicableEndDateForDemandRate(date(2019,9,30)),
+                            bsync.ElectricDemandRate(0.) # no demand cost
+                        ),
+                        bsync.FlatRate.RatePeriods.RatePeriod(
                             bsync.ApplicableStartDateForEnergyRate(date(2019,1,1)),
-                            bsync.ApplicableEndDateForEnergyRate(date(2020,1,1)),
-                            bsync.EnergyCostRate(0.00458), # $0.00458/kWh
+                            bsync.ApplicableEndDateForEnergyRate(date(2019,5,31)),
+                            bsync.EnergyCostRate(0.05314), # $0.05314/kWh
                             bsync.ApplicableStartDateForDemandRate(date(2019,1,1)),
-                            bsync.ApplicableEndDateForDemandRate(date(2020,1,1)),
-                            bsync.ElectricDemandRate(3.86) # $3.86/kW
+                            bsync.ApplicableEndDateForDemandRate(date(2019,5,31)),
+                            bsync.ElectricDemandRate(0.) # no demand cost
+                        ),
+                        bsync.FlatRate.RatePeriods.RatePeriod(
+                            bsync.ApplicableStartDateForEnergyRate(date(2019,10,1)),
+                            bsync.ApplicableEndDateForEnergyRate(date(2019,12,31)),
+                            bsync.EnergyCostRate(0.05314), # $0.05314/kWh
+                            bsync.ApplicableStartDateForDemandRate(date(2019,10,1)),
+                            bsync.ApplicableEndDateForDemandRate(date(2019,12,31)),
+                            bsync.ElectricDemandRate(0.) # no demand cost
                         )
                     )
                 )
             ),
             bsync.ReferenceForRateStructure("https://www.xcelenergy.com/staticfiles/xe-responsive/Company/Rates%20&%20Regulations/Regulatory'/%'20Filings/CO%20Recent'/%'20Filings/PSCo_Electric_Entire_Tariff.pdf"),
-            bsync.FixedMonthlyCharge(346.29),
+            bsync.FixedMonthlyCharge(16.88),
             ID="RateSchedule-Electricity"
         )
     ),
@@ -1459,7 +1511,7 @@ ng_ut = bsync.Utility(
                     bsync.FlatRate.RatePeriods(
                         bsync.FlatRate.RatePeriods.RatePeriod(
                             bsync.ApplicableStartDateForEnergyRate(date(2019,1,1)),
-                            bsync.ApplicableEndDateForEnergyRate(date(2020,1,1)),
+                            bsync.ApplicableEndDateForEnergyRate(date(2019,12,31)),
                             bsync.EnergyCostRate(0.16360) # $/therm
                         )
                     )
@@ -1491,9 +1543,9 @@ Now that we have a current building measured scenario, we want to declare energy
 
 | Resource Type | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Electricity (kWh) | 5663.92 | 5099.31 | 5290.08 | 4868.67 | 5121.08 | 6018.81 | 5776.42 | 6407.08 | 5702.81 | 5139.72 | 5080.94 | 5204.11 |
-| Natural Gas (MMBtu) | 1.83 | 2.32 | 0.45 | 0.62 | 0.04 | 0 | 0 | 0 | 0 | 0.0 | 0.47 | 0.63 |
-| Electricity peak (kW) | 19.68 | 19.11 | 17.02 | 19.53 | 16.04 | 19.94 | 18.65 | 18.57 | 18.48 | 16.81 | 17.36 | 18.68 |
+| Electricity (kWh) | 5933.1 | 5446.1 | 5736.49 | 4980.5 | 5187.21 | 5842.95 | 5801.73 | 6220.16 | 5682.87 | 5571.93 | 5525.15 | 5405.94 |
+| Natural Gas (MMBtu) | 1.72 | 1.25 | 0.41 | 0.43 | 0.01 | 0.0 | 0.0 | 0.0 | 0.0 | 0.2 | 0.4 | 4.3 |
+| Electricity peak (kW) | 23.58 | 25.38 | 26.04 | 24.45 | 17.03 | 22.71 | 22.01 | 21.81 | 20.63 | 21.87 | 21.63 | 21.78 |
 
 In BuildingSync land, we need to declare an resource use for each resource type. Standard, allowable enumerations exist for this already. We do this as follows:
 
@@ -1516,11 +1568,11 @@ elec_ru = bsync.ResourceUse(
     ID=f"ResourceUse-Electricity"
 )
 # given the above, we add the annual totals
-elec_ru += bsync.AnnualFuelUseNativeUnits(65372.2222)
-elec_ru += bsync.AnnualFuelUseConsistentUnits(223.05928) #convert to MMBTU
-elec_ru += bsync.AnnualPeakNativeUnits(19.93565) # kW as specified above
-elec_ru += bsync.AnnualPeakConsistentUnits(19.93565) # already in kW, same as above
-elec_ru += bsync.AnnualFuelCost(5303.57) # 
+elec_ru += bsync.AnnualFuelUseNativeUnits(67334.15)
+elec_ru += bsync.AnnualFuelUseConsistentUnits(229.75365655) #convert to MMBTU
+elec_ru += bsync.AnnualPeakNativeUnits(26.04) # kW as specified above
+elec_ru += bsync.AnnualPeakConsistentUnits(26.04) # already in kW, same as above
+elec_ru += bsync.AnnualFuelCost(4613.82) # 
 
 # create a resource use for natural gas, units of MMBtu, all end uses
 # additional connect it up to the utility
@@ -1535,18 +1587,18 @@ ng_ru = bsync.ResourceUse(
     ID=f"ResourceUse-Natural-gas"
 )
 # given the above, we add the annual totals
-ng_ru += bsync.AnnualFuelUseNativeUnits(6.35985)
-ng_ru += bsync.AnnualFuelUseConsistentUnits(6.35985) # already in MMBTU
-ng_ru += bsync.AnnualFuelCost(536.97) #
+ng_ru += bsync.AnnualFuelUseNativeUnits(8.72)
+ng_ru += bsync.AnnualFuelUseConsistentUnits(8.72) # already in MMBTU
+ng_ru += bsync.AnnualFuelCost(540.83) #
 
 # create resource uses for submetering of lighting, heating and cooling
 lighting_ru = bsync.ResourceUse(
     bsync.EnergyResource('Electricity'),
     bsync.ResourceUnits('kWh'),
     bsync.EndUse('Interior lighting'),
-    bsync.AnnualFuelUseNativeUnits(19711.1111),
-    bsync.AnnualFuelUseConsistentUnits(67.2571),
-    bsync.PercentEndUse(29.32),
+    bsync.AnnualFuelUseNativeUnits(20062.69),
+    bsync.AnnualFuelUseConsistentUnits(68.45389828),
+    bsync.PercentEndUse(28.705),
     bsync.ParentResourceUseID(IDref=elec_ru['ID']),
     ID=f"ResourceUse-Electricity-Lighting-Submeter"
 )
@@ -1554,9 +1606,9 @@ heating_ru = bsync.ResourceUse(
     bsync.EnergyResource('Electricity'),
     bsync.ResourceUnits('kWh'),
     bsync.EndUse('Heating'),
-    bsync.AnnualFuelUseNativeUnits(4141.66667),
-    bsync.AnnualFuelUseConsistentUnits(14.13195),
-    bsync.PercentEndUse(6.16),
+    bsync.AnnualFuelUseNativeUnits(4698.23),
+    bsync.AnnualFuelUseConsistentUnits(16.03036076),
+    bsync.PercentEndUse(6.722),
     bsync.ParentResourceUseID(IDref=elec_ru['ID']),
     ID=f"ResourceUse-Electricity-Heating-Submeter"
 )
@@ -1564,9 +1616,9 @@ cooling_ru = bsync.ResourceUse(
     bsync.EnergyResource('Electricity'),
     bsync.ResourceUnits('kWh'),
     bsync.EndUse('Cooling'),
-    bsync.AnnualFuelUseNativeUnits(7136.11111),
-    bsync.AnnualFuelUseConsistentUnits(24.3494),
-    bsync.PercentEndUse(10.61),
+    bsync.AnnualFuelUseNativeUnits(6128.87),
+    bsync.AnnualFuelUseConsistentUnits(20.91170444),
+    bsync.PercentEndUse(8.769),
     bsync.ParentResourceUseID(IDref=elec_ru['ID']),
     ID=f"ResourceUse-Electricity-Cooling-Submeter"
 )
@@ -1574,9 +1626,9 @@ shw_ru = bsync.ResourceUse(
     bsync.EnergyResource('Electricity'),
     bsync.ResourceUnits('kWh'),
     bsync.EndUse('Domestic hot water'),
-    bsync.AnnualFuelUseNativeUnits(5011.11111),
-    bsync.AnnualFuelUseConsistentUnits(17.0986),
-    bsync.PercentEndUse(7.45),
+    bsync.AnnualFuelUseNativeUnits(7185.37),
+    bsync.AnnualFuelUseConsistentUnits(24.51648244),
+    bsync.PercentEndUse(10.281),
     bsync.ParentResourceUseID(IDref=elec_ru['ID']),
     ID=f"ResourceUse-Electricity-SHW-Submeter"
 )
@@ -1584,9 +1636,9 @@ pl_ru = bsync.ResourceUse(
     bsync.EnergyResource('Electricity'),
     bsync.ResourceUnits('kWh'),
     bsync.EndUse('Plug load'),
-    bsync.AnnualFuelUseNativeUnits(14666.6667),
-    bsync.AnnualFuelUseConsistentUnits(50.0447),
-    bsync.PercentEndUse(21.81),
+    bsync.AnnualFuelUseNativeUnits(14942.15),
+    bsync.AnnualFuelUseConsistentUnits(50.9826158),
+    bsync.PercentEndUse(21.379),
     bsync.ParentResourceUseID(IDref=elec_ru['ID']),
     ID=f"ResourceUse-Electricity-Plugload-Submeter"
 )
@@ -1614,14 +1666,14 @@ The following cell simply performs the following:
 full_ts_data = bsync.TimeSeriesData()
 
 # usage and peak data
-monthly_elec = [5663.92, 5099.31, 5290.08, 4868.67, 5121.08, 6018.81, 5776.42, 6407.08, 5702.81, 5139.72, 5080.94, 5204.11]
-monthly_ng = [1.83, 2.32, 0.45, 0.62, 0.04, 0.0, 0.0, 0.0, 0.0, 0.0, 0.47, 0.63]
-monthly_elec_peak = [19.68, 19.11, 17.02, 19.53, 16.04, 19.94, 18.65, 18.57, 18.48, 16.81, 17.36, 18.68]
+monthly_elec = [5933.1, 5446.1, 5736.49, 4980.5, 5187.21, 5842.95, 5801.73, 6220.16, 5682.87, 5571.93, 5525.15, 5405.94]
+monthly_ng = [1.72, 1.25, 0.41, 0.43, 0.01, 0.0, 0.0, 0.0, 0.0, 0.2, 0.4, 4.3]
+monthly_elec_peak = [23.58, 25.38, 26.04, 24.45, 17.03, 22.71, 22.01, 21.81, 20.63, 21.87, 21.63, 21.78]
 monthly_elec_lf = [0.373, 0.394, 0.390, 0.358, 0.374, 0.386, 0.369, 0.372, 0.373, 0.354, 0.380, 0.362]
 
 # costs data
-monthly_elec_cost = [448.20, 443.41, 436.22, 443.97, 431.66, 450.82, 444.74, 447.31, 443.74, 434.72, 436.57, 442.23]
-monthly_ng_cost = [46.87, 47.68, 44.62, 44.89, 43.95, 43.88, 43.88, 43.88, 43.88, 43.88, 44.65, 44.91]
+monthly_elec_cost = [332.16, 306.29, 321.72, 281.54, 292.53, 534.10, 530.45, 567.49, 519.93, 312.97, 310.49, 304.15]
+monthly_ng_cost = [46.69, 45.93, 44.55, 44.58, 43.90, 43.88, 43.88, 43.88, 43.88, 44.21, 44.53, 50.92]
 
 elec_ids = []
 ng_ids = []
@@ -1741,22 +1793,22 @@ We have defined monthly electricity (energy, power, cost) and natural gas (energ
 ```python
 art = bsync.AllResourceTotals(
     bsync.AllResourceTotal(
-        bsync.AllResourceTotal.SiteEnergyUse(229419.13), # reported in kBtu
-        bsync.SiteEnergyUseIntensity(41.71), # reported in kbtu/ft2
+        bsync.AllResourceTotal.SiteEnergyUse(238473.65655), # reported in kBtu
+        bsync.SiteEnergyUseIntensity(43.3588), # reported in kbtu/ft2
         
         # Since there is no energy generated onsite, there is no difference btw site and building energy usage / intensity
-        bsync.BuildingEnergyUse(229419.13), 
-        bsync.BuildingEnergyUseIntensity(41.71),
+        bsync.BuildingEnergyUse(238473.65655), 
+        bsync.BuildingEnergyUseIntensity(43.3588),
         
-        bsync.ImportedEnergyConsistentUnits(229.41913),  # in this case, same as building and site energy, but in MMBTU
+        bsync.ImportedEnergyConsistentUnits(238.47365655),  # in this case, same as building and site energy, but in MMBTU
         bsync.OnsiteEnergyProductionConsistentUnits(0.), # no energy produced onsite, MMBtu
         bsync.ExportedEnergyConsistentUnits(0.), # no energy exported, MMBtu
         bsync.NetIncreaseInStoredEnergyConsistentUnits(0.),  # no energy stored, MMBtu
         
-        bsync.AllResourceTotal.SourceEnergyUse(713327.16), # reported in kBtu. Assume site -> source: elec = 3.167, ng = 1.084
-        bsync.SourceEnergyUseIntensity(129.7), # kbtu/ft2
-        bsync.EnergyCost(5840.54),
-        bsync.EnergyCostIndex(1.06), # $/ft2
+        bsync.AllResourceTotal.SourceEnergyUse(737088.9), # reported in kBtu. Assume site -> source: elec = 3.167, ng = 1.084
+        bsync.SourceEnergyUseIntensity(134.0), # kbtu/ft2
+        bsync.EnergyCost(4952.48),
+        bsync.EnergyCostIndex(0.90), # $/ft2
         ID="AllResourceTotal-1"
     )
 )
@@ -1786,9 +1838,9 @@ We inserted the above information (electricity, natural gas, square footage, etc
 bench_sc = bsync.Scenario(
     bsync.AllResourceTotals(
         bsync.AllResourceTotal(
-            bsync.AllResourceTotal.SiteEnergyUse(229419.13),  
-            bsync.SiteEnergyUseIntensity(41.71),
-            bsync.EnergyCost(5840.54),
+            bsync.AllResourceTotal.SiteEnergyUse(238473.65655),  
+            bsync.SiteEnergyUseIntensity(43.3588),
+            bsync.EnergyCost(4952.48),
             ID="AllResourceTotal-Benchmark"
         )
     ),
@@ -1808,7 +1860,7 @@ bench = bsync.Benchmark(
     ),
     bsync.BenchmarkTool("Portfolio Manager"),
     bsync.BenchmarkYear(2019),
-    bsync.BenchmarkValue(82.)
+    bsync.BenchmarkValue(80.)
 )
 
 # 
@@ -1861,7 +1913,7 @@ target_st += target
 Relevant Standard 211 Sections:
 - 6.1.5 & 6.1.6
 
-Although not explicitly called out in Standard 211, the current building modeled scenario is mostly implied as part of a Level 2 energy audit when doing more detailed savings estimates / calculations for potential measure(s) implementation. This is because when an energy / cost savings claim is made for a package of measures scenario, it needs to be _in reference_ to something, i.e. a current building modeled scenario (also often referred to as a baseline modeled scenario). The baseline modeled scenario should be interpreted as the expected performance of your building on an average or typical year. This is assuming the baseline modeled scenario is performed with TMY3 data, although they are likely first calibrated with AMY data.
+Although not explicitly called out in Standard 211, the current building modeled scenario is implied as part of a Level 2 energy audit when doing detailed savings estimates and calculations for potential energy conservation measures. This is because when an energy and cost savings claim is made for a package of measures scenario, it needs to be _in reference_ to something, i.e., a current building modeled scenario (also often referred to as a baseline modeled scenario). The baseline modeled scenario should be interpreted as the expected performance of your building on an average or typical year. This is assuming the baseline modeled scenario is performed with TMY data, although they are likely first calibrated with AMY data.
 
 Since we are already using an energy model for this example and providing details for implementing a Standard 211 Level 1 energy audit, we will not go into this too much at this point. It should be addressed in future examples.
 
@@ -1870,22 +1922,20 @@ Relevant Standard 211 Sections:
 - 6.1.5 & 6.1.6
 
 Standard 211 breaks out recommendations into low / no-cost (6.1.5) or capital (6.1.6). On the BuildingSync side, we don't change the data modeling between these two situations significantly, we simply change the value of the `Scenario/ScenarioType/PackageOfMeasures/CostCategory` element, while the majority of other features remain the same.
-- Low / no-cost scenario: `CostCategory>Low-Cost or No-Cost</CostCategory>`
-- Capital scenario: `CostCategory>Capital</CostCategory>`
-
-For Level 1 audits, since the reporting only requires estimated costs, savings, and ROI, we don't specifically need a current building modeled scenario to be our reference case.
+- Low / no-cost scenario: `<CostCategory>Low-Cost or No-Cost</CostCategory>`
+- Capital scenario: `<CostCategory>Capital</CostCategory>`
 
 #### Measures
 
-Packages of measures first require measures to be instantiated inside the BuildingSync document in order to correctly 'incorporate' them into the scenario. BuildingSync provides a significant number of already enumerated measures that can easily be used. We will first add some of these to our doc.
+Packages of measures first require measures to be instantiated inside the BuildingSync document in order to correctly incorporate them into the scenario. BuildingSync provides a significant number of already enumerated measures that can be used. We will first add some of these to our BuildingSync file.
 
 The scope of an individual measure is primarily conveyed by a few elements:
-- `SystemCategoryAffected`: select one of an enumerated set of strings representing the general scope of system, i.e. Refrigeration, Fan, Lighting, etc.
+- `SystemCategoryAffected`: select one of an enumerated set of strings representing the general scope of system, e.g.. Refrigeration, Fan, Lighting, etc.
 - `TechnologyCategories/TechnologyCategory/*/MeasureName`: Select a very specific measure to implement
 
 
 ```python
-# A measure to modify HVAC schedules (low-cost EEM)
+# A measure to modify HVAC schedules (no-cost EEM)
 hvac_schedule_measure = bsync.Measure(
     bsync.TypeOfMeasure(
         bsync.ModificationRetrocommissions(
@@ -1912,10 +1962,10 @@ hvac_schedule_measure = bsync.Measure(
     bsync.StartDate(date(2021,1,1)),
     bsync.EndDate(date(2021,12,30)),
     bsync.Recommended(True),
-    ID="Measure-HVAC-schedule-lowcost"
+    ID="Measure-HVAC-schedule-nocost"
 )
 
-# A measure to upgrade the lighting system to LEDs
+# A measure to upgrade the lighting system to LEDs (low-cost EEM)
 led_measure = bsync.Measure(
     bsync.TypeOfMeasure(
         bsync.Replacements(
@@ -1936,8 +1986,8 @@ led_measure = bsync.Measure(
     bsync.LongDescription("This measure is designed to replace all fluorescent bulbs with LEDs"),
     bsync.MeasureScaleOfApplication("Individual system"),
     bsync.UsefulLife(1.),
-    bsync.MeasureInstallationCost(123.),
-    bsync.MeasureMaterialCost(123.),
+    bsync.MeasureInstallationCost(50.),
+    bsync.MeasureMaterialCost(774.),
     bsync.StartDate(date(2021,1,1)),
     bsync.EndDate(date(2021,12,30)),
     bsync.Recommended(True),
@@ -1947,7 +1997,7 @@ led_measure = bsync.Measure(
 # A measure to upgrade the fans in the RTUs to use VFDs
 # instead of simple on/off fans.
 # The CFMs for each of the RTUs are around ~ 700-800cfm,
-# so there is no obvious choice of fans to upgrade to vfds.
+# so there is no obvious choice of fans to upgrade to vsds.
 # Here, we just recommend upgrading all of them.
 vsd_measure = bsync.Measure(
     bsync.TypeOfMeasure(
@@ -1970,8 +2020,8 @@ vsd_measure = bsync.Measure(
     bsync.LongDescription("This measure is designed to retrofit all RTU fans with a VSD"),
     bsync.MeasureScaleOfApplication("Individual system"),
     bsync.UsefulLife(1.),
-    bsync.MeasureInstallationCost(123.),
-    bsync.MeasureMaterialCost(123.),
+    bsync.MeasureInstallationCost(750.), 
+    bsync.MeasureMaterialCost(1250.), # assume $200~300 per fan
     bsync.StartDate(date(2021,1,1)),
     bsync.EndDate(date(2021,12,30)),
     bsync.Recommended(True),
@@ -1981,7 +2031,6 @@ vsd_measure = bsync.Measure(
 
 
 ```python
-measures += hvac_schedule_measure
 measures += led_measure
 measures += vsd_measure
 ```
@@ -1989,8 +2038,10 @@ measures += vsd_measure
 #### POM Scenarios
 Now that the measures have been added, we create three potential POM scenarios, and add the necessary attributes per Standard 211 6.1.5 and 6.1.6
 1. LEDs only
-1. VSDs only
-1. HVAC schedule only
+2. VSDs only
+3. LEDs+VSDs
+
+The no-cost HVAC schedule measure is not taken into account in this example.
 
 
 ```python
@@ -2002,13 +2053,13 @@ pom_sc_1 = bsync.Scenario(
                 bsync.MeasureID(IDref=led_measure['ID'])
             ),
             bsync.CostCategory("Capital"),
-            bsync.AnnualSavingsSiteEnergy(123.),
-            bsync.AnnualSavingsCost(123),
+            bsync.AnnualSavingsSiteEnergy(35.713),
+            bsync.AnnualSavingsCost(772),
             bsync.AnnualSavingsByFuels(
                 bsync.AnnualSavingsByFuel(
                     bsync.EnergyResource("Electricity"),
                     bsync.ResourceUnits("kWh"),
-                    bsync.AnnualSavingsNativeUnits(123.)
+                    bsync.AnnualSavingsNativeUnits(11524.54)
                 ),
                 bsync.AnnualSavingsByFuel(
                     bsync.EnergyResource("Natural gas"),
@@ -2016,23 +2067,23 @@ pom_sc_1 = bsync.Scenario(
                     bsync.AnnualSavingsNativeUnits(0.)
                 )
             ),
-            bsync.AnnualPeakElectricityReduction(123.),
-            bsync.AnnualDemandSavingsCost(123),
+            bsync.AnnualPeakElectricityReduction(3.22),
+            bsync.AnnualDemandSavingsCost(0),
             bsync.AnnualWaterSavings(0.),
             bsync.AnnualWaterCostSavings(0.),
             bsync.ImplementationPeriod(1),
             bsync.ImplementationPeriodCostSavings(0.),
-            bsync.PackageFirstCost(0.),
+            bsync.PackageFirstCost(824.),
             bsync.MVCost(0.),
-            bsync.OMCostAnnualSavings(123.),
+            bsync.OMCostAnnualSavings(0.),
             bsync.EquipmentDisposalAndSalvageCosts(0.),
-            bsync.ProjectMarkup(123.),
-            bsync.FundingFromIncentives(123.),
-            bsync.FundingFromTaxCredits(123.),
-            bsync.OtherFinancialIncentives(123),
-            bsync.RecurringIncentives(123),
-            bsync.InternalRateOfReturn(1.),
-            bsync.SimplePayback(123.),
+            bsync.ProjectMarkup(0.),
+            bsync.FundingFromIncentives(0.),
+            bsync.FundingFromTaxCredits(0.),
+            bsync.OtherFinancialIncentives(0), # there might be incentives from utility for upgrading lighting to led
+            bsync.RecurringIncentives(0),
+            bsync.InternalRateOfReturn(0.), # for the first year the IRR is nagative (payback>1 yr)
+            bsync.SimplePayback(1.07),
             ID="POM-LEDs"
         )
     ),
@@ -2052,37 +2103,37 @@ pom_sc_2 = bsync.Scenario(
                 bsync.MeasureID(IDref=vsd_measure['ID'])
             ),
             bsync.CostCategory("Capital"),
-            bsync.AnnualSavingsSiteEnergy(123.),
-            bsync.AnnualSavingsCost(123),
+            bsync.AnnualSavingsSiteEnergy(5.175),
+            bsync.AnnualSavingsCost(9),
             bsync.AnnualSavingsByFuels(
                 bsync.AnnualSavingsByFuel(
                     bsync.EnergyResource("Electricity"),
                     bsync.ResourceUnits("kWh"),
-                    bsync.AnnualSavingsNativeUnits(123.)
+                    bsync.AnnualSavingsNativeUnits(207.24)
                 ),
                 bsync.AnnualSavingsByFuel(
                     bsync.EnergyResource("Natural gas"),
                     bsync.ResourceUnits("MMBtu"),
-                    bsync.AnnualSavingsNativeUnits(12.)
+                    bsync.AnnualSavingsNativeUnits(4.46)
                 )
             ),
-            bsync.AnnualPeakElectricityReduction(123.),
-            bsync.AnnualDemandSavingsCost(123),
+            bsync.AnnualPeakElectricityReduction(0.42),
+            bsync.AnnualDemandSavingsCost(0),
             bsync.AnnualWaterSavings(0.),
             bsync.AnnualWaterCostSavings(0.),
             bsync.ImplementationPeriod(1),
             bsync.ImplementationPeriodCostSavings(0.),
-            bsync.PackageFirstCost(0.),
+            bsync.PackageFirstCost(2000.),
             bsync.MVCost(0.),
-            bsync.OMCostAnnualSavings(123.),
+            bsync.OMCostAnnualSavings(0.),
             bsync.EquipmentDisposalAndSalvageCosts(0.),
-            bsync.ProjectMarkup(123.),
-            bsync.FundingFromIncentives(123.),
-            bsync.FundingFromTaxCredits(123.),
-            bsync.OtherFinancialIncentives(123),
-            bsync.RecurringIncentives(123),
-            bsync.InternalRateOfReturn(1.),
-            bsync.SimplePayback(123.),
+            bsync.ProjectMarkup(0.),
+            bsync.FundingFromIncentives(0.),
+            bsync.FundingFromTaxCredits(0.),
+            bsync.OtherFinancialIncentives(0),
+            bsync.RecurringIncentives(0),
+            bsync.InternalRateOfReturn(0.),
+            bsync.SimplePayback(230.15),
             ID="POM-VSDs"
         )
     ),
@@ -2099,41 +2150,42 @@ pom_sc_3 = bsync.Scenario(
         bsync.PackageOfMeasures(
             bsync.ReferenceCase(IDref=cbms['ID']),
             bsync.MeasureIDs(
-                bsync.MeasureID(IDref=hvac_schedule_measure['ID']),
+                bsync.MeasureID(IDref=led_measure['ID']),
+                bsync.MeasureID(IDref=vsd_measure['ID']),
             ),
-            bsync.CostCategory("Low-Cost or No-Cost"),
-            bsync.AnnualSavingsSiteEnergy(123.),
-            bsync.AnnualSavingsCost(123),
+            bsync.CostCategory("Capital"),
+            bsync.AnnualSavingsSiteEnergy(41.827),
+            bsync.AnnualSavingsCost(781),
             bsync.AnnualSavingsByFuels(
                 bsync.AnnualSavingsByFuel(
                     bsync.EnergyResource("Electricity"),
                     bsync.ResourceUnits("kWh"),
-                    bsync.AnnualSavingsNativeUnits(123.)
+                    bsync.AnnualSavingsNativeUnits(11701.62)
                 ),
                 bsync.AnnualSavingsByFuel(
                     bsync.EnergyResource("Natural gas"),
                     bsync.ResourceUnits("MMBtu"),
-                    bsync.AnnualSavingsNativeUnits(0.)
+                    bsync.AnnualSavingsNativeUnits(1.89)
                 )
             ),
-            bsync.AnnualPeakElectricityReduction(123.),
-            bsync.AnnualDemandSavingsCost(123),
+            bsync.AnnualPeakElectricityReduction(4.7),
+            bsync.AnnualDemandSavingsCost(0),
             bsync.AnnualWaterSavings(0.),
             bsync.AnnualWaterCostSavings(0.),
             bsync.ImplementationPeriod(1),
             bsync.ImplementationPeriodCostSavings(0.),
-            bsync.PackageFirstCost(0.),
+            bsync.PackageFirstCost(2824.),
             bsync.MVCost(0.),
-            bsync.OMCostAnnualSavings(123.),
+            bsync.OMCostAnnualSavings(0.),
             bsync.EquipmentDisposalAndSalvageCosts(0.),
-            bsync.ProjectMarkup(123.),
-            bsync.FundingFromIncentives(123.),
-            bsync.FundingFromTaxCredits(123.),
-            bsync.OtherFinancialIncentives(123),
-            bsync.RecurringIncentives(123),
-            bsync.InternalRateOfReturn(1.),
-            bsync.SimplePayback(123.),
-            ID="POM-HVAC-Schedule"
+            bsync.ProjectMarkup(0.),
+            bsync.FundingFromIncentives(0.),
+            bsync.FundingFromTaxCredits(0.),
+            bsync.OtherFinancialIncentives(0),
+            bsync.RecurringIncentives(0),
+            bsync.InternalRateOfReturn(0.),
+            bsync.SimplePayback(3.62),
+            ID="POM-LEDs-VSDs"
         )
     ),
     bsync.LinkedPremises(
@@ -2141,7 +2193,7 @@ pom_sc_3 = bsync.Scenario(
             bsync.LinkedBuildingID(IDref=b1['ID'])
         )
     ),
-    ID="Scenario-POM-HVAC-Schedule"
+    ID="Scenario-POM-LEDs-VSDs"
 )
 ```
 
@@ -2165,11 +2217,14 @@ Use the line below to write the file to disk
 bsync_dump(root, file="example-level2.xml")
 ```
 
+
+
+
     True
 
 
 
-You should see a green check mark for the L100 AUDIT use case!
+You should see a green check mark for the L200 AUDIT use case!
 
 ![Valid](./img/valid_level2.png)
 
