@@ -27,6 +27,8 @@ By the end of this notebook, you should:
 ```
 - `auc:` is often used as the namespace prefix for elements in a BuildingSync document. If a document declares the BuildingSync namespace prefix to be `auc:`, an element would look like `auc:Facility`. The same element in a BuildingSync document without a namespace prefix would look like `Facility`. Going forward, we will not prefix elements with `auc` - the remaining XML content should only refer to things defined by the BuildingSync schema.
 - XPath: xpath is basically a syntax for 'walking' an xml tree, mainly used for 'querying' information out of an XML document. In the simple example xml document above, to get the `<first-child>` element, we would notate this in XPath as `/a-root-node/first-child`. XPath will be used throughout this document to concisely convey where elements can be found in a BuildingSync document.
+- We use OpenStudio model to represent the prototype building. By performing simulation on the OS model, we obtain devices sizing properties, energy usage and bills, as well as measure analysis, etc..
+- Referenced prototype building info from [DOE Prototype Building Models](https://www.energycodes.gov/prototype-building-models).
 
 ## Caveats
 - These cells are meant to be run 1x through sequentially. Running a single cell multiple times may give you bad results
@@ -336,7 +338,7 @@ Relevant Standard 211 Sections:
 
 Space functions are used to define sections of a building used for different purposes. The classic example of this is a mixed use commercial real estate, with retail space on the bottom floor and offices in the remainder of the building. We do this in BuildingSync via the following:
 - Each space functions gets its own `Section` element
-- Each `Section` element should specify the `Section/SectionType` as "Space function"
+- Each `Section` element should specify the `Section/SectionType` as 'Space function"
 
 The Small Office, as its name suggests, is just an office space, and therefore we will only create one section for it.
 
@@ -415,96 +417,96 @@ In BuildingSync, schedules are defined individually and referred (linked) in dif
 
 
 ```python
-schedule_occ = bsync.Schedule(ID="Schedule-Occupancy")
-schedule_light = bsync.Schedule(ID="Schedule-Lighting")
-schedule_pl = bsync.Schedule(ID="Schedule-PlugLoad")
-schedule_hvac = bsync.Schedule(ID="Schedule-HVAC")
-schedule_hvac_new = bsync.Schedule(ID="Schedule-HVAC-new")
+schedule_occ = bsync.Schedule(ID='Schedule-Occupancy')
+schedule_light = bsync.Schedule(ID='Schedule-Lighting')
+schedule_pl = bsync.Schedule(ID='Schedule-PlugLoad')
+schedule_hvac = bsync.Schedule(ID='Schedule-HVAC')
+schedule_hvac_new = bsync.Schedule(ID='Schedule-HVAC-new')
 
 # occupancy schedule
 schedule_occ += bsync.ScheduleDetails(
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Occupied"),
-        bsync.DayStartTime(datetime.strptime("00:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("06:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Occupied'),
+        bsync.DayStartTime(datetime.strptime('00:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('06:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(0.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Occupied"),
-        bsync.DayStartTime(datetime.strptime("06:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("07:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Occupied'),
+        bsync.DayStartTime(datetime.strptime('06:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('07:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(11.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Occupied"),
-        bsync.DayStartTime(datetime.strptime("07:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("08:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Occupied'),
+        bsync.DayStartTime(datetime.strptime('07:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('08:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(21.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Occupied"),
-        bsync.DayStartTime(datetime.strptime("08:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("12:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Occupied'),
+        bsync.DayStartTime(datetime.strptime('08:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('12:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(100.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Occupied"),
-        bsync.DayStartTime(datetime.strptime("12:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("13:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Occupied'),
+        bsync.DayStartTime(datetime.strptime('12:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('13:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(53.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Occupied"),
-        bsync.DayStartTime(datetime.strptime("13:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("17:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Occupied'),
+        bsync.DayStartTime(datetime.strptime('13:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('17:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(100.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Occupied"),
-        bsync.DayStartTime(datetime.strptime("17:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("18:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Occupied'),
+        bsync.DayStartTime(datetime.strptime('17:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('18:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(32.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Occupied"),
-        bsync.DayStartTime(datetime.strptime("18:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("22:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Occupied'),
+        bsync.DayStartTime(datetime.strptime('18:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('22:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(11.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Occupied"),
-        bsync.DayStartTime(datetime.strptime("22:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Occupied'),
+        bsync.DayStartTime(datetime.strptime('22:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(5.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Occupied"),
-        bsync.DayStartTime(datetime.strptime("23:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:59:59", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Occupied'),
+        bsync.DayStartTime(datetime.strptime('23:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:59:59', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(0.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekend"),
-        bsync.ScheduleCategory("Occupied"),
-        bsync.DayStartTime(datetime.strptime("00:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:59:59", "%H:%M:%S").time()),
+        bsync.DayType('Weekend'),
+        bsync.ScheduleCategory('Occupied'),
+        bsync.DayStartTime(datetime.strptime('00:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:59:59', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(0.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Holiday"),
-        bsync.ScheduleCategory("Occupied"),
-        bsync.DayStartTime(datetime.strptime("00:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:59:59", "%H:%M:%S").time()),
+        bsync.DayType('Holiday'),
+        bsync.ScheduleCategory('Occupied'),
+        bsync.DayStartTime(datetime.strptime('00:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:59:59', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(0.)
     )
 )
@@ -519,94 +521,94 @@ schedule_occ += bsync.LinkedPremises(
 # lighting schedule
 schedule_light += bsync.ScheduleDetails(
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Lighting"),
-        bsync.DayStartTime(datetime.strptime("00:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("05:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Lighting'),
+        bsync.DayStartTime(datetime.strptime('00:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('05:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(18.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Lighting"),
-        bsync.DayStartTime(datetime.strptime("05:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("07:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Lighting'),
+        bsync.DayStartTime(datetime.strptime('05:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('07:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(23.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Lighting"),
-        bsync.DayStartTime(datetime.strptime("07:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("08:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Lighting'),
+        bsync.DayStartTime(datetime.strptime('07:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('08:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(42.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Lighting"),
-        bsync.DayStartTime(datetime.strptime("08:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("12:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Lighting'),
+        bsync.DayStartTime(datetime.strptime('08:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('12:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(90.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Lighting"),
-        bsync.DayStartTime(datetime.strptime("12:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("13:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Lighting'),
+        bsync.DayStartTime(datetime.strptime('12:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('13:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(80.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Lighting"),
-        bsync.DayStartTime(datetime.strptime("13:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("17:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Lighting'),
+        bsync.DayStartTime(datetime.strptime('13:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('17:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(90.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Lighting"),
-        bsync.DayStartTime(datetime.strptime("17:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("18:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Lighting'),
+        bsync.DayStartTime(datetime.strptime('17:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('18:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(61.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Lighting"),
-        bsync.DayStartTime(datetime.strptime("18:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("20:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Lighting'),
+        bsync.DayStartTime(datetime.strptime('18:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('20:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(42.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Lighting"),
-        bsync.DayStartTime(datetime.strptime("20:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("22:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Lighting'),
+        bsync.DayStartTime(datetime.strptime('20:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('22:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(32.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Lighting"),
-        bsync.DayStartTime(datetime.strptime("22:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Lighting'),
+        bsync.DayStartTime(datetime.strptime('22:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(23.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Lighting"),
-        bsync.DayStartTime(datetime.strptime("23:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:59:59", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Lighting'),
+        bsync.DayStartTime(datetime.strptime('23:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:59:59', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(18.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekend"),
-        bsync.ScheduleCategory("Lighting"),
-        bsync.DayStartTime(datetime.strptime("00:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:59:59", "%H:%M:%S").time()),
+        bsync.DayType('Weekend'),
+        bsync.ScheduleCategory('Lighting'),
+        bsync.DayStartTime(datetime.strptime('00:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:59:59', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(18.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Holiday"),
-        bsync.ScheduleCategory("Lighting"),
-        bsync.DayStartTime(datetime.strptime("00:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:59:59", "%H:%M:%S").time()),
+        bsync.DayType('Holiday'),
+        bsync.ScheduleCategory('Lighting'),
+        bsync.DayStartTime(datetime.strptime('00:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:59:59', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(18.)
     )
 )
@@ -618,59 +620,59 @@ schedule_light += bsync.LinkedPremises(
 # plug load schedule
 schedule_pl += bsync.ScheduleDetails(
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Miscellaneous equipment"),
-        bsync.DayStartTime(datetime.strptime("00:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("08:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Miscellaneous equipment'),
+        bsync.DayStartTime(datetime.strptime('00:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('08:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(50.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Miscellaneous equipment"),
-        bsync.DayStartTime(datetime.strptime("08:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("12:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Miscellaneous equipment'),
+        bsync.DayStartTime(datetime.strptime('08:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('12:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(100.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Miscellaneous equipment"),
-        bsync.DayStartTime(datetime.strptime("12:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("13:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Miscellaneous equipment'),
+        bsync.DayStartTime(datetime.strptime('12:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('13:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(94.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Miscellaneous equipment"),
-        bsync.DayStartTime(datetime.strptime("13:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("17:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Miscellaneous equipment'),
+        bsync.DayStartTime(datetime.strptime('13:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('17:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(100.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Miscellaneous equipment"),
-        bsync.DayStartTime(datetime.strptime("17:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("18:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Miscellaneous equipment'),
+        bsync.DayStartTime(datetime.strptime('17:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('18:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(50.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("Miscellaneous equipment"),
-        bsync.DayStartTime(datetime.strptime("18:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:59:59", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('Miscellaneous equipment'),
+        bsync.DayStartTime(datetime.strptime('18:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:59:59', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(20.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekend"),
-        bsync.ScheduleCategory("Miscellaneous equipment"),
-        bsync.DayStartTime(datetime.strptime("00:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:59:59", "%H:%M:%S").time()),
+        bsync.DayType('Weekend'),
+        bsync.ScheduleCategory('Miscellaneous equipment'),
+        bsync.DayStartTime(datetime.strptime('00:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:59:59', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(20.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Holiday"),
-        bsync.ScheduleCategory("Miscellaneous equipment"),
-        bsync.DayStartTime(datetime.strptime("00:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:59:59", "%H:%M:%S").time()),
+        bsync.DayType('Holiday'),
+        bsync.ScheduleCategory('Miscellaneous equipment'),
+        bsync.DayStartTime(datetime.strptime('00:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:59:59', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(20.)
     )
 )
@@ -682,38 +684,38 @@ schedule_pl += bsync.LinkedPremises(
 # HVAC schedule
 schedule_hvac += bsync.ScheduleDetails(
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("HVAC equipment"),
-        bsync.DayStartTime(datetime.strptime("00:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("06:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('HVAC equipment'),
+        bsync.DayStartTime(datetime.strptime('00:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('06:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(0.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("HVAC equipment"),
-        bsync.DayStartTime(datetime.strptime("06:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("19:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('HVAC equipment'),
+        bsync.DayStartTime(datetime.strptime('06:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('19:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(100.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("HVAC equipment"),
-        bsync.DayStartTime(datetime.strptime("19:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:59:59", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('HVAC equipment'),
+        bsync.DayStartTime(datetime.strptime('19:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:59:59', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(0.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekend"),
-        bsync.ScheduleCategory("HVAC equipment"),
-        bsync.DayStartTime(datetime.strptime("00:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:59:59", "%H:%M:%S").time()),
+        bsync.DayType('Weekend'),
+        bsync.ScheduleCategory('HVAC equipment'),
+        bsync.DayStartTime(datetime.strptime('00:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:59:59', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(0.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Holiday"),
-        bsync.ScheduleCategory("HVAC equipment"),
-        bsync.DayStartTime(datetime.strptime("00:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:59:59", "%H:%M:%S").time()),
+        bsync.DayType('Holiday'),
+        bsync.ScheduleCategory('HVAC equipment'),
+        bsync.DayStartTime(datetime.strptime('00:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:59:59', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(0.)
     )
 )
@@ -725,66 +727,66 @@ schedule_hvac += bsync.LinkedPremises(
 # upgraded HVAC schedule (for EEM)
 schedule_hvac_new += bsync.ScheduleDetails(
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("HVAC equipment"),
-        bsync.DayStartTime(datetime.strptime("00:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("06:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('HVAC equipment'),
+        bsync.DayStartTime(datetime.strptime('00:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('06:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(0.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("HVAC equipment"),
-        bsync.DayStartTime(datetime.strptime("06:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("07:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('HVAC equipment'),
+        bsync.DayStartTime(datetime.strptime('06:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('07:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(60.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("HVAC equipment"),
-        bsync.DayStartTime(datetime.strptime("07:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("12:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('HVAC equipment'),
+        bsync.DayStartTime(datetime.strptime('07:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('12:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(100.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("HVAC equipment"),
-        bsync.DayStartTime(datetime.strptime("12:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("13:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('HVAC equipment'),
+        bsync.DayStartTime(datetime.strptime('12:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('13:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(80.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("HVAC equipment"),
-        bsync.DayStartTime(datetime.strptime("13:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("18:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('HVAC equipment'),
+        bsync.DayStartTime(datetime.strptime('13:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('18:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(100.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("HVAC equipment"),
-        bsync.DayStartTime(datetime.strptime("18:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("20:00:00", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('HVAC equipment'),
+        bsync.DayStartTime(datetime.strptime('18:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('20:00:00', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(60.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekday"),
-        bsync.ScheduleCategory("HVAC equipment"),
-        bsync.DayStartTime(datetime.strptime("20:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:59:59", "%H:%M:%S").time()),
+        bsync.DayType('Weekday'),
+        bsync.ScheduleCategory('HVAC equipment'),
+        bsync.DayStartTime(datetime.strptime('20:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:59:59', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(0.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Weekend"),
-        bsync.ScheduleCategory("HVAC equipment"),
-        bsync.DayStartTime(datetime.strptime("00:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:59:59", "%H:%M:%S").time()),
+        bsync.DayType('Weekend'),
+        bsync.ScheduleCategory('HVAC equipment'),
+        bsync.DayStartTime(datetime.strptime('00:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:59:59', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(0.)
     ),
     bsync.ScheduleDetail(
-        bsync.DayType("Holiday"),
-        bsync.ScheduleCategory("HVAC equipment"),
-        bsync.DayStartTime(datetime.strptime("00:00:00", "%H:%M:%S").time()),
-        bsync.DayEndTime(datetime.strptime("23:59:59", "%H:%M:%S").time()),
+        bsync.DayType('Holiday'),
+        bsync.ScheduleCategory('HVAC equipment'),
+        bsync.DayStartTime(datetime.strptime('00:00:00', '%H:%M:%S').time()),
+        bsync.DayEndTime(datetime.strptime('23:59:59', '%H:%M:%S').time()),
         bsync.PartialOperationPercentage(0.)
     )
 )
@@ -812,18 +814,18 @@ In addition, 6.2.1.2.e requires information of the building overall tightness, a
 # 6.2.1.2.a roof
 roofsys = bsync.RoofSystems()
 roof = bsync.RoofSystem(
-    bsync.RoofConstruction("Wood frame"),
+    bsync.RoofConstruction('Wood frame'),
     bsync.RoofUFactor(4.706),
-    ID=f"Roof-1"
+    ID=f'Roof-1'
 )
 roofsys += roof
 
 # 6.2.1.2.b Opaque walls (above ground)
 wallsys = bsync.WallSystems()
 wall = bsync.WallSystem(
-    bsync.ExteriorWallConstruction("Wood frame"),
+    bsync.ExteriorWallConstruction('Wood frame'),
     bsync.WallUFactor(0.547),
-    ID=f"Wall-1"
+    ID=f'Wall-1'
 )
 wallsys += wall
 
@@ -833,36 +835,36 @@ win1_orig = bsync.FenestrationSystem(
     bsync.FenestrationType(
         bsync.Window()
     ),
-    bsync.FenestrationFrameMaterial("Vinyl"),
-    bsync.GlassType("Clear uncoated"),
-    bsync.FenestrationGlassLayers("Single pane"),
+    bsync.FenestrationFrameMaterial('Vinyl'),
+    bsync.GlassType('Clear uncoated'),
+    bsync.FenestrationGlassLayers('Single pane'),
     bsync.FenestrationUFactor(3.241),
     bsync.SolarHeatGainCoefficient(0.391),
     bsync.VisibleTransmittance(0.391),
-    ID=f"Window-1-Original"
+    ID=f'Window-1-Original'
 )
 win1 = bsync.FenestrationSystem(
     bsync.FenestrationType(
         bsync.Window()
     ),
-    bsync.FenestrationFrameMaterial("Vinyl"),
-    bsync.GlassType("Low e"),
-    bsync.FenestrationGlassLayers("Triple pane"),
+    bsync.FenestrationFrameMaterial('Vinyl'),
+    bsync.GlassType('Low e'),
+    bsync.FenestrationGlassLayers('Triple pane'),
     bsync.FenestrationUFactor(0.3),
     bsync.SolarHeatGainCoefficient(0.391),
     bsync.VisibleTransmittance(0.391),
-    ID=f"Window-1"
+    ID=f'Window-1'
 )
 door = bsync.FenestrationSystem(
     bsync.FenestrationType(
         bsync.Door(
-            bsync.ExteriorDoorType("Insulated metal"),
+            bsync.ExteriorDoorType('Insulated metal'),
             bsync.DoorGlazedAreaFraction(0.5)
         )
     ),
-    bsync.FenestrationFrameMaterial("Steel"),
+    bsync.FenestrationFrameMaterial('Steel'),
     bsync.FenestrationUFactor(2.839),
-    ID=f"Door-1"
+    ID=f'Door-1'
 )
 fenestsys += win1_orig
 fenestsys += win1
@@ -878,34 +880,34 @@ found = bsync.FoundationSystem(
             )
         )
     ),
-    bsync.FloorConstructionType("Concrete poured"),
-    ID=f"Foundation-1"
+    bsync.FloorConstructionType('Concrete poured'),
+    ID=f'Foundation-1'
 )
 foundsys += found
 
 # 6.2.1.2.e tightness
 infiltsys = bsync.AirInfiltrationSystems()
 infilt = bsync.AirInfiltrationSystem(
-    bsync.AirInfiltrationNotes("Notes on test"),
-    bsync.AirInfiltrationSystem.Tightness("Tight"),
+    bsync.AirInfiltrationNotes('Notes on test'),
+    bsync.AirInfiltrationSystem.Tightness('Tight'),
     bsync.AirInfiltrationValue(0.151),
-    bsync.AirInfiltrationValueUnits("ACHnatural"),
-    bsync.AirInfiltrationTest("Blower door"),
+    bsync.AirInfiltrationValueUnits('ACHnatural'),
+    bsync.AirInfiltrationTest('Blower door'),
     bsync.LinkedPremises(
         bsync.LinkedPremises.Section(
-            bsync.LinkedSectionID(IDref=section_wb["ID"])
+            bsync.LinkedSectionID(IDref=section_wb['ID'])
         )
     ),
-    ID=f"Infiltration-1"
+    ID=f'Infiltration-1'
 )
 infiltsys += infilt
 
 waterinfiltsys = bsync.WaterInfiltrationSystems()
 waterinfilt = bsync.WaterInfiltrationSystem(
-    bsync.WaterInfiltrationNotes("Notes on test"),
+    bsync.WaterInfiltrationNotes('Notes on test'),
     bsync.LinkedPremises(
         bsync.LinkedPremises.Section(
-            bsync.LinkedSectionID(IDref=section_wb["ID"])
+            bsync.LinkedSectionID(IDref=section_wb['ID'])
         )
     )
 )
@@ -927,31 +929,31 @@ systems += waterinfiltsys
 
 ```python
 # then we link these components to the envelope elements under Section/Sides
-section_wb += bsync.FootprintShape("Rectangular")
-wallarea = {"A1":909.01223, "B1":606.0082, "C1":909.01223, "D1":606.0082}
-windowarea = {"A1":180.18786, "B1":120.12524, "C1":180.18786, "D1":120.12524}
-doorarea = {"A1":42.08689, "B1":0.0, "C1":0.0, "D1":0.0}
+section_wb += bsync.FootprintShape('Rectangular')
+wallarea = {'A1':909.01223, 'B1':606.0082, 'C1':909.01223, 'D1':606.0082}
+windowarea = {'A1':180.18786, 'B1':120.12524, 'C1':180.18786, 'D1':120.12524}
+doorarea = {'A1':42.08689, 'B1':0.0, 'C1':0.0, 'D1':0.0}
 
 section_sides = bsync.Sides()
-for sidenumber in ["A1", "B1", "C1", "D1"]:
+for sidenumber in ['A1', 'B1', 'C1', 'D1']:
     section_sides += bsync.Side(
         bsync.SideNumber(sidenumber),
         bsync.WallIDs(
             bsync.WallID(
                 bsync.WallArea(wallarea[sidenumber]),
-                IDref=wall["ID"]
+                IDref=wall['ID']
             )
         ),
         bsync.WindowIDs(
             bsync.WindowID(
                 bsync.FenestrationArea(windowarea[sidenumber]),
-                IDref=win1_orig["ID"]
+                IDref=win1_orig['ID']
             )
         ),
         bsync.DoorIDs(
             bsync.DoorID(
                 bsync.FenestrationArea(doorarea[sidenumber]),
-                IDref=door["ID"]
+                IDref=door['ID']
             )
         )
     )
@@ -960,8 +962,8 @@ section_roofs = bsync.Roofs(
     bsync.Roof(
         bsync.RoofID(
             bsync.RoofArea(6444.999),
-            bsync.RoofCondition("Good"),
-            IDref=roof["ID"]
+            bsync.RoofCondition('Good'),
+            IDref=roof['ID']
         )
     )
 )
@@ -969,7 +971,7 @@ section_founds = bsync.Foundations(
     bsync.Foundation(
         bsync.FoundationID(
             bsync.FoundationArea(3891.1536),
-            IDref=found["ID"]
+            IDref=found['ID']
         )
     )
 )
@@ -995,7 +997,7 @@ Level 2 energy audits require information about the primary systems serving a sp
 # and air distribution unit is Single zone, constant air volume air distribution, one unit per occupied thermal zone
 
 hvac_systems = bsync.HVACSystems()
-hvac_system = bsync.HVACSystem(ID="HVACSystem-1")
+hvac_system = bsync.HVACSystem(ID='HVACSystem-1')
 hvac_systems += hvac_system
 # link hvac to section
 hvac_system += bsync.LinkedPremises(
@@ -1004,14 +1006,14 @@ hvac_system += bsync.LinkedPremises(
             bsync.LinkedScheduleIDs(
                 bsync.LinkedScheduleID(IDref=schedule_hvac['ID'])
             ),
-            IDref=section["ID"]
+            IDref=section['ID']
         )
     )
 )
 
 # heating and cooling system
 hc_systems = bsync.HeatingAndCoolingSystems()
-hc_systems += bsync.ZoningSystemType("Single zone")
+hc_systems += bsync.ZoningSystemType('Single zone')
 
 # cooling system
 css = bsync.CoolingSources()
@@ -1020,9 +1022,9 @@ for index, coolingcapacity in enumerate(coolingcapacities):
     cs = bsync.CoolingSource(
         bsync.CoolingSourceType(
             bsync.DX(
-                bsync.DXSystemType("Packaged/unitary heat pump"),
-                bsync.CompressorType("Reciprocating"),
-                bsync.CompressorStaging("Single stage")
+                bsync.DXSystemType('Packaged/unitary heat pump'),
+                bsync.CompressorType('Reciprocating'),
+                bsync.CompressorStaging('Single stage')
             )
         ),
         bsync.AnnualCoolingEfficiencyValue(2.61),
@@ -1040,7 +1042,7 @@ for index, coolingcapacity in enumerate(coolingcapacities):
             )
         ),
         bsync.YearInstalled(2000),
-        ID=f"CoolingSource-{index+1}"
+        ID=f'CoolingSource-{index+1}'
     )
     css += cs
 
@@ -1053,8 +1055,8 @@ for index, heatingcapacity in enumerate(heatingcapacities):
     hs = bsync.HeatingSource(
         bsync.HeatingSourceType(
             bsync.HeatingSourceType.HeatPump(
-                bsync.HeatPumpType("Packaged Unitary"),
-                bsync.HeatPumpBackupSystemFuel("Natural gas"),
+                bsync.HeatPumpType('Packaged Unitary'),
+                bsync.HeatPumpBackupSystemFuel('Natural gas'),
                 bsync.HeatPumpBackupAFUE(0.0),
                 bsync.CoolingSourceID(IDref=cs['ID'])
             )
@@ -1075,7 +1077,7 @@ for index, heatingcapacity in enumerate(heatingcapacities):
             )
         ),
         bsync.YearInstalled(2000),
-        ID=f"HeatingSource-{index+1}"
+        ID=f'HeatingSource-{index+1}'
     )
     hss += hs
 
@@ -1087,20 +1089,20 @@ for each in range(1,6):
     deliver = bsync.Delivery(
         bsync.DeliveryType(
             bsync.CentralAirDistribution(
-                bsync.AirDeliveryType("Central fan"),
-                bsync.TerminalUnit("CAV terminal box no reheat"),
-                bsync.ReheatSource("None"),
+                bsync.AirDeliveryType('Central fan'),
+                bsync.TerminalUnit('CAV terminal box no reheat'),
+                bsync.ReheatSource('None'),
                 bsync.FanBased(
                     bsync.AirSideEconomizer(
-                        bsync.AirSideEconomizerType("None"),
-                        bsync.EconomizerControl("Fixed"),
-                        ID=f"AirSideEconomizer-{each}"
+                        bsync.AirSideEconomizerType('None'),
+                        bsync.EconomizerControl('Fixed'),
+                        ID=f'AirSideEconomizer-{each}'
                     )
                 )
             )
         ),
-        bsync.HeatingSourceID(IDref=f"HeatingSource-{each}"),
-        bsync.CoolingSourceID(IDref=f"CoolingSource-{each}"),
+        bsync.HeatingSourceID(IDref=f'HeatingSource-{each}'),
+        bsync.CoolingSourceID(IDref=f'CoolingSource-{each}'),
         bsync.Delivery.Controls(
             bsync.Delivery.Controls.Control(
                 bsync.Delivery.Controls.Control.OtherControlTechnology(
@@ -1112,8 +1114,8 @@ for each in range(1,6):
         ),
         bsync.YearInstalled(2000),
         bsync.Quantity(1),
-        bsync.DeliveryCondition("Good"),
-        ID=f"Delivery-{each}"
+        bsync.DeliveryCondition('Good'),
+        ID=f'Delivery-{each}'
     )
     delivers += deliver
     
@@ -1123,17 +1125,17 @@ hc_systems += delivers
 duct_systems = bsync.DuctSystems()
 for each in range(1,6):
     duct = bsync.DuctSystem(
-        bsync.DuctConfiguration("Single"),
-        bsync.DuctInsulationCondition("Good"),
-        bsync.HeatingDeliveryID(IDref=f"Delivery-{each}"),
-        bsync.CoolingDeliveryID(IDref=f"Delivery-{each}"),
-        ID=f"DuctSystem-{each}"
+        bsync.DuctConfiguration('Single'),
+        bsync.DuctInsulationCondition('Good'),
+        bsync.HeatingDeliveryID(IDref=f'Delivery-{each}'),
+        bsync.CoolingDeliveryID(IDref=f'Delivery-{each}'),
+        ID=f'DuctSystem-{each}'
     )
     duct_systems += duct
 
 # HVAC control
 hvacctl = bsync.HVACControlSystemTypes(
-    bsync.HVACControlSystemType("Digital")
+    bsync.HVACControlSystemType('Digital')
 )
 
 hvac_system += hc_systems
@@ -1149,21 +1151,21 @@ for each in range(1,6):
         bsync.FanEfficiency(0.536),
         bsync.FanSize(fanflowrate[each-1]),
         bsync.FanInstalledFlowRate(fanflowrate[each-1]),
-        bsync.FanControlType("Constant Volume"),
+        bsync.FanControlType('Constant Volume'),
         bsync.LinkedSystemIDs(
-            bsync.LinkedSystemID(IDref=f"Delivery-{each}")
+            bsync.LinkedSystemID(IDref=f'Delivery-{each}')
         ),
-        ID=f"FanSystem-{each}"
+        ID=f'FanSystem-{each}'
     )
     fan_new = bsync.FanSystem(
         bsync.FanEfficiency(0.536),
         bsync.FanSize(fanflowrate_new[each-1]),
         bsync.InstalledFlowRate(fanflowrate_new[each-1]),
-        bsync.FanControlType("Variable Volume"),
+        bsync.FanControlType('Variable Volume'),
         bsync.LinkedSystemIDs(
-            bsync.LinkedSystemID(IDref=f"Delivery-{each}")
+            bsync.LinkedSystemID(IDref=f'Delivery-{each}')
         ),
-        ID=f"FanSystem-{each}-new"
+        ID=f'FanSystem-{each}-new'
     )
     fan_systems += fan
     fan_systems += fan_new
@@ -1192,25 +1194,25 @@ shw = bsync.DomesticHotWaterSystem(
             bsync.StorageTankInsulationRValue(123.) # arbitrary value, actually not required
         )
     ),
-    bsync.DomesticHotWaterSystemNotes("Notes"),
-    bsync.PrimaryFuel("Electricity"),
+    bsync.DomesticHotWaterSystemNotes('Notes'),
+    bsync.PrimaryFuel('Electricity'),
     bsync.Recirculation(
         bsync.RecirculationLoopCount(1),
         bsync.RecirculationFlowRate(3.6), 
-        bsync.RecirculationControlType("Continuous"),
+        bsync.RecirculationControlType('Continuous'),
         bsync.PipeInsulationThickness(123.), # arbitrary value, actually not required
         bsync.RecirculationEnergyLossRate(1.870180469)
     ),
-    bsync.HotWaterDistributionType("Looped"),
+    bsync.HotWaterDistributionType('Looped'),
     bsync.HotWaterSetpointTemperature(140.),
     bsync.WaterHeaterEfficiency(1.),
-    bsync.WaterHeaterEfficiencyType("Thermal Efficiency"),
+    bsync.WaterHeaterEfficiencyType('Thermal Efficiency'),
     bsync.DailyHotWaterDraw(40.), # arbitrary value, actually not required
     bsync.ParasiticFuelConsumptionRate(1950.52), # 572 W to Btu/hr
     bsync.Capacity(11722.84),
-    bsync.CapacityUnits("W"),
+    bsync.CapacityUnits('W'),
     bsync.YearInstalled(2000),
-    bsync.DomesticHotWaterSystemCondition("Good"),
+    bsync.DomesticHotWaterSystemCondition('Good'),
     bsync.DomesticHotWaterSystem.Controls(
         bsync.DomesticHotWaterSystem.Controls.Control(
             bsync.DomesticHotWaterSystem.Controls.Control.Manual(
@@ -1225,11 +1227,11 @@ shw = bsync.DomesticHotWaterSystem(
             bsync.LinkedBuildingID(IDref=b1['ID'])
         ),
         bsync.LinkedPremises.Section(
-            bsync.LinkedSectionID(IDref=section["ID"])
+            bsync.LinkedSectionID(IDref=section['ID'])
         )
     ),
     bsync.Quantity(1),
-    ID=f"SHW-1"
+    ID=f'SHW-1'
 )
 shw_systems += shw
 ```
@@ -1248,10 +1250,10 @@ ls1 = bsync.LightingSystem(
     bsync.OutsideLighting(False),
     bsync.LampType(
         bsync.LinearFluorescent(
-            bsync.LinearFluorescent.LampLabel("T8")
+            bsync.LinearFluorescent.LampLabel('T8')
         )
     ),
-    bsync.BallastType("Standard Electronic"),
+    bsync.BallastType('Standard Electronic'),
     bsync.DimmingCapability(
         bsync.MinimumDimmingLightFraction(0.2)
     ),
@@ -1268,7 +1270,7 @@ ls1 = bsync.LightingSystem(
                 bsync.ControlSystemType(
                     bsync.Digital()
                 ),
-                bsync.LightingSystem.Controls.Control.OtherControlTechnology.ControlStrategy("Programmable")
+                bsync.LightingSystem.Controls.Control.OtherControlTechnology.ControlStrategy('Programmable')
             )
         )
     ),
@@ -1278,20 +1280,20 @@ ls1 = bsync.LightingSystem(
                 bsync.LinkedScheduleIDs(
                     bsync.LinkedScheduleID(IDref=schedule_light['ID'])
                 ),
-                IDref=section["ID"])
+                IDref=section['ID'])
         )
     ),
-    ID="LightingSystem-1"
+    ID='LightingSystem-1'
 )
 # there is no specific information related to exterior lighting (but it exists)
 ls2 = bsync.LightingSystem(
     bsync.OutsideLighting(True),
     bsync.LampType(
         bsync.LinearFluorescent(
-            bsync.LinearFluorescent.LampLabel("T12")
+            bsync.LinearFluorescent.LampLabel('T12')
         )
     ),
-    bsync.BallastType("Standard Electronic"),
+    bsync.BallastType('Standard Electronic'),
     bsync.InstalledPower(1.582575),
     bsync.LampPower(316.516),
     bsync.NumberOfLampsPerBallast(1),
@@ -1305,7 +1307,7 @@ ls2 = bsync.LightingSystem(
                 bsync.ControlSystemType(
                     bsync.Digital()
                 ),
-                bsync.LightingSystem.Controls.Control.OtherControlTechnology.ControlStrategy("Programmable")
+                bsync.LightingSystem.Controls.Control.OtherControlTechnology.ControlStrategy('Programmable')
             )
         )
     ),
@@ -1315,20 +1317,20 @@ ls2 = bsync.LightingSystem(
                 bsync.LinkedScheduleIDs(
                     bsync.LinkedScheduleID(IDref=schedule_light['ID'])
                 ),
-                IDref=section_wb["ID"])
+                IDref=section_wb['ID'])
         )
     ),
-    ID="LightingSystem-2"
+    ID='LightingSystem-2'
 )
 # new led lighting system for measure
 ls_new = bsync.LightingSystem(
     bsync.OutsideLighting(False),
     bsync.LampType(
         bsync.SolidStateLighting(
-            bsync.SolidStateLighting.LampLabel("LED")
+            bsync.SolidStateLighting.LampLabel('LED')
         )
     ),
-    bsync.BallastType("Standard Electronic"),
+    bsync.BallastType('Standard Electronic'),
     bsync.DimmingCapability(
         bsync.MinimumDimmingLightFraction(0.1)
     ),
@@ -1345,8 +1347,8 @@ ls_new = bsync.LightingSystem(
                 bsync.ControlSystemType(
                     bsync.Digital()
                 ),
-                bsync.Daylighting.ControlSensor("Photocell"),
-                bsync.Daylighting.ControlStrategy("Continuous")
+                bsync.Daylighting.ControlSensor('Photocell'),
+                bsync.Daylighting.ControlStrategy('Continuous')
             )
         )
     ),
@@ -1356,10 +1358,10 @@ ls_new = bsync.LightingSystem(
                 bsync.LinkedScheduleIDs(
                     bsync.LinkedScheduleID(IDref=schedule_light['ID'])
                 ),
-                IDref=section["ID"])
+                IDref=section['ID'])
         )
     ),
-    ID="LightingSystem-new"
+    ID='LightingSystem-new'
 )
 
 light_systems += ls1
@@ -1378,7 +1380,7 @@ light_systems += ls_new
 # just assign this EPD to the Section as a whole
 plug_systems = bsync.PlugLoads()
 psys = bsync.PlugLoad(
-    bsync.PlugLoadType("Miscellaneous Electric Load"),
+    bsync.PlugLoadType('Miscellaneous Electric Load'),
     bsync.WeightedAverageLoad(0.63),
     bsync.LinkedPremises(
         bsync.LinkedPremises.Section(
@@ -1386,10 +1388,10 @@ psys = bsync.PlugLoad(
                 bsync.LinkedScheduleIDs(
                     bsync.LinkedScheduleID(IDref=schedule_pl['ID'])
                 ),
-                IDref=section["ID"])
+                IDref=section['ID'])
         )
     ),
-    ID="PlugLoad-1"
+    ID='PlugLoad-1'
 )
 plug_systems += psys
 ```
@@ -1489,19 +1491,19 @@ elec_ut = bsync.Utility(
                     )
                 )
             ),
-            bsync.ReferenceForRateStructure("https://www.xcelenergy.com/staticfiles/xe-responsive/Company/Rates%20&%20Regulations/Regulatory'/%'20Filings/CO%20Recent'/%'20Filings/PSCo_Electric_Entire_Tariff.pdf"),
+            bsync.ReferenceForRateStructure('https://www.xcelenergy.com/company/rates_and_regulations/rates/rate_books'),
             bsync.FixedMonthlyCharge(16.88),
-            ID="RateSchedule-Electricity"
+            ID='RateSchedule-Electricity'
         )
     ),
     bsync.UtilityMeterNumbers(
-        bsync.UtilityMeterNumber("Some-meter-ID")
+        bsync.UtilityMeterNumber('Some-meter-ID')
     ),
     bsync.EIAUtilityID(12345),
-    bsync.UtilityName("Xcel Energy"),
-    bsync.UtilityAccountNumber("some-account-number"),
-    bsync.UtilityBillpayer("Building Owner"),
-    ID="Utility-Electric"
+    bsync.UtilityName('Xcel Energy'),
+    bsync.UtilityAccountNumber('some-account-number'),
+    bsync.UtilityBillpayer('Building Owner'),
+    ID='Utility-Electric'
 )
 ng_ut = bsync.Utility(
     bsync.RateSchedules(
@@ -1517,18 +1519,18 @@ ng_ut = bsync.Utility(
                     )
                 )
             ),
-            bsync.ReferenceForRateStructure("https://www.xcelenergy.com/staticfiles/xe-responsive/Company/Rates%20&%20Regulations/psco_gas_entire_tariff.pdf"),
+            bsync.ReferenceForRateStructure('https://www.xcelenergy.com/company/rates_and_regulations/rates/rate_books'),
             bsync.FixedMonthlyCharge(43.88),
-            ID="RateSchedule-Natural-Gas"
+            ID='RateSchedule-Natural-Gas'
         )
     ),
     bsync.UtilityMeterNumbers(
-        bsync.UtilityMeterNumber("Some-meter-ID")
+        bsync.UtilityMeterNumber('Some-meter-ID')
     ),
-    bsync.UtilityName("Xcel Energy"),
-    bsync.UtilityAccountNumber("some-other-account-number"),
-    bsync.UtilityBillpayer("Building Owner"),
-    ID="Utility-Natural-Gas"
+    bsync.UtilityName('Xcel Energy'),
+    bsync.UtilityAccountNumber('some-other-account-number'),
+    bsync.UtilityBillpayer('Building Owner'),
+    ID='Utility-Natural-Gas'
 )
 ```
 
@@ -1539,7 +1541,7 @@ utilities += ng_ut
 ```
 
 #### ResourceUses and TimeSeries Data
-Now that we have a current building measured scenario, we want to declare energy and monthly billing data. Per Std 211 6.1.2.1, a minimum of 12 months (preferably up to 3 years) of energy use data is required. The mechanical system of the small office prototype is a heatpump air handler with natural gas backup. We know that Missoula is cold, so likely it will use natural gas backup at some point during its operation. We run an example simulation to get estimates for this, which come out as follows:
+Now that we have a current building measured scenario, we want to declare energy and monthly billing data. Per Std 211 6.1.2.1, a minimum of 12 months (preferably up to 3 years) of energy use data is required. The mechanical system of the small office prototype is a heatpump air handler with natural gas backup. We run the simulation to get estimates for this, which come out as follows:
 
 | Resource Type | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -1558,14 +1560,14 @@ all_ru = bsync.ResourceUses()
 # we also connect it up to a utility
 elec_ru = bsync.ResourceUse(
     bsync.EnergyResource('Electricity'),
-    bsync.ResourceUseNotes("This is required to document irregularities in monthly energy patterns (Std 211 6.1.2.1.j). No irregularities found."),
+    bsync.ResourceUseNotes('This is required to document irregularities in monthly energy patterns (Std 211 6.1.2.1.j). No irregularities found.'),
     bsync.ResourceUnits('kWh'),
     bsync.PeakResourceUnits('kW'),
     bsync.EndUse('All end uses'),
     bsync.UtilityIDs(
         bsync.UtilityID(IDref=elec_ut['ID'])
     ),
-    ID=f"ResourceUse-Electricity"
+    ID=f'ResourceUse-Electricity'
 )
 # given the above, we add the annual totals
 elec_ru += bsync.AnnualFuelUseNativeUnits(67334.15)
@@ -1578,13 +1580,13 @@ elec_ru += bsync.AnnualFuelCost(4613.82) #
 # additional connect it up to the utility
 ng_ru = bsync.ResourceUse(
     bsync.EnergyResource('Natural gas'),
-    bsync.ResourceUseNotes("No irregularities in monthly energy consumption found."),
+    bsync.ResourceUseNotes('No irregularities in monthly energy consumption found.'),
     bsync.ResourceUnits('MMBtu'),
     bsync.EndUse('All end uses'),
     bsync.UtilityIDs(
         bsync.UtilityID(IDref=ng_ut['ID'])
     ),
-    ID=f"ResourceUse-Natural-gas"
+    ID=f'ResourceUse-Natural-gas'
 )
 # given the above, we add the annual totals
 ng_ru += bsync.AnnualFuelUseNativeUnits(8.72)
@@ -1600,7 +1602,7 @@ lighting_ru = bsync.ResourceUse(
     bsync.AnnualFuelUseConsistentUnits(68.45389828),
     bsync.PercentEndUse(28.705),
     bsync.ParentResourceUseID(IDref=elec_ru['ID']),
-    ID=f"ResourceUse-Electricity-Lighting-Submeter"
+    ID=f'ResourceUse-Electricity-Lighting-Submeter'
 )
 heating_ru = bsync.ResourceUse(
     bsync.EnergyResource('Electricity'),
@@ -1610,7 +1612,7 @@ heating_ru = bsync.ResourceUse(
     bsync.AnnualFuelUseConsistentUnits(16.03036076),
     bsync.PercentEndUse(6.722),
     bsync.ParentResourceUseID(IDref=elec_ru['ID']),
-    ID=f"ResourceUse-Electricity-Heating-Submeter"
+    ID=f'ResourceUse-Electricity-Heating-Submeter'
 )
 cooling_ru = bsync.ResourceUse(
     bsync.EnergyResource('Electricity'),
@@ -1620,7 +1622,7 @@ cooling_ru = bsync.ResourceUse(
     bsync.AnnualFuelUseConsistentUnits(20.91170444),
     bsync.PercentEndUse(8.769),
     bsync.ParentResourceUseID(IDref=elec_ru['ID']),
-    ID=f"ResourceUse-Electricity-Cooling-Submeter"
+    ID=f'ResourceUse-Electricity-Cooling-Submeter'
 )
 shw_ru = bsync.ResourceUse(
     bsync.EnergyResource('Electricity'),
@@ -1630,7 +1632,7 @@ shw_ru = bsync.ResourceUse(
     bsync.AnnualFuelUseConsistentUnits(24.51648244),
     bsync.PercentEndUse(10.281),
     bsync.ParentResourceUseID(IDref=elec_ru['ID']),
-    ID=f"ResourceUse-Electricity-SHW-Submeter"
+    ID=f'ResourceUse-Electricity-SHW-Submeter'
 )
 pl_ru = bsync.ResourceUse(
     bsync.EnergyResource('Electricity'),
@@ -1640,7 +1642,7 @@ pl_ru = bsync.ResourceUse(
     bsync.AnnualFuelUseConsistentUnits(50.9826158),
     bsync.PercentEndUse(21.379),
     bsync.ParentResourceUseID(IDref=elec_ru['ID']),
-    ID=f"ResourceUse-Electricity-Plugload-Submeter"
+    ID=f'ResourceUse-Electricity-Plugload-Submeter'
 )
 
 # add these to the ResourceUses parent element
@@ -1697,20 +1699,20 @@ def create_monthly(values, resource_use_id, start_year, tsrq='Energy', rt='Total
         end_dt = datetime(end_year, end_month, 1)
 
         if rt == 'Load factor':
-            my_id = f"TS-{resource_use_id}-Loadfactor-{start_month}"
+            my_id = f'TS-{resource_use_id}-Loadfactor-{start_month}'
         else:
-            my_id = f"TS-{resource_use_id}-{rt}-{start_month}"
+            my_id = f'TS-{resource_use_id}-{rt}-{start_month}'
         
         if rt == 'Peak':
             ts = bsync.TimeSeries(
                 bsync.ReadingType(rt),
-                bsync.PeakType("On-peak"),
+                bsync.PeakType('On-peak'),
                 bsync.TimeSeriesReadingQuantity(tsrq),
                 bsync.StartTimestamp(start_dt),
                 bsync.EndTimestamp(end_dt),
                 bsync.IntervalDuration(daysinmonth[i-1]),
-                bsync.IntervalDurationUnits("Day"),
-                bsync.IntervalFrequency("Month"),
+                bsync.IntervalDurationUnits('Day'),
+                bsync.IntervalFrequency('Month'),
                 bsync.IntervalReading(float(val)),
                 bsync.ResourceUseID(IDref=resource_use_id),
                 ID=my_id
@@ -1722,8 +1724,8 @@ def create_monthly(values, resource_use_id, start_year, tsrq='Energy', rt='Total
                 bsync.StartTimestamp(start_dt),
                 bsync.EndTimestamp(end_dt),
                 bsync.IntervalDuration(daysinmonth[i-1]),
-                bsync.IntervalDurationUnits("Day"),
-                bsync.IntervalFrequency("Month"),
+                bsync.IntervalDurationUnits('Day'),
+                bsync.IntervalFrequency('Month'),
                 bsync.IntervalReading(float(val)),
                 bsync.ResourceUseID(IDref=resource_use_id),
                 ID=my_id
@@ -1809,7 +1811,7 @@ art = bsync.AllResourceTotals(
         bsync.SourceEnergyUseIntensity(134.0), # kbtu/ft2
         bsync.EnergyCost(4952.48),
         bsync.EnergyCostIndex(0.90), # $/ft2
-        ID="AllResourceTotal-1"
+        ID='AllResourceTotal-1'
     )
 )
 ```
@@ -1841,7 +1843,7 @@ bench_sc = bsync.Scenario(
             bsync.AllResourceTotal.SiteEnergyUse(238473.65655),  
             bsync.SiteEnergyUseIntensity(43.3588),
             bsync.EnergyCost(4952.48),
-            ID="AllResourceTotal-Benchmark"
+            ID='AllResourceTotal-Benchmark'
         )
     ),
     bsync.LinkedPremises(
@@ -1849,7 +1851,7 @@ bench_sc = bsync.Scenario(
             bsync.LinkedBuildingID(IDref=b1['ID'])
         )
     ),
-    ID="Scenario-Benchmark"
+    ID='Scenario-Benchmark'
 )
 bench_st = bsync.Scenario.ScenarioType()
 bench = bsync.Benchmark(
@@ -1858,7 +1860,7 @@ bench = bsync.Benchmark(
             bsync.PMBenchmarkDate(date(2022, 6, 1))
         )
     ),
-    bsync.BenchmarkTool("Portfolio Manager"),
+    bsync.BenchmarkTool('Portfolio Manager'),
     bsync.BenchmarkYear(2019),
     bsync.BenchmarkValue(80.)
 )
@@ -1885,7 +1887,7 @@ target_sc = bsync.Scenario(
             bsync.SiteEnergyUseIntensity(34.6),
             bsync.EnergyCost(4846.04),
             bsync.EnergyCostIndex(0.881),
-            ID="AllResourceTotal-Target"
+            ID='AllResourceTotal-Target'
         )
     ),
     bsync.LinkedPremises(
@@ -1893,11 +1895,11 @@ target_sc = bsync.Scenario(
             bsync.LinkedBuildingID(IDref=b1['ID'])
         )
     ),
-    ID="Scenario-Target"
+    ID='Scenario-Target'
 )
 target_st = bsync.Scenario.ScenarioType()
 target = bsync.Target(
-    bsync.ReferenceCase(IDref=bench_sc["ID"]),
+    bsync.ReferenceCase(IDref=bench_sc['ID']),
     bsync.AnnualSavingsSiteEnergy(39070.53),
     bsync.AnnualSavingsCost(995),
     bsync.ENERGYSTARScore(89.),
@@ -1945,24 +1947,24 @@ hvac_schedule_measure = bsync.Measure(
             )
         )
     ),
-    bsync.SystemCategoryAffected("Air Distribution"),
+    bsync.SystemCategoryAffected('Air Distribution'),
     bsync.TechnologyCategories(
         bsync.TechnologyCategory(
             bsync.OtherHVAC(
-                bsync.OtherHVAC.MeasureName("Other distribution")
+                bsync.OtherHVAC.MeasureName('Other distribution')
             )
         )
     ),
-    bsync.CustomMeasureName("Update HVAC schedule"),
-    bsync.LongDescription("The current HVAC schedule is set to be at 100'%' fan operation during weekday from 7am - 8pm. This measure would implement a modified schedule to enable pre-cooling/pre-heating from 6am - 7am, and reduce output to 80'%' during peak time 12pm - 1pm. "),
-    bsync.MeasureScaleOfApplication("Individual system"),
+    bsync.CustomMeasureName('Update HVAC schedule'),
+    bsync.LongDescription('The current HVAC schedule is set to be at fully ON fan operation during weekday from 7am - 8pm. This measure would implement a modified schedule to enable pre-cooling/pre-heating from 6am - 7am, and reduce output to 80 percent during peak time 12pm - 1pm.'),
+    bsync.MeasureScaleOfApplication('Individual system'),
     bsync.UsefulLife(1.),
     bsync.MeasureInstallationCost(0.),
     bsync.MeasureMaterialCost(0.),
     bsync.StartDate(date(2021,1,1)),
     bsync.EndDate(date(2021,12,30)),
     bsync.Recommended(True),
-    ID="Measure-HVAC-schedule-nocost"
+    ID='Measure-HVAC-schedule-nocost'
 )
 
 # A measure to upgrade the lighting system to LEDs (low-cost EEM)
@@ -1975,23 +1977,23 @@ led_measure = bsync.Measure(
             )
         )
     ),
-    bsync.SystemCategoryAffected("Lighting"),
+    bsync.SystemCategoryAffected('Lighting'),
     bsync.TechnologyCategories(
         bsync.TechnologyCategory(
             bsync.LightingImprovements(
-                bsync.LightingImprovements.MeasureName("Retrofit with light emitting diode technologies")
+                bsync.LightingImprovements.MeasureName('Retrofit with light emitting diode technologies')
             )
         )
     ),
-    bsync.LongDescription("This measure is designed to replace all fluorescent bulbs with LEDs"),
-    bsync.MeasureScaleOfApplication("Individual system"),
+    bsync.LongDescription('This measure is designed to replace all fluorescent bulbs with LEDs'),
+    bsync.MeasureScaleOfApplication('Individual system'),
     bsync.UsefulLife(1.),
     bsync.MeasureInstallationCost(50.),
     bsync.MeasureMaterialCost(774.),
     bsync.StartDate(date(2021,1,1)),
     bsync.EndDate(date(2021,12,30)),
     bsync.Recommended(True),
-    ID="Measure-LEDs"
+    ID='Measure-LEDs'
 )
 
 # A measure to upgrade the fans in the RTUs to use VFDs
@@ -2009,23 +2011,23 @@ vsd_measure = bsync.Measure(
         )
     ),
     # could have also used Air Distribution or Motor, this seemed ok too.
-    bsync.SystemCategoryAffected("Fan"),
+    bsync.SystemCategoryAffected('Fan'),
     bsync.TechnologyCategories(
         bsync.TechnologyCategory(
             bsync.OtherElectricMotorsAndDrives(
-                bsync.OtherElectricMotorsAndDrives.MeasureName("Add VSD motor controller")
+                bsync.OtherElectricMotorsAndDrives.MeasureName('Add VSD motor controller')
             )
         )
     ),
-    bsync.LongDescription("This measure is designed to retrofit all RTU fans with a VSD"),
-    bsync.MeasureScaleOfApplication("Individual system"),
+    bsync.LongDescription('This measure is designed to retrofit all RTU fans with a VSD'),
+    bsync.MeasureScaleOfApplication('Individual system'),
     bsync.UsefulLife(1.),
     bsync.MeasureInstallationCost(750.), 
     bsync.MeasureMaterialCost(1250.), # assume $200~300 per fan
     bsync.StartDate(date(2021,1,1)),
     bsync.EndDate(date(2021,12,30)),
     bsync.Recommended(True),
-    ID="Measure-VSDs"
+    ID='Measure-VSDs'
 )
 ```
 
@@ -2052,18 +2054,18 @@ pom_sc_1 = bsync.Scenario(
             bsync.MeasureIDs(
                 bsync.MeasureID(IDref=led_measure['ID'])
             ),
-            bsync.CostCategory("Capital"),
+            bsync.CostCategory('Capital'),
             bsync.AnnualSavingsSiteEnergy(35.713),
             bsync.AnnualSavingsCost(772),
             bsync.AnnualSavingsByFuels(
                 bsync.AnnualSavingsByFuel(
-                    bsync.EnergyResource("Electricity"),
-                    bsync.ResourceUnits("kWh"),
+                    bsync.EnergyResource('Electricity'),
+                    bsync.ResourceUnits('kWh'),
                     bsync.AnnualSavingsNativeUnits(11524.54)
                 ),
                 bsync.AnnualSavingsByFuel(
-                    bsync.EnergyResource("Natural gas"),
-                    bsync.ResourceUnits("MMBtu"),
+                    bsync.EnergyResource('Natural gas'),
+                    bsync.ResourceUnits('MMBtu'),
                     bsync.AnnualSavingsNativeUnits(0.)
                 )
             ),
@@ -2084,7 +2086,7 @@ pom_sc_1 = bsync.Scenario(
             bsync.RecurringIncentives(0),
             bsync.InternalRateOfReturn(0.), # for the first year the IRR is nagative (payback>1 yr)
             bsync.SimplePayback(1.07),
-            ID="POM-LEDs"
+            ID='POM-LEDs'
         )
     ),
     bsync.LinkedPremises(
@@ -2092,7 +2094,7 @@ pom_sc_1 = bsync.Scenario(
             bsync.LinkedBuildingID(IDref=b1['ID'])
         )
     ),
-    ID="Scenario-POM-LEDs"
+    ID='Scenario-POM-LEDs'
 )
 
 pom_sc_2 = bsync.Scenario(
@@ -2102,18 +2104,18 @@ pom_sc_2 = bsync.Scenario(
             bsync.MeasureIDs(
                 bsync.MeasureID(IDref=vsd_measure['ID'])
             ),
-            bsync.CostCategory("Capital"),
+            bsync.CostCategory('Capital'),
             bsync.AnnualSavingsSiteEnergy(5.175),
             bsync.AnnualSavingsCost(9),
             bsync.AnnualSavingsByFuels(
                 bsync.AnnualSavingsByFuel(
-                    bsync.EnergyResource("Electricity"),
-                    bsync.ResourceUnits("kWh"),
+                    bsync.EnergyResource('Electricity'),
+                    bsync.ResourceUnits('kWh'),
                     bsync.AnnualSavingsNativeUnits(207.24)
                 ),
                 bsync.AnnualSavingsByFuel(
-                    bsync.EnergyResource("Natural gas"),
-                    bsync.ResourceUnits("MMBtu"),
+                    bsync.EnergyResource('Natural gas'),
+                    bsync.ResourceUnits('MMBtu'),
                     bsync.AnnualSavingsNativeUnits(4.46)
                 )
             ),
@@ -2134,7 +2136,7 @@ pom_sc_2 = bsync.Scenario(
             bsync.RecurringIncentives(0),
             bsync.InternalRateOfReturn(0.),
             bsync.SimplePayback(230.15),
-            ID="POM-VSDs"
+            ID='POM-VSDs'
         )
     ),
     bsync.LinkedPremises(
@@ -2142,7 +2144,7 @@ pom_sc_2 = bsync.Scenario(
             bsync.LinkedBuildingID(IDref=b1['ID'])
         )
     ),
-    ID="Scenario-POM-VSDs"
+    ID='Scenario-POM-VSDs'
 )
 
 pom_sc_3 = bsync.Scenario(
@@ -2153,18 +2155,18 @@ pom_sc_3 = bsync.Scenario(
                 bsync.MeasureID(IDref=led_measure['ID']),
                 bsync.MeasureID(IDref=vsd_measure['ID']),
             ),
-            bsync.CostCategory("Capital"),
+            bsync.CostCategory('Capital'),
             bsync.AnnualSavingsSiteEnergy(41.827),
             bsync.AnnualSavingsCost(781),
             bsync.AnnualSavingsByFuels(
                 bsync.AnnualSavingsByFuel(
-                    bsync.EnergyResource("Electricity"),
-                    bsync.ResourceUnits("kWh"),
+                    bsync.EnergyResource('Electricity'),
+                    bsync.ResourceUnits('kWh'),
                     bsync.AnnualSavingsNativeUnits(11701.62)
                 ),
                 bsync.AnnualSavingsByFuel(
-                    bsync.EnergyResource("Natural gas"),
-                    bsync.ResourceUnits("MMBtu"),
+                    bsync.EnergyResource('Natural gas'),
+                    bsync.ResourceUnits('MMBtu'),
                     bsync.AnnualSavingsNativeUnits(1.89)
                 )
             ),
@@ -2185,7 +2187,7 @@ pom_sc_3 = bsync.Scenario(
             bsync.RecurringIncentives(0),
             bsync.InternalRateOfReturn(0.),
             bsync.SimplePayback(3.62),
-            ID="POM-LEDs-VSDs"
+            ID='POM-LEDs-VSDs'
         )
     ),
     bsync.LinkedPremises(
@@ -2193,7 +2195,7 @@ pom_sc_3 = bsync.Scenario(
             bsync.LinkedBuildingID(IDref=b1['ID'])
         )
     ),
-    ID="Scenario-POM-LEDs-VSDs"
+    ID='Scenario-POM-LEDs-VSDs'
 )
 ```
 
@@ -2214,7 +2216,7 @@ Use the line below to write the file to disk
 
 
 ```python
-bsync_dump(root, file="example-level2.xml")
+bsync_dump(root, file='example-smalloffice-level2.xml')
 ```
 
 

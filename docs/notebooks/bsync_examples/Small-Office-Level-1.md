@@ -1452,7 +1452,7 @@ Use the line below to write the file to disk
 
 
 ```python
-bsync_dump(root)
+bsync_dump(root, file='example-smalloffice-level1.xml')
 ```
 
 
