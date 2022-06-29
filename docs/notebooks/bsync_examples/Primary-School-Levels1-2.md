@@ -27,9 +27,7 @@ This notebook is broken down into the following sections:
 
 3) Adding the information required for a Level 2 energy audit
 
-4) Adding the information required for a Level 3 energy audit (WIP)
-
-5) Generating a BuildingSync file and verifying it against version 2.4.0 of the BuildingSync schema
+4) Generating a BuildingSync file and verifying it against version 2.4.0 of the BuildingSync schema
 
 
 But first, let us import the required libraries and set up some useful functions:
@@ -156,12 +154,18 @@ Now, let us carry on and start the Level 1 audit.
 
 We refer to ASHRAE Standard 211, section 5.3, relevant to the Level 1 energy audit procedures.
 For this audit, we will need to report:
-1) a facility description (section 6.1.1.1)
-2) the historical energy use (section 6.1.1.2)
-3) a benchmark of the site EUI (section 6.1.1.3)
-4) the target and estimate savings (section 6.1.1.4)
-5) low-cost and no-cost energy efficiency measure recommendations (section 6.1.1.5)
-6) potential capital energy efficiency measure recommendations (section 6.1.1.6)
+
+1) a facility description (section 6.1.1)
+
+2) the historical energy use (section 6.1.2)
+
+3) a benchmark of the site EUI (section 6.1.3)
+
+4) the target and estimate savings (section 6.1.4)
+
+5) low-cost and no-cost energy efficiency measure recommendations (section 6.1.5)
+
+6) potential capital energy efficiency measure recommendations (section 6.1.6)
 
 In order to compile all this information, we will start by defining a Report entity for our Level 1 audit.
 
@@ -185,8 +189,33 @@ r1 = bsync.Report(premise, ID='Report-L1-Audit')
 f1 += reports
 reports += r1
 
-
+pretty_print(root)
 ```
+
+    <BuildingSync>
+      <Facilities>
+        <Facility ID="Facility-1">
+          <Sites>
+            <Site ID="Site-1">
+              <Buildings>
+                <Building ID="Building-Primary-School-Prototype"/>
+              </Buildings>
+            </Site>
+          </Sites>
+          <Reports>
+            <Report ID="Report-L1-Audit">
+              <LinkedPremisesOrSystem>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Primary-School-Prototype"/>
+                </Building>
+              </LinkedPremisesOrSystem>
+            </Report>
+          </Reports>
+        </Facility>
+      </Facilities>
+    </BuildingSync>
+    
+
 
 ### 5.1 Site description (Section 6.1.1)
 
@@ -467,7 +496,7 @@ Let us break down the school into sections. We have:
 - one office
 - 4 corridors
 
-We need to create a definition for each of these sections. We will aggregate the classrooms together (TK check that).
+We need to create a definition for each of these sections. We will aggregate the classrooms together depending on which HVAC unit serves them.
 
 #### 5.2.1 Office space
 
@@ -561,7 +590,7 @@ mech_tous += mech_tou_hpw
 mech_tous += mech_tou_wpy
 
 # 5.3.4.d looks for normal / design or peak occupancy.
-# Here, we take values from the IDF as the building has been modelled: with no occupants in the mech room, bathroom or corridors.
+# Here, we take values from the IDF as the building has been modeled: with no occupants in the mech room, lobby, bathroom or corridors.
 mech_occ_levels = bsync.OccupancyLevels()
 mech_occ_design = bsync.OccupancyLevel(
     bsync.OccupantQuantityType("Peak total occupants"),
@@ -614,7 +643,7 @@ lib_tous += lib_tou_hpw
 lib_tous += lib_tou_wpy
 
 # 5.3.4.d looks for normal / design or peak occupancy.
-# Here, we take values from the IDF as the building has been modelled: with no occupants in the mech room, bathroom or corridors.
+# Here, we take values from the IDF as the building has been modeled: with no occupants in the mech room, lobby, bathroom or corridors.
 lib_occ_levels = bsync.OccupancyLevels()
 lib_occ_design = bsync.OccupancyLevel(
     bsync.OccupantQuantityType("Peak total occupants"),
@@ -667,7 +696,7 @@ kitchen_tous += kitchen_tou_hpw
 kitchen_tous += kitchen_tou_wpy
 
 # 5.3.4.d looks for normal / design or peak occupancy.
-# Here, we take values from the IDF as the building has been modelled: with no occupants in the mech room, bathroom or corridors.
+# Here, we take values from the IDF as the building has been modeled: with no occupants in the mech room, lobby, bathroom or corridors.
 kitchen_occ_levels = bsync.OccupancyLevels()
 kitchen_occ_design = bsync.OccupancyLevel(
     bsync.OccupantQuantityType("Peak total occupants"),
@@ -720,7 +749,7 @@ gym_tous += gym_tou_hpw
 gym_tous += gym_tou_wpy
 
 # 5.3.4.d looks for normal / design or peak occupancy.
-# Here, we take values from the IDF as the building has been modelled: with no occupants in the mech room, bathroom or corridors.
+# Here, we take values from the IDF as the building has been modeled: with no occupants in the mech room, lobby, bathroom or corridors.
 gym_occ_levels = bsync.OccupancyLevels()
 gym_occ_design = bsync.OccupancyLevel(
     bsync.OccupantQuantityType("Peak total occupants"),
@@ -773,7 +802,7 @@ cafeteria_tous += cafeteria_tou_hpw
 cafeteria_tous += cafeteria_tou_wpy
 
 # 5.3.4.d looks for normal / design or peak occupancy.
-# Here, we take values from the IDF as the building has been modelled: with no occupants in the mech room, bathroom or corridors.
+# Here, we take values from the IDF as the building has been modeled: with no occupants in the mech room, lobby, bathroom or corridors.
 cafeteria_occ_levels = bsync.OccupancyLevels()
 cafeteria_occ_design = bsync.OccupancyLevel(
     bsync.OccupantQuantityType("Peak total occupants"),
@@ -826,7 +855,7 @@ bath_tous += bath_tou_hpw
 bath_tous += bath_tou_wpy
 
 # 5.3.4.d looks for normal / design or peak occupancy.
-# Here, we take values from the IDF as the building has been modelled: with no occupants in the mech room, bathroom or corridors.
+# Here, we take values from the IDF as the building has been modeled: with no occupants in the mech room, lobby, bathroom or corridors.
 bath_occ_levels = bsync.OccupancyLevels()
 bath_occ_design = bsync.OccupancyLevel(
     bsync.OccupantQuantityType("Peak total occupants"),
@@ -879,7 +908,7 @@ computerlab_tous += computerlab_tou_hpw
 computerlab_tous += computerlab_tou_wpy
 
 # 5.3.4.d looks for normal / design or peak occupancy.
-# Here, we take values from the IDF as the building has been modelled: with no occupants in the mech room, bathroom or corridors.
+# Here, we take values from the IDF as the building has been modeled: with no occupants in the mech room, lobby, bathroom or corridors.
 computerlab_occ_levels = bsync.OccupancyLevels()
 computerlab_occ_design = bsync.OccupancyLevel(
     bsync.OccupantQuantityType("Peak total occupants"),
@@ -934,7 +963,7 @@ classroom1_tous += classroom1_tou_hpw
 classroom1_tous += classroom1_tou_wpy
 
 # 5.3.4.d looks for normal / design or peak occupancy.
-# Here, we take values from the IDF as the building has been modelled: with no occupants in the mech room, bathroom or corridors.
+# Here, we take values from the IDF as the building has been modeled: with no occupants in the mech room, lobby, bathroom or corridors.
 classroom1_occ_levels = bsync.OccupancyLevels()
 classroom1_occ_design = bsync.OccupancyLevel(
     bsync.OccupantQuantityType("Peak total occupants"),
@@ -985,7 +1014,7 @@ classroom2_tous += classroom2_tou_hpw
 classroom2_tous += classroom2_tou_wpy
 
 # 5.3.4.d looks for normal / design or peak occupancy.
-# Here, we take values from the IDF as the building has been modelled: with no occupants in the mech room, bathroom or corridors.
+# Here, we take values from the IDF as the building has been modeled: with no occupants in the mech room, lobby, bathroom or corridors.
 classroom2_occ_levels = bsync.OccupancyLevels()
 classroom2_occ_design = bsync.OccupancyLevel(
     bsync.OccupantQuantityType("Peak total occupants"),
@@ -1036,7 +1065,7 @@ classroom3_tous += classroom3_tou_hpw
 classroom3_tous += classroom3_tou_wpy
 
 # 5.3.4.d looks for normal / design or peak occupancy.
-# Here, we take values from the IDF as the building has been modelled: with no occupants in the mech room, bathroom or corridors.
+# Here, we take values from the IDF as the building has been modeled: with no occupants in the mech room, lobby, bathroom or corridors.
 classroom3_occ_levels = bsync.OccupancyLevels()
 classroom3_occ_design = bsync.OccupancyLevel(
     bsync.OccupantQuantityType("Peak total occupants"),
@@ -1091,7 +1120,7 @@ corridor1_tous += corridor1_tou_hpw
 corridor1_tous += corridor1_tou_wpy
 
 # 5.3.4.d looks for normal / design or peak occupancy.
-# Here, we take values from the IDF as the building has been modelled: with no occupants in the mech room, bathroom or corridors.
+# Here, we take values from the IDF as the building has been modeled: with no occupants in the mech room, lobby, bathroom or corridors.
 corridor1_occ_levels = bsync.OccupancyLevels()
 corridor1_occ_design = bsync.OccupancyLevel(
     bsync.OccupantQuantityType("Peak total occupants"),
@@ -1142,7 +1171,7 @@ corridor2_tous += corridor2_tou_hpw
 corridor2_tous += corridor2_tou_wpy
 
 # 5.3.4.d looks for normal / design or peak occupancy.
-# Here, we take values from the IDF as the building has been modelled: with no occupants in the mech room, bathroom or corridors.
+# Here, we take values from the IDF as the building has been modeled: with no occupants in the mech room, lobby, bathroom or corridors.
 corridor2_occ_levels = bsync.OccupancyLevels()
 corridor2_occ_design = bsync.OccupancyLevel(
     bsync.OccupantQuantityType("Peak total occupants"),
@@ -1193,7 +1222,7 @@ corridor3_tous += corridor3_tou_hpw
 corridor3_tous += corridor3_tou_wpy
 
 # 5.3.4.d looks for normal / design or peak occupancy.
-# Here, we take values from the IDF as the building has been modelled: with no occupants in the mech room, bathroom or corridors.
+# Here, we take values from the IDF as the building has been modeled: with no occupants in the mech room, lobby, bathroom or corridors.
 corridor3_occ_levels = bsync.OccupancyLevels()
 corridor3_occ_design = bsync.OccupancyLevel(
     bsync.OccupantQuantityType("Peak total occupants"),
@@ -1244,7 +1273,7 @@ corridormain_tous += corridormain_tou_hpw
 corridormain_tous += corridormain_tou_wpy
 
 # 5.3.4.d looks for normal / design or peak occupancy.
-# Here, we take values from the IDF as the building has been modelled: with no occupants in the mech room, bathroom or corridors.
+# Here, we take values from the IDF as the building has been modeled: with no occupants in the mech room, lobby, bathroom or corridors.
 corridormain_occ_levels = bsync.OccupancyLevels()
 corridormain_occ_design = bsync.OccupancyLevel(
     bsync.OccupantQuantityType("Peak total occupants"),
@@ -1297,7 +1326,7 @@ lobby_tous += lobby_tou_hpw
 lobby_tous += lobby_tou_wpy
 
 # 5.3.4.d looks for normal / design or peak occupancy.
-# Here, we take values from the IDF as the building has been modelled: with no occupants in the mech room, bathroom, lobby or corridors.
+# Here, we take values from the IDF as the building has been modeled: with no occupants in the mech room, lobby, bathroom or corridors.
 lobby_occ_levels = bsync.OccupancyLevels()
 lobby_occ_design = bsync.OccupancyLevel(
     bsync.OccupantQuantityType("Peak total occupants"),
@@ -1351,7 +1380,7 @@ wb_tous += wb_tou_hpw
 wb_tous += wb_tou_wpy
 
 # 5.3.4.d looks for normal / design or peak occupancy.
-# Here, we take values from the IDF as the building has been modelled: with no occupants in the mech room, bathroom, lobby or corridors.
+# Here, we take values from the IDF as the building has been modeled: with no occupants in the mech room, lobby, bathroom or corridors.
 wb_occ_levels = bsync.OccupancyLevels()
 wb_occ_design = bsync.OccupancyLevel(
     bsync.OccupantQuantityType("Peak total occupants"),
@@ -1363,7 +1392,540 @@ wb_occ_levels += wb_occ_design
 wb_sec += wb_fas
 wb_sec += wb_tous
 wb_sec += wb_occ_levels
+
+pretty_print(sections)
 ```
+
+    <Sections>
+      <Section ID="Offices">
+        <SectionType>Space function</SectionType>
+        <OccupancyClassification>Office work area</OccupancyClassification>
+        <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>23.730000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>45.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>4746.880000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>4746.880000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+      <Section ID="Mechanical-room">
+        <SectionType>Space function</SectionType>
+        <OccupancyClassification>Mechanical room</OccupancyClassification>
+        <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>0.000000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>30.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>2712.510000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>2712.510000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+      <Section ID="Library">
+        <SectionType>Space function</SectionType>
+        <OccupancyClassification>Media center</OccupancyClassification>
+        <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>42.900000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>45.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>4294.800000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>4294.800000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+      <Section ID="Kitchen">
+        <SectionType>Space function</SectionType>
+        <OccupancyClassification>Kitchen</OccupancyClassification>
+        <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>27.000000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>45.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>1808.330000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>1808.330000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+      <Section ID="Gym">
+        <SectionType>Space function</SectionType>
+        <OccupancyClassification>Sport play area</OccupancyClassification>
+        <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>115.160000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>25.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>3842.710000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>3842.710000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+      <Section ID="Cafeteria">
+        <SectionType>Space function</SectionType>
+        <OccupancyClassification>Dining area</OccupancyClassification>
+        <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>338.700000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>30.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>3390.630000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>3390.630000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+      <Section ID="Bathroom">
+        <SectionType>Space function</SectionType>
+        <OccupancyClassification>Restroom</OccupancyClassification>
+        <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>0.000000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>45.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>2045.140000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>2045.140000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+      <Section ID="Computer-Lab">
+        <SectionType>Space function</SectionType>
+        <OccupancyClassification>Computer lab</OccupancyClassification>
+        <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>43.640000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>65.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>1743.750000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>1743.750000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+      <Section ID="Classroom-Pod1">
+        <SectionType>Space function</SectionType>
+        <OccupancyClassification>Classroom</OccupancyClassification>
+        <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>309.700000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>45.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>12400.020000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>12400.020000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+      <Section ID="Classroom-Pod2">
+        <SectionType>Space function</SectionType>
+        <OccupancyClassification>Classroom</OccupancyClassification>
+        <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>309.700000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>45.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>12400.020000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>12400.020000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+      <Section ID="Classroom-Pod3">
+        <SectionType>Space function</SectionType>
+        <OccupancyClassification>Classroom</OccupancyClassification>
+        <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>266.120000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>45.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>10656.270000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>10656.270000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+      <Section ID="Corridor-Pod1">
+        <SectionType>Space function</SectionType>
+        <OccupancyClassification>Corridor</OccupancyClassification>
+        <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>0.000000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>45.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>2066.670000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>2066.670000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+      <Section ID="Corridor-Pod2">
+        <SectionType>Space function</SectionType>
+        <OccupancyClassification>Corridor</OccupancyClassification>
+        <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>0.000000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>45.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>2066.670000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>2066.670000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+      <Section ID="Corridor-Pod3">
+        <SectionType>Space function</SectionType>
+        <OccupancyClassification>Corridor</OccupancyClassification>
+        <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>0.000000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>45.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>2066.670000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>2066.670000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+      <Section ID="Corridor-Main">
+        <SectionType>Space function</SectionType>
+        <OccupancyClassification>Corridor</OccupancyClassification>
+        <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>0.000000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>45.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>2066.670000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>2066.670000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+      <Section ID="Lobby">
+        <SectionType>Space function</SectionType>
+        <OccupancyClassification>Lobby</OccupancyClassification>
+        <OriginalOccupancyClassification>Education-Primary</OriginalOccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>0.000000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>45.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>1840.620000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>1840.620000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+      <Section ID="Whole-Building">
+        <SectionType>Whole building</SectionType>
+        <OccupancyClassification>Education-Primary</OccupancyClassification>
+        <OccupancyLevels>
+          <OccupancyLevel>
+            <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+            <OccupantQuantity>1849.000000</OccupantQuantity>
+          </OccupancyLevel>
+        </OccupancyLevels>
+        <TypicalOccupantUsages>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>45.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+          <TypicalOccupantUsage>
+            <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+            <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+          </TypicalOccupantUsage>
+        </TypicalOccupantUsages>
+        <FloorAreas>
+          <FloorArea>
+            <FloorAreaType>Gross</FloorAreaType>
+            <FloorAreaValue>73960.000000</FloorAreaValue>
+          </FloorArea>
+          <FloorArea>
+            <FloorAreaType>Conditioned</FloorAreaType>
+            <FloorAreaValue>73960.000000</FloorAreaValue>
+          </FloorArea>
+        </FloorAreas>
+      </Section>
+    </Sections>
+    
+
 
 ### 5.3 Plugs, lighting and HVAC
 
@@ -1459,23 +2021,6 @@ for section in plugloads:
 
 hvac_systems = bsync.HVACSystems()
 systems+=hvac_systems
-plugloads = [{'spaceid' : lobby_sec["ID"], 'plugload' : 4.0},
-             {'spaceid' : corridor1_sec["ID"], 'plugload' : 4.0},
-             {'spaceid' : corridor2_sec["ID"], 'plugload' : 4.0},
-             {'spaceid' : corridor3_sec["ID"], 'plugload' : 4.0},
-             {'spaceid' : corridormain_sec["ID"], 'plugload' : 4.0},
-             {'spaceid' : classroom1_sec["ID"], 'plugload' : 15.0},
-             {'spaceid' : classroom2_sec["ID"], 'plugload' : 15.0},
-             {'spaceid' : classroom3_sec["ID"], 'plugload' : 15.0},
-             {'spaceid' : computerlab_sec["ID"], 'plugload' : 20.0},
-             {'spaceid' : bath_sec["ID"], 'plugload' : 4.0},
-             {'spaceid' : cafeteria_sec["ID"], 'plugload' : 25.39},
-             {'spaceid' : gym_sec["ID"], 'plugload' : 5.0},
-             {'spaceid' : kitchen_sec["ID"], 'plugload' : 1630.3893},
-             {'spaceid' : lib_sec["ID"], 'plugload' : 15.0},
-             {'spaceid' : mech_sec["ID"], 'plugload' : 10.0},
-             {'spaceid' : office_sec["ID"], 'plugload' : 10.8},
-]
 
 # First, the VAVs
 
@@ -1576,8 +2121,78 @@ hvac_systems += pszac_1
 hvac_systems += pszac_2
 hvac_systems += pszac_3
 
-    
+pretty_print(hvac_systems)
 ```
+
+    <HVACSystems>
+      <HVACSystem ID="VAV-Pod1">
+        <PrincipalHVACSystemType>Packaged Rooftop VAV with Hot Water Reheat</PrincipalHVACSystemType>
+        <LinkedPremises>
+          <Section>
+            <LinkedSectionID IDref="Corridor-Pod1"/>
+            <LinkedSectionID IDref="Classroom-Pod1"/>
+          </Section>
+        </LinkedPremises>
+      </HVACSystem>
+      <HVACSystem ID="VAV-Pod2">
+        <PrincipalHVACSystemType>Packaged Rooftop VAV with Hot Water Reheat</PrincipalHVACSystemType>
+        <LinkedPremises>
+          <Section>
+            <LinkedSectionID IDref="Corridor-Pod2"/>
+            <LinkedSectionID IDref="Classroom-Pod2"/>
+          </Section>
+        </LinkedPremises>
+      </HVACSystem>
+      <HVACSystem ID="VAV-Pod3">
+        <PrincipalHVACSystemType>Packaged Rooftop VAV with Hot Water Reheat</PrincipalHVACSystemType>
+        <LinkedPremises>
+          <Section>
+            <LinkedSectionID IDref="Corridor-Pod3"/>
+            <LinkedSectionID IDref="Classroom-Pod3"/>
+          </Section>
+        </LinkedPremises>
+      </HVACSystem>
+      <HVACSystem ID="VAV-other">
+        <PrincipalHVACSystemType>Packaged Rooftop VAV with Hot Water Reheat</PrincipalHVACSystemType>
+        <LinkedPremises>
+          <Section>
+            <LinkedSectionID IDref="Computer-Lab"/>
+            <LinkedSectionID IDref="Corridor-Main"/>
+            <LinkedSectionID IDref="Lobby"/>
+            <LinkedSectionID IDref="Mechanical-room"/>
+            <LinkedSectionID IDref="Bathroom"/>
+            <LinkedSectionID IDref="Offices"/>
+            <LinkedSectionID IDref="Library"/>
+          </Section>
+        </LinkedPremises>
+      </HVACSystem>
+      <HVACSystem ID="PSZAC-Gym">
+        <PrincipalHVACSystemType>Packaged Rooftop Air Conditioner</PrincipalHVACSystemType>
+        <LinkedPremises>
+          <Section>
+            <LinkedSectionID IDref="Gym"/>
+          </Section>
+        </LinkedPremises>
+      </HVACSystem>
+      <HVACSystem ID="PSZAC-Kitchen">
+        <PrincipalHVACSystemType>Packaged Rooftop Air Conditioner</PrincipalHVACSystemType>
+        <LinkedPremises>
+          <Section>
+            <LinkedSectionID IDref="Kitchen"/>
+          </Section>
+        </LinkedPremises>
+      </HVACSystem>
+      <HVACSystem ID="PSZAC-Cafeteria">
+        <PrincipalHVACSystemType>Packaged Rooftop Air Conditioner</PrincipalHVACSystemType>
+        <LinkedPremises>
+          <Section>
+            <LinkedSectionID IDref="Cafeteria"/>
+          </Section>
+        </LinkedPremises>
+      </HVACSystem>
+    </HVACSystems>
+    
+
 
 ### 5.4 Current Building Measured Scenario
 Relevant Standard 211 Sections:
@@ -1592,6 +2207,7 @@ We will repeatedly come back to the concept of a Scenario, as they are core to o
 The current building measured scenario is intended to capture true measured historical data. Typically this refers to utility bill data, but AMI type data can also be captured (later).  We start off by creating a new scenario element and defining its type as follows:
 - `Scenario[ScenarioType/CurrentBuilding/CalculationMethod/Measured]`. This is an XPath expression that can be interpreted as "A Scenario that has the child elements ScenarioType/CurrentBuilding/CalculationMethod/Measured".  The XML for this would look like:
 
+```xml
 <Scenario>
     <ScenarioType>
         <CurrentBuilding>
@@ -1601,7 +2217,7 @@ The current building measured scenario is intended to capture true measured hist
         </CurrentBuilding>
     </ScenarioType>
 </Scenario>
-
+```
 
 We build this scenario up programatically as follows:
 
@@ -5677,7 +6293,7 @@ systems += foundation_sys
 
 ###### 6.2.3.4 Ceilings
 
-We define the ceilings:
+We define the ceilings. Note: this is a BSync requirement, not strictly an ASHRAE 211 requirement.
 
 
 ```python
@@ -8064,7 +8680,7 @@ We add more information to the previously-created packages of measures.
 
 ```python
 pom_led += bsync.AnnualPeakElectricityReduction(27.) #kW. From simulation
-pom_led += bsync.AnnualDemandSavingsCost(872.57) #USD. From simulation
+pom_led += bsync.AnnualDemandSavingsCost(872) #USD. From simulation
 pom_led += bsync.PackageFirstCost(8955.)
 pom_led += bsync.MVCost(0.)
 pom_led += bsync.OMCostAnnualSavings(1513.22) # T8 have a lifespan of 8 years, at $3 a piece and LEDs 16 years at $100/25 pieces. Counting 1mn/bulb @ $40/hour for replacing them.

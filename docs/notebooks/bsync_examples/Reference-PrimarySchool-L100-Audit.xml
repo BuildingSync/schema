@@ -1014,26 +1014,6 @@
           </TechnologyCategories>
           <LongDescription>This measure is designed to replace all fluorescent bulbs with LEDs</LongDescription>
         </Measure>
-        <Measure ID="Measure-VSDs">
-          <TypeOfMeasure>
-            <ModificationRetrocommissions>
-              <ModificationRetrocommissioning>
-                <ExistingSystemAffected IDref="PSZAC-Gym"/>
-                <ExistingSystemAffected IDref="PSZAC-Kitchen"/>
-                <ExistingSystemAffected IDref="PSZAC-Cafeteria"/>
-              </ModificationRetrocommissioning>
-            </ModificationRetrocommissions>
-          </TypeOfMeasure>
-          <SystemCategoryAffected>Fan</SystemCategoryAffected>
-          <TechnologyCategories>
-            <TechnologyCategory>
-              <OtherElectricMotorsAndDrives>
-                <MeasureName>Add VSD motor controller</MeasureName>
-              </OtherElectricMotorsAndDrives>
-            </TechnologyCategory>
-          </TechnologyCategories>
-          <LongDescription>This measure is designed to retrofit all RTU fans with a VSD</LongDescription>
-        </Measure>
       </Measures>
       <Reports>
         <Report ID="Report-L1-Audit">
@@ -1871,53 +1851,6 @@
                   <ReferenceCase IDref="Scenario-1"/>
                   <MeasureIDs>
                     <MeasureID IDref="Measure-LEDs"/>
-                  </MeasureIDs>
-                  <CostCategory>Capital</CostCategory>
-                  <SimpleImpactAnalysis>
-                    <ImpactOnOccupantComfort>Low</ImpactOnOccupantComfort>
-                    <EstimatedCost>Medium</EstimatedCost>
-                    <EstimatedAnnualSavings>Medium</EstimatedAnnualSavings>
-                    <EstimatedROI>High</EstimatedROI>
-                    <Priority>Medium</Priority>
-                  </SimpleImpactAnalysis>
-                </PackageOfMeasures>
-              </ScenarioType>
-              <LinkedPremises>
-                <Building>
-                  <LinkedBuildingID IDref="Building-Primary-School-Prototype"/>
-                </Building>
-              </LinkedPremises>
-            </Scenario>
-            <Scenario ID="Scenario-POM-VSDs">
-              <ScenarioType>
-                <PackageOfMeasures ID="POM-VSDs">
-                  <ReferenceCase IDref="Scenario-1"/>
-                  <MeasureIDs>
-                    <MeasureID IDref="Measure-VSDs"/>
-                  </MeasureIDs>
-                  <CostCategory>Capital</CostCategory>
-                  <SimpleImpactAnalysis>
-                    <ImpactOnOccupantComfort>Low</ImpactOnOccupantComfort>
-                    <EstimatedCost>Medium</EstimatedCost>
-                    <EstimatedAnnualSavings>Medium</EstimatedAnnualSavings>
-                    <EstimatedROI>High</EstimatedROI>
-                    <Priority>Medium</Priority>
-                  </SimpleImpactAnalysis>
-                </PackageOfMeasures>
-              </ScenarioType>
-              <LinkedPremises>
-                <Building>
-                  <LinkedBuildingID IDref="Building-Primary-School-Prototype"/>
-                </Building>
-              </LinkedPremises>
-            </Scenario>
-            <Scenario ID="Scenario-POM-LEDs-VSDs">
-              <ScenarioType>
-                <PackageOfMeasures ID="POM-LEDs-VSDs">
-                  <ReferenceCase IDref="Scenario-1"/>
-                  <MeasureIDs>
-                    <MeasureID IDref="Measure-LEDs"/>
-                    <MeasureID IDref="Measure-VSDs"/>
                   </MeasureIDs>
                   <CostCategory>Capital</CostCategory>
                   <SimpleImpactAnalysis>
