@@ -2208,7 +2208,7 @@ scenarios += pom_sc_3
 
 # Validation
 
-So did what we just went through actually work? Do we have the required information for a Level 1 Audit? Head over to the [use case validator](https://buildingsync.net/validator) to find out!
+Now we need to check if everything we went through actually works? Do we have the required information for a Level 2 Audit? Head over to the [use case validator](https://buildingsync.net/validator) to find out!
 
 ![Selection Tool](./img/UC-Selection.png)
 
@@ -2220,17 +2220,7 @@ bsync_dump(root, file='example-smalloffice-level2.xml')
 ```
 
 
-
-
-    True
-
-
-
 You should see a green check mark for the L200 AUDIT use case!
 
 ![Valid](./img/valid_level2.png)
 
-
-```python
-
-```
