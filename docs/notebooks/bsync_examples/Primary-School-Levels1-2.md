@@ -93,9 +93,7 @@ xmlargs = {
     'xsi:SchemaLocation' : "http://buildingsync.net/schemas/bedes-auc/2019 ../../../BuildingSync.xsd"
 }
 
-# xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-    # xsi:SchemaLocation = "http://buildingsync.net/schemas/bedes-auc/2019 ../../../BuildingSync.xsd"
-root = bsync.BuildingSync()#**kwargs=xmlargs)
+root = bsync.BuildingSync()
 # We add facilities
 facs = bsync.Facilities()
 # We add a single facility within our facilities. Here, we need to define an ID for the facility
@@ -663,7 +661,7 @@ lib_sec += lib_occ_levels
 ```python
 # create a new section
 kitchen_sec = bsync.Sections.Section(ID="Kitchen")
-kitchen_sec += bsync.SectionType('Space function')
+kitchen_sec += bsync.SectionType("Space function")
 kitchen_sec += bsync.OccupancyClassification("Kitchen")
 kitchen_sec += bsync.OriginalOccupancyClassification("Education-Primary")
 sections += kitchen_sec
@@ -716,7 +714,7 @@ kitchen_sec += kitchen_occ_levels
 ```python
 # create a new section
 gym_sec = bsync.Sections.Section(ID="Gym")
-gym_sec += bsync.SectionType('Space function')
+gym_sec += bsync.SectionType("Space function")
 gym_sec += bsync.OccupancyClassification("Sport play area")
 gym_sec += bsync.OriginalOccupancyClassification("Education-Primary")
 sections += gym_sec
@@ -769,7 +767,7 @@ gym_sec += gym_occ_levels
 ```python
 # create a new section
 cafeteria_sec = bsync.Sections.Section(ID="Cafeteria")
-cafeteria_sec += bsync.SectionType('Space function')
+cafeteria_sec += bsync.SectionType("Space function")
 cafeteria_sec += bsync.OccupancyClassification("Dining area")
 cafeteria_sec += bsync.OriginalOccupancyClassification("Education-Primary")
 sections += cafeteria_sec
@@ -822,7 +820,7 @@ cafeteria_sec += cafeteria_occ_levels
 ```python
 # create a new section
 bath_sec = bsync.Sections.Section(ID="Bathroom")
-bath_sec += bsync.SectionType('Space function')
+bath_sec += bsync.SectionType("Space function")
 bath_sec += bsync.OccupancyClassification("Restroom")
 bath_sec += bsync.OriginalOccupancyClassification("Education-Primary")
 sections += bath_sec
@@ -875,7 +873,7 @@ bath_sec += bath_occ_levels
 ```python
 # create a new section
 computerlab_sec = bsync.Sections.Section(ID="Computer-Lab")
-computerlab_sec += bsync.SectionType('Space function')
+computerlab_sec += bsync.SectionType("Space function")
 computerlab_sec += bsync.OccupancyClassification("Computer lab")
 computerlab_sec += bsync.OriginalOccupancyClassification("Education-Primary")
 sections += computerlab_sec
@@ -930,7 +928,7 @@ Here, we need to group the classrooms depending on which HVAC unit serves them. 
 ```python
 # create a new section
 classroom1_sec = bsync.Sections.Section(ID="Classroom-Pod1")
-classroom1_sec += bsync.SectionType('Space function')
+classroom1_sec += bsync.SectionType("Space function")
 classroom1_sec += bsync.OccupancyClassification("Classroom")
 classroom1_sec += bsync.OriginalOccupancyClassification("Education-Primary")
 sections += classroom1_sec
@@ -981,7 +979,7 @@ classroom1_sec += classroom1_occ_levels
 ```python
 # create a new section
 classroom2_sec = bsync.Sections.Section(ID="Classroom-Pod2")
-classroom2_sec += bsync.SectionType('Space function')
+classroom2_sec += bsync.SectionType("Space function")
 classroom2_sec += bsync.OccupancyClassification("Classroom")
 classroom2_sec += bsync.OriginalOccupancyClassification("Education-Primary")
 sections += classroom2_sec
@@ -1032,7 +1030,7 @@ classroom2_sec += classroom2_occ_levels
 ```python
 # create a new section
 classroom3_sec = bsync.Sections.Section(ID="Classroom-Pod3")
-classroom3_sec += bsync.SectionType('Space function')
+classroom3_sec += bsync.SectionType("Space function")
 classroom3_sec += bsync.OccupancyClassification("Classroom")
 classroom3_sec += bsync.OriginalOccupancyClassification("Education-Primary")
 sections += classroom3_sec
@@ -1087,7 +1085,7 @@ We need to do the same for the 4 corridor spaces, as each is serviced by a diffe
 ```python
 # create a new section
 corridor1_sec = bsync.Sections.Section(ID="Corridor-Pod1")
-corridor1_sec += bsync.SectionType('Space function')
+corridor1_sec += bsync.SectionType("Space function")
 corridor1_sec += bsync.OccupancyClassification("Corridor")
 corridor1_sec += bsync.OriginalOccupancyClassification("Education-Primary")
 sections += corridor1_sec
@@ -1138,7 +1136,7 @@ corridor1_sec += corridor1_occ_levels
 ```python
 # create a new section
 corridor2_sec = bsync.Sections.Section(ID="Corridor-Pod2")
-corridor2_sec += bsync.SectionType('Space function')
+corridor2_sec += bsync.SectionType("Space function")
 corridor2_sec += bsync.OccupancyClassification("Corridor")
 corridor2_sec += bsync.OriginalOccupancyClassification("Education-Primary")
 sections += corridor2_sec
@@ -1189,7 +1187,7 @@ corridor2_sec += corridor2_occ_levels
 ```python
 # create a new section
 corridor3_sec = bsync.Sections.Section(ID="Corridor-Pod3")
-corridor3_sec += bsync.SectionType('Space function')
+corridor3_sec += bsync.SectionType("Space function")
 corridor3_sec += bsync.OccupancyClassification("Corridor")
 corridor3_sec += bsync.OriginalOccupancyClassification("Education-Primary")
 sections += corridor3_sec
@@ -1240,7 +1238,7 @@ corridor3_sec += corridor3_occ_levels
 ```python
 # create a new section
 corridormain_sec = bsync.Sections.Section(ID="Corridor-Main")
-corridormain_sec += bsync.SectionType('Space function')
+corridormain_sec += bsync.SectionType("Space function")
 corridormain_sec += bsync.OccupancyClassification("Corridor")
 corridormain_sec += bsync.OriginalOccupancyClassification("Education-Primary")
 sections += corridormain_sec
@@ -1293,7 +1291,7 @@ corridormain_sec += corridormain_occ_levels
 ```python
 # create a new section
 lobby_sec = bsync.Sections.Section(ID="Lobby")
-lobby_sec += bsync.SectionType('Space function')
+lobby_sec += bsync.SectionType("Space function")
 lobby_sec += bsync.OccupancyClassification("Lobby")
 lobby_sec += bsync.OriginalOccupancyClassification("Education-Primary")
 sections += lobby_sec
@@ -1347,7 +1345,7 @@ Bsync requires that we specify a whole building section, so we do just that.
 ```python
 # create a new section
 wb_sec = bsync.Sections.Section(ID="Whole-Building")
-wb_sec += bsync.SectionType('Whole building')
+wb_sec += bsync.SectionType("Space function")
 wb_sec += bsync.OccupancyClassification("Education-Primary")
 #wb_sec += bsync.OriginalOccupancyClassification("Education-Primary")
 sections += wb_sec
