@@ -62,6 +62,6 @@ jobs:
             
             assertExactlyOneOf(BREAKING_LABELS)
             if (!labelNames.some(label => label.startsWith('Schema:'))) {
-              throw `PR is missing a scoping label, i.e. a label starting with "Schema: ..."`
+              throw `PR is missing a scoping label, i.e., a label starting with "Schema: ..." or "Schema: No Changes"`
             }
             console.log(VALID_LABELS_MESSAGE)
