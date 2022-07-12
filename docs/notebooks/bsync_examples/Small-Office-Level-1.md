@@ -41,17 +41,17 @@ import eeweather
 
 def pretty_print(element):
     """Simple printing of an xml element from the bsync library"""
-    print(etree.tostring(element.toxml(), pretty_print=True).decode('utf-8'))
+    print(etree.tostring(element.toxml(), pretty_print=True).decode("utf-8"))
     
 def bsync_dump(root_element, file="example1.xml"):
     """Write the element to the specified file"""
     doctype = '<?xml version="1.0" encoding="UTF-8"?>'
     as_etree = root_element.toxml()
+    # Have to manually set the declaration header right now
     as_etree.set("xmlns", "http://buildingsync.net/schemas/bedes-auc/2019")
-    # Have to manually set the version right now. Align release of bsyncpy to this version.
     as_etree.set("version", "2.4.0")  
     output = etree.tostring(as_etree, doctype=doctype, pretty_print=True)
-    with open(file, 'wb+') as f:
+    with open(file, "wb+") as f:
         f.write(output)
         return True
 ```
@@ -93,7 +93,6 @@ Let's start by defining a building. In this exercise, we will learn about some B
     - A Site is everything in and around a group of Buildings. This might be two Buildings that are connected via a tunnel, etc.
     - ** Most common is just to have a single Building
 
-
 ### Primary BuildingSync Structural Elements
 We start by creating the primary structure of a BuildingSync document. We introduced `Facilities`, `Sites`, and `Buildings`, but there are a few additional:
 - `Sections` are subportions of a `Building`. Think of a mixed-use commercial building with retail and office space, each of these would become a section. For those familiar with the ASHRAE 211 Normative Spreadsheet, a `Section` is analagous to a column in the `All - Space Functions` sheet.
@@ -127,7 +126,7 @@ r1 = bsync.Report(
             bsync.LinkedBuildingID(IDref=b1["ID"])
         )
     ),
-    ID='Report-L1-Audit')
+    ID="Report-L1-Audit")
 scenarios = bsync.Scenarios()
 
 # We now combine these and pretty print the result for easy viewing of what we just made
@@ -186,8 +185,6 @@ pretty_print(root)
         </Facility>
       </Facilities>
     </BuildingSync>
-    
-
 
 #### Building Description
 Relevant Standard 211 Sections:
@@ -198,7 +195,7 @@ This section of Standard 211 asks for lots of detail. We walk through the compon
 
 ```python
 # 6.1.1.1.a - name
-b1 += bsync.PremisesName('Small Office Prototype')
+b1 += bsync.PremisesName("Small Office Prototype")
 
 # 6.1.1.1.m 
 b1 += bsync.PremisesNotes("Here we record general problems / issues identified in a walkthrough survey.")
@@ -308,8 +305,6 @@ pretty_print(root)
         </Facility>
       </Facilities>
     </BuildingSync>
-    
-
 
 Continuing with the information required by 6.1.1.1, we define additional content that doesn't sit as direct child elements of the Building. This includes:
 - Contacts. Key contacts (1 auditor and 1 owner) __must be linked__ back to the building, even though they are not in the Building subtree:
@@ -326,41 +321,41 @@ Continuing with the information required by 6.1.1.1, we define additional conten
 ```python
 # 6.1.1.1.b - Owner and auditor contact info
 c1 = bsync.Contact(
-    bsync.ContactName('The dude'),
+    bsync.ContactName("The dude"),
     bsync.ContactCompany("Some big company"),
     bsync.ContactRoles(
-        bsync.ContactRole('Owner')
+        bsync.ContactRole("Owner")
     ),
     bsync.ContactEmailAddresses(
         bsync.ContactEmailAddress(
             bsync.EmailAddress("the.dude@somebigco.net")
         )
     ),
-    ID='Contact-Owner'
+    ID="Contact-Owner"
 )
 c2 = bsync.Contact(
-    bsync.ContactName('The lady'),
+    bsync.ContactName("The lady"),
     bsync.ContactCompany("Auditeers"),
     bsync.ContactRoles(
-        bsync.ContactRole('Energy Auditor')
+        bsync.ContactRole("Energy Auditor")
     ),
     bsync.ContactEmailAddresses(
         bsync.ContactEmailAddress(
             bsync.EmailAddress("the.lady@the-three-auditeers.com")
         )
     ),
-    ID='Contact-Auditor'
+    ID="Contact-Auditor"
 )
 # We add the two contacts to the correct parent
 contacts += c1
 contacts += c2
 
-# We 'assign' (link) the owner as the primary contact for the building, though this
+# We "assign" (link) the owner as the primary contact for the building, though this
 # could be an owners rep or some other contact type.
-b1 += bsync.PrimaryContactID(IDref=c1['ID'])
+b1 += bsync.PrimaryContactID(IDref=c1["ID"])
 
 # We link the auditor contact to the report
-r1 += bsync.AuditorContactID(IDref=c2['ID'])
+r1 += bsync.AuditorContactID(IDref=c2["ID"])
 ```
 
 ### Space Function Analysis
@@ -377,7 +372,7 @@ The Small Office, as its name suggests, is just an office space, and therefore w
 ```python
 # create a new section
 section = bsync.Sections.Section(ID="Section-1")
-section += bsync.SectionType('Space function')
+section += bsync.SectionType("Space function")
 section += bsync.OccupancyClassification("Office")
 section += bsync.OriginalOccupancyClassification("Office")
 sections += section
@@ -391,8 +386,6 @@ pretty_print(sections)
         <OriginalOccupancyClassification>Office</OriginalOccupancyClassification>
       </Section>
     </Sections>
-    
-
 
 Section 5.3.4 lays out specific requirements to convey for each space function. These include:
 - floor area requirements
@@ -711,8 +704,6 @@ pretty_print(root)
         </Facility>
       </Facilities>
     </BuildingSync>
-    
-
 
 ### Current Building Measured Scenario
 Relevant Standard 211 Sections:
@@ -752,7 +743,7 @@ cbms = bsync.Scenario(
         )
     )
 )
-cbms['ID'] = 'Scenario-1'
+cbms["ID"] = "Scenario-1"
 
 # add the scenario to the audit report and scenarios parent grouping
 scenarios += cbms
@@ -839,16 +830,16 @@ In BuildingSync land, we need to declare an resource use for each resource type.
 all_ru = bsync.ResourceUses()
 
 # create a resource use for electricity, units of kWh, all end uses
-# we also add info about the 'peak' units
+# we also add info about the "peak" units
 # we also connect it up to a utility
 elec_ru = bsync.ResourceUse(
-    bsync.EnergyResource('Electricity'),
+    bsync.EnergyResource("Electricity"),
     bsync.ResourceUseNotes("This is required for L1 to document irregularities in monthly energy patterns (Std 211 6.1.2.1.j). No irregularities found."),
-    bsync.ResourceUnits('kWh'),
-    bsync.PeakResourceUnits('kW'),
-    bsync.EndUse('All end uses'),
+    bsync.ResourceUnits("kWh"),
+    bsync.PeakResourceUnits("kW"),
+    bsync.EndUse("All end uses"),
     bsync.UtilityIDs(
-        bsync.UtilityID(IDref=elec_ut['ID'])
+        bsync.UtilityID(IDref=elec_ut["ID"])
     )
 )
 
@@ -879,12 +870,12 @@ ghg_ru = bsync.ResourceUse(
 # create a resource use for natural gas, units of MMBtu, all end uses
 # additional connect it up to the utility
 ng_ru = bsync.ResourceUse(
-    bsync.EnergyResource('Natural gas'),
+    bsync.EnergyResource("Natural gas"),
     bsync.ResourceUseNotes("No irregularities in monthly energy consumption found."),
-    bsync.ResourceUnits('MMBtu'),
-    bsync.EndUse('All end uses'),
+    bsync.ResourceUnits("MMBtu"),
+    bsync.EndUse("All end uses"),
     bsync.UtilityIDs(
-        bsync.UtilityID(IDref=ng_ut['ID'])
+        bsync.UtilityID(IDref=ng_ut["ID"])
     )
 )
 
@@ -899,9 +890,9 @@ all_ru += ghg_ru
 all_ru += ng_ru
 
 # we can still add information to the child elements
-elec_ru['ID'] = 'ResourceUse-Electricity'
-ghg_ru['ID'] = 'ResourceUse-GreenhouseGasEmissions'
-ng_ru['ID'] = 'ResourceUse-Natural-gas'
+elec_ru["ID"] = "ResourceUse-Electricity"
+ghg_ru["ID"] = "ResourceUse-GreenhouseGasEmissions"
+ng_ru["ID"] = "ResourceUse-Natural-gas"
 
 # ResourceUses are child elements of a specific scenario:
 cbms += all_ru
@@ -918,17 +909,17 @@ ts_data = bsync.TimeSeriesData()
 # Create a new TimeSeries element for Electricity
 jan_elec = bsync.TimeSeries(ID="TS-Example")
 
-# a ReadingType of 'Total' signifies a summation / integral over the time period specified
-jan_elec += bsync.ReadingType('Total')
+# a ReadingType of "Total" signifies a summation / integral over the time period specified
+jan_elec += bsync.ReadingType("Total")
 
-# A TimeSeriesReadingQuantity isn't necessary for timeseries specific to a ResourceUse since we will 'point back to'
+# A TimeSeriesReadingQuantity isn"t necessary for timeseries specific to a ResourceUse since we will "point back to"
 # the resource use later, however, verbosity never hurts
-jan_elec += bsync.TimeSeriesReadingQuantity('Energy')
+jan_elec += bsync.TimeSeriesReadingQuantity("Energy")
 
 # Add start and end timestamps. XSD datatypes are translated into python datatypes
 # within the bsync package. For example, the xs:dateTime datatype, we need to provide python datetime object
 
-# this_will_fail = bsync.TimeSeriesData.TimeSeries.StartTimestamp('2019-01-01T00:00:00')
+# this_will_fail = bsync.TimeSeriesData.TimeSeries.StartTimestamp("2019-01-01T00:00:00")
 
 # we need to do something like this
 start_dt = datetime(2019, 1, 1, 0, 0)
@@ -944,9 +935,9 @@ jan_elec += bsync.EndTimestamp(end_dt)
 # The value should use the same units as declared by the ResourceUse/ResourceUnits
 jan_elec += bsync.IntervalReading(6792.89)
 
-# finally, we need to convey to which resource this timeseries element is 'connected',
+# finally, we need to convey to which resource this timeseries element is "connected",
 # i.e. the value represented by this reading conveys information for the Electricity resource use
-jan_elec += bsync.ResourceUseID(IDref=elec_ru['ID'])
+jan_elec += bsync.ResourceUseID(IDref=elec_ru["ID"])
 
 # and we add this as a child to the TimeSeriesData element
 ts_data += jan_elec
@@ -963,69 +954,6 @@ pretty_print(ts_data)
         <ResourceUseID IDref="ResourceUse-Electricity"/>
       </TimeSeries>
     </TimeSeriesData>
-    
-
-
-
-```python
-# Create a new TimeSeries element now for GHG Emissions
-jan_ghg_elec = bsync.TimeSeries(ID="TS-ResourceUse-MtCO2e-1")
-
-# a ReadingType of 'Total' signifies a summation / integral over the time period specified
-jan_ghg_elec += bsync.ReadingType('Total')
-
-# A TimeSeriesReadingQuantity isn't necessary for timeseries specific to a ResourceUse since we will 'point back to'
-# the resource use later, however, verbosity never hurts
-jan_ghg_elec += bsync.TimeSeriesReadingQuantity('Greenhouse Gas Emissions')
-
-# Add start and end timestamps. XSD datatypes are translated into python datatypes
-# within the bsync package. For example, the xs:dateTime datatype, we need to provide python datetime object
-
-# this_will_fail = bsync.TimeSeriesData.TimeSeries.StartTimestamp('2019-01-01T00:00:00')
-
-# we need to do something like this
-start_dt = datetime(2019, 1, 1, 0, 0)
-end_dt = datetime(2019, 2, 1, 0, 0)
-
-# in bsync, a StartTimetamp is inclusive and an EndTimestamp is exclusive
-# the interval notation for the above would be like:
-# [ start, end ) 
-jan_ghg_elec += bsync.StartTimestamp(start_dt)
-jan_ghg_elec += bsync.EndTimestamp(end_dt)
-
-# next, we convey the IntervalReading, i.e. the value.
-# The value should use the same units as declared by the ResourceUse/ResourceUnits
-jan_ghg_elec += bsync.IntervalReading(250.0)
-
-# finally, we need to convey to which resource this timeseries element is 'connected',
-# i.e. the value represented by this reading conveys information for the GHG Emissions resource use
-jan_ghg_elec += bsync.ResourceUseID(IDref=elec_ru['ID'])
-
-# and we add this as a child to the TimeSeriesData element
-ts_data += jan_ghg_elec
-pretty_print(ts_data)
-```
-
-    <TimeSeriesData>
-      <TimeSeries ID="TS-Example">
-        <ReadingType>Total</ReadingType>
-        <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
-        <StartTimestamp>2019-01-01T00:00:00</StartTimestamp>
-        <EndTimestamp>2019-02-01T00:00:00</EndTimestamp>
-        <IntervalReading>6792.890000</IntervalReading>
-        <ResourceUseID IDref="ResourceUse-Electricity"/>
-      </TimeSeries>
-      <TimeSeries ID="TS-ResourceUse-MtCO2e-1">
-        <ReadingType>Total</ReadingType>
-        <TimeSeriesReadingQuantity>Greenhouse Gas Emissions</TimeSeriesReadingQuantity>
-        <StartTimestamp>2019-01-01T00:00:00</StartTimestamp>
-        <EndTimestamp>2019-02-01T00:00:00</EndTimestamp>
-        <IntervalReading>250.000000</IntervalReading>
-        <ResourceUseID IDref="ResourceUse-Electricity"/>
-      </TimeSeries>
-    </TimeSeriesData>
-    
-
 
 #### All TimeSeries Data
 The following cell simply performs the following:
@@ -1050,7 +978,7 @@ monthly_ng_cost = [30.44, 21.41, 3.10, 2.14, 0.11, 0.00, 0.00, 0.00, 0.00, 0.05,
 elec_ids = []
 ghg_ids = []
 ng_ids = []
-def create_monthly(values, resource_use_id, start_year, tsrq='Energy', rt='Total'):
+def create_monthly(values, resource_use_id, start_year, tsrq="Energy", rt="Total"):
     """
     tsrq: One of Energy, Power, Cost, Greenhouse Gas Emissions
     rt: One of Total, Peak, Cost
@@ -1068,7 +996,7 @@ def create_monthly(values, resource_use_id, start_year, tsrq='Energy', rt='Total
         start_dt = datetime(start_year, start_month, 1)
         end_dt = datetime(end_year, end_month, 1)
 
-        if tsrq == 'Greenhouse Gas Emissions':
+        if tsrq == "Greenhouse Gas Emissions":
             my_id = f"TS-{resource_use_id}-{start_month}"
         else:
             my_id = f"TS-{resource_use_id}-{tsrq}-{start_month}"
@@ -1084,34 +1012,33 @@ def create_monthly(values, resource_use_id, start_year, tsrq='Energy', rt='Total
         )
         monthly.append(ts)
         
-        if tsrq == 'Greenhouse Gas Emissions':
+        if tsrq == "Greenhouse Gas Emissions":
             ghg_ids.append(my_id)
-        if tsrq == 'Energy':
-            if 'Electricity' in resource_use_id:
+        if tsrq == "Energy":
+            if "Electricity" in resource_use_id:
                 elec_ids.append(my_id)
             else:
                 ng_ids.append(my_id)
     return monthly
     
-elec_ts = create_monthly(monthly_elec, elec_ru['ID'], 2019)
-ghg_ts = create_monthly(monthly_ghg, ghg_ru['ID'], 2019, tsrq="Greenhouse Gas Emissions")
-ng_ts = create_monthly(monthly_ng, ng_ru['ID'], 2019)
-elec_peak_ts = create_monthly(monthly_elec_peak, elec_ru['ID'], 2019, 'Power', 'Peak')
+elec_ts = create_monthly(monthly_elec, elec_ru["ID"], 2019)
+ghg_ts = create_monthly(monthly_ghg, ghg_ru["ID"], 2019, tsrq="Greenhouse Gas Emissions")
+ng_ts = create_monthly(monthly_ng, ng_ru["ID"], 2019)
+elec_peak_ts = create_monthly(monthly_elec_peak, elec_ru["ID"], 2019, "Power", "Peak")
 
-elec_cost_ts = create_monthly(monthly_elec_cost, elec_ru['ID'], 2019, 'Cost', 'Cost')
-ng_cost_ts = create_monthly(monthly_ng_cost, ng_ru['ID'], 2019, 'Cost', 'Cost')
+elec_cost_ts = create_monthly(monthly_elec_cost, elec_ru["ID"], 2019, "Cost", "Cost")
+ng_cost_ts = create_monthly(monthly_ng_cost, ng_ru["ID"], 2019, "Cost", "Cost")
  
 def add_to_full(months, full):
     for month in months:
         full += month
 
 add_to_full(elec_ts, full_ts_data)
-add_to_full(ghg_ts, full_ts_data)
+#add_to_full(ghg_ts, full_ts_data)
 add_to_full(ng_ts, full_ts_data)
 add_to_full(elec_peak_ts, full_ts_data)
 add_to_full(elec_cost_ts, full_ts_data)
 add_to_full(ng_cost_ts, full_ts_data)
-
     
 cbms += full_ts_data
 ```
@@ -1351,7 +1278,7 @@ Now that the measures have been added, we create three potential POM scenarios, 
 pom_sc_1 = bsync.Scenario(
     bsync.Scenario.ScenarioType(
         bsync.PackageOfMeasures(
-            bsync.ReferenceCase(IDref=cbms['ID']),
+            bsync.ReferenceCase(IDref=cbms["ID"]),
             bsync.MeasureIDs(
                 bsync.MeasureID(IDref="Measure-LEDs")
             ),
@@ -1372,7 +1299,7 @@ pom_sc_1 = bsync.Scenario(
 pom_sc_2 = bsync.Scenario(
     bsync.Scenario.ScenarioType(
         bsync.PackageOfMeasures(
-            bsync.ReferenceCase(IDref=cbms['ID']),
+            bsync.ReferenceCase(IDref=cbms["ID"]),
             bsync.MeasureIDs(
                 bsync.MeasureID(IDref="Measure-VSDs")
             ),
@@ -1393,7 +1320,7 @@ pom_sc_2 = bsync.Scenario(
 pom_sc_3 = bsync.Scenario(
     bsync.Scenario.ScenarioType(
         bsync.PackageOfMeasures(
-            bsync.ReferenceCase(IDref=cbms['ID']),
+            bsync.ReferenceCase(IDref=cbms["ID"]),
             bsync.MeasureIDs(
                 bsync.MeasureID(IDref="Measure-LEDs"),
                 bsync.MeasureID(IDref="Measure-VSDs")
@@ -1415,7 +1342,7 @@ pom_sc_3 = bsync.Scenario(
 pom_sc_4 = bsync.Scenario(
     bsync.Scenario.ScenarioType(
         bsync.PackageOfMeasures(
-            bsync.ReferenceCase(IDref=cbms['ID']),
+            bsync.ReferenceCase(IDref=cbms["ID"]),
             bsync.MeasureIDs(
                 bsync.MeasureID(IDref="Measure-LEDs"),
                 bsync.MeasureID(IDref="Measure-VSDs")
@@ -1452,11 +1379,8 @@ Use the line below to write the file to disk
 
 
 ```python
-bsync_dump(root, file='example-smalloffice-level1.xml')
+bsync_dump(root, file="example-smalloffice-level1.xml")
 ```
-
-
-
 
     True
 
