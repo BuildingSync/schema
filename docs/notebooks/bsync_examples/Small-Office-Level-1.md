@@ -53,7 +53,7 @@ def bsync_dump(root_element, file="example1.xml"):
     output = etree.tostring(as_etree, doctype=doctype, pretty_print=True)
     with open(file, "wb+") as f:
         f.write(output)
-        return True
+
 ```
 
 # Starting the Audit
@@ -185,6 +185,8 @@ pretty_print(root)
         </Facility>
       </Facilities>
     </BuildingSync>
+    
+    
 
 #### Building Description
 Relevant Standard 211 Sections:
@@ -305,6 +307,8 @@ pretty_print(root)
         </Facility>
       </Facilities>
     </BuildingSync>
+    
+    
 
 Continuing with the information required by 6.1.1.1, we define additional content that doesn't sit as direct child elements of the Building. This includes:
 - Contacts. Key contacts (1 auditor and 1 owner) __must be linked__ back to the building, even though they are not in the Building subtree:
@@ -386,6 +390,8 @@ pretty_print(sections)
         <OriginalOccupancyClassification>Office</OriginalOccupancyClassification>
       </Section>
     </Sections>
+    
+    
 
 Section 5.3.4 lays out specific requirements to convey for each space function. These include:
 - floor area requirements
@@ -704,6 +710,8 @@ pretty_print(root)
         </Facility>
       </Facilities>
     </BuildingSync>
+    
+    
 
 ### Current Building Measured Scenario
 Relevant Standard 211 Sections:
@@ -954,6 +962,8 @@ pretty_print(ts_data)
         <ResourceUseID IDref="ResourceUse-Electricity"/>
       </TimeSeries>
     </TimeSeriesData>
+    
+    
 
 #### All TimeSeries Data
 The following cell simply performs the following:
@@ -1034,7 +1044,7 @@ def add_to_full(months, full):
         full += month
 
 add_to_full(elec_ts, full_ts_data)
-#add_to_full(ghg_ts, full_ts_data)
+add_to_full(ghg_ts, full_ts_data)
 add_to_full(ng_ts, full_ts_data)
 add_to_full(elec_peak_ts, full_ts_data)
 add_to_full(elec_cost_ts, full_ts_data)
@@ -1125,13 +1135,17 @@ bench_sc = bsync.Scenario(
             ID="AllResourceTotal-Benchmark"
         )
     ),
-    
+    bsync.LinkedPremises(
+        bsync.LinkedPremises.Building(
+            bsync.LinkedBuildingID(IDref=b1["ID"])
+        )
+    ),
     ID="Scenario-Benchmark"
 )
 bench_st = bsync.Scenario.ScenarioType()
 bench = bsync.Benchmark(
     bsync.BenchmarkType(
-        bsync.PortfolioManager(
+        bsync.BenchmarkType.PortfolioManager(
             bsync.PMBenchmarkDate(date(2021, 3, 24))
         )
     ),
@@ -1381,10 +1395,6 @@ Use the line below to write the file to disk
 ```python
 bsync_dump(root, file="example-smalloffice-level1.xml")
 ```
-
-    True
-
-
 
 You should see a green check mark for the L100 AUDIT use case!
 
