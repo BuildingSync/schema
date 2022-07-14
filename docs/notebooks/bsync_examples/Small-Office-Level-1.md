@@ -53,7 +53,6 @@ def bsync_dump(root_element, file="example1.xml"):
     output = etree.tostring(as_etree, doctype=doctype, pretty_print=True)
     with open(file, "wb+") as f:
         f.write(output)
-
 ```
 
 # Starting the Audit
@@ -121,6 +120,7 @@ utilities = bsync.Utilities()
 
 # We link the entire report to the building
 r1 = bsync.Report(
+    bsync.ASHRAEAuditLevel("Level 1: Walk-through"),
     bsync.LinkedPremisesOrSystem(
         bsync.LinkedPremisesOrSystem.Building(
             bsync.LinkedBuildingID(IDref=b1["ID"])
@@ -1199,7 +1199,7 @@ target_st += target
 Relevant Standard 211 Sections:
 - 6.1.5 & 6.1.6
 
-Although not explicitly called out in Standard 211, the current building modeled scenario is mostly implied as part of a Level 2 energy audit when doing more detailed savings estimates / calculations for potential measure(s) implementation. This is because when an energy / cost savings claim is made for a package of measures scenario, it needs to be _in reference_ to something, i.e. a current building modeled scenario (also often referred to as a baseline modeled scenario). The baseline modeled scenario should be interpreted as the expected performance of your building on an average or typical year. This is assuming the baseline modeled scenario is performed with TMY3 data, although they are likely first calibrated with AMY data.
+Although not explicitly called out in Standard 211, the current building modeled scenario is mostly implied as part of a Level 2 energy audit when doing more detailed savings estimates and calculations for potential energy conservation measure. This is because when an energy and cost savings claim is made for a package of measures scenario, it needs to be _in reference_ to something, i.e. a current building modeled scenario (also often referred to as a baseline modeled scenario). The baseline modeled scenario should be interpreted as the expected performance of your building on an average or typical year. This is assuming the baseline modeled scenario is performed with TMY data, although they are likely first calibrated with AMY data.
 
 Since we are already using an energy model for this example and providing details for implementing a Standard 211 Level 1 energy audit, we will not go into this too much at this point. It should be addressed in future examples.
 
@@ -1208,17 +1208,17 @@ Relevant Standard 211 Sections:
 - 6.1.5 & 6.1.6
 
 Standard 211 breaks out recommendations into low / no-cost (6.1.5) or capital (6.1.6). On the BuildingSync side, we don't change the data modeling between these two situations significantly, we simply change the value of the `Scenario/ScenarioType/PackageOfMeasures/CostCategory` element, while the majority of other features remain the same.
-- Low / no-cost scenario: `CostCategory>Low-Cost or No-Cost</CostCategory>`
-- Capital scenario: `CostCategory>Capital</CostCategory>`
+- Low / no-cost scenario: `<CostCategory>Low-Cost or No-Cost</CostCategory>`
+- Capital scenario: `<CostCategory>Capital</CostCategory>`
 
 For Level 1 audits, since the reporting only requires estimated costs, savings, and ROI, we don't specifically need a current building modeled scenario to be our reference case.
 
 #### Measures
 
-Packages of measures first require measures to be instantiated inside the BuildingSync document in order to correctly 'incorporate' them into the scenario. BuildingSync provides a significant number of already enumerated measures that can easily be used. We will first add some of these to our doc.
+Packages of measures first require measures to be instantiated inside the BuildingSync document in order to correctly incorporate them into the scenario. BuildingSync provides a significant number of already enumerated measures that can be used. We will first add some of these to our BuildingSync file.
 
 The scope of an individual measure is primarily conveyed by a few elements:
-- `SystemCategoryAffected`: select one of an enumerated set of strings representing the general scope of system, i.e. Refrigeration, Fan, Lighting, etc.
+- `SystemCategoryAffected`: select one of an enumerated set of strings representing the general scope of system, e.g.. Refrigeration, Fan, Lighting, etc.
 - `TechnologyCategories/TechnologyCategory/*/MeasureName`: Select a very specific measure to implement
 
 
@@ -1385,7 +1385,7 @@ scenarios += pom_sc_3
 
 # Validation
 
-So did what we just went through actually work? Do we have the required information for a Level 1 Audit? Head over to the [use case validator](https://buildingsync.net/validator) to find out!
+So we just went through an "actual" audit! Now we need to check if it works. Do we have the required information for a Level 1 Audit? Head over to the [use case validator](https://buildingsync.net/validator) to find out!
 
 ![Selection Tool](./img/UC-Selection.png)
 

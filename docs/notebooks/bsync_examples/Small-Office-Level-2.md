@@ -49,15 +49,12 @@ def bsync_dump(root_element, file="example1.xml"):
     """Write the element to the specified file"""
     doctype = '<?xml version="1.0" encoding="UTF-8"?>'
     as_etree = root_element.toxml()
+    # Have to manually set the declaration header right now
     as_etree.set("xmlns", "http://buildingsync.net/schemas/bedes-auc/2019")
-    #as_etree.set("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance")
-    #as_etree.set("xsi:schemaLocation", "http://buildingsync.net/schemas/bedes-auc/2019 https://raw.githubusercontent.com/BuildingSync/schema/v2.4.0/BuildingSync.xsd")
-    # Have to manually set the version right now. Align release of bsyncpy to this version.
     as_etree.set("version", "2.4.0")  
     output = etree.tostring(as_etree, doctype=doctype, pretty_print=True)
     with open(file, "wb+") as f:
         f.write(output)
-        return True
 ```
 
 # Starting the Audit
