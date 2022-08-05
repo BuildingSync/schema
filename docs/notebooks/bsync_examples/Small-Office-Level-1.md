@@ -920,7 +920,7 @@ jan_elec = bsync.TimeSeries(ID="TS-Example")
 # a ReadingType of "Total" signifies a summation / integral over the time period specified
 jan_elec += bsync.ReadingType("Total")
 
-# A TimeSeriesReadingQuantity isn"t necessary for timeseries specific to a ResourceUse since we will "point back to"
+# A TimeSeriesReadingQuantity isn't necessary for timeseries specific to a ResourceUse since we will "point back to"
 # the resource use later, however, verbosity never hurts
 jan_elec += bsync.TimeSeriesReadingQuantity("Energy")
 
