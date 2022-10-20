@@ -4564,7 +4564,7 @@
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
-            <xs:extension base="xs:decimal">
+            <xs:extension base="xs:nonNegativeInteger">
               <xs:attribute ref="auc:Source"/>
             </xs:extension>
           </xs:simpleContent>
@@ -4777,6 +4777,20 @@
       <xs:element name="DiscountFactor" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Discount factor applied to calculate present values of future cash flows. (0-100) (%)</xs:documentation>
+          <xs:documentation>Discount factors $v$ are related to discount rates $i$ by the following equation: $v=\frac{1}{1+i}$.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DiscountRate" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Discount rate applied to calculate present values of future cash flows. (0-100) (%)</xs:documentation>
+          <xs:documentation>Discount rates $i$ are related to discount factors $v$ by the following equation: $i=\frac{1-v}{v}$ where $v \neq 0$.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:simpleContent>
