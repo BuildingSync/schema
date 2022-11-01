@@ -2144,6 +2144,9 @@
                           </xs:annotation>
                           <xs:complexType>
                             <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+                            <xs:sequence>
+                              <xs:element ref="auc:MeasureSavingsAnalysis" minOccurs="0"/>
+                            </xs:sequence>
                           </xs:complexType>
                         </xs:element>
                       </xs:sequence>
