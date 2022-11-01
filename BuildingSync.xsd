@@ -4491,60 +4491,7 @@
           <xs:documentation>Long description of measure.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="MeasureSavingsAnalysis" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Energy and cost effectiveness data for an individual measure. In most cases, this data depends on the other measures included in the package, and should be entered at the package level under Scenarios.</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="MeasureRank" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Sequence in which the measure was analyzed relative to other measures. Ranking should be 1 if it is analyzed first, 2 if analyzed after Measure 1 is applied, etc. This accounts for interactive effects between measures. Ranking may be 1 for all measures if they are not analyzed as a package.</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:simpleContent>
-                  <xs:extension base="xs:integer">
-                    <xs:attribute ref="auc:Source"/>
-                  </xs:extension>
-                </xs:simpleContent>
-              </xs:complexType>
-            </xs:element>
-            <xs:element ref="auc:ReferenceCase" minOccurs="0"/>
-            <xs:element ref="auc:CalculationMethod" minOccurs="0"/>
-            <xs:element ref="auc:AnnualSavingsSiteEnergy" minOccurs="0"/>
-            <xs:element ref="auc:AnnualSavingsSourceEnergy" minOccurs="0"/>
-            <xs:element ref="auc:AnnualSavingsCost" minOccurs="0"/>
-            <xs:element ref="auc:AnnualSavingsByFuels" minOccurs="0"/>
-            <xs:element ref="auc:SummerPeakElectricityReduction" minOccurs="0"/>
-            <xs:element ref="auc:WinterPeakElectricityReduction" minOccurs="0"/>
-            <xs:element ref="auc:AnnualPeakElectricityReduction" minOccurs="0"/>
-            <xs:element ref="auc:AnnualDemandSavingsCost" minOccurs="0"/>
-            <xs:element ref="auc:AnnualWaterSavings" minOccurs="0"/>
-            <xs:element ref="auc:AnnualWaterCostSavings" minOccurs="0"/>
-            <xs:element ref="auc:OMCostAnnualSavings" minOccurs="0"/>
-            <xs:element name="OtherCostAnnualSavings" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Annual savings for other non-energy costs, or increased revenue caused by measure implementation. ($)</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:simpleContent>
-                  <xs:extension base="xs:decimal">
-                    <xs:attribute ref="auc:Source"/>
-                  </xs:extension>
-                </xs:simpleContent>
-              </xs:complexType>
-            </xs:element>
-            <xs:element ref="auc:EquipmentDisposalAndSalvageCosts" minOccurs="0"/>
-            <xs:element ref="auc:FundingFromIncentives" minOccurs="0"/>
-            <xs:element ref="auc:FundingFromTaxCredits" minOccurs="0"/>
-            <xs:element ref="auc:NPVofTaxImplications" minOccurs="0"/>
-            <xs:element ref="auc:CostEffectivenessScreeningMethod" minOccurs="0"/>
-            <xs:element ref="auc:SimplePayback" minOccurs="0"/>
-            <xs:element ref="auc:NetPresentValue" minOccurs="0"/>
-            <xs:element ref="auc:InternalRateOfReturn" minOccurs="0"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
+      <xs:element ref="auc:MeasureSavingsAnalysis" minOccurs="0"/>
       <xs:element ref="auc:MVCost" minOccurs="0"/>
       <xs:element name="MVOption" minOccurs="0">
         <xs:annotation>
@@ -16856,6 +16803,60 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element name="SpatialUnit" type="auc:SpatialUnitTypeType" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MeasureSavingsAnalysis">
+    <xs:annotation>
+      <xs:documentation>Energy and cost effectiveness data for an individual measure. In most cases, this data depends on the other measures included in the package, and should be entered at the package level under Scenarios.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MeasureRank" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Sequence in which the measure was analyzed relative to other measures. Ranking should be 1 if it is analyzed first, 2 if analyzed after Measure 1 is applied, etc. This accounts for interactive effects between measures. Ranking may be 1 for all measures if they are not analyzed as a package.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:integer">
+                <xs:attribute ref="auc:Source"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="auc:ReferenceCase" minOccurs="0"/>
+        <xs:element ref="auc:CalculationMethod" minOccurs="0"/>
+        <xs:element ref="auc:AnnualSavingsSiteEnergy" minOccurs="0"/>
+        <xs:element ref="auc:AnnualSavingsSourceEnergy" minOccurs="0"/>
+        <xs:element ref="auc:AnnualSavingsCost" minOccurs="0"/>
+        <xs:element ref="auc:AnnualSavingsByFuels" minOccurs="0"/>
+        <xs:element ref="auc:SummerPeakElectricityReduction" minOccurs="0"/>
+        <xs:element ref="auc:WinterPeakElectricityReduction" minOccurs="0"/>
+        <xs:element ref="auc:AnnualPeakElectricityReduction" minOccurs="0"/>
+        <xs:element ref="auc:AnnualDemandSavingsCost" minOccurs="0"/>
+        <xs:element ref="auc:AnnualWaterSavings" minOccurs="0"/>
+        <xs:element ref="auc:AnnualWaterCostSavings" minOccurs="0"/>
+        <xs:element ref="auc:OMCostAnnualSavings" minOccurs="0"/>
+        <xs:element name="OtherCostAnnualSavings" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Annual savings for other non-energy costs, or increased revenue caused by measure implementation. ($)</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:decimal">
+                <xs:attribute ref="auc:Source"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="auc:EquipmentDisposalAndSalvageCosts" minOccurs="0"/>
+        <xs:element ref="auc:FundingFromIncentives" minOccurs="0"/>
+        <xs:element ref="auc:FundingFromTaxCredits" minOccurs="0"/>
+        <xs:element ref="auc:NPVofTaxImplications" minOccurs="0"/>
+        <xs:element ref="auc:CostEffectivenessScreeningMethod" minOccurs="0"/>
+        <xs:element ref="auc:SimplePayback" minOccurs="0"/>
+        <xs:element ref="auc:NetPresentValue" minOccurs="0"/>
+        <xs:element ref="auc:InternalRateOfReturn" minOccurs="0"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
