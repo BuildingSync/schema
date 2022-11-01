@@ -5206,6 +5206,7 @@
                         <xs:element ref="auc:ModelNumber" minOccurs="0"/>
                         <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                         <xs:element ref="auc:Quantity" minOccurs="0"/>
+                        <xs:element ref="auc:EquipmentID" minOccurs="0"/>
                       </xs:sequence>
                       <xs:attribute name="ID" type="xs:ID" use="required"/>
                       <xs:attribute ref="auc:Status"/>
@@ -5356,6 +5357,7 @@
                         <xs:element ref="auc:ModelNumber" minOccurs="0"/>
                         <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                         <xs:element ref="auc:Quantity" minOccurs="0"/>
+                        <xs:element ref="auc:EquipmentID" minOccurs="0"/>
                       </xs:sequence>
                       <xs:attribute name="ID" type="xs:ID" use="required"/>
                       <xs:attribute ref="auc:Status"/>
@@ -5548,6 +5550,7 @@
                         <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
                         <xs:element ref="auc:Quantity" minOccurs="0"/>
                         <xs:element name="DeliveryCondition" type="auc:EquipmentCondition" minOccurs="0"/>
+                        <xs:element ref="auc:EquipmentID" minOccurs="0"/>
                       </xs:sequence>
                       <xs:attribute name="ID" type="xs:ID" use="required"/>
                       <xs:attribute ref="auc:Status">
@@ -6886,6 +6889,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -7361,6 +7365,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -7553,6 +7558,7 @@
                                           <xs:element ref="auc:Manufacturer" minOccurs="0"/>
                                           <xs:element ref="auc:ModelNumber" minOccurs="0"/>
                                           <xs:element ref="auc:Location" minOccurs="0"/>
+                                          <xs:element ref="auc:EquipmentID" minOccurs="0"/>
                                         </xs:sequence>
                                       </xs:complexType>
                                     </xs:element>
@@ -7867,6 +7873,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -7976,6 +7983,7 @@
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -8228,6 +8236,7 @@
                         </xs:element>
                         <xs:element ref="auc:Manufacturer" minOccurs="0"/>
                         <xs:element ref="auc:ModelNumber" minOccurs="0"/>
+                        <xs:element ref="auc:EquipmentID" minOccurs="0"/>
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
@@ -8259,6 +8268,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -8372,6 +8382,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -8484,6 +8495,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -8643,6 +8655,7 @@
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedSystemIDs" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -8865,6 +8878,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:LinkedSystemIDs" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -9010,6 +9024,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:LinkedSystemIDs" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -9097,6 +9112,7 @@
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -10216,6 +10232,7 @@
       <xs:element ref="auc:Manufacturer" minOccurs="0"/>
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -10651,6 +10668,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -10741,6 +10759,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Source"/>
@@ -10824,6 +10843,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Source"/>
@@ -10913,6 +10933,7 @@
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -11218,6 +11239,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -11343,6 +11365,7 @@
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -11450,6 +11473,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
+      <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -16855,5 +16879,10 @@
         <xs:element name="SpatialUnit" type="auc:SpatialUnitTypeType" minOccurs="1" maxOccurs="unbounded"/>
       </xs:sequence>
     </xs:complexType>
+  </xs:element>
+  <xs:element name="EquipmentID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Identifier for the equipment.</xs:documentation>
+    </xs:annotation>
   </xs:element>
 </xs:schema>
