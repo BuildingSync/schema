@@ -21,7 +21,7 @@ The interpretation of measure-level energy savings analysis data is that said da
 ### Example
 
 Suppose that we have 2 arbitrary measures, #1 and #2.
-Implementation of the first measure (as a whole) would cost $100 and would provide both electricity savings only.
+Implementation of the first measure (as a whole) would cost $100 and would provide electricity savings only.
 Implementation of the second measure (as a whole) would cost $200 and would provide natural gas savings only.
 
 | Measure ID | Cost ($) | Electricity Savings (kWh/yr) | Natural Gas Savings (therms/yr) |
