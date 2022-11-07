@@ -201,10 +201,20 @@ This section of Standard 211 asks for lots of detail. We walk through the compon
 
 ```python
 # 6.2.1.1.a - name
-b1 += bsync.PremisesName("Small Office Prototype in Denver")
-
+b1 += bsync.PremisesName("Prototype Small Office in Denver")
 # 6.1.1.1.m 
 b1 += bsync.PremisesNotes("Here we record general problems / issues identified in a walkthrough survey.")
+# for BRICR SEED use case
+b1 += bsync.PremisesIdentifiers(
+    bsync.PremisesIdentifier(
+        bsync.IdentifierCustomName("City Custom Building ID"),
+        bsync.IdentifierValue("some ID")
+    ),
+    bsync.PremisesIdentifier(
+        bsync.IdentifierCustomName("Custom ID 1"),
+        bsync.IdentifierValue("some other ID")
+    )
+)
 
 # 6.1.1.1.d - address
 b1 += bsync.Address(
@@ -217,6 +227,8 @@ b1 += bsync.Address(
     bsync.City("Denver"),
     bsync.PostalCode("80014")
 )
+b1 += bsync.Longitude(-104.83)
+b1 += bsync.Latitude(39.66)
 
 # 6.2.1.1.b - gross and conditioned floor area
 b1 += bsync.FloorAreas(
@@ -996,7 +1008,7 @@ Level 2 energy audits require information about the primary systems serving a sp
 hvac_systems = bsync.HVACSystems()
 hvac_system = bsync.HVACSystem(ID="HVACSystem-1")
 hvac_systems += hvac_system
-# link hvac to section
+# link hvac to section and schedule
 hvac_system += bsync.LinkedPremises(
     bsync.LinkedPremises.Section(
         bsync.LinkedSectionID(
@@ -1055,7 +1067,7 @@ for index, heatingcapacity in enumerate(heatingcapacities):
                 bsync.HeatPumpType("Packaged Unitary"),
                 bsync.HeatPumpBackupSystemFuel("Natural gas"),
                 bsync.HeatPumpBackupAFUE(0.0),
-                bsync.CoolingSourceID(IDref=cs["ID"])
+                bsync.CoolingSourceID(IDref=f"CoolingSource-{index+1}")
             )
         ),
         bsync.AnnualHeatingEfficiencyValue(3.01),
@@ -1179,14 +1191,7 @@ shw_systems = bsync.DomesticHotWaterSystems()
 shw = bsync.DomesticHotWaterSystem(
     bsync.DomesticHotWaterType(
         bsync.StorageTank(
-            #bsync.TankHeatingType(
-            #    bsync.Direct(
-            #        bsync.DirectTankHeatingSource(
-            #            bsync.ElectricResistance(123.)
-            #        )
-            #    )
-            #),
-            bsync.TankHeatingType(bsync.Unknown()),
+            bsync.TankHeatingType(bsync.TankHeatingType.Unknown()),
             bsync.TankVolume(40.),
             bsync.StorageTankInsulationRValue(123.) # arbitrary value, actually not required
         )
@@ -1668,7 +1673,7 @@ full_ts_data = bsync.TimeSeriesData()
 monthly_elec = [5933.1, 5446.1, 5736.49, 4980.5, 5187.21, 5842.95, 5801.73, 6220.16, 5682.87, 5571.93, 5525.15, 5405.94]
 monthly_ng = [1.72, 1.25, 0.41, 0.43, 0.01, 0.0, 0.0, 0.0, 0.0, 0.2, 0.4, 4.3]
 monthly_elec_peak = [23.58, 25.38, 26.04, 24.45, 17.03, 22.71, 22.01, 21.81, 20.63, 21.87, 21.63, 21.78]
-monthly_elec_lf = [0.373, 0.394, 0.390, 0.358, 0.374, 0.386, 0.369, 0.372, 0.373, 0.354, 0.380, 0.362]
+monthly_elec_lf = [0.34, 0.32, 0.30, 0.28, 0.41, 0.36, 0.35, 0.38, 0.38, 0.34, 0.35, 0.33]
 
 # costs data
 monthly_elec_cost = [332.16, 306.29, 321.72, 281.54, 292.53, 534.10, 530.45, 567.49, 519.93, 312.97, 310.49, 304.15]
@@ -1853,7 +1858,7 @@ bench_sc = bsync.Scenario(
 bench_st = bsync.Scenario.ScenarioType()
 bench = bsync.Benchmark(
     bsync.BenchmarkType(
-        bsync.PortfolioManager(
+        bsync.BenchmarkType.PortfolioManager(
             bsync.PMBenchmarkDate(date(2022, 6, 1))
         )
     ),
@@ -1914,7 +1919,56 @@ Relevant Standard 211 Sections:
 
 Although not explicitly called out in Standard 211, the current building modeled scenario is implied as part of a Level 2 energy audit when doing detailed savings estimates and calculations for potential energy conservation measures. This is because when an energy and cost savings claim is made for a package of measures scenario, it needs to be _in reference_ to something, i.e., a current building modeled scenario (also often referred to as a baseline modeled scenario). The baseline modeled scenario should be interpreted as the expected performance of your building on an average or typical year. This is assuming the baseline modeled scenario is performed with TMY data, although they are likely first calibrated with AMY data.
 
-Since we are already using an energy model for this example and providing details for implementing a Standard 211 Level 1 energy audit, we will not go into this too much at this point. It should be addressed in future examples.
+
+```python
+# define the modeled scenario
+model_sc = bsync.Scenario(
+    bsync.Scenario.ScenarioType(
+        bsync.CurrentBuilding(
+            bsync.CalculationMethod(
+                bsync.Modeled(
+                    bsync.WeatherDataType("TMY3"),
+                    bsync.SimulationCompletionStatus("Finished")
+                )
+            )
+        )
+    ),
+    bsync.LinkedPremises(
+        bsync.LinkedPremises.Building(
+            bsync.LinkedBuildingID(IDref=b1["ID"])
+        )
+    ),
+    ID="Scenario-Modeled"
+)
+
+# We replicate what we have already input for the current building measured scenario
+ru_model = bsync.ResourceUses()
+elec_model = bsync.ResourceUse(
+    bsync.EnergyResource("Electricity"),
+    bsync.ResourceUnits("kWh"),
+    bsync.PeakResourceUnits("kW"),
+    bsync.EndUse("All end uses"),
+    bsync.AnnualFuelUseNativeUnits(67334.15),
+    bsync.AnnualFuelUseConsistentUnits(229.75365655),
+    bsync.AnnualPeakNativeUnits(26.04),
+    bsync.AnnualPeakConsistentUnits(26.04),
+    ID=f"ResourceUse-Electricity-modeled"
+)
+ng_model = bsync.ResourceUse(
+    bsync.EnergyResource("Natural gas"),
+    bsync.ResourceUnits("MMBtu"),
+    bsync.EndUse("All end uses"),
+    bsync.AnnualFuelUseNativeUnits(8.72),
+    bsync.AnnualFuelUseConsistentUnits(8.72),
+    ID=f"ResourceUse-Natural-gas-modeled"
+)
+ru_model += elec_model
+ru_model += ng_model
+model_sc += ru_model
+
+# 
+scenarios += model_sc
+```
 
 ### Package of Measures Scenario
 Relevant Standard 211 Sections:
@@ -2045,6 +2099,7 @@ The no-cost HVAC schedule measure is not taken into account in this example.
 
 ```python
 pom_sc_1 = bsync.Scenario(
+    bsync.ScenarioName("POM-LEDs"), # required by SEED use case
     bsync.Scenario.ScenarioType(
         bsync.PackageOfMeasures(
             bsync.ReferenceCase(IDref=cbms["ID"]),
@@ -2095,6 +2150,7 @@ pom_sc_1 = bsync.Scenario(
 )
 
 pom_sc_2 = bsync.Scenario(
+    bsync.ScenarioName("POM-VSDs"), # required by SEED use case
     bsync.Scenario.ScenarioType(
         bsync.PackageOfMeasures(
             bsync.ReferenceCase(IDref=cbms["ID"]),
@@ -2145,6 +2201,7 @@ pom_sc_2 = bsync.Scenario(
 )
 
 pom_sc_3 = bsync.Scenario(
+    bsync.ScenarioName("POM-LEDs-VSDs"), # required by SEED use case
     bsync.Scenario.ScenarioType(
         bsync.PackageOfMeasures(
             bsync.ReferenceCase(IDref=cbms["ID"]),

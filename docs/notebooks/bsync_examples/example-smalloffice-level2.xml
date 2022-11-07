@@ -9,8 +9,18 @@
         <Site ID="Site-1">
           <Buildings>
             <Building ID="Building-Small-Office-Prototype">
-              <PremisesName>Small Office Prototype in Denver</PremisesName>
+              <PremisesName>Prototype Small Office in Denver</PremisesName>
               <PremisesNotes>Here we record general problems / issues identified in a walkthrough survey.</PremisesNotes>
+              <PremisesIdentifiers>
+                <PremisesIdentifier>
+                  <IdentifierCustomName>City Custom Building ID</IdentifierCustomName>
+                  <IdentifierValue>some ID</IdentifierValue>
+                </PremisesIdentifier>
+                <PremisesIdentifier>
+                  <IdentifierCustomName>Custom ID 1</IdentifierCustomName>
+                  <IdentifierValue>some other ID</IdentifierValue>
+                </PremisesIdentifier>
+              </PremisesIdentifiers>
               <Address>
                 <StreetAddressDetail>
                   <Simplified>
@@ -21,6 +31,8 @@
                 <State>CO</State>
                 <PostalCode>80014</PostalCode>
               </Address>
+              <Longitude>-104.830000</Longitude>
+              <Latitude>39.660000</Latitude>
               <BuildingClassification>Commercial</BuildingClassification>
               <OccupancyClassification>Office</OccupancyClassification>
               <PrimaryContactID IDref="Contact-Owner"/>
@@ -199,7 +211,7 @@
                       <HeatPumpType>Packaged Unitary</HeatPumpType>
                       <HeatPumpBackupSystemFuel>Natural gas</HeatPumpBackupSystemFuel>
                       <HeatPumpBackupAFUE>0.000000</HeatPumpBackupAFUE>
-                      <CoolingSourceID IDref="CoolingSource-5"/>
+                      <CoolingSourceID IDref="CoolingSource-1"/>
                     </HeatPump>
                   </HeatingSourceType>
                   <AnnualHeatingEfficiencyValue>3.010000</AnnualHeatingEfficiencyValue>
@@ -225,7 +237,7 @@
                       <HeatPumpType>Packaged Unitary</HeatPumpType>
                       <HeatPumpBackupSystemFuel>Natural gas</HeatPumpBackupSystemFuel>
                       <HeatPumpBackupAFUE>0.000000</HeatPumpBackupAFUE>
-                      <CoolingSourceID IDref="CoolingSource-5"/>
+                      <CoolingSourceID IDref="CoolingSource-2"/>
                     </HeatPump>
                   </HeatingSourceType>
                   <AnnualHeatingEfficiencyValue>3.010000</AnnualHeatingEfficiencyValue>
@@ -251,7 +263,7 @@
                       <HeatPumpType>Packaged Unitary</HeatPumpType>
                       <HeatPumpBackupSystemFuel>Natural gas</HeatPumpBackupSystemFuel>
                       <HeatPumpBackupAFUE>0.000000</HeatPumpBackupAFUE>
-                      <CoolingSourceID IDref="CoolingSource-5"/>
+                      <CoolingSourceID IDref="CoolingSource-3"/>
                     </HeatPump>
                   </HeatingSourceType>
                   <AnnualHeatingEfficiencyValue>3.010000</AnnualHeatingEfficiencyValue>
@@ -277,7 +289,7 @@
                       <HeatPumpType>Packaged Unitary</HeatPumpType>
                       <HeatPumpBackupSystemFuel>Natural gas</HeatPumpBackupSystemFuel>
                       <HeatPumpBackupAFUE>0.000000</HeatPumpBackupAFUE>
-                      <CoolingSourceID IDref="CoolingSource-5"/>
+                      <CoolingSourceID IDref="CoolingSource-4"/>
                     </HeatPump>
                   </HeatingSourceType>
                   <AnnualHeatingEfficiencyValue>3.010000</AnnualHeatingEfficiencyValue>
@@ -1957,7 +1969,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.373000</IntervalReading>
+                  <IntervalReading>0.340000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-2">
@@ -1968,7 +1980,7 @@
                   <IntervalDuration>28</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.394000</IntervalReading>
+                  <IntervalReading>0.320000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-3">
@@ -1979,7 +1991,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.390000</IntervalReading>
+                  <IntervalReading>0.300000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-4">
@@ -1990,7 +2002,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.358000</IntervalReading>
+                  <IntervalReading>0.280000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-5">
@@ -2001,7 +2013,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.374000</IntervalReading>
+                  <IntervalReading>0.410000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-6">
@@ -2012,7 +2024,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.386000</IntervalReading>
+                  <IntervalReading>0.360000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-7">
@@ -2023,7 +2035,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.369000</IntervalReading>
+                  <IntervalReading>0.350000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-8">
@@ -2034,7 +2046,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.372000</IntervalReading>
+                  <IntervalReading>0.380000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-9">
@@ -2045,7 +2057,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.373000</IntervalReading>
+                  <IntervalReading>0.380000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-10">
@@ -2056,7 +2068,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.354000</IntervalReading>
+                  <IntervalReading>0.340000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-11">
@@ -2067,7 +2079,7 @@
                   <IntervalDuration>30</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.380000</IntervalReading>
+                  <IntervalReading>0.350000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-12">
@@ -2078,7 +2090,7 @@
                   <IntervalDuration>31</IntervalDuration>
                   <IntervalDurationUnits>Day</IntervalDurationUnits>
                   <IntervalFrequency>Month</IntervalFrequency>
-                  <IntervalReading>0.362000</IntervalReading>
+                  <IntervalReading>0.330000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Electricity-Cost-1">
@@ -2417,7 +2429,44 @@
                 </Building>
               </LinkedPremises>
             </Scenario>
+            <Scenario ID="Scenario-Modeled">
+              <ScenarioType>
+                <CurrentBuilding>
+                  <CalculationMethod>
+                    <Modeled>
+                      <WeatherDataType>TMY3</WeatherDataType>
+                      <SimulationCompletionStatus>Finished</SimulationCompletionStatus>
+                    </Modeled>
+                  </CalculationMethod>
+                </CurrentBuilding>
+              </ScenarioType>
+              <ResourceUses>
+                <ResourceUse ID="ResourceUse-Electricity-modeled">
+                  <EnergyResource>Electricity</EnergyResource>
+                  <ResourceUnits>kWh</ResourceUnits>
+                  <EndUse>All end uses</EndUse>
+                  <AnnualFuelUseNativeUnits>67334.150000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>229.753657</AnnualFuelUseConsistentUnits>
+                  <PeakResourceUnits>kW</PeakResourceUnits>
+                  <AnnualPeakNativeUnits>26.040000</AnnualPeakNativeUnits>
+                  <AnnualPeakConsistentUnits>26.040000</AnnualPeakConsistentUnits>
+                </ResourceUse>
+                <ResourceUse ID="ResourceUse-Natural-gas-modeled">
+                  <EnergyResource>Natural gas</EnergyResource>
+                  <ResourceUnits>MMBtu</ResourceUnits>
+                  <EndUse>All end uses</EndUse>
+                  <AnnualFuelUseNativeUnits>8.720000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>8.720000</AnnualFuelUseConsistentUnits>
+                </ResourceUse>
+              </ResourceUses>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+                </Building>
+              </LinkedPremises>
+            </Scenario>
             <Scenario ID="Scenario-POM-LEDs">
+              <ScenarioName>POM-LEDs</ScenarioName>
               <ScenarioType>
                 <PackageOfMeasures ID="POM-LEDs">
                   <ReferenceCase IDref="Scenario-measured"/>
@@ -2465,6 +2514,7 @@
               </LinkedPremises>
             </Scenario>
             <Scenario ID="Scenario-POM-VSDs">
+              <ScenarioName>POM-VSDs</ScenarioName>
               <ScenarioType>
                 <PackageOfMeasures ID="POM-VSDs">
                   <ReferenceCase IDref="Scenario-measured"/>
@@ -2512,6 +2562,7 @@
               </LinkedPremises>
             </Scenario>
             <Scenario ID="Scenario-POM-LEDs-VSDs">
+              <ScenarioName>POM-LEDs-VSDs</ScenarioName>
               <ScenarioType>
                 <PackageOfMeasures ID="POM-LEDs-VSDs">
                   <ReferenceCase IDref="Scenario-measured"/>
