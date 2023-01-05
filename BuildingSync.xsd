@@ -16806,6 +16806,11 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="EquipmentID" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Identifier for the equipment.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:element name="MeasureSavingsAnalysis">
     <xs:annotation>
       <xs:documentation>Energy and cost effectiveness data for an individual measure. In most cases, this data depends on the other measures included in the package, and should be entered at the package level under Scenarios.</xs:documentation>
@@ -16836,6 +16841,9 @@
         <xs:element ref="auc:AnnualDemandSavingsCost" minOccurs="0"/>
         <xs:element ref="auc:AnnualWaterSavings" minOccurs="0"/>
         <xs:element ref="auc:AnnualWaterCostSavings" minOccurs="0"/>
+        <xs:element ref="auc:AnnualSavingsAverageGHGEmissions" minOccurs="0"/>
+        <xs:element ref="auc:AnnualSavingsMarginalGHGEmissions" minOccurs="0"/>
+        <xs:element ref="auc:AnnualSavingsGHGEmissionIntensity" minOccurs="0"/>
         <xs:element ref="auc:OMCostAnnualSavings" minOccurs="0"/>
         <xs:element name="OtherCostAnnualSavings" minOccurs="0">
           <xs:annotation>
