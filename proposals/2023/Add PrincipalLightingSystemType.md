@@ -10,7 +10,22 @@ The Audit Template Tool requires this element living directly under building and
 
 ## Implementation
 Add the element `auc:PrincipalLightingSystemType` globally, and refer it under `auc:Building` and `auc:Section`.
-The enumerations of the added elements are converted from the child elements of `auc:LampType`, which are 
+The enumerations of the added elements are combined by sources from Audit Template library and the child elements of `auc:LampType`.
+From Audit Template:
+* Compact Fluorescent
+* Halogen
+* Incandescent
+* LED
+* Mercury Vapor
+* Metal Halide
+* Sodium Vapor High Pressure
+* T5
+* T5HO
+* T8
+* Super T8
+* T12
+* T12HO
+From `auc:LampType`: 
 * Incandescent
 * Linear Fluorescent
 * Compact Fluorescent
@@ -24,6 +39,7 @@ The enumerations of the added elements are converted from the child elements of 
 * SelfLuminous
 * Other
 * Unknown
+The combined options might have overlaps (e.g. LED and Solid State Lighting).
 
 ## Decision
 We add this element to avoid the usage of UDF for a commonly used element in AT and improve the data transferability between AT and BS. However we don't recommend the usage of this element other than the use case of input/output to/from Audit Template.
