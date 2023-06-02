@@ -6280,6 +6280,19 @@
         <xs:element ref="auc:NoCooling" minOccurs="0"/>
         <xs:element ref="auc:Unknown" minOccurs="0"/>
       </xs:choice>
+      <xs:element name="CondenserType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Type of condenser associated with the cooling plant. The usage of this element is not recommended except for Audit Template use cases. User is recommended to use CondenserPlant instead.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Air Cooled"/>
+            <xs:enumeration value="Water Cooled"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Unknown"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="CoolingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
