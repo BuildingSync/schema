@@ -42,6 +42,6 @@ From `auc:LampType`:
 The combined options might have overlaps (e.g. LED and Solid State Lighting).
 
 ## Decision
-We add this element to avoid the usage of UDF for a commonly used element in AT and improve the data transferability between AT and BS. However we don't recommend the usage of this element other than the use case of input/output to/from Audit Template.
+We add this element to avoid the usage of UDF for a commonly used element in AT and improve the data transferability between AT and BuildingSync. However we don't recommend the usage of this element other than the use case of input/output to/from Audit Template.
 
 ## References
