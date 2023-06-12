@@ -7,18 +7,18 @@ This proposal is to add new element `auc:FacilityEvaluationAuditDefinition` unde
 * * ASHRAE Level 1 Audit
 * * Industrial Assessment Center (IAC) Audit
 * * Utility Incentive Program Audit
-* `auc:Detailed Onsite Audit`
+* `auc:DetailedOnsiteAudit`
 * * ASHRAE Level 2 Audit
 * * ASHRAE Level 3 Audit
 * * Deep Energy Retrofit Audit
 * * Preliminary Assessment (PA)
 * * Investment Grade Audit (IGA)
 * * Retro-Commissioning Audit
-* `auc:Basic Remote Audit`
+* `auc:BasicRemoteAudit`
 * * Rapid/Automated Audit
 * * Continuous Monitoring of Building Systems
 * * Portfolio Screening Analysis
-* `auc:Detailed Remote Audit`
+* `auc:DetailedRemoteAudit`
 * * Desk Audit
 * * Remote Controls Audit
 
