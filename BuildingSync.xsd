@@ -848,7 +848,9 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element ref="auc:PrincipalHVACSystemType" minOccurs="0"/>
       <xs:element ref="auc:YearOfConstruction" minOccurs="0"/>
+      <xs:element ref="auc:PrincipalLightingSystemType" minOccurs="0"/>
       <xs:element name="YearOccupied" type="xs:gYear" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Year in which the premises was first occupied. (CCYY)</xs:documentation>
@@ -959,6 +961,8 @@
                   <xs:element ref="auc:SpatialUnits" minOccurs="0"/>
                   <xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
                   <xs:element ref="auc:TenantIDs" minOccurs="0" maxOccurs="unbounded"/>
+                  <xs:element ref="auc:PrincipalHVACSystemType" minOccurs="0"/>
+                  <xs:element ref="auc:PrincipalLightingSystemType" minOccurs="0"/>
                   <xs:element ref="auc:YearOfConstruction" minOccurs="0"/>
                   <xs:element name="FootprintShape" minOccurs="0">
                     <xs:annotation>
@@ -5595,32 +5599,7 @@
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="PrincipalHVACSystemType" minOccurs="0">
-          <xs:annotation>
-            <xs:documentation>Principal HVAC type.</xs:documentation>
-          </xs:annotation>
-          <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:enumeration value="Packaged Terminal Air Conditioner"/>
-              <xs:enumeration value="Four Pipe Fan Coil Unit"/>
-              <xs:enumeration value="Packaged Terminal Heat Pump"/>
-              <xs:enumeration value="Packaged Rooftop Air Conditioner"/>
-              <xs:enumeration value="Packaged Rooftop Heat Pump"/>
-              <xs:enumeration value="Packaged Rooftop VAV with Hot Water Reheat"/>
-              <xs:enumeration value="Packaged Rooftop VAV with Electric Reheat"/>
-              <xs:enumeration value="VAV with Hot Water Reheat"/>
-              <xs:enumeration value="VAV with Electric Reheat"/>
-              <xs:enumeration value="Warm Air Furnace"/>
-              <xs:enumeration value="Ventilation Only"/>
-              <xs:enumeration value="Dedicated Outdoor Air System"/>
-              <xs:enumeration value="Water Loop Heat Pump"/>
-              <xs:enumeration value="Ground Source Heat Pump"/>
-              <xs:enumeration value="VRF Terminal Unit"/>
-              <xs:enumeration value="Chilled Beam"/>
-              <xs:enumeration value="Other"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:element>
+        <xs:element ref="auc:PrincipalHVACSystemType" minOccurs="0"/>
       </xs:choice>
       <xs:element name="HVACControlSystemTypes" minOccurs="0">
         <xs:annotation>
@@ -6874,6 +6853,33 @@
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
+  <xs:element name="PrincipalHVACSystemType">
+    <xs:annotation>
+      <xs:documentation>Principal HVAC type.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Packaged Terminal Air Conditioner"/>
+        <xs:enumeration value="Four Pipe Fan Coil Unit"/>
+        <xs:enumeration value="Packaged Terminal Heat Pump"/>
+        <xs:enumeration value="Packaged Rooftop Air Conditioner"/>
+        <xs:enumeration value="Packaged Rooftop Heat Pump"/>
+        <xs:enumeration value="Packaged Rooftop VAV with Hot Water Reheat"/>
+        <xs:enumeration value="Packaged Rooftop VAV with Electric Reheat"/>
+        <xs:enumeration value="VAV with Hot Water Reheat"/>
+        <xs:enumeration value="VAV with Electric Reheat"/>
+        <xs:enumeration value="Warm Air Furnace"/>
+        <xs:enumeration value="Ventilation Only"/>
+        <xs:enumeration value="Dedicated Outdoor Air System"/>
+        <xs:enumeration value="Water Loop Heat Pump"/>
+        <xs:enumeration value="Ground Source Heat Pump"/>
+        <xs:enumeration value="VRF Terminal Unit"/>
+        <xs:enumeration value="Chilled Beam"/>
+        <xs:enumeration value="Other"/>
+        <xs:enumeration value="Unknown"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
   <xs:complexType name="LightingSystemType">
     <xs:sequence>
       <xs:element name="LampType" minOccurs="0">
@@ -7350,6 +7356,38 @@
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
+  <xs:element name="PrincipalLightingSystemType">
+    <xs:annotation>
+      <xs:documentation>Principal Lighting type for a building or a section. The usage of this element is not recommended except for Audit Template use cases.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Incandescent"/>
+        <xs:enumeration value="Linear Fluorescent"/>
+        <xs:enumeration value="Compact Fluorescent"/>
+        <xs:enumeration value="Halogen"/>
+        <xs:enumeration value="High Intensity Discharge"/>
+        <xs:enumeration value="Solid State Lighting"/>
+        <xs:enumeration value="LED"/>
+        <xs:enumeration value="Mercury Vapor"/>
+        <xs:enumeration value="Metal Halide"/>
+        <xs:enumeration value="Sodium Vapor High Pressure"/>
+        <xs:enumeration value="T5"/>
+        <xs:enumeration value="T5HO"/>
+        <xs:enumeration value="T8"/>
+        <xs:enumeration value="Super T8"/>
+        <xs:enumeration value="T12"/>
+        <xs:enumeration value="T12HO"/>
+        <xs:enumeration value="Induction"/>
+        <xs:enumeration value="Neon"/>
+        <xs:enumeration value="Plasma"/>
+        <xs:enumeration value="Photoluminescent"/>
+        <xs:enumeration value="Self Luminous"/>
+        <xs:enumeration value="Other"/>
+        <xs:enumeration value="Unknown"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
   <xs:complexType name="DomesticHotWaterSystemType">
     <xs:sequence>
       <xs:element name="DomesticHotWaterType" minOccurs="0">
