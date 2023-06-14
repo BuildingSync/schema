@@ -4690,6 +4690,11 @@
               </xs:annotation>
               <xs:complexType>
                 <xs:sequence>
+                  <xs:element name="AuditCycleNotes" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Details about the Audit Cycle</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
                   <xs:element name="AuditCycleStartYear" type="xs:gYear">
                     <xs:annotation>
                       <xs:documentation>Year the Audit Cycle starts (inclusive, CCYY)</xs:documentation>
@@ -4705,6 +4710,7 @@
                       <xs:documentation>Number of year the audit is conducted from the start of the audit cycle. 1 corresponds to auc:AuditCycleStartYear.</xs:documentation>
                     </xs:annotation>
                   </xs:element>
+                  <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                 </xs:sequence>
                 <xs:attribute name="ID" type="xs:ID" use="required"/>
               </xs:complexType>
