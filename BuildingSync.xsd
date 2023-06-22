@@ -1978,6 +1978,11 @@
       <xs:documentation>Definition of an Audit Cycle</xs:documentation>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="AuditCycleName" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Name of the Audit Cycle</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="AuditCycleNotes" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Details about the Audit Cycle</xs:documentation>
