@@ -1975,12 +1975,12 @@
   </xs:complexType>
   <xs:complexType name="AuditCycleType">
     <xs:annotation>
-      <xs:documentation>Definition of an Audit Cycle</xs:documentation>
+      <xs:documentation>Definition of an Audit Cycle. For some organizations, such as CERL or FEMP, it refers to a period of time in which multiple audits may be conducted; for others, it refers to the multi-step process of a single audit.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="AuditCycleName" type="xs:string" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Name of the Audit Cycle</xs:documentation>
+          <xs:documentation>Name identifying the audit cycle other than the ID</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="AuditCycleNotes" type="xs:string" minOccurs="0">
@@ -1995,7 +1995,7 @@
       </xs:element>
       <xs:element name="AuditCycleEndYear" type="xs:gYear">
         <xs:annotation>
-          <xs:documentation>Last year of the Audit Cycle (inclusive, CCYY)</xs:documentation>
+          <xs:documentation>Year the Audit Cycle ends (inclusive, CCYY)</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
@@ -16484,13 +16484,13 @@
   </xs:element>
   <xs:element name="LinkedAuditCycle">
     <xs:annotation>
-      <xs:documentation>ID number of the associated audit cycle.</xs:documentation>
+      <xs:documentation>ID number of the associated Audit Cycle for the report</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="YearOfAuditCycle" type="xs:positiveInteger" minOccurs="0" maxOccurs="1">
+        <xs:element name="IndexYearOfAuditCycle" type="xs:positiveInteger" minOccurs="0" maxOccurs="1">
           <xs:annotation>
-            <xs:documentation>Number of year the audit is conducted from the start of the audit cycle. 1 corresponds to auc:AuditCycleStartYear.</xs:documentation>
+            <xs:documentation>Index number of the year when the audit is conducted from the start of the audit cycle. 1 corresponds to auc:AuditCycleStartYear.</xs:documentation>
           </xs:annotation>
         </xs:element>
       </xs:sequence>

@@ -39,29 +39,14 @@ Global definition:
 ```xml
 ...
   <xs:complexType name="AuditCycleType">
-    <xs:annotation>
-      <xs:documentation>Definition of an Audit Cycle</xs:documentation>
-    </xs:annotation>
     <xs:sequence>
       <xs:element name="AuditCycleName" type="xs:string" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Name of the Audit Cycle</xs:documentation>
-        </xs:annotation>
       </xs:element>
       <xs:element name="AuditCycleNotes" type="xs:string" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Details about the Audit Cycle</xs:documentation>
-        </xs:annotation>
       </xs:element>
       <xs:element name="AuditCycleStartYear" type="xs:gYear">
-        <xs:annotation>
-          <xs:documentation>Year the Audit Cycle starts (inclusive, CCYY)</xs:documentation>
-        </xs:annotation>
       </xs:element>
       <xs:element name="AuditCycleEndYear" type="xs:gYear">
-        <xs:annotation>
-          <xs:documentation>Last year of the Audit Cycle (inclusive, CCYY)</xs:documentation>
-        </xs:annotation>
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
@@ -69,15 +54,9 @@ Global definition:
   </xs:complexType>
   ...
   <xs:element name="LinkedAuditCycle">
-    <xs:annotation>
-      <xs:documentation>ID number of the associated audit cycle.</xs:documentation>
-    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element name="YearOfAuditCycle" type="xs:positiveInteger" minOccurs="0" maxOccurs="1">
-          <xs:annotation>
-            <xs:documentation>Number of year the audit is conducted from the start of the audit cycle. 1 corresponds to auc:AuditCycleStartYear.</xs:documentation>
-          </xs:annotation>
         </xs:element>
       </xs:sequence>
       <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
