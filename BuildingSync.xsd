@@ -417,6 +417,13 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
+                    <xs:element name="AuditCycles" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="AuditCycle" type="auc:AuditCycleType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
                     <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                   </xs:sequence>
                   <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -1961,6 +1968,35 @@
             </xs:element>
           </xs:sequence>
         </xs:complexType>
+      </xs:element>
+      <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="AuditCycleType">
+    <xs:annotation>
+      <xs:documentation>A period of time in which multiple audits may be conducted</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AuditCycleName" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Name identifying the audit cycle other than the ID</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AuditCycleNotes" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Details about the Audit Cycle</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AuditCycleStartYear" type="xs:gYear">
+        <xs:annotation>
+          <xs:documentation>Year the Audit Cycle starts (inclusive, CCYY)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AuditCycleEndYear" type="xs:gYear">
+        <xs:annotation>
+          <xs:documentation>Year the Audit Cycle ends (inclusive, CCYY)</xs:documentation>
+        </xs:annotation>
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
@@ -4932,6 +4968,7 @@
         </xs:complexType>
       </xs:element>
       <xs:element ref="auc:LinkedPremisesOrSystem" minOccurs="0"/>
+      <xs:element ref="auc:LinkedAuditCycles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -16443,6 +16480,28 @@
         <xs:element ref="auc:FloorAreas" minOccurs="0"/>
       </xs:sequence>
       <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LinkedAuditCycle">
+    <xs:annotation>
+      <xs:documentation>ID number of the associated Audit Cycle for the report</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="IndexYearOfAuditCycle" type="xs:positiveInteger" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Index number of the year when the audit is conducted from the start of the audit cycle. 1 corresponds to auc:AuditCycleStartYear.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LinkedAuditCycles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="auc:LinkedAuditCycle" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="MVCost">
