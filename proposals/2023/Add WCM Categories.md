@@ -28,12 +28,12 @@ Based on discussion with FEMP on Water Conservation Measure from [WCM resources]
 - Install in-line flow restrictor on dipper wells
 - Install steam kettle with condensate return
 ### LaboratoryAndMedicalEquipments
-- Install dry vacuum air-cooled vacuum pump
-- Install digital photographic or X-ray equipment
+- Install dry vacuum or air-cooled vacuum pump
 - Retrofit liquid-ring vacuum pump with a water recovery system
+- Install digital photographic or X-ray equipment
+- Retrofit traditional photographic or X-ray equipment with a water recycling system
 - Install water-efficient glassware washer with water recycling system
 - Retrofit glassware washer with water recycling system
-- Retrofit traditional photographic or X-ray equipment with a water recycling system
 - Install pretreatment of water purification equipment to increase system recovery
 - Install high efficiency water purification system with high recovery rate
 - Install steam sterilizer system with automated tempering system and automatic shut off
