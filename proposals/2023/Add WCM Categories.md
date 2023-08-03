@@ -63,7 +63,7 @@ Based on discussion with FEMP on Water Conservation Measure from [WCM resources]
 - Install water-efficient industrial/commercial laundry equipment
 - Retrofit laundry washing equipment with water recycling system
 - Install meter on vehicle wash system
-In addition to the specific measures, all new categories will include an `Other` option to capture possible unclarified measures or measures not specified in the list.
+In addition to the specific measures, all new categories will include `Clean and/or repair`, `Implement training and/or documentation`, `Upgrade operating protocols, calibration, and/or sequencing` and `Other` options to capture general measures, possible unclarified measures or measures not specified in the list.
 
 ## Implementation
 The new categories and their enumerations will be added in the way identical to the existing measures in the hierarchy of `auc:Measure`
