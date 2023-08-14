@@ -59,7 +59,7 @@ Based on discussion with FEMP on Water Conservation Measure from [WCM resources]
 - Install high-pressure self-service vehicle washer
 - Install ozone system for laundry equipment
 - Install water-efficient conveyor/in-bay vehicle washing equipment
-- Install Energy STAR-qualified laundry washing machines
+- Install ENERGY STAR-qualified laundry washing machines
 - Install water-efficient industrial/commercial laundry equipment
 - Retrofit laundry washing equipment with water recycling system
 - Install meter on vehicle wash system
