@@ -27,7 +27,7 @@ Based on discussion with FEMP on Water Conservation Measure from [WCM resources]
 - Install side-stream filtration system for cooling tower management
 ### OtherHVAC
 - Retrofit single-pass cooling with an automatic shut-off device
-- Retrofit single-pass cooling to eliminate single pass with closed loop/recirculation system
+- Retrofit single-pass cooling with closed loop/recirculation system
 - Install water-efficient evaporative cooler 
 - Replace water-cooled equipment with air-cooled equipment
 ### WaterAndSewerConservationSystems
