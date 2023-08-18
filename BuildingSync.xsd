@@ -417,6 +417,13 @@
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
+                    <xs:element name="AuditCycles" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="AuditCycle" type="auc:AuditCycleType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
                     <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                   </xs:sequence>
                   <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -848,7 +855,9 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element ref="auc:PrincipalHVACSystemType" minOccurs="0"/>
       <xs:element ref="auc:YearOfConstruction" minOccurs="0"/>
+      <xs:element ref="auc:PrincipalLightingSystemType" minOccurs="0"/>
       <xs:element name="YearOccupied" type="xs:gYear" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Year in which the premises was first occupied. (CCYY)</xs:documentation>
@@ -959,6 +968,8 @@
                   <xs:element ref="auc:SpatialUnits" minOccurs="0"/>
                   <xs:element ref="auc:PrimaryContactID" minOccurs="0"/>
                   <xs:element ref="auc:TenantIDs" minOccurs="0" maxOccurs="unbounded"/>
+                  <xs:element ref="auc:PrincipalHVACSystemType" minOccurs="0"/>
+                  <xs:element ref="auc:PrincipalLightingSystemType" minOccurs="0"/>
                   <xs:element ref="auc:YearOfConstruction" minOccurs="0"/>
                   <xs:element name="FootprintShape" minOccurs="0">
                     <xs:annotation>
@@ -1957,6 +1968,35 @@
             </xs:element>
           </xs:sequence>
         </xs:complexType>
+      </xs:element>
+      <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="AuditCycleType">
+    <xs:annotation>
+      <xs:documentation>A period of time in which multiple audits may be conducted</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AuditCycleName" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Name identifying the audit cycle other than the ID</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AuditCycleNotes" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Details about the Audit Cycle</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AuditCycleStartYear" type="xs:gYear">
+        <xs:annotation>
+          <xs:documentation>Year the Audit Cycle starts (inclusive, CCYY)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AuditCycleEndYear" type="xs:gYear">
+        <xs:annotation>
+          <xs:documentation>Year the Audit Cycle ends (inclusive, CCYY)</xs:documentation>
+        </xs:annotation>
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
@@ -4710,6 +4750,65 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+      <xs:element name="FacilityEvaluationAuditDefinition" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The facility audit terms used in the FEMP Facility Evaluation (Audit) resources that satisfy EISA 432 requirements</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="BasicOnsiteAudit">
+              <xs:annotation>
+                <xs:documentation>A basic onsite audit meets the minimum requirements for onsite facility evaluations</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="ASHRAE Level 1 Audit"/>
+                  <xs:enumeration value="Industrial Assessment Center (IAC) Audit"/>
+                  <xs:enumeration value="Utility Incentive Program Audit"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="DetailedOnsiteAudit">
+              <xs:annotation>
+                <xs:documentation>A more in-depth facility evaluation that is performed when project development is the focus and a more precise LCCA is required</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="ASHRAE Level 2 Audit"/>
+                  <xs:enumeration value="ASHRAE Level 3 Audit"/>
+                  <xs:enumeration value="Deep Energy Retrofit Audit"/>
+                  <xs:enumeration value="Preliminary Assessment (PA)"/>
+                  <xs:enumeration value="Investment Grade Audit (IGA)"/>
+                  <xs:enumeration value="Retrocommissioning Audit"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="BasicRemoteAudit">
+              <xs:annotation>
+                <xs:documentation>A facility evaluation performed without a site visit and analysis of datasets from specific building systems or operations to derive opportunities for energy efficiency, water efficiency, and renewable energy generation</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Rapid/Automated Audit"/>
+                  <xs:enumeration value="Continuous Monitoring of Building Systems"/>
+                  <xs:enumeration value="Portfolio Screening Analysis"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="DetailedRemoteAudit">
+              <xs:annotation>
+                <xs:documentation>A facility evaluation performed without a site visit and rigorous analysis of building systems and operations to identify opportunities for energy efficiency, water efficiency, and renewable energy generation</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Desk Audit"/>
+                  <xs:enumeration value="Remote Controls Audit"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="RetrocommissioningAudit" type="xs:boolean" minOccurs="0">
         <xs:annotation>
           <xs:documentation>True if an assessment of retro- or re-commissioning measures was completed as part of the audit.</xs:documentation>
@@ -4928,6 +5027,7 @@
         </xs:complexType>
       </xs:element>
       <xs:element ref="auc:LinkedPremisesOrSystem" minOccurs="0"/>
+      <xs:element ref="auc:LinkedAuditCycles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -5595,32 +5695,7 @@
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="PrincipalHVACSystemType" minOccurs="0">
-          <xs:annotation>
-            <xs:documentation>Principal HVAC type.</xs:documentation>
-          </xs:annotation>
-          <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:enumeration value="Packaged Terminal Air Conditioner"/>
-              <xs:enumeration value="Four Pipe Fan Coil Unit"/>
-              <xs:enumeration value="Packaged Terminal Heat Pump"/>
-              <xs:enumeration value="Packaged Rooftop Air Conditioner"/>
-              <xs:enumeration value="Packaged Rooftop Heat Pump"/>
-              <xs:enumeration value="Packaged Rooftop VAV with Hot Water Reheat"/>
-              <xs:enumeration value="Packaged Rooftop VAV with Electric Reheat"/>
-              <xs:enumeration value="VAV with Hot Water Reheat"/>
-              <xs:enumeration value="VAV with Electric Reheat"/>
-              <xs:enumeration value="Warm Air Furnace"/>
-              <xs:enumeration value="Ventilation Only"/>
-              <xs:enumeration value="Dedicated Outdoor Air System"/>
-              <xs:enumeration value="Water Loop Heat Pump"/>
-              <xs:enumeration value="Ground Source Heat Pump"/>
-              <xs:enumeration value="VRF Terminal Unit"/>
-              <xs:enumeration value="Chilled Beam"/>
-              <xs:enumeration value="Other"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:element>
+        <xs:element ref="auc:PrincipalHVACSystemType" minOccurs="0"/>
       </xs:choice>
       <xs:element name="HVACControlSystemTypes" minOccurs="0">
         <xs:annotation>
@@ -6280,6 +6355,19 @@
         <xs:element ref="auc:NoCooling" minOccurs="0"/>
         <xs:element ref="auc:Unknown" minOccurs="0"/>
       </xs:choice>
+      <xs:element name="CondenserType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Type of condenser associated with the cooling plant. The usage of this element is not recommended except for Audit Template use cases. User is recommended to use CondenserPlant instead.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Air Cooled"/>
+            <xs:enumeration value="Water Cooled"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Unknown"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
       <xs:element name="CoolingPlantCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
@@ -6861,6 +6949,33 @@
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
+  <xs:element name="PrincipalHVACSystemType">
+    <xs:annotation>
+      <xs:documentation>Principal HVAC type.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Packaged Terminal Air Conditioner"/>
+        <xs:enumeration value="Four Pipe Fan Coil Unit"/>
+        <xs:enumeration value="Packaged Terminal Heat Pump"/>
+        <xs:enumeration value="Packaged Rooftop Air Conditioner"/>
+        <xs:enumeration value="Packaged Rooftop Heat Pump"/>
+        <xs:enumeration value="Packaged Rooftop VAV with Hot Water Reheat"/>
+        <xs:enumeration value="Packaged Rooftop VAV with Electric Reheat"/>
+        <xs:enumeration value="VAV with Hot Water Reheat"/>
+        <xs:enumeration value="VAV with Electric Reheat"/>
+        <xs:enumeration value="Warm Air Furnace"/>
+        <xs:enumeration value="Ventilation Only"/>
+        <xs:enumeration value="Dedicated Outdoor Air System"/>
+        <xs:enumeration value="Water Loop Heat Pump"/>
+        <xs:enumeration value="Ground Source Heat Pump"/>
+        <xs:enumeration value="VRF Terminal Unit"/>
+        <xs:enumeration value="Chilled Beam"/>
+        <xs:enumeration value="Other"/>
+        <xs:enumeration value="Unknown"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
   <xs:complexType name="LightingSystemType">
     <xs:sequence>
       <xs:element name="LampType" minOccurs="0">
@@ -7337,6 +7452,38 @@
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
   </xs:complexType>
+  <xs:element name="PrincipalLightingSystemType">
+    <xs:annotation>
+      <xs:documentation>Principal Lighting type for a building or a section. The usage of this element is not recommended except for Audit Template use cases.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Incandescent"/>
+        <xs:enumeration value="Linear Fluorescent"/>
+        <xs:enumeration value="Compact Fluorescent"/>
+        <xs:enumeration value="Halogen"/>
+        <xs:enumeration value="High Intensity Discharge"/>
+        <xs:enumeration value="Solid State Lighting"/>
+        <xs:enumeration value="LED"/>
+        <xs:enumeration value="Mercury Vapor"/>
+        <xs:enumeration value="Metal Halide"/>
+        <xs:enumeration value="Sodium Vapor High Pressure"/>
+        <xs:enumeration value="T5"/>
+        <xs:enumeration value="T5HO"/>
+        <xs:enumeration value="T8"/>
+        <xs:enumeration value="Super T8"/>
+        <xs:enumeration value="T12"/>
+        <xs:enumeration value="T12HO"/>
+        <xs:enumeration value="Induction"/>
+        <xs:enumeration value="Neon"/>
+        <xs:enumeration value="Plasma"/>
+        <xs:enumeration value="Photoluminescent"/>
+        <xs:enumeration value="Self Luminous"/>
+        <xs:enumeration value="Other"/>
+        <xs:enumeration value="Unknown"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
   <xs:complexType name="DomesticHotWaterSystemType">
     <xs:sequence>
       <xs:element name="DomesticHotWaterType" minOccurs="0">
@@ -16392,6 +16539,28 @@
         <xs:element ref="auc:FloorAreas" minOccurs="0"/>
       </xs:sequence>
       <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LinkedAuditCycle">
+    <xs:annotation>
+      <xs:documentation>ID number of the associated Audit Cycle for the report</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="IndexYearOfAuditCycle" type="xs:positiveInteger" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>Index number of the year when the audit is conducted from the start of the audit cycle. 1 corresponds to auc:AuditCycleStartYear.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LinkedAuditCycles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="auc:LinkedAuditCycle" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="MVCost">
