@@ -1,0 +1,1 @@
+These scripts each take in a BuildingSync file and upgrade it from one schema to another.
