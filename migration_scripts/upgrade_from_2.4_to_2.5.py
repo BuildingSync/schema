@@ -23,7 +23,10 @@ def get_args():
 
 
 def update_version(tree):
-    tree.getroot().set("version", "2.5.0")
+    root = tree.getroot()
+    
+    root.set("version", "2.5.0")
+    root.insert(0, ET.Comment('This BuildingSync v2.5 document was generated from a BuildingSync v2.4 document via the BuildingSync migration scripts'))
 
 
 def update_usefulLife(tree):
