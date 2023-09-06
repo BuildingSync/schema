@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.4.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.5.0">
   <xs:import namespace="http://www.gbxml.org/schema" schemaLocation="https://github.com/BuildingSync/gbXML_Schemas/releases/download/v6.01/GreenBuildingXML_Ver6.01.xsd"/>
   <xs:annotation>
-    <xs:documentation>BuildingSync Schema - Version 2.4.0</xs:documentation>
+    <xs:documentation>BuildingSync Schema - Version 2.5.0</xs:documentation>
     <xs:documentation xmlns="http://www.w3.org/1999/xhtml">
       <h1>BuildingSync Schema Deprecation Policy</h1>
       <p>This document details the deprecation policy for the BuildingSync Schema.</p>
@@ -449,6 +449,8 @@
             <xs:enumeration value="2.3"/>
             <xs:enumeration value="2.4.0"/>
             <xs:enumeration value="2.4"/>
+            <xs:enumeration value="2.5.0"/>
+            <xs:enumeration value="2.5"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -3863,6 +3865,13 @@
                               <xs:enumeration value="Add energy recovery"/>
                               <xs:enumeration value="Convert gas-fired unit to boiler loop"/>
                               <xs:enumeration value="Convert system from steam to hot water"/>
+                              <xs:enumeration value="Add boiler automatic chemical feed system"/>
+                              <xs:enumeration value="Install boiler condensate return system"/>
+                              <xs:enumeration value="Install boiler automatic blowdown system"/>
+                              <xs:enumeration value="Install boiler blowdown heat exchanger"/>
+                              <xs:enumeration value="Install boiler expansion flash tank"/>
+                              <xs:enumeration value="Install meters on boiler make-up lines"/>
+                              <xs:enumeration value="Install dehumidification system"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
                               <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
@@ -3892,6 +3901,13 @@
                               <xs:enumeration value="Install gas cooling"/>
                               <xs:enumeration value="Add or repair economizer cycle"/>
                               <xs:enumeration value="Add or replace cooling tower"/>
+                              <xs:enumeration value="Implement advanced cooling tower controls to manage cycles of concentration"/>
+                              <xs:enumeration value="Install cooling tower water treatment system"/>
+                              <xs:enumeration value="Install automated chemical feed systems for cooling tower management"/>
+                              <xs:enumeration value="Install conductivity controller for cooling tower management"/>
+                              <xs:enumeration value="Install covers on open distribution decks on top of cooling tower"/>
+                              <xs:enumeration value="Install flow meters on make-up and blowdown lines for cooling tower management"/>
+                              <xs:enumeration value="Install side-stream filtration system for cooling tower management"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
                               <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
@@ -3963,6 +3979,10 @@
                               <xs:enumeration value="Install variable refrigerant flow system"/>
                               <xs:enumeration value="Capture and return condensate"/>
                               <xs:enumeration value="Install or Upgrade Master Venting"/>
+                              <xs:enumeration value="Retrofit single-pass cooling with an automatic shut-off device"/>
+                              <xs:enumeration value="Retrofit single-pass cooling with closed loop/recirculation system"/>
+                              <xs:enumeration value="Install water-efficient evaporative cooler"/>
+                              <xs:enumeration value="Replace water-cooled equipment with air-cooled equipment"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
                               <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
@@ -4074,6 +4094,7 @@
                               <xs:enumeration value="Install or upgrade master venting"/>
                               <xs:enumeration value="Replace steam traps with orifice plates"/>
                               <xs:enumeration value="Install steam condensate heat recovery"/>
+                              <xs:enumeration value="Install leak detection system"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
                               <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
@@ -4288,6 +4309,15 @@
                               <xs:enumeration value="Install low-flow plumbing equipment"/>
                               <xs:enumeration value="Install onsite sewer treatment systems"/>
                               <xs:enumeration value="Implement water efficient irrigation"/>
+                              <xs:enumeration value="Remove water softeners with timers"/>
+                              <xs:enumeration value="Install high-efficiency faucet aerator in lavatory public restrooms"/>
+                              <xs:enumeration value="Install WaterSense-qualified faucet aerator in lavatory private restrooms"/>
+                              <xs:enumeration value="Install WaterSense-qualified showerhead"/>
+                              <xs:enumeration value="Install WaterSense-qualified flushometer toilets"/>
+                              <xs:enumeration value="Install WaterSense-qualified tank toilets"/>
+                              <xs:enumeration value="Install WaterSense-qualified flushing urinal"/>
+                              <xs:enumeration value="Install leak detection system"/>
+                              <xs:enumeration value="Install temporary shut-off or foot-operated valves with kitchen faucets"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
                               <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
@@ -4438,6 +4468,167 @@
                               <xs:enumeration value="Eliminate redundant power supplies"/>
                               <xs:enumeration value="Install battery storage"/>
                               <xs:enumeration value="Replace inefficient hardware"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="AlternativeWaterSources" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Alternative water sources options for water saving.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure.</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Install condensate capture equipment"/>
+                              <xs:enumeration value="Install atmospheric water generator"/>
+                              <xs:enumeration value="Install wastewater treatment plant"/>
+                              <xs:enumeration value="Install rainwater harvesting system"/>
+                              <xs:enumeration value="Install cooling tower blowdown for appropriate applications"/>
+                              <xs:enumeration value="Install desalinated water treatment for reuse"/>
+                              <xs:enumeration value="Use discharged water from water purification processes"/>
+                              <xs:enumeration value="Install foundation water treatment for reuse"/>
+                              <xs:enumeration value="Install greywater reuse system"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="KitchenImprovements" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Kitchen improvements.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure.</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Retrofit single-pass cooling ice machine to closed loop"/>
+                              <xs:enumeration value="Install food disposal load sensing device"/>
+                              <xs:enumeration value="Replace with ENERGY STAR-qualified commercial dishwashers"/>
+                              <xs:enumeration value="Replace with ENERGY STAR-qualified steam cookers or boilerless commercial steam cookers"/>
+                              <xs:enumeration value="Replace with ENERGY STAR-qualified ice machine"/>
+                              <xs:enumeration value="Replace food disposal with food pulper system"/>
+                              <xs:enumeration value="Install WaterSense-qualified pre-rinse spray valves"/>
+                              <xs:enumeration value="Install in-line flow restrictor on dipper wells"/>
+                              <xs:enumeration value="Install steam kettle with condensate return"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="LaboratoryAndMedicalEquipments" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Improvements for laboratory and medical equipments.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure.</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Install dry vacuum or air-cooled vacuum pump"/>
+                              <xs:enumeration value="Retrofit liquid-ring vacuum pump with a water recovery system"/>
+                              <xs:enumeration value="Install digital photographic or X-ray equipment"/>
+                              <xs:enumeration value="Retrofit traditional photographic or X-ray equipment with a water recycling system"/>
+                              <xs:enumeration value="Install water-efficient glassware washer with water recycling system"/>
+                              <xs:enumeration value="Retrofit glassware washer with water recycling system"/>
+                              <xs:enumeration value="Install pretreatment of water purification equipment to increase system recovery"/>
+                              <xs:enumeration value="Install high efficiency water purification system with high recovery rate"/>
+                              <xs:enumeration value="Install steam sterilizer system with automated tempering system and automatic shut off"/>
+                              <xs:enumeration value="Retrofit vivarium washing equipment with water recycling system"/>
+                              <xs:enumeration value="Install water-efficient vivarium washing equipment with advanced controls and water recycling"/>
+                              <xs:enumeration value="Install water-efficient vivarium watering equipment with recirculation system"/>
+                              <xs:enumeration value="Install steam sterilizer condensate retrofit kit"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="IrrigationSystemsAndLandscapingImprovements" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Improvements for irrigation systems and landscaping.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure.</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Install advanced weather-based irrigation controller"/>
+                              <xs:enumeration value="Install advanced soil-moisture based irrigation controller"/>
+                              <xs:enumeration value="Install water-efficient irrigation sprinkler heads"/>
+                              <xs:enumeration value="Reprogram irrigation controller to water-efficient settings"/>
+                              <xs:enumeration value="Install irrigation meter"/>
+                              <xs:enumeration value="Install micro-irrigation or drip irrigation"/>
+                              <xs:enumeration value="Install irrigation sprinkler shut-off device"/>
+                              <xs:enumeration value="Remove or Recirculate ornamental water feature"/>
+                              <xs:enumeration value="Install native/adaptive plants"/>
+                              <xs:enumeration value="Remove high water consuming plants or replace with native/adaptive plants"/>
+                              <xs:enumeration value="Clean and/or repair"/>
+                              <xs:enumeration value="Implement training and/or documentation"/>
+                              <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
+                              <xs:enumeration value="Other"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="WashingEquipmentsAndTechiques" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Improvements for washing equipments and techiques.</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="MeasureName" maxOccurs="unbounded">
+                          <xs:annotation>
+                            <xs:documentation>Short description of measure.</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="Install automatic shutoff nozzle for self-service vehicle wash"/>
+                              <xs:enumeration value="Implement water-efficient optimization for vehicle washing equipment"/>
+                              <xs:enumeration value="Retrofit vehicle washing equipment with water recycling system"/>
+                              <xs:enumeration value="Install high-pressure self-service vehicle washer"/>
+                              <xs:enumeration value="Install ozone system for laundry equipment"/>
+                              <xs:enumeration value="Install water-efficient conveyor/in-bay vehicle washing equipment"/>
+                              <xs:enumeration value="Install ENERGY STAR-qualified laundry washing machines"/>
+                              <xs:enumeration value="Install water-efficient industrial/commercial laundry equipment"/>
+                              <xs:enumeration value="Retrofit laundry washing equipment with water recycling system"/>
+                              <xs:enumeration value="Install meter on vehicle wash system"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Implement training and/or documentation"/>
                               <xs:enumeration value="Upgrade operating protocols, calibration, and/or sequencing"/>
