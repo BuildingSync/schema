@@ -10,18 +10,20 @@ Date Range: 10/01/21 - 09/30/23
 |----------------|-------|     
 | Schema: Controls         | 0  |
 | Schema: Documentation         | 7  |
-| Schema: General         | 8  |
+| Schema: General         | 9  |
 | Schema: Measures         | 6  |
 | Schema: Reports         | 3  |
 | Schema: Systems         | 3  |
 | Schema: Validation         | 0  |
-| Other         | 10  |
-| **Total**      | 37 |
+| Other         | 13  |
+| **Total**      | 41 |
 
 ### Breaking Changes
  - [#457](https://github.com/BuildingSync/schema/pull/457), Create Add DiscountRate.md (`Measures`)
 
 ### Non-breaking Changes
+ - [#485](https://github.com/BuildingSync/schema/pull/485), Update AuditorQualificationType (`General`) 
+ - [#483](https://github.com/BuildingSync/schema/pull/483), Make migrations scripts (`No Changes`)   
  - [#481](https://github.com/BuildingSync/schema/pull/481), Add WCMs to existing categories (`Measures`)
  - [#480](https://github.com/BuildingSync/schema/pull/480), Add WCM categories (`Measures`)
  - [#478](https://github.com/BuildingSync/schema/pull/478), Add AuditCycles (`Reports`)
