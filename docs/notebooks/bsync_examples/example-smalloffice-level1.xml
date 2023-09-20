@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" version="2.3.0">
+<BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../../../BuildingSync.xsd"
+  version="2.4.0">
   <Facilities>
     <Facility ID="Facility-1">
       <Sites>
@@ -228,6 +231,29 @@
                     <UtilityID IDref="Utility-Electric"/>
                   </UtilityIDs>
                 </ResourceUse>
+                <ResourceUse ID="ResourceUse-GreenhouseGasEmissions">
+                  <Emissions>
+                    <Emission>
+                      <EmissionBoundary>Indirect</EmissionBoundary>
+                      <EmissionsType>CO2e</EmissionsType>
+                      <GHGEmissions>25000.000000</GHGEmissions>
+                      <EmissionsLinkedTimeSeriesIDs>
+                        <EmissionsLinkedTimeSeriesID IDref="TS-ResourceUse-GreenhouseGasEmissions-1"/>
+                        <EmissionsLinkedTimeSeriesID IDref="TS-ResourceUse-GreenhouseGasEmissions-2"/>
+                        <EmissionsLinkedTimeSeriesID IDref="TS-ResourceUse-GreenhouseGasEmissions-3"/>
+                        <EmissionsLinkedTimeSeriesID IDref="TS-ResourceUse-GreenhouseGasEmissions-4"/>
+                        <EmissionsLinkedTimeSeriesID IDref="TS-ResourceUse-GreenhouseGasEmissions-5"/>
+                        <EmissionsLinkedTimeSeriesID IDref="TS-ResourceUse-GreenhouseGasEmissions-6"/>
+                        <EmissionsLinkedTimeSeriesID IDref="TS-ResourceUse-GreenhouseGasEmissions-7"/>
+                        <EmissionsLinkedTimeSeriesID IDref="TS-ResourceUse-GreenhouseGasEmissions-8"/>
+                        <EmissionsLinkedTimeSeriesID IDref="TS-ResourceUse-GreenhouseGasEmissions-9"/>
+                        <EmissionsLinkedTimeSeriesID IDref="TS-ResourceUse-GreenhouseGasEmissions-10"/>
+                        <EmissionsLinkedTimeSeriesID IDref="TS-ResourceUse-GreenhouseGasEmissions-11"/>
+                        <EmissionsLinkedTimeSeriesID IDref="TS-ResourceUse-GreenhouseGasEmissions-12"/>
+                      </EmissionsLinkedTimeSeriesIDs>
+                    </Emission>
+                  </Emissions>
+                </ResourceUse>
                 <ResourceUse ID="ResourceUse-Natural-gas">
                   <EnergyResource>Natural gas</EnergyResource>
                   <ResourceUseNotes>No irregularities in monthly energy consumption found.</ResourceUseNotes>
@@ -363,6 +389,114 @@
                   <IntervalFrequency>Month</IntervalFrequency>
                   <IntervalReading>6291.630000</IntervalReading>
                   <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-1">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Greenhouse Gas Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-01-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-02-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>250.000000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-2">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Greenhouse Gas Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-02-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-03-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>240.000000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-3">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Greenhouse Gas Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-03-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-04-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>260.000000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-4">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Greenhouse Gas Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-04-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-05-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>250.000000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-5">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Greenhouse Gas Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-05-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-06-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>260.000000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-6">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Greenhouse Gas Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-06-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-07-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>230.000000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-7">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Greenhouse Gas Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-07-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-08-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>280.000000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-8">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Greenhouse Gas Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-08-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-09-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>270.000000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-9">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Greenhouse Gas Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-09-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-10-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>260.000000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-10">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Greenhouse Gas Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-10-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-11-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>250.000000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-11">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Greenhouse Gas Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-11-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-12-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>240.000000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-GreenhouseGasEmissions-12">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Greenhouse Gas Emissions</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-12-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-01-01T00:00:00</EndTimestamp>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>250.000000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-GreenhouseGasEmissions"/>
                 </TimeSeries>
                 <TimeSeries ID="TS-ResourceUse-Natural-gas-Energy-1">
                   <ReadingType>Total</ReadingType>
@@ -833,6 +967,11 @@
                   <SiteEnergyUseIntensity>50.000000</SiteEnergyUseIntensity>
                 </AllResourceTotal>
               </AllResourceTotals>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+                </Building>
+              </LinkedPremises>
             </Scenario>
             <Scenario ID="Scenario-Target">
               <ScenarioType>

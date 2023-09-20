@@ -1,25 +1,118 @@
 # BuildingSync
 
+## Version 2.5.0
+
+BuildingSync Version 2.5.0 adds new elements for Water Conservation Measures (WCMs) and emission-related fields (Greenhouse Gas Emission). Version 2.5.0 adds examples of interactive Jupyter Notebooks to illustrate the process of creating BuildingSync XML reports from building data, where the synthetic data was generated based on DOE prototype buildings (small office and primary school).
+
+Date Range: 10/01/21 - 09/30/23
+
+| Category       | Count |     
+|----------------|-------|     
+| Schema: Controls         | 0  |
+| Schema: Documentation         | 7  |
+| Schema: General         | 9  |
+| Schema: Measures         | 6  |
+| Schema: Reports         | 3  |
+| Schema: Systems         | 3  |
+| Schema: Validation         | 0  |
+| Other         | 13  |
+| **Total**      | 41 |
+
+### Breaking Changes
+ - [#457](https://github.com/BuildingSync/schema/pull/457), Create Add DiscountRate.md (`Measures`)
+
+### Non-breaking Changes
+ - [#485](https://github.com/BuildingSync/schema/pull/485), Update AuditorQualificationType (`General`) 
+ - [#483](https://github.com/BuildingSync/schema/pull/483), Make migrations scripts (`No Changes`)   
+ - [#481](https://github.com/BuildingSync/schema/pull/481), Add WCMs to existing categories (`Measures`)
+ - [#480](https://github.com/BuildingSync/schema/pull/480), Add WCM categories (`Measures`)
+ - [#478](https://github.com/BuildingSync/schema/pull/478), Add AuditCycles (`Reports`)
+ - [#477](https://github.com/BuildingSync/schema/pull/477), Add FacilityEvaluationAuditDefinition (`Reports`)
+ - [#476](https://github.com/BuildingSync/schema/pull/476), Add CondenserType (`Systems`)
+ - [#475](https://github.com/BuildingSync/schema/pull/475), Change PrincipalHVACSystemType (`General`, `Systems`)
+ - [#473](https://github.com/BuildingSync/schema/pull/473), Add PrincipalLightingSystemType (`General`)
+ - [#468](https://github.com/BuildingSync/schema/pull/468), Proposal to add measures for data center energy conservation improvements (`Measures`)
+ - [#467](https://github.com/BuildingSync/schema/pull/467), Proposal to add auditor certification types (`General`)
+ - [#464](https://github.com/BuildingSync/schema/pull/464), Building EQ Example XML (`General`)
+ - [#463](https://github.com/BuildingSync/schema/pull/463), build(deps): bump markdown-it-py from 2.1.0 to 2.2.0 in /docs/notebooks (`No Changes`)
+ - [#462](https://github.com/BuildingSync/schema/pull/462), run update on Python notebook dependencies (`No Changes`)
+ - [#460](https://github.com/BuildingSync/schema/pull/460), Proposal: Add RCx Auditor Qualification Types (`General`)
+ - [#458](https://github.com/BuildingSync/schema/pull/458), Update Audit Template examples (`No Changes`)
+ - [#456](https://github.com/BuildingSync/schema/pull/456), Update dependency lock file (`No Changes`)
+ - [#454](https://github.com/BuildingSync/schema/pull/454), Create Add Emissions for MeasureSavingsAnalysis and AnnualSavingsByFu… (`General`)
+ - [#453](https://github.com/BuildingSync/schema/pull/453), Create Add Package-Measure Energy Savings Analyses.md (`Measures`)
+ - [#451](https://github.com/BuildingSync/schema/pull/451), Create Add Equipment ID.md (`Systems`)
+ - [#449](https://github.com/BuildingSync/schema/pull/449), Update notebook for validation against multiple use cases (`No Changes`)
+ - [#448](https://github.com/BuildingSync/schema/pull/448), Update notebooks quotes (`No Changes`)
+ - [#447](https://github.com/BuildingSync/schema/pull/447), Notebooks protobuildings (`Documentation`)
+ - [#445](https://github.com/BuildingSync/schema/pull/445), Small office prototype building level 2 audit notebook and example (`No Changes`)
+ - [#444](https://github.com/BuildingSync/schema/pull/444), add instructions on how to open notebook (`Documentation`)
+ - [#443](https://github.com/BuildingSync/schema/pull/443), Save notebooks as markdown (`No Changes`)
+ - [#441](https://github.com/BuildingSync/schema/pull/441), update example file and point to develop of bsyncpy (`Documentation`)
+ - [#439](https://github.com/BuildingSync/schema/pull/439), Schema: Update notebook (`Documentation`)
+ - [#436](https://github.com/BuildingSync/schema/pull/436), Schema modifications for CO2e (`Reports`)
+ - [#435](https://github.com/BuildingSync/schema/pull/435), Add example with sensor data in notebook directory (`Documentation`)
+ - [#433](https://github.com/BuildingSync/schema/pull/433), Update ASHRAE 211 Export example v2 (`Documentation`)
+ - [#424](https://github.com/BuildingSync/schema/pull/424), Add Implement hot aisle cold aisle design (`Measures`)
+ - [#421](https://github.com/BuildingSync/schema/pull/421), refactor: allow versions without PATCH included (`General`)
+ - [#419](https://github.com/BuildingSync/schema/pull/419), Docs/generic linking for develop v2 (`Documentation`)
+ - [#406](https://github.com/BuildingSync/schema/pull/406), chore: point gbxml schemaLocation to BSync's fork (`General`)
+
+### Non-schema Changes
+ - [#426](https://github.com/BuildingSync/schema/pull/426), Update example version reference to 2.4 (`No Changes`)
+ - [#412](https://github.com/BuildingSync/schema/pull/412), Use PyPi version of BSyncPy and Update to BuildingSync 2.4
+ - [#403](https://github.com/BuildingSync/schema/pull/403), update pynb images and linked urls
+
+### Issues
+
+New Issues: 19 (#404, #405, #408, #411, #413, #414, #416, #420, #427, #428, #429, #450, #455, #465, #466, #469, #470, #471, #474)
+
+Closed Issues: 22
+- [#283]( https://github.com/BuildingSync/schema/issues/283 ), Deprecate: MORE in auc:eGRIDRegionCode enumeration (`bug`, `General`, `Breaking Change`)
+- [#295]( https://github.com/BuildingSync/schema/issues/295 ), Generic Linking Documentation (`Documentation`, `priority-low`)
+- [#314]( https://github.com/BuildingSync/schema/issues/314 ), [9/30] BuildingSync Version 3.0.0-Beta – Updated for modularization
+- [#316]( https://github.com/BuildingSync/schema/issues/316 ), Addition of water conservation measures and associated fields to support EISA-432 project tracking and compliance #88
+- [#362]( https://github.com/BuildingSync/schema/issues/362 ), CTS - BuildingSync versioning management (`CTS-Support`)
+- [#393]( https://github.com/BuildingSync/schema/issues/393 ), Fix gbxml.org link to schema
+- [#397]( https://github.com/BuildingSync/schema/issues/397 ), RFC: Repository -- Proposal for tracking schema changes
+- [#404]( https://github.com/BuildingSync/schema/issues/404 ), Reach out to users abt new schemas.
+- [#405]( https://github.com/BuildingSync/schema/issues/405 ), Docs: add documentation for PR labeling and CHANGELOGs
+- [#408]( https://github.com/BuildingSync/schema/issues/408 ), Update examples  to 2.4
+- [#411]( https://github.com/BuildingSync/schema/issues/411 ), Update Jupyter Notebook with BSync Version 2.4
+- [#413]( https://github.com/BuildingSync/schema/issues/413 ), Create gbxml schemaLocation patch releases
+- [#414]( https://github.com/BuildingSync/schema/issues/414 ), Update schema version attribute to generically handle patch versions
+- [#416]( https://github.com/BuildingSync/schema/issues/416 ), Update reference element (i.e. IDref) names
+- [#420]( https://github.com/BuildingSync/schema/issues/420 ), Fix typo in `Implement hot aisle hold aisle design` (`bug`, `Measures`)
+- [#427]( https://github.com/BuildingSync/schema/issues/427 ), Remove xmlns and nX:source in example files
+- [#429]( https://github.com/BuildingSync/schema/issues/429 ), Move hastack example/proposal into a single MD file
+- [#455]( https://github.com/BuildingSync/schema/issues/455 ), BuldingSync and HPXML
+- [#466]( https://github.com/BuildingSync/schema/issues/466 ), [6/30/23] Adding to BuildingSync's Schema Milestone
+- [#469]( https://github.com/BuildingSync/schema/issues/469 ), [5/19/23] Review UDFs and new AT elements
+- [#470]( https://github.com/BuildingSync/schema/issues/470 ), [6/9/23] Add UDFs and new AT elements to schema
+- [#471]( https://github.com/BuildingSync/schema/issues/471 ), [6/16/23] Add GHG to example notebook
+
+All Open Issues: 20 (#151, #154, #167, #170, #183, #195, #198, #218, #260, #285, #287, #297, #320, #356, #370, #391, #465, #428, #450, #474)
+
 ## Version 2.4.0
 
 BuildingSync Version 2.4.0 does not introduce any breaking changes. 
 
 Date Range: 03/11/21 - 9/30/21
 
-| Category       | Count |     
-|----------------|-------|     
-| Controls         | 0  |      
-| Documentation         | 8  | 
-| General         | 6  |      
-| Measures         | 0  |      
-| Reports         | 3  |       
-| Systems         | 2  |       
-| Validation         | 0  |    
-| Other         | 4  |        
+| Category       | Count |
+|----------------|-------|
+| Controls         | 0  |
+| Documentation         | 8  |
+| General         | 6  |
+| Measures         | 0  |
+| Reports         | 3  |
+| Systems         | 2  |
+| Validation         | 0  |
+| Other         | 4  |
 | **Total**      | 23 |
 
-| Change Type    | Count |     
-|----------------|-------|     
+| Change Type    | Count |
+|----------------|-------|
 | Breaking Change         | 0  |
 | Non-breaking Change         | 23  |
 

@@ -1,0 +1,2733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../../../BuildingSync.xsd"
+  version="2.4.0">
+  <Facilities>
+    <Facility ID="Facility-1">
+      <Sites>
+        <Site ID="Site-1">
+          <Buildings>
+            <Building ID="Building-Small-Office-Prototype">
+              <PremisesName>Prototype Small Office in Denver</PremisesName>
+              <PremisesNotes>Here we record general problems / issues identified in a walkthrough survey.</PremisesNotes>
+              <PremisesIdentifiers>
+                <PremisesIdentifier>
+                  <IdentifierCustomName>City Custom Building ID</IdentifierCustomName>
+                  <IdentifierValue>some ID</IdentifierValue>
+                </PremisesIdentifier>
+                <PremisesIdentifier>
+                  <IdentifierCustomName>Custom ID 1</IdentifierCustomName>
+                  <IdentifierValue>some other ID</IdentifierValue>
+                </PremisesIdentifier>
+              </PremisesIdentifiers>
+              <Address>
+                <StreetAddressDetail>
+                  <Simplified>
+                    <StreetAddress>Some address</StreetAddress>
+                  </Simplified>
+                </StreetAddressDetail>
+                <City>Denver</City>
+                <State>CO</State>
+                <PostalCode>80014</PostalCode>
+              </Address>
+              <Longitude>-104.830000</Longitude>
+              <Latitude>39.660000</Latitude>
+              <BuildingClassification>Commercial</BuildingClassification>
+              <OccupancyClassification>Office</OccupancyClassification>
+              <PrimaryContactID IDref="Contact-Owner"/>
+              <FloorsAboveGrade>1</FloorsAboveGrade>
+              <FloorsBelowGrade>0</FloorsBelowGrade>
+              <ConditionedFloorsAboveGrade>1</ConditionedFloorsAboveGrade>
+              <ConditionedFloorsBelowGrade>0</ConditionedFloorsBelowGrade>
+              <BuildingAutomationSystem>true</BuildingAutomationSystem>
+              <HistoricalLandmark>false</HistoricalLandmark>
+              <FloorAreas>
+                <FloorArea>
+                  <FloorAreaType>Gross</FloorAreaType>
+                  <FloorAreaValue>5500.000000</FloorAreaValue>
+                  <ExcludedSectionIDs>
+                    <ExcludedSectionID IDref="Section-excluded"/>
+                  </ExcludedSectionIDs>
+                </FloorArea>
+                <FloorArea>
+                  <FloorAreaType>Conditioned</FloorAreaType>
+                  <FloorAreaValue>5500.000000</FloorAreaValue>
+                  <ExcludedSectionIDs>
+                    <ExcludedSectionID IDref="Section-excluded"/>
+                  </ExcludedSectionIDs>
+                </FloorArea>
+              </FloorAreas>
+              <TotalExteriorAboveGradeWallArea>6500.000000</TotalExteriorAboveGradeWallArea>
+              <TotalExteriorBelowGradeWallArea>0.000000</TotalExteriorBelowGradeWallArea>
+              <OverallWindowToWallRatio>0.213300</OverallWindowToWallRatio>
+              <OverallDoorToWallRatio>0.050000</OverallDoorToWallRatio>
+              <YearOfConstruction>2000</YearOfConstruction>
+              <YearOccupied>2000</YearOccupied>
+              <YearOfLastEnergyAudit>2010</YearOfLastEnergyAudit>
+              <RetrocommissioningDate>2020-03-01</RetrocommissioningDate>
+              <YearOfLastMajorRemodel>2000</YearOfLastMajorRemodel>
+              <Sections>
+                <Section ID="Section-office">
+                  <SectionType>Space function</SectionType>
+                  <OccupancyClassification>Office</OccupancyClassification>
+                  <OriginalOccupancyClassification>Office</OriginalOccupancyClassification>
+                  <OccupancyLevels>
+                    <OccupancyLevel>
+                      <OccupantQuantityType>Peak total occupants</OccupantQuantityType>
+                      <OccupantQuantity>31.000000</OccupantQuantity>
+                    </OccupancyLevel>
+                  </OccupancyLevels>
+                  <TypicalOccupantUsages>
+                    <TypicalOccupantUsage>
+                      <TypicalOccupantUsageValue>40.000000</TypicalOccupantUsageValue>
+                      <TypicalOccupantUsageUnits>Hours per week</TypicalOccupantUsageUnits>
+                    </TypicalOccupantUsage>
+                    <TypicalOccupantUsage>
+                      <TypicalOccupantUsageValue>50.000000</TypicalOccupantUsageValue>
+                      <TypicalOccupantUsageUnits>Weeks per year</TypicalOccupantUsageUnits>
+                    </TypicalOccupantUsage>
+                  </TypicalOccupantUsages>
+                  <FloorAreas>
+                    <FloorArea>
+                      <FloorAreaType>Gross</FloorAreaType>
+                      <FloorAreaValue>5500.000000</FloorAreaValue>
+                    </FloorArea>
+                    <FloorArea>
+                      <FloorAreaType>Conditioned</FloorAreaType>
+                      <FloorAreaValue>5500.000000</FloorAreaValue>
+                    </FloorArea>
+                  </FloorAreas>
+                  <ThermalZoneLayout>Single zone</ThermalZoneLayout>
+                </Section>
+                <Section ID="Section-Whole-building">
+                  <SectionType>Whole building</SectionType>
+                  <FootprintShape>Rectangular</FootprintShape>
+                  <Sides>
+                    <Side>
+                      <SideNumber>A1</SideNumber>
+                      <WallIDs>
+                        <WallID IDref="Wall-1">
+                          <WallArea>909.012230</WallArea>
+                        </WallID>
+                      </WallIDs>
+                      <WindowIDs>
+                        <WindowID IDref="Window-1-Original">
+                          <FenestrationArea>180.187860</FenestrationArea>
+                        </WindowID>
+                      </WindowIDs>
+                      <DoorIDs>
+                        <DoorID IDref="Door-1">
+                          <FenestrationArea>42.086890</FenestrationArea>
+                        </DoorID>
+                      </DoorIDs>
+                    </Side>
+                    <Side>
+                      <SideNumber>B1</SideNumber>
+                      <WallIDs>
+                        <WallID IDref="Wall-1">
+                          <WallArea>606.008200</WallArea>
+                        </WallID>
+                      </WallIDs>
+                      <WindowIDs>
+                        <WindowID IDref="Window-1-Original">
+                          <FenestrationArea>120.125240</FenestrationArea>
+                        </WindowID>
+                      </WindowIDs>
+                      <DoorIDs>
+                        <DoorID IDref="Door-1">
+                          <FenestrationArea>0.000000</FenestrationArea>
+                        </DoorID>
+                      </DoorIDs>
+                    </Side>
+                    <Side>
+                      <SideNumber>C1</SideNumber>
+                      <WallIDs>
+                        <WallID IDref="Wall-1">
+                          <WallArea>909.012230</WallArea>
+                        </WallID>
+                      </WallIDs>
+                      <WindowIDs>
+                        <WindowID IDref="Window-1-Original">
+                          <FenestrationArea>180.187860</FenestrationArea>
+                        </WindowID>
+                      </WindowIDs>
+                      <DoorIDs>
+                        <DoorID IDref="Door-1">
+                          <FenestrationArea>0.000000</FenestrationArea>
+                        </DoorID>
+                      </DoorIDs>
+                    </Side>
+                    <Side>
+                      <SideNumber>D1</SideNumber>
+                      <WallIDs>
+                        <WallID IDref="Wall-1">
+                          <WallArea>606.008200</WallArea>
+                        </WallID>
+                      </WallIDs>
+                      <WindowIDs>
+                        <WindowID IDref="Window-1-Original">
+                          <FenestrationArea>120.125240</FenestrationArea>
+                        </WindowID>
+                      </WindowIDs>
+                      <DoorIDs>
+                        <DoorID IDref="Door-1">
+                          <FenestrationArea>0.000000</FenestrationArea>
+                        </DoorID>
+                      </DoorIDs>
+                    </Side>
+                  </Sides>
+                  <Roofs>
+                    <Roof>
+                      <RoofID IDref="Roof-1">
+                        <RoofArea>6444.999000</RoofArea>
+                        <RoofCondition>Good</RoofCondition>
+                      </RoofID>
+                    </Roof>
+                  </Roofs>
+                  <Foundations>
+                    <Foundation>
+                      <FoundationID IDref="Foundation-1">
+                        <FoundationArea>3891.153600</FoundationArea>
+                      </FoundationID>
+                    </Foundation>
+                  </Foundations>
+                </Section>
+                <Section ID="Section-excluded"/>
+              </Sections>
+            </Building>
+          </Buildings>
+        </Site>
+      </Sites>
+      <Systems>
+        <HVACSystems>
+          <HVACSystem ID="HVACSystem-1">
+            <HeatingAndCoolingSystems>
+              <ZoningSystemType>Single zone</ZoningSystemType>
+              <HeatingSources>
+                <HeatingSource ID="HeatingSource-1">
+                  <HeatingSourceType>
+                    <HeatPump>
+                      <HeatPumpType>Packaged Unitary</HeatPumpType>
+                      <HeatPumpBackupSystemFuel>Natural gas</HeatPumpBackupSystemFuel>
+                      <HeatPumpBackupAFUE>0.000000</HeatPumpBackupAFUE>
+                      <CoolingSourceID IDref="CoolingSource-1"/>
+                    </HeatPump>
+                  </HeatingSourceType>
+                  <AnnualHeatingEfficiencyValue>3.010000</AnnualHeatingEfficiencyValue>
+                  <AnnualHeatingEfficiencyUnits>COP</AnnualHeatingEfficiencyUnits>
+                  <InputCapacity>10311.100000</InputCapacity>
+                  <Capacity>10311.100000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <HeatingSourceCondition>Good</HeatingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                </HeatingSource>
+                <HeatingSource ID="HeatingSource-2">
+                  <HeatingSourceType>
+                    <HeatPump>
+                      <HeatPumpType>Packaged Unitary</HeatPumpType>
+                      <HeatPumpBackupSystemFuel>Natural gas</HeatPumpBackupSystemFuel>
+                      <HeatPumpBackupAFUE>0.000000</HeatPumpBackupAFUE>
+                      <CoolingSourceID IDref="CoolingSource-2"/>
+                    </HeatPump>
+                  </HeatingSourceType>
+                  <AnnualHeatingEfficiencyValue>3.010000</AnnualHeatingEfficiencyValue>
+                  <AnnualHeatingEfficiencyUnits>COP</AnnualHeatingEfficiencyUnits>
+                  <InputCapacity>9801.300000</InputCapacity>
+                  <Capacity>9801.300000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <HeatingSourceCondition>Good</HeatingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                </HeatingSource>
+                <HeatingSource ID="HeatingSource-3">
+                  <HeatingSourceType>
+                    <HeatPump>
+                      <HeatPumpType>Packaged Unitary</HeatPumpType>
+                      <HeatPumpBackupSystemFuel>Natural gas</HeatPumpBackupSystemFuel>
+                      <HeatPumpBackupAFUE>0.000000</HeatPumpBackupAFUE>
+                      <CoolingSourceID IDref="CoolingSource-3"/>
+                    </HeatPump>
+                  </HeatingSourceType>
+                  <AnnualHeatingEfficiencyValue>3.010000</AnnualHeatingEfficiencyValue>
+                  <AnnualHeatingEfficiencyUnits>COP</AnnualHeatingEfficiencyUnits>
+                  <InputCapacity>7858.100000</InputCapacity>
+                  <Capacity>7858.100000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <HeatingSourceCondition>Good</HeatingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                </HeatingSource>
+                <HeatingSource ID="HeatingSource-4">
+                  <HeatingSourceType>
+                    <HeatPump>
+                      <HeatPumpType>Packaged Unitary</HeatPumpType>
+                      <HeatPumpBackupSystemFuel>Natural gas</HeatPumpBackupSystemFuel>
+                      <HeatPumpBackupAFUE>0.000000</HeatPumpBackupAFUE>
+                      <CoolingSourceID IDref="CoolingSource-4"/>
+                    </HeatPump>
+                  </HeatingSourceType>
+                  <AnnualHeatingEfficiencyValue>3.010000</AnnualHeatingEfficiencyValue>
+                  <AnnualHeatingEfficiencyUnits>COP</AnnualHeatingEfficiencyUnits>
+                  <InputCapacity>9067.800000</InputCapacity>
+                  <Capacity>9067.800000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <HeatingSourceCondition>Good</HeatingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                </HeatingSource>
+                <HeatingSource ID="HeatingSource-5">
+                  <HeatingSourceType>
+                    <HeatPump>
+                      <HeatPumpType>Packaged Unitary</HeatPumpType>
+                      <HeatPumpBackupSystemFuel>Natural gas</HeatPumpBackupSystemFuel>
+                      <HeatPumpBackupAFUE>0.000000</HeatPumpBackupAFUE>
+                      <CoolingSourceID IDref="CoolingSource-5"/>
+                    </HeatPump>
+                  </HeatingSourceType>
+                  <AnnualHeatingEfficiencyValue>3.010000</AnnualHeatingEfficiencyValue>
+                  <AnnualHeatingEfficiencyUnits>COP</AnnualHeatingEfficiencyUnits>
+                  <InputCapacity>9855.400000</InputCapacity>
+                  <Capacity>9855.400000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <HeatingSourceCondition>Good</HeatingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                </HeatingSource>
+              </HeatingSources>
+              <CoolingSources>
+                <CoolingSource ID="CoolingSource-1">
+                  <CoolingSourceType>
+                    <DX>
+                      <DXSystemType>Packaged/unitary heat pump</DXSystemType>
+                      <CompressorType>Reciprocating</CompressorType>
+                      <CompressorStaging>Single stage</CompressorStaging>
+                    </DX>
+                  </CoolingSourceType>
+                  <AnnualCoolingEfficiencyValue>2.610000</AnnualCoolingEfficiencyValue>
+                  <AnnualCoolingEfficiencyUnits>COP</AnnualCoolingEfficiencyUnits>
+                  <Capacity>10198.900000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <CoolingSourceCondition>Good</CoolingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                </CoolingSource>
+                <CoolingSource ID="CoolingSource-2">
+                  <CoolingSourceType>
+                    <DX>
+                      <DXSystemType>Packaged/unitary heat pump</DXSystemType>
+                      <CompressorType>Reciprocating</CompressorType>
+                      <CompressorStaging>Single stage</CompressorStaging>
+                    </DX>
+                  </CoolingSourceType>
+                  <AnnualCoolingEfficiencyValue>2.610000</AnnualCoolingEfficiencyValue>
+                  <AnnualCoolingEfficiencyUnits>COP</AnnualCoolingEfficiencyUnits>
+                  <Capacity>9847.200000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <CoolingSourceCondition>Good</CoolingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                </CoolingSource>
+                <CoolingSource ID="CoolingSource-3">
+                  <CoolingSourceType>
+                    <DX>
+                      <DXSystemType>Packaged/unitary heat pump</DXSystemType>
+                      <CompressorType>Reciprocating</CompressorType>
+                      <CompressorStaging>Single stage</CompressorStaging>
+                    </DX>
+                  </CoolingSourceType>
+                  <AnnualCoolingEfficiencyValue>2.610000</AnnualCoolingEfficiencyValue>
+                  <AnnualCoolingEfficiencyUnits>COP</AnnualCoolingEfficiencyUnits>
+                  <Capacity>7737.100000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <CoolingSourceCondition>Good</CoolingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                </CoolingSource>
+                <CoolingSource ID="CoolingSource-4">
+                  <CoolingSourceType>
+                    <DX>
+                      <DXSystemType>Packaged/unitary heat pump</DXSystemType>
+                      <CompressorType>Reciprocating</CompressorType>
+                      <CompressorStaging>Single stage</CompressorStaging>
+                    </DX>
+                  </CoolingSourceType>
+                  <AnnualCoolingEfficiencyValue>2.610000</AnnualCoolingEfficiencyValue>
+                  <AnnualCoolingEfficiencyUnits>COP</AnnualCoolingEfficiencyUnits>
+                  <Capacity>9143.800000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <CoolingSourceCondition>Good</CoolingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                </CoolingSource>
+                <CoolingSource ID="CoolingSource-5">
+                  <CoolingSourceType>
+                    <DX>
+                      <DXSystemType>Packaged/unitary heat pump</DXSystemType>
+                      <CompressorType>Reciprocating</CompressorType>
+                      <CompressorStaging>Single stage</CompressorStaging>
+                    </DX>
+                  </CoolingSourceType>
+                  <AnnualCoolingEfficiencyValue>2.610000</AnnualCoolingEfficiencyValue>
+                  <AnnualCoolingEfficiencyUnits>COP</AnnualCoolingEfficiencyUnits>
+                  <Capacity>9847.200000</Capacity>
+                  <CapacityUnits>W</CapacityUnits>
+                  <CoolingSourceCondition>Good</CoolingSourceCondition>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                </CoolingSource>
+              </CoolingSources>
+              <Deliveries>
+                <Delivery ID="Delivery-1">
+                  <DeliveryType>
+                    <CentralAirDistribution>
+                      <AirDeliveryType>Central fan</AirDeliveryType>
+                      <TerminalUnit>CAV terminal box no reheat</TerminalUnit>
+                      <ReheatSource>None</ReheatSource>
+                      <FanBased>
+                        <AirSideEconomizer ID="AirSideEconomizer-1">
+                          <AirSideEconomizerType>None</AirSideEconomizerType>
+                          <EconomizerControl>Fixed</EconomizerControl>
+                        </AirSideEconomizer>
+                      </FanBased>
+                    </CentralAirDistribution>
+                  </DeliveryType>
+                  <HeatingSourceID IDref="HeatingSource-1"/>
+                  <CoolingSourceID IDref="CoolingSource-1"/>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                  <Quantity>1</Quantity>
+                  <DeliveryCondition>Good</DeliveryCondition>
+                </Delivery>
+                <Delivery ID="Delivery-2">
+                  <DeliveryType>
+                    <CentralAirDistribution>
+                      <AirDeliveryType>Central fan</AirDeliveryType>
+                      <TerminalUnit>CAV terminal box no reheat</TerminalUnit>
+                      <ReheatSource>None</ReheatSource>
+                      <FanBased>
+                        <AirSideEconomizer ID="AirSideEconomizer-2">
+                          <AirSideEconomizerType>None</AirSideEconomizerType>
+                          <EconomizerControl>Fixed</EconomizerControl>
+                        </AirSideEconomizer>
+                      </FanBased>
+                    </CentralAirDistribution>
+                  </DeliveryType>
+                  <HeatingSourceID IDref="HeatingSource-2"/>
+                  <CoolingSourceID IDref="CoolingSource-2"/>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                  <Quantity>1</Quantity>
+                  <DeliveryCondition>Good</DeliveryCondition>
+                </Delivery>
+                <Delivery ID="Delivery-3">
+                  <DeliveryType>
+                    <CentralAirDistribution>
+                      <AirDeliveryType>Central fan</AirDeliveryType>
+                      <TerminalUnit>CAV terminal box no reheat</TerminalUnit>
+                      <ReheatSource>None</ReheatSource>
+                      <FanBased>
+                        <AirSideEconomizer ID="AirSideEconomizer-3">
+                          <AirSideEconomizerType>None</AirSideEconomizerType>
+                          <EconomizerControl>Fixed</EconomizerControl>
+                        </AirSideEconomizer>
+                      </FanBased>
+                    </CentralAirDistribution>
+                  </DeliveryType>
+                  <HeatingSourceID IDref="HeatingSource-3"/>
+                  <CoolingSourceID IDref="CoolingSource-3"/>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                  <Quantity>1</Quantity>
+                  <DeliveryCondition>Good</DeliveryCondition>
+                </Delivery>
+                <Delivery ID="Delivery-4">
+                  <DeliveryType>
+                    <CentralAirDistribution>
+                      <AirDeliveryType>Central fan</AirDeliveryType>
+                      <TerminalUnit>CAV terminal box no reheat</TerminalUnit>
+                      <ReheatSource>None</ReheatSource>
+                      <FanBased>
+                        <AirSideEconomizer ID="AirSideEconomizer-4">
+                          <AirSideEconomizerType>None</AirSideEconomizerType>
+                          <EconomizerControl>Fixed</EconomizerControl>
+                        </AirSideEconomizer>
+                      </FanBased>
+                    </CentralAirDistribution>
+                  </DeliveryType>
+                  <HeatingSourceID IDref="HeatingSource-4"/>
+                  <CoolingSourceID IDref="CoolingSource-4"/>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                  <Quantity>1</Quantity>
+                  <DeliveryCondition>Good</DeliveryCondition>
+                </Delivery>
+                <Delivery ID="Delivery-5">
+                  <DeliveryType>
+                    <CentralAirDistribution>
+                      <AirDeliveryType>Central fan</AirDeliveryType>
+                      <TerminalUnit>CAV terminal box no reheat</TerminalUnit>
+                      <ReheatSource>None</ReheatSource>
+                      <FanBased>
+                        <AirSideEconomizer ID="AirSideEconomizer-5">
+                          <AirSideEconomizerType>None</AirSideEconomizerType>
+                          <EconomizerControl>Fixed</EconomizerControl>
+                        </AirSideEconomizer>
+                      </FanBased>
+                    </CentralAirDistribution>
+                  </DeliveryType>
+                  <HeatingSourceID IDref="HeatingSource-5"/>
+                  <CoolingSourceID IDref="CoolingSource-5"/>
+                  <Controls>
+                    <Control>
+                      <OtherControlTechnology>
+                        <ControlSystemType>
+                          <Digital/>
+                        </ControlSystemType>
+                      </OtherControlTechnology>
+                    </Control>
+                  </Controls>
+                  <YearInstalled>2000</YearInstalled>
+                  <Quantity>1</Quantity>
+                  <DeliveryCondition>Good</DeliveryCondition>
+                </Delivery>
+              </Deliveries>
+            </HeatingAndCoolingSystems>
+            <DuctSystems>
+              <DuctSystem ID="DuctSystem-1">
+                <DuctConfiguration>Single</DuctConfiguration>
+                <DuctInsulationCondition>Good</DuctInsulationCondition>
+                <HeatingDeliveryID IDref="Delivery-1"/>
+                <CoolingDeliveryID IDref="Delivery-1"/>
+              </DuctSystem>
+              <DuctSystem ID="DuctSystem-2">
+                <DuctConfiguration>Single</DuctConfiguration>
+                <DuctInsulationCondition>Good</DuctInsulationCondition>
+                <HeatingDeliveryID IDref="Delivery-2"/>
+                <CoolingDeliveryID IDref="Delivery-2"/>
+              </DuctSystem>
+              <DuctSystem ID="DuctSystem-3">
+                <DuctConfiguration>Single</DuctConfiguration>
+                <DuctInsulationCondition>Good</DuctInsulationCondition>
+                <HeatingDeliveryID IDref="Delivery-3"/>
+                <CoolingDeliveryID IDref="Delivery-3"/>
+              </DuctSystem>
+              <DuctSystem ID="DuctSystem-4">
+                <DuctConfiguration>Single</DuctConfiguration>
+                <DuctInsulationCondition>Good</DuctInsulationCondition>
+                <HeatingDeliveryID IDref="Delivery-4"/>
+                <CoolingDeliveryID IDref="Delivery-4"/>
+              </DuctSystem>
+              <DuctSystem ID="DuctSystem-5">
+                <DuctConfiguration>Single</DuctConfiguration>
+                <DuctInsulationCondition>Good</DuctInsulationCondition>
+                <HeatingDeliveryID IDref="Delivery-5"/>
+                <CoolingDeliveryID IDref="Delivery-5"/>
+              </DuctSystem>
+            </DuctSystems>
+            <HVACControlSystemTypes>
+              <HVACControlSystemType>Digital</HVACControlSystemType>
+            </HVACControlSystemTypes>
+            <LinkedPremises>
+              <Section>
+                <LinkedSectionID IDref="Section-office">
+                  <LinkedScheduleIDs>
+                    <LinkedScheduleID IDref="Schedule-HVAC"/>
+                  </LinkedScheduleIDs>
+                </LinkedSectionID>
+              </Section>
+            </LinkedPremises>
+          </HVACSystem>
+        </HVACSystems>
+        <LightingSystems>
+          <LightingSystem ID="LightingSystem-1">
+            <LampType>
+              <LinearFluorescent>
+                <LampLabel>T8</LampLabel>
+              </LinearFluorescent>
+            </LampType>
+            <BallastType>Standard Electronic</BallastType>
+            <DimmingCapability>
+              <MinimumDimmingLightFraction>0.200000</MinimumDimmingLightFraction>
+            </DimmingCapability>
+            <PercentPremisesServed>100.000000</PercentPremisesServed>
+            <InstalledPower>5.500000</InstalledPower>
+            <LampPower>32.000000</LampPower>
+            <NumberOfLampsPerBallast>4</NumberOfLampsPerBallast>
+            <NumberOfBallastsPerLuminaire>1.000000</NumberOfBallastsPerLuminaire>
+            <NumberOfLuminaires>43</NumberOfLuminaires>
+            <OutsideLighting>false</OutsideLighting>
+            <Controls>
+              <Control>
+                <OtherControlTechnology>
+                  <ControlSystemType>
+                    <Digital/>
+                  </ControlSystemType>
+                  <ControlStrategy>Programmable</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
+            <LightingAutomationSystem>false</LightingAutomationSystem>
+            <LinkedPremises>
+              <Section>
+                <LinkedSectionID IDref="Section-office">
+                  <LinkedScheduleIDs>
+                    <LinkedScheduleID IDref="Schedule-Lighting"/>
+                  </LinkedScheduleIDs>
+                </LinkedSectionID>
+              </Section>
+            </LinkedPremises>
+          </LightingSystem>
+          <LightingSystem ID="LightingSystem-2">
+            <LampType>
+              <LinearFluorescent>
+                <LampLabel>T12</LampLabel>
+              </LinearFluorescent>
+            </LampType>
+            <BallastType>Standard Electronic</BallastType>
+            <PercentPremisesServed>100.000000</PercentPremisesServed>
+            <InstalledPower>1.582575</InstalledPower>
+            <LampPower>316.516000</LampPower>
+            <NumberOfLampsPerBallast>1</NumberOfLampsPerBallast>
+            <NumberOfBallastsPerLuminaire>1.000000</NumberOfBallastsPerLuminaire>
+            <NumberOfLuminaires>5</NumberOfLuminaires>
+            <OutsideLighting>true</OutsideLighting>
+            <Controls>
+              <Control>
+                <OtherControlTechnology>
+                  <ControlSystemType>
+                    <Digital/>
+                  </ControlSystemType>
+                  <ControlStrategy>Programmable</ControlStrategy>
+                </OtherControlTechnology>
+              </Control>
+            </Controls>
+            <LightingAutomationSystem>false</LightingAutomationSystem>
+            <LinkedPremises>
+              <Section>
+                <LinkedSectionID IDref="Section-Whole-building">
+                  <LinkedScheduleIDs>
+                    <LinkedScheduleID IDref="Schedule-Lighting"/>
+                  </LinkedScheduleIDs>
+                </LinkedSectionID>
+              </Section>
+            </LinkedPremises>
+          </LightingSystem>
+          <LightingSystem ID="LightingSystem-new">
+            <LampType>
+              <SolidStateLighting>
+                <LampLabel>LED</LampLabel>
+              </SolidStateLighting>
+            </LampType>
+            <BallastType>Standard Electronic</BallastType>
+            <DimmingCapability>
+              <MinimumDimmingLightFraction>0.100000</MinimumDimmingLightFraction>
+            </DimmingCapability>
+            <PercentPremisesServed>100.000000</PercentPremisesServed>
+            <InstalledPower>2.752000</InstalledPower>
+            <LampPower>16.000000</LampPower>
+            <NumberOfLampsPerBallast>4</NumberOfLampsPerBallast>
+            <NumberOfBallastsPerLuminaire>1.000000</NumberOfBallastsPerLuminaire>
+            <NumberOfLuminaires>43</NumberOfLuminaires>
+            <OutsideLighting>false</OutsideLighting>
+            <Controls>
+              <Control>
+                <Daylighting>
+                  <ControlSystemType>
+                    <Digital/>
+                  </ControlSystemType>
+                  <ControlSensor>Photocell</ControlSensor>
+                  <ControlStrategy>Continuous</ControlStrategy>
+                </Daylighting>
+              </Control>
+            </Controls>
+            <LightingAutomationSystem>false</LightingAutomationSystem>
+            <LinkedPremises>
+              <Section>
+                <LinkedSectionID IDref="Section-office">
+                  <LinkedScheduleIDs>
+                    <LinkedScheduleID IDref="Schedule-Lighting"/>
+                  </LinkedScheduleIDs>
+                </LinkedSectionID>
+              </Section>
+            </LinkedPremises>
+          </LightingSystem>
+        </LightingSystems>
+        <DomesticHotWaterSystems>
+          <DomesticHotWaterSystem ID="SHW-1">
+            <DomesticHotWaterType>
+              <StorageTank>
+                <TankHeatingType>
+                  <Unknown/>
+                </TankHeatingType>
+                <TankVolume>40.000000</TankVolume>
+                <StorageTankInsulationRValue>123.000000</StorageTankInsulationRValue>
+              </StorageTank>
+            </DomesticHotWaterType>
+            <DomesticHotWaterSystemNotes>Notes</DomesticHotWaterSystemNotes>
+            <Recirculation>
+              <RecirculationLoopCount>1</RecirculationLoopCount>
+              <RecirculationFlowRate>3.600000</RecirculationFlowRate>
+              <RecirculationControlType>Continuous</RecirculationControlType>
+              <PipeInsulationThickness>123.000000</PipeInsulationThickness>
+              <RecirculationEnergyLossRate>1.870180</RecirculationEnergyLossRate>
+            </Recirculation>
+            <HotWaterDistributionType>Looped</HotWaterDistributionType>
+            <WaterHeaterEfficiencyType>Thermal Efficiency</WaterHeaterEfficiencyType>
+            <WaterHeaterEfficiency>1.000000</WaterHeaterEfficiency>
+            <DailyHotWaterDraw>40.000000</DailyHotWaterDraw>
+            <HotWaterSetpointTemperature>140.000000</HotWaterSetpointTemperature>
+            <ParasiticFuelConsumptionRate>1950.520000</ParasiticFuelConsumptionRate>
+            <Capacity>11722.840000</Capacity>
+            <CapacityUnits>W</CapacityUnits>
+            <Controls>
+              <Control>
+                <Manual>
+                  <ControlSystemType>
+                    <Other/>
+                  </ControlSystemType>
+                </Manual>
+              </Control>
+            </Controls>
+            <YearInstalled>2000</YearInstalled>
+            <PrimaryFuel>Electricity</PrimaryFuel>
+            <DomesticHotWaterSystemCondition>Good</DomesticHotWaterSystemCondition>
+            <LinkedPremises>
+              <Building>
+                <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+              </Building>
+              <Section>
+                <LinkedSectionID IDref="Section-office"/>
+              </Section>
+            </LinkedPremises>
+            <Quantity>1</Quantity>
+          </DomesticHotWaterSystem>
+        </DomesticHotWaterSystems>
+        <FanSystems>
+          <FanSystem ID="FanSystem-1">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>880.000000</FanSize>
+            <FanInstalledFlowRate>880.000000</FanInstalledFlowRate>
+            <FanControlType>Constant Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-1"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-1-new">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>872.000000</FanSize>
+            <InstalledFlowRate>872.000000</InstalledFlowRate>
+            <FanControlType>Variable Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-1"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-2">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>836.000000</FanSize>
+            <FanInstalledFlowRate>836.000000</FanInstalledFlowRate>
+            <FanControlType>Constant Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-2"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-2-new">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>830.000000</FanSize>
+            <InstalledFlowRate>830.000000</InstalledFlowRate>
+            <FanControlType>Variable Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-2"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-3">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>671.000000</FanSize>
+            <FanInstalledFlowRate>671.000000</FanInstalledFlowRate>
+            <FanControlType>Constant Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-3"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-3-new">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>664.000000</FanSize>
+            <InstalledFlowRate>664.000000</InstalledFlowRate>
+            <FanControlType>Variable Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-3"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-4">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>774.000000</FanSize>
+            <FanInstalledFlowRate>774.000000</FanInstalledFlowRate>
+            <FanControlType>Constant Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-4"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-4-new">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>766.000000</FanSize>
+            <InstalledFlowRate>766.000000</InstalledFlowRate>
+            <FanControlType>Variable Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-4"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-5">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>841.000000</FanSize>
+            <FanInstalledFlowRate>841.000000</FanInstalledFlowRate>
+            <FanControlType>Constant Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-5"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+          <FanSystem ID="FanSystem-5-new">
+            <FanEfficiency>0.536000</FanEfficiency>
+            <FanSize>833.000000</FanSize>
+            <InstalledFlowRate>833.000000</InstalledFlowRate>
+            <FanControlType>Variable Volume</FanControlType>
+            <LinkedSystemIDs>
+              <LinkedSystemID IDref="Delivery-5"/>
+            </LinkedSystemIDs>
+          </FanSystem>
+        </FanSystems>
+        <WallSystems>
+          <WallSystem ID="Wall-1">
+            <ExteriorWallConstruction>Wood frame</ExteriorWallConstruction>
+            <WallUFactor>0.547000</WallUFactor>
+          </WallSystem>
+        </WallSystems>
+        <RoofSystems>
+          <RoofSystem ID="Roof-1">
+            <RoofConstruction>Wood frame</RoofConstruction>
+            <RoofUFactor>4.706000</RoofUFactor>
+          </RoofSystem>
+        </RoofSystems>
+        <FenestrationSystems>
+          <FenestrationSystem ID="Window-1-Original">
+            <FenestrationType>
+              <Window/>
+            </FenestrationType>
+            <FenestrationFrameMaterial>Vinyl</FenestrationFrameMaterial>
+            <GlassType>Clear uncoated</GlassType>
+            <FenestrationGlassLayers>Single pane</FenestrationGlassLayers>
+            <FenestrationUFactor>3.241000</FenestrationUFactor>
+            <SolarHeatGainCoefficient>0.391000</SolarHeatGainCoefficient>
+            <VisibleTransmittance>0.391000</VisibleTransmittance>
+          </FenestrationSystem>
+          <FenestrationSystem ID="Window-1">
+            <FenestrationType>
+              <Window/>
+            </FenestrationType>
+            <FenestrationFrameMaterial>Vinyl</FenestrationFrameMaterial>
+            <GlassType>Low e</GlassType>
+            <FenestrationGlassLayers>Triple pane</FenestrationGlassLayers>
+            <FenestrationUFactor>0.300000</FenestrationUFactor>
+            <SolarHeatGainCoefficient>0.391000</SolarHeatGainCoefficient>
+            <VisibleTransmittance>0.391000</VisibleTransmittance>
+          </FenestrationSystem>
+          <FenestrationSystem ID="Door-1">
+            <FenestrationType>
+              <Door>
+                <ExteriorDoorType>Insulated metal</ExteriorDoorType>
+                <DoorGlazedAreaFraction>0.500000</DoorGlazedAreaFraction>
+              </Door>
+            </FenestrationType>
+            <FenestrationFrameMaterial>Steel</FenestrationFrameMaterial>
+            <FenestrationUFactor>2.839000</FenestrationUFactor>
+          </FenestrationSystem>
+        </FenestrationSystems>
+        <FoundationSystems>
+          <FoundationSystem ID="Foundation-1">
+            <GroundCouplings>
+              <GroundCoupling>
+                <SlabOnGrade>
+                  <SlabUFactor>0.345000</SlabUFactor>
+                </SlabOnGrade>
+              </GroundCoupling>
+            </GroundCouplings>
+            <FloorConstructionType>Concrete poured</FloorConstructionType>
+          </FoundationSystem>
+        </FoundationSystems>
+        <PlugLoads>
+          <PlugLoad ID="PlugLoad-1">
+            <PlugLoadType>Miscellaneous Electric Load</PlugLoadType>
+            <WeightedAverageLoad>0.630000</WeightedAverageLoad>
+            <LinkedPremises>
+              <Section>
+                <LinkedSectionID IDref="Section-office">
+                  <LinkedScheduleIDs>
+                    <LinkedScheduleID IDref="Schedule-PlugLoad"/>
+                  </LinkedScheduleIDs>
+                </LinkedSectionID>
+              </Section>
+            </LinkedPremises>
+          </PlugLoad>
+        </PlugLoads>
+        <AirInfiltrationSystems>
+          <AirInfiltrationSystem ID="Infiltration-1">
+            <AirInfiltrationNotes>Notes on test</AirInfiltrationNotes>
+            <Tightness>Tight</Tightness>
+            <AirInfiltrationValue>0.151000</AirInfiltrationValue>
+            <AirInfiltrationValueUnits>ACHnatural</AirInfiltrationValueUnits>
+            <AirInfiltrationTest>Blower door</AirInfiltrationTest>
+            <LinkedPremises>
+              <Section>
+                <LinkedSectionID IDref="Section-Whole-building"/>
+              </Section>
+            </LinkedPremises>
+          </AirInfiltrationSystem>
+        </AirInfiltrationSystems>
+        <WaterInfiltrationSystems>
+          <WaterInfiltrationSystem>
+            <WaterInfiltrationNotes>Notes on test</WaterInfiltrationNotes>
+            <LinkedPremises>
+              <Section>
+                <LinkedSectionID IDref="Section-Whole-building"/>
+              </Section>
+            </LinkedPremises>
+          </WaterInfiltrationSystem>
+        </WaterInfiltrationSystems>
+      </Systems>
+      <Schedules>
+        <Schedule ID="Schedule-Occupancy">
+          <ScheduleDetails>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Occupied</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>06:00:00</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Occupied</ScheduleCategory>
+              <DayStartTime>06:00:00</DayStartTime>
+              <DayEndTime>07:00:00</DayEndTime>
+              <PartialOperationPercentage>11.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Occupied</ScheduleCategory>
+              <DayStartTime>07:00:00</DayStartTime>
+              <DayEndTime>08:00:00</DayEndTime>
+              <PartialOperationPercentage>21.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Occupied</ScheduleCategory>
+              <DayStartTime>08:00:00</DayStartTime>
+              <DayEndTime>12:00:00</DayEndTime>
+              <PartialOperationPercentage>100.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Occupied</ScheduleCategory>
+              <DayStartTime>12:00:00</DayStartTime>
+              <DayEndTime>13:00:00</DayEndTime>
+              <PartialOperationPercentage>53.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Occupied</ScheduleCategory>
+              <DayStartTime>13:00:00</DayStartTime>
+              <DayEndTime>17:00:00</DayEndTime>
+              <PartialOperationPercentage>100.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Occupied</ScheduleCategory>
+              <DayStartTime>17:00:00</DayStartTime>
+              <DayEndTime>18:00:00</DayEndTime>
+              <PartialOperationPercentage>32.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Occupied</ScheduleCategory>
+              <DayStartTime>18:00:00</DayStartTime>
+              <DayEndTime>22:00:00</DayEndTime>
+              <PartialOperationPercentage>11.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Occupied</ScheduleCategory>
+              <DayStartTime>22:00:00</DayStartTime>
+              <DayEndTime>23:00:00</DayEndTime>
+              <PartialOperationPercentage>5.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Occupied</ScheduleCategory>
+              <DayStartTime>23:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekend</DayType>
+              <ScheduleCategory>Occupied</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Holiday</DayType>
+              <ScheduleCategory>Occupied</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+          </ScheduleDetails>
+          <LinkedPremises>
+            <Building>
+              <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+            </Building>
+            <Section>
+              <LinkedSectionID IDref="Section-office"/>
+            </Section>
+          </LinkedPremises>
+        </Schedule>
+        <Schedule ID="Schedule-Lighting">
+          <ScheduleDetails>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Lighting</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>05:00:00</DayEndTime>
+              <PartialOperationPercentage>18.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Lighting</ScheduleCategory>
+              <DayStartTime>05:00:00</DayStartTime>
+              <DayEndTime>07:00:00</DayEndTime>
+              <PartialOperationPercentage>23.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Lighting</ScheduleCategory>
+              <DayStartTime>07:00:00</DayStartTime>
+              <DayEndTime>08:00:00</DayEndTime>
+              <PartialOperationPercentage>42.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Lighting</ScheduleCategory>
+              <DayStartTime>08:00:00</DayStartTime>
+              <DayEndTime>12:00:00</DayEndTime>
+              <PartialOperationPercentage>90.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Lighting</ScheduleCategory>
+              <DayStartTime>12:00:00</DayStartTime>
+              <DayEndTime>13:00:00</DayEndTime>
+              <PartialOperationPercentage>80.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Lighting</ScheduleCategory>
+              <DayStartTime>13:00:00</DayStartTime>
+              <DayEndTime>17:00:00</DayEndTime>
+              <PartialOperationPercentage>90.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Lighting</ScheduleCategory>
+              <DayStartTime>17:00:00</DayStartTime>
+              <DayEndTime>18:00:00</DayEndTime>
+              <PartialOperationPercentage>61.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Lighting</ScheduleCategory>
+              <DayStartTime>18:00:00</DayStartTime>
+              <DayEndTime>20:00:00</DayEndTime>
+              <PartialOperationPercentage>42.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Lighting</ScheduleCategory>
+              <DayStartTime>20:00:00</DayStartTime>
+              <DayEndTime>22:00:00</DayEndTime>
+              <PartialOperationPercentage>32.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Lighting</ScheduleCategory>
+              <DayStartTime>22:00:00</DayStartTime>
+              <DayEndTime>23:00:00</DayEndTime>
+              <PartialOperationPercentage>23.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Lighting</ScheduleCategory>
+              <DayStartTime>23:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>18.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekend</DayType>
+              <ScheduleCategory>Lighting</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>18.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Holiday</DayType>
+              <ScheduleCategory>Lighting</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>18.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+          </ScheduleDetails>
+          <LinkedPremises>
+            <Building>
+              <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+            </Building>
+          </LinkedPremises>
+        </Schedule>
+        <Schedule ID="Schedule-PlugLoad">
+          <ScheduleDetails>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Miscellaneous equipment</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>08:00:00</DayEndTime>
+              <PartialOperationPercentage>50.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Miscellaneous equipment</ScheduleCategory>
+              <DayStartTime>08:00:00</DayStartTime>
+              <DayEndTime>12:00:00</DayEndTime>
+              <PartialOperationPercentage>100.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Miscellaneous equipment</ScheduleCategory>
+              <DayStartTime>12:00:00</DayStartTime>
+              <DayEndTime>13:00:00</DayEndTime>
+              <PartialOperationPercentage>94.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Miscellaneous equipment</ScheduleCategory>
+              <DayStartTime>13:00:00</DayStartTime>
+              <DayEndTime>17:00:00</DayEndTime>
+              <PartialOperationPercentage>100.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Miscellaneous equipment</ScheduleCategory>
+              <DayStartTime>17:00:00</DayStartTime>
+              <DayEndTime>18:00:00</DayEndTime>
+              <PartialOperationPercentage>50.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>Miscellaneous equipment</ScheduleCategory>
+              <DayStartTime>18:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>20.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekend</DayType>
+              <ScheduleCategory>Miscellaneous equipment</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>20.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Holiday</DayType>
+              <ScheduleCategory>Miscellaneous equipment</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>20.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+          </ScheduleDetails>
+          <LinkedPremises>
+            <Building>
+              <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+            </Building>
+          </LinkedPremises>
+        </Schedule>
+        <Schedule ID="Schedule-HVAC">
+          <ScheduleDetails>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>06:00:00</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>06:00:00</DayStartTime>
+              <DayEndTime>19:00:00</DayEndTime>
+              <PartialOperationPercentage>100.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>19:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekend</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Holiday</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+          </ScheduleDetails>
+          <LinkedPremises>
+            <Building>
+              <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+            </Building>
+          </LinkedPremises>
+        </Schedule>
+        <Schedule ID="Schedule-HVAC-new">
+          <ScheduleDetails>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>06:00:00</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>06:00:00</DayStartTime>
+              <DayEndTime>07:00:00</DayEndTime>
+              <PartialOperationPercentage>60.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>07:00:00</DayStartTime>
+              <DayEndTime>12:00:00</DayEndTime>
+              <PartialOperationPercentage>100.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>12:00:00</DayStartTime>
+              <DayEndTime>13:00:00</DayEndTime>
+              <PartialOperationPercentage>80.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>13:00:00</DayStartTime>
+              <DayEndTime>18:00:00</DayEndTime>
+              <PartialOperationPercentage>100.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>18:00:00</DayStartTime>
+              <DayEndTime>20:00:00</DayEndTime>
+              <PartialOperationPercentage>60.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekday</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>20:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Weekend</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+            <ScheduleDetail>
+              <DayType>Holiday</DayType>
+              <ScheduleCategory>HVAC equipment</ScheduleCategory>
+              <DayStartTime>00:00:00</DayStartTime>
+              <DayEndTime>23:59:59</DayEndTime>
+              <PartialOperationPercentage>0.000000</PartialOperationPercentage>
+            </ScheduleDetail>
+          </ScheduleDetails>
+          <LinkedPremises>
+            <Building>
+              <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+            </Building>
+          </LinkedPremises>
+        </Schedule>
+      </Schedules>
+      <Measures>
+        <Measure ID="Measure-LEDs">
+          <TypeOfMeasure>
+            <Replacements>
+              <Replacement>
+                <ExistingSystemReplaced IDref="LightingSystem-1"/>
+                <AlternativeSystemReplacement IDref="LightingSystem-new"/>
+              </Replacement>
+            </Replacements>
+          </TypeOfMeasure>
+          <SystemCategoryAffected>Lighting</SystemCategoryAffected>
+          <TechnologyCategories>
+            <TechnologyCategory>
+              <LightingImprovements>
+                <MeasureName>Retrofit with light emitting diode technologies</MeasureName>
+              </LightingImprovements>
+            </TechnologyCategory>
+          </TechnologyCategories>
+          <MeasureScaleOfApplication>Individual system</MeasureScaleOfApplication>
+          <LongDescription>This measure is designed to replace all fluorescent bulbs with LEDs</LongDescription>
+          <UsefulLife>1.000000</UsefulLife>
+          <MeasureInstallationCost>50.000000</MeasureInstallationCost>
+          <MeasureMaterialCost>774.000000</MeasureMaterialCost>
+          <Recommended>true</Recommended>
+          <StartDate>2021-01-01</StartDate>
+          <EndDate>2021-12-30</EndDate>
+        </Measure>
+        <Measure ID="Measure-VSDs">
+          <TypeOfMeasure>
+            <ModificationRetrocommissions>
+              <ModificationRetrocommissioning>
+                <ExistingSystemAffected IDref="FanSystem-5"/>
+                <ModifiedSystem IDref="FanSystem-5-new"/>
+              </ModificationRetrocommissioning>
+            </ModificationRetrocommissions>
+          </TypeOfMeasure>
+          <SystemCategoryAffected>Fan</SystemCategoryAffected>
+          <TechnologyCategories>
+            <TechnologyCategory>
+              <OtherElectricMotorsAndDrives>
+                <MeasureName>Add VSD motor controller</MeasureName>
+              </OtherElectricMotorsAndDrives>
+            </TechnologyCategory>
+          </TechnologyCategories>
+          <MeasureScaleOfApplication>Individual system</MeasureScaleOfApplication>
+          <LongDescription>This measure is designed to retrofit all RTU fans with a VSD</LongDescription>
+          <UsefulLife>1.000000</UsefulLife>
+          <MeasureInstallationCost>750.000000</MeasureInstallationCost>
+          <MeasureMaterialCost>1250.000000</MeasureMaterialCost>
+          <Recommended>true</Recommended>
+          <StartDate>2021-01-01</StartDate>
+          <EndDate>2021-12-30</EndDate>
+        </Measure>
+      </Measures>
+      <Reports>
+        <Report ID="Report-L2-Audit">
+          <Scenarios>
+            <Scenario ID="Scenario-measured">
+              <ScenarioType>
+                <CurrentBuilding>
+                  <CalculationMethod>
+                    <Measured/>
+                  </CalculationMethod>
+                </CurrentBuilding>
+              </ScenarioType>
+              <ResourceUses>
+                <ResourceUse ID="ResourceUse-Electricity">
+                  <EnergyResource>Electricity</EnergyResource>
+                  <ResourceUseNotes>This is required to document irregularities in monthly energy patterns (Std 211 6.1.2.1.j). No irregularities found.</ResourceUseNotes>
+                  <ResourceUnits>kWh</ResourceUnits>
+                  <EndUse>All end uses</EndUse>
+                  <AnnualFuelUseNativeUnits>67334.150000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>229.753657</AnnualFuelUseConsistentUnits>
+                  <AnnualFuelUseLinkedTimeSeriesIDs>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Total-1"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Total-2"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Total-3"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Total-4"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Total-5"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Total-6"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Total-7"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Total-8"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Total-9"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Total-10"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Total-11"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Electricity-Total-12"/>
+                  </AnnualFuelUseLinkedTimeSeriesIDs>
+                  <PeakResourceUnits>kW</PeakResourceUnits>
+                  <AnnualPeakNativeUnits>26.040000</AnnualPeakNativeUnits>
+                  <AnnualPeakConsistentUnits>26.040000</AnnualPeakConsistentUnits>
+                  <AnnualFuelCost>4613.820000</AnnualFuelCost>
+                  <UtilityIDs>
+                    <UtilityID IDref="Utility-Electric"/>
+                  </UtilityIDs>
+                </ResourceUse>
+                <ResourceUse ID="ResourceUse-Natural-gas">
+                  <EnergyResource>Natural gas</EnergyResource>
+                  <ResourceUseNotes>No irregularities in monthly energy consumption found.</ResourceUseNotes>
+                  <ResourceUnits>MMBtu</ResourceUnits>
+                  <EndUse>All end uses</EndUse>
+                  <AnnualFuelUseNativeUnits>8.720000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>8.720000</AnnualFuelUseConsistentUnits>
+                  <AnnualFuelUseLinkedTimeSeriesIDs>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Natural-gas-Total-1"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Natural-gas-Total-2"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Natural-gas-Total-3"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Natural-gas-Total-4"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Natural-gas-Total-5"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Natural-gas-Total-6"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Natural-gas-Total-7"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Natural-gas-Total-8"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Natural-gas-Total-9"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Natural-gas-Total-10"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Natural-gas-Total-11"/>
+                    <LinkedTimeSeriesID IDref="TS-ResourceUse-Natural-gas-Total-12"/>
+                  </AnnualFuelUseLinkedTimeSeriesIDs>
+                  <AnnualFuelCost>540.830000</AnnualFuelCost>
+                  <UtilityIDs>
+                    <UtilityID IDref="Utility-Natural-Gas"/>
+                  </UtilityIDs>
+                </ResourceUse>
+                <ResourceUse ID="ResourceUse-Electricity-Lighting-Submeter">
+                  <EnergyResource>Electricity</EnergyResource>
+                  <ResourceUnits>kWh</ResourceUnits>
+                  <EndUse>Interior lighting</EndUse>
+                  <PercentEndUse>28.705000</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>20062.690000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>68.453898</AnnualFuelUseConsistentUnits>
+                  <ParentResourceUseID IDref="ResourceUse-Electricity"/>
+                </ResourceUse>
+                <ResourceUse ID="ResourceUse-Electricity-Heating-Submeter">
+                  <EnergyResource>Electricity</EnergyResource>
+                  <ResourceUnits>kWh</ResourceUnits>
+                  <EndUse>Heating</EndUse>
+                  <PercentEndUse>6.722000</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>4698.230000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>16.030361</AnnualFuelUseConsistentUnits>
+                  <ParentResourceUseID IDref="ResourceUse-Electricity"/>
+                </ResourceUse>
+                <ResourceUse ID="ResourceUse-Electricity-Cooling-Submeter">
+                  <EnergyResource>Electricity</EnergyResource>
+                  <ResourceUnits>kWh</ResourceUnits>
+                  <EndUse>Cooling</EndUse>
+                  <PercentEndUse>8.769000</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>6128.870000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>20.911704</AnnualFuelUseConsistentUnits>
+                  <ParentResourceUseID IDref="ResourceUse-Electricity"/>
+                </ResourceUse>
+                <ResourceUse ID="ResourceUse-Electricity-SHW-Submeter">
+                  <EnergyResource>Electricity</EnergyResource>
+                  <ResourceUnits>kWh</ResourceUnits>
+                  <EndUse>Domestic hot water</EndUse>
+                  <PercentEndUse>10.281000</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>7185.370000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>24.516482</AnnualFuelUseConsistentUnits>
+                  <ParentResourceUseID IDref="ResourceUse-Electricity"/>
+                </ResourceUse>
+                <ResourceUse ID="ResourceUse-Electricity-Plugload-Submeter">
+                  <EnergyResource>Electricity</EnergyResource>
+                  <ResourceUnits>kWh</ResourceUnits>
+                  <EndUse>Plug load</EndUse>
+                  <PercentEndUse>21.379000</PercentEndUse>
+                  <AnnualFuelUseNativeUnits>14942.150000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>50.982616</AnnualFuelUseConsistentUnits>
+                  <ParentResourceUseID IDref="ResourceUse-Electricity"/>
+                </ResourceUse>
+              </ResourceUses>
+              <TimeSeriesData>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Total-1">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-01-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-02-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5933.100000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Total-2">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-02-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-03-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>28</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5446.100000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Total-3">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-03-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-04-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5736.490000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Total-4">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-04-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-05-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>4980.500000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Total-5">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-05-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-06-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5187.210000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Total-6">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-06-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-07-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5842.950000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Total-7">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-07-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-08-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5801.730000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Total-8">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-08-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-09-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>6220.160000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Total-9">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-09-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-10-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5682.870000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Total-10">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-10-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-11-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5571.930000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Total-11">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-11-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-12-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5525.150000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Total-12">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-12-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-01-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>5405.940000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-1">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-01-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-02-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>1.720000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-2">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-02-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-03-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>28</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>1.250000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-3">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-03-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-04-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.410000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-4">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-04-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-05-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.430000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-5">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-05-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-06-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.010000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-6">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-06-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-07-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.000000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-7">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-07-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-08-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.000000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-8">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-08-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-09-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.000000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-9">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-09-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-10-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.000000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-10">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-10-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-11-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.200000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-11">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-11-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-12-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.400000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Total-12">
+                  <ReadingType>Total</ReadingType>
+                  <TimeSeriesReadingQuantity>Energy</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-12-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-01-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>4.300000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Peak-1">
+                  <ReadingType>Peak</ReadingType>
+                  <PeakType>On-peak</PeakType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-01-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-02-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>23.580000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Peak-2">
+                  <ReadingType>Peak</ReadingType>
+                  <PeakType>On-peak</PeakType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-02-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-03-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>28</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>25.380000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Peak-3">
+                  <ReadingType>Peak</ReadingType>
+                  <PeakType>On-peak</PeakType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-03-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-04-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>26.040000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Peak-4">
+                  <ReadingType>Peak</ReadingType>
+                  <PeakType>On-peak</PeakType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-04-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-05-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>24.450000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Peak-5">
+                  <ReadingType>Peak</ReadingType>
+                  <PeakType>On-peak</PeakType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-05-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-06-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>17.030000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Peak-6">
+                  <ReadingType>Peak</ReadingType>
+                  <PeakType>On-peak</PeakType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-06-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-07-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>22.710000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Peak-7">
+                  <ReadingType>Peak</ReadingType>
+                  <PeakType>On-peak</PeakType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-07-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-08-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>22.010000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Peak-8">
+                  <ReadingType>Peak</ReadingType>
+                  <PeakType>On-peak</PeakType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-08-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-09-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>21.810000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Peak-9">
+                  <ReadingType>Peak</ReadingType>
+                  <PeakType>On-peak</PeakType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-09-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-10-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>20.630000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Peak-10">
+                  <ReadingType>Peak</ReadingType>
+                  <PeakType>On-peak</PeakType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-10-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-11-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>21.870000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Peak-11">
+                  <ReadingType>Peak</ReadingType>
+                  <PeakType>On-peak</PeakType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-11-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-12-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>21.630000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Peak-12">
+                  <ReadingType>Peak</ReadingType>
+                  <PeakType>On-peak</PeakType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-12-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-01-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>21.780000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-1">
+                  <ReadingType>Load factor</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-01-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-02-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.340000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-2">
+                  <ReadingType>Load factor</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-02-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-03-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>28</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.320000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-3">
+                  <ReadingType>Load factor</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-03-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-04-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.300000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-4">
+                  <ReadingType>Load factor</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-04-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-05-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.280000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-5">
+                  <ReadingType>Load factor</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-05-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-06-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.410000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-6">
+                  <ReadingType>Load factor</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-06-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-07-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.360000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-7">
+                  <ReadingType>Load factor</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-07-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-08-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.350000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-8">
+                  <ReadingType>Load factor</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-08-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-09-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.380000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-9">
+                  <ReadingType>Load factor</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-09-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-10-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.380000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-10">
+                  <ReadingType>Load factor</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-10-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-11-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.340000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-11">
+                  <ReadingType>Load factor</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-11-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-12-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.350000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Loadfactor-12">
+                  <ReadingType>Load factor</ReadingType>
+                  <TimeSeriesReadingQuantity>Power</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-12-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-01-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>0.330000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Cost-1">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-01-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-02-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>332.160000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Cost-2">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-02-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-03-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>28</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>306.290000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Cost-3">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-03-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-04-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>321.720000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Cost-4">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-04-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-05-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>281.540000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Cost-5">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-05-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-06-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>292.530000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Cost-6">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-06-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-07-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>534.100000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Cost-7">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-07-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-08-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>530.450000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Cost-8">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-08-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-09-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>567.490000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Cost-9">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-09-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-10-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>519.930000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Cost-10">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-10-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-11-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>312.970000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Cost-11">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-11-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-12-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>310.490000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Electricity-Cost-12">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-12-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-01-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>304.150000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Electricity"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-1">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-01-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-02-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>46.690000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-2">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-02-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-03-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>28</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>45.930000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-3">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-03-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-04-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>44.550000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-4">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-04-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-05-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>44.580000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-5">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-05-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-06-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>43.900000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-6">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-06-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-07-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>43.880000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-7">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-07-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-08-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>43.880000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-8">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-08-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-09-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>43.880000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-9">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-09-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-10-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>43.880000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-10">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-10-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-11-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>44.210000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-11">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-11-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2019-12-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>30</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>44.530000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+                <TimeSeries ID="TS-ResourceUse-Natural-gas-Cost-12">
+                  <ReadingType>Cost</ReadingType>
+                  <TimeSeriesReadingQuantity>Cost</TimeSeriesReadingQuantity>
+                  <StartTimestamp>2019-12-01T00:00:00</StartTimestamp>
+                  <EndTimestamp>2020-01-01T00:00:00</EndTimestamp>
+                  <IntervalDuration>31</IntervalDuration>
+                  <IntervalDurationUnits>Day</IntervalDurationUnits>
+                  <IntervalFrequency>Month</IntervalFrequency>
+                  <IntervalReading>50.920000</IntervalReading>
+                  <ResourceUseID IDref="ResourceUse-Natural-gas"/>
+                </TimeSeries>
+              </TimeSeriesData>
+              <AllResourceTotals>
+                <AllResourceTotal ID="AllResourceTotal-1">
+                  <SiteEnergyUse>238473.656550</SiteEnergyUse>
+                  <SiteEnergyUseIntensity>43.358800</SiteEnergyUseIntensity>
+                  <SourceEnergyUse>737088.900000</SourceEnergyUse>
+                  <SourceEnergyUseIntensity>134.000000</SourceEnergyUseIntensity>
+                  <BuildingEnergyUse>238473.656550</BuildingEnergyUse>
+                  <BuildingEnergyUseIntensity>43.358800</BuildingEnergyUseIntensity>
+                  <ImportedEnergyConsistentUnits>238.473657</ImportedEnergyConsistentUnits>
+                  <OnsiteEnergyProductionConsistentUnits>0.000000</OnsiteEnergyProductionConsistentUnits>
+                  <ExportedEnergyConsistentUnits>0.000000</ExportedEnergyConsistentUnits>
+                  <NetIncreaseInStoredEnergyConsistentUnits>0.000000</NetIncreaseInStoredEnergyConsistentUnits>
+                  <EnergyCost>4952.480000</EnergyCost>
+                  <EnergyCostIndex>0.900000</EnergyCostIndex>
+                </AllResourceTotal>
+              </AllResourceTotals>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+                </Building>
+              </LinkedPremises>
+            </Scenario>
+            <Scenario ID="Scenario-Benchmark">
+              <ScenarioType>
+                <Benchmark>
+                  <BenchmarkType>
+                    <PortfolioManager>
+                      <PMBenchmarkDate>2022-06-01</PMBenchmarkDate>
+                    </PortfolioManager>
+                  </BenchmarkType>
+                  <BenchmarkTool>Portfolio Manager</BenchmarkTool>
+                  <BenchmarkYear>2019</BenchmarkYear>
+                  <BenchmarkValue>80.000000</BenchmarkValue>
+                </Benchmark>
+              </ScenarioType>
+              <AllResourceTotals>
+                <AllResourceTotal ID="AllResourceTotal-Benchmark">
+                  <SiteEnergyUse>238473.656550</SiteEnergyUse>
+                  <SiteEnergyUseIntensity>43.358800</SiteEnergyUseIntensity>
+                  <EnergyCost>4952.480000</EnergyCost>
+                </AllResourceTotal>
+              </AllResourceTotals>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+                </Building>
+              </LinkedPremises>
+            </Scenario>
+            <Scenario ID="Scenario-Target">
+              <ScenarioType>
+                <Target>
+                  <ReferenceCase IDref="Scenario-Benchmark"/>
+                  <AnnualSavingsSiteEnergy>39070.530000</AnnualSavingsSiteEnergy>
+                  <AnnualSavingsCost>995</AnnualSavingsCost>
+                  <ENERGYSTARScore>89.000000</ENERGYSTARScore>
+                </Target>
+              </ScenarioType>
+              <AllResourceTotals>
+                <AllResourceTotal ID="AllResourceTotal-Target">
+                  <SiteEnergyUse>190348.600000</SiteEnergyUse>
+                  <SiteEnergyUseIntensity>34.600000</SiteEnergyUseIntensity>
+                  <EnergyCost>4846.040000</EnergyCost>
+                  <EnergyCostIndex>0.881000</EnergyCostIndex>
+                </AllResourceTotal>
+              </AllResourceTotals>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+                </Building>
+              </LinkedPremises>
+            </Scenario>
+            <Scenario ID="Scenario-Modeled">
+              <ScenarioType>
+                <CurrentBuilding>
+                  <CalculationMethod>
+                    <Modeled>
+                      <WeatherDataType>TMY3</WeatherDataType>
+                      <SimulationCompletionStatus>Finished</SimulationCompletionStatus>
+                    </Modeled>
+                  </CalculationMethod>
+                </CurrentBuilding>
+              </ScenarioType>
+              <ResourceUses>
+                <ResourceUse ID="ResourceUse-Electricity-modeled">
+                  <EnergyResource>Electricity</EnergyResource>
+                  <ResourceUnits>kWh</ResourceUnits>
+                  <EndUse>All end uses</EndUse>
+                  <AnnualFuelUseNativeUnits>67334.150000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>229.753657</AnnualFuelUseConsistentUnits>
+                  <PeakResourceUnits>kW</PeakResourceUnits>
+                  <AnnualPeakNativeUnits>26.040000</AnnualPeakNativeUnits>
+                  <AnnualPeakConsistentUnits>26.040000</AnnualPeakConsistentUnits>
+                </ResourceUse>
+                <ResourceUse ID="ResourceUse-Natural-gas-modeled">
+                  <EnergyResource>Natural gas</EnergyResource>
+                  <ResourceUnits>MMBtu</ResourceUnits>
+                  <EndUse>All end uses</EndUse>
+                  <AnnualFuelUseNativeUnits>8.720000</AnnualFuelUseNativeUnits>
+                  <AnnualFuelUseConsistentUnits>8.720000</AnnualFuelUseConsistentUnits>
+                </ResourceUse>
+              </ResourceUses>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+                </Building>
+              </LinkedPremises>
+            </Scenario>
+            <Scenario ID="Scenario-POM-LEDs">
+              <ScenarioName>POM-LEDs</ScenarioName>
+              <ScenarioType>
+                <PackageOfMeasures ID="POM-LEDs">
+                  <ReferenceCase IDref="Scenario-measured"/>
+                  <MeasureIDs>
+                    <MeasureID IDref="Measure-LEDs"/>
+                  </MeasureIDs>
+                  <CostCategory>Capital</CostCategory>
+                  <AnnualSavingsSiteEnergy>35.713000</AnnualSavingsSiteEnergy>
+                  <AnnualSavingsCost>772</AnnualSavingsCost>
+                  <AnnualSavingsByFuels>
+                    <AnnualSavingsByFuel>
+                      <EnergyResource>Electricity</EnergyResource>
+                      <ResourceUnits>kWh</ResourceUnits>
+                      <AnnualSavingsNativeUnits>11524.540000</AnnualSavingsNativeUnits>
+                    </AnnualSavingsByFuel>
+                    <AnnualSavingsByFuel>
+                      <EnergyResource>Natural gas</EnergyResource>
+                      <ResourceUnits>MMBtu</ResourceUnits>
+                      <AnnualSavingsNativeUnits>0.000000</AnnualSavingsNativeUnits>
+                    </AnnualSavingsByFuel>
+                  </AnnualSavingsByFuels>
+                  <AnnualPeakElectricityReduction>3.220000</AnnualPeakElectricityReduction>
+                  <AnnualDemandSavingsCost>0</AnnualDemandSavingsCost>
+                  <AnnualWaterSavings>0.000000</AnnualWaterSavings>
+                  <AnnualWaterCostSavings>0.000000</AnnualWaterCostSavings>
+                  <ImplementationPeriod>1</ImplementationPeriod>
+                  <PackageFirstCost>824.000000</PackageFirstCost>
+                  <MVCost>0.000000</MVCost>
+                  <OMCostAnnualSavings>0.000000</OMCostAnnualSavings>
+                  <EquipmentDisposalAndSalvageCosts>0.000000</EquipmentDisposalAndSalvageCosts>
+                  <ImplementationPeriodCostSavings>0.000000</ImplementationPeriodCostSavings>
+                  <ProjectMarkup>0.000000</ProjectMarkup>
+                  <FundingFromIncentives>0.000000</FundingFromIncentives>
+                  <FundingFromTaxCredits>0.000000</FundingFromTaxCredits>
+                  <OtherFinancialIncentives>0</OtherFinancialIncentives>
+                  <RecurringIncentives>0</RecurringIncentives>
+                  <SimplePayback>1.070000</SimplePayback>
+                  <InternalRateOfReturn>0.000000</InternalRateOfReturn>
+                </PackageOfMeasures>
+              </ScenarioType>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+                </Building>
+              </LinkedPremises>
+            </Scenario>
+            <Scenario ID="Scenario-POM-VSDs">
+              <ScenarioName>POM-VSDs</ScenarioName>
+              <ScenarioType>
+                <PackageOfMeasures ID="POM-VSDs">
+                  <ReferenceCase IDref="Scenario-measured"/>
+                  <MeasureIDs>
+                    <MeasureID IDref="Measure-VSDs"/>
+                  </MeasureIDs>
+                  <CostCategory>Capital</CostCategory>
+                  <AnnualSavingsSiteEnergy>5.175000</AnnualSavingsSiteEnergy>
+                  <AnnualSavingsCost>9</AnnualSavingsCost>
+                  <AnnualSavingsByFuels>
+                    <AnnualSavingsByFuel>
+                      <EnergyResource>Electricity</EnergyResource>
+                      <ResourceUnits>kWh</ResourceUnits>
+                      <AnnualSavingsNativeUnits>207.240000</AnnualSavingsNativeUnits>
+                    </AnnualSavingsByFuel>
+                    <AnnualSavingsByFuel>
+                      <EnergyResource>Natural gas</EnergyResource>
+                      <ResourceUnits>MMBtu</ResourceUnits>
+                      <AnnualSavingsNativeUnits>4.460000</AnnualSavingsNativeUnits>
+                    </AnnualSavingsByFuel>
+                  </AnnualSavingsByFuels>
+                  <AnnualPeakElectricityReduction>0.420000</AnnualPeakElectricityReduction>
+                  <AnnualDemandSavingsCost>0</AnnualDemandSavingsCost>
+                  <AnnualWaterSavings>0.000000</AnnualWaterSavings>
+                  <AnnualWaterCostSavings>0.000000</AnnualWaterCostSavings>
+                  <ImplementationPeriod>1</ImplementationPeriod>
+                  <PackageFirstCost>2000.000000</PackageFirstCost>
+                  <MVCost>0.000000</MVCost>
+                  <OMCostAnnualSavings>0.000000</OMCostAnnualSavings>
+                  <EquipmentDisposalAndSalvageCosts>0.000000</EquipmentDisposalAndSalvageCosts>
+                  <ImplementationPeriodCostSavings>0.000000</ImplementationPeriodCostSavings>
+                  <ProjectMarkup>0.000000</ProjectMarkup>
+                  <FundingFromIncentives>0.000000</FundingFromIncentives>
+                  <FundingFromTaxCredits>0.000000</FundingFromTaxCredits>
+                  <OtherFinancialIncentives>0</OtherFinancialIncentives>
+                  <RecurringIncentives>0</RecurringIncentives>
+                  <SimplePayback>230.150000</SimplePayback>
+                  <InternalRateOfReturn>0.000000</InternalRateOfReturn>
+                </PackageOfMeasures>
+              </ScenarioType>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+                </Building>
+              </LinkedPremises>
+            </Scenario>
+            <Scenario ID="Scenario-POM-LEDs-VSDs">
+              <ScenarioName>POM-LEDs-VSDs</ScenarioName>
+              <ScenarioType>
+                <PackageOfMeasures ID="POM-LEDs-VSDs">
+                  <ReferenceCase IDref="Scenario-measured"/>
+                  <MeasureIDs>
+                    <MeasureID IDref="Measure-LEDs"/>
+                    <MeasureID IDref="Measure-VSDs"/>
+                  </MeasureIDs>
+                  <CostCategory>Capital</CostCategory>
+                  <AnnualSavingsSiteEnergy>41.827000</AnnualSavingsSiteEnergy>
+                  <AnnualSavingsCost>781</AnnualSavingsCost>
+                  <AnnualSavingsByFuels>
+                    <AnnualSavingsByFuel>
+                      <EnergyResource>Electricity</EnergyResource>
+                      <ResourceUnits>kWh</ResourceUnits>
+                      <AnnualSavingsNativeUnits>11701.620000</AnnualSavingsNativeUnits>
+                    </AnnualSavingsByFuel>
+                    <AnnualSavingsByFuel>
+                      <EnergyResource>Natural gas</EnergyResource>
+                      <ResourceUnits>MMBtu</ResourceUnits>
+                      <AnnualSavingsNativeUnits>1.890000</AnnualSavingsNativeUnits>
+                    </AnnualSavingsByFuel>
+                  </AnnualSavingsByFuels>
+                  <AnnualPeakElectricityReduction>4.700000</AnnualPeakElectricityReduction>
+                  <AnnualDemandSavingsCost>0</AnnualDemandSavingsCost>
+                  <AnnualWaterSavings>0.000000</AnnualWaterSavings>
+                  <AnnualWaterCostSavings>0.000000</AnnualWaterCostSavings>
+                  <ImplementationPeriod>1</ImplementationPeriod>
+                  <PackageFirstCost>2824.000000</PackageFirstCost>
+                  <MVCost>0.000000</MVCost>
+                  <OMCostAnnualSavings>0.000000</OMCostAnnualSavings>
+                  <EquipmentDisposalAndSalvageCosts>0.000000</EquipmentDisposalAndSalvageCosts>
+                  <ImplementationPeriodCostSavings>0.000000</ImplementationPeriodCostSavings>
+                  <ProjectMarkup>0.000000</ProjectMarkup>
+                  <FundingFromIncentives>0.000000</FundingFromIncentives>
+                  <FundingFromTaxCredits>0.000000</FundingFromTaxCredits>
+                  <OtherFinancialIncentives>0</OtherFinancialIncentives>
+                  <RecurringIncentives>0</RecurringIncentives>
+                  <SimplePayback>3.620000</SimplePayback>
+                  <InternalRateOfReturn>0.000000</InternalRateOfReturn>
+                </PackageOfMeasures>
+              </ScenarioType>
+              <LinkedPremises>
+                <Building>
+                  <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+                </Building>
+              </LinkedPremises>
+            </Scenario>
+          </Scenarios>
+          <ASHRAEAuditLevel>Level 2: Energy Survey and Analysis</ASHRAEAuditLevel>
+          <Utilities>
+            <Utility ID="Utility-Electric">
+              <RateSchedules>
+                <RateSchedule ID="RateSchedule-Electricity">
+                  <TypeOfRateStructure>
+                    <FlatRate>
+                      <RatePeriods>
+                        <RatePeriod>
+                          <ApplicableStartDateForEnergyRate>--06-01</ApplicableStartDateForEnergyRate>
+                          <ApplicableEndDateForEnergyRate>--09-30</ApplicableEndDateForEnergyRate>
+                          <ApplicableStartDateForDemandRate>--06-01</ApplicableStartDateForDemandRate>
+                          <ApplicableEndDateForDemandRate>--09-30</ApplicableEndDateForDemandRate>
+                          <EnergyCostRate>0.088520</EnergyCostRate>
+                          <ElectricDemandRate>0.000000</ElectricDemandRate>
+                        </RatePeriod>
+                        <RatePeriod>
+                          <ApplicableStartDateForEnergyRate>--01-01</ApplicableStartDateForEnergyRate>
+                          <ApplicableEndDateForEnergyRate>--05-31</ApplicableEndDateForEnergyRate>
+                          <ApplicableStartDateForDemandRate>--01-01</ApplicableStartDateForDemandRate>
+                          <ApplicableEndDateForDemandRate>--05-31</ApplicableEndDateForDemandRate>
+                          <EnergyCostRate>0.053140</EnergyCostRate>
+                          <ElectricDemandRate>0.000000</ElectricDemandRate>
+                        </RatePeriod>
+                        <RatePeriod>
+                          <ApplicableStartDateForEnergyRate>--10-01</ApplicableStartDateForEnergyRate>
+                          <ApplicableEndDateForEnergyRate>--12-31</ApplicableEndDateForEnergyRate>
+                          <ApplicableStartDateForDemandRate>--10-01</ApplicableStartDateForDemandRate>
+                          <ApplicableEndDateForDemandRate>--12-31</ApplicableEndDateForDemandRate>
+                          <EnergyCostRate>0.053140</EnergyCostRate>
+                          <ElectricDemandRate>0.000000</ElectricDemandRate>
+                        </RatePeriod>
+                      </RatePeriods>
+                    </FlatRate>
+                  </TypeOfRateStructure>
+                  <ReferenceForRateStructure>https://www.xcelenergy.com/company/rates_and_regulations/rates/rate_books</ReferenceForRateStructure>
+                  <FixedMonthlyCharge>16.880000</FixedMonthlyCharge>
+                </RateSchedule>
+              </RateSchedules>
+              <EIAUtilityID>12345</EIAUtilityID>
+              <UtilityName>Xcel Energy</UtilityName>
+              <UtilityMeterNumbers>
+                <UtilityMeterNumber>Some-meter-ID</UtilityMeterNumber>
+              </UtilityMeterNumbers>
+              <UtilityAccountNumber>some-account-number</UtilityAccountNumber>
+              <UtilityBillpayer>Building Owner</UtilityBillpayer>
+            </Utility>
+            <Utility ID="Utility-Natural-Gas">
+              <RateSchedules>
+                <RateSchedule ID="RateSchedule-Natural-Gas">
+                  <TypeOfRateStructure>
+                    <FlatRate>
+                      <RatePeriods>
+                        <RatePeriod>
+                          <ApplicableStartDateForEnergyRate>--01-01</ApplicableStartDateForEnergyRate>
+                          <ApplicableEndDateForEnergyRate>--12-31</ApplicableEndDateForEnergyRate>
+                          <EnergyCostRate>0.163600</EnergyCostRate>
+                        </RatePeriod>
+                      </RatePeriods>
+                    </FlatRate>
+                  </TypeOfRateStructure>
+                  <ReferenceForRateStructure>https://www.xcelenergy.com/company/rates_and_regulations/rates/rate_books</ReferenceForRateStructure>
+                  <FixedMonthlyCharge>43.880000</FixedMonthlyCharge>
+                </RateSchedule>
+              </RateSchedules>
+              <UtilityName>Xcel Energy</UtilityName>
+              <UtilityMeterNumbers>
+                <UtilityMeterNumber>Some-meter-ID</UtilityMeterNumber>
+              </UtilityMeterNumbers>
+              <UtilityAccountNumber>some-other-account-number</UtilityAccountNumber>
+              <UtilityBillpayer>Building Owner</UtilityBillpayer>
+            </Utility>
+          </Utilities>
+          <AuditorContactID IDref="Contact-Auditor"/>
+          <LinkedPremisesOrSystem>
+            <Building>
+              <LinkedBuildingID IDref="Building-Small-Office-Prototype"/>
+            </Building>
+          </LinkedPremisesOrSystem>
+        </Report>
+      </Reports>
+      <Contacts>
+        <Contact ID="Contact-Owner">
+          <ContactRoles>
+            <ContactRole>Owner</ContactRole>
+          </ContactRoles>
+          <ContactName>The dude</ContactName>
+          <ContactCompany>Some big company</ContactCompany>
+          <ContactTelephoneNumbers>
+            <ContactTelephoneNumber>
+              <TelephoneNumber>123-456-7890</TelephoneNumber>
+            </ContactTelephoneNumber>
+          </ContactTelephoneNumbers>
+          <ContactEmailAddresses>
+            <ContactEmailAddress>
+              <EmailAddress>the.dude@somebigco.net</EmailAddress>
+            </ContactEmailAddress>
+          </ContactEmailAddresses>
+        </Contact>
+        <Contact ID="Contact-Auditor">
+          <ContactRoles>
+            <ContactRole>Energy Auditor</ContactRole>
+          </ContactRoles>
+          <ContactName>The lady</ContactName>
+          <ContactCompany>Auditeers</ContactCompany>
+          <ContactTelephoneNumbers>
+            <ContactTelephoneNumber>
+              <TelephoneNumber>123-456-7890</TelephoneNumber>
+            </ContactTelephoneNumber>
+          </ContactTelephoneNumbers>
+          <ContactEmailAddresses>
+            <ContactEmailAddress>
+              <EmailAddress>the.lady@the-three-auditeers.com</EmailAddress>
+            </ContactEmailAddress>
+          </ContactEmailAddresses>
+        </Contact>
+      </Contacts>
+    </Facility>
+  </Facilities>
+</BuildingSync>
