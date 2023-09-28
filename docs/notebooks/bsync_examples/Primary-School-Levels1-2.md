@@ -52,7 +52,7 @@ def bsync_dump(root_element, file="example1.xml"):
  
 
     # Have to manually set the version right now. Align release of bsyncpy to this version.
-    as_etree.set("version", "2.4.0")  
+    as_etree.set("version", "2.5.0")  
     output = etree.tostring(as_etree, doctype=doctype, pretty_print=True)
     with open(file, 'wb+') as f:
         f.write(output)

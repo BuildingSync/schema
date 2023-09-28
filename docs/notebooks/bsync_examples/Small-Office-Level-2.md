@@ -16,7 +16,7 @@ By the end of this notebook, you should:
 - Create a minimum viable Level 2 BuildingSync document and verify it validates using the [BuildingSync Use Case Validator](https://buildingsync.net/validator)
 
 ## For Reference: Core Concepts and Notation Used
-- We will be using BuildingSync version 2.4.0. [Documentation](https://buildingsync.net/documentation/2.4.0). [Github release](https://github.com/BuildingSync/schema/releases/tag/v2.4.0).
+- We will be using BuildingSync version 2.5.0. [Documentation](https://buildingsync.net/documentation/2.5.0). [Github release](https://github.com/BuildingSync/schema/releases/tag/v2.5.0).
 - BuildingSync is an XML Schema Document (XSD). It defines intended structure. Referring to something as a BuildingSync document typically means the document is intended to conform to the BuildingSync schema.
 - An XSD defines a hierarchical or tree-based schema, where elements are 'nested' within other elements. An XML document then looks like nested elements within one another. Similar to HTML, it uses angle brackets `<` and `>` to open and close an element tag. The example below provides a very simple example of an XML document:
 ```xml
@@ -51,7 +51,7 @@ def bsync_dump(root_element, file="example1.xml"):
     as_etree = root_element.toxml()
     # Have to manually set the declaration header right now
     as_etree.set("xmlns", "http://buildingsync.net/schemas/bedes-auc/2019")
-    as_etree.set("version", "2.4.0")  
+    as_etree.set("version", "2.5.0")  
     output = etree.tostring(as_etree, doctype=doctype, pretty_print=True)
     with open(file, "wb+") as f:
         f.write(output)
@@ -2009,7 +2009,7 @@ hvac_schedule_measure = bsync.Measure(
     bsync.CustomMeasureName("Update HVAC schedule"),
     bsync.LongDescription("The current HVAC schedule is set to be at fully ON fan operation during weekday from 7am - 8pm. This measure would implement a modified schedule to enable pre-cooling/pre-heating from 6am - 7am, and reduce output to 80 percent during peak time 12pm - 1pm."),
     bsync.MeasureScaleOfApplication("Individual system"),
-    bsync.UsefulLife(1.),
+    bsync.UsefulLife(1),
     bsync.MeasureInstallationCost(0.),
     bsync.MeasureMaterialCost(0.),
     bsync.StartDate(date(2021,1,1)),
@@ -2038,7 +2038,7 @@ led_measure = bsync.Measure(
     ),
     bsync.LongDescription("This measure is designed to replace all fluorescent bulbs with LEDs"),
     bsync.MeasureScaleOfApplication("Individual system"),
-    bsync.UsefulLife(1.),
+    bsync.UsefulLife(1),
     bsync.MeasureInstallationCost(50.),
     bsync.MeasureMaterialCost(774.),
     bsync.StartDate(date(2021,1,1)),
@@ -2072,7 +2072,7 @@ vsd_measure = bsync.Measure(
     ),
     bsync.LongDescription("This measure is designed to retrofit all RTU fans with a VSD"),
     bsync.MeasureScaleOfApplication("Individual system"),
-    bsync.UsefulLife(1.),
+    bsync.UsefulLife(1),
     bsync.MeasureInstallationCost(750.), 
     bsync.MeasureMaterialCost(1250.), # assume $200~300 per fan
     bsync.StartDate(date(2021,1,1)),
