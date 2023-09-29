@@ -14,7 +14,7 @@ This notebook uses resources from:
 
 - the [DOE Commercial Prorotype buildings](https://www.energycodes.gov/prototype-building-models) repository
 - ASHRAE [Standard 211](https://www.ashrae.org/technical-resources/bookstore/standards-180-and-211) for formal guidelines on energy audits
-- the [BuildingSync schema documentation](https://buildingsync.net/dictionary/2.4.0/)
+- the [BuildingSync schema documentation](https://buildingsync.net/dictionary/2.5.0/)
 - the [notebook included in the bsync examples folder](./Small-Office-Level-1.md) for a comprehensive explanation on basic BuildingSync and bsyncpy concepts
 
 ## 3. Overview
@@ -27,7 +27,7 @@ This notebook is broken down into the following sections:
 
 3) Adding the information required for a Level 2 energy audit
 
-4) Generating a BuildingSync file and verifying it against version 2.4.0 of the BuildingSync schema
+4) Generating a BuildingSync file and verifying it against version 2.5.0 of the BuildingSync schema
 
 
 But first, let us import the required libraries and set up some useful functions:
@@ -52,7 +52,7 @@ def bsync_dump(root_element, file="example1.xml"):
  
 
     # Have to manually set the version right now. Align release of bsyncpy to this version.
-    as_etree.set("version", "2.4.0")  
+    as_etree.set("version", "2.5.0")  
     output = etree.tostring(as_etree, doctype=doctype, pretty_print=True)
     with open(file, 'wb+') as f:
         f.write(output)
@@ -8604,7 +8604,7 @@ led_measure += bsync.Recommended(True)
 led_measure += bsync.MeasureScaleOfApplication("Entire building")
 led_measure += bsync.MeasureMaterialCost(7960.)# 63691 Watts using 32W T8 lights = 1990 tubes to replace @ approx. $100/case of 25 LED bulb
 led_measure += bsync.MeasureInstallationCost(995.) # $30/hour labor, assuming 1 minute to replace each bulb
-led_measure += bsync.UsefulLife(15.)
+led_measure += bsync.UsefulLife(15)
 
 ```
 
