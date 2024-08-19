@@ -2000,6 +2000,16 @@
           <xs:documentation>Year the Audit Cycle ends (inclusive, CCYY)</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="AuditCycleStartDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Date the Audit Cycle starts (CCYY-MM-DD)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AuditCycleEndDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Date the Audit Cycle ends (CCYY-MM-DD)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
