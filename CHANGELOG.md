@@ -1,5 +1,49 @@
 # BuildingSync
 
+## Version 2.6.0
+
+BuildingSync Version 2.6.0 adds new elements for Life-Cycle Savings and two new measures for fenestration systems.
+
+Date Range: 09/21/23 - 09/24/24
+
+| Category       | Count |
+|----------------|-------|
+| Schema: Controls         | 0  |
+| Schema: Documentation         | 1  |
+| Schema: General         | 1  |
+| Schema: Measures         | 2  |
+| Schema: Reports         | 1  |
+| Schema: Systems         | 0  |
+| Schema: Validation         | 0  |
+| Other         | -1  |
+| **Total**      | 4 |
+
+### Breaking Changes
+
+*No breaking changes*
+
+### Non-breaking Changes
+ - [#495](https://github.com/BuildingSync/schema/pull/495), Add Life Cycle Savings elements (`Measures`, `Reports`)
+ - [#494](https://github.com/BuildingSync/schema/pull/494), Add AuditCycleStartDate and AuditCycleEndDate (`General`)
+ - [#492](https://github.com/BuildingSync/schema/pull/492), Add fenestration system measures (`Measures`)
+ - [#487](https://github.com/BuildingSync/schema/pull/487), Update examples to 2.5 (`Documentation`)
+
+### Non-schema Changes
+
+*No non-schema changes*
+
+### Issues
+
+New Issues: 3 (#490, #491, #493)
+
+Closed Issues: 4
+- [#465]( https://github.com/BuildingSync/schema/issues/465 ), [9/29/23] Updated release of BuildingSync 2.5 Milestone
+- [#490]( https://github.com/BuildingSync/schema/issues/490 ), Requested addition of fenestration system (window/shading retrofit) measures (`Measures`, `Non-breaking Change`, `feature`)
+- [#491]( https://github.com/BuildingSync/schema/issues/491 ), Requested new elements for life-cycle analysis or financial/project management for CTS/eProjectBuilder (initial) (`Reports`, `General`, `Non-breaking Change`, `feature`)
+- [#493]( https://github.com/BuildingSync/schema/issues/493 ), Requested addition of AuditCycleStartDate and AuditCycleEndDate (`General`, `Non-breaking Change`, `feature`)
+
+All Open Issues: 19 (#151, #154, #167, #170, #183, #195, #198, #218, #260, #285, #287, #297, #320, #356, #370, #391, #428, #450, #474)
+
 ## Version 2.5.0
 
 BuildingSync Version 2.5.0 adds new elements for Water Conservation Measures (WCMs) and emission-related fields (Greenhouse Gas Emission). Version 2.5.0 adds examples of interactive Jupyter Notebooks to illustrate the process of creating BuildingSync XML reports from building data, where the synthetic data was generated based on DOE prototype buildings (small office and primary school).
