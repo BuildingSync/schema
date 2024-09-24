@@ -11,14 +11,17 @@ Follow the steps below when releasing a new version
     * Update version in the "schema title", at `/xs:schema/xs:annotation/xs:documentation[1]`.
     * If creating an official release (i.e., you are NOT creating a pre-release), add the version as an enumeration to the `auc:BuildingSync` `version` attribute with the latest version. Though we historically added some pre-releases to `@version`, they should no longer be included.
 
-* Update the CHANGELOG.md to include the latest changes, and the most recent version.
-
-	* Run the change_log.rb script (e.g., ruby src/change_log.rb -t abcdefghijklmnopqrstuvwxyz -s 2019-12-21). The date range must span from the last official release (ie don't start at a pre-release) until the current date.
+* Update the CHANGELOG.md to include the latest changes, and the most recent version:
+    * Obtain [Github API token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) for the next step.
+	* Run the change_log.rb script (e.g., ruby src/change_log.rb -t TOKEN_string -s 2019-12-21). The date range must span from the last official release (ie don't start at a pre-release) until the current date.
 	* Copy the results of this into the CHANGELOG. Remove items that are not useful to an end user such as version bumps, formatting, etc.
+    * Create a Pull Request (prep release) into `develop`:
+        * Mark the PR with an `ignore` label to prevent the PR from being added to future change logs. 
+        * Merge the PR.
 
-* Create a Pull Request into `main`
+* Create a Pull Request (release) into `main`:
     * Mark the PR with an `ignore` label to prevent the PR from being added to future change logs. 
-    * Merge the PR
+    * Merge the PR.
 
 ### Tag and release
 
