@@ -79,7 +79,7 @@ Globally definition:
   </xs:element>
   <xs:element name="LifeCycleSavingsAncillaryCost">
     <xs:annotation>
-      <xs:documentation>Estimated present value of total cost savings in ancillary/other costs in the whole life cycle ($)</xs:documentation>
+      <xs:documentation>Estimated present value of total savings in ancillary/other costs in the whole life cycle ($)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
