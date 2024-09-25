@@ -67,7 +67,7 @@ Globally definition:
   </xs:element>
   <xs:element name="LifeCycleSavingsWaterCost">
     <xs:annotation>
-      <xs:documentation>Estimated present value of total cost savings in water costs in the whole life cycle ($)</xs:documentation>
+      <xs:documentation>Estimated present value of total savings in water costs in the whole life cycle ($)</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:simpleContent>
