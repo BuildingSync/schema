@@ -2,7 +2,7 @@
 
 ## Overview
 
-This proposal is to add new elements related to Life Cycle savings data for BuildingSync-CTS mapping: 
+This proposal is to add new elements related to Life Cycle savings data for mapping FEMP's Compliance Tracking System fields to BuildingSync Schema: 
 * Estimated Life-Cycle Energy Savings (Million Btu)
 * Estimated Present Value Life-Cycle Energy Cost Savings (Dollars)
 * Estimated Life-Cycle Water Savings (Thou. Gallons)
