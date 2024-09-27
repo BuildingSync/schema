@@ -30,13 +30,16 @@ Check out main locally, pull changes, and create a tag and push it
 git checkout main && git pull
 git tag -a v<version> -m "<message>" [SHA]
 ```
-Where `v<version>` is a valid [semantic version](https://semver.org/) (e.g., `v1.2.3` or `v1.2.3-pr.1`) and `<message>` is the tagging message (e.g. "First official release"). See [Versioning](versioning.md) for more information.
+Where `v<version>` is a valid [semantic version](https://semver.org/) (e.g., `v1.2.3` or `v1.2.3-pr.1`) and `<message>` is the tagging message (e.g. "First official release"). [SHA] is used for specific commit (when the tag does not correspond to the latest commit). See [Versioning](versioning.md) for more information.
 ```bash
 # push the tag
 git push --tags origin 
 ```
 
 This should trigger a GitHub workflow for building and publishing the release. If publishing a pre-release, you are done. Otherwise, once the release has been successfully published on GitHub, continue.
+
+### Update BuildingSync examples and version references
+Walk through all the files and documents in the develop branch to update the version references to the newest release. Update examples in [notebook](https://github.com/BuildingSync/schema/tree/develop-v2/docs/notebooks) and [examples](https://github.com/BuildingSync/schema/tree/develop-v2/examples) corresponding to changes for new release. This will be the first PR for new release, and is prerequisite for updating the website in next step.
 
 ### Update BuildingSync Website
 
