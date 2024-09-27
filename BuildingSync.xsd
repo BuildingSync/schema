@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.5.0">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:gbxml="http://www.gbxml.org/schema" targetNamespace="http://buildingsync.net/schemas/bedes-auc/2019" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.6.0">
   <xs:import namespace="http://www.gbxml.org/schema" schemaLocation="https://github.com/BuildingSync/gbXML_Schemas/releases/download/v6.01/GreenBuildingXML_Ver6.01.xsd"/>
   <xs:annotation>
-    <xs:documentation>BuildingSync Schema - Version 2.5.0</xs:documentation>
+    <xs:documentation>BuildingSync Schema - Version 2.6.0</xs:documentation>
     <xs:documentation xmlns="http://www.w3.org/1999/xhtml">
       <h1>BuildingSync Schema Deprecation Policy</h1>
       <p>This document details the deprecation policy for the BuildingSync Schema.</p>
@@ -451,6 +451,8 @@
             <xs:enumeration value="2.4"/>
             <xs:enumeration value="2.5.0"/>
             <xs:enumeration value="2.5"/>
+            <xs:enumeration value="2.6.0"/>
+            <xs:enumeration value="2.6"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -2000,6 +2002,16 @@
           <xs:documentation>Year the Audit Cycle ends (inclusive, CCYY)</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="AuditCycleStartDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Date the Audit Cycle starts (CCYY-MM-DD)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AuditCycleEndDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Date the Audit Cycle ends (CCYY-MM-DD)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -2162,6 +2174,11 @@
                   <xs:element ref="auc:AnnualSavingsAverageGHGEmissions" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsMarginalGHGEmissions" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsGHGEmissionIntensity" minOccurs="0"/>
+                  <xs:element ref="auc:LifeCycleSavingsEnergy" minOccurs="0"/>
+                  <xs:element ref="auc:LifeCycleSavingsEnergyCost" minOccurs="0"/>
+                  <xs:element ref="auc:LifeCycleSavingsWater" minOccurs="0"/>
+                  <xs:element ref="auc:LifeCycleSavingsWaterCost" minOccurs="0"/>
+                  <xs:element ref="auc:LifeCycleSavingsAncillaryCost" minOccurs="0"/>
                   <xs:element ref="auc:SimplePayback" minOccurs="0"/>
                   <xs:element ref="auc:NetPresentValue" minOccurs="0"/>
                   <xs:element ref="auc:InternalRateOfReturn" minOccurs="0"/>
@@ -2250,6 +2267,11 @@
                   <xs:element ref="auc:AnnualSavingsAverageGHGEmissions" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsMarginalGHGEmissions" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsGHGEmissionIntensity" minOccurs="0"/>
+                  <xs:element ref="auc:LifeCycleSavingsEnergy" minOccurs="0"/>
+                  <xs:element ref="auc:LifeCycleSavingsEnergyCost" minOccurs="0"/>
+                  <xs:element ref="auc:LifeCycleSavingsWater" minOccurs="0"/>
+                  <xs:element ref="auc:LifeCycleSavingsWaterCost" minOccurs="0"/>
+                  <xs:element ref="auc:LifeCycleSavingsAncillaryCost" minOccurs="0"/>
                   <xs:element name="ImplementationPeriod" type="xs:integer" minOccurs="0">
                     <xs:annotation>
                       <xs:documentation>Total period of time necessary to implement all measures in the package. (months)</xs:documentation>
@@ -2365,6 +2387,11 @@
                   <xs:element ref="auc:AnnualSavingsAverageGHGEmissions" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsMarginalGHGEmissions" minOccurs="0"/>
                   <xs:element ref="auc:AnnualSavingsGHGEmissionIntensity" minOccurs="0"/>
+                  <xs:element ref="auc:LifeCycleSavingsEnergy" minOccurs="0"/>
+                  <xs:element ref="auc:LifeCycleSavingsEnergyCost" minOccurs="0"/>
+                  <xs:element ref="auc:LifeCycleSavingsWater" minOccurs="0"/>
+                  <xs:element ref="auc:LifeCycleSavingsWaterCost" minOccurs="0"/>
+                  <xs:element ref="auc:LifeCycleSavingsAncillaryCost" minOccurs="0"/>
                   <xs:element ref="auc:SimplePayback" minOccurs="0"/>
                   <xs:element ref="auc:NetPresentValue" minOccurs="0"/>
                   <xs:element ref="auc:InternalRateOfReturn" minOccurs="0"/>
@@ -4059,6 +4086,8 @@
                               <xs:enumeration value="Replace windows"/>
                               <xs:enumeration value="Increase floor insulation"/>
                               <xs:enumeration value="Insulate foundation"/>
+                              <xs:enumeration value="Add secondary window systems/attachments"/>
+                              <xs:enumeration value="Install shading automation system"/>
                               <xs:enumeration value="Clean and/or repair"/>
                               <xs:enumeration value="Close elevator and/or stairwell shaft vents"/>
                               <xs:enumeration value="Other"/>
@@ -16110,6 +16139,66 @@
       </xs:simpleContent>
     </xs:complexType>
   </xs:element>
+  <xs:element name="LifeCycleSavingsEnergy">
+    <xs:annotation>
+      <xs:documentation>Estimated total energy savings in the whole life cycle (MMBtu)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute ref="auc:Source"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LifeCycleSavingsEnergyCost">
+    <xs:annotation>
+      <xs:documentation>Estimated present value of total savings in energy costs in the whole life cycle ($)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute ref="auc:Source"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LifeCycleSavingsWater">
+    <xs:annotation>
+      <xs:documentation>Estimated total water savings in the whole life cycle (gal)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute ref="auc:Source"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LifeCycleSavingsWaterCost">
+    <xs:annotation>
+      <xs:documentation>Estimated present value of total savings in water costs in the whole life cycle ($)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute ref="auc:Source"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LifeCycleSavingsAncillaryCost">
+    <xs:annotation>
+      <xs:documentation>Estimated present value of total savings in ancillary/other costs in the whole life cycle ($)</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute ref="auc:Source"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="BoilerLWT">
     <xs:annotation>
       <xs:documentation>The water temperature that the equipment supplies, such as the chilled water temperature setpoint for a chiller, or hot water temperature setpoint for water leaving a boiler. (°F)</xs:documentation>
@@ -17266,6 +17355,11 @@
         <xs:element ref="auc:AnnualSavingsAverageGHGEmissions" minOccurs="0"/>
         <xs:element ref="auc:AnnualSavingsMarginalGHGEmissions" minOccurs="0"/>
         <xs:element ref="auc:AnnualSavingsGHGEmissionIntensity" minOccurs="0"/>
+        <xs:element ref="auc:LifeCycleSavingsEnergy" minOccurs="0"/>
+        <xs:element ref="auc:LifeCycleSavingsEnergyCost" minOccurs="0"/>
+        <xs:element ref="auc:LifeCycleSavingsWater" minOccurs="0"/>
+        <xs:element ref="auc:LifeCycleSavingsWaterCost" minOccurs="0"/>
+        <xs:element ref="auc:LifeCycleSavingsAncillaryCost" minOccurs="0"/>
         <xs:element ref="auc:OMCostAnnualSavings" minOccurs="0"/>
         <xs:element name="OtherCostAnnualSavings" minOccurs="0">
           <xs:annotation>
