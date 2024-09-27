@@ -39,7 +39,7 @@ git push --tags origin
 This should trigger a GitHub workflow for building and publishing the release. If publishing a pre-release, you are done. Otherwise, once the release has been successfully published on GitHub, continue.
 
 ### Update BuildingSync examples and version references
-Walk through all the files and documents in the develop branch to update the version references to the newest release. Update examples in [notebook](https://github.com/BuildingSync/schema/tree/develop-v2/docs/notebooks) and [examples](https://github.com/BuildingSync/schema/tree/develop-v2/examples) corresponding to changes for new release. This will be the first PR for new release, and is prerequisite for updating the website in next step.
+Walk through all the files and documents in the develop branch to update the version references to the newest release. Update examples in [notebook](https://github.com/BuildingSync/schema/tree/develop-v2/docs/notebooks) and [examples](https://github.com/BuildingSync/schema/tree/develop-v2/examples) as required by the new version. This will be the first PR for the new release, and is a prerequisite for updating the website in the next step.
 
 ### Update BuildingSync Website
 
