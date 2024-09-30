@@ -16,7 +16,7 @@ By the end of this notebook, you should:
 - Create a minimum viable Level 2 BuildingSync document and verify it validates using the [BuildingSync Use Case Validator](https://buildingsync.net/validator)
 
 ## For Reference: Core Concepts and Notation Used
-- We will be using BuildingSync version 2.5.0. [Documentation](https://buildingsync.net/documentation/2.5.0). [Github release](https://github.com/BuildingSync/schema/releases/tag/v2.5.0).
+- We will be using BuildingSync version 2.6.0. [Documentation](https://buildingsync.net/documentation/2.6.0). [Github release](https://github.com/BuildingSync/schema/releases/tag/v2.6.0).
 - BuildingSync is an XML Schema Document (XSD). It defines intended structure. Referring to something as a BuildingSync document typically means the document is intended to conform to the BuildingSync schema.
 - An XSD defines a hierarchical or tree-based schema, where elements are 'nested' within other elements. An XML document then looks like nested elements within one another. Similar to HTML, it uses angle brackets `<` and `>` to open and close an element tag. The example below provides a very simple example of an XML document:
 ```xml
@@ -51,7 +51,7 @@ def bsync_dump(root_element, file="example1.xml"):
     as_etree = root_element.toxml()
     # Have to manually set the declaration header right now
     as_etree.set("xmlns", "http://buildingsync.net/schemas/bedes-auc/2019")
-    as_etree.set("version", "2.5.0")  
+    as_etree.set("version", "2.6.0")  
     output = etree.tostring(as_etree, doctype=doctype, pretty_print=True)
     with open(file, "wb+") as f:
         f.write(output)
