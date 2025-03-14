@@ -97,7 +97,21 @@ Other fields: `is_sized_using_coincident_load` is too too specific to modeling; 
 ## Implementation
 Global definition
 ```xml
-    <xs:complexType name="FluidLoopProperties">
+    <xs:element name="FluidLoops">
+        <xs:annotation>
+            <xs:documentation>List of fluid loops for HeatingSource.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="FluidLoop" type="auc:FluidLoopTypes" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>fluid loop for HeatingSource.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="FluidLoopTypes">
         <xs:annotation>
             <xs:documentation>An list of properties of a general fluid loop.</xs:documentation>
         </xs:annotation>
@@ -312,20 +326,7 @@ Under `HeatingPlant`
     <xs:complexType name="HeatingPlantType">
         <xs:sequence>
             ...
-            <xs:element name="FluidLoops" minOccurs="0">
-                <xs:annotation>
-                    <xs:documentation>List of fluid loops for HeatingSource.</xs:documentation>
-                </xs:annotation>
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="FluidLoop" type="auc:FluidLoopProperties" maxOccurs="unbounded">
-                            <xs:annotation>
-                                <xs:documentation>fluid loop for HeatingSource.</xs:documentation>
-                            </xs:annotation>
-                        </xs:element>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
+            <xs:element ref="auc:FluidLoops" minOccurs="0"/>
             ...
 ```
 Similar to above, we will add the `FluidLoops` elements under other elements: `CoolingPlant`, `CondenserPlant`/`WaterCooled` and `CondenserPlant`/`GroundSource`, `DomesticHotWaterSystem`/`Recirculation`, and `HeatRecoverySystem`.
