@@ -301,7 +301,8 @@ Global definition
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element ref="auc:EquipmentID" minOccurs="0"/>
+            <xs:element ref="auc:LinkedSystemIDs" minOccurs="0"/>
+            <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
         </xs:sequence>
         <xs:attribute name="ID" type="xs:ID" use="required"/>
     </xs:complexType>
