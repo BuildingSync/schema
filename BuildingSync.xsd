@@ -15866,7 +15866,7 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="FluidLoop" type="auc:FluidLoopTypeType" maxOccurs="unbounded">
+        <xs:element name="FluidLoop" type="auc:FluidLoopTypeType">
           <xs:annotation>
             <xs:documentation>fluid loop for the associated system.</xs:documentation>
           </xs:annotation>
@@ -16081,7 +16081,7 @@
       <xs:element ref="auc:LinkedSystemIDs" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute name="ID" type="xs:ID"/>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
   <xs:simpleType name="IntervalFrequencyType">
     <xs:annotation>
