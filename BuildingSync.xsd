@@ -6431,6 +6431,20 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="FluidLoops" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of fluid loops for HeatingSource.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="FluidLoop" type="auc:FluidLoopProperties" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>fluid loop for HeatingSource.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -6604,6 +6618,20 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element ref="auc:ControlSystemType" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FluidLoops" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of fluid loops for HeatingSource.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="FluidLoop" type="auc:FluidLoopProperties" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>fluid loop for HeatingSource.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -6793,6 +6821,20 @@
                 </xs:annotation>
               </xs:element>
               <xs:element ref="auc:CapacityUnits" minOccurs="0"/>
+              <xs:element name="FluidLoops" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>List of fluid loops for HeatingSource.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="FluidLoop" type="auc:FluidLoopProperties" maxOccurs="unbounded">
+                      <xs:annotation>
+                        <xs:documentation>fluid loop for HeatingSource.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -6852,6 +6894,20 @@
                 </xs:annotation>
               </xs:element>
               <xs:element ref="auc:CapacityUnits" minOccurs="0"/>
+              <xs:element name="FluidLoops" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>List of fluid loops for HeatingSource.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="FluidLoop" type="auc:FluidLoopProperties" maxOccurs="unbounded">
+                      <xs:annotation>
+                        <xs:documentation>fluid loop for HeatingSource.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -8099,6 +8155,20 @@
                     <xs:attribute ref="auc:Source"/>
                   </xs:extension>
                 </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="FluidLoops" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>List of fluid loops for HeatingSource.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="FluidLoop" type="auc:FluidLoopProperties" maxOccurs="unbounded">
+                    <xs:annotation>
+                      <xs:documentation>fluid loop for HeatingSource.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
               </xs:complexType>
             </xs:element>
           </xs:sequence>
@@ -9445,6 +9515,20 @@
       <xs:element ref="auc:Manufacturer" minOccurs="0"/>
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
+      <xs:element name="FluidLoops" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of fluid loops for HeatingSource.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="FluidLoop" type="auc:FluidLoopProperties" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>fluid loop for HeatingSource.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
@@ -17384,4 +17468,213 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:complexType name="FluidLoopProperties">
+    <xs:annotation>
+      <xs:documentation>An list of properties of a general fluid loop.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="FluidLoopType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>General type of fluid loop.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Heating"/>
+            <xs:enumeration value="Cooling"/>
+            <xs:enumeration value="Heating and cooling"/>
+            <xs:enumeration value="Condenser"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Unknown"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PumpPowerPerFlowRate" minOccurs="0"/>
+        <xs:annotation>
+          <xs:documentation>Total design pump power divided by the loop design flow rate. (W-s/L)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+              <xs:attribute ref="auc:Source"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LinkedChildLoops" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>List of other fluid loops connected to this one as children (secondary loops).</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="LinkedChildLoopID">
+              <xs:annotation>
+                <xs:documentation>ID number of the child loop.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="FluidLoopDesignAndControl" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DesignSupplyTemperature">
+              <xs:annotation>
+                <xs:documentation>Design Supply Temperature. (°C)</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:decimal">
+                    <xs:attribute ref="auc:Source"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="DesignReturnTemperature">
+              <xs:annotation>
+                <xs:documentation>Design Return Temperature. (°C)</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:decimal">
+                    <xs:attribute ref="auc:Source"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="MinimumFlowFraction">
+              <xs:annotation>
+                <xs:documentation>Minimum fraction of full flow allowed. (0-1)</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:decimal">
+                    <xs:attribute ref="auc:Source"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="FluidLoopOperationTypes" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Type of operation used by loop.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Continuous"/>
+                  <xs:enumeration value="Intermittent"/>
+                  <xs:enumeration value="Demand"/>
+                  <xs:enumeration value="Scheduled"/>
+                  <xs:enumeration value="Other"/>
+                  <xs:enumeration value="Unknown"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element ref="auc:LinkedScheduleIDs" minOccurs="0"/>
+            <xs:element name="FluidLoopFlowControlTypes" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Type of flow control used by loop.</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Fixed flow"/>
+                  <xs:enumeration value="Variable flow"/>
+                  <xs:enumeration value="Other"/>
+                  <xs:enumeration value="Unknown"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="TemperatureResetTypes" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Type of temperature reset used by loop.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:choice>
+                  <xs:element name="NoReset" minOccurs="0"/>
+                  <xs:element name="OutsideAirReset" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="OutdoorHighForLoopSupplyTemperatureReset" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>Outdoor high for loop supply temp reset. (°C)</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:simpleContent>
+                              <xs:extension base="xs:decimal">
+                                <xs:attribute ref="auc:Source"/>
+                              </xs:extension>
+                            </xs:simpleContent>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="OutdoorLowForLoopSupplyTemperatureReset" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>Outdoor low for loop supply temp reset. (°C)</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:simpleContent>
+                              <xs:extension base="xs:decimal">
+                                <xs:attribute ref="auc:Source"/>
+                              </xs:extension>
+                            </xs:simpleContent>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="LoopSupplyTemperatureAtOutdoorHigh" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>Loop supply temperature at outdoor high temperature. (°C)</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:simpleContent>
+                              <xs:extension base="xs:decimal">
+                                <xs:attribute ref="auc:Source"/>
+                              </xs:extension>
+                            </xs:simpleContent>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="LoopSupplyTemperatureAtOutdoorLow" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>Loop supply temperature at outdoor low temperature. (°C)</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:simpleContent>
+                              <xs:extension base="xs:decimal">
+                                <xs:attribute ref="auc:Source"/>
+                              </xs:extension>
+                            </xs:simpleContent>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="LoadReset" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="LoopSupplyTemperatureAtLowLoad" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>Loop supply temperature at low load. (°C)</xs:documentation>
+                          </xs:annotation>
+                          <xs:complexType>
+                            <xs:simpleContent>
+                              <xs:extension base="xs:decimal">
+                                <xs:attribute ref="auc:Source"/>
+                              </xs:extension>
+                            </xs:simpleContent>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element ref="auc:Other" minOccurs="0"/>
+                  <xs:element ref="auc:Unknown" minOccurs="0"/>
+                </xs:choice>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element ref="auc:LinkedSystemIDs" minOccurs="0"/>
+      <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
+  </xs:complexType>
 </xs:schema>

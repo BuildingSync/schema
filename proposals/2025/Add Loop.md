@@ -328,7 +328,7 @@ Under `HeatingPlant`
             </xs:element>
             ...
 ```
-Similar to above, we will add the `FluidLoops` elements under other elements: `CoolingPlant`, `CondenserPlant`/`WaterCooled`, `DomesticHotWaterSystem`/`Recirculation`, and `HeatRecoverySystem`.
+Similar to above, we will add the `FluidLoops` elements under other elements: `CoolingPlant`, `CondenserPlant`/`WaterCooled` and `CondenserPlant`/`GroundSource`, `DomesticHotWaterSystem`/`Recirculation`, and `HeatRecoverySystem`.
 
 ## Reference
 FluidLoop definition: https://github.com/open229/ruleset-model-description-schema/blob/e300b9fb864d7b5099f7e2c0e1e96b6a897bd0ff/docs229/ASHRAE229.schema.json#L3316
