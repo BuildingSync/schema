@@ -103,7 +103,7 @@ Global definition
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="FluidLoop" type="auc:FluidLoopTypes" maxOccurs="unbounded">
+                <xs:element name="FluidLoop" type="auc:FluidLoopType" maxOccurs="unbounded">
                     <xs:annotation>
                         <xs:documentation>fluid loop for HeatingSource.</xs:documentation>
                     </xs:annotation>
@@ -111,12 +111,13 @@ Global definition
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:complexType name="FluidLoopTypes">
+    <xs:complexType name="FluidLoopType">
         <xs:annotation>
             <xs:documentation>An list of properties of a general fluid loop.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="FluidLoopType" minOccurs="0">
+            <!-- Note that element FluidLoopType is different from complexType FluidLoopType although they have the same name. -->
                 <xs:annotation>
                     <xs:documentation>General type of fluid loop.</xs:documentation>
                 </xs:annotation>
@@ -131,7 +132,7 @@ Global definition
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element name="PumpPowerPerFlowRate" minOccurs="0"/>
+            <xs:element name="PumpPowerPerFlowRate" minOccurs="0">
                 <xs:annotation>
                   <xs:documentation>Total design pump power divided by the loop design flow rate. (W-s/L)</xs:documentation>
                 </xs:annotation>
@@ -163,7 +164,7 @@ Global definition
             <xs:element name="FluidLoopDesignAndControl" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="DesignSupplyTemperature">
+                        <xs:element name="DesignSupplyTemperature" minOccurs="0">
                             <xs:annotation>
                                 <xs:documentation>Design Supply Temperature. (°C)</xs:documentation>
                             </xs:annotation>
@@ -175,7 +176,7 @@ Global definition
                                 </xs:simpleContent>
                             </xs:complexType>
                         </xs:element>
-                        <xs:element name="DesignReturnTemperature">
+                        <xs:element name="DesignReturnTemperature" minOccurs="0">
                             <xs:annotation>
                                 <xs:documentation>Design Return Temperature. (°C)</xs:documentation>
                             </xs:annotation>
@@ -187,7 +188,7 @@ Global definition
                                 </xs:simpleContent>
                             </xs:complexType>
                         </xs:element>
-                        <xs:element name="MinimumFlowFraction">
+                        <xs:element name="MinimumFlowFraction" minOccurs="0">
                             <xs:annotation>
                                 <xs:documentation>Minimum fraction of full flow allowed. (0-1)</xs:documentation>
                             </xs:annotation>
