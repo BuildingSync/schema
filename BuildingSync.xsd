@@ -15894,7 +15894,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="PumpPowerPerFlowRate" minOccurs="0"/>
+      <xs:element name="PumpPowerPerFlowRate" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Total design pump power divided by the loop design flow rate. (W-s/L)</xs:documentation>
         </xs:annotation>
@@ -15926,7 +15926,7 @@
       <xs:element name="FluidLoopDesignAndControl" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="DesignSupplyTemperature">
+            <xs:element name="DesignSupplyTemperature" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Design Supply Temperature. (°C)</xs:documentation>
               </xs:annotation>
@@ -15938,7 +15938,7 @@
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-            <xs:element name="DesignReturnTemperature">
+            <xs:element name="DesignReturnTemperature" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Design Return Temperature. (°C)</xs:documentation>
               </xs:annotation>
@@ -15950,7 +15950,7 @@
                 </xs:simpleContent>
               </xs:complexType>
             </xs:element>
-            <xs:element name="MinimumFlowFraction">
+            <xs:element name="MinimumFlowFraction" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Minimum fraction of full flow allowed. (0-1)</xs:documentation>
               </xs:annotation>
