@@ -308,7 +308,7 @@
                                       </xs:element>
                                       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
                                       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
-                                      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+                                      <xs:element name="AirInfiltrationCondition" type="auc:EquipmentCondition" minOccurs="0"/>
                                       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
                                       <xs:element ref="auc:Location" minOccurs="0"/>
                                       <xs:element ref="auc:Manufacturer" minOccurs="0"/>
@@ -383,7 +383,7 @@
                                       </xs:element>
                                       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
                                       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
-                                      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+                                      <xs:element name="WaterInfiltrationCondition" type="auc:EquipmentCondition" minOccurs="0"/>
                                       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
                                       <xs:element ref="auc:Location" minOccurs="0"/>
                                       <xs:element ref="auc:Manufacturer" minOccurs="0"/>
@@ -5969,7 +5969,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="HVACControlSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
       <xs:element ref="auc:Manufacturer" minOccurs="0"/>
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
@@ -6223,7 +6223,7 @@
       </xs:element>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="DuctCondition" name="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
       <xs:element ref="auc:PrimaryFuel" minOccurs="0"/>
       <xs:element ref="auc:ThirdPartyCertification" minOccurs="0"/>
@@ -7728,7 +7728,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="FixtureCondition" type="auc:EquipmentCondition" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -8379,7 +8379,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="CookingSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -8633,7 +8633,7 @@
                         <xs:element ref="auc:Manufacturer" minOccurs="0"/>
                         <xs:element ref="auc:ModelNumber" minOccurs="0"/>
                         <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-                        <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+                        <xs:element name="AntiSweatHeaterCondition" type="auc:EquipmentCondition" minOccurs="0"/>
                         <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
                         <xs:element ref="auc:Location" minOccurs="0"/>
                         <xs:element ref="auc:PrimaryFuel" minOccurs="0"/>
@@ -8674,7 +8674,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="RefrigerationSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -8789,7 +8789,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="DishwasherSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -8903,7 +8903,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="LaundrySystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -9064,7 +9064,7 @@
       <xs:element ref="auc:LinkedSystemIDs" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="PumpSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -9289,7 +9289,7 @@
       <xs:element ref="auc:LinkedSystemIDs" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="FanSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -9436,7 +9436,7 @@
       <xs:element ref="auc:LinkedSystemIDs" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="MotorSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -9525,7 +9525,7 @@
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="HeatRecoverySystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:PrimaryFuel" minOccurs="0"/>
     </xs:sequence>
@@ -9747,7 +9747,7 @@
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="WallCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
@@ -9919,7 +9919,7 @@
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="CeilingCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
@@ -10177,7 +10177,6 @@
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
@@ -10675,7 +10674,7 @@
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="FenestrationCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:PrimaryFuel" minOccurs="0"/>
@@ -10795,7 +10794,7 @@
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="ExteriorFloorCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
@@ -11041,7 +11040,7 @@
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="FoundationCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
@@ -11134,7 +11133,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="CriticalITSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Status"/>
@@ -11226,7 +11225,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="PlugLoadCondition" type="auc:EquipmentCondition" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Source"/>
@@ -11311,7 +11310,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="ProcessLoadCondition" type="auc:EquipmentCondition" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
     <xs:attribute ref="auc:Source"/>
@@ -11708,7 +11707,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="OnsiteStorageTransmissionGenerationSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:PrimaryFuel" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -11836,7 +11835,7 @@
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="PoolCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:PrimaryFuel" minOccurs="0"/>
       <xs:element ref="auc:YearOfManufacture" minOccurs="0"/>
     </xs:sequence>
@@ -11947,7 +11946,7 @@
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
-      <xs:element ref="auc:EquipmentCondition" minOccurs="0"/>
+      <xs:element name="WaterFixtureCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:PrimaryFuel" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
