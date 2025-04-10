@@ -31,5 +31,8 @@ Per suggestion in the Audit Template Tool request, these elements are necessary 
 * The file size and checksum; and
 * The file URL and/or encoded blob data.
 
+### Cons
+File attachment might lose the capability of direct translation and data transferability for anything that lives in the attached file, especially for the purpose / use case of mapping with another schema.
+
 ## Implementation
 
