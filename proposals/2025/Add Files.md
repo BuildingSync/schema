@@ -93,59 +93,54 @@ Universally, define `FileType`:
 ```
 Additionally to support the `FileContentType`, we may define a universal element `ContentType` with applicable file format enumerations:
 ```xml
-  <xs:element name="ContentType">
-    <xs:annotation>
-      <xs:documentation>Type of file format/content in Multipurpose Internet Mail Extensions (MIME) Types, in format of Type/Subtype.</xs:documentation>
-    </xs:annotation>
-    <xs:simpleType>
-      <xs:restriction base="xs:string">
-        <xs:enumeration value="text/plain"/>
-        <xs:enumeration value="text/csv"/>
-        <xs:enumeration value="text/html"/>
-        <xs:enumeration value="image/jpeg"/>
-        <xs:enumeration value="image/png"/>
-        <xs:enumeration value="image/tiff"/>
-        <xs:enumeration value="image/gif"/>
-        <xs:enumeration value="image/bmp"/>
-        <xs:enumeration value="audio/mpeg"/>
-        <xs:enumeration value="audio/ogg"/>
-        <xs:enumeration value="audio/wav"/>
-        <xs:enumeration value="video/mp4"/>
-        <xs:enumeration value="video/webm"/>
-        <xs:enumeration value="video/mpeg"/>
-        <!--.avi-->
-        <xs:enumeration value="video/x-msvideo"/>
-        <xs:enumeration value="application/json"/>
-        <xs:enumeration value="application/xml"/>
-        <xs:enumeration value="application/pdf"/>
-        <xs:enumeration value="application/zip"/>
-        <!--.rar-->
-        <xs:enumeration value="application/vnd.rar"/>
-        <!--.tar-->
-        <xs:enumeration value="application/x-tar"/>
-        <!--.7z-->
-        <xs:enumeration value="application/x-7z-compressed"/>
-        <!--.doc-->
-        <xs:enumeration value="application/msword"/>
-        <!--.docx-->
-        <xs:enumeration value="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
-        <!--.xls-->
-        <xs:enumeration value="application/vnd.ms-excel"/>
-        <!--.xlsx-->
-        <xs:enumeration value="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
-        <!--.ppt-->
-        <xs:enumeration value="application/vnd.ms-powerpoint"/>
-        <!--.pptx-->
-        <xs:enumeration value="application/vnd.openxmlformats-officedocument.presentationml.presentation"/>
-        <xs:enumeration value="application/dwg"/>
-        <xs:enumeration value="application/dxf"/>
-        <!--.rvt-->
-        <xs:enumeration value="application/octet-stream"/>
-        <xs:enumeration value="application/ifc"/>
-        <xs:enumeration value="application/vnd.sketchup.skp"/>
-        <xs:enumeration value="Other"/>
-        <xs:enumeration value="Unknown"/>
-      </xs:restriction>
-    </xs:simpleType>
-  </xs:element>
+  <xs:simpleType name="ContentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="text/plain"/>
+      <xs:enumeration value="text/csv"/>
+      <xs:enumeration value="text/html"/>
+      <xs:enumeration value="image/jpeg"/>
+      <xs:enumeration value="image/png"/>
+      <xs:enumeration value="image/tiff"/>
+      <xs:enumeration value="image/gif"/>
+      <xs:enumeration value="image/bmp"/>
+      <xs:enumeration value="audio/mpeg"/>
+      <xs:enumeration value="audio/ogg"/>
+      <xs:enumeration value="audio/wav"/>
+      <xs:enumeration value="video/mp4"/>
+      <xs:enumeration value="video/webm"/>
+      <xs:enumeration value="video/mpeg"/>
+      <!--.avi-->
+      <xs:enumeration value="video/x-msvideo"/>
+      <xs:enumeration value="application/json"/>
+      <xs:enumeration value="application/xml"/>
+      <xs:enumeration value="application/pdf"/>
+      <xs:enumeration value="application/zip"/>
+      <!--.rar-->
+      <xs:enumeration value="application/vnd.rar"/>
+      <!--.tar-->
+      <xs:enumeration value="application/x-tar"/>
+      <!--.7z-->
+      <xs:enumeration value="application/x-7z-compressed"/>
+      <!--.doc-->
+      <xs:enumeration value="application/msword"/>
+      <!--.docx-->
+      <xs:enumeration value="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
+      <!--.xls-->
+      <xs:enumeration value="application/vnd.ms-excel"/>
+      <!--.xlsx-->
+      <xs:enumeration value="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+      <!--.ppt-->
+      <xs:enumeration value="application/vnd.ms-powerpoint"/>
+      <!--.pptx-->
+      <xs:enumeration value="application/vnd.openxmlformats-officedocument.presentationml.presentation"/>
+      <xs:enumeration value="application/dwg"/>
+      <xs:enumeration value="application/dxf"/>
+      <!--.rvt-->
+      <xs:enumeration value="application/octet-stream"/>
+      <xs:enumeration value="application/ifc"/>
+      <xs:enumeration value="application/vnd.sketchup.skp"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
 ```
