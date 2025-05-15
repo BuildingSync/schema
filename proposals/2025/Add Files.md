@@ -159,4 +159,6 @@ Similar to the usage of `LinkedPremises`, we will add `LinkedFiles` for these el
 ```
 
 ### References
-MIME types: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types
+MIME types: 
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types
+https://en.wikipedia.org/wiki/Media_type
