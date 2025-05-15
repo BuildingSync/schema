@@ -16,14 +16,17 @@ The main questions to justify here are
 * Use a universal `Files` element under `Facility` to store all file attachments, and utilize linking element mechanism to point to the files under applicable elements (e.g. adding `LinkedFiles`).
 
 ### Where / what element should we allow file attachments with?
-* `Building`
-  * Picture ofthe building
+* `Site`/`Building`/`Section`/`Space`
+  * Picture of the site, building or space 
 * `WeatherStations`
   * Weather data
 * `System`
   * Picture of the system/label
-  * System manual
+  * System specification/manual, or product page
+* `Measure`
+  * Deficiencies that are (will be) addressed by measures
 * `Report`/`Scenario`
+  * A complete report generated from a tool (e.g. 229 compliant report (json) file)
   
 ### What details should a `File` element carry?
 Per suggestion in the Audit Template Tool request, these elements are necessary information to describe a file attachment
@@ -66,10 +69,16 @@ Universally, define `FileType`:
           <xs:documentation>Details about the file</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="FileContentType" type="auc:ContentType" minOccurs="0">
+      <!--xs:element name="FileContentType" type="auc:ContentType" minOccurs="0"-->
+      <xs:element name="FileContent" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>MIME type of the file</xs:documentation>
+          <xs:documentation>MIME type of the file. Following the format as "type/[tree.]subtype[+suffix]", e.g. application/zip or image/png.</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="\w+/[-+.\w]+"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element name="FileSize" type="xs:integer" minOccurs="0">
         <xs:annotation>
@@ -91,56 +100,63 @@ Universally, define `FileType`:
     <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
 ```
-Additionally to support the `FileContentType`, we may define a universal element `ContentType` with applicable file format enumerations:
-```xml
-  <xs:simpleType name="ContentType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="text/plain"/>
-      <xs:enumeration value="text/csv"/>
-      <xs:enumeration value="text/html"/>
-      <xs:enumeration value="image/jpeg"/>
-      <xs:enumeration value="image/png"/>
-      <xs:enumeration value="image/tiff"/>
-      <xs:enumeration value="image/gif"/>
-      <xs:enumeration value="image/bmp"/>
-      <xs:enumeration value="audio/mpeg"/>
-      <xs:enumeration value="audio/ogg"/>
-      <xs:enumeration value="audio/wav"/>
-      <xs:enumeration value="video/mp4"/>
-      <xs:enumeration value="video/webm"/>
-      <xs:enumeration value="video/mpeg"/>
-      <!--.avi-->
-      <xs:enumeration value="video/x-msvideo"/>
-      <xs:enumeration value="application/json"/>
-      <xs:enumeration value="application/xml"/>
-      <xs:enumeration value="application/pdf"/>
-      <xs:enumeration value="application/zip"/>
-      <!--.rar-->
-      <xs:enumeration value="application/vnd.rar"/>
-      <!--.tar-->
-      <xs:enumeration value="application/x-tar"/>
-      <!--.7z-->
-      <xs:enumeration value="application/x-7z-compressed"/>
-      <!--.doc-->
-      <xs:enumeration value="application/msword"/>
-      <!--.docx-->
-      <xs:enumeration value="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
-      <!--.xls-->
-      <xs:enumeration value="application/vnd.ms-excel"/>
-      <!--.xlsx-->
-      <xs:enumeration value="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
-      <!--.ppt-->
-      <xs:enumeration value="application/vnd.ms-powerpoint"/>
-      <!--.pptx-->
-      <xs:enumeration value="application/vnd.openxmlformats-officedocument.presentationml.presentation"/>
-      <xs:enumeration value="application/dwg"/>
-      <xs:enumeration value="application/dxf"/>
-      <!--.rvt-->
-      <xs:enumeration value="application/octet-stream"/>
-      <xs:enumeration value="application/ifc"/>
-      <xs:enumeration value="application/vnd.sketchup.skp"/>
-      <xs:enumeration value="Other"/>
-      <xs:enumeration value="Unknown"/>
-    </xs:restriction>
-  </xs:simpleType>
+```diff
+- Additionally to support the `FileContentType`, we may define a universal element `ContentType` with applicable file format enumerations:
+-   <xs:simpleType name="ContentType">
+-     <xs:restriction base="xs:string">
+-       <xs:enumeration value="text/plain"/>
+-       <xs:enumeration value="text/csv"/>
+-       <xs:enumeration value="text/html"/>
+-       <xs:enumeration value="image/jpeg"/>
+-       <xs:enumeration value="image/png"/>
+-       <xs:enumeration value="image/tiff"/>
+-       <xs:enumeration value="image/gif"/>
+-       <xs:enumeration value="image/bmp"/>
+-       <xs:enumeration value="audio/mpeg"/>
+-       <xs:enumeration value="audio/ogg"/>
+-       <xs:enumeration value="audio/wav"/>
+-       <xs:enumeration value="video/mp4"/>
+-       <xs:enumeration value="video/webm"/>
+-       <xs:enumeration value="video/mpeg"/>
+-       <!--.avi-->
+-       <xs:enumeration value="video/x-msvideo"/>
+-       <xs:enumeration value="application/json"/>
+-       <xs:enumeration value="application/xml"/>
+-       <xs:enumeration value="application/pdf"/>
+-       <xs:enumeration value="application/zip"/>
+-       <!--.rar-->
+-       <xs:enumeration value="application/vnd.rar"/>
+-       <!--.tar-->
+-       <xs:enumeration value="application/x-tar"/>
+-       <!--.7z-->
+-       <xs:enumeration value="application/x-7z-compressed"/>
+-       <!--.doc-->
+-       <xs:enumeration value="application/msword"/>
+-       <!--.docx-->
+-       <xs:enumeration value="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
+-       <!--.xls-->
+-       <xs:enumeration value="application/vnd.ms-excel"/>
+-       <!--.xlsx-->
+-       <xs:enumeration value="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+-       <!--.ppt-->
+-       <xs:enumeration value="application/vnd.ms-powerpoint"/>
+-       <!--.pptx-->
+-       <xs:enumeration value="application/vnd.openxmlformats-officedocument.presentationml.presentation"/>
+-       <xs:enumeration value="application/dwg"/>
+-       <xs:enumeration value="application/dxf"/>
+-       <!--.rvt-->
+-       <xs:enumeration value="application/octet-stream"/>
+-       <xs:enumeration value="application/ifc"/>
+-       <xs:enumeration value="application/vnd.sketchup.skp"/>
+-       <xs:enumeration value="Other"/>
+-       <xs:enumeration value="Unknown"/>
+-     </xs:restriction>
+-   </xs:simpleType>
 ```
+Similar to the usage of `LinkedPremises`, we will add `LinkedFiles` for these elements:
+```xml
+
+```
+
+### References
+MIME types: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types
