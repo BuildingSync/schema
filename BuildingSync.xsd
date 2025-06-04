@@ -2070,13 +2070,13 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="\w+/[-+.\w]+"/>
+            <xs:pattern value="\w+/[-.\w]+(?:\+[-.\w]+)?"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="FileSize" type="xs:integer" minOccurs="0">
+      <xs:element name="FileSize" type="xs:nonNegativeInteger" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Size of file in Megabyte (MB)</xs:documentation>
+          <xs:documentation>Size of file in bytes (B)</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="FileChecksum" type="xs:string" minOccurs="0">
