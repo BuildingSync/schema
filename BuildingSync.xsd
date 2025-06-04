@@ -2066,11 +2066,11 @@
       </xs:element>
       <xs:element name="FileContentType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>MIME (media) type of the file, following the format as "type/[tree.]subtype[+suffix]", e.g. application/zip or image/png.</xs:documentation>
+          <xs:documentation>MIME (media) type of the file, following the format as "type/[tree.]subtype[+suffix]", e.g. application/zip, application/vnd+json or image/png - only one suffix (+) allowd.</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="\w+/[-.\w]+(?:\+[-.\w]+)?"/>
+            <xs:pattern value="\w+/([-.\w]+|\w+[-.\w]*\+[-.\w]+)"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
