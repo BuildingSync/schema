@@ -307,6 +307,7 @@
                                         </xs:simpleType>
                                       </xs:element>
                                       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+                                      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
                                       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                                       <xs:element name="AirInfiltrationSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
                                       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
@@ -382,6 +383,7 @@
                                         </xs:complexType>
                                       </xs:element>
                                       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+                                      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
                                       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                                       <xs:element name="WaterInfiltrationSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
                                       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
@@ -441,6 +443,13 @@
                       <xs:complexType>
                         <xs:sequence>
                           <xs:element name="AuditCycle" type="auc:AuditCycleType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Files" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="File" type="auc:FileType" maxOccurs="unbounded"/>
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
@@ -527,6 +536,7 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -1449,6 +1459,7 @@
                       </xs:simpleContent>
                     </xs:complexType>
                   </xs:element>
+                  <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
                   <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
                   <xs:element name="ThermalZones" minOccurs="0">
                     <xs:annotation>
@@ -1467,6 +1478,7 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -1687,6 +1699,7 @@
         </xs:annotation>
       </xs:element>
       <xs:element ref="gbxml:SpaceBoundary" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
   </xs:complexType>
@@ -2030,6 +2043,50 @@
       <xs:element name="AuditCycleEndDate" type="xs:date">
         <xs:annotation>
           <xs:documentation>Date the Audit Cycle ends (CCYY-MM-DD)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="ID" type="xs:ID" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="FileType">
+    <xs:annotation>
+      <xs:documentation>File attachment associated with the audit report for supplemental information other than the general XML fields</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="FileName" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Name identifying the file other than the ID</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FileDescription" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Details about the file</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FileContentType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>MIME (media) type of the file, following the format as "type/[tree.]subtype[+suffix]", e.g. application/zip, application/vnd+json or image/png - only one suffix (+) allowd.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="\w+/([-.\w]+|\w+[-.\w]*\+[-.\w]+)"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="FileSize" type="xs:nonNegativeInteger" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Size of file in bytes (B)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FileChecksum" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The digital fingerprint for file integrity and authenticity verification, if applicable, such as SHA-1, MD5, etc.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FileURL" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The address (permanent link peferred) to the intenet location where the file is stored</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
@@ -2528,6 +2585,7 @@
           <xs:documentation>Establishes whether the system or scenario applies to one or more entire buildings, sections, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="ID" type="xs:ID" use="required"/>
@@ -3884,6 +3942,7 @@
         </xs:simpleType>
       </xs:element>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element name="TechnologyCategories" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
@@ -5267,6 +5326,7 @@
         </xs:complexType>
       </xs:element>
       <xs:element ref="auc:LinkedPremisesOrSystem" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:LinkedAuditCycles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
     </xs:sequence>
@@ -5967,6 +6027,7 @@
         </xs:complexType>
       </xs:element>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element name="HVACSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
@@ -6222,6 +6283,7 @@
         </xs:complexType>
       </xs:element>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element name="DuctSystemCondition" name="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
@@ -7190,6 +7252,7 @@
       <xs:element ref="auc:YearOfManufacture" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element name="Integration" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Level of integration with primary heating and cooling sources and delivery systems.</xs:documentation>
@@ -7725,6 +7788,7 @@
           <xs:documentation>Establishes whether the system applies to one or more entire buildings, section, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of LinkedPremises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
@@ -8266,6 +8330,7 @@
           <xs:documentation>Establishes whether the system applies to one or more entire buildings, sections, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
@@ -8376,6 +8441,7 @@
           <xs:documentation>Establishes whether the system applies to one or more entire buildings, sections, spaces, or zones within buildings. Power consuming system loads should be distributed in proportion to the floor areas of linked premises. Envelope systems should be distributed in proportion to the exterior surface areas of linked premises.</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
@@ -8671,6 +8737,7 @@
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
@@ -8786,6 +8853,7 @@
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
@@ -8900,6 +8968,7 @@
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
@@ -9287,6 +9356,7 @@
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:LinkedSystemIDs" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
       <xs:element name="FanSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
@@ -9434,6 +9504,7 @@
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:LinkedSystemIDs" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
       <xs:element name="MotorSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
@@ -11130,6 +11201,7 @@
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
@@ -11222,6 +11294,7 @@
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
@@ -11307,6 +11380,7 @@
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
@@ -11399,6 +11473,7 @@
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
     </xs:sequence>
@@ -11704,6 +11779,7 @@
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
@@ -11833,6 +11909,7 @@
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
       <xs:element name="PoolCondition" type="auc:EquipmentCondition" minOccurs="0"/>
@@ -11943,6 +12020,7 @@
       <xs:element ref="auc:ModelNumber" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
+      <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
@@ -12397,6 +12475,23 @@
             <xs:sequence>
               <xs:element ref="auc:LinkedSystemID" maxOccurs="unbounded"/>
             </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LinkedFiles">
+    <xs:annotation>
+      <xs:documentation>List of files linked to the premise, system, or report.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="LinkedFileID">
+          <xs:annotation>
+            <xs:documentation>ID number of associated file(s).</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
@@ -16094,6 +16189,7 @@
               <xs:element ref="auc:WeatherDataStationID" minOccurs="0"/>
               <xs:element ref="auc:WeatherStationName" minOccurs="0"/>
               <xs:element ref="auc:WeatherStationCategory" minOccurs="0"/>
+              <xs:element ref="auc:LinkedFiles" minOccurs="0"/>
             </xs:sequence>
             <xs:attribute name="ID" type="xs:ID" use="required"/>
           </xs:complexType>
