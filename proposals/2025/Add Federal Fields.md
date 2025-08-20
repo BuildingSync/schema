@@ -11,7 +11,7 @@ This proposal is to add new elements under the `FederalBuilding` element:
 * `Facility` - Federal Facility represents another level down in the agency's organization structure. For CERL's workflow, this would be the "Installation".
 * `FacilitySubLevel1` - Federal Facility Sub Level 1 represents another level down in the agency's organization structure. For CERL's workflow, this would be the "Site".
 * `FacilitySubLevel2` - Federal Facility Sub Level 2 represents another level down in the agency's organization structure. For CERL's workflow, this would also be "Site".
-* `FacilityNumber` - Unique identifier of a federal facility.
+* `FacilityNumber` - Identifier of a federal facility. This is not likely a unique identifier.
 * `PrimaryCategoryCode` - The Building's primary category code, indicating the building classification.
 
 ## Justification
