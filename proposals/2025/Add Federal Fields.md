@@ -8,11 +8,11 @@ This proposal is to add new elements under the `FederalBuilding` element:
 * `auc:SubAgency` - Sub Agency according to agency's organizational structure. For CERL's workflow, this would be "Army".
 * `auc:SubAgencySubLevel1` - Sub Agency Sub Level 1 represents another level down in the agency's organizational structure. For CERL's workflow, this would be the "Accountable Organization".
 * `auc:SubAgencySubLevel2` - Sub Agency Sub Level 2 represents another level down in the agency's organization structure. For CERL's workflow this would be the "Accountable Sub Organization".
-* `Facility` - Federal Facility represents another level down in the agency's organization structure. For CERL's workflow, this would be the "Installation".
-* `FacilitySubLevel1` - Federal Facility Sub Level 1 represents another level down in the agency's organization structure. For CERL's workflow, this would be the "Site".
-* `FacilitySubLevel2` - Federal Facility Sub Level 2 represents another level down in the agency's organization structure. For CERL's workflow, this would also be "Site".
-* `FacilityNumber` - Identifier of a federal facility. This is not a unique identifier.
-* `PrimaryCategoryCode` - The Building's primary category code, indicating the building classification.
+* `auc:FederalFacility` - Federal Facility represents another level down in the agency's organization structure. For CERL's workflow, this would be the "Installation".
+* `auc:FacilitySubLevel1` - Federal Facility Sub Level 1 represents another level down in the agency's organization structure. For CERL's workflow, this would be the "Site".
+* `auc:FacilitySubLevel2` - Federal Facility Sub Level 2 represents another level down in the agency's organization structure. For CERL's workflow, this would also be "Site".
+* `auc:FacilityNumber` - Identifier of a federal facility. This is not a unique identifier.
+* `auc:PrimaryCategoryCode` - The Building's primary category code, indicating the building classification.
 
 ## Justification
 
@@ -49,7 +49,7 @@ Under `auc:FederalBuilding`:
                 <xs:documentation>Federal sub agency sub level 2, according to organizational structure of the specified agency.</xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="Facility" type="xs:string" minOccurs="0">
+            <xs:element name="FederalFacility" type="xs:string" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Federal facility, according to organization structure of the specified agency.</xs:documentation>
               </xs:annotation>
@@ -99,7 +99,7 @@ Under `auc:FederalBuilding`:
                 <auc:SubAgency>Army</auc:SubAgency>
                 <auc:SubAgencySubLevel1>Accountable Organization</auc:SubAgencySubLevel1>
                 <auc:SubAgencySubLevel2>Accountable Sub Org</auc:SubAgencySubLevel2>
-                <auc:Facility>Installation</auc:Facility>
+                <auc:FederalFacility>Installation</auc:FederalFacility>
                 <auc:FacilitySubLevel1>Site</auc:FacilitySubLevel1>
                 <auc:FacilitySubLevel2>Site</auc:FacilitySubLevel2>
                 <auc:FacilityNumber>123456</auc:FacilityNumber>
