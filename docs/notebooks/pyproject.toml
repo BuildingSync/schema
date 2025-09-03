@@ -5,14 +5,14 @@ description = "Examples for generating BuildingSync files from Python. This curr
 authors = ["corymosiman12 <cory.mosiman12@gmail.com>", "nllong <nicholas.long@nrel.gov>"]
 
 [tool.poetry.dependencies]
-python = "^3.7.9"
-jupyterlab = "^3.6.8"
+python = "^3.9"
+jupyterlab = "^4.4.7"
 lxml = "^4.9.1"
 bsyncpy = {git = "https://github.com/BuildingSync/bsyncpy.git", branch="develop" }
 eeweather = "^0.3.24"
 jupytext = "^1.13.8"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pytest = "^7.3.1"
 
 [build-system]

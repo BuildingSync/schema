@@ -12,7 +12,7 @@ This notebook assumes that you have installed bsyncpy and all of its dependencie
 
 This notebook uses resources from:
 
-- the [DOE Commercial Prorotype buildings](https://www.energycodes.gov/prototype-building-models) repository
+- the [DOE Commercial Prototype buildings](https://www.energycodes.gov/prototype-building-models) repository
 - ASHRAE [Standard 211](https://www.ashrae.org/technical-resources/bookstore/standards-180-and-211) for formal guidelines on energy audits
 - the [BuildingSync schema documentation](https://buildingsync.net/dictionary/2.6.0/)
 - the [notebook included in the bsync examples folder](./Small-Office-Level-1.md) for a comprehensive explanation on basic BuildingSync and bsyncpy concepts
