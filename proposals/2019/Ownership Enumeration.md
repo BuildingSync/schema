@@ -1,4 +1,4 @@
-﻿# Ownership Enumeration
+# Ownership Enumeration
 
 ## Overview
 
@@ -35,4 +35,3 @@ The new elements will be:
 ## References
 
 N/A
-

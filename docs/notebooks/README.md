@@ -2,7 +2,7 @@ Here you can find Jupyter Notebooks which serve as guides for using BuildingSync
 
 # Setup
 
-From the root directory of the repo, run the following commands to set up the environment. 
+From the root directory of the repo, run the following commands to set up the environment.
 
 - `pip install poetry`
 - `poetry install`

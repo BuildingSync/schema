@@ -2,7 +2,7 @@
 
 ## Overview
 
-This proposal is to update a few enumerations under the `auc:AuditorQualificationType` element 
+This proposal is to update a few enumerations under the `auc:AuditorQualificationType` element
 
 ## Justification
 

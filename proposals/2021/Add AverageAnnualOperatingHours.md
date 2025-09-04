@@ -1,15 +1,19 @@
 # Add AverageAnnualOperatingHours to System
 
 ## Overview
+
 This proposal is to add the `AverageAnnualOperatingHours` element as a child element of `OnsiteStorageTransmissionGenerationSystem` under `System`.
 
 ## Justification
+
 The average operating hours per year of the onsite generation system.
 
 ## UDFs
+
 Currently this is conveyed in Audit Template via: `/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:UserDefinedFields/auc:UserDefinedField[auc:FieldName/text() = Onsite Generation Operation Average Annual Hours]/auc:FieldValue`. Our proposal is to add it as a child element of `OnsiteStorageTransmissionGenerationSystem`.
 
 ## Example
+
 ```xml
 ...
     <auc:Facilities>
@@ -29,6 +33,7 @@ Currently this is conveyed in Audit Template via: `/auc:BuildingSync/auc:Facilit
 ```
 
 ## Implementation
+
 ```xml
 ...
   <xs:complexType name="OnsiteStorageTransmissionGenerationSystemType">

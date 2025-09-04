@@ -14,11 +14,11 @@ Rename elements that have OnSite to Onsite. This follows the BEDES definition of
 
 This impacts the following paths:
 
-* BuildingSync/Facilities/Facility/Systems/OnsiteStorageTransmissionGenerationSystems/OnsiteStorageTransmissionGenerationSystem
-* BuildingSync/Facilities/Facility/Systems/OnsiteStorageTransmissionGenerationSystems/OnsiteStorageTransmissionGenerationSystem/EnergyConversionType/Generation/OnsiteGenerationType
-* Enum in auc:BuildingSync/auc:Facilities/auc:Facility/auc:Measures/auc:Measure/auc:SystemCategoryAffected
-* Enum in auc:BuildingSync/auc:Facilities/auc:Facility/auc:Measures/auc:Measure/auc:TechnologyCategories/auc:TechnologyCategory/auc:WaterAndSewerConservationSystems/auc:MeasureName
-* Various annotations
+- BuildingSync/Facilities/Facility/Systems/OnsiteStorageTransmissionGenerationSystems/OnsiteStorageTransmissionGenerationSystem
+- BuildingSync/Facilities/Facility/Systems/OnsiteStorageTransmissionGenerationSystems/OnsiteStorageTransmissionGenerationSystem/EnergyConversionType/Generation/OnsiteGenerationType
+- Enum in auc:BuildingSync/auc:Facilities/auc:Facility/auc:Measures/auc:Measure/auc:SystemCategoryAffected
+- Enum in auc:BuildingSync/auc:Facilities/auc:Facility/auc:Measures/auc:Measure/auc:TechnologyCategories/auc:TechnologyCategory/auc:WaterAndSewerConservationSystems/auc:MeasureName
+- Various annotations
 
 ## References
 

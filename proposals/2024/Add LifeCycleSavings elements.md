@@ -2,19 +2,21 @@
 
 ## Overview
 
-This proposal is to add new elements related to Life Cycle savings data for mapping FEMP's Compliance Tracking System fields to BuildingSync Schema: 
-* Estimated Life-Cycle Energy Savings (Million Btu)
-* Estimated Present Value Life-Cycle Energy Cost Savings (Dollars)
-* Estimated Life-Cycle Water Savings (Thou. Gallons)
-* Estimated Present Value Life-Cycle Water Cost Savings (Dollars)
-* Estimated Other Present Value Life-Cycle Ancillary Cost Savings (Dollars)
-We proposed to add
-* `auc:LifeCycleSavingsEnergy`
-* `auc:LifeCycleSavingsEnergyCost`
-* `auc:LifeCycleSavingsWater`
-* `auc:LifeCycleSavingsWaterCost`
-* `auc:LifeCycleSavingsAncillaryCost`
-under 
+This proposal is to add new elements related to Life Cycle savings data for mapping FEMP's Compliance Tracking System fields to BuildingSync Schema:
+
+- Estimated Life-Cycle Energy Savings (Million Btu)
+- Estimated Present Value Life-Cycle Energy Cost Savings (Dollars)
+- Estimated Life-Cycle Water Savings (Thou. Gallons)
+- Estimated Present Value Life-Cycle Water Cost Savings (Dollars)
+- Estimated Other Present Value Life-Cycle Ancillary Cost Savings (Dollars)
+  We proposed to add
+- `auc:LifeCycleSavingsEnergy`
+- `auc:LifeCycleSavingsEnergyCost`
+- `auc:LifeCycleSavingsWater`
+- `auc:LifeCycleSavingsWaterCost`
+- `auc:LifeCycleSavingsAncillaryCost`
+  under
+
 1. `auc:Measure/auc:MeasureSavingsAnalysis`
 2. `auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:Target`
 3. `auc:Report/auc:Scenarios/auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures`
@@ -23,11 +25,13 @@ under
 
 ## Justification
 
-These elements work similarly with the current simple annual savings data such as `auc:AnnualSavingsSiteEnergy` and `auc:AnnualSavingsCost`, so they should be at least added in the same places (above 5 paths). 
-As proposed in ways for eProjectBuilder mapping efforts, a Project class will be added in parallel with Sites, Reports and Measures, and all the project related data will be added/linked under it. This way the life-cycle analysis data could be added in the new project fields in the future. 
+These elements work similarly with the current simple annual savings data such as `auc:AnnualSavingsSiteEnergy` and `auc:AnnualSavingsCost`, so they should be at least added in the same places (above 5 paths).
+As proposed in ways for eProjectBuilder mapping efforts, a Project class will be added in parallel with Sites, Reports and Measures, and all the project related data will be added/linked under it. This way the life-cycle analysis data could be added in the new project fields in the future.
 
 ## Implementation
+
 Globally definition:
+
 ```xml
   <xs:element name="LifeCycleSavingsEnergy">
     <xs:annotation>
@@ -90,7 +94,9 @@ Globally definition:
     </xs:complexType>
   </xs:element>
 ```
+
 Under `auc:MeasureSavingsAnalysis`:
+
 ```xml
   <xs:element name="MeasureSavingsAnalysis">
     <xs:complexType>
@@ -102,7 +108,9 @@ Under `auc:MeasureSavingsAnalysis`:
         <xs:element ref="auc:LifeCycleSavingsAncillaryCost" minOccurs="0"/>
       ...
 ```
+
 Under `auc:Scenario/auc:ScenarioType/auc:Target`:
+
 ```xml
   <xs:element name="Target" minOccurs="0">
     <xs:complexType>
@@ -114,7 +122,9 @@ Under `auc:Scenario/auc:ScenarioType/auc:Target`:
         <xs:element ref="auc:LifeCycleSavingsAncillaryCost" minOccurs="0"/>
       ...
 ```
+
 Under `auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures`:
+
 ```xml
   <xs:element name="PackageOfMeasures" minOccurs="0">
     <xs:complexType>
@@ -126,7 +136,9 @@ Under `auc:Scenario/auc:ScenarioType/auc:PackageOfMeasures`:
         <xs:element ref="auc:LifeCycleSavingsAncillaryCost" minOccurs="0"/>
       ...
 ```
+
 Under `auc:Scenario/auc:ScenarioType/auc:Other`:
+
 ```xml
   <xs:element name="Other" minOccurs="0">
     <xs:complexType>

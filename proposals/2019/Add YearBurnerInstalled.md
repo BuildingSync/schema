@@ -13,11 +13,12 @@ There exists a need for users to add year burner installed on the burner path, w
 The proposed name of the element has been updated to BurnerYearInstalled to allow for grouping of the Burner elements.
 
 This proposal is to:
-1. Add the following path:
-BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/HeatingSources/HeatingSource/HeatingSourceType/Furnace/BurnerYearInstalled
 
-2. Add the following path: 
-BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant/Boiler/BurnerYearInstalled
+1. Add the following path:
+   BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/HeatingAndCoolingSystems/HeatingSources/HeatingSource/HeatingSourceType/Furnace/BurnerYearInstalled
+
+2. Add the following path:
+   BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/Plants/HeatingPlants/HeatingPlant/Boiler/BurnerYearInstalled
 
 ## References
 

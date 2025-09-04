@@ -3,36 +3,43 @@
 Follow the instructions in the [README.md](../README.md) file to run in Jupyter Lab/Notebook.
 
 ## Introduction
+
 So you've been tasked with performing an energy audit that requires submission of a BuildingSync document? What does that even mean? This notebook is intended to provide an interactive and informational introduction to what BuildingSync is and how it relates to buildings, building systems, and energy audit reporting. This will be done by performing an example energy audit on the DOE Small Office Prototype building.
 
 ## Who This is For
+
 While this notebook is setup in Python, this introduction is not reserved only for software developers. The code is more of a supplement, but doesn't need to be run. Energy auditors, mechanical engineers, AHJ's procuring audits, and software developers all have something to gain from walking through this notebook.
 
 ## Learning Objectives
+
 By the end of this notebook, you should:
+
 - Have a practical understanding of some XML features, namely: elements, attributes, and xpaths
 - Know the main elements of the BuildingSync schema: Buildings, Systems, Reports, Scenarios, TimeSeriesData, Measures
 - Be able to relate these concepts back to an ASHRAE Standard 211 energy audit, and have an understanding of the additional detail needed in a Level 2 audit (compared to a Level 1 audit)
 - Create a minimum viable Level 2 BuildingSync document and verify it validates using the [BuildingSync Use Case Validator](https://buildingsync.net/validator)
 
 ## For Reference: Core Concepts and Notation Used
+
 - We will be using BuildingSync version 2.6.0. [Documentation](https://buildingsync.net/documentation/2.6.0). [Github release](https://github.com/BuildingSync/schema/releases/tag/v2.6.0).
 - BuildingSync is an XML Schema Document (XSD). It defines intended structure. Referring to something as a BuildingSync document typically means the document is intended to conform to the BuildingSync schema.
 - An XSD defines a hierarchical or tree-based schema, where elements are 'nested' within other elements. An XML document then looks like nested elements within one another. Similar to HTML, it uses angle brackets `<` and `>` to open and close an element tag. The example below provides a very simple example of an XML document:
+
 ```xml
 <a-root-node>
     <first-child>This child element captures information in a string (text), whereas the second-child captures a numeric datatype.</first-child>
     <second-child>2</second-child>
 </a-root-node>
 ```
+
 - `auc:` is often used as the namespace prefix for elements in a BuildingSync document. If a document declares the BuildingSync namespace prefix to be `auc:`, an element would look like `auc:Facility`. The same element in a BuildingSync document without a namespace prefix would look like `Facility`. Going forward, we will not prefix elements with `auc` - the remaining XML content should only refer to things defined by the BuildingSync schema.
 - XPath: xpath is basically a syntax for 'walking' an xml tree, mainly used for 'querying' information out of an XML document. In the simple example xml document above, to get the `<first-child>` element, we would notate this in XPath as `/a-root-node/first-child`. XPath will be used throughout this document to concisely convey where elements can be found in a BuildingSync document.
 - We use OpenStudio model to represent the prototype building. By performing simulation on the OS model, we obtain devices sizing properties, energy usage and bills, as well as measure analysis, etc..
 - Referenced prototype building info from [DOE Prototype Building Models](https://www.energycodes.gov/prototype-building-models).
 
 ## Caveats
-- These cells are meant to be run 1x through sequentially. Running a single cell multiple times may give you bad results
 
+- These cells are meant to be run 1x through sequentially. Running a single cell multiple times may give you bad results
 
 ```python
 # Import the main bsync module
@@ -44,14 +51,14 @@ import eeweather
 def pretty_print(element):
     """Simple printing of an xml element from the bsync library"""
     print(etree.tostring(element.toxml(), pretty_print=True).decode("utf-8"))
-    
+
 def bsync_dump(root_element, file="example1.xml"):
     """Write the element to the specified file"""
     doctype = '<?xml version="1.0" encoding="UTF-8"?>'
     as_etree = root_element.toxml()
     # Have to manually set the declaration header right now
     as_etree.set("xmlns", "http://buildingsync.net/schemas/bedes-auc/2019")
-    as_etree.set("version", "2.6.0")  
+    as_etree.set("version", "2.6.0")
     output = etree.tostring(as_etree, doctype=doctype, pretty_print=True)
     with open(file, "wb+") as f:
         f.write(output)
@@ -60,9 +67,11 @@ def bsync_dump(root_element, file="example1.xml"):
 # Starting the Audit
 
 ## Small Office Prototype Building
+
 The small office prototype is a single story rectangular building. We will use Denver as the location.
 
 We can summarize the high level features as:
+
 - Total Floor Area: 5500sf
 - WWR: Southern Wall ~25%, Other Walls ~20%
 - ASHRAE Climate Zone 5B
@@ -71,12 +80,16 @@ We can summarize the high level features as:
 - Audit year: 2020
 
 ## "I have a building...where do I start"
+
 Relevant Standard 211 Sections:
+
 - 6.1.1 Facility Description
 
 Let's start by defining a building. In this exercise, we will learn about some BuildingSync design patterns that will continue to propagate. In xpath terms, buildings live here: `/BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building`. A few things to notice:
+
 - The root node of a BuildingSync document is the `BuildingSync` element
 - Plurals (Facilities, Sites, Buildings) are often used to indicate parents that can contain 1 <= n < infinite child elements having a non-pluralized name (Facility, Site, Building). For example:
+
 ```xml
 <BuildingSync>
     <Facilities>
@@ -89,22 +102,24 @@ Let's start by defining a building. In this exercise, we will learn about some B
     </Facilities>
 </BuildingSync>
 ```
-- While the above can be done, it is __most common__ to find a single Facility, Site, and Building in a BuildingSync document. In general:
-    - Facility refers to a grouping of Sites, but a Facility is still geographically proximate. Its boundary might include not building specific things (streets, sidewalks, etc.)
-    - A Site is everything in and around a group of Buildings. This might be two Buildings that are connected via a tunnel, etc.
-    - ** Most common is just to have a single Building
+
+- While the above can be done, it is **most common** to find a single Facility, Site, and Building in a BuildingSync document. In general:
+  - Facility refers to a grouping of Sites, but a Facility is still geographically proximate. Its boundary might include not building specific things (streets, sidewalks, etc.)
+  - A Site is everything in and around a group of Buildings. This might be two Buildings that are connected via a tunnel, etc.
+  - \*\* Most common is just to have a single Building
 
 ### Primary BuildingSync Structural Elements
+
 We start by creating the primary structure of a BuildingSync document. We introduced `Facilities`, `Sites`, and `Buildings`, but there are a few additional:
+
 - `Sections` are subportions of a `Building`. Think of a mixed-use commercial building with retail and office space, each of these would become a section. For those familiar with the ASHRAE 211 Normative Spreadsheet, a `Section` is analagous to a column in the `All - Space Functions` sheet.
 - `Systems` are defined under a `Facility` and capture the energy consuming / producing assets. Each can be linked back to an individual `Facility`, `Site`, `Building`, or `Section`.
 - `Reports` are defined under a `Facility` and each `Report` would contain information about reporting type requirements. Most importantly, a `Report` contains a set of `Scenario` elements, where each `Scenario` would convey building performance for one of: current / historical data, target performance, benchmark performance, baseline modeled performance, or expected performance with measure(s) implemented.
 
-
 ```python
 # just take this for what it is at the moment. the bsync package makes
 # it easier to work with xml content. All of this is mainly syntactic
-# sugar around the lxml package, with some type checking, attribute 
+# sugar around the lxml package, with some type checking, attribute
 # assignment, etc.
 root = bsync.BuildingSync()
 facs = bsync.Facilities()
@@ -191,18 +206,15 @@ pretty_print(root)
         </Facility>
       </Facilities>
     </BuildingSync>
-    
-    
 
 #### 6.2.1.1 Building information
 
 This section of Standard 211 asks for lots of detail. We walk through the components of this that get added _as child elements of the building_, and then discuss other information.
 
-
 ```python
 # 6.2.1.1.a - name
 b1 += bsync.PremisesName("Prototype Small Office in Denver")
-# 6.1.1.1.m 
+# 6.1.1.1.m
 b1 += bsync.PremisesNotes("Here we record general problems / issues identified in a walkthrough survey.")
 # for BRICR SEED use case
 b1 += bsync.PremisesIdentifiers(
@@ -280,16 +292,16 @@ b1 += bsync.YearOfLastEnergyAudit(2010)
 ```
 
 Continuing with the information required by 6.1.1.1, we define additional content that doesn't sit as direct child elements of the Building. This includes:
-- Contacts. Key contacts (1 auditor and 1 owner) __must be linked__ back to the building, even though they are not in the Building subtree:
-    - Contacts live: /BuildingSync/Facilities/Facility/Contacts/Contact
-    - An auditor is linked to a building at a Report level (i.e. who performed the audit)
-    - Reports live: /BuildingSync/Facilities/Facility/Reports/Report
-    - An audit report, with the correct links to a Building, Measures, etc. should be sufficient to meet the Standard 211 requirements spelled out in Section 6. More on this later.
+
+- Contacts. Key contacts (1 auditor and 1 owner) **must be linked** back to the building, even though they are not in the Building subtree:
+  - Contacts live: /BuildingSync/Facilities/Facility/Contacts/Contact
+  - An auditor is linked to a building at a Report level (i.e. who performed the audit)
+  - Reports live: /BuildingSync/Facilities/Facility/Reports/Report
+  - An audit report, with the correct links to a Building, Measures, etc. should be sufficient to meet the Standard 211 requirements spelled out in Section 6. More on this later.
 - Space function breakdown by space type
 - Occupied hours and number of occupants
 
 #### Contacts
-
 
 ```python
 # 6.1.1.1.b - Owner and auditor contact info
@@ -342,15 +354,17 @@ r1 += bsync.AuditorContactID(IDref=c2["ID"])
 ```
 
 ### Space Function Analysis
+
 Relevant Standard 211 Sections:
+
 - 5.3.4 Space Function Analysis
 
 Space functions are used to define sections of a building used for different purposes. The classic example of this is a mixed use commercial real estate, with retail space on the bottom floor and offices in the remainder of the building. We do this in BuildingSync via the following:
+
 - Each space functions gets its own `Section` element
 - Each `Section` element should specify the `Section/SectionType` as 'Space function"
 
 The Small Office, as its name suggests, is just an office space, and therefore we will only create one section for it.
-
 
 ```python
 # create a new section
@@ -370,10 +384,10 @@ sections += section_ex
 ```
 
 Section 5.3.4 lays out specific requirements to convey for each space function. These include:
+
 - floor area requirements
 - typical occupant usages
 - systems information (plugs, lighting, hvac)
-
 
 ```python
 # 5.3.4.a Gross floor area for the section (we also add conditioned for 5.3.4.f)
@@ -411,7 +425,6 @@ occ_levels += occ_design
 
 ```
 
-
 ```python
 # finally, we add these to the actual section element
 section += section_fa
@@ -421,9 +434,9 @@ section += occ_levels
 ```
 
 ### 6.2.1.1.e Schedules
-Schedules of occupancy, lighting, process and plug loads, and HVAC shall be provided for typical days (weekdays, weekends, holidays).
-In BuildingSync, schedules are defined individually and referred (linked) in different sections. For example, lighting schedule is linked when lighting system is defined. 
 
+Schedules of occupancy, lighting, process and plug loads, and HVAC shall be provided for typical days (weekdays, weekends, holidays).
+In BuildingSync, schedules are defined individually and referred (linked) in different sections. For example, lighting schedule is linked when lighting system is defined.
 
 ```python
 schedule_occ = bsync.Schedule(ID="Schedule-Occupancy")
@@ -817,8 +830,6 @@ schedules += schedule_hvac_new
 Level 2 energy audits require information about the building envelop, including roof, wall, floor and fenestration. BuildingSync defines these components (construction, thermal properties, etc.) under the `Systems` element, and links corresponding elements back to the envelope specified under the `Section` elements. A few other information (e.g. gross areas) are added under the `Building` element above.
 In addition, 6.2.1.2.e requires information of the building overall tightness, and this is covered under the `AirInfiltrationSystems` element.
 
-
-
 ```python
 # 6.2.1.2.a roof
 roofsys = bsync.RoofSystems()
@@ -923,7 +934,6 @@ waterinfilt = bsync.WaterInfiltrationSystem(
 waterinfiltsys += waterinfilt
 ```
 
-
 ```python
 # now we add these components to System element
 systems += roofsys
@@ -934,7 +944,6 @@ systems += infiltsys
 systems += waterinfiltsys
 #pretty_print(systems)
 ```
-
 
 ```python
 # then we link these components to the envelope elements under Section/Sides
@@ -991,10 +1000,9 @@ section_wb += section_founds
 #pretty_print(sections)
 ```
 
-#### HVAC, SHW/DHW, Lighting, Plugs 
+#### HVAC, SHW/DHW, Lighting, Plugs
 
 Level 2 energy audits require information about the primary systems serving a specific section, with details such as types, capacities and conditions
-
 
 ```python
 # 6.2.1.3 HVAC
@@ -1127,7 +1135,7 @@ for each in range(1,6):
         ID=f"Delivery-{each}"
     )
     delivers += deliver
-    
+
 hc_systems += delivers
 
 # duct
@@ -1180,7 +1188,6 @@ for each in range(1,6):
     fan_systems += fan_new
 ```
 
-
 ```python
 # 6.2.1.4 SHW/DHW
 # Required information are types, ratings, operating and general conditions,
@@ -1200,7 +1207,7 @@ shw = bsync.DomesticHotWaterSystem(
     bsync.PrimaryFuel("Electricity"),
     bsync.Recirculation(
         bsync.RecirculationLoopCount(1),
-        bsync.RecirculationFlowRate(3.6), 
+        bsync.RecirculationFlowRate(3.6),
         bsync.RecirculationControlType("Continuous"),
         bsync.PipeInsulationThickness(123.), # arbitrary value, actually not required
         bsync.RecirculationEnergyLossRate(1.870180469)
@@ -1238,10 +1245,9 @@ shw = bsync.DomesticHotWaterSystem(
 shw_systems += shw
 ```
 
-
 ```python
 # 6.2.1.5
-# For the lighting systems, this is a bit different. When 
+# For the lighting systems, this is a bit different. When
 # performing an audit, it is atypical to know the LPD of a space / zone
 # as you would in "Energy Modeling" world / design world.
 # Assuming drawings are unavailable and we go in to check,
@@ -1371,7 +1377,6 @@ light_systems += ls2
 light_systems += ls_new
 ```
 
-
 ```python
 # 6.2.1.6 Process, plug and conveyance loads
 # There are no process and conveyance loads identified for prototype small office
@@ -1398,7 +1403,6 @@ psys = bsync.PlugLoad(
 plug_systems += psys
 ```
 
-
 ```python
 systems += hvac_systems
 systems += fan_systems
@@ -1409,17 +1413,21 @@ systems += plug_systems
 ```
 
 ### Current Building Measured Scenario
+
 Relevant Standard 211 Sections:
+
 - 6.1.2
 
 Now that we have a quick sense of the building, let's start off by looking at the requirements for an ASHRAE 211 Level 1 audit. This leads us to the concept of a [Scenario](https://buildingsync.net/schema/v2.3.0/documentation/BuildingSync_xsd.html#ScenarioType). A Scenario in BuildingSync is used to refer to energy and timeseries data associated with a particular, well, scenario. Specifically, there are 5 primary Scenarios used in BuildingSync, all which relate back to Standard 211:
 
 ![Scenario Types](./img/b1-sc-docs.png)
 
-We will repeatedly come back to the concept of a Scenario, as they are core to organizing information in a BuildingSync document. 
+We will repeatedly come back to the concept of a Scenario, as they are core to organizing information in a BuildingSync document.
 
-The current building measured scenario is intended to capture true measured historical data. Typically this refers to utility bill data, but AMI type data can also be captured (later).  We start off by creating a new scenario element and defining its type as follows:
-- `Scenario[ScenarioType/CurrentBuilding/CalculationMethod/Measured]`. This is an XPath expression that can be interpreted as "A Scenario that has the child elements ScenarioType/CurrentBuilding/CalculationMethod/Measured".  The XML for this would look like:
+The current building measured scenario is intended to capture true measured historical data. Typically this refers to utility bill data, but AMI type data can also be captured (later). We start off by creating a new scenario element and defining its type as follows:
+
+- `Scenario[ScenarioType/CurrentBuilding/CalculationMethod/Measured]`. This is an XPath expression that can be interpreted as "A Scenario that has the child elements ScenarioType/CurrentBuilding/CalculationMethod/Measured". The XML for this would look like:
+
 ```xml
 <Scenario>
     <ScenarioType>
@@ -1433,7 +1441,6 @@ The current building measured scenario is intended to capture true measured hist
 ```
 
 We build this scenario up programatically as follows:
-
 
 ```python
 # define the current building measured scenario (cbms)
@@ -1453,11 +1460,12 @@ scenarios += cbms
 ```
 
 #### Utilities
+
 Relevant Standard 211 Sections: 6.1.2
 In the next section, we will create resource use elements to define energy data. First, we need to get add utility information. Utility information gets added at the report level. Specific information required includes:
+
 - Rate schedules (you can get very expressive in BuildingSync with Rate Schedules - we keep it pretty minimal here)
 - Utility account numbers
-
 
 ```python
 elec_ut = bsync.Utility(
@@ -1536,23 +1544,22 @@ ng_ut = bsync.Utility(
 )
 ```
 
-
 ```python
 utilities += elec_ut
 utilities += ng_ut
 ```
 
 #### ResourceUses and TimeSeries Data
+
 Now that we have a current building measured scenario, we want to declare energy and monthly billing data. Per Std 211 6.1.2.1, a minimum of 12 months (preferably up to 3 years) of energy use data is required. The mechanical system of the small office prototype is a heatpump air handler with natural gas backup. We run the simulation to get estimates for this, which come out as follows:
 
-| Resource Type | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Electricity (kWh) | 5933.1 | 5446.1 | 5736.49 | 4980.5 | 5187.21 | 5842.95 | 5801.73 | 6220.16 | 5682.87 | 5571.93 | 5525.15 | 5405.94 |
-| Natural Gas (MMBtu) | 1.72 | 1.25 | 0.41 | 0.43 | 0.01 | 0.0 | 0.0 | 0.0 | 0.0 | 0.2 | 0.4 | 4.3 |
-| Electricity peak (kW) | 23.58 | 25.38 | 26.04 | 24.45 | 17.03 | 22.71 | 22.01 | 21.81 | 20.63 | 21.87 | 21.63 | 21.78 |
+| Resource Type         | Jan    | Feb    | Mar     | Apr    | May     | Jun     | Jul     | Aug     | Sep     | Oct     | Nov     | Dec     |
+| --------------------- | ------ | ------ | ------- | ------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- |
+| Electricity (kWh)     | 5933.1 | 5446.1 | 5736.49 | 4980.5 | 5187.21 | 5842.95 | 5801.73 | 6220.16 | 5682.87 | 5571.93 | 5525.15 | 5405.94 |
+| Natural Gas (MMBtu)   | 1.72   | 1.25   | 0.41    | 0.43   | 0.01    | 0.0     | 0.0     | 0.0     | 0.0     | 0.2     | 0.4     | 4.3     |
+| Electricity peak (kW) | 23.58  | 25.38  | 26.04   | 24.45  | 17.03   | 22.71   | 22.01   | 21.81   | 20.63   | 21.87   | 21.63   | 21.78   |
 
 In BuildingSync land, we need to declare an resource use for each resource type. Standard, allowable enumerations exist for this already. We do this as follows:
-
 
 ```python
 all_ru = bsync.ResourceUses()
@@ -1576,7 +1583,7 @@ elec_ru += bsync.AnnualFuelUseNativeUnits(67334.15)
 elec_ru += bsync.AnnualFuelUseConsistentUnits(229.75365655) #convert to MMBTU
 elec_ru += bsync.AnnualPeakNativeUnits(26.04) # kW as specified above
 elec_ru += bsync.AnnualPeakConsistentUnits(26.04) # already in kW, same as above
-elec_ru += bsync.AnnualFuelCost(4613.82) # 
+elec_ru += bsync.AnnualFuelCost(4613.82) #
 
 # create a resource use for natural gas, units of MMBtu, all end uses
 # additional connect it up to the utility
@@ -1660,11 +1667,12 @@ cbms += all_ru
 ```
 
 #### All TimeSeries Data
+
 The following cell simply performs the following:
+
 1. Create a simple function to generate monthly timeseries elements for each resource use
 1. Add it to a `TimeSeriesData` parent element
 1. Add this back to the previously defined current building measured scenario (i.e. Scenario-1)
-
 
 ```python
 full_ts_data = bsync.TimeSeriesData()
@@ -1704,7 +1712,7 @@ def create_monthly(values, resource_use_id, start_year, tsrq="Energy", rt="Total
             my_id = f"TS-{resource_use_id}-Loadfactor-{start_month}"
         else:
             my_id = f"TS-{resource_use_id}-{rt}-{start_month}"
-        
+
         if rt == "Peak":
             ts = bsync.TimeSeries(
                 bsync.ReadingType(rt),
@@ -1732,16 +1740,16 @@ def create_monthly(values, resource_use_id, start_year, tsrq="Energy", rt="Total
                 bsync.ResourceUseID(IDref=resource_use_id),
                 ID=my_id
             )
-        
+
         monthly.append(ts)
-        
+
         if tsrq == "Energy":
             if "Electricity" in resource_use_id:
                 elec_ids.append(my_id)
             else:
                 ng_ids.append(my_id)
     return monthly
-    
+
 elec_ts = create_monthly(monthly_elec, elec_ru["ID"], 2019)
 ng_ts = create_monthly(monthly_ng, ng_ru["ID"], 2019)
 elec_peak_ts = create_monthly(monthly_elec_peak, elec_ru["ID"], 2019, "Power", "Peak")
@@ -1749,7 +1757,7 @@ elec_lf_ts = create_monthly(monthly_elec_lf, elec_ru["ID"], 2019, "Power", "Load
 
 elec_cost_ts = create_monthly(monthly_elec_cost, elec_ru["ID"], 2019, "Cost", "Cost")
 ng_cost_ts = create_monthly(monthly_ng_cost, ng_ru["ID"], 2019, "Cost", "Cost")
- 
+
 def add_to_full(months, full):
     for month in months:
         full += month
@@ -1765,19 +1773,19 @@ cbms += full_ts_data
 ```
 
 #### Linked TimeSeriesIDs
-Due to the fact that annual data reporting is dependent on which months / utility bill periods were used to calculate the annual total, the `AnnualFuelUseLinkedTimeSeriesIDs` element was introduced. It is required to specify exactly which months for each resource use were used in the calculation of the `AnnualFuelUseNativeUnits` and `AnnualFuelUseConsistentUnits` elements. We add this element below.
 
+Due to the fact that annual data reporting is dependent on which months / utility bill periods were used to calculate the annual total, the `AnnualFuelUseLinkedTimeSeriesIDs` element was introduced. It is required to specify exactly which months for each resource use were used in the calculation of the `AnnualFuelUseNativeUnits` and `AnnualFuelUseConsistentUnits` elements. We add this element below.
 
 ```python
 elec_linked_ids = bsync.AnnualFuelUseLinkedTimeSeriesIDs()
 for each_id in elec_ids:
     elec_linked_ids += bsync.LinkedTimeSeriesID(IDref=each_id)
-    
+
 
 ng_linked_ids = bsync.AnnualFuelUseLinkedTimeSeriesIDs()
 for each_id in ng_ids:
     ng_linked_ids += bsync.LinkedTimeSeriesID(IDref=each_id)
-    
+
 elec_ru += elec_linked_ids
 ng_ru += ng_linked_ids
 ```
@@ -1793,22 +1801,21 @@ We have defined monthly electricity (energy, power, cost) and natural gas (energ
 - `ExportedEnergyConsistentUnits`: Corresponds to $E_{exp}$
 - `NetIncreaseInStoredEnergyConsistentUnits`: Corresponds to $E_{s}$
 
-
 ```python
 art = bsync.AllResourceTotals(
     bsync.AllResourceTotal(
         bsync.AllResourceTotal.SiteEnergyUse(238473.65655), # reported in kBtu
         bsync.SiteEnergyUseIntensity(43.3588), # reported in kbtu/ft2
-        
+
         # Since there is no energy generated onsite, there is no difference btw site and building energy usage / intensity
-        bsync.BuildingEnergyUse(238473.65655), 
+        bsync.BuildingEnergyUse(238473.65655),
         bsync.BuildingEnergyUseIntensity(43.3588),
-        
+
         bsync.ImportedEnergyConsistentUnits(238.47365655),  # in this case, same as building and site energy, but in MMBTU
         bsync.OnsiteEnergyProductionConsistentUnits(0.), # no energy produced onsite, MMBtu
         bsync.ExportedEnergyConsistentUnits(0.), # no energy exported, MMBtu
         bsync.NetIncreaseInStoredEnergyConsistentUnits(0.),  # no energy stored, MMBtu
-        
+
         bsync.AllResourceTotal.SourceEnergyUse(737088.9), # reported in kBtu. Assume site -> source: elec = 3.167, ng = 1.084
         bsync.SourceEnergyUseIntensity(134.0), # kbtu/ft2
         bsync.EnergyCost(4952.48),
@@ -1817,7 +1824,6 @@ art = bsync.AllResourceTotals(
     )
 )
 ```
-
 
 ```python
 cbms += art
@@ -1829,20 +1835,21 @@ cbms += bsync.LinkedPremises(
 ```
 
 ### Benchmark Scenario
+
 Relevant Standard 211 Sections:
+
 - 6.1.3
 
 We inserted the above information (electricity, natural gas, square footage, etc.) into the Energy Star Portfolio Manager and got a score of 82. We can add this information into BuildingSync with our benchmark scenario.
 
 ![ESPM](./img/ESPM.png)
 
-
 ```python
 # define the benchmark scenario
 bench_sc = bsync.Scenario(
     bsync.AllResourceTotals(
         bsync.AllResourceTotal(
-            bsync.AllResourceTotal.SiteEnergyUse(238473.65655),  
+            bsync.AllResourceTotal.SiteEnergyUse(238473.65655),
             bsync.SiteEnergyUseIntensity(43.3588),
             bsync.EnergyCost(4952.48),
             ID="AllResourceTotal-Benchmark"
@@ -1867,25 +1874,26 @@ bench = bsync.Benchmark(
     bsync.BenchmarkValue(80.)
 )
 
-# 
+#
 scenarios += bench_sc
 bench_sc += bench_st
 bench_st += bench
 ```
 
 ### Target Scenario
+
 Relevant Standard 211 Sections:
+
 - 6.1.4
 
 Since we used a PM score in the baseline, we will also use that for our target. Let's say we are shooting for a target score of 70.
-
 
 ```python
 # define the target scenario in reference to the benchmark scenario
 target_sc = bsync.Scenario(
     bsync.AllResourceTotals(
         bsync.AllResourceTotal(
-            bsync.AllResourceTotal.SiteEnergyUse(190348.6),  
+            bsync.AllResourceTotal.SiteEnergyUse(190348.6),
             bsync.SiteEnergyUseIntensity(34.6),
             bsync.EnergyCost(4846.04),
             bsync.EnergyCostIndex(0.881),
@@ -1907,18 +1915,19 @@ target = bsync.Target(
     bsync.ENERGYSTARScore(89.),
 )
 
-# 
+#
 scenarios += target_sc
 target_sc += target_st
 target_st += target
 ```
 
 ### Current Building Modeled Scenario
+
 Relevant Standard 211 Sections:
+
 - 6.1.5 & 6.1.6
 
 Although not explicitly called out in Standard 211, the current building modeled scenario is implied as part of a Level 2 energy audit when doing detailed savings estimates and calculations for potential energy conservation measures. This is because when an energy and cost savings claim is made for a package of measures scenario, it needs to be _in reference_ to something, i.e., a current building modeled scenario (also often referred to as a baseline modeled scenario). The baseline modeled scenario should be interpreted as the expected performance of your building on an average or typical year. This is assuming the baseline modeled scenario is performed with TMY data, although they are likely first calibrated with AMY data.
-
 
 ```python
 # define the modeled scenario
@@ -1966,15 +1975,18 @@ ru_model += elec_model
 ru_model += ng_model
 model_sc += ru_model
 
-# 
+#
 scenarios += model_sc
 ```
 
 ### Package of Measures Scenario
+
 Relevant Standard 211 Sections:
+
 - 6.1.5 & 6.1.6
 
 Standard 211 breaks out recommendations into low / no-cost (6.1.5) or capital (6.1.6). On the BuildingSync side, we don't change the data modeling between these two situations significantly, we simply change the value of the `Scenario/ScenarioType/PackageOfMeasures/CostCategory` element, while the majority of other features remain the same.
+
 - Low / no-cost scenario: `<CostCategory>Low-Cost or No-Cost</CostCategory>`
 - Capital scenario: `<CostCategory>Capital</CostCategory>`
 
@@ -1983,9 +1995,9 @@ Standard 211 breaks out recommendations into low / no-cost (6.1.5) or capital (6
 Packages of measures first require measures to be instantiated inside the BuildingSync document in order to correctly incorporate them into the scenario. BuildingSync provides a significant number of already enumerated measures that can be used. We will first add some of these to our BuildingSync file.
 
 The scope of an individual measure is primarily conveyed by a few elements:
+
 - `SystemCategoryAffected`: select one of an enumerated set of strings representing the general scope of system, e.g.. Refrigeration, Fan, Lighting, etc.
 - `TechnologyCategories/TechnologyCategory/*/MeasureName`: Select a very specific measure to implement
-
 
 ```python
 # A measure to modify HVAC schedules (no-cost EEM)
@@ -2073,7 +2085,7 @@ vsd_measure = bsync.Measure(
     bsync.LongDescription("This measure is designed to retrofit all RTU fans with a VSD"),
     bsync.MeasureScaleOfApplication("Individual system"),
     bsync.UsefulLife(1),
-    bsync.MeasureInstallationCost(750.), 
+    bsync.MeasureInstallationCost(750.),
     bsync.MeasureMaterialCost(1250.), # assume $200~300 per fan
     bsync.StartDate(date(2021,1,1)),
     bsync.EndDate(date(2021,12,30)),
@@ -2082,20 +2094,20 @@ vsd_measure = bsync.Measure(
 )
 ```
 
-
 ```python
 measures += led_measure
 measures += vsd_measure
 ```
 
 #### POM Scenarios
+
 Now that the measures have been added, we create three potential POM scenarios, and add the necessary attributes per Standard 211 6.1.5 and 6.1.6
+
 1. LEDs only
 2. VSDs only
 3. LEDs+VSDs
 
 The no-cost HVAC schedule measure is not taken into account in this example.
-
 
 ```python
 pom_sc_1 = bsync.Scenario(
@@ -2253,7 +2265,6 @@ pom_sc_3 = bsync.Scenario(
 )
 ```
 
-
 ```python
 scenarios += pom_sc_1
 scenarios += pom_sc_2
@@ -2268,7 +2279,6 @@ Now we need to check if everything we went through actually works? Do we have th
 
 Use the line below to write the file to disk
 
-
 ```python
 bsync_dump(root, file="example-smalloffice-level2.xml")
 ```
@@ -2276,7 +2286,6 @@ bsync_dump(root, file="example-smalloffice-level2.xml")
 You should see a green check mark for the L200 AUDIT use case!
 
 ![Valid](./img/valid_level2.png)
-
 
 ```python
 

@@ -7,9 +7,11 @@ This proposal is to modify the schema to allow specifying which sections (specif
 ## Justification
 
 Standard 211 section 6.2.1.1.a.4 specifies
+
 > A listing of energy uses associated with space types that are not included in the gross floor area in Section 6.2.1.1(b) (parking garages, surface parking)
 
 In other words, BuildingSync must be able to specify which `Space function`s are included (or excluded) in calculating:
+
 - `auc:Building/auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = "Gross"]/auc:FloorAreaValue`
 - `auc:Building/auc:FloorAreas/auc:FloorArea[auc:FloorAreaType/text() = "Conditioned"]/auc:FloorAreaValue`
 
@@ -52,13 +54,16 @@ There are multiple ways to implement this.
 ```
 
 #### Pros
+
 - non-breaking
 - more flexible b/c allows specifying spaces on a per-floor-area basis (though this could be a con (tedious) if that's not useful)
 
 #### Cons
+
 - using ID references makes xpathing more difficult. E.g. user wants to find all spaces included in gross floor area calculation
 
 #### Variations
+
 - move `auc:ExcludedSectionIDs` under `auc:FloorAreas`, then it applies to _all_ floor area types
 
 ### Option 2
@@ -90,14 +95,17 @@ There are multiple ways to implement this.
 ```
 
 #### Pros
+
 - non-breaking
 - xpaths don't require references, ie easier to xpath
 
 #### Cons
+
 - less flexible b/c requires exclusion from _all_ floor area calculations (though could be a pro if that's the common use case)
 - (opinion) feels awkward to have a child element specify how a parent element's value was calculated
 
 #### Variations
+
 - add an element for every floor area type, e.g. `ExcludedFromBuildingGrossFloorAreas` and `ExcludedFromBuildingConditionedFloorAreas`
 
 ### Option 3
@@ -128,18 +136,22 @@ There are multiple ways to implement this.
 ```
 
 #### Pros
+
 - non-breaking
 - xpaths don't require references, ie easier to xpath
 
 #### Cons
+
 - less flexible b/c requires exclusion from _all_ floor area calculations (though could be a pro if that's the common use case)
 - takes special consideration when xpathing space functions (this is technically still a space function but now it has a different auc:Section type)
 - (opinion) feels awkward to have a child element specify how a parent element's value was calculated
 
 #### Variations
+
 - add a type for every floor area type, e.g. `Space function - excluded from building gross floor area`, etc
 
 ## Decision
+
 We decided to implement Option 1.
 
 ## References

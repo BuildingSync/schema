@@ -9,6 +9,7 @@ This proposal is to add the `AuditorYearsOfExperience` child element to the `Qua
 Certain AHJs require a minimum number of years experience for an auditor. This element would address the need to add that to the schema.
 
 ### UDFs
+
 Currently, this is conveyed in Audit template via: `/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Reports/auc:Report[auc:LinkedPremisesOrSystem/auc:Building/auc:LinkedBuildingID]/auc:UserDefinedFields/auc:UserDefinedField[auc:FieldName/text() = Auditor Years Of Experience]/auc:FieldValue`. Our proposal is that it would rather look like:
 
 ```xml
@@ -67,4 +68,3 @@ Currently, this is conveyed in Audit template via: `/auc:BuildingSync/auc:Facili
 ```
 
 ## References
-

@@ -15,13 +15,13 @@ Currently, it is not possible to represent this building level information as Bu
 This proposal is to:
 
 1. Reify the following child elements of the `auc:SiteType` element and then add them to the `auc:BuildingType` element:
-   * `auc:ClimateZoneType`
-   * `auc:eGRIDRegionCode`
-   * `auc:WeatherDataStationID`
-   * `auc:WeatherStationName`
-   * `auc:WeatherStationCategory`
-   * `auc:Longitude`
-   * `auc:Latitude`
+   - `auc:ClimateZoneType`
+   - `auc:eGRIDRegionCode`
+   - `auc:WeatherDataStationID`
+   - `auc:WeatherStationName`
+   - `auc:WeatherStationCategory`
+   - `auc:Longitude`
+   - `auc:Latitude`
 
 ## References
 

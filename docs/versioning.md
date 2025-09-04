@@ -7,6 +7,7 @@ Since version 2.0.0 (post 2016 version reset), BuildingSync attempts to follow [
 Note that BuildingSync reset the numbering of the schema in 2016.
 
 ## Breaking changes
+
 These are the changes that require a new MAJOR version. Generally this would be any time where there could exist a historical document that would not validate against the new schema. This would include:
 
 - adding a required element/attribute that was not previously required
@@ -15,6 +16,7 @@ These are the changes that require a new MAJOR version. Generally this would be 
 - changing the restrictions for a simple type to something which is not the superset of the previous restriction
 
 ## Non-breaking features
+
 These are the changes that require a new MINOR version. This would include any changes which are meaningful changes to the schema, but do not break the validation of historical documents. For example:
 
 - adding a new non-required element/attribute
@@ -22,6 +24,7 @@ These are the changes that require a new MINOR version. This would include any c
 - adding a new enum option for a simple type
 
 ## Patches
+
 These are the changes that require a new PATCH version. This would include changes which do not meaningfully change the schema. For example:
 
 - updating the documentation

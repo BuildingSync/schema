@@ -13,8 +13,9 @@ Excerpt from [1]:
 ## Implementation
 
 Add the following `auc:MeasureName` enumerations to the following `auc:TechnologyCategory` elements:
-* BuildingEnvelopeModifications
-  * Close elevator and/or stairwell shaft vents
+
+- BuildingEnvelopeModifications
+  - Close elevator and/or stairwell shaft vents
 
 ## References
 

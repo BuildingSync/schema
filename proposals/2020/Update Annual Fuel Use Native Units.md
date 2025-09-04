@@ -11,15 +11,20 @@ In the 211 Spreadsheet, annual fuel use is calculated using the "Main Data For A
 ## Implementation
 
 ### Option 1
+
 Update documentation specifying that, for 211 reports, `auc:AnnualFuelUseNativeUnits` should only include the 12 most recent monthly meter readings. This isn't too different from the existing documentation.
+
 #### Pros
+
 - simple, no changes to schema
 
 #### Cons
+
 - validation can be a bit tricky (verifying the calculation was done correctly), e.g. what if they report the data in weekly intervals?
 
 ### Option 2
-Add new attributes to `auc:AnnualFuelUseNativeUnits`, `auc:StartDate` and `auc:EndDate`, which indicate the time frame used to calculate the annual 
+
+Add new attributes to `auc:AnnualFuelUseNativeUnits`, `auc:StartDate` and `auc:EndDate`, which indicate the time frame used to calculate the annual
 
 ```xml
       <xs:element name="AnnualFuelUseNativeUnits" minOccurs="0">
@@ -40,9 +45,11 @@ Add new attributes to `auc:AnnualFuelUseNativeUnits`, `auc:StartDate` and `auc:E
 ```
 
 #### Pros
+
 - explicit, calculations easily replicable.
 
 #### Cons
+
 - more complexity
 
 ## Option 3

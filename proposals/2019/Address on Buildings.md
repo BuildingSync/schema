@@ -10,10 +10,10 @@ The need to have two addresses is logical when dealing with campuses. In the cam
 
 If there is only one site and one building, then it is at the user discretion to select which address to fill out. It is encouraged to verify with the Use Case Selection Tool which fields are required based on the BuildingSync use case. It is also recommended to use the higher level address over the building level address element.
 
-
 ## Implementation
 
 This proposal is to:
+
 1. Add BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building/Address element.
 2. The address element references the global Address element.
 

@@ -51,14 +51,14 @@ If the same contact has multiple roles, then the entire contact has to be duplic
 
 A contact should be able to have multiple roles.
 
-
 ## Implementation
 
-There are two changes that are proposed. 
+There are two changes that are proposed.
 
 1. ContactRole under ContactType `//element(*,auc:ContactType)/auc:ContactRole` will be moved under a new container objective called ContactRoles and made unbounded.
 
 2. A new enumeration will be added to support the role of an audit submitter. This is a non-breaking change.
+
 ```xml
 	<xs:enumeration value="Submitter"/>
 ```
@@ -66,4 +66,3 @@ There are two changes that are proposed.
 ## References
 
 N/A
-

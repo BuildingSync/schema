@@ -13,19 +13,20 @@ The assertion of specific fuel types, e.g., "Biofuel B5" and not "Biofuel", is a
 ## Implementation
 
 This proposal is to add the following enumerations to the `auc:FuelTypes` element:
-* "Electricity-Exported"
-* "Electricity-Onsite generated"
-* "Biofuel B5"
-* "Biofuel B10"
-* "Biofuel B20"
-* "Dual fuel"
-* "Gasoline"
-* "Other delivered-Exported"
-* "Other delivered-Onsite generated"
-* "Other metered-Exported"
-* "Other metered-Onsite generated"
-* "Thermal-Exported"
-* "Thermal-Onsite generated"
+
+- "Electricity-Exported"
+- "Electricity-Onsite generated"
+- "Biofuel B5"
+- "Biofuel B10"
+- "Biofuel B20"
+- "Dual fuel"
+- "Gasoline"
+- "Other delivered-Exported"
+- "Other delivered-Onsite generated"
+- "Other metered-Exported"
+- "Other metered-Onsite generated"
+- "Thermal-Exported"
+- "Thermal-Onsite generated"
 
 ## References
 

@@ -13,7 +13,8 @@ Chillers can be driven by a gas engine.
 This proposal is to:
 
 Add the following enumerations to `<auc:ChillerCompressorDriver>`:
-* Gas Engine
+
+- Gas Engine
 
 After complete, the full list of enums will be:
 
