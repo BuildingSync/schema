@@ -57,12 +57,12 @@ RSpec.describe 'Validate Examples' do
         File.open(GBXML_XSD_PATH, 'wb') do |file|
           file << URI.open(imported_schema_locations[0]).read
         end
-        
+
         # Verify the downloaded file is valid XML
         if File.size(GBXML_XSD_PATH) == 0
           raise "Downloaded file is empty"
         end
-        
+
         # Test parse the downloaded XSD to ensure it's valid
         Nokogiri::XML(File.read(GBXML_XSD_PATH)) do |config|
           config.strict
