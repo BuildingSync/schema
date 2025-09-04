@@ -1,10 +1,11 @@
 """
 Simply makes UsefulLife an int.
 """
+
 import argparse
 import logging
-from lxml import etree as ET
 
+from lxml import etree as ET
 
 logging.basicConfig(level=logging.INFO)
 
@@ -24,19 +25,24 @@ def get_args():
 
 def update_version(tree):
     root = tree.getroot()
-    
+
     root.set("version", "2.5.0")
-    root.insert(0, ET.Comment('This BuildingSync v2.5 document was generated from a BuildingSync v2.4 document via the BuildingSync migration scripts'))
+    root.insert(
+        0,
+        ET.Comment(
+            "This BuildingSync v2.5 document was generated from a BuildingSync v2.4 document via the BuildingSync migration scripts"
+        ),
+    )
 
 
 def update_usefulLife(tree):
     for usefulLife in tree.findall(
-        ".//*{http://buildingsync.net/schemas/bedes-auc/2019}UsefulLife"
+        ".//*{http://buildingsync.net/schemas/bedes-auc/2019}UsefulLife",
     ):
         new_value = str(round(float(usefulLife.text)))
         if new_value != usefulLife.text:
             logging.info(
-                f"changing {tree.getelementpath(usefulLife)} value from {usefulLife.text} to {new_value}"
+                f"changing {tree.getelementpath(usefulLife)} value from {usefulLife.text} to {new_value}",
             )
             usefulLife.text = new_value
 

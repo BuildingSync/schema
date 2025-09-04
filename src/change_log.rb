@@ -260,7 +260,7 @@ puts "| **Total**      | #{accepted_pull_requests.size} |"
 
 pr_classifications.each do |change_type, prs|
   puts "\n### #{change_type}s"
-  
+
   if prs.length == 0
     puts "\n*No #{change_type.downcase}s*"
   else
@@ -284,4 +284,3 @@ end
 
 
 puts "\nAll Open Issues: #{total_open_issues.length} (" + total_open_issues.map {|issue| get_issue_num(issue)}.join(', ') + ')'
-
