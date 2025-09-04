@@ -1,18 +1,51 @@
-.idea/
-.bundle
-build
-Gemfile.lock
-gems
-.bundle
+# Operating System
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Ruby
+.bundle/
 .ruby-version
+gems/
+Gemfile.lock
+
+# Python
 .python-version
+.venv/
+*.egg-info/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Node.js
+node_modules/
+
+# Build artifacts
+build/
+
+# Project specific
 BuildingSync.xpr
 schema_documentation.csv
 geojson.xsd
-.venv
-*.egg-info
-.ipynb_checkpoints
+gbxml.xsd
+
+# Backup files
 *.bak
-*.ipynb
-node_modules
+*.backup
+*.tmp

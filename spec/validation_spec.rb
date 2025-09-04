@@ -1,5 +1,5 @@
 # *********************************************************************************************************
-# BuildingSync®, Copyright (c) 2015-2021, Alliance for Sustainable Energy, LLC, and other contributors.
+# BuildingSync®, Copyright (c) 2015-2025, Alliance for Sustainable Energy, LLC, and other contributors.
 #
 # All rights reserved.
 #
@@ -46,14 +46,33 @@ RSpec.describe 'Validate Examples' do
 
     GBXML_XSD_PATH = 'gbxml.xsd'
     GBXML_IMPORT_PATH = 'xs:schema/xs:import[@namespace = "http://www.gbxml.org/schema"]'
-    if !File.file?(GBXML_XSD_PATH) then
+    if !File.file?(GBXML_XSD_PATH) || File.size(GBXML_XSD_PATH) == 0 then
       imported_schema_locations = schema_doc.xpath(GBXML_IMPORT_PATH).collect { |nokogiri_xml_node|
         nokogiri_xml_node.attribute("schemaLocation").value
       }
       expect(imported_schema_locations.length).to eq 1
 
-      open(GBXML_XSD_PATH, 'wb') do |file|
-        file << open(imported_schema_locations[0]).read
+      begin
+        puts "Downloading gbXML schema from: #{imported_schema_locations[0]}"
+        File.open(GBXML_XSD_PATH, 'wb') do |file|
+          file << URI.open(imported_schema_locations[0]).read
+        end
+        
+        # Verify the downloaded file is valid XML
+        if File.size(GBXML_XSD_PATH) == 0
+          raise "Downloaded file is empty"
+        end
+        
+        # Test parse the downloaded XSD to ensure it's valid
+        Nokogiri::XML(File.read(GBXML_XSD_PATH)) do |config|
+          config.strict
+        end
+        puts "Successfully downloaded and validated gbXML schema"
+      rescue => e
+        puts "Failed to download gbXML schema: #{e.message}"
+        # Clean up empty or invalid file
+        File.delete(GBXML_XSD_PATH) if File.exist?(GBXML_XSD_PATH)
+        raise "Could not download valid gbXML schema from #{imported_schema_locations[0]}: #{e.message}"
       end
     end
     schema_doc.xpath(GBXML_IMPORT_PATH).collect { |nokogiri_xml_node|

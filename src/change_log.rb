@@ -1,5 +1,5 @@
 # *********************************************************************************************************
-# BuildingSync®, Copyright (c) 2015-2021, Alliance for Sustainable Energy, LLC, and other contributors.
+# BuildingSync®, Copyright (c) 2015-2025, Alliance for Sustainable Energy, LLC, and other contributors.
 #
 # All rights reserved.
 #
