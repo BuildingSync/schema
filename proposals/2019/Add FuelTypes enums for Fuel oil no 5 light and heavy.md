@@ -11,8 +11,9 @@ In Audit Template, "Fuel oil no 5 (light)" and "Fuel oil no 5 (heavy)" are valid
 ## Implementation
 
 This proposal is to add the following enumerations to the `auc:FuelTypes` element:
-* "Fuel oil no 5 (light)"
-* "Fuel oil no 5 (heavy)"
+
+- "Fuel oil no 5 (light)"
+- "Fuel oil no 5 (heavy)"
 
 ## References
 

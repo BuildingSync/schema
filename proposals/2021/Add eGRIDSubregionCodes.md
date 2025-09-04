@@ -18,5 +18,6 @@ As a non-breaking change for 2.4, we will move `auc:eGRIDRegionCode` into a choi
 As a breaking change for 3.0, we will replace `auc:eGRIDRegionCode` with `auc:eGRIDSubregionCodes`.
 
 ## References
+
 The EPA's online [Power Profiler Tool](https://www.epa.gov/egrid/power-profiler#/CAMX)
 The Excel version of the [Power Profiler Zipcode Tool](https://epa.gov/sites/production/files/2020-03/power_profiler_zipcode_tool_2018_3_09_20._v9.xlsx) which has ~8% of the zip codes with a second eGRID subregion and ~0.3% with a third subregion

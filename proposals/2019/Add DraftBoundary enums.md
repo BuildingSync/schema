@@ -21,10 +21,11 @@ In both cases, the BuildingSync XML is:
 ## Implementation
 
 This proposal is to add a `<auc:DraftBoundary>` element with the following enumerations:
-* "Direct"
-* "Direct indirect"
-* "Indirect"
-* "Other"
+
+- "Direct"
+- "Direct indirect"
+- "Indirect"
+- "Other"
 
 With this proposal, direct- and indirect-fired, instantaneous water heaters are asserted as follows:
 

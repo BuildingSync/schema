@@ -12,14 +12,12 @@ The user should be able to select multiple ventilation control methods such as C
 
 ## Implementation
 
-* Add None to BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/OtherHVACSystems/OtherHVACSystem/OtherHVACType/MechanicalVentilation/VentilationType
-* Convert the following to a container with multiples allowed. *(This is a breaking change.)*
-	* BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/OtherHVACSystems/OtherHVACSystem/OtherHVACType/MechanicalVentilation/VentilationControlMethods
-	* BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/OtherHVACSystems/OtherHVACSystem/OtherHVACType/SpotExhaust/VentilationControlMethods
-	* BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/OtherHVACSystems/OtherHVACSystem/OtherHVACType/NaturalVentilation/VentilationControlMethods
-
+- Add None to BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/OtherHVACSystems/OtherHVACSystem/OtherHVACType/MechanicalVentilation/VentilationType
+- Convert the following to a container with multiples allowed. _(This is a breaking change.)_
+  - BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/OtherHVACSystems/OtherHVACSystem/OtherHVACType/MechanicalVentilation/VentilationControlMethods
+  - BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/OtherHVACSystems/OtherHVACSystem/OtherHVACType/SpotExhaust/VentilationControlMethods
+  - BuildingSync/Facilities/Facility/Systems/HVACSystems/HVACSystem/OtherHVACSystems/OtherHVACSystem/OtherHVACType/NaturalVentilation/VentilationControlMethods
 
 ## References
 
 N/A
-

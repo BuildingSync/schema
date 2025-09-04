@@ -5,9 +5,9 @@ The examples below demonstrate an implementation for connecting a BuildingSync m
 ## BuildingSync
 
 The BuildingSync XML below contains three _new_ high-level elements under the `<Building>` element that describe details of the metadata ontology or schema. These elements are placed here to accomodate multiple buildings on a single site that may use different metadata schemas, e.g. Brick, Haystack, and ASHRAE 223.
- 
+
 The XML also contains one _new_ low-level element `<NEWExternalMetaDataEntityID>` showing an example connection to a Haystack entity, shown below.
- 
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <BuildingSync xmlns="http://buildingsync.net/schemas/bedes-auc/2019" version="2.3.0">
@@ -32,14 +32,14 @@ The XML also contains one _new_ low-level element `<NEWExternalMetaDataEntityID>
               <LinkedSectionID IDref="Section-1"/>
             </Section>
           </LinkedPremises>
-        </HVACSystem>      
+        </HVACSystem>
 ...
 ```
- 
+
 ## Project Haystack
- 
+
 The Project Haystack JSON below shows an example entity with a common ID to connect to the `<NEWExternalMetaDataEntityID>` BuildingSync element.
- 
+
 ```json
 {
   "_kind": "grid",

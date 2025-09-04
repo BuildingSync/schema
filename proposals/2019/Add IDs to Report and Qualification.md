@@ -2,7 +2,7 @@
 
 ## Overview
 
-There is no way to locally identify a Qualification or Report in BuildingSync. 
+There is no way to locally identify a Qualification or Report in BuildingSync.
 
 ## Justification
 
@@ -11,6 +11,7 @@ The exists a need for certain users to have a unique ID on a Report and/or a Qua
 ## Implementation
 
 This proposal is to:
+
 1. Add an attribute @ID on auc:Qualification
 2. Add an attribute @ID on auc:Report
 

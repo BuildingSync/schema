@@ -13,13 +13,16 @@ Sorting in alphabetical order will make it easier to add new enumerations in fut
 ## Implementation
 
 This proposal is to:
+
 1. Add the following enumerations to the `<auc:AuditorQualificationType>` element:
-  * AABC Commissioning Group (ACG) Commissioning Authority (CxA)
-  * Building Commissioning Association (BCA) Certified Commissioning Professional (CCP)
-  * Building Commissioning Certification Board (BCCB) Certified Commissioning Professional (CCP)
-  * MEP Professional Engineer
-  * National Environmental Balancing Bureau (NEBB) Building Systems Commissioning (BSC)
-  * University of Wisconsin Accredited Commissioning Process Authority Professional (CxAP or CAP)
-  * University of Wisconsin Accredited Commissioning Process Manager (CxM)
-  * University of Wisconsin Accredited Green Commissioning Process Provider (GCxP or GCP)
+
+- AABC Commissioning Group (ACG) Commissioning Authority (CxA)
+- Building Commissioning Association (BCA) Certified Commissioning Professional (CCP)
+- Building Commissioning Certification Board (BCCB) Certified Commissioning Professional (CCP)
+- MEP Professional Engineer
+- National Environmental Balancing Bureau (NEBB) Building Systems Commissioning (BSC)
+- University of Wisconsin Accredited Commissioning Process Authority Professional (CxAP or CAP)
+- University of Wisconsin Accredited Commissioning Process Manager (CxM)
+- University of Wisconsin Accredited Green Commissioning Process Provider (GCxP or GCP)
+
 2. Sort the enumerations in the `<auc:AuditorQualificationType>` element in alphabetical order.

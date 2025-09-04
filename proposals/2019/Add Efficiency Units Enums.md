@@ -21,10 +21,12 @@ This proposal is to:
 1. Rename `auc:AnnualHeatingEfficiencyUnit` to `auc:AnnualHeatingEfficiencyUnits` (so that is consistent with `auc:AnnualCoolingEfficiencyUnits`).
 
 2. Add the following enumerations to the `auc:AnnualHeatingEfficiencyUnits` element:
-  * "Thermal Efficiency"
+
+- "Thermal Efficiency"
 
 3. Add the following enumerations to the `auc:WaterHeaterEfficiencyType` element:
-  * "AFUE"
+
+- "AFUE"
 
 ## References
 

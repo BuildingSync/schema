@@ -6,7 +6,7 @@
 
 ## Justification
 
-There exists a need for certain users to differentiate between Standard Electronic and Premium Electronic for ballast type.  THIS IS A BREAKING CHANGE.
+There exists a need for certain users to differentiate between Standard Electronic and Premium Electronic for ballast type. THIS IS A BREAKING CHANGE.
 
 ## Implementation
 

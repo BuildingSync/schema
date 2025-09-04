@@ -16,7 +16,7 @@ This proposal is to:
 
 2. Add the `auc:HVACControlSystemTypes` element to the `auc:HVACSystemType` element.
 
-2. Move the renamed `auc:HVACControlSystemType` to the new `auc:HVACControlSystemTypes` element.
+3. Move the renamed `auc:HVACControlSystemType` to the new `auc:HVACControlSystemTypes` element.
 
 ## References
 

@@ -3,6 +3,7 @@
 ## Overview
 
 This proposal is to add the following children to `auc:AllResourceTotal`
+
 - `auc:BuildingEnergyUse`
 - `auc:BuildingEnergyUseIntensity`
 - `auc:ImportedEnergyConsistentUnits`
@@ -29,6 +30,7 @@ We want to shore up this representation by distinctly aligning BuildingSync elem
 ## Implementation
 
 The structure for each element would be the same
+
 ```xml
       <xs:element name="<name here>" minOccurs="0">
         <xs:complexType>

@@ -4,9 +4,9 @@
 
 This proposal is to add new enumerations to the `auc:AuditorCertificationType` element for designations/qualifications from the following organizations:
 
-* [Building Owners and Managers Institute (BOMI)](https://www.bomi.org/DesignationPrograms.aspx)
-* [International Facility Management Association (IFMA)](https://www.ifma.org/credentials/overview/)
-* [DOE-recognized programs](https://betterbuildingssolutioncenter.energy.gov/workforce/participating-certifying-organizations)
+- [Building Owners and Managers Institute (BOMI)](https://www.bomi.org/DesignationPrograms.aspx)
+- [International Facility Management Association (IFMA)](https://www.ifma.org/credentials/overview/)
+- [DOE-recognized programs](https://betterbuildingssolutioncenter.energy.gov/workforce/participating-certifying-organizations)
 
 ## Justification
 

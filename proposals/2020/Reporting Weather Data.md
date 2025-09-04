@@ -19,6 +19,7 @@ The set of elements
 are currently available under Site and Building, so that's where we will put the new weather station element. Note that we will **not** remove the existing set of elements, but they will become _mutually exclusive_ with the new `auc:WeatherStations` element until they are deprecated in the next major version (3.0).
 
 Schema:
+
 ```xml
 <!-- Weather station schema -->
 <xs:element name="WeatherStations" minOccurs="0">
@@ -55,6 +56,7 @@ Schema:
 ```
 
 Example instance:
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019"

@@ -13,8 +13,9 @@ Adding the enumerations "Very Tight" and "Very Loose" to the `auc:TightnessFitCo
 ## Implementation
 
 This proposal is to:
-* Reify the `auc:Tightness` enumeration into a new `xs:simpleType`.
-* Modify the definitions of the `auc:Tightness` and `auc:TightnessFitCondition` elements to reuse the new `auc:Tightness` enumeration.
+
+- Reify the `auc:Tightness` enumeration into a new `xs:simpleType`.
+- Modify the definitions of the `auc:Tightness` and `auc:TightnessFitCondition` elements to reuse the new `auc:Tightness` enumeration.
 
 This is a breaking change.
 Occurrences of "Loose" in the `auc:TightnessFitCondition` element must be replaced with "Leaky".

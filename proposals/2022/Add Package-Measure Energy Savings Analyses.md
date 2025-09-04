@@ -25,10 +25,10 @@ Implementation of the first measure (as a whole) would cost $100 and would provi
 Implementation of the second measure (as a whole) would cost $200 and would provide natural gas savings only.
 
 | Measure ID | Cost ($) | Electricity Savings (kWh/yr) | Natural Gas Savings (therms/yr) |
-| - | - | - | - |
-| #1 | 100 | 50 | 0 |
-| #2 | 200 | 0 | 100 |
-| **Total:** | 300 | 50 | 100 |
+| ---------- | -------- | ---------------------------- | ------------------------------- |
+| #1         | 100      | 50                           | 0                               |
+| #2         | 200      | 0                            | 100                             |
+| **Total:** | 300      | 50                           | 100                             |
 
 Suppose that we have 1 arbitrary package, #1, that includes measures #1 and #2.
 When purchased together, the vendor offers a $25 discount on measure #1.
@@ -37,18 +37,18 @@ Moreover, when implemented with measure #2, measure #1 also provides an addition
 Hence, at the package-level, we have the following data:
 
 | Package ID | Measure IDs | Cost ($) | Electricity Savings (kWh/yr) | Natural Gas Savings (therms/yr) |
-| - | - | - | - | - |
-| #1 | #1, #2 | 275 | 75 | 100 |
+| ---------- | ----------- | -------- | ---------------------------- | ------------------------------- |
+| #1         | #1, #2      | 275      | 75                           | 100                             |
 
 The above table conveys both the discount and the additional electricity savings, but it does not attribute the discount or the additional electricity savings to a specific measure (or measures).
 
 The data are different when the measure is considered standalone or in the context of a specific package, and hence, at the package-measure-level, we have the following data:
 
-| Measure ID | Package ID | Cost ($) | Electricity Savings (kWh/yr) | Natural Gas Savings (therms/yr) |
-| - | - | - | - | - |
-| #1 | #1 | <span style="color:red;background-color:yellow;">75</span> | <span style="color:red;background-color:yellow;">75</span> | 0 |
-| #2 | #1 | 200 | 0 | 100 |
-| | **Total:** | <span style="color:red;background-color:yellow;">275</span> | <span style="color:red;background-color:yellow;">75</span> | 100 |
+| Measure ID | Package ID | Cost ($)                                                    | Electricity Savings (kWh/yr)                               | Natural Gas Savings (therms/yr) |
+| ---------- | ---------- | ----------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------- |
+| #1         | #1         | <span style="color:red;background-color:yellow;">75</span>  | <span style="color:red;background-color:yellow;">75</span> | 0                               |
+| #2         | #1         | 200                                                         | 0                                                          | 100                             |
+|            | **Total:** | <span style="color:red;background-color:yellow;">275</span> | <span style="color:red;background-color:yellow;">75</span> | 100                             |
 
 ## Implementation
 

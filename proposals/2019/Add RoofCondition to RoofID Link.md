@@ -11,7 +11,8 @@ Currently, there is no way to store the overall condition of a roof system. The 
 ## Implementation
 
 Add `<auc:RoofCondition>` element (of type `<auc:EquipmentCondition>`) to the following XPaths:
-* `BuildingSync/Facilities/Facility/Sites/Site/Section/Section/Roofs/Roof/RoofID/`
+
+- `BuildingSync/Facilities/Facility/Sites/Site/Section/Section/Roofs/Roof/RoofID/`
 
 ## References
 
