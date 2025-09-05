@@ -12,6 +12,10 @@ updates:
     open-pull-requests-limit: 5
     commit-message:
       prefix: "deps"
+    labels:
+      - "ignore"
+      - "No Schema Changes"
+      - "Non-breaking Change"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -23,3 +27,22 @@ updates:
     open-pull-requests-limit: 5
     commit-message:
       prefix: "ci"
+    labels:
+      - "ignore"
+      - "No Schema Changes"
+      - "Non-breaking Change"
+  - package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      ruby-deps:
+        patterns:
+          - "*"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
+    labels:
+      - "ignore"
+      - "No Schema Changes"
+      - "Non-breaking Change"
