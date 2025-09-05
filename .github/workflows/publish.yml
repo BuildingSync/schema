@@ -9,7 +9,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7.2
@@ -17,7 +17,7 @@ jobs:
       - name: Test
         run: bundle exec rake
       - name: Checkout xs3p
-        uses: actions/checkout@v2
+        uses: actions/checkout@v5
         with:
           repository: macintoshpie/xs3p
           path: xs3p
@@ -34,7 +34,7 @@ jobs:
           python -c 'print(open("CHANGELOG.md").read().split("## ")[1])' > ${{ github.workflow }}-CHANGELOG.md
           cat ${{ github.workflow }}-CHANGELOG.md
       - name: Release with Artifacts
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: |
             BuildingSync.xsd

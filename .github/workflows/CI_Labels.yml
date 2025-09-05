@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check PR Labels
-        uses: actions/github-script@v5
+        uses: actions/github-script@v8
         with:
           script: |
             const VALID_LABELS_MESSAGE = 'Success! PR has valid labels.'
