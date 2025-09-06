@@ -1,5 +1,44 @@
 # BuildingSync
 
+## Version 2.7.0
+
+Date Range: 09/25/24 - 09/06/25
+
+| Category       | Count |
+|----------------|-------|
+| Schema: Controls         | 0  |
+| Schema: Documentation         | 1  |
+| Schema: General         | 3  |
+| Schema: Measures         | 0  |
+| Schema: Reports         | 0  |
+| Schema: Systems         | 0  |
+| Schema: Validation         | 0  |
+| Other         | 1  |
+| **Total**      | 5 |
+
+### Breaking Changes
+
+*No breaking changes*
+
+### Non-breaking Changes
+ - [#518](https://github.com/BuildingSync/schema/pull/518), Proposal to add Federal building identifiers (`General`)
+ - [#516](https://github.com/BuildingSync/schema/pull/516), Add Files (attachment feature) (`General`)
+ - [#515](https://github.com/BuildingSync/schema/pull/515), Proposal: Add Optional Elements to All Assets (`General`)
+ - [#513](https://github.com/BuildingSync/schema/pull/513), build(deps): bump jinja2 from 3.1.4 to 3.1.6 in /docs/notebooks (`No Changes`)
+ - [#503](https://github.com/BuildingSync/schema/pull/503), Update examples to 2.6 (`Documentation`)
+
+### Non-schema Changes
+
+*No non-schema changes*
+
+### Issues
+
+New Issues: 9 (#504, #505, #507, #508, #509, #510, #511, #512, #517)
+
+Closed Issues: 0
+
+All Open Issues: 28 (#151, #154, #167, #170, #183, #195, #198, #218, #260, #285, #287, #297, #320, #356, #370, #391, #428, #450, #474, #504, #505, #507, #508, #509, #510, #511, #512, #517)
+
 ## Version 2.6.0
 
 BuildingSync Version 2.6.0 adds new elements for Life-Cycle Savings and two new measures for fenestration systems.
