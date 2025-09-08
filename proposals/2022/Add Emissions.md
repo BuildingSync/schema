@@ -2,23 +2,25 @@
 
 ## Overview
 
-This proposal is to add several Emissions related fields to the BuildingSync schema to capture information on GHG emissions, in units of MtCO2e. 
+This proposal is to add several Emissions related fields to the BuildingSync schema to capture information on GHG emissions, in units of MtCO2e.
 
 1. Added to AllResourceTotal:
-	- AnnualAverageGHGEmissions
-	- AnnualMarginalGHGEmissions
-  - AnnualGHGEmissionIntensity
+   - AnnualAverageGHGEmissions
+   - AnnualMarginalGHGEmissions
+
+- AnnualGHGEmissionIntensity
+
 1. Added to ResourceUse -> Emissions -> Emission:
-	- EmissionsLinkedTimeSeriesIDs -> EmissionsLinkedTimeSeriesID
+   - EmissionsLinkedTimeSeriesIDs -> EmissionsLinkedTimeSeriesID
 1. Added to TimeSeries -> TimeSeriesReadingQuantity
-	- Enum "Emissions"
+   - Enum "Emissions"
 1. Scenario Type changes by scenario_type:
-	1. Added to ScenarioType -> CurrentBuilding, ScenarioType -> Benchmark, and ScenarioType -> Derived Model
-		- no changes
-	1. Added to ScenarioType -> Target, ScenarioType -> PackageOfMeasures, and ScenarioType -> Other:
-		- AnnualSavingsAverageGHGEmissions
-		- AnnualSavingsMarginalGHGEmissions
-    - AnnualSavingsGHGEmissionIntensity
+   1. Added to ScenarioType -> CurrentBuilding, ScenarioType -> Benchmark, and ScenarioType -> Derived Model
+      - no changes
+   1. Added to ScenarioType -> Target, ScenarioType -> PackageOfMeasures, and ScenarioType -> Other:
+      - AnnualSavingsAverageGHGEmissions
+      - AnnualSavingsMarginalGHGEmissions
+   - AnnualSavingsGHGEmissionIntensity
 
 ## Justification
 
@@ -65,6 +67,7 @@ The BuildingSync schema needs to be modified to accommodate a standard way of re
   </xs:element>
 
 ```
+
 ```xml
   <xs:element name="AnnualAverageGHGEmissions" minOccurs="0">
     <xs:annotation>
@@ -111,7 +114,7 @@ The BuildingSync schema needs to be modified to accommodate a standard way of re
       <xs:element name="Emission" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
-          	
+
           	...
 
           	<xs:element minOccurs="0" name="EmissionsLinkedTimeSeriesIDs">
@@ -135,4 +138,3 @@ The BuildingSync schema needs to be modified to accommodate a standard way of re
   </xs:complexType>
 </xs:element>
 ```
-

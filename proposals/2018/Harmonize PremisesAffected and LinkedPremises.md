@@ -46,12 +46,13 @@ A corresponding example of the usage of the `LinkedPremises` element is:
 
 Note that:
 
-* The `PremisesAffected` element is a child of the `Measure` element. Within each `PremiseAffected` element, there may be a child `MeasureCoverage` element.
-* Unlike the `LinkedPremises` element and its child elements, the `PremiseAffected` element does not indicate the type of the referenced element (the target of the `IDref` attribute).
+- The `PremisesAffected` element is a child of the `Measure` element. Within each `PremiseAffected` element, there may be a child `MeasureCoverage` element.
+- Unlike the `LinkedPremises` element and its child elements, the `PremiseAffected` element does not indicate the type of the referenced element (the target of the `IDref` attribute).
 
 ## Implementation
 
 This proposal is:
+
 1. To remove the `PremisesAffected` element and to replace its use with that of the `LinkedPremises` element.
 2. To remove the `MeasureCoverage` element and to replace its use with that of the `FloorAreas` element.
 
@@ -97,9 +98,10 @@ For example:
 ```
 
 Note that:
-* Using XSD, the `LinkedPremises` element can be defined as a child element of the `Measure` element (with optional `MeasureCoverage` elements).
-* The `LinkedPremises` structure indicates the type of the referenced element.
-* The `FloorAreaType` element indicates the floor area type ("Tenant" in the above example).
+
+- Using XSD, the `LinkedPremises` element can be defined as a child element of the `Measure` element (with optional `MeasureCoverage` elements).
+- The `LinkedPremises` structure indicates the type of the referenced element.
+- The `FloorAreaType` element indicates the floor area type ("Tenant" in the above example).
 
 ## References
 

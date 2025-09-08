@@ -1,17 +1,15 @@
-﻿# Ensure all "IDREF" are consistent and W3C compliant
+# Ensure all "IDREF" are consistent and W3C compliant
 
 ## Overview
 
 The BuildingSync.xsd document includes several instances of values with the "IDREF" string. It is hereby proposed these instances be checked to ensure they are:
 
-* Compliant with the W3C Recommendation pertaining to XML Schemas, i.e., "W3C compliant."
-* Consistent throughout the schema document.
-
+- Compliant with the W3C Recommendation pertaining to XML Schemas, i.e., "W3C compliant."
+- Consistent throughout the schema document.
 
 ## Justification
 
 The BuildingSync XML schema must be W3C compliant to provide satisfactory performance and portability across systems. It must also be consistent to ensure proper code execution and facilitate future code review and possible modifications.
-
 
 ## Implementation
 
@@ -26,4 +24,3 @@ The following non-breaking changes must take place in the BuildingSync.xsd docum
 ## References
 
 More information on W3C XML schema standards can be found here: https://www.w3schools.com/xml/
-

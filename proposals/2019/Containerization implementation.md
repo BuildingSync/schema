@@ -4,11 +4,9 @@
 
 The BuildingSync schema contains several elements that allow for multiple records. The general practice throughout this schema is to name these elements with a singular noun and to define them as children of elements named with the same noun in the plural form. The purpose of this proposal is to ensure that all elements that allow for multiple records follow the same described practice.
 
-
 ## Justification
 
 The BuildingSync XML schema code must be consistent to ensure proper code execution and facilitate future code review and possible modifications.
-
 
 ## Implementation
 
@@ -19,14 +17,14 @@ The following steps are to be performed in the BuildingSync.xsd document code:
 1. Search for all occurrences of "maxOccurs" where the value is set to a number higher than 1 or to "unbounded."
 2. Of the found elements, discard those whose name is a singular noun and whose parent element is named with the same noun in the plural form.
 3. For all elements left:
-	* Ensure their names are plural nouns.
-	* Create a child element for them that is named with the same noun in singular form.
+   - Ensure their names are plural nouns.
+   - Create a child element for them that is named with the same noun in singular form.
 
-List 1, 2, and 3 are the lists of elements to be changed. These elements were identified using steps 1 and 2.  Note that elements with repeated names each include their schema model path beside them as a comment.
+List 1, 2, and 3 are the lists of elements to be changed. These elements were identified using steps 1 and 2. Note that elements with repeated names each include their schema model path beside them as a comment.
 
 List 1: elements to be changed that do not represent any special cases.
 
-```xml
+````xml
 <xs:element name="LocationsOfExteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded"><!-- //Added <xs:element name="LocationsOfExteriorWaterIntrusionDamages" minOccurs="0" maxOccurs="unbounded">, Example: none
 
 <xs:element name="LocationsOfInteriorWaterIntrusionDamage" minOccurs="0" maxOccurs="unbounded"><!-- //Added <xs:element name="LocationsOfInteriorWaterIntrusionDamages" minOccurs="0">, Example: none
@@ -41,7 +39,7 @@ List 1: elements to be changed that do not represent any special cases.
 
 <xs:element name="ScheduleDetails" minOccurs="0" maxOccurs="unbounded"><!-- //Updated to singular <xs:element name="ScheduleDetail" minOccurs="0" maxOccurs="0">, Added <xs:element name="ScheduleDetails" minOccurs="0">, Example: Reference Building - Primary Schoool.xml
 
-<xs:element name="AnnualSavingsByFuel" minOccurs="0" maxOccurs="unbounded"><!-- //Added <xs:element name="AnnualSavingsByFuels" minOccurs="0">, Example: ASHRAE 211 Export.xml, DC GSA Headquarters.xml, Reference Building - Primary Schoool.xml 
+<xs:element name="AnnualSavingsByFuel" minOccurs="0" maxOccurs="unbounded"><!-- //Added <xs:element name="AnnualSavingsByFuels" minOccurs="0">, Example: ASHRAE 211 Export.xml, DC GSA Headquarters.xml, Reference Building - Primary Schoool.xml
 
 <xs:element name="RateSchedule" minOccurs="0" maxOccurs="unbounded><!-- //Added <xs:element name="RateSchedules" minOccurs="0">, Examples: ASHRAE 211 Export.xml, Reference Building - Primary Schoool.xml
 
@@ -89,8 +87,8 @@ List 1: elements to be changed that do not represent any special cases.
 
 <xs:element name="DeliveryID" minOccurs="0" maxOccurs="unbounded"> <!-- //Added <xs:element name="DeliveryIDs" minOccurs="0">, Example: Reference Building - Primary Schoool.xml-->
 
-<xs:element name="SkylightID" minOccurs="0" maxOccurs="unbounded"><!-- //Added <xs:element name="SkylightIDs" minOccurs="0">, Example: Reference Building - Primary Schoool.xml--> 
-  
+<xs:element name="SkylightID" minOccurs="0" maxOccurs="unbounded"><!-- //Added <xs:element name="SkylightIDs" minOccurs="0">, Example: Reference Building - Primary Schoool.xml-->
+
 <xs:element name="HVACScheduleID" minOccurs="0" maxOccurs="unbounded"> <!-- //<xs:element name="HVACScheduleIDs" minOccurs="0">, Example: Reference Building - Primary Schoool.xml-->
 
 <xs:element name="OccupancyScheduleID" minOccurs="0" maxOccurs="unbounded"><!-- //Added <xs:element name="OccupancyScheduleIDs" minOccurs="0">,  Example: Reference Building - Primary Schoool.xml-->
@@ -108,7 +106,7 @@ List 1: elements to be changed that do not represent any special cases.
 <xs:element name="LinkedSystemID" minOccurs="0" maxOccurs="unbounded"><!-- //element(*,auc:PumpSystemType)/auc:LinkedSystemID --><!--//Added <xs:element name="LinkedSystemIDs" minOccurs="0">, Example: Reference Building - Primary Schoool.xml-->
 
 <xs:element name="LinkedSystemID" minOccurs="0" maxOccurs="unbounded"><!-- //element(*,auc:FanSystemType)/auc:LinkedSystemID --><!--//Added <xs:element name="LinkedSystemIDs" minOccurs="0">, Example: Reference Building - Primary Schoool.xml-->
- 
+
 <xs:element name="LinkedSystemID" minOccurs="0" maxOccurs="unbounded"><!-- //element(*,auc:MotorSystemType)/auc:LinkedSystemID --><!--//Added <xs:element name="LinkedSystemIDs" minOccurs="0">, Example: Reference Building - Primary Schoool.xml-->
 
 <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded"><!-- //auc:LinkedSiteID/auc:LinkedScheduleID --><!--//Added <xs:element name="LinkedScheduleIDs" minOccurs="0">, Example: Reference Building - Primary Schoool.xml-->
@@ -117,7 +115,7 @@ List 1: elements to be changed that do not represent any special cases.
 
 <xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded"><!-- //auc:LinkedSubsectionID/auc:LinkedScheduleID --><!--//Added <xs:element name="LinkedScheduleIDs" minOccurs="0">, Example: Reference Building - Primary Schoool.xml-->
 
-<xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded"><!-- //auc:LinkedSpaceID/auc:LinkedScheduleID --><!--//Added <xs:element name="LinkedScheduleIDs" minOccurs="0">, Example: Reference Building - Primary Schoool.xml--> 
+<xs:element name="LinkedScheduleID" minOccurs="0" maxOccurs="unbounded"><!-- //auc:LinkedSpaceID/auc:LinkedScheduleID --><!--//Added <xs:element name="LinkedScheduleIDs" minOccurs="0">, Example: Reference Building - Primary Schoool.xml-->
 
 <xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded"> <!-- //auc:Chiller/auc:CondenserPlantID --><!--//Added <xs:element name="CondenserPlantIDs" minOccurs="0">, Example: Reference Building - Primary Schoool.xml, ASHRAE 211 Export.xml, Golden Test File.xml, Multi-Facility Shared Systems.xml-->
 
@@ -125,7 +123,7 @@ List 1: elements to be changed that do not represent any special cases.
 
 <xs:element name="CondenserPlantID" minOccurs="0" maxOccurs="unbounded"> <!-- //auc:CoolingSourceType/auc:DX/auc:CondenserPlantID --><!--//Added <xs:element name="CondenserPlantIDs" minOccurs="0">, Example: Primary Schoool.xml, ASHRAE 211 Export.xml, Golden Test File.xml, Multi-Facility Shared Systems.xml-->
 
-Format used: 
+Format used:
 <xs:element name="" minOccurs="0">
 <xs:complexType>
 <xs:sequence>
@@ -134,7 +132,7 @@ Format used:
 </xs:complexType>
 </xs:element>
 
-List 2: elements that are defined outside of the main schema path (at the bottom of the code) and are referenced throughout the schema code. For more information, reference the following pull request comment: https://github.com/BuildingSync/schema/pull/67#issuecomment-456912360 
+List 2: elements that are defined outside of the main schema path (at the bottom of the code) and are referenced throughout the schema code. For more information, reference the following pull request comment: https://github.com/BuildingSync/schema/pull/67#issuecomment-456912360
 
 <xs:element name="EnergyUseByFuelType"><!-- //Added <xs:element name="EnergyUseByFuelTypes">,Updated ref's to plural <xs:element ref="auc:EnergyUseByFuelTypes", Example: none
 
@@ -157,7 +155,7 @@ List 3: unique cases to be reviewed by the BuildingSync technical lead to define
 
 <xs:element name="Replacement" minOccurs="0"><!-- //Added <xs:element name="Replacements" minOccurs="0">, Note: Replacement doesn't have maxOccurs ="unbounded", Examples: DC GSA Headquarters.xml,Reference Building - Primary Schoool.xml-->
 for
-<xs:element name="ExistingSystemReplaced" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MeasureType)/auc:TypeOfMeasure/auc:Replacement/auc:ExistingSystemReplaced --> 
+<xs:element name="ExistingSystemReplaced" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MeasureType)/auc:TypeOfMeasure/auc:Replacement/auc:ExistingSystemReplaced -->
 <xs:element name="AlternativeSystemReplacement" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MeasureType)/auc:TypeOfMeasure/auc:Replacement/auc:AlternativeSystemReplacement -->
 <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MeasureType)/auc:TypeOfMeasure/auc:Replacement/auc:ExistingScheduleAffected -->
 <xs:element name="ModifiedSchedule" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MeasureType)/auc:TypeOfMeasure/auc:Replacement/auc:ModifiedSchedule -->
@@ -169,7 +167,7 @@ for
 <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MeasureType)/auc:TypeOfMeasure/auc:ModificationRetrocommissioning/auc:ExistingScheduleAffected -->
 <xs:element name="ModifiedSchedule" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MeasureType)/auc:TypeOfMeasure/auc:ModificationRetrocommissioning/auc:ModifiedSchedule -->
 
-<xs:element name="Addition" minOccurs="0"><!-- //Added <xs:element name="Additions" minOccurs="0">, Example: DC GSA Headquarters.xml,Reference Building - Primary Schoool.xml--> 
+<xs:element name="Addition" minOccurs="0"><!-- //Added <xs:element name="Additions" minOccurs="0">, Example: DC GSA Headquarters.xml,Reference Building - Primary Schoool.xml-->
 for
 <xs:element name="AlternativeSystemAdded" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MeasureType)/auc:TypeOfMeasure/auc:Addition/auc:AlternativeSystemAdded -->
 <xs:element name="ExistingScheduleAffected" minOccurs="0" maxOccurs="unbounded"> <!-- //element(*,auc:MeasureType)/auc:TypeOfMeasure/auc:Addition/auc:ExistingScheduleAffected -->
@@ -191,10 +189,10 @@ Examples: none
 </xs:complexType>
 </xs:element>
 
-*Unique case C: The following element is a child of another element of the same exact name. Since this one is the child element, it should be in singular form. Remove the 's' at the end of the following element's name. 
+*Unique case C: The following element is a child of another element of the same exact name. Since this one is the child element, it should be in singular form. Remove the 's' at the end of the following element's name.
 
 <xs:element name="DuctSystems" type="auc:DuctSystemType" maxOccurs="unbounded"/><!-- //Updated to <xs:element name="DuctSystem" type="auc:DuctSystemType" maxOccurs="unbounded"/>, Example: Reference Building - Primary Schoool.xml
-```
+````
 
 ## References
 

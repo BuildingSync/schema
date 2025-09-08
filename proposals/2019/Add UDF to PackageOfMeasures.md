@@ -14,10 +14,10 @@ This proposal is to:
 
 Add the following elements under BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario/ScenarioType/PackageOfMeasures:
 
-	1. UserDefinedFields
-	2. UserDefinedFields/UserDefinedField
-	3. UserDefinedFields/UserDefinedField/FieldName
-	4. UserDefinedFields/UserDefinedField/FieldValue
+    1. UserDefinedFields
+    2. UserDefinedFields/UserDefinedField
+    3. UserDefinedFields/UserDefinedField/FieldName
+    4. UserDefinedFields/UserDefinedField/FieldValue
 
 ## References
 

@@ -12,10 +12,11 @@ Responding to the request of adding new measures into BuildingSync related to wi
 - Install shading automation system
 
 ## Implementation
-The enumerations will be added as in this structure: 
+
+The enumerations will be added as in this structure:
 `auc:Measure`
-    `auc:TechnologyCategories`
-        `auc:TechnologyCategory`
-            `auc:<BuildingEnvelopeModifications>`
-                `auc:MeasureName`
-                    `[enumerations]`.
+`auc:TechnologyCategories`
+`auc:TechnologyCategory`
+`auc:<BuildingEnvelopeModifications>`
+`auc:MeasureName`
+`[enumerations]`.

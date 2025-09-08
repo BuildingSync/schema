@@ -9,6 +9,7 @@ This proposal is to add the `SpatialUnits/SpatialUnit` element sets as a child o
 In mixed use real-estate, a particular section of a building might be designated for multi-family residential. A user would then want to associate spatial units specifically to that section of the building rather than the building at a whole. Currently, we are able to define spatial units at the building level, but not at any other level of the premise.
 
 ## Example
+
 ```xml
           <auc:Buildings>
             <auc:Building ID="b1">
@@ -37,6 +38,7 @@ In mixed use real-estate, a particular section of a building might be designated
 ## Implementation
 
 The current `SpatialUnit` element is broken out into a standalone complex type as `SpatialUnitTypeType`
+
 ```xml
 <xs:complexType name="SpatialUnitTypeType">
     <xs:sequence>
@@ -102,6 +104,7 @@ The current `SpatialUnit` element is broken out into a standalone complex type a
 ```
 
 At the Building and Section level, the implementation then looks like:
+
 ```xml
     ...
       <xs:element name="SpatialUnits" minOccurs="0">

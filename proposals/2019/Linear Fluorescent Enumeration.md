@@ -1,4 +1,4 @@
-﻿# Linear Fluorescent Enumeration
+# Linear Fluorescent Enumeration
 
 ## Overview
 
@@ -31,4 +31,3 @@ The new elements will be:
 ## References
 
 https://www.lightbulbsdirect.com/t12ho
-

@@ -6,7 +6,7 @@ This proposal is to add the `auc:EnergyCostIndex` child element to the `auc:AllR
 
 ## Justification
 
-The `auc:EnergyCostIndex` element is specified as a required calculation per Standard 211 5.2.3.2.  The `auc:EnergyCost` element already exists.  This mimics the `auc:SiteEnergyUse` and `auc:SiteEnergyUseIntensity` pair of elements.
+The `auc:EnergyCostIndex` element is specified as a required calculation per Standard 211 5.2.3.2. The `auc:EnergyCost` element already exists. This mimics the `auc:SiteEnergyUse` and `auc:SiteEnergyUseIntensity` pair of elements.
 
 ## Implementation
 

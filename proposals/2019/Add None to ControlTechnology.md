@@ -15,7 +15,8 @@ The assertion that no `<auc:ControlTechnology>` is available is disjoint to not 
 This proposal is to:
 
 Add the following enumerations to `<auc:ControlTechnology>`:
-* None
+
+- None
 
 ## References
 

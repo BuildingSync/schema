@@ -11,6 +11,7 @@ Currently, the `auc:CondensingOperation` and `auc:DraftBoundary` elements are no
 ## Implementation
 
 This proposal is to:
+
 1. Promote `auc:CondensingOperation` to a top-level enumeration (so that it can be reused).
 2. Add `auc:DraftBoundary` element to `auc:Furnace` and `auc:Boiler` elements.
 3. Add `auc:CondensingOperation` and/or `auc:DraftBoundary` elements to `auc:Combustion` elements.

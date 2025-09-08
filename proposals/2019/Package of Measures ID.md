@@ -15,4 +15,3 @@ Add an @ID attribute on BuildingSync/Facilities/Facility/Reports/Report/Scenario
 ## References
 
 N/A
-

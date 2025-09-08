@@ -4,15 +4,15 @@
 
 This proposal is to add new elements under the `FederalBuilding` element:
 
-* `auc:Agency` - this field already exists. It is a text field and should probably stay that way to map to different tools. For the CERL use case, this maps to "DOD"
-* `auc:SubAgency` - Sub Agency according to agency's organizational structure. For CERL's workflow, this would be "Army".
-* `auc:SubAgencySubLevel1` - Sub Agency Sub Level 1 represents another level down in the agency's organizational structure. For CERL's workflow, this would be the "Accountable Organization".
-* `auc:SubAgencySubLevel2` - Sub Agency Sub Level 2 represents another level down in the agency's organization structure. For CERL's workflow this would be the "Accountable Sub Organization".
-* `auc:FederalFacility` - Federal Facility represents another level down in the agency's organization structure. For CERL's workflow, this would be the "Installation".
-* `auc:FacilitySubLevel1` - Federal Facility Sub Level 1 represents another level down in the agency's organization structure. For CERL's workflow, this would be the "Site".
-* `auc:FacilitySubLevel2` - Federal Facility Sub Level 2 represents another level down in the agency's organization structure. For CERL's workflow, this would also be "Site".
-* `auc:FacilityNumber` - Identifier of a federal facility. This is not a unique identifier.
-* `auc:PrimaryCategoryCode` - The Building's primary category code, indicating the building classification.
+- `auc:Agency` - this field already exists. It is a text field and should probably stay that way to map to different tools. For the CERL use case, this maps to "DOD"
+- `auc:SubAgency` - Sub Agency according to agency's organizational structure. For CERL's workflow, this would be "Army".
+- `auc:SubAgencySubLevel1` - Sub Agency Sub Level 1 represents another level down in the agency's organizational structure. For CERL's workflow, this would be the "Accountable Organization".
+- `auc:SubAgencySubLevel2` - Sub Agency Sub Level 2 represents another level down in the agency's organization structure. For CERL's workflow this would be the "Accountable Sub Organization".
+- `auc:FederalFacility` - Federal Facility represents another level down in the agency's organization structure. For CERL's workflow, this would be the "Installation".
+- `auc:FacilitySubLevel1` - Federal Facility Sub Level 1 represents another level down in the agency's organization structure. For CERL's workflow, this would be the "Site".
+- `auc:FacilitySubLevel2` - Federal Facility Sub Level 2 represents another level down in the agency's organization structure. For CERL's workflow, this would also be "Site".
+- `auc:FacilityNumber` - Identifier of a federal facility. This is not a unique identifier.
+- `auc:PrimaryCategoryCode` - The Building's primary category code, indicating the building classification.
 
 ## Justification
 

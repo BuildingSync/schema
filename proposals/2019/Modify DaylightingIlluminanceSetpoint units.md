@@ -11,6 +11,7 @@ The units of measure for the `auc:DaylightingIlluminanceSetpoint` should be foot
 ## Implementation
 
 This proposal is to:
+
 1. Modify the documentation string for the `auc:DaylightingIlluminanceSetpoint` element.
 2. Update the example files.
 

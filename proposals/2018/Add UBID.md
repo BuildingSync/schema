@@ -2,10 +2,8 @@
 
 ## Overview
 
-
 The BuildingSync XML (BSync) schema has several identifiers for buildings shown below. The purpose of this proposal
 would be to add UBID as an enumeration.
-
 
 ```xml
     <xs:element name="IdentifierLabel">
@@ -38,11 +36,12 @@ The UBID is becoming the defacto standard for defining the location of a buildin
 ## Implementation
 
 This proposal is:
+
 1. To add the following enumeration to the IdentifierLabel element.
 
-    ```xml
-    <xs:enumeration value="UBID"/>
-    ```
+   ```xml
+   <xs:enumeration value="UBID"/>
+   ```
 
 ## References
 

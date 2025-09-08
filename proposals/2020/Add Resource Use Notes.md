@@ -7,6 +7,7 @@ This proposal is to add the `auc:ResourceUseNotes` child element to the `auc:Res
 ## Justification
 
 Standard 211 sections 6.1.2.1.d and 6.1.2.1.j specify
+
 > ... If meter sampling is used by the qualified energy auditor, [the report must include] the sampling methodology used for each fuel
 > ... Identification of irregularities in monthly energy use patterns and suggestions about their possible causes
 

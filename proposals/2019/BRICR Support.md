@@ -12,7 +12,7 @@ There exists a need to have additional fields added to the schema to support BRI
 
 1. Adding CustomMeasureName to Measure element, in order to capture the OpenStudioMeasureName.
 
-1. Add AnnualPeakNativeUnits and AnnualPeakConsistentUnits under ResourceUses.  ConsistentUnits are set at: kW.
+1. Add AnnualPeakNativeUnits and AnnualPeakConsistentUnits under ResourceUses. ConsistentUnits are set at: kW.
 
 ## Implementation
 
@@ -22,10 +22,9 @@ This proposal is to:
 
 1. Add SimulationCompletionStatus (with enums: 'Not Started', 'Started', 'Queued', 'Finished', 'Other', 'Unknown') to the CalculationMethod element.
 
-1. Add CustomMeasureName element under Measure path: BuildingSync/Facilities/Facility/Measures/Measure.  
+1. Add CustomMeasureName element under Measure path: BuildingSync/Facilities/Facility/Measures/Measure.
 
-1. Add AnnualPeakNativeUnits and AnnualPeakConsistentUnits under BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario/ResourceUses.				
-
+1. Add AnnualPeakNativeUnits and AnnualPeakConsistentUnits under BuildingSync/Facilities/Facility/Reports/Report/Scenarios/Scenario/ResourceUses.
 
 ## References
 
