@@ -36,9 +36,18 @@ _No non-schema changes_
 
 New Issues: 9 (#504, #505, #507, #508, #509, #510, #511, #512, #517)
 
-Closed Issues: 0
+Closed Issues: 8
 
-All Open Issues: 28 (#151, #154, #167, #170, #183, #195, #198, #218, #260, #285, #287, #297, #320, #356, #370, #391, #428, #450, #474, #504, #505, #507, #508, #509, #510, #511, #512, #517)
+- [#504](https://github.com/BuildingSync/schema/issues/504), HPXML mapping
+- [#505](https://github.com/BuildingSync/schema/issues/505), Experimental - use LLMs to map BuildingSync to BEDES terms (`feature`)
+- [#507](https://github.com/BuildingSync/schema/issues/507), 229p RES mapping - outreach
+- [#508](https://github.com/BuildingSync/schema/issues/508), 229p RES mapping - BuildingSync-gem check on gaps
+- [#509](https://github.com/BuildingSync/schema/issues/509), 229p RES mapping - translation workflow
+- [#510](https://github.com/BuildingSync/schema/issues/510), Develop RES/BSXML translator
+- [#511](https://github.com/BuildingSync/schema/issues/511), Develop RES/BSXML mapping
+- [#512](https://github.com/BuildingSync/schema/issues/512), Review BuildingSync Schema against ASHRAE STD232P
+
+All Open Issues: 20 (#151, #154, #167, #170, #183, #195, #198, #218, #260, #285, #287, #297, #320, #356, #370, #391, #428, #450, #474, #517)
 
 ## Version 2.6.0
 
