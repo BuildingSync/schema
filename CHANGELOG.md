@@ -1,5 +1,54 @@
 # BuildingSync
 
+## Version 2.7.0
+
+Date Range: 09/25/24 - 09/10/25
+
+| Category              | Count |
+| --------------------- | ----- |
+| Schema: Controls      | 0     |
+| Schema: Documentation | 1     |
+| Schema: General       | 3     |
+| Schema: Measures      | 0     |
+| Schema: Reports       | 0     |
+| Schema: Systems       | 0     |
+| Schema: Validation    | 0     |
+| Other                 | 1     |
+| **Total**             | 5     |
+
+### Breaking Changes
+
+_No breaking changes_
+
+### Non-breaking Changes
+
+- [#518](https://github.com/BuildingSync/schema/pull/518), Proposal to add Federal building identifiers (`General`)
+- [#516](https://github.com/BuildingSync/schema/pull/516), Add Files (attachment feature) (`General`)
+- [#515](https://github.com/BuildingSync/schema/pull/515), Proposal: Add Optional Elements to All Assets (`General`)
+- [#513](https://github.com/BuildingSync/schema/pull/513), build(deps): bump jinja2 from 3.1.4 to 3.1.6 in /docs/notebooks (`No Changes`)
+- [#503](https://github.com/BuildingSync/schema/pull/503), Update examples to 2.6 (`Documentation`)
+
+### Non-schema Changes
+
+_No non-schema changes_
+
+### Issues
+
+New Issues: 9 (#504, #505, #507, #508, #509, #510, #511, #512, #517)
+
+Closed Issues: 8
+
+- [#504](https://github.com/BuildingSync/schema/issues/504), HPXML mapping
+- [#505](https://github.com/BuildingSync/schema/issues/505), Experimental - use LLMs to map BuildingSync to BEDES terms (`feature`)
+- [#507](https://github.com/BuildingSync/schema/issues/507), 229p RES mapping - outreach
+- [#508](https://github.com/BuildingSync/schema/issues/508), 229p RES mapping - BuildingSync-gem check on gaps
+- [#509](https://github.com/BuildingSync/schema/issues/509), 229p RES mapping - translation workflow
+- [#510](https://github.com/BuildingSync/schema/issues/510), Develop RES/BSXML translator
+- [#511](https://github.com/BuildingSync/schema/issues/511), Develop RES/BSXML mapping
+- [#512](https://github.com/BuildingSync/schema/issues/512), Review BuildingSync Schema against ASHRAE STD232P
+
+All Open Issues: 20 (#151, #154, #167, #170, #183, #195, #198, #218, #260, #285, #287, #297, #320, #356, #370, #391, #428, #450, #474, #517)
+
 ## Version 2.6.0
 
 BuildingSync Version 2.6.0 adds new elements for Life-Cycle Savings and two new measures for fenestration systems.
