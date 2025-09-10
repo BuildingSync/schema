@@ -3,46 +3,38 @@ name: Publish
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - "v*.*.*"
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      -
-        uses: actions/checkout@v2
-      -
-        uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v5
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7.2
           bundler-cache: true
-      -
-        name: Test
+      - name: Test
         run: bundle exec rake
-      -
-        name: Checkout xs3p
-        uses: actions/checkout@v2
+      - name: Checkout xs3p
+        uses: actions/checkout@v5
         with:
           repository: macintoshpie/xs3p
           path: xs3p
-      -
-        name: Build HTML
+      - name: Build HTML
         run: |
           sudo apt install xsltproc
           xsltproc --output index.html xs3p/xs3p.xsl BuildingSync.xsd
           stat index.html
-      -
-        name: Build Data Dictionary
+      - name: Build Data Dictionary
         run: bundle exec rake generate_data_dictionary
-      -
-        name: Build Changelog
+      - name: Build Changelog
         run: |
           # grab the most recent version section from the changelog
           python -c 'print(open("CHANGELOG.md").read().split("## ")[1])' > ${{ github.workflow }}-CHANGELOG.md
           cat ${{ github.workflow }}-CHANGELOG.md
-      -
-        name: Release with Artifacts
-        uses: softprops/action-gh-release@v1
+      - name: Release with Artifacts
+        uses: softprops/action-gh-release@v2
         with:
           files: |
             BuildingSync.xsd

@@ -2,19 +2,20 @@
 
 ## Overview
 
-This proposal is to add new elements related to Audit Cycle definitions: 
-* `auc:AuditCycles`
-* `auc:AuditCycles/auc:AuditCycle`
-* `auc:AuditCycles/auc:AuditCycle/auc:AuditCycleName`
-* `auc:AuditCycles/auc:AuditCycle/auc:AuditCycleNotes`
-* `auc:AuditCycles/auc:AuditCycle/auc:AuditCycleStartYear`
-* `auc:AuditCycles/auc:AuditCycle/auc:AuditCycleEndYear`
-under `auc:Facility`, following EISA 432 requirements and for the CERL use case. And add
-* `auc:LinkedAuditCycles`
-* `auc:LinkedAuditCycles/auc:LinkedAuditCycle`
-* `auc:LinkedAuditCycles/auc:LinkedAuditCycle/auc:IndexYearOfAuditCycle` 
-under `auc:Report`.
-An `ID` is required for each `auc:AuditCycle`, and it should be referred via `auc:LinkedAuditCycles/auc:LinkedAuditCycle`.
+This proposal is to add new elements related to Audit Cycle definitions:
+
+- `auc:AuditCycles`
+- `auc:AuditCycles/auc:AuditCycle`
+- `auc:AuditCycles/auc:AuditCycle/auc:AuditCycleName`
+- `auc:AuditCycles/auc:AuditCycle/auc:AuditCycleNotes`
+- `auc:AuditCycles/auc:AuditCycle/auc:AuditCycleStartYear`
+- `auc:AuditCycles/auc:AuditCycle/auc:AuditCycleEndYear`
+  under `auc:Facility`, following EISA 432 requirements and for the CERL use case. And add
+- `auc:LinkedAuditCycles`
+- `auc:LinkedAuditCycles/auc:LinkedAuditCycle`
+- `auc:LinkedAuditCycles/auc:LinkedAuditCycle/auc:IndexYearOfAuditCycle`
+  under `auc:Report`.
+  An `ID` is required for each `auc:AuditCycle`, and it should be referred via `auc:LinkedAuditCycles/auc:LinkedAuditCycle`.
 
 ## Justification
 
@@ -22,7 +23,9 @@ Audit Cycle is defined for CERL use case by EISA 432(?). In Audit Template, an a
 We will add `auc:AuditCycles` element under `auc:Facility` and allow multiple child elements of `auc:AuditCycle` for each cycle. For each `auc:AuditCycle`, `ID` attribute is required, and `auc:AuditCycleName`, `auc:AuditCycleNotes`, `auc:AuditCycleStartYear`, `auc:AuditCycleEndYear` are child elements. We will add `auc:LinkedAuditCycles/auc:LinkedAuditCycle` under `auc:Report` to link to an associated `auc:AuditCycle` through `IDref`.
 
 ## Implementation
+
 Under `auc:Facility`:
+
 ```xml
   <xs:element name="Facility" maxOccurs="unbounded">
     <xs:sequence>
@@ -36,7 +39,9 @@ Under `auc:Facility`:
       </xs:element >
       ...
 ```
+
 Global definition:
+
 ```xml
 ...
   <xs:complexType name="AuditCycleType">
@@ -72,7 +77,9 @@ Global definition:
   </xs:element>
 ...
 ```
+
 Under `auc:Report`:
+
 ```xml
   <xs:complexType name="ReportType">
     <xs:sequence>

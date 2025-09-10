@@ -12,11 +12,12 @@ As such, it is not possible to assert that a furnace or boiler is near-condensin
 ## Implementation
 
 This proposal is to replace the definition of the `auc:CondensingOperation` element with an enumeration of the following values:
-* "Condensing"
-* "Near-Condensing"
-* "Non-Condensing"
-* "Other"
-* "Unknown"
+
+- "Condensing"
+- "Near-Condensing"
+- "Non-Condensing"
+- "Other"
+- "Unknown"
 
 ## References
 

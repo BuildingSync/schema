@@ -121,7 +121,7 @@
                           </auc:ExplanatoryVariable>
                         </auc:ExplanatoryVariables>
                       </auc:DerivedModelInputs>
-                      <!-- Coefficients for the model are captured here, as well as the specific model type used. 
+                      <!-- Coefficients for the model are captured here, as well as the specific model type used.
                       the specific Coefficients to use depend on the ModelType selected. -->
                       <auc:DerivedModelCoefficients>
                         <auc:Guideline14Model>
@@ -176,7 +176,7 @@
                       <auc:ConfidenceLevel>0.90</auc:ConfidenceLevel>
                       <!-- Include in here the TimeSeries data for the modeled period.  -->
                       <auc:ComparisonPeriodModeledTimeSeriesData>
-                        <!-- Repeat at consistent time intervals between the ComparisonPeriodStartTimeStamp and ComparisonPeriodEndTimeStamp. The cardinality of the data between this data and the 
+                        <!-- Repeat at consistent time intervals between the ComparisonPeriodStartTimeStamp and ComparisonPeriodEndTimeStamp. The cardinality of the data between this data and the
                         data in the Current Building Measured Scenario (ID=Scenario-Measured) shall be one-to-one -->
                         <auc:TimeSeries ID="TS-Prediction-1">
                           <auc:StartTimestamp>2014-03-01T00:00:00</auc:StartTimestamp>
@@ -202,8 +202,8 @@
                   </auc:CalculationMethod>
                 </auc:PackageOfMeasures>
               </auc:ScenarioType>
-              <!-- TimeSeriesData stored in the implemented POM may include data from 
-              temporary measurements (i.e. HOBO, data loggers, etc.), but is not intended 
+              <!-- TimeSeriesData stored in the implemented POM may include data from
+              temporary measurements (i.e. HOBO, data loggers, etc.), but is not intended
               to store the consistent TS data for the analysis. -->
               <auc:TimeSeriesData>
                 <auc:TimeSeries ID="TS-POM-Sample-1">
@@ -357,7 +357,7 @@
                           </auc:ExplanatoryVariable>
                         </auc:ExplanatoryVariables>
                       </auc:DerivedModelInputs>
-                      <!-- Coefficients for the model are captured here, as well as the specific model type used. 
+                      <!-- Coefficients for the model are captured here, as well as the specific model type used.
                       the specific Coefficients to use depend on the ModelType selected. -->
                       <auc:DerivedModelCoefficients>
                         <auc:Guideline14Model>
@@ -407,7 +407,7 @@
                       slightly nonsensical...this is considered ok for 'standard condition' datasets -->
                       <auc:ComparisonPeriodStartTimestamp>1977-07-01T00:00:00</auc:ComparisonPeriodStartTimestamp>
                       <auc:ComparisonPeriodEndTimestamp>2001-09-30T23:59:00</auc:ComparisonPeriodEndTimestamp>
-                      <!-- Normalized savings uncertainty is calculated as the square-root of the sum of the 
+                      <!-- Normalized savings uncertainty is calculated as the square-root of the sum of the
                         baseline and performance period models' squared uncertainties. -->
                       <auc:SavingsUncertainty>0.40</auc:SavingsUncertainty>
                       <auc:ConfidenceLevel>0.90</auc:ConfidenceLevel>
@@ -470,8 +470,8 @@
                   </auc:CalculationMethod>
                 </auc:PackageOfMeasures>
               </auc:ScenarioType>
-              <!-- TimeSeriesData stored in the implemented POM may include data from 
-              temporary measurements (i.e. HOBO, data loggers, etc.), but is not intended 
+              <!-- TimeSeriesData stored in the implemented POM may include data from
+              temporary measurements (i.e. HOBO, data loggers, etc.), but is not intended
               to store the consistent TS data for the analysis. -->
               <auc:TimeSeriesData>
                 <auc:TimeSeries ID="TS-StandardConditions-POM-Sample-1">

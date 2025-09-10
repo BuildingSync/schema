@@ -1,0 +1,63 @@
+fix = true
+line-length = 140
+
+[format]
+# preview = true
+docstring-code-format = true
+
+# https://docs.astral.sh/ruff/linter/#rule-selection
+[lint]
+# preview = true
+# Enable these rules
+extend-select = [
+    "A",   # flake8-builtins
+    "ARG", # flake8-unused-arguments
+    "BLE", # flake8-blind-except
+    "C4",  # flake8-comprehensions
+    "COM", # flake8-commas
+    # "DTZ", # flake8-datetimez
+    "E",   # Error
+    "EXE", # flake8-executable
+    "F",   # Pyflakes
+    "I",   # isort
+    "ICN", # flake8-import-conventions
+    "ISC", # flake8-implicit-str-concat
+    "N",   # pep8-naming
+    "PD",  # pandas-vet
+    "PGH", # pygrep-hooks
+    "PIE", # flake8-pie
+    "PLC", # Pylint Convention
+    "PLE", # Pylint Error
+    "PLR", # Pylint Refactor
+    "PLW", # Pylint Warning
+    "PT",  # flake8-pytest-style
+    "Q",   # flake8-quotes
+    "RUF", # Ruff-specific rules
+    "S",   # flake8-bandit
+    "SIM", # flake8-simplify
+    "T10", # flake8-debugger
+    "TID", # flake8-tidy-imports
+    "UP",  # pyupgrade
+]
+# except for these specific errors
+ignore = [
+    "E501", # line-too-long
+    "PLR0913", # too-many-arguments
+    "PLR2004", # magic-value-comparison
+]
+
+[lint.per-file-ignores]
+"**/__init__.py" = [
+    "F401", # unused-import
+]
+"tests/test_*" = [
+    "S101", # assert
+    "S105", # hardcoded-password-string
+    "S106", # hardcoded-password-func-arg
+    "S307", # suspicious-eval-usage
+]
+
+[lint.pylint]
+# Raise the allowed limits the least possible amount https://docs.astral.sh/ruff/settings/#pylint-max-branches
+max-statements = 58
+max-branches = 24

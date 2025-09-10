@@ -11,8 +11,9 @@ In Audit Template, "Fuel oil no 5" and "Fuel oil no 6" are valid energy types.
 ## Implementation
 
 This proposal is to add the following enumerations to the `auc:FuelTypes` element:
-* "Fuel oil no 5"
-* "Fuel oil no 6"
+
+- "Fuel oil no 5"
+- "Fuel oil no 6"
 
 ## References
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This proposal is to add the `MultiTenant` element as a child element of `Building` element, with boolean options.  
+This proposal is to add the `MultiTenant` element as a child element of `Building` element, with boolean options.
 
 ## Justification
 

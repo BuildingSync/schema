@@ -3,30 +3,32 @@
 ## Overview
 
 This proposal is to add new element `auc:FacilityEvaluationAuditDefinition` under `auc:Report` with child elements and enumerations:
-* `auc:BasicOnsiteAudit`
-* * ASHRAE Level 1 Audit
-* * Industrial Assessment Center (IAC) Audit
-* * Utility Incentive Program Audit
-* `auc:DetailedOnsiteAudit`
-* * ASHRAE Level 2 Audit
-* * ASHRAE Level 3 Audit
-* * Deep Energy Retrofit Audit
-* * Preliminary Assessment (PA)
-* * Investment Grade Audit (IGA)
-* * Retro-Commissioning Audit
-* `auc:BasicRemoteAudit`
-* * Rapid/Automated Audit
-* * Continuous Monitoring of Building Systems
-* * Portfolio Screening Analysis
-* `auc:DetailedRemoteAudit`
-* * Desk Audit
-* * Remote Controls Audit
+
+- `auc:BasicOnsiteAudit`
+- - ASHRAE Level 1 Audit
+- - Industrial Assessment Center (IAC) Audit
+- - Utility Incentive Program Audit
+- `auc:DetailedOnsiteAudit`
+- - ASHRAE Level 2 Audit
+- - ASHRAE Level 3 Audit
+- - Deep Energy Retrofit Audit
+- - Preliminary Assessment (PA)
+- - Investment Grade Audit (IGA)
+- - Retro-Commissioning Audit
+- `auc:BasicRemoteAudit`
+- - Rapid/Automated Audit
+- - Continuous Monitoring of Building Systems
+- - Portfolio Screening Analysis
+- `auc:DetailedRemoteAudit`
+- - Desk Audit
+- - Remote Controls Audit
 
 ## Justification
 
 The “Facility Evaluation (Audit) Definition” field is a set of categorized enumerations that is defined by FEMP and added in Audit Template. The two layers of categories (Onsite vs. Remote, Basic vs. Detailed) are combined to simplify the structure of the new element.
 
 ## Implementation
+
 ```xml
       <xs:element name="FacilityEvaluationAuditDefinition" minOccurs="0">
         <xs:annotation>
@@ -90,4 +92,5 @@ The “Facility Evaluation (Audit) Definition” field is a set of categorized e
 ```
 
 ## References
+
 [FEMP working draft](https://www.energy.gov/femp/articles/femp-facility-evaluation-audit-definitions#:~:text=An%20evaluation%20with%20a%20site,the%20discretion%20of%20the%20Agency%22)

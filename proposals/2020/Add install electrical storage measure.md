@@ -6,7 +6,7 @@ FEMP's Compiance Tracking System (CTS) has "Install electrical storage" as a mea
 
 ## Justification
 
-One of the goals of BuildingSync is to stay aligned with CTS. 
+One of the goals of BuildingSync is to stay aligned with CTS.
 
 ## Implementation
 

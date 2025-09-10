@@ -1,11 +1,12 @@
 # Add Canadian Provinces to States
 
 ## Overview
+
 Add Canadian province abbreviations to acceptable `auc:State` enumeration restrictions.
 
 ## Justification
 
-To enable Canadian province and territory serialization.  There are no conflicts with current enums.
+To enable Canadian province and territory serialization. There are no conflicts with current enums.
 
 ## Implementation
 
@@ -32,4 +33,5 @@ To enable Canadian province and territory serialization.  There are no conflicts
 ```
 
 ## References
+
 https://en.wikipedia.org/wiki/ISO_3166-2:CA

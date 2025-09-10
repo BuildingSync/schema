@@ -17,4 +17,3 @@ This is a non-breaking change.
 ## References
 
 N/A
-

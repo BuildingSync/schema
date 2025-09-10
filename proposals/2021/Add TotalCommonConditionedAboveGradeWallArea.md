@@ -9,6 +9,7 @@ This proposal is to add the `TotalCommonConditionedAboveGradeWallArea` child ele
 Audit Template Tool defines demising wall as the total area of the above grade wall common with other conditioned buildings, as an overall building characteristic. However, the term demising wall has conflicting definition in other standards (such as interior partitions). To avoid ambiguity, we adopt the descriptive name `TotalCommonConditionedAboveGradeWallArea` instead of `DemisingAboveGradeWallArea`.
 
 ### UDFs
+
 Currently, this is conveyed in Audit template via: `/auc:BuildingSync/auc:Facilities/auc:Facility/auc:Sites/auc:Site/auc:Buildings/auc:Building/auc:UserDefinedFields/auc:UserDefinedField[auc:FieldName/text() = Demising Above Grade Wall Area]/auc:FieldValue`. Our proposal is that it would rather look like:
 
 ```xml
@@ -61,5 +62,6 @@ Currently, this is conveyed in Audit template via: `/auc:BuildingSync/auc:Facili
 ```
 
 ## References
+
 https://help.buildingenergyscore.com/support/solutions/articles/8000053362-facility-description-construction (even though their usage of the term demising wall is incorrect)
 ASHRAE Standard 211 6.2.1.2.b

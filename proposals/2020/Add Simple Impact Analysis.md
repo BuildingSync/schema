@@ -7,6 +7,7 @@ This proposal is to add the `auc:SimpleImpactAnalysis` and `auc:CostCategory` ch
 ## Justification
 
 Standard 211 6.1.5.c-6.1.5.g as well as 6.1.6.d-6.1.6.g requires a summary of the impact of each recommended measure. Specifically, it states:
+
 > c. Impact on occupant comfort (improved thermal comfort, indoor air quality [IAQ], lighting quality, acoustics)
 > d. Estimated cost (high, medium, low)
 > e. Estimated level (high, medium, low) of annual savings
@@ -18,6 +19,7 @@ Additionally, Standard 211 is explicit in discriminating the "Low-Cost and No-Co
 ## Implementation
 
 In `auc:SimpleImpactAnalysis` add these elements which can have the values of `Low` `Medium` or `High`
+
 - EstimatedCost
 - EstimatedAnnualSavings
 - EstimatedROI

@@ -12,9 +12,9 @@ Audit Template Tool allows for a list of roofs, ceilings, and foundations, howev
 
 Create containers for Roofs, Ceilings, and Foundations similar to the Sides element at `//BuildingSync/Facilities/Facility/Sites/Site/Buildings/Building/Sections/Section/Sides`.
 
-* Move `//element(*:BuildingType)/Sections/Section/RoofID` under `//element(*:BuildingType)/Sections/Section/Roofs/Roof`. Make `Roof` unbounded.
-* Move `//element(*:BuildingType)/Sections/Section/CeilingID` under `//element(*:BuildingType)/Sections/Section/Ceilings/Ceiling`. Make `Ceiling` unbounded.
-* Move `//element(*:BuildingType)/Sections/Section/FoundationID` under `//element(*:BuildingType)/Sections/Section/Foundations/Foundation`. Make `Foundation` unbounded.
+- Move `//element(*:BuildingType)/Sections/Section/RoofID` under `//element(*:BuildingType)/Sections/Section/Roofs/Roof`. Make `Roof` unbounded.
+- Move `//element(*:BuildingType)/Sections/Section/CeilingID` under `//element(*:BuildingType)/Sections/Section/Ceilings/Ceiling`. Make `Ceiling` unbounded.
+- Move `//element(*:BuildingType)/Sections/Section/FoundationID` under `//element(*:BuildingType)/Sections/Section/Foundations/Foundation`. Make `Foundation` unbounded.
 
 ## References
 

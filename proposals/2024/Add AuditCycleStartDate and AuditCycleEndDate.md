@@ -2,16 +2,19 @@
 
 ## Overview
 
-This proposal is to add new elements under `AuditCycle`: 
-* `auc:AuditCycleStartDate`
-* `auc:AuditCycleEndDate`
+This proposal is to add new elements under `AuditCycle`:
+
+- `auc:AuditCycleStartDate`
+- `auc:AuditCycleEndDate`
 
 ## Justification
 
-The current `AuditCycleStartYear` and `AuditCycleEndYear` elements support only year data, which may not reflect the actual program year informatio, which mostly are from June to June or Oct to Oct. The Audit Template team and CERL use case requested adding more detailed data for audit cycle start and end time information with full date type. This proposal is to add the two new elements `auc:AuditCycleStartDate` and `auc:AuditCycleEndDate` to support date type data. 
+The current `AuditCycleStartYear` and `AuditCycleEndYear` elements support only year data, which may not reflect the actual program year informatio, which mostly are from June to June or Oct to Oct. The Audit Template team and CERL use case requested adding more detailed data for audit cycle start and end time information with full date type. This proposal is to add the two new elements `auc:AuditCycleStartDate` and `auc:AuditCycleEndDate` to support date type data.
 
 ## Implementation
+
 Under `auc:AuditCycles`:
+
 ```xml
   <xs:complexType name="AuditCycleType">
     <xs:annotation>

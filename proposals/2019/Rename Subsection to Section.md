@@ -7,18 +7,18 @@ This proposal renames the Subsections/Subsection child element of Building to Se
 ## Justification
 
 Presently, the schema uses "subsection" terminology that users have found confusing. With no "section" in the schema, it is unclear what is meant.
-This change will clarify the meaning of section and allow users to express the intent of the section. 
+This change will clarify the meaning of section and allow users to express the intent of the section.
 
 ## Implementation
 
 The Subsections/Subsection child element of Building will be renamed to Sections/Section, and a new enumeration called SectionType will be added with the following values:
 
-* Whole Building:  the section describes the whole building
-* Space Function: the section describes a space function (see ASHRAE standard 211)
-* Component: the section describes a subspace of a primary premises. Examples of components are: HVAC zones, retail shops in a mall, floors in a multi-story building, etc. (BEDES)
-* Tenant: the section is defined as a section for a tenant.
-* Virtual: the section is loosely defined and may overlap with others
-* Other: the section is not well-described by any of the other types
+- Whole Building: the section describes the whole building
+- Space Function: the section describes a space function (see ASHRAE standard 211)
+- Component: the section describes a subspace of a primary premises. Examples of components are: HVAC zones, retail shops in a mall, floors in a multi-story building, etc. (BEDES)
+- Tenant: the section is defined as a section for a tenant.
+- Virtual: the section is loosely defined and may overlap with others
+- Other: the section is not well-described by any of the other types
 
 The original idea included a "Custom" value, but that has been dropped in favor of adding more values.
 
@@ -26,5 +26,5 @@ The Section elements do not have to be mutually exclusive, for example, there ca
 
 ## References
 
-* https://bedes.lbl.gov/bedes-online/premises-level
-* https://bedes.lbl.gov/bedes-online/spatial-unit-type
+- https://bedes.lbl.gov/bedes-online/premises-level
+- https://bedes.lbl.gov/bedes-online/spatial-unit-type
