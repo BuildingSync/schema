@@ -4,32 +4,33 @@
 
 Date Range: 09/25/24 - 09/06/25
 
-| Category       | Count |
-|----------------|-------|
-| Schema: Controls         | 0  |
-| Schema: Documentation         | 1  |
-| Schema: General         | 3  |
-| Schema: Measures         | 0  |
-| Schema: Reports         | 0  |
-| Schema: Systems         | 0  |
-| Schema: Validation         | 0  |
-| Other         | 1  |
-| **Total**      | 5 |
+| Category              | Count |
+| --------------------- | ----- |
+| Schema: Controls      | 0     |
+| Schema: Documentation | 1     |
+| Schema: General       | 3     |
+| Schema: Measures      | 0     |
+| Schema: Reports       | 0     |
+| Schema: Systems       | 0     |
+| Schema: Validation    | 0     |
+| Other                 | 1     |
+| **Total**             | 5     |
 
 ### Breaking Changes
 
-*No breaking changes*
+_No breaking changes_
 
 ### Non-breaking Changes
- - [#518](https://github.com/BuildingSync/schema/pull/518), Proposal to add Federal building identifiers (`General`)
- - [#516](https://github.com/BuildingSync/schema/pull/516), Add Files (attachment feature) (`General`)
- - [#515](https://github.com/BuildingSync/schema/pull/515), Proposal: Add Optional Elements to All Assets (`General`)
- - [#513](https://github.com/BuildingSync/schema/pull/513), build(deps): bump jinja2 from 3.1.4 to 3.1.6 in /docs/notebooks (`No Changes`)
- - [#503](https://github.com/BuildingSync/schema/pull/503), Update examples to 2.6 (`Documentation`)
+
+- [#518](https://github.com/BuildingSync/schema/pull/518), Proposal to add Federal building identifiers (`General`)
+- [#516](https://github.com/BuildingSync/schema/pull/516), Add Files (attachment feature) (`General`)
+- [#515](https://github.com/BuildingSync/schema/pull/515), Proposal: Add Optional Elements to All Assets (`General`)
+- [#513](https://github.com/BuildingSync/schema/pull/513), build(deps): bump jinja2 from 3.1.4 to 3.1.6 in /docs/notebooks (`No Changes`)
+- [#503](https://github.com/BuildingSync/schema/pull/503), Update examples to 2.6 (`Documentation`)
 
 ### Non-schema Changes
 
-*No non-schema changes*
+_No non-schema changes_
 
 ### Issues
 
