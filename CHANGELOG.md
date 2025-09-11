@@ -2,19 +2,21 @@
 
 ## Version 2.7.0
 
-Date Range: 09/25/24 - 09/10/25
+BuildingSync Version 2.7.0 adds new elements for file attachment feature and `FederalBuilding`, and generalizes usage of Optional Elements (e.g. `EquipmentCondition`, `EquipmentID`) to all assets/systems.
+
+Date Range: 09/25/24 - 09/12/25
 
 | Category              | Count |
 | --------------------- | ----- |
 | Schema: Controls      | 0     |
 | Schema: Documentation | 1     |
-| Schema: General       | 3     |
+| Schema: General       | 4     |
 | Schema: Measures      | 0     |
 | Schema: Reports       | 0     |
 | Schema: Systems       | 0     |
 | Schema: Validation    | 0     |
 | Other                 | 1     |
-| **Total**             | 5     |
+| **Total**             | 6     |
 
 ### Breaking Changes
 
@@ -22,6 +24,7 @@ _No breaking changes_
 
 ### Non-breaking Changes
 
+- [#525](https://github.com/BuildingSync/schema/pull/525), fix typo in use of EquipmentCondition (`General`)
 - [#518](https://github.com/BuildingSync/schema/pull/518), Proposal to add Federal building identifiers (`General`)
 - [#516](https://github.com/BuildingSync/schema/pull/516), Add Files (attachment feature) (`General`)
 - [#515](https://github.com/BuildingSync/schema/pull/515), Proposal: Add Optional Elements to All Assets (`General`)
