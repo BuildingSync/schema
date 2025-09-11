@@ -23,6 +23,7 @@ Date Range: 09/25/24 - 09/12/25
 _No breaking changes_
 
 ### Non-breaking Changes
+
 - [#525](https://github.com/BuildingSync/schema/pull/525), fix typo in use of EquipmentCondition (`General`)
 - [#518](https://github.com/BuildingSync/schema/pull/518), Proposal to add Federal building identifiers (`General`)
 - [#516](https://github.com/BuildingSync/schema/pull/516), Add Files (attachment feature) (`General`)
