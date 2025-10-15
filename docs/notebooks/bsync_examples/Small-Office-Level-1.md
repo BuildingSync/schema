@@ -867,22 +867,22 @@ elec_ru += bsync.AnnualPeakNativeUnits(21.12) # kW as specified above
 elec_ru += bsync.AnnualPeakConsistentUnits(21.12) # already in kW, same as above
 elec_ru += bsync.AnnualFuelCost(5304.) # $28 monthly + $0.0725/kwh per https://missoulaelectric.com/member-care/billing-payment/rates/
 
-# create a resource use for greenhouse gas emissions, units of MtCO2e, all end uses
-ghg_linked_ids = bsync.EmissionsLinkedTimeSeriesIDs()
-for month in range(1,13):
-    ghg_linked_ids += bsync.EmissionsLinkedTimeSeriesID(IDref=f"TS-ResourceUse-GreenhouseGasEmissions-{month}")
+# # create a resource use for greenhouse gas emissions, units of MtCO2e, all end uses
+# ghg_linked_ids = bsync.EmissionsLinkedTimeSeriesIDs()
+# for month in range(1,13):
+#     ghg_linked_ids += bsync.EmissionsLinkedTimeSeriesID(IDref=f"TS-ResourceUse-GreenhouseGasEmissions-{month}")
 
 
-ghg_ru = bsync.ResourceUse(
-    bsync.Emissions(
-        bsync.Emission(
-            bsync.EmissionBoundary("Indirect"),
-            bsync.EmissionsType("CO2e"),
-            bsync.GHGEmissions(25000.0),
-            ghg_linked_ids
-        )
-    )
-)
+# ghg_ru = bsync.ResourceUse(
+#     bsync.Emissions(
+#         bsync.Emission(
+#             bsync.EmissionBoundary("Indirect"),
+#             bsync.EmissionsType("CO2e"),
+#             bsync.GHGEmissions(25000.0),
+#             ghg_linked_ids
+#         )
+#     )
+# )
 
 # create a resource use for natural gas, units of MMBtu, all end uses
 # additional connect it up to the utility
@@ -903,12 +903,12 @@ ng_ru += bsync.AnnualFuelCost(91.63) # ~ $5.50/1000ft3 NG per https://naturalgas
 
 # add these to the ResourceUses parent element
 all_ru += elec_ru
-all_ru += ghg_ru
+# all_ru += ghg_ru
 all_ru += ng_ru
 
 # we can still add information to the child elements
 elec_ru["ID"] = "ResourceUse-Electricity"
-ghg_ru["ID"] = "ResourceUse-GreenhouseGasEmissions"
+# ghg_ru["ID"] = "ResourceUse-GreenhouseGasEmissions"
 ng_ru["ID"] = "ResourceUse-Natural-gas"
 
 # ResourceUses are child elements of a specific scenario:
@@ -985,7 +985,7 @@ full_ts_data = bsync.TimeSeriesData()
 
 # usage and peak data
 monthly_elec = [6792.89, 5841.75, 6025.19, 4985.3, 5184.04, 5358.55, 5755.67, 5981.78, 5401.94, 5225.84, 5672.15, 6291.63]
-monthly_ghg = [250.0, 240.0, 260.0, 250.0, 260.0, 230.0, 280.0, 270.0, 260.0, 250.0, 240.0, 250.0]
+# monthly_ghg = [250.0, 240.0, 260.0, 250.0, 260.0, 230.0, 280.0, 270.0, 260.0, 250.0, 240.0, 250.0]
 monthly_ng = [5.7, 4.01, 0.58, 0.4, 0.02, 0, 0, 0, 0, 0.01, 0.36, 6.08]
 monthly_elec_peak = [15.42, 15.5, 16.25, 16.65, 18.56, 20.01, 20.82, 21.12, 20.42, 20.08, 17.4, 16.3]
 
@@ -1040,7 +1040,7 @@ def create_monthly(values, resource_use_id, start_year, tsrq="Energy", rt="Total
     return monthly
 
 elec_ts = create_monthly(monthly_elec, elec_ru["ID"], 2019)
-ghg_ts = create_monthly(monthly_ghg, ghg_ru["ID"], 2019, tsrq="Greenhouse Gas Emissions")
+# ghg_ts = create_monthly(monthly_ghg, ghg_ru["ID"], 2019, tsrq="Greenhouse Gas Emissions")
 ng_ts = create_monthly(monthly_ng, ng_ru["ID"], 2019)
 elec_peak_ts = create_monthly(monthly_elec_peak, elec_ru["ID"], 2019, "Power", "Peak")
 
@@ -1052,7 +1052,7 @@ def add_to_full(months, full):
         full += month
 
 add_to_full(elec_ts, full_ts_data)
-add_to_full(ghg_ts, full_ts_data)
+# add_to_full(ghg_ts, full_ts_data)
 add_to_full(ng_ts, full_ts_data)
 add_to_full(elec_peak_ts, full_ts_data)
 add_to_full(elec_cost_ts, full_ts_data)
