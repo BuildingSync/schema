@@ -9,7 +9,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7.2
@@ -17,7 +17,7 @@ jobs:
       - name: Test
         run: bundle exec rake
       - name: Checkout xs3p
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           repository: macintoshpie/xs3p
           path: xs3p
