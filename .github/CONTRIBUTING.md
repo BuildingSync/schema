@@ -109,15 +109,14 @@ how to use your new functionality.
 
 For further questions or information:
 
-&nbsp;&nbsp;&nbsp;&nbsp;Luigi Gentile Polese<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Katherine Fleming<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;BuildingSync Project Management<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;luigi.gentile.polese@nrel.gov<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;303.275.4362<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;katherine.fleming@nlr.gov<br/>
 
 BuildingSync is funded by the U.S. Department of Energy’s (DOE) Building Technologies Office (BTO), and
-managed by the National Renewable Energy Laboratory (NREL).
+managed by the National Laboratory of the Rockies (NLR).
 
-BuildingSync is developed in collaboration with NREL, LBNL, and private firms.
+BuildingSync is developed in collaboration with NLR, LBNL, and private firms.
 
 **Documents**
 
