@@ -52,7 +52,7 @@ def main():
     from_file, to_file = get_args().from_file, get_args().to_file
 
     try:
-        tree = etree.parse(from_file)  # noqa: S320
+        tree = etree.parse(from_file)
     except (FileNotFoundError, etree.ParseError) as e:
         sys.exit(f"File could not be read \n{e} \naborting...")
 
