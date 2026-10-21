@@ -259,7 +259,7 @@
                                           <xs:documentation>Details about the the assessment. This might include methods used, criteria, evidence, or basis of evaluation.</xs:documentation>
                                         </xs:annotation>
                                       </xs:element>
-                                      <xs:element name="Tightness" type="auc:Tightness" minOccurs="0">
+                                      <xs:element name="Tightness" type="auc:TightnessType" minOccurs="0">
                                         <xs:annotation>
                                           <xs:documentation>Description of the infiltration characteristics for an opaque surface, fenestration unit, a thermal zone.</xs:documentation>
                                         </xs:annotation>
@@ -10677,7 +10677,7 @@
           <xs:documentation>True if fenestration is weatherstripped, false otherwise.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="TightnessFitCondition" type="auc:Tightness" minOccurs="0">
+      <xs:element name="TightnessFitCondition" type="auc:TightnessType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Indicator of expected air leakage through fenestration.</xs:documentation>
         </xs:annotation>
@@ -15598,7 +15598,7 @@
       <xs:enumeration value="Unknown"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:simpleType name="Tightness">
+  <xs:simpleType name="TightnessType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Very Tight"/>
       <xs:enumeration value="Tight"/>
