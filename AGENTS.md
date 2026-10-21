@@ -26,6 +26,7 @@ BuildingSync is an XML schema (`BuildingSync.xsd`, namespace prefix `auc`) for e
 ## Commands
 
 - Tests (CI): `bundle exec rake` then `bundle exec rake generate_data_dictionary` (the latter also detects name conflicts).
+- `generate_data_dictionary` writes `docs/DataDictionary.xlsx` and `docs/enumerations.json`; these are release artifacts built by the publish workflow. Do not commit them; delete them after a local run.
 - Format XSD/examples (removes tabs and XMLSpy comments, 2-space indent): `bundle exec rake remove_tabs`.
 - Lint/format everything else: `poetry run pre-commit run --all-files` (prettier for Markdown/YAML/JSON, ruff for Python with line length 140, trailing whitespace, end-of-file newline, JSON pretty-format).
 - Bulk documentation edits: `bundle exec rake generate_documentation_csv`, edit `updated_documentation` column, then `bundle exec rake update_documentation`.
@@ -52,7 +53,7 @@ Deprecation policy (in the XSD header): **"Schema elements may only be removed b
 
 ## Workflow for a schema change
 
-1. Non-trivial features start with a proposal in `proposals/<current year>/<Title Case Name>.md` containing at least **Overview**, **Justification**, **Implementation** (breaking changes must discuss severity); optional **References**.
+1. Every change to `BuildingSync.xsd` other than a documentation-only edit needs a proposal in `proposals/<current year>/<Title Case Name>.md` containing at least **Overview**, **Justification**, **Implementation** (state the breaking/non-breaking/patch classification; breaking changes must discuss severity and migration); optional **References**. If you skip a proposal, say so explicitly and explain why.
 2. Edit `BuildingSync.xsd` following [.github/instructions/schema-xsd.instructions.md](.github/instructions/schema-xsd.instructions.md).
 3. Update or add `examples/*.xml` when the change affects them; keep examples free of deprecated elements where possible.
 4. If a linking (`IDref`) element is added, update [docs/linking_elements.md](docs/linking_elements.md).
@@ -61,7 +62,7 @@ Deprecation policy (in the XSD header): **"Schema elements may only be removed b
 
 ## Pull requests ([docs/developer_resources.md](docs/developer_resources.md), `.github/workflows/CI_Labels.yml`)
 
-- One logical/discrete change per PR (e.g. removing an element is separate from adding an unrelated enum).
+- One logical/discrete change per PR (e.g. removing an element is separate from adding an unrelated enum). A proposal and its implementation count as one change and may share a PR; separate PRs are not required.
 - Use [.github/PULL_REQUEST_TEMPLATE.md](.github/PULL_REQUEST_TEMPLATE.md): background, what it does, how to test, relevant tickets, screenshots.
 - Labels (CI-enforced on `develop-v2`/`develop-v3`): either exactly one of `Breaking Change` / `Non-breaking Change` **plus** a `Schema: ...` scope label (`Controls`, `Documentation`, `General`, `Measures`, `Reports`, `Systems`, `Validation`), or `No Schema Changes` alone, or `ignore` alone (release/procedural PRs).
 - Contributions align with the release schedule: two releases per year (about end of May and November), cutoff about two weeks before ([.github/CONTRIBUTING.md](.github/CONTRIBUTING.md)).
