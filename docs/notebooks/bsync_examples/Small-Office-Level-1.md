@@ -835,11 +835,11 @@ utilities += ng_ut
 
 Now that we have a current building measured scenario, we want to declare energy and monthly billing data. Per Std 211 6.1.2.1, a minimum of 12 months (preferably up to 3 years) of energy use data is required. The mechanical system of the small office prototype is a heatpump air handler with natural gas backup. We know that Missoula is cold, so likely it will use natural gas backup at some point during its operation. We run an example simulation to get estimates for this, which come out as follows:
 
-| Resource Type          | Jan     | Feb     | Mar     | Apr    | May     | Jun     | Jul     | Aug     | Sep     | Oct     | Nov     | Dec     |
+| Resource Type | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |
 | ---------------------- | ------- | ------- | ------- | ------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ----- |
-| Electricity (kWh)      | 6792.89 | 5841.75 | 6025.19 | 4985.3 | 5184.04 | 5358.55 | 5755.67 | 5981.78 | 5401.94 | 5225.84 | 5672.15 | 6291.63 |
-| Natural Gas (MMBtu)    | 5.7     | 4.01    | 0.58    | 0.4    | 0.02    | 0       | 0       | 0       | 0       | 0.01    | 0.36    | 6.08    | 17.16 |
-| GHG Emissions (MtCO2e) | 250.0   | 240.0   | 260.0   | 250.0  | 260.0   | 230.0   | 280.0   | 270.0   | 260.0   | 250.0   | 240.0   | 250.0   |
+| Electricity (kWh) | 6792.89 | 5841.75 | 6025.19 | 4985.3 | 5184.04 | 5358.55 | 5755.67 | 5981.78 | 5401.94 | 5225.84 | 5672.15 | 6291.63 |
+| Natural Gas (MMBtu) | 5.7 | 4.01 | 0.58 | 0.4 | 0.02 | 0 | 0 | 0 | 0 | 0.01 | 0.36 | 6.08 | 17.16 |
+| GHG Emissions (MtCO2e) | 250.0 | 240.0 | 260.0 | 250.0 | 260.0 | 230.0 | 280.0 | 270.0 | 260.0 | 250.0 | 240.0 | 250.0 |
 
 In BuildingSync land, we need to declare an resource use for each resource type. Standard, allowable enumerations exist for this already. We do this as follows:
 
