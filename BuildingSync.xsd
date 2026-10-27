@@ -2262,6 +2262,9 @@
                         <xs:enumeration value="EnergyIQ"/>
                         <xs:enumeration value="Labs21"/>
                         <xs:enumeration value="Fabs21"/>
+                        <xs:enumeration value="EPMI"/>
+                        <xs:enumeration value="ASHRAE Building EQ"/>
+                        <xs:enumeration value="CIBSE"/>
                         <xs:enumeration value="Other"/>
                       </xs:restriction>
                     </xs:simpleType>
@@ -14503,15 +14506,7 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="RECSType">
-    <xs:sequence>
-      <xs:element name="RECSSurveyYear" type="xs:gYear" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Year of the RECS survey data release used for benchmarking (e.g., 2020). (CCYY)</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+  <xs:complexType name="RECSType"/>
   <xs:complexType name="ElectricResistanceType"/>
   <xs:complexType name="EngineeringCalculationType"/>
   <xs:complexType name="EstimatedType"/>
