@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Illustrative example for the proposal "Define TimeOfWeekTemperatureModel Parameters" (issue #285).
+     It validates only after the proposal is implemented in BuildingSync.xsd.
+     Coefficient lists are shortened; a full hourly model has 168 TimeOfWeekCoefficient values split across the two modes. -->
+<auc:BuildingSync xmlns:auc="http://buildingsync.net/schemas/bedes-auc/2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://buildingsync.net/schemas/bedes-auc/2019 ../../../BuildingSync.xsd" version="2.7.0">
+  <auc:Facilities>
+    <auc:Facility ID="Facility-1">
+      <auc:Sites>
+        <auc:Site ID="Site-1">
+          <auc:Buildings>
+            <auc:Building ID="Building-1">
+              <auc:PremisesName>Example Office</auc:PremisesName>
+            </auc:Building>
+          </auc:Buildings>
+        </auc:Site>
+      </auc:Sites>
+      <auc:Reports>
+        <auc:Report ID="Report-1">
+          <auc:Scenarios>
+            <auc:Scenario ID="Scenario-Measured">
+              <auc:ScenarioType>
+                <auc:CurrentBuilding>
+                  <auc:CalculationMethod>
+                    <auc:Measured/>
+                  </auc:CalculationMethod>
+                </auc:CurrentBuilding>
+              </auc:ScenarioType>
+              <auc:ResourceUses>
+                <auc:ResourceUse ID="ResourceUse-Electricity">
+                  <auc:EnergyResource>Electricity</auc:EnergyResource>
+                  <auc:ResourceUnits>kWh</auc:ResourceUnits>
+                  <auc:EndUse>All end uses</auc:EndUse>
+                </auc:ResourceUse>
+              </auc:ResourceUses>
+              <auc:LinkedPremises>
+                <auc:Building>
+                  <auc:LinkedBuildingID IDref="Building-1"/>
+                </auc:Building>
+              </auc:LinkedPremises>
+            </auc:Scenario>
+            <auc:Scenario ID="Scenario-DerivedModel">
+              <auc:ScenarioType>
+                <auc:DerivedModel ID="DerivedModel-1">
+                  <auc:DerivedModelName>Baseline TOWT</auc:DerivedModelName>
+                  <auc:MeasuredScenarioID IDref="Scenario-Measured"/>
+                  <auc:Models>
+                    <auc:Model ID="Model-TOWT-Baseline">
+                      <auc:StartTimestamp>2025-01-01T00:00:00</auc:StartTimestamp>
+                      <auc:EndTimestamp>2025-12-31T23:00:00</auc:EndTimestamp>
+                      <auc:DerivedModelInputs>
+                        <auc:IntervalFrequency>Hour</auc:IntervalFrequency>
+                        <auc:ResponseVariable>
+                          <auc:ResponseVariableName>Electricity</auc:ResponseVariableName>
+                          <auc:ResponseVariableUnits>kWh</auc:ResponseVariableUnits>
+                          <auc:ResponseVariableEndUse>All end uses</auc:ResponseVariableEndUse>
+                        </auc:ResponseVariable>
+                        <auc:ExplanatoryVariables>
+                          <auc:ExplanatoryVariable>
+                            <auc:ExplanatoryVariableName>Drybulb Temperature</auc:ExplanatoryVariableName>
+                            <auc:ExplanatoryVariableUnits>Fahrenheit, F</auc:ExplanatoryVariableUnits>
+                          </auc:ExplanatoryVariable>
+                        </auc:ExplanatoryVariables>
+                      </auc:DerivedModelInputs>
+                      <auc:DerivedModelCoefficients>
+                        <auc:TimeOfWeekTemperatureModel>
+                          <auc:TimeOfWeekBinCount>168</auc:TimeOfWeekBinCount>
+                          <auc:OccupancyThreshold>0.65</auc:OccupancyThreshold>
+                          <auc:TemperatureKnots>
+                            <auc:TemperatureKnot>30</auc:TemperatureKnot>
+                            <auc:TemperatureKnot>45</auc:TemperatureKnot>
+                            <auc:TemperatureKnot>55</auc:TemperatureKnot>
+                            <auc:TemperatureKnot>65</auc:TemperatureKnot>
+                            <auc:TemperatureKnot>75</auc:TemperatureKnot>
+                            <auc:TemperatureKnot>90</auc:TemperatureKnot>
+                          </auc:TemperatureKnots>
+                          <auc:OccupancyModes>
+                            <auc:OccupancyMode>
+                              <auc:OccupancyModeType>Occupied</auc:OccupancyModeType>
+                              <auc:TimeOfWeekCoefficients>
+                                <!-- Monday 08:00-11:00 (bins 9-12); ...remaining occupied bins omitted -->
+                                <auc:TimeOfWeekCoefficient TimeOfWeekBin="9">42.8</auc:TimeOfWeekCoefficient>
+                                <auc:TimeOfWeekCoefficient TimeOfWeekBin="10">51.3</auc:TimeOfWeekCoefficient>
+                                <auc:TimeOfWeekCoefficient TimeOfWeekBin="11">54.6</auc:TimeOfWeekCoefficient>
+                                <auc:TimeOfWeekCoefficient TimeOfWeekBin="12">55.1</auc:TimeOfWeekCoefficient>
+                              </auc:TimeOfWeekCoefficients>
+                              <auc:TemperatureSegmentCoefficients>
+                                <auc:TemperatureSegmentCoefficient TemperatureSegment="1">-0.42</auc:TemperatureSegmentCoefficient>
+                                <auc:TemperatureSegmentCoefficient TemperatureSegment="2">-0.18</auc:TemperatureSegmentCoefficient>
+                                <auc:TemperatureSegmentCoefficient TemperatureSegment="3">0.02</auc:TemperatureSegmentCoefficient>
+                                <auc:TemperatureSegmentCoefficient TemperatureSegment="4">0.31</auc:TemperatureSegmentCoefficient>
+                                <auc:TemperatureSegmentCoefficient TemperatureSegment="5">0.87</auc:TemperatureSegmentCoefficient>
+                                <auc:TemperatureSegmentCoefficient TemperatureSegment="6">1.24</auc:TemperatureSegmentCoefficient>
+                                <auc:TemperatureSegmentCoefficient TemperatureSegment="7">1.40</auc:TemperatureSegmentCoefficient>
+                              </auc:TemperatureSegmentCoefficients>
+                            </auc:OccupancyMode>
+                            <auc:OccupancyMode>
+                              <auc:OccupancyModeType>Unoccupied</auc:OccupancyModeType>
+                              <auc:TimeOfWeekCoefficients>
+                                <!-- Monday 00:00-03:00 (bins 1-4); ...remaining unoccupied bins omitted -->
+                                <auc:TimeOfWeekCoefficient TimeOfWeekBin="1">18.2</auc:TimeOfWeekCoefficient>
+                                <auc:TimeOfWeekCoefficient TimeOfWeekBin="2">17.9</auc:TimeOfWeekCoefficient>
+                                <auc:TimeOfWeekCoefficient TimeOfWeekBin="3">17.6</auc:TimeOfWeekCoefficient>
+                                <auc:TimeOfWeekCoefficient TimeOfWeekBin="4">17.8</auc:TimeOfWeekCoefficient>
+                              </auc:TimeOfWeekCoefficients>
+                              <auc:TemperatureSegmentCoefficients>
+                                <auc:TemperatureSegmentCoefficient TemperatureSegment="1">-0.21</auc:TemperatureSegmentCoefficient>
+                                <auc:TemperatureSegmentCoefficient TemperatureSegment="2">-0.09</auc:TemperatureSegmentCoefficient>
+                                <auc:TemperatureSegmentCoefficient TemperatureSegment="3">0.00</auc:TemperatureSegmentCoefficient>
+                                <auc:TemperatureSegmentCoefficient TemperatureSegment="4">0.08</auc:TemperatureSegmentCoefficient>
+                                <auc:TemperatureSegmentCoefficient TemperatureSegment="5">0.22</auc:TemperatureSegmentCoefficient>
+                                <auc:TemperatureSegmentCoefficient TemperatureSegment="6">0.35</auc:TemperatureSegmentCoefficient>
+                                <auc:TemperatureSegmentCoefficient TemperatureSegment="7">0.41</auc:TemperatureSegmentCoefficient>
+                              </auc:TemperatureSegmentCoefficients>
+                            </auc:OccupancyMode>
+                          </auc:OccupancyModes>
+                        </auc:TimeOfWeekTemperatureModel>
+                      </auc:DerivedModelCoefficients>
+                      <auc:DerivedModelPerformance>
+                        <auc:RSquared>0.91</auc:RSquared>
+                        <auc:CVRMSE>14.2</auc:CVRMSE>
+                        <auc:NMBE>0.00</auc:NMBE>
+                      </auc:DerivedModelPerformance>
+                      <auc:SummaryInformation>
+                        <auc:NumberOfDataPoints>8760</auc:NumberOfDataPoints>
+                        <auc:NumberOfParameters>182</auc:NumberOfParameters>
+                      </auc:SummaryInformation>
+                    </auc:Model>
+                  </auc:Models>
+                </auc:DerivedModel>
+              </auc:ScenarioType>
+            </auc:Scenario>
+          </auc:Scenarios>
+        </auc:Report>
+      </auc:Reports>
+    </auc:Facility>
+  </auc:Facilities>
+</auc:BuildingSync>
