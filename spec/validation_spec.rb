@@ -278,3 +278,89 @@ RSpec.describe 'No naming collisions within the schema' do
     expect(dupe_names).to be_empty
   end
 end
+
+# Deprecated elements and enumerations are detected from `xs:documentation` text matching /deprecat/i.
+# - Deprecation on a local element or on a `ref` applies only to that location (parent element).
+# - Deprecation on a global element applies to all of its refs, except under the replacement path
+#   named in the documentation (e.g. "use WeatherStations/WeatherStation/WeatherDataStationID").
+RSpec.describe 'No deprecated elements in examples' do
+  it 'should warn about deprecated elements or enumerations' do
+    xsd = Nokogiri::XML(File.read('BuildingSync.xsd'))
+    ns = { 'xs' => 'http://www.w3.org/2001/XMLSchema' }
+
+    deprecation_doc = lambda do |node|
+      node.xpath('./xs:annotation/xs:documentation', ns).map(&:text).find { |t| t =~ /deprecat/i }
+    end
+
+    # Instance names of the element(s) that directly contain an XSD node
+    instance_parents = lambda do |node|
+      ancestor = node.parent
+      ancestor = ancestor.parent until ancestor.nil? || ancestor.is_a?(Nokogiri::XML::Document) ||
+                                       (ancestor.name == 'element' && ancestor['name']) ||
+                                       (%w(complexType simpleType).include?(ancestor.name) && ancestor['name'])
+      next [] if ancestor.nil? || ancestor.is_a?(Nokogiri::XML::Document)
+      next [ancestor['name']] if ancestor.name == 'element'
+
+      xsd.xpath("//xs:element[@type='auc:#{ancestor['name']}']", ns).map { |e| e['name'] || e['ref'].sub('auc:', '') }
+    end
+
+    rules = [] # { name:, parents: [..], value: nil|String, note: }
+    xsd.xpath('//xs:element', ns).each do |el|
+      doc = deprecation_doc.call(el)
+      next unless doc
+
+      name = el['name'] || el['ref'].sub('auc:', '')
+      if el.parent.name == 'schema'
+        segments = doc[/use\s+([\w\/]+)/i, 1].to_s.split('/')
+        replacement_parent = segments.last == name ? segments[-2] : nil
+        parents = xsd.xpath("//xs:element[@ref='auc:#{name}']", ns).flat_map { |r| instance_parents.call(r) }.uniq - [replacement_parent]
+      else
+        parents = instance_parents.call(el)
+      end
+      rules << { name: name, parents: parents, value: nil, note: doc.strip }
+    end
+    xsd.xpath('//xs:enumeration', ns).each do |enum|
+      doc = deprecation_doc.call(enum)
+      next unless doc
+
+      owner = enum.ancestors('element').first
+      names = if owner && owner['name']
+                [owner['name']]
+              else
+                instance_parents.call(enum.parent) # named simpleType -> elements of that type
+              end
+      names.each { |n| rules << { name: n, parents: nil, value: enum['value'], note: doc.strip } }
+    end
+
+    expect(rules).not_to be_empty
+
+    auc_ns = 'http://buildingsync.net/schemas/bedes-auc/2019'
+    findings = []
+    Dir['examples/*.xml'].sort.each do |xml|
+      next if xml =~ /Invalid Schema/
+
+      doc = Nokogiri::XML(File.read(xml))
+      counts = Hash.new(0)
+      doc.xpath('//*').each do |node|
+        next unless node.namespace&.href == auc_ns
+
+        rules.each do |rule|
+          next unless node.name == rule[:name]
+
+          if rule[:value]
+            counts["#{rule[:name]}=#{rule[:value]}"] += 1 if node.text.strip == rule[:value]
+          elsif rule[:parents].include?(node.parent.name)
+            counts["#{node.parent.name}/#{rule[:name]}"] += 1
+          end
+        end
+      end
+      counts.each { |usage, count| findings << "#{xml}: #{usage} (#{count})" }
+    end
+
+    # Warning only: deprecated usages are reported but do not fail the build.
+    unless findings.empty?
+      warn 'WARNING: Deprecated usages found in examples:'
+      findings.each { |f| warn "  #{f}" }
+    end
+  end
+end
