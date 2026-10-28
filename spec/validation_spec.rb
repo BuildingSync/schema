@@ -335,12 +335,12 @@ RSpec.describe 'No deprecated elements in examples' do
     expect(rules).not_to be_empty
 
     auc_ns = 'http://buildingsync.net/schemas/bedes-auc/2019'
-    findings = []
+    findings = [] # { file:, usage:, lines: [..] }
     Dir['examples/*.xml'].sort.each do |xml|
       next if xml =~ /Invalid Schema/
 
       doc = Nokogiri::XML(File.read(xml))
-      counts = Hash.new(0)
+      lines = Hash.new { |h, k| h[k] = [] }
       doc.xpath('//*').each do |node|
         next unless node.namespace&.href == auc_ns
 
@@ -348,19 +348,33 @@ RSpec.describe 'No deprecated elements in examples' do
           next unless node.name == rule[:name]
 
           if rule[:value]
-            counts["#{rule[:name]}=#{rule[:value]}"] += 1 if node.text.strip == rule[:value]
+            lines["#{rule[:name]}=#{rule[:value]}"] << node.line if node.text.strip == rule[:value]
           elsif rule[:parents].include?(node.parent.name)
-            counts["#{node.parent.name}/#{rule[:name]}"] += 1
+            lines["#{node.parent.name}/#{rule[:name]}"] << node.line
           end
         end
       end
-      counts.each { |usage, count| findings << "#{xml}: #{usage} (#{count})" }
+      lines.each { |usage, ls| findings << { file: File.basename(xml), usage: usage, lines: ls.uniq } }
     end
 
     # Warning only: deprecated usages are reported but do not fail the build.
     unless findings.empty?
       warn 'WARNING: Deprecated usages found in examples:'
-      findings.each { |f| warn "  #{f}" }
+      findings.each { |f| warn "  examples/#{f[:file]}: #{f[:usage]} (#{f[:lines].size}) lines #{f[:lines].join(', ')}" }
+
+      # In GitHub Actions, also write a table to the job summary
+      summary_path = ENV['GITHUB_STEP_SUMMARY']
+      if summary_path && !summary_path.empty?
+        File.open(summary_path, 'a') do |f|
+          f.puts '### Deprecated elements/enumerations used in examples', ''
+          f.puts '| Example | Deprecated usage | Count | Lines |', '| --- | --- | --- | --- |'
+          findings.each do |r|
+            shown = r[:lines].first(10).join(', ') + (r[:lines].size > 10 ? ', ...' : '')
+            f.puts "| #{r[:file]} | `#{r[:usage]}` | #{r[:lines].size} | #{shown} |"
+          end
+          f.puts ''
+        end
+      end
     end
   end
 end
