@@ -157,6 +157,9 @@ RSpec.describe 'Validate Examples' do
     schema_doc = Nokogiri::XML(File.read('BuildingSync.xsd'))
 
     expect(schema_doc.xpath("//xs:element[@name='Capacity']", xsd_ns).length).to eq 1
+    expect(schema_doc.xpath("//xs:element[@name='CBECS']", xsd_ns).length).to eq 1
+    expect(schema_doc.at_xpath("/xs:schema/xs:element[@name='CBECS']", xsd_ns)['type']).to eq 'auc:CBECSType'
+    expect(schema_doc.xpath("//xs:element[@ref='auc:CBECS']", xsd_ns).length).to eq 2
     expect(schema_doc.xpath("//xs:element[@name='ControlSystemTypes']", xsd_ns).length).to eq 1
     expect(schema_doc.xpath("//xs:element[@name='Controls']", xsd_ns).length).to eq 2
     expect(schema_doc.xpath("//xs:element[@name='Control']", xsd_ns).length).to eq 2
@@ -166,7 +169,7 @@ RSpec.describe 'Validate Examples' do
     expect(schema_doc.xpath("//xs:element[@ref='auc:Controls']", xsd_ns).length).to eq 19
     expect(schema_doc.xpath("//xs:element[@ref='auc:ControlSystemTypes']", xsd_ns).length).to eq 3
     expect(schema_doc.xpath("//xs:element[@ref='auc:Other']", xsd_ns).length).to eq 16
-    %w[Capacity Controls ControlSystemTypes Other].each do |name|
+    %w[Capacity CBECS Controls ControlSystemTypes Other].each do |name|
       schema_doc.xpath("//xs:element[@ref='auc:#{name}']", xsd_ns).each do |node|
         expect(node['minOccurs']).to eq '0'
         expect(node['maxOccurs'] || '1').to eq '1'
@@ -228,6 +231,44 @@ RSpec.describe 'Validate Examples' do
       no_capacity_target = target_builder.call(no_capacity_doc)
       no_capacity_target.xpath('auc:OutputCapacity | auc:Capacity', auc_ns).remove
       expect_valid(no_capacity_doc)
+      end
+    end
+  end
+
+  it 'keeps consolidated CBECS behavior in benchmark and climate zone contexts' do
+    contexts = {
+      'Benchmark' => lambda { |doc, cbecs_xml|
+        scenario = doc.at_xpath("//auc:Scenario[@ID='ScenarioType-70049018982360']/auc:ScenarioType", auc_ns)
+        scenario.children.remove
+        scenario.add_child(auc_node("<auc:Benchmark><auc:BenchmarkType>#{cbecs_xml}</auc:BenchmarkType></auc:Benchmark>"))
+      },
+      'ClimateZoneType' => lambda { |doc, cbecs_xml|
+        climate_zone_type = doc.at_xpath('//auc:ClimateZoneType', auc_ns)
+        climate_zone_type.children.remove
+        climate_zone_type.add_child(auc_node(cbecs_xml))
+      }
+    }
+    examples = {
+      'Benchmark' => 'examples/AT_example_SF_audit_report.xml',
+      'ClimateZoneType' => 'examples/BuildingSync Website Valid Schema.xml'
+    }
+
+    contexts.each do |name, builder|
+      aggregate_failures(name) do
+        ['<auc:CBECS/>', '<auc:CBECS><auc:ClimateZone>1</auc:ClimateZone></auc:CBECS>',
+         '<auc:CBECS><auc:ClimateZone>5</auc:ClimateZone></auc:CBECS>'].each do |xml|
+          doc = load_example(examples[name])
+          builder.call(doc, xml)
+          expect_valid(doc)
+        end
+
+        ['<auc:CBECS><auc:ClimateZone>6</auc:ClimateZone></auc:CBECS>',
+         '<auc:CBECS><auc:ClimateZone>1</auc:ClimateZone><auc:ClimateZone>2</auc:ClimateZone></auc:CBECS>',
+         '<auc:CBECS>text</auc:CBECS>'].each do |xml|
+          doc = load_example(examples[name])
+          builder.call(doc, xml)
+          expect_invalid(doc)
+        end
       end
     end
   end
@@ -474,7 +515,6 @@ RSpec.describe 'No naming collisions within the schema' do
       'AdvancedPowerStrip',
       'AssemblyType',
       'Building',
-      'CBECS',
       'ClimateZone',
       'CommunicationProtocol',
       'Control',

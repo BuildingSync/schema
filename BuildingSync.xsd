@@ -2187,7 +2187,7 @@
                     <xs:complexType>
                       <xs:choice>
                         <xs:element ref="auc:PortfolioManager" minOccurs="0"/>
-                        <xs:element name="CBECS" type="auc:CBECSType" minOccurs="0"/>
+                        <xs:element ref="auc:CBECS" minOccurs="0"/>
                         <xs:element name="CodeMinimum" minOccurs="0">
                           <xs:complexType>
                             <xs:sequence>
@@ -12171,6 +12171,11 @@
       <xs:documentation>Other type.</xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:element name="CBECS" type="auc:CBECSType">
+    <xs:annotation>
+      <xs:documentation>Commercial Buildings Energy Consumption Survey (CBECS) characterization, including the CBECS climate zone.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:element name="ControlTechnology">
     <xs:annotation>
       <xs:documentation>Type of system operation control.</xs:documentation>
@@ -15170,7 +15175,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CBECS" type="auc:CBECSType" minOccurs="0"/>
+        <xs:element ref="auc:CBECS" minOccurs="0"/>
         <xs:element name="DOE" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
