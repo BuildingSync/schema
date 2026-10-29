@@ -71,3 +71,12 @@ The following table lists all elements that require an `IDREF` attribute, and an
 | WindowID | Window | BuildingSync/Facilities/Facility/Systems/FenestrationSystems/FenestrationSystem/FenestrationType/Window |
 
 Notes: elements with \* marks will be renamed soon to enhance consistency; elements with \*\*\* in names refer to multiple options (any valid element with name matching the pattern) within the path.
+
+## Guidance for LinkedPremises
+
+`LinkedPremises` (and `LinkedPremisesOrSystem`) associates a system, measure, scenario, or other element with one or more Facilities, Sites, Buildings, Sections, ThermalZones, or Spaces. The schema does not restrict which premises level an element links to. The following are suggested best practices only; specific use cases (e.g. Schematron use cases or tools) may define different linking conventions as intended for their purposes.
+
+1. **Links are structural.** A link only records the identity of its source and target. It carries no additional meaning (e.g. "primary", "partial", or "metered") beyond "this element applies to that premises".
+2. **Prefer the most specific premises served.** If a system serves only some Sections, ThermalZones, or Spaces, consider linking to those rather than to the parent Building. Linking to a Building (or Site/Facility) is appropriate when the element applies to the whole premises or when finer detail is not available.
+3. **Avoid redundant links up the hierarchy.** Linking to a child premises (e.g. a Section) implies its ancestors (e.g. the Building), so linking to the ancestor as well is generally unnecessary.
+4. **Apportioning.** When an element is linked to multiple premises, power consuming system loads are distributed in proportion to the floor areas of the linked premises, and envelope systems in proportion to their exterior surface areas, as stated in the `LinkedPremises` schema documentation.
