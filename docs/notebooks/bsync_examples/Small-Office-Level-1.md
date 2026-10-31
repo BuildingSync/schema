@@ -56,10 +56,24 @@ def bsync_dump(root_element, file="example1.xml"):
     as_etree = root_element.toxml()
     # Have to manually set the declaration header right now
     as_etree.set("xmlns", "http://buildingsync.net/schemas/bedes-auc/2019")
+    as_etree.set("{http://www.w3.org/2001/XMLSchema-instance}schemaLocation",
+                 "http://buildingsync.net/schemas/bedes-auc/2019 ../../../BuildingSync.xsd")
     as_etree.set("version", "2.7.0")
     output = etree.tostring(as_etree, doctype=doctype, pretty_print=True)
     with open(file, "wb+") as f:
         f.write(output)
+```
+
+## Notebook Options
+
+Greenhouse gas (GHG) emissions are not required by the Level 1 (L100) audit use case. Set `INCLUDE_EMISSIONS` before running the rest of the notebook:
+
+- `False` (default): writes `example-smalloffice-level1.xml`, a minimal L100 audit document.
+- `True`: additionally writes emissions data (`Emissions` on the electricity `ResourceUse`, monthly `Greenhouse Gas Emissions` timeseries, GHG totals and savings) plus an indoor air quality monitoring report, and writes `example-with-emissions.xml`.
+
+```python
+INCLUDE_EMISSIONS = False
+OUTPUT_FILE = "example-with-emissions.xml" if INCLUDE_EMISSIONS else "example-smalloffice-level1.xml"
 ```
 
 # Starting the Audit
@@ -839,9 +853,11 @@ Now that we have a current building measured scenario, we want to declare energy
 | ---------------------- | ------- | ------- | ------- | ------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ----- |
 | Electricity (kWh) | 6792.89 | 5841.75 | 6025.19 | 4985.3 | 5184.04 | 5358.55 | 5755.67 | 5981.78 | 5401.94 | 5225.84 | 5672.15 | 6291.63 |
 | Natural Gas (MMBtu) | 5.7 | 4.01 | 0.58 | 0.4 | 0.02 | 0 | 0 | 0 | 0 | 0.01 | 0.36 | 6.08 | 17.16 |
-| GHG Emissions (MtCO2e) | 250.0 | 240.0 | 260.0 | 250.0 | 260.0 | 230.0 | 280.0 | 270.0 | 260.0 | 250.0 | 240.0 | 250.0 |
+| GHG Emissions (MtCO2e), only if `INCLUDE_EMISSIONS` | 250.0 | 240.0 | 260.0 | 250.0 | 260.0 | 230.0 | 280.0 | 270.0 | 260.0 | 250.0 | 240.0 | 250.0 |
 
 In BuildingSync land, we need to declare an resource use for each resource type. Standard, allowable enumerations exist for this already. We do this as follows:
+
+> Note: Emissions are not a resource, so do not model them as a separate `ResourceUse`: every `ResourceUse` in the measured scenario must satisfy the L100 rules (utility link, monthly Total/Cost/Peak series, annual totals). Instead, add `Emissions/Emission` to the `ResourceUse` that produces them and link `TimeSeries` with `TimeSeriesReadingQuantity` of `Greenhouse Gas Emissions` to that same `ResourceUse`. This is what `INCLUDE_EMISSIONS = True` does.
 
 ```python
 all_ru = bsync.ResourceUses()
@@ -867,22 +883,15 @@ elec_ru += bsync.AnnualPeakNativeUnits(21.12) # kW as specified above
 elec_ru += bsync.AnnualPeakConsistentUnits(21.12) # already in kW, same as above
 elec_ru += bsync.AnnualFuelCost(5304.) # $28 monthly + $0.0725/kwh per https://missoulaelectric.com/member-care/billing-payment/rates/
 
-# # create a resource use for greenhouse gas emissions, units of MtCO2e, all end uses
-# ghg_linked_ids = bsync.EmissionsLinkedTimeSeriesIDs()
-# for month in range(1,13):
-#     ghg_linked_ids += bsync.EmissionsLinkedTimeSeriesID(IDref=f"TS-ResourceUse-GreenhouseGasEmissions-{month}")
-
-
-# ghg_ru = bsync.ResourceUse(
-#     bsync.Emissions(
-#         bsync.Emission(
-#             bsync.EmissionBoundary("Indirect"),
-#             bsync.EmissionsType("CO2e"),
-#             bsync.GHGEmissions(25000.0),
-#             ghg_linked_ids
-#         )
-#     )
-# )
+# optionally, attach the GHG emissions caused by the electricity use (units of MtCO2e).
+# The monthly emissions timeseries are linked to this Emission further below.
+if INCLUDE_EMISSIONS:
+    elec_emission = bsync.Emission(
+        bsync.EmissionBoundary("Indirect"),
+        bsync.EmissionsType("CO2e"),
+        bsync.GHGEmissions(25000.0)
+    )
+    elec_ru += bsync.Emissions(elec_emission)
 
 # create a resource use for natural gas, units of MMBtu, all end uses
 # additional connect it up to the utility
@@ -903,12 +912,10 @@ ng_ru += bsync.AnnualFuelCost(91.63) # ~ $5.50/1000ft3 NG per https://naturalgas
 
 # add these to the ResourceUses parent element
 all_ru += elec_ru
-# all_ru += ghg_ru
 all_ru += ng_ru
 
 # we can still add information to the child elements
 elec_ru["ID"] = "ResourceUse-Electricity"
-# ghg_ru["ID"] = "ResourceUse-GreenhouseGasEmissions"
 ng_ru["ID"] = "ResourceUse-Natural-gas"
 
 # ResourceUses are child elements of a specific scenario:
@@ -985,8 +992,8 @@ full_ts_data = bsync.TimeSeriesData()
 
 # usage and peak data
 monthly_elec = [6792.89, 5841.75, 6025.19, 4985.3, 5184.04, 5358.55, 5755.67, 5981.78, 5401.94, 5225.84, 5672.15, 6291.63]
-# monthly_ghg = [250.0, 240.0, 260.0, 250.0, 260.0, 230.0, 280.0, 270.0, 260.0, 250.0, 240.0, 250.0]
 monthly_ng = [5.7, 4.01, 0.58, 0.4, 0.02, 0, 0, 0, 0, 0.01, 0.36, 6.08]
+monthly_ghg = [250.0, 240.0, 260.0, 250.0, 260.0, 230.0, 280.0, 270.0, 260.0, 250.0, 240.0, 250.0]
 monthly_elec_peak = [15.42, 15.5, 16.25, 16.65, 18.56, 20.01, 20.82, 21.12, 20.42, 20.08, 17.4, 16.3]
 
 # costs data
@@ -1015,7 +1022,7 @@ def create_monthly(values, resource_use_id, start_year, tsrq="Energy", rt="Total
         end_dt = datetime(end_year, end_month, 1)
 
         if tsrq == "Greenhouse Gas Emissions":
-            my_id = f"TS-{resource_use_id}-{start_month}"
+            my_id = f"TS-{resource_use_id}-CO2e-{start_month}"
         else:
             my_id = f"TS-{resource_use_id}-{tsrq}-{start_month}"
         ts = bsync.TimeSeries(
@@ -1040,7 +1047,6 @@ def create_monthly(values, resource_use_id, start_year, tsrq="Energy", rt="Total
     return monthly
 
 elec_ts = create_monthly(monthly_elec, elec_ru["ID"], 2019)
-# ghg_ts = create_monthly(monthly_ghg, ghg_ru["ID"], 2019, tsrq="Greenhouse Gas Emissions")
 ng_ts = create_monthly(monthly_ng, ng_ru["ID"], 2019)
 elec_peak_ts = create_monthly(monthly_elec_peak, elec_ru["ID"], 2019, "Power", "Peak")
 
@@ -1052,11 +1058,15 @@ def add_to_full(months, full):
         full += month
 
 add_to_full(elec_ts, full_ts_data)
-# add_to_full(ghg_ts, full_ts_data)
 add_to_full(ng_ts, full_ts_data)
 add_to_full(elec_peak_ts, full_ts_data)
 add_to_full(elec_cost_ts, full_ts_data)
 add_to_full(ng_cost_ts, full_ts_data)
+
+# GHG emissions timeseries point to the electricity ResourceUse that causes them
+if INCLUDE_EMISSIONS:
+    ghg_ts = create_monthly(monthly_ghg, elec_ru["ID"], 2019, tsrq="Greenhouse Gas Emissions")
+    add_to_full(ghg_ts, full_ts_data)
 
 cbms += full_ts_data
 ```
@@ -1077,6 +1087,13 @@ for each_id in ng_ids:
 
 elec_ru += elec_linked_ids
 ng_ru += ng_linked_ids
+
+# link the monthly GHG timeseries to the electricity Emission
+if INCLUDE_EMISSIONS:
+    ghg_linked_ids = bsync.EmissionsLinkedTimeSeriesIDs()
+    for each_id in ghg_ids:
+        ghg_linked_ids += bsync.EmissionsLinkedTimeSeriesID(IDref=each_id)
+    elec_emission += ghg_linked_ids
 ```
 
 #### All Resource Totals
@@ -1091,27 +1108,30 @@ We have defined monthly electricity (energy, power, cost) and natural gas (energ
 - `NetIncreaseInStoredEnergyConsistentUnits`: Corresponds to $E_{s}$
 
 ```python
-art = bsync.AllResourceTotals(
-    bsync.AllResourceTotal(
-        bsync.AllResourceTotal.SiteEnergyUse(250953.5), # reported in kBtu
-        bsync.SiteEnergyUseIntensity(45.6), # reported in kbtu/ft2
+art_1 = bsync.AllResourceTotal(
+    bsync.AllResourceTotal.SiteEnergyUse(250953.5), # reported in kBtu
+    bsync.SiteEnergyUseIntensity(45.6), # reported in kbtu/ft2
 
-        # Since there is no energy generated onsite, there is no difference btw site and building energy usage / intensity
-        bsync.BuildingEnergyUse(250953.5),
-        bsync.BuildingEnergyUseIntensity(45.6),
+    # Since there is no energy generated onsite, there is no difference btw site and building energy usage / intensity
+    bsync.BuildingEnergyUse(250953.5),
+    bsync.BuildingEnergyUseIntensity(45.6),
 
-        bsync.ImportedEnergyConsistentUnits(250.9535),  # in this case, same as building and site energy, but in MMBTU
-        bsync.OnsiteEnergyProductionConsistentUnits(0.), # no energy produced onsite, MMBtu
-        bsync.ExportedEnergyConsistentUnits(0.), # no energy exported, MMBtu
-        bsync.NetIncreaseInStoredEnergyConsistentUnits(0.),  # no energy stored, MMBtu
+    bsync.ImportedEnergyConsistentUnits(250.9535),  # in this case, same as building and site energy, but in MMBTU
+    bsync.OnsiteEnergyProductionConsistentUnits(0.), # no energy produced onsite, MMBtu
+    bsync.ExportedEnergyConsistentUnits(0.), # no energy exported, MMBtu
+    bsync.NetIncreaseInStoredEnergyConsistentUnits(0.),  # no energy stored, MMBtu
 
-        bsync.AllResourceTotal.SourceEnergyUse(759011.9), # reported in kBtu. Assume site -> source: elec = 3.167, ng = 1.084
-        bsync.SourceEnergyUseIntensity(138.0), # kbtu/ft2
-        bsync.EnergyCost(5395.),
-        bsync.EnergyCostIndex(0.98), # $/ft2
-        ID="AllResourceTotal-1"
-    )
+    bsync.AllResourceTotal.SourceEnergyUse(759011.9), # reported in kBtu. Assume site -> source: elec = 3.167, ng = 1.084
+    bsync.SourceEnergyUseIntensity(138.0), # kbtu/ft2
+    bsync.EnergyCost(5395.),
+    bsync.EnergyCostIndex(0.98), # $/ft2
+    ID="AllResourceTotal-1"
 )
+if INCLUDE_EMISSIONS:
+    art_1 += bsync.AnnualAverageGHGEmissions(15000.)
+    art_1 += bsync.AnnualMarginalGHGEmissions(25000.)
+
+art = bsync.AllResourceTotals(art_1)
 ```
 
 ```python
@@ -1178,16 +1198,15 @@ Since we used a PM score in the baseline, we will also use that for our target. 
 
 ```python
 # define the target scenario in reference to the benchmark scenario
+target_art = bsync.AllResourceTotal(
+    bsync.AllResourceTotal.SiteEnergyUse(207643.5),
+    bsync.SiteEnergyUseIntensity(37.8),
+    bsync.EnergyCost(4451.51),
+    bsync.EnergyCostIndex(0.81),
+    ID="AllResourceTotal-Target"
+)
 target_sc = bsync.Scenario(
-    bsync.AllResourceTotals(
-        bsync.AllResourceTotal(
-            bsync.AllResourceTotal.SiteEnergyUse(207643.5),
-            bsync.SiteEnergyUseIntensity(37.8),
-            bsync.EnergyCost(4451.51),
-            bsync.EnergyCostIndex(0.81),
-            ID="AllResourceTotal-Target"
-        )
-    ),
+    bsync.AllResourceTotals(target_art),
     ID="Scenario-Target"
 )
 target_st = bsync.Scenario.ScenarioType()
@@ -1197,6 +1216,11 @@ target = bsync.Target(
     bsync.AnnualSavingsCost(931),
     bsync.ENERGYSTARScore(70.),
 )
+if INCLUDE_EMISSIONS:
+    target += bsync.AnnualSavingsAverageGHGEmissions(500.)
+    target += bsync.AnnualSavingsMarginalGHGEmissions(200.)
+    target_art += bsync.AnnualAverageGHGEmissions(10000.)
+    target_art += bsync.AnnualMarginalGHGEmissions(8000.)
 
 #
 scenarios += target_sc
@@ -1303,24 +1327,23 @@ Now that the measures have been added, we create three potential POM scenarios, 
 1. LEDs and VSDs
 
 ```python
-pom_sc_1 = bsync.Scenario(
-    bsync.Scenario.ScenarioType(
-        bsync.PackageOfMeasures(
-            bsync.ReferenceCase(IDref=cbms["ID"]),
-            bsync.MeasureIDs(
-                bsync.MeasureID(IDref="Measure-LEDs")
-            ),
-            bsync.CostCategory("Capital"),
-            bsync.SimpleImpactAnalysis(
-                bsync.ImpactOnOccupantComfort("Low"),
-                bsync.EstimatedCost("Medium"),
-                bsync.EstimatedAnnualSavings("Medium"),
-                bsync.EstimatedROI("High"),
-                bsync.SimpleImpactAnalysis.Priority("Medium")
-            ),
-            ID="POM-LEDs"
-        )
+pom_1 = bsync.PackageOfMeasures(
+    bsync.ReferenceCase(IDref=cbms["ID"]),
+    bsync.MeasureIDs(
+        bsync.MeasureID(IDref="Measure-LEDs")
     ),
+    bsync.CostCategory("Capital"),
+    bsync.SimpleImpactAnalysis(
+        bsync.ImpactOnOccupantComfort("Low"),
+        bsync.EstimatedCost("Medium"),
+        bsync.EstimatedAnnualSavings("Medium"),
+        bsync.EstimatedROI("High"),
+        bsync.SimpleImpactAnalysis.Priority("Medium")
+    ),
+    ID="POM-LEDs"
+)
+pom_sc_1 = bsync.Scenario(
+    bsync.Scenario.ScenarioType(pom_1),
     ID="Scenario-POM-LEDs"
 )
 
@@ -1396,6 +1419,130 @@ scenarios += pom_sc_2
 scenarios += pom_sc_3
 ```
 
+#### Optional: POM Emissions
+
+When `INCLUDE_EMISSIONS` is set, the LEDs package also reports its expected GHG savings and the expected electricity use and emissions after the measure is implemented, using the same `ResourceUse` / `Emissions` / `TimeSeries` pattern as the current building measured scenario.
+
+```python
+if INCLUDE_EMISSIONS:
+    pom_1 += bsync.AnnualSavingsAverageGHGEmissions(600.)
+    pom_1 += bsync.AnnualSavingsMarginalGHGEmissions(210.)
+
+    pom_1_elec_ru = bsync.ResourceUse(
+        bsync.EnergyResource("Electricity"),
+        bsync.ResourceUseNotes("This is required for L1 to document irregularities in monthly energy patterns (Std 211 6.1.2.1.j). No irregularities found."),
+        bsync.ResourceUnits("kWh"),
+        bsync.PeakResourceUnits("kW"),
+        bsync.EndUse("All end uses"),
+        bsync.AnnualFuelUseNativeUnits(50000.),
+        bsync.AnnualFuelUseConsistentUnits(234.),
+        bsync.AnnualPeakNativeUnits(18.12),
+        bsync.AnnualPeakConsistentUnits(18.12),
+        bsync.AnnualFuelCost(4500.),
+        bsync.UtilityIDs(
+            bsync.UtilityID(IDref=elec_ut["ID"])
+        ),
+        ID="POM-LEDs-RU-Electricity"
+    )
+
+    pom_1_elec_ts = create_monthly(monthly_elec, pom_1_elec_ru["ID"], 2019)
+    pom_1_ghg_ts = create_monthly(
+        [280.0, 240.0, 250.0, 260.0, 280.0, 270.0, 250.0, 220.0, 230.0, 250.0, 280.0, 300.0],
+        pom_1_elec_ru["ID"], 2019, tsrq="Greenhouse Gas Emissions"
+    )
+
+    pom_1_elec_linked_ids = bsync.AnnualFuelUseLinkedTimeSeriesIDs()
+    for ts in pom_1_elec_ts:
+        pom_1_elec_linked_ids += bsync.LinkedTimeSeriesID(IDref=ts["ID"])
+    pom_1_elec_ru += pom_1_elec_linked_ids
+
+    pom_1_ghg_linked_ids = bsync.EmissionsLinkedTimeSeriesIDs()
+    for ts in pom_1_ghg_ts:
+        pom_1_ghg_linked_ids += bsync.EmissionsLinkedTimeSeriesID(IDref=ts["ID"])
+    pom_1_elec_ru += bsync.Emissions(
+        bsync.Emission(
+            bsync.EmissionBoundary("Indirect"),
+            bsync.EmissionsType("CO2e"),
+            bsync.GHGEmissions(8000.0),
+            pom_1_ghg_linked_ids
+        )
+    )
+
+    pom_1_ts_data = bsync.TimeSeriesData()
+    add_to_full(pom_1_elec_ts, pom_1_ts_data)
+    add_to_full(pom_1_ghg_ts, pom_1_ts_data)
+
+    pom_sc_1 += bsync.ResourceUses(pom_1_elec_ru)
+    pom_sc_1 += pom_1_ts_data
+    pom_sc_1 += bsync.AllResourceTotals(
+        bsync.AllResourceTotal(
+            bsync.AllResourceTotal.SiteEnergyUse(200000.5),
+            bsync.SiteEnergyUseIntensity(35.8),
+            bsync.EnergyCost(4300.51),
+            bsync.EnergyCostIndex(0.71),
+            bsync.AnnualAverageGHGEmissions(9000.),
+            bsync.AnnualMarginalGHGEmissions(7000.),
+            ID="AllResourceTotal-POM-LEDs"
+        )
+    )
+```
+
+#### Optional: Indoor Air Quality Monitoring Report
+
+The extended example (`INCLUDE_EMISSIONS = True`) also shows that non-energy timeseries, such as indoor temperature and wind speed from a monitoring campaign, can be stored in a separate `Report`. These timeseries are not linked to any `ResourceUse`.
+
+```python
+if INCLUDE_EMISSIONS:
+    iaq_ts_data = bsync.TimeSeriesData(
+        bsync.TimeSeries(
+            bsync.ReadingType("Point"),
+            bsync.TimeSeriesReadingQuantity("Dry Bulb Temperature"),
+            bsync.StartTimestamp(datetime(2021, 1, 1, 0, 0)),
+            bsync.EndTimestamp(datetime(2021, 1, 1, 0, 15)),
+            bsync.IntervalFrequency("15 minute"),
+            bsync.IntervalReading(24.5),
+            ID="TS-IAQ-DBT-1"
+        ),
+        bsync.TimeSeries(
+            bsync.ReadingType("Average"),
+            bsync.TimeSeriesReadingQuantity("Wind Speed"),
+            bsync.StartTimestamp(datetime(2021, 1, 1, 0, 0)),
+            bsync.EndTimestamp(datetime(2021, 1, 1, 0, 15)),
+            bsync.IntervalFrequency("15 minute"),
+            bsync.IntervalReading(0.5),
+            ID="TS-IAQ-Wind-1"
+        ),
+        bsync.TimeSeries(
+            bsync.ReadingType("Point"),
+            bsync.TimeSeriesReadingQuantity("Dry Bulb Temperature"),
+            bsync.StartTimestamp(datetime(2021, 1, 1, 0, 15)),
+            bsync.EndTimestamp(datetime(2021, 1, 1, 0, 30)),
+            bsync.IntervalFrequency("15 minute"),
+            bsync.IntervalReading(25.5),
+            ID="TS-IAQ-DBT-2"
+        )
+    )
+    iaq_report = bsync.Report(
+        bsync.Scenarios(
+            bsync.Scenario(
+                bsync.Scenario.ScenarioType(
+                    bsync.CurrentBuilding()
+                ),
+                iaq_ts_data,
+                ID="IAQ"
+            )
+        ),
+        bsync.AuditorContactID(IDref=c2["ID"]),
+        bsync.LinkedPremisesOrSystem(
+            bsync.LinkedPremisesOrSystem.Building(
+                bsync.LinkedBuildingID(IDref=b1["ID"])
+            )
+        ),
+        ID="Report-IAQ-MV"
+    )
+    reports += iaq_report
+```
+
 # Validation
 
 So we just went through an "actual" audit! Now we need to check if it works. Do we have the required information for a Level 1 Audit? Head over to the [use case validator](https://buildingsync.net/validator) to find out!
@@ -1405,10 +1552,10 @@ So we just went through an "actual" audit! Now we need to check if it works. Do 
 Use the line below to write the file to disk
 
 ```python
-bsync_dump(root, file="example-smalloffice-level1.xml")
+bsync_dump(root, file=OUTPUT_FILE)
 ```
 
-You should see a green check mark for the L100 AUDIT use case!
+You should see a green check mark for the L100 AUDIT use case (with or without emissions)!
 
 ![Valid](./img/valid.png)
 
