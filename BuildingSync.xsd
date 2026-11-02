@@ -5490,7 +5490,7 @@
                                   <xs:sequence>
                                     <xs:element name="HeatPumpType" minOccurs="0">
                                       <xs:annotation>
-                                        <xs:documentation>General type of heat pump used for space heating.</xs:documentation>
+                                        <xs:documentation>General type of heat pump used for space conditioning (heating and/or cooling).</xs:documentation>
                                       </xs:annotation>
                                       <xs:simpleType>
                                         <xs:restriction base="xs:string">
@@ -5651,7 +5651,7 @@
                                   <xs:sequence>
                                     <xs:element name="DXSystemType" minOccurs="0">
                                       <xs:annotation>
-                                        <xs:documentation>General type of heat pump used for space heating.</xs:documentation>
+                                        <xs:documentation>General type of DX system used for space cooling.</xs:documentation>
                                       </xs:annotation>
                                       <xs:simpleType>
                                         <xs:restriction base="xs:string">
@@ -5664,6 +5664,7 @@
                                           <xs:enumeration value="Packaged/unitary heat pump"/>
                                           <xs:enumeration value="Single package vertical air conditioner"/>
                                           <xs:enumeration value="Single package vertical heat pump"/>
+                                          <xs:enumeration value="Field-assembled DX system"/>
                                           <xs:enumeration value="Other"/>
                                           <xs:enumeration value="Unknown"/>
                                         </xs:restriction>
