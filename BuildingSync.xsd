@@ -2188,6 +2188,11 @@
                       <xs:choice>
                         <xs:element ref="auc:PortfolioManager" minOccurs="0"/>
                         <xs:element name="CBECS" type="auc:CBECSType" minOccurs="0"/>
+                        <xs:element name="RECS" type="auc:RECSType" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>Benchmark against the U.S. Energy Information Administration Residential Energy Consumption Survey (RECS), typically used for multifamily and other residential buildings.</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
                         <xs:element name="CodeMinimum" minOccurs="0">
                           <xs:complexType>
                             <xs:sequence>
@@ -2257,6 +2262,9 @@
                         <xs:enumeration value="EnergyIQ"/>
                         <xs:enumeration value="Labs21"/>
                         <xs:enumeration value="Fabs21"/>
+                        <xs:enumeration value="EPMI"/>
+                        <xs:enumeration value="ASHRAE Building EQ"/>
+                        <xs:enumeration value="CIBSE"/>
                         <xs:enumeration value="Other"/>
                       </xs:restriction>
                     </xs:simpleType>
@@ -14499,6 +14507,7 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="RECSType"/>
   <xs:complexType name="ElectricResistanceType"/>
   <xs:complexType name="EngineeringCalculationType"/>
   <xs:complexType name="EstimatedType"/>
