@@ -1272,6 +1272,11 @@
                                                     </xs:simpleContent>
                                                   </xs:complexType>
                                                 </xs:element>
+                                                <xs:element name="SkylightCondition" type="auc:EquipmentCondition" minOccurs="0">
+                                                  <xs:annotation>
+                                                    <xs:documentation>Assessed condition of this occurrence of the skylight type on this roof of the section. This value applies only to this occurrence and is independent of FenestrationSystemCondition on the referenced system.</xs:documentation>
+                                                  </xs:annotation>
+                                                </xs:element>
                                               </xs:sequence>
                                               <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
                                             </xs:complexType>
@@ -1331,6 +1336,11 @@
                                         </xs:simpleContent>
                                       </xs:complexType>
                                     </xs:element>
+                                    <xs:element name="CeilingCondition" type="auc:EquipmentCondition" minOccurs="0">
+                                      <xs:annotation>
+                                        <xs:documentation>Assessed condition of this occurrence of the ceiling type in this section. This value applies only to this occurrence and is independent of CeilingSystemCondition on the referenced system.</xs:documentation>
+                                      </xs:annotation>
+                                    </xs:element>
                                     <xs:element ref="auc:ThermalZoneIDs" minOccurs="0"/>
                                     <xs:element ref="auc:SpaceIDs" minOccurs="0"/>
                                   </xs:sequence>
@@ -1373,6 +1383,11 @@
                                         </xs:simpleContent>
                                       </xs:complexType>
                                     </xs:element>
+                                    <xs:element name="ExteriorFloorCondition" type="auc:EquipmentCondition" minOccurs="0">
+                                      <xs:annotation>
+                                        <xs:documentation>Assessed condition of this occurrence of the exterior floor type in this section. This value applies only to this occurrence and is independent of ExteriorFloorSystemCondition on the referenced system.</xs:documentation>
+                                      </xs:annotation>
+                                    </xs:element>
                                     <xs:element ref="auc:ThermalZoneIDs" minOccurs="0"/>
                                     <xs:element ref="auc:SpaceIDs" minOccurs="0"/>
                                   </xs:sequence>
@@ -1414,6 +1429,11 @@
                                           </xs:extension>
                                         </xs:simpleContent>
                                       </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="FoundationCondition" type="auc:EquipmentCondition" minOccurs="0">
+                                      <xs:annotation>
+                                        <xs:documentation>Assessed condition of this occurrence of the foundation type in this section. This value applies only to this occurrence and is independent of FoundationSystemCondition on the referenced system.</xs:documentation>
+                                      </xs:annotation>
                                     </xs:element>
                                     <xs:element ref="auc:ThermalZoneIDs" minOccurs="0"/>
                                     <xs:element ref="auc:SpaceIDs" minOccurs="0"/>
@@ -10291,6 +10311,7 @@
       <xs:element ref="auc:Quantity" minOccurs="0"/>
       <xs:element ref="auc:YearInstalled" minOccurs="0"/>
       <xs:element ref="auc:UserDefinedFields" minOccurs="0"/>
+      <xs:element name="RoofSystemCondition" type="auc:EquipmentCondition" minOccurs="0"/>
       <xs:element ref="auc:EquipmentID" minOccurs="0"/>
       <xs:element ref="auc:LinkedPremises" minOccurs="0"/>
       <xs:element ref="auc:Location" minOccurs="0"/>
@@ -15652,6 +15673,11 @@
             </xs:simpleContent>
           </xs:complexType>
         </xs:element>
+        <xs:element name="WallCondition" type="auc:EquipmentCondition" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Assessed condition of this occurrence of the wall type on this side of the section. This value applies only to this occurrence and is independent of WallSystemCondition on the referenced system.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
       </xs:sequence>
       <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
     </xs:complexType>
@@ -15663,6 +15689,11 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="auc:FenestrationArea" minOccurs="0"/>
+        <xs:element name="DoorCondition" type="auc:EquipmentCondition" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Assessed condition of this occurrence of the door type on this side of the section. This value applies only to this occurrence and is independent of FenestrationSystemCondition on the referenced system.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
       </xs:sequence>
       <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
     </xs:complexType>
@@ -15690,6 +15721,11 @@
               </xs:extension>
             </xs:simpleContent>
           </xs:complexType>
+        </xs:element>
+        <xs:element name="WindowCondition" type="auc:EquipmentCondition" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Assessed condition of this occurrence of the window type on this side of the section. This value applies only to this occurrence and is independent of FenestrationSystemCondition on the referenced system.</xs:documentation>
+          </xs:annotation>
         </xs:element>
       </xs:sequence>
       <xs:attribute name="IDref" type="xs:IDREF" use="required"/>
