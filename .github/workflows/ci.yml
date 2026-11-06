@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.4"
+          ruby-version: "3.2"
           bundler-cache: true
       # Rake checks that all examples files pass. generate_data_dictionary will check to ensure there are
       # no name conflicts needed to generate the data dictionary.
