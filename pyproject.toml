@@ -5,15 +5,16 @@ description = "Schema and examples for generating BuildingSync files from Python
 authors = ["corymosiman12 <cory.mosiman12@gmail.com>", "nllong <nicholas.long@nlr.gov>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.11"
 jupyterlab = "^4.4.10"
 lxml = "^4.9.1"
 bsyncpy = {git = "https://github.com/BuildingSync/bsyncpy.git", branch="develop" }
 eeweather = "^0.3.24"
 jupytext = "^1.18.1"
+pytz = ">=2024.1"  # eeweather imports pytz but does not declare it; pandas 3 no longer pulls it in
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.4.2"
+pytest = "^9.0.3"
 pre-commit = "^4.3.0"
 
 [build-system]
