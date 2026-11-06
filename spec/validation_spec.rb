@@ -82,6 +82,53 @@ RSpec.describe 'Validate Examples' do
     @xsd = Nokogiri::XML::Schema.from_document(schema_doc)
   end
 
+  def auc_ns
+    {'auc' => 'http://buildingsync.net/schemas/bedes-auc/2019'}
+  end
+
+  def xsd_ns
+    {'xs' => 'http://www.w3.org/2001/XMLSchema'}
+  end
+
+  def load_example(path)
+    Nokogiri::XML(File.read(path))
+  end
+
+  def auc_node(xml)
+    Nokogiri::XML("<root xmlns:auc='#{auc_ns['auc']}'>#{xml}</root>").root.element_children.first
+  end
+
+  def expect_valid(doc)
+    errors = @xsd.validate(doc)
+    expect(errors).to be_empty, errors.map(&:message).join("\n")
+  end
+
+  def expect_invalid(doc)
+    errors = @xsd.validate(doc)
+    expect(errors).not_to be_empty
+  end
+
+  def set_choice_capacity(target, value)
+    target.xpath('auc:OutputCapacity | auc:Capacity', auc_ns).remove
+    capacity = auc_node("<auc:Capacity auc:Source='Direct measurement'>#{value}</auc:Capacity>")
+    units = target.at_xpath('auc:CapacityUnits', auc_ns)
+    if units
+      units.add_previous_sibling(capacity)
+    else
+      target.add_child(capacity)
+    end
+  end
+
+  def add_output_capacity(target, value)
+    output_capacity = auc_node("<auc:OutputCapacity>#{value}</auc:OutputCapacity>")
+    units = target.at_xpath('auc:CapacityUnits', auc_ns)
+    if units
+      units.add_previous_sibling(output_capacity)
+    else
+      target.add_child(output_capacity)
+    end
+  end
+
   it 'should validate xmls' do
     total_errors = 0
     Dir['examples/*.xml'].each do |xml|
@@ -104,6 +151,231 @@ RSpec.describe 'Validate Examples' do
     end
 
     expect(total_errors).to eq 0
+  end
+
+  it 'keeps issue 356 patch structure and cardinality constraints' do
+    schema_doc = Nokogiri::XML(File.read('BuildingSync.xsd'))
+
+    expect(schema_doc.xpath("//xs:element[@name='Capacity']", xsd_ns).length).to eq 1
+    expect(schema_doc.xpath("//xs:element[@name='CBECS']", xsd_ns).length).to eq 1
+    expect(schema_doc.at_xpath("/xs:schema/xs:element[@name='CBECS']", xsd_ns)['type']).to eq 'auc:CBECSType'
+    expect(schema_doc.xpath("//xs:element[@ref='auc:CBECS']", xsd_ns).length).to eq 2
+    expect(schema_doc.xpath("//xs:element[@name='ControlSystemTypes']", xsd_ns).length).to eq 1
+    expect(schema_doc.xpath("//xs:element[@name='Controls']", xsd_ns).length).to eq 2
+    expect(schema_doc.xpath("//xs:element[@name='Control']", xsd_ns).length).to eq 2
+    expect(schema_doc.xpath("//xs:element[@name='Other']", xsd_ns).length).to eq 6
+    expect(schema_doc.xpath("/xs:schema/xs:element[@name='Control']", xsd_ns).length).to eq 0
+
+    expect(schema_doc.xpath("//xs:element[@ref='auc:Controls']", xsd_ns).length).to eq 19
+    expect(schema_doc.xpath("//xs:element[@ref='auc:ControlSystemTypes']", xsd_ns).length).to eq 3
+    expect(schema_doc.xpath("//xs:element[@ref='auc:Other']", xsd_ns).length).to eq 16
+    %w[Capacity CBECS Controls ControlSystemTypes Other].each do |name|
+      schema_doc.xpath("//xs:element[@ref='auc:#{name}']", xsd_ns).each do |node|
+        expect(node['minOccurs']).to eq '0'
+        expect(node['maxOccurs'] || '1').to eq '1'
+      end
+    end
+    expect(schema_doc.at_xpath("/xs:schema/xs:element[@name='Other']", xsd_ns)['type']).to eq 'auc:OtherType'
+
+    global_controls = schema_doc.at_xpath("/xs:schema/xs:element[@name='Controls']", xsd_ns)
+    global_control = global_controls.at_xpath('./xs:complexType/xs:sequence/xs:element[@name="Control"]', xsd_ns)
+    expect(global_control['type']).to eq 'auc:ControlGeneralType'
+    expect(global_control['maxOccurs']).to eq 'unbounded'
+    expect(global_control['minOccurs']).to be_nil
+
+    control_system_types = schema_doc.at_xpath("/xs:schema/xs:element[@name='ControlSystemTypes']", xsd_ns)
+    control_system_type_child = control_system_types.at_xpath('./xs:complexType/xs:sequence/xs:element[@ref="auc:ControlSystemType"]', xsd_ns)
+    expect(control_system_type_child['minOccurs']).to eq '0'
+    expect(control_system_type_child['maxOccurs']).to eq 'unbounded'
+  end
+
+  it 'validates consolidated Capacity behavior across the four patched contexts' do
+    contexts = {
+      'HeatingSource' => lambda { |doc|
+        doc.at_xpath("//auc:HeatingSource[@ID='HeatingSource-70049129212260']", auc_ns)
+      },
+      'Boiler' => lambda { |doc|
+        doc.at_xpath("//auc:HeatingPlant[@ID='HeatingPlantType-70049116420780']/auc:Boiler", auc_ns)
+      },
+      'DistrictHeating' => lambda { |doc|
+        boiler = doc.at_xpath("//auc:HeatingPlant[@ID='HeatingPlantType-70049116420780']/auc:Boiler", auc_ns)
+        boiler.replace(auc_node('<auc:DistrictHeating><auc:DistrictHeatingType>Hot water</auc:DistrictHeatingType><auc:CapacityUnits>kBtu/hr</auc:CapacityUnits></auc:DistrictHeating>'))
+        doc.at_xpath("//auc:HeatingPlant[@ID='HeatingPlantType-70049116420780']/auc:DistrictHeating", auc_ns)
+      },
+      'SolarThermal' => lambda { |doc|
+        boiler = doc.at_xpath("//auc:HeatingPlant[@ID='HeatingPlantType-70049116420780']/auc:Boiler", auc_ns)
+        boiler.replace(auc_node('<auc:SolarThermal><auc:CapacityUnits>kBtu/hr</auc:CapacityUnits></auc:SolarThermal>'))
+        doc.at_xpath("//auc:HeatingPlant[@ID='HeatingPlantType-70049116420780']/auc:SolarThermal", auc_ns)
+      }
+    }
+
+    contexts.each do |name, target_builder|
+      aggregate_failures(name) do
+      valid_doc = load_example('examples/AT_example_SF_audit_report.xml')
+      valid_target = target_builder.call(valid_doc)
+      set_choice_capacity(valid_target, '123.45')
+      expect_valid(valid_doc)
+
+      invalid_non_decimal_doc = load_example('examples/AT_example_SF_audit_report.xml')
+      invalid_non_decimal_target = target_builder.call(invalid_non_decimal_doc)
+      set_choice_capacity(invalid_non_decimal_target, 'abc')
+      expect_invalid(invalid_non_decimal_doc)
+
+      invalid_both_doc = load_example('examples/AT_example_SF_audit_report.xml')
+      invalid_both_target = target_builder.call(invalid_both_doc)
+      set_choice_capacity(invalid_both_target, '123.45')
+      add_output_capacity(invalid_both_target, '456.0')
+      expect_invalid(invalid_both_doc)
+
+      no_capacity_doc = load_example('examples/AT_example_SF_audit_report.xml')
+      no_capacity_target = target_builder.call(no_capacity_doc)
+      no_capacity_target.xpath('auc:OutputCapacity | auc:Capacity', auc_ns).remove
+      expect_valid(no_capacity_doc)
+      end
+    end
+  end
+
+  it 'keeps consolidated CBECS behavior in benchmark and climate zone contexts' do
+    contexts = {
+      'Benchmark' => lambda { |doc, cbecs_xml|
+        scenario = doc.at_xpath("//auc:Scenario[@ID='ScenarioType-70049018982360']/auc:ScenarioType", auc_ns)
+        scenario.children.remove
+        scenario.add_child(auc_node("<auc:Benchmark><auc:BenchmarkType>#{cbecs_xml}</auc:BenchmarkType></auc:Benchmark>"))
+      },
+      'ClimateZoneType' => lambda { |doc, cbecs_xml|
+        climate_zone_type = doc.at_xpath('//auc:ClimateZoneType', auc_ns)
+        climate_zone_type.children.remove
+        climate_zone_type.add_child(auc_node(cbecs_xml))
+      }
+    }
+    examples = {
+      'Benchmark' => 'examples/AT_example_SF_audit_report.xml',
+      'ClimateZoneType' => 'examples/BuildingSync Website Valid Schema.xml'
+    }
+
+    contexts.each do |name, builder|
+      aggregate_failures(name) do
+        ['<auc:CBECS/>', '<auc:CBECS><auc:ClimateZone>1</auc:ClimateZone></auc:CBECS>',
+         '<auc:CBECS><auc:ClimateZone>5</auc:ClimateZone></auc:CBECS>'].each do |xml|
+          doc = load_example(examples[name])
+          builder.call(doc, xml)
+          expect_valid(doc)
+        end
+
+        ['<auc:CBECS><auc:ClimateZone>6</auc:ClimateZone></auc:CBECS>',
+         '<auc:CBECS><auc:ClimateZone>1</auc:ClimateZone><auc:ClimateZone>2</auc:ClimateZone></auc:CBECS>',
+         '<auc:CBECS>text</auc:CBECS>'].each do |xml|
+          doc = load_example(examples[name])
+          builder.call(doc, xml)
+          expect_invalid(doc)
+        end
+      end
+    end
+  end
+
+  it 'keeps consolidated ControlSystemTypes semantics for all three plant contexts' do
+    plant_paths = [
+      "//auc:HeatingPlant[@ID='HeatingPlantType-70049116420780']",
+      "//auc:CoolingPlant[@ID='CoolingPlantType-70049112503700']",
+      "//auc:CondenserPlant[@ID='CondenserPlantType-70049110218100']"
+    ]
+
+    plant_paths.each do |plant_path|
+      empty_doc = load_example('examples/AT_example_SF_audit_report.xml')
+      empty_plant = empty_doc.at_xpath(plant_path, auc_ns)
+      empty_plant.at_xpath('auc:ControlSystemTypes', auc_ns)&.remove
+      empty_plant.at_xpath('auc:UserDefinedFields', auc_ns).add_previous_sibling(auc_node('<auc:ControlSystemTypes/>'))
+      expect_valid(empty_doc)
+
+      repeated_doc = load_example('examples/AT_example_SF_audit_report.xml')
+      repeated_plant = repeated_doc.at_xpath(plant_path, auc_ns)
+      repeated_plant.at_xpath('auc:ControlSystemTypes', auc_ns)&.remove
+      repeated_plant.at_xpath('auc:UserDefinedFields', auc_ns).add_previous_sibling(
+        auc_node('<auc:ControlSystemTypes><auc:ControlSystemType><auc:Digital/></auc:ControlSystemType><auc:ControlSystemType><auc:Other><auc:OtherCommunicationProtocolName>Custom protocol</auc:OtherCommunicationProtocolName></auc:Other></auc:ControlSystemType></auc:ControlSystemTypes>')
+      )
+      expect_valid(repeated_doc)
+    end
+
+    invalid_doc = load_example('examples/AT_example_SF_audit_report.xml')
+    invalid_heating_plant = invalid_doc.at_xpath("//auc:HeatingPlant[@ID='HeatingPlantType-70049116420780']", auc_ns)
+    invalid_heating_plant.at_xpath('auc:ControlSystemTypes', auc_ns)&.remove
+    invalid_heating_plant.at_xpath('auc:UserDefinedFields', auc_ns).add_previous_sibling(
+      auc_node('<auc:ControlSystemTypes><auc:ControlSystemType>Analog</auc:ControlSystemType></auc:ControlSystemTypes>')
+    )
+    expect_invalid(invalid_doc)
+  end
+
+  it 'preserves general Controls wrapper behavior and value boundaries' do
+    source_path = "//auc:HeatingSource[@ID='HeatingSource-70049129212260']"
+
+    omitted_doc = load_example('examples/AT_example_SF_audit_report.xml')
+    omitted_doc.at_xpath("#{source_path}/auc:Controls", auc_ns).remove
+    expect_valid(omitted_doc)
+
+    empty_doc = load_example('examples/AT_example_SF_audit_report.xml')
+    empty_doc.at_xpath("#{source_path}/auc:Controls", auc_ns).replace(auc_node('<auc:Controls/>'))
+    expect_invalid(empty_doc)
+
+    one_control_doc = load_example('examples/AT_example_SF_audit_report.xml')
+    one_control_doc.at_xpath("#{source_path}/auc:Controls", auc_ns).replace(
+      auc_node('<auc:Controls><auc:Control><auc:Thermostat><auc:ControlStrategy>Manual</auc:ControlStrategy></auc:Thermostat></auc:Control></auc:Controls>')
+    )
+    expect_valid(one_control_doc)
+
+    multi_control_doc = load_example('examples/AT_example_SF_audit_report.xml')
+    multi_control_doc.at_xpath("#{source_path}/auc:Controls", auc_ns).replace(
+      auc_node('<auc:Controls><auc:Control><auc:Thermostat><auc:ControlStrategy>Manual</auc:ControlStrategy></auc:Thermostat></auc:Control><auc:Control><auc:Manual><auc:ControlStrategy>Manual</auc:ControlStrategy></auc:Manual></auc:Control></auc:Controls>')
+    )
+    expect_valid(multi_control_doc)
+
+    invalid_daylighting_doc = load_example('examples/AT_example_SF_audit_report.xml')
+    invalid_daylighting_doc.at_xpath("#{source_path}/auc:Controls", auc_ns).replace(
+      auc_node('<auc:Controls><auc:Control><auc:Daylighting/></auc:Control></auc:Controls>')
+    )
+    expect_invalid(invalid_daylighting_doc)
+  end
+
+  it 'keeps lighting Controls specific to lighting control types' do
+    lighting_controls_path = "//auc:LightingSystem[@ID='LightingSystemType-70049015970580']/auc:Controls"
+
+    lighting_daylighting_doc = load_example('examples/AT_example_SF_audit_report.xml')
+    lighting_daylighting_doc.at_xpath(lighting_controls_path, auc_ns).replace(
+      auc_node('<auc:Controls><auc:Control><auc:Daylighting><auc:ControlSensor>Photocell</auc:ControlSensor></auc:Daylighting></auc:Control></auc:Controls>')
+    )
+    expect_valid(lighting_daylighting_doc)
+
+    lighting_thermostat_doc = load_example('examples/AT_example_SF_audit_report.xml')
+    lighting_thermostat_doc.at_xpath(lighting_controls_path, auc_ns).replace(
+      auc_node('<auc:Controls><auc:Control><auc:Thermostat/></auc:Control></auc:Controls>')
+    )
+    expect_invalid(lighting_thermostat_doc)
+  end
+
+  it 'keeps consolidated Other element strict while preserving distinct typed Other variants' do
+    scenario_other_path = "//auc:Scenario[@ID='ScenarioType-70049018982360']/auc:ScenarioType/auc:Other"
+
+    valid_empty_other_doc = load_example('examples/AT_example_SF_audit_report.xml')
+    expect_valid(valid_empty_other_doc)
+
+    invalid_text_other_doc = load_example('examples/AT_example_SF_audit_report.xml')
+    invalid_text_other_doc.at_xpath(scenario_other_path, auc_ns).content = 'unexpected text'
+    expect_invalid(invalid_text_other_doc)
+
+    invalid_child_other_doc = load_example('examples/AT_example_SF_audit_report.xml')
+    invalid_child_other_doc.at_xpath(scenario_other_path, auc_ns).add_child(auc_node('<auc:Unexpected>bad</auc:Unexpected>'))
+    expect_invalid(invalid_child_other_doc)
+
+    climate_zone_doc = load_example('examples/BuildingSync Website Valid Schema.xml')
+    climate_zone_doc.at_xpath('//auc:ClimateZoneType', auc_ns).add_child(
+      auc_node('<auc:Other><auc:ClimateZone>Custom climate zone</auc:ClimateZone></auc:Other>')
+    )
+    expect_valid(climate_zone_doc)
+
+    control_system_other_doc = load_example('examples/AT_example_SF_audit_report.xml')
+    control_system_other_doc.at_xpath("//auc:HeatingPlant[@ID='HeatingPlantType-70049116420780']/auc:ControlSystemTypes", auc_ns).replace(
+      auc_node('<auc:ControlSystemTypes><auc:ControlSystemType><auc:Other><auc:OtherCommunicationProtocolName>Protocol X</auc:OtherCommunicationProtocolName></auc:Other></auc:ControlSystemType></auc:ControlSystemTypes>')
+    )
+    expect_valid(control_system_other_doc)
   end
 end
 
@@ -243,14 +515,11 @@ RSpec.describe 'No naming collisions within the schema' do
       'AdvancedPowerStrip',
       'AssemblyType',
       'Building',
-      'CBECS',
-      'Capacity',
       'ClimateZone',
       'CommunicationProtocol',
       'Control',
       'ControlSensor',
       'ControlStrategy',
-      'ControlSystemTypes',
       'Controls',
       'ConveyanceSystems',
       'Facility',
@@ -276,5 +545,105 @@ RSpec.describe 'No naming collisions within the schema' do
 
     dupe_names = element_names.select{ |k, v| v.length() > 1 && !ignored_dupes.include?(k) }
     expect(dupe_names).to be_empty
+  end
+end
+
+# Deprecated elements and enumerations are detected from `xs:documentation` text matching /deprecat/i.
+# - Deprecation on a local element or on a `ref` applies only to that location (parent element).
+# - Deprecation on a global element applies to all of its refs, except under the replacement path
+#   named in the documentation (e.g. "use WeatherStations/WeatherStation/WeatherDataStationID").
+RSpec.describe 'No deprecated elements in examples' do
+  it 'should warn about deprecated elements or enumerations' do
+    xsd = Nokogiri::XML(File.read('BuildingSync.xsd'))
+    ns = { 'xs' => 'http://www.w3.org/2001/XMLSchema' }
+
+    deprecation_doc = lambda do |node|
+      node.xpath('./xs:annotation/xs:documentation', ns).map(&:text).find { |t| t =~ /deprecat/i }
+    end
+
+    # Instance names of the element(s) that directly contain an XSD node
+    instance_parents = lambda do |node|
+      ancestor = node.parent
+      ancestor = ancestor.parent until ancestor.nil? || ancestor.is_a?(Nokogiri::XML::Document) ||
+                                       (ancestor.name == 'element' && ancestor['name']) ||
+                                       (%w(complexType simpleType).include?(ancestor.name) && ancestor['name'])
+      next [] if ancestor.nil? || ancestor.is_a?(Nokogiri::XML::Document)
+      next [ancestor['name']] if ancestor.name == 'element'
+
+      xsd.xpath("//xs:element[@type='auc:#{ancestor['name']}']", ns).map { |e| e['name'] || e['ref'].sub('auc:', '') }
+    end
+
+    rules = [] # { name:, parents: [..], value: nil|String, note: }
+    xsd.xpath('//xs:element', ns).each do |el|
+      doc = deprecation_doc.call(el)
+      next unless doc
+
+      name = el['name'] || el['ref'].sub('auc:', '')
+      if el.parent.name == 'schema'
+        segments = doc[/use\s+([\w\/]+)/i, 1].to_s.split('/')
+        replacement_parent = segments.last == name ? segments[-2] : nil
+        parents = xsd.xpath("//xs:element[@ref='auc:#{name}']", ns).flat_map { |r| instance_parents.call(r) }.uniq - [replacement_parent]
+      else
+        parents = instance_parents.call(el)
+      end
+      rules << { name: name, parents: parents, value: nil, note: doc.strip }
+    end
+    xsd.xpath('//xs:enumeration', ns).each do |enum|
+      doc = deprecation_doc.call(enum)
+      next unless doc
+
+      owner = enum.ancestors('element').first
+      names = if owner && owner['name']
+                [owner['name']]
+              else
+                instance_parents.call(enum.parent) # named simpleType -> elements of that type
+              end
+      names.each { |n| rules << { name: n, parents: nil, value: enum['value'], note: doc.strip } }
+    end
+
+    expect(rules).not_to be_empty
+
+    auc_ns = 'http://buildingsync.net/schemas/bedes-auc/2019'
+    findings = [] # { file:, usage:, lines: [..] }
+    Dir['examples/*.xml'].sort.each do |xml|
+      next if xml =~ /Invalid Schema/
+
+      doc = Nokogiri::XML(File.read(xml))
+      lines = Hash.new { |h, k| h[k] = [] }
+      doc.xpath('//*').each do |node|
+        next unless node.namespace&.href == auc_ns
+
+        rules.each do |rule|
+          next unless node.name == rule[:name]
+
+          if rule[:value]
+            lines["#{rule[:name]}=#{rule[:value]}"] << node.line if node.text.strip == rule[:value]
+          elsif rule[:parents].include?(node.parent.name)
+            lines["#{node.parent.name}/#{rule[:name]}"] << node.line
+          end
+        end
+      end
+      lines.each { |usage, ls| findings << { file: File.basename(xml), usage: usage, lines: ls.uniq } }
+    end
+
+    # Warning only: deprecated usages are reported but do not fail the build.
+    unless findings.empty?
+      warn 'WARNING: Deprecated usages found in examples:'
+      findings.each { |f| warn "  examples/#{f[:file]}: #{f[:usage]} (#{f[:lines].size}) lines #{f[:lines].join(', ')}" }
+
+      # In GitHub Actions, also write a table to the job summary
+      summary_path = ENV['GITHUB_STEP_SUMMARY']
+      if summary_path && !summary_path.empty?
+        File.open(summary_path, 'a') do |f|
+          f.puts '### Deprecated elements/enumerations used in examples', ''
+          f.puts '| Example | Deprecated usage | Count | Lines |', '| --- | --- | --- | --- |'
+          findings.each do |r|
+            shown = r[:lines].first(10).join(', ') + (r[:lines].size > 10 ? ', ...' : '')
+            f.puts "| #{r[:file]} | `#{r[:usage]}` | #{r[:lines].size} | #{shown} |"
+          end
+          f.puts ''
+        end
+      end
+    end
   end
 end
